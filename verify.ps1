@@ -391,6 +391,20 @@ run_cmd do
         'OQ7Prescribed.scaledSlabPolarization_current_ae',
         'OQ7Prescribed.scaledSlabApertureDifference_coe',
         'OQ7Prescribed.electricVolumeField_L2_slab_uniform_error',
+        'OQ7Prescribed.scaledApertureWindow_L2_norm',
+        'OQ7Prescribed.planarScalarOutgoing_coe',
+        'OQ7Prescribed.kernelQuadratic_planar_im',
+        'OQ7Prescribed.planarScalarOutgoing_work',
+        'OQ7Prescribed.planarScalarOutgoing_im_nonneg',
+        'OQ7Prescribed.planarActiveAxisMaps_vector_current',
+        'OQ7Prescribed.planarActiveOutgoing_coe',
+        'OQ7Prescribed.planarActiveMaterialOperator_imaginary_coercive',
+        'OQ7Prescribed.planarActiveMaterialEquiv_inverse_norm_le',
+        'OQ7Prescribed.planarNormalizedDrive_ne_zero',
+        'OQ7Prescribed.planarNormalizedResponse_equation',
+        'OQ7Prescribed.planarNormalizedResponse_continuous',
+        'OQ7Prescribed.planarNormalizedExtinction_work_balance',
+        'OQ7Prescribed.planarNormalizedExtinction_compact_lower_bound',
         'OQ7Prescribed.normalizedActiveResponse_residual_bound',
         'OQ7Prescribed.normalizedActiveResponse_angle_difference_bound')) {
         if ($oq7Required -notin $oq7NewKernelTheorems) { throw "Missing outgoing operator obligation: $oq7Required" }
@@ -494,6 +508,10 @@ run_cmd do
         actualSeparatedThreeDimensionalL2ProfileNormVerified = $true
         heightL2FixedSupportSmoothDensityVerified = $true
         physicalSlabApertureErrorForAllL2HeightProfilesVerified = $true
+        actualFiniteIntervalPlanarGreenOperatorVerified = $true
+        planarGreenPositiveImaginaryWorkIdentityVerified = $true
+        planarTwoLayerMaterialInverseUniformInRotationVerified = $true
+        planarNormalizedResponseContinuousAtZeroAndExtinctionPositiveVerified = $true
         physicalVectorUniformApertureLocalizationVerified = $false
         physicalVolumeWorkBalanceVerified = $true
         originalPhysicalAbsorptionSineSquaredFactorizationVerified = $true

@@ -670,6 +670,7 @@ OQ7Prescribed.coordinateReflect_apply : ∀ (i j : Fin 3) (x : OQ7Prescribed.Pos
   ((OQ7Prescribed.coordinateReflect i) x).ofLp j = if j = i then -x.ofLp j else x.ofLp j
 OQ7Prescribed.coordinateSwap_apply : ∀ (i j a : Fin 3) (x : OQ7Prescribed.Position),
   ((OQ7Prescribed.coordinateSwap i j) x).ofLp a = x.ofLp ((Equiv.swap i j) a)
+OQ7Prescribed.cos_mul_abs : ∀ (k s : ℝ), Real.cos (k * |s|) = Real.cos (k * s)
 OQ7Prescribed.cross_add_left : ∀ (u v w : OQ7Prescribed.Vector),
   OQ7Prescribed.cross (u + v) w = OQ7Prescribed.cross u w + OQ7Prescribed.cross v w
 OQ7Prescribed.cross_complexify_real_smul : ∀ (H : OQ7Prescribed.Vector) (n : OQ7Prescribed.Position) (r : ℝ),
@@ -1871,6 +1872,33 @@ OQ7Prescribed.kernelMagnetic_norm_le : ∀ (k : ℝ) (x : OQ7Prescribed.Position
       ‖OQ7Prescribed.kernelMagnetic k x v‖ ≤ |k| * (|k| * ‖x‖ + 1) / (4 * Real.pi * ‖x‖ ^ 2) * ‖v‖
 OQ7Prescribed.kernelMagnetic_norm_le_far : ∀ (k : ℝ) (x : OQ7Prescribed.Position),
   1 ≤ ‖x‖ → ∀ (v : OQ7Prescribed.Vector), ‖OQ7Prescribed.kernelMagnetic k x v‖ ≤ |k| * (|k| + 1) / (4 * Real.pi) * ‖v‖
+OQ7Prescribed.kernelQuadratic_cosine : ∀ (k : ℝ) (q : ℝ → ℂ),
+  MeasureTheory.Integrable q MeasureTheory.volume →
+    OQ7Prescribed.kernelQuadratic (fun p => ↑(Real.cos (k * (p.1 - p.2)))) q =
+      ↑(Complex.normSq (∫ (z : ℝ), ↑(Real.cos (k * z)) * q z) + Complex.normSq (∫ (z : ℝ), ↑(Real.sin (k * z)) * q z))
+OQ7Prescribed.kernelQuadratic_integrable : ∀ (b : ℝ × ℝ → ℂ) (q : ℝ → ℂ),
+  MeasureTheory.Integrable q MeasureTheory.volume →
+    MeasureTheory.AEStronglyMeasurable b MeasureTheory.volume →
+      ∀ (C : ℝ),
+        (∀ᵐ (p : ℝ × ℝ), ‖b p‖ ≤ C) →
+          MeasureTheory.Integrable (fun p => b p * (starRingEnd ℂ) (q p.1) * q p.2) MeasureTheory.volume
+OQ7Prescribed.kernelQuadratic_planar_im : ∀ (k : ℝ),
+  0 < k →
+    ∀ (q : ℝ → ℂ),
+      MeasureTheory.Integrable q MeasureTheory.volume →
+        (OQ7Prescribed.kernelQuadratic (fun p => k ^ 2 • OQ7Prescribed.planarScalarGreen k (p.1 - p.2)) q).im =
+          k / 2 *
+            (Complex.normSq (∫ (z : ℝ), ↑(Real.cos (k * z)) * q z) +
+              Complex.normSq (∫ (z : ℝ), ↑(Real.sin (k * z)) * q z))
+OQ7Prescribed.kernelQuadratic_planar_im_nonneg : ∀ (k : ℝ),
+  0 < k →
+    ∀ (q : ℝ → ℂ),
+      MeasureTheory.Integrable q MeasureTheory.volume →
+        0 ≤ (OQ7Prescribed.kernelQuadratic (fun p => k ^ 2 • OQ7Prescribed.planarScalarGreen k (p.1 - p.2)) q).im
+OQ7Prescribed.kernelQuadratic_real_rankOne : ∀ (c : ℝ → ℝ) (q : ℝ → ℂ),
+  OQ7Prescribed.kernelQuadratic (fun p => ↑(c p.1 * c p.2)) q = ↑(Complex.normSq (∫ (z : ℝ), ↑(c z) * q z))
+OQ7Prescribed.kernelQuadratic_real_symmetric : ∀ (b : ℝ × ℝ → ℝ) (q : ℝ → ℂ),
+  (∀ (p : ℝ × ℝ), b p.swap = b p) → (OQ7Prescribed.kernelQuadratic (fun p => ↑(b p)) q).im = 0
 OQ7Prescribed.layerPermittivity_admissible : ∀ (P Q a b ν : ℝ) (u : OQ7Prescribed.Position),
   ‖u‖ ^ 2 = 1 →
     0 ≤ a →
@@ -2859,6 +2887,40 @@ OQ7Prescribed.physicalVolume_work_balance : ∀ (k : ℝ) (B : OQ7Prescribed.Two
     OQ7Prescribed.extinction k B σ (OQ7Prescribed.volumeTotalElectric k σ (OQ7Prescribed.bodyCurrentPolarization B f)) =
       OQ7Prescribed.absorption k B (OQ7Prescribed.volumeTotalElectric k σ (OQ7Prescribed.bodyCurrentPolarization B f)) +
         k * (inner ℂ f ((OQ7Prescribed.bodyOutgoingOperator k B) f)).im
+OQ7Prescribed.planarActiveAxisMaps_norm_le : ∀ (L h θ : ℝ) (q : ↥(OQ7Prescribed.PlanarCurrentL2 L)),
+  ‖(OQ7Prescribed.planarLayerAxisMap L h 1 (Real.cos θ)) q‖ ≤ ‖q‖ ∧
+    ‖(OQ7Prescribed.planarLayerAxisMap L h 0 (Real.sin θ)) q‖ ≤ ‖q‖
+OQ7Prescribed.planarActiveAxisMaps_vector_current : ∀ (L h θ : ℝ) (q : ↥(OQ7Prescribed.PlanarCurrentL2 L)),
+  ∀ᵐ (z : ℝ),
+    ↑↑↑((OQ7Prescribed.planarLayerAxisMap L h 1 (Real.cos θ)) q) z • OQ7Prescribed.basisC 0 +
+        ↑↑↑((OQ7Prescribed.planarLayerAxisMap L h 0 (Real.sin θ)) q) z • OQ7Prescribed.basisC 1 =
+      ↑↑↑q z • OQ7Prescribed.complexify (if z < h then OQ7Prescribed.basisR 0 else OQ7Prescribed.rotatedAxis θ)
+OQ7Prescribed.planarActiveMaterialEquiv_inverse_norm_le : ∀ (k : ℝ) (hk : 0 < k) (L : ℝ) (hL : 0 ≤ L) (h θ : ℝ)
+  (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im),
+  ‖↑(OQ7Prescribed.planarActiveMaterialEquiv k hk L hL h θ α β hα hβ).symm‖ ≤
+    1 / min (α.im / Complex.normSq α) (β.im / Complex.normSq β)
+OQ7Prescribed.planarActiveMaterialOperator_imaginary_coercive : ∀ (k : ℝ) (hk : 0 < k) (L : ℝ) (hL : 0 ≤ L) (h θ : ℝ)
+  (α β : ℂ) (q : ↥(OQ7Prescribed.PlanarCurrentL2 L)),
+  OQ7Prescribed.activeMaterialCoercivity α β * ‖q‖ ^ 2 ≤
+    (inner ℂ q ((OQ7Prescribed.planarActiveMaterialOperator k hk L hL h θ α β) q)).im
+OQ7Prescribed.planarActiveOutgoing_coe : ∀ (k : ℝ) (hk : 0 < k) (L : ℝ) (hL : 0 ≤ L) (h θ : ℝ)
+  (q : ↥(OQ7Prescribed.PlanarCurrentL2 L)),
+  ↑↑↑((OQ7Prescribed.planarActiveOutgoing k hk L hL h θ) q) =ᵐ[MeasureTheory.volume]
+    (Set.Icc 0 L).indicator fun z =>
+      if z < h then
+        k ^ 2 • OQ7Prescribed.scalarPlanarPotential k (↑↑↑((OQ7Prescribed.planarLayerAxisMap L h 1 (Real.cos θ)) q)) z
+      else
+        k ^ 2 •
+          (↑(Real.cos θ) *
+              OQ7Prescribed.scalarPlanarPotential k (↑↑↑((OQ7Prescribed.planarLayerAxisMap L h 1 (Real.cos θ)) q)) z +
+            ↑(Real.sin θ) *
+              OQ7Prescribed.scalarPlanarPotential k (↑↑↑((OQ7Prescribed.planarLayerAxisMap L h 0 (Real.sin θ)) q)) z)
+OQ7Prescribed.planarActiveOutgoing_im_nonneg : ∀ (k : ℝ) (hk : 0 < k) (L : ℝ) (hL : 0 ≤ L) (h θ : ℝ)
+  (q : ↥(OQ7Prescribed.PlanarCurrentL2 L)), 0 ≤ (inner ℂ q ((OQ7Prescribed.planarActiveOutgoing k hk L hL h θ) q)).im
+OQ7Prescribed.planarActiveOutgoing_rotation_continuous : ∀ (k : ℝ) (hk : 0 < k) (L : ℝ) (hL : 0 ≤ L) (h : ℝ),
+  Continuous fun θ => OQ7Prescribed.planarActiveOutgoing k hk L hL h θ
+OQ7Prescribed.planarHeightEmbedding_norm : ∀ (L : ℝ) (hL : 0 ≤ L) (q : ↥(OQ7Prescribed.PlanarCurrentL2 L)),
+  ‖(OQ7Prescribed.planarHeightEmbedding L hL) q‖ = ‖q‖
 OQ7Prescribed.planarHeightMap_coe : ∀ (k : ℝ) (hk : 0 < k) (M L : ℝ) (hM : 0 ≤ M) (hL : 0 ≤ L)
   (q : ↥(OQ7Prescribed.HeightSupportedL2 M)),
   ↑↑((OQ7Prescribed.planarHeightMap k hk M L hM hL) q) =ᵐ[MeasureTheory.volume]
@@ -2871,8 +2933,97 @@ OQ7Prescribed.planarHeightRaw_norm_le : ∀ (k : ℝ) (hk : 0 < k) (M L : ℝ),
     0 ≤ L →
       ∀ (q : ↥(OQ7Prescribed.HeightSupportedL2 M)),
         ‖OQ7Prescribed.planarHeightRaw k hk M L q‖ ≤ √L * (1 / (2 * k)) * √(2 * M) * ‖q‖
+OQ7Prescribed.planarIncidentPhase_memLp : ∀ (k : ℝ) (σ : OQ7Prescribed.Direction) (L : ℝ),
+  MeasureTheory.MemLp ((Set.Icc 0 L).indicator (OQ7Prescribed.planarIncidentPhase k σ)) 2 MeasureTheory.volume
+OQ7Prescribed.planarIncidentPhase_norm : ∀ (k : ℝ) (σ : OQ7Prescribed.Direction) (z : ℝ),
+  ‖OQ7Prescribed.planarIncidentPhase k σ z‖ = 1
+OQ7Prescribed.planarIncidentPhase_physical : ∀ (k : ℝ) (σ : OQ7Prescribed.Direction) (x : ℂ) (z : ℝ),
+  OQ7Prescribed.planarIncidentPhase k σ z = OQ7Prescribed.planePhase k σ (OQ7Prescribed.slabPosition x z)
+OQ7Prescribed.planarIncidentProfile_coe : ∀ (k : ℝ) (σ : OQ7Prescribed.Direction) (L : ℝ),
+  ↑↑↑(OQ7Prescribed.planarIncidentProfile k σ L) =ᵐ[MeasureTheory.volume]
+    (Set.Icc 0 L).indicator (OQ7Prescribed.planarIncidentPhase k σ)
+OQ7Prescribed.planarInverseMaterial_negative_imaginary_bound : ∀ (L h : ℝ) (α β : ℂ)
+  (q : ↥(OQ7Prescribed.PlanarCurrentL2 L)),
+  OQ7Prescribed.activeMaterialCoercivity α β * ‖q‖ ^ 2 ≤
+    -(inner ℂ q ((OQ7Prescribed.planarInverseMaterial L h α β) q)).im
+OQ7Prescribed.planarLayerAxisMap_adjoint : ∀ (L h a b : ℝ),
+  ContinuousLinearMap.adjoint (OQ7Prescribed.planarLayerAxisMap L h a b) = OQ7Prescribed.planarLayerAxisMap L h a b
+OQ7Prescribed.planarLayerAxisMap_coe : ∀ (L h a b : ℝ) (q : ↥(OQ7Prescribed.PlanarCurrentL2 L)),
+  ↑↑↑((OQ7Prescribed.planarLayerAxisMap L h a b) q) =ᵐ[MeasureTheory.volume] fun z =>
+    if z < h then ↑a * ↑↑↑q z else ↑b * ↑↑↑q z
+OQ7Prescribed.planarLayerAxisMap_norm_le : ∀ (L h a b : ℝ),
+  |a| ≤ 1 → |b| ≤ 1 → ∀ (q : ↥(OQ7Prescribed.PlanarCurrentL2 L)), ‖(OQ7Prescribed.planarLayerAxisMap L h a b) q‖ ≤ ‖q‖
+OQ7Prescribed.planarLayerAxisMap_parameter_continuous : ∀ (L h : ℝ),
+  Continuous fun p => OQ7Prescribed.planarLayerAxisMap L h p.1 p.2
+OQ7Prescribed.planarNormalizedAbsorption_pos : ∀ (k : ℝ) (hk : 0 < k) (σ : OQ7Prescribed.Direction) (L : ℝ) (hL : 0 ≤ L)
+  (h θ : ℝ),
+  0 ≤ h →
+    h < L →
+      ∀ (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im),
+        0 < OQ7Prescribed.planarNormalizedAbsorption k hk σ L hL h θ α β hα hβ
+OQ7Prescribed.planarNormalizedDrive_coe : ∀ (k : ℝ) (σ : OQ7Prescribed.Direction) (L h : ℝ),
+  ↑↑↑(OQ7Prescribed.planarNormalizedDrive k σ L h) =ᵐ[MeasureTheory.volume]
+    (Set.Icc 0 L).indicator fun z => if z < h then 0 else OQ7Prescribed.planarIncidentPhase k σ z
+OQ7Prescribed.planarNormalizedDrive_ne_zero : ∀ (k : ℝ) (σ : OQ7Prescribed.Direction) (L h : ℝ),
+  0 ≤ h → h < L → OQ7Prescribed.planarNormalizedDrive k σ L h ≠ 0
+OQ7Prescribed.planarNormalizedExtinction_compact_lower_bound : ∀ (k : ℝ) (hk : 0 < k) (σ : OQ7Prescribed.Direction)
+  (L : ℝ) (hL : 0 ≤ L) (h : ℝ),
+  0 ≤ h →
+    h < L →
+      ∀ (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im) (s : Set ℝ),
+        IsCompact s → ∃ c, 0 < c ∧ ∀ θ ∈ s, c ≤ OQ7Prescribed.planarNormalizedExtinction k hk σ L hL h θ α β hα hβ
+OQ7Prescribed.planarNormalizedExtinction_continuous : ∀ (k : ℝ) (hk : 0 < k) (σ : OQ7Prescribed.Direction) (L : ℝ)
+  (hL : 0 ≤ L) (h : ℝ) (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im),
+  Continuous fun θ => OQ7Prescribed.planarNormalizedExtinction k hk σ L hL h θ α β hα hβ
+OQ7Prescribed.planarNormalizedExtinction_pos : ∀ (k : ℝ) (hk : 0 < k) (σ : OQ7Prescribed.Direction) (L : ℝ) (hL : 0 ≤ L)
+  (h θ : ℝ),
+  0 ≤ h →
+    h < L →
+      ∀ (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im),
+        0 < OQ7Prescribed.planarNormalizedExtinction k hk σ L hL h θ α β hα hβ
+OQ7Prescribed.planarNormalizedExtinction_work_balance : ∀ (k : ℝ) (hk : 0 < k) (σ : OQ7Prescribed.Direction) (L : ℝ)
+  (hL : 0 ≤ L) (h θ : ℝ) (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im),
+  OQ7Prescribed.planarNormalizedExtinction k hk σ L hL h θ α β hα hβ =
+    OQ7Prescribed.planarNormalizedAbsorption k hk σ L hL h θ α β hα hβ +
+      k *
+        (inner ℂ (OQ7Prescribed.planarNormalizedResponse k hk σ L hL h θ α β hα hβ)
+            ((OQ7Prescribed.planarActiveOutgoing k hk L hL h θ)
+              (OQ7Prescribed.planarNormalizedResponse k hk σ L hL h θ α β hα hβ))).im
+OQ7Prescribed.planarNormalizedResponse_continuous : ∀ (k : ℝ) (hk : 0 < k) (σ : OQ7Prescribed.Direction) (L : ℝ)
+  (hL : 0 ≤ L) (h : ℝ) (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im),
+  Continuous fun θ => OQ7Prescribed.planarNormalizedResponse k hk σ L hL h θ α β hα hβ
+OQ7Prescribed.planarNormalizedResponse_equation : ∀ (k : ℝ) (hk : 0 < k) (σ : OQ7Prescribed.Direction) (L : ℝ)
+  (hL : 0 ≤ L) (h θ : ℝ) (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im),
+  (OQ7Prescribed.planarActiveMaterialOperator k hk L hL h θ α β)
+      (OQ7Prescribed.planarNormalizedResponse k hk σ L hL h θ α β hα hβ) =
+    -OQ7Prescribed.planarNormalizedDrive k σ L h
+OQ7Prescribed.planarNormalizedResponse_ne_zero : ∀ (k : ℝ) (hk : 0 < k) (σ : OQ7Prescribed.Direction) (L : ℝ)
+  (hL : 0 ≤ L) (h θ : ℝ),
+  0 ≤ h →
+    h < L →
+      ∀ (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im), OQ7Prescribed.planarNormalizedResponse k hk σ L hL h θ α β hα hβ ≠ 0
+OQ7Prescribed.planarNormalizedResponse_norm_le : ∀ (k : ℝ) (hk : 0 < k) (σ : OQ7Prescribed.Direction) (L : ℝ)
+  (hL : 0 ≤ L) (h θ : ℝ) (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im),
+  ‖OQ7Prescribed.planarNormalizedResponse k hk σ L hL h θ α β hα hβ‖ ≤
+    1 / min (α.im / Complex.normSq α) (β.im / Complex.normSq β) * ‖OQ7Prescribed.planarNormalizedDrive k σ L h‖
+OQ7Prescribed.planarRealKernel_even : ∀ (k s : ℝ),
+  OQ7Prescribed.planarRealKernel k (-s) = OQ7Prescribed.planarRealKernel k s
 OQ7Prescribed.planarScalarGreen_continuous : ∀ (k : ℝ), Continuous (OQ7Prescribed.planarScalarGreen k)
 OQ7Prescribed.planarScalarGreen_norm : ∀ (k s : ℝ), 0 < k → ‖OQ7Prescribed.planarScalarGreen k s‖ = 1 / (2 * k)
+OQ7Prescribed.planarScalarGreen_physical_split : ∀ (k s : ℝ),
+  k ≠ 0 →
+    k ^ 2 • OQ7Prescribed.planarScalarGreen k s =
+      ↑(OQ7Prescribed.planarRealKernel k s) + Complex.I * ↑(k / 2 * Real.cos (k * s))
+OQ7Prescribed.planarScalarOutgoing_coe : ∀ (k : ℝ) (hk : 0 < k) (L : ℝ) (hL : 0 ≤ L)
+  (q : ↥(OQ7Prescribed.PlanarCurrentL2 L)),
+  ↑↑↑((OQ7Prescribed.planarScalarOutgoing k hk L hL) q) =ᵐ[MeasureTheory.volume]
+    (Set.Icc 0 L).indicator fun z => k ^ 2 • OQ7Prescribed.scalarPlanarPotential k (↑↑↑q) z
+OQ7Prescribed.planarScalarOutgoing_im_nonneg : ∀ (k : ℝ) (hk : 0 < k) (L : ℝ) (hL : 0 ≤ L)
+  (q : ↥(OQ7Prescribed.PlanarCurrentL2 L)), 0 ≤ (inner ℂ q ((OQ7Prescribed.planarScalarOutgoing k hk L hL) q)).im
+OQ7Prescribed.planarScalarOutgoing_work : ∀ (k : ℝ) (hk : 0 < k) (L : ℝ) (hL : 0 ≤ L)
+  (q : ↥(OQ7Prescribed.PlanarCurrentL2 L)),
+  inner ℂ q ((OQ7Prescribed.planarScalarOutgoing k hk L hL) q) =
+    OQ7Prescribed.kernelQuadratic (fun p => k ^ 2 • OQ7Prescribed.planarScalarGreen k (p.1 - p.2)) ↑↑↑q
 OQ7Prescribed.planarSlabTransverse_congr_height_ae : ∀ (k : ℝ) (w : ℂ → ℂ) (q f : ℝ → ℂ),
   q =ᵐ[MeasureTheory.volume] f →
     ∀ (x : ℂ) (z : ℝ) (u v : ℂ),
@@ -3416,6 +3567,8 @@ OQ7Prescribed.scaledApertureWindow_contDiff : ∀ (w : ℂ → ℂ),
   ContDiff ℝ (↑⊤) w → ∀ (R : ℝ), ContDiff ℝ (↑⊤) (OQ7Prescribed.scaledApertureWindow w R)
 OQ7Prescribed.scaledApertureWindow_hasCompactSupport : ∀ (w : ℂ → ℂ),
   HasCompactSupport w → ∀ (R : ℝ), R ≠ 0 → HasCompactSupport (OQ7Prescribed.scaledApertureWindow w R)
+OQ7Prescribed.scaledApertureWindow_integral_norm_sq : ∀ (w : ℂ → ℂ) (R : ℝ),
+  0 < R → ∫ (x : ℂ), ‖OQ7Prescribed.scaledApertureWindow w R x‖ ^ 2 = R ^ 2 * ∫ (x : ℂ), ‖w x‖ ^ 2
 OQ7Prescribed.scaledApertureWindow_iteratedFDeriv : ∀ (n : ℕ) (w : ℂ → ℂ),
   ContDiff ℝ (↑⊤) w →
     ∀ (R : ℝ) (x : ℂ),
@@ -3426,6 +3579,9 @@ OQ7Prescribed.scaledApertureWindow_jetBound : ∀ (n : ℕ) (w : ℂ → ℂ),
       0 < R →
         (∀ (y : ℂ), ‖iteratedFDeriv ℝ n w y‖ ≤ C) →
           ∀ (x : ℂ), ‖iteratedFDeriv ℝ n (OQ7Prescribed.scaledApertureWindow w R) x‖ ≤ C / R ^ n
+OQ7Prescribed.scaledApertureWindow_L2_norm : ∀ (w : ℂ → ℂ) (hw : ContDiff ℝ (↑⊤) w) (hc : HasCompactSupport w) (R : ℝ)
+  (hR : 0 < R),
+  ‖MeasureTheory.MemLp.toLp (OQ7Prescribed.scaledApertureWindow w R) ⋯‖ = R * ‖MeasureTheory.MemLp.toLp w ⋯‖
 OQ7Prescribed.scaledApertureWindow_second_jetBound : ∀ (n : ℕ) (w : ℂ → ℂ),
   ContDiff ℝ (↑⊤) w →
     ∀ (R C : ℝ),

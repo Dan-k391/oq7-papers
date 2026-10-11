@@ -1,0 +1,82 @@
+OQ7Prescribed.scaledApertureWindow_L2_norm (w : ℂ → ℂ) (hw : ContDiff ℝ (↑⊤) w) (hc : HasCompactSupport w) (R : ℝ)
+  (hR : 0 < R) :
+  ‖MeasureTheory.MemLp.toLp (OQ7Prescribed.scaledApertureWindow w R) ⋯‖ = R * ‖MeasureTheory.MemLp.toLp w ⋯‖
+OQ7Prescribed.planarScalarOutgoing_coe (k : ℝ) (hk : 0 < k) (L : ℝ) (hL : 0 ≤ L)
+  (q : ↥(OQ7Prescribed.PlanarCurrentL2 L)) :
+  ↑↑↑((OQ7Prescribed.planarScalarOutgoing k hk L hL) q) =ᵐ[MeasureTheory.volume]
+    (Set.Icc 0 L).indicator fun z => k ^ 2 • OQ7Prescribed.scalarPlanarPotential k (↑↑↑q) z
+OQ7Prescribed.kernelQuadratic_planar_im (k : ℝ) (hk : 0 < k) (q : ℝ → ℂ)
+  (hq : MeasureTheory.Integrable q MeasureTheory.volume) :
+  (OQ7Prescribed.kernelQuadratic (fun p => k ^ 2 • OQ7Prescribed.planarScalarGreen k (p.1 - p.2)) q).im =
+    k / 2 *
+      (Complex.normSq (∫ (z : ℝ), ↑(Real.cos (k * z)) * q z) + Complex.normSq (∫ (z : ℝ), ↑(Real.sin (k * z)) * q z))
+OQ7Prescribed.planarScalarOutgoing_work (k : ℝ) (hk : 0 < k) (L : ℝ) (hL : 0 ≤ L)
+  (q : ↥(OQ7Prescribed.PlanarCurrentL2 L)) :
+  inner ℂ q ((OQ7Prescribed.planarScalarOutgoing k hk L hL) q) =
+    OQ7Prescribed.kernelQuadratic (fun p => k ^ 2 • OQ7Prescribed.planarScalarGreen k (p.1 - p.2)) ↑↑↑q
+OQ7Prescribed.planarScalarOutgoing_im_nonneg (k : ℝ) (hk : 0 < k) (L : ℝ) (hL : 0 ≤ L)
+  (q : ↥(OQ7Prescribed.PlanarCurrentL2 L)) : 0 ≤ (inner ℂ q ((OQ7Prescribed.planarScalarOutgoing k hk L hL) q)).im
+OQ7Prescribed.planarActiveAxisMaps_vector_current (L h θ : ℝ) (q : ↥(OQ7Prescribed.PlanarCurrentL2 L)) :
+  ∀ᵐ (z : ℝ),
+    ↑↑↑((OQ7Prescribed.planarLayerAxisMap L h 1 (Real.cos θ)) q) z • OQ7Prescribed.basisC 0 +
+        ↑↑↑((OQ7Prescribed.planarLayerAxisMap L h 0 (Real.sin θ)) q) z • OQ7Prescribed.basisC 1 =
+      ↑↑↑q z • OQ7Prescribed.complexify (if z < h then OQ7Prescribed.basisR 0 else OQ7Prescribed.rotatedAxis θ)
+OQ7Prescribed.planarActiveOutgoing_coe (k : ℝ) (hk : 0 < k) (L : ℝ) (hL : 0 ≤ L) (h θ : ℝ)
+  (q : ↥(OQ7Prescribed.PlanarCurrentL2 L)) :
+  ↑↑↑((OQ7Prescribed.planarActiveOutgoing k hk L hL h θ) q) =ᵐ[MeasureTheory.volume]
+    (Set.Icc 0 L).indicator fun z =>
+      if z < h then
+        k ^ 2 • OQ7Prescribed.scalarPlanarPotential k (↑↑↑((OQ7Prescribed.planarLayerAxisMap L h 1 (Real.cos θ)) q)) z
+      else
+        k ^ 2 •
+          (↑(Real.cos θ) *
+              OQ7Prescribed.scalarPlanarPotential k (↑↑↑((OQ7Prescribed.planarLayerAxisMap L h 1 (Real.cos θ)) q)) z +
+            ↑(Real.sin θ) *
+              OQ7Prescribed.scalarPlanarPotential k (↑↑↑((OQ7Prescribed.planarLayerAxisMap L h 0 (Real.sin θ)) q)) z)
+OQ7Prescribed.planarActiveMaterialOperator_imaginary_coercive (k : ℝ) (hk : 0 < k) (L : ℝ) (hL : 0 ≤ L) (h θ : ℝ)
+  (α β : ℂ) (q : ↥(OQ7Prescribed.PlanarCurrentL2 L)) :
+  OQ7Prescribed.activeMaterialCoercivity α β * ‖q‖ ^ 2 ≤
+    (inner ℂ q ((OQ7Prescribed.planarActiveMaterialOperator k hk L hL h θ α β) q)).im
+OQ7Prescribed.planarActiveMaterialEquiv_inverse_norm_le (k : ℝ) (hk : 0 < k) (L : ℝ) (hL : 0 ≤ L) (h θ : ℝ) (α β : ℂ)
+  (hα : 0 < α.im) (hβ : 0 < β.im) :
+  ‖↑(OQ7Prescribed.planarActiveMaterialEquiv k hk L hL h θ α β hα hβ).symm‖ ≤
+    1 / min (α.im / Complex.normSq α) (β.im / Complex.normSq β)
+OQ7Prescribed.planarNormalizedDrive_ne_zero (k : ℝ) (σ : OQ7Prescribed.Direction) (L h : ℝ) (hh : 0 ≤ h) (hL : h < L) :
+  OQ7Prescribed.planarNormalizedDrive k σ L h ≠ 0
+OQ7Prescribed.planarNormalizedResponse_equation (k : ℝ) (hk : 0 < k) (σ : OQ7Prescribed.Direction) (L : ℝ) (hL : 0 ≤ L)
+  (h θ : ℝ) (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im) :
+  (OQ7Prescribed.planarActiveMaterialOperator k hk L hL h θ α β)
+      (OQ7Prescribed.planarNormalizedResponse k hk σ L hL h θ α β hα hβ) =
+    -OQ7Prescribed.planarNormalizedDrive k σ L h
+OQ7Prescribed.planarNormalizedResponse_continuous (k : ℝ) (hk : 0 < k) (σ : OQ7Prescribed.Direction) (L : ℝ)
+  (hL : 0 ≤ L) (h : ℝ) (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im) :
+  Continuous fun θ => OQ7Prescribed.planarNormalizedResponse k hk σ L hL h θ α β hα hβ
+OQ7Prescribed.planarNormalizedExtinction_work_balance (k : ℝ) (hk : 0 < k) (σ : OQ7Prescribed.Direction) (L : ℝ)
+  (hL : 0 ≤ L) (h θ : ℝ) (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im) :
+  OQ7Prescribed.planarNormalizedExtinction k hk σ L hL h θ α β hα hβ =
+    OQ7Prescribed.planarNormalizedAbsorption k hk σ L hL h θ α β hα hβ +
+      k *
+        (inner ℂ (OQ7Prescribed.planarNormalizedResponse k hk σ L hL h θ α β hα hβ)
+            ((OQ7Prescribed.planarActiveOutgoing k hk L hL h θ)
+              (OQ7Prescribed.planarNormalizedResponse k hk σ L hL h θ α β hα hβ))).im
+OQ7Prescribed.planarNormalizedExtinction_compact_lower_bound (k : ℝ) (hk : 0 < k) (σ : OQ7Prescribed.Direction) (L : ℝ)
+  (hL : 0 ≤ L) (h : ℝ) (hh : 0 ≤ h) (hplate : h < L) (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im) (s : Set ℝ)
+  (hs : IsCompact s) : ∃ c, 0 < c ∧ ∀ θ ∈ s, c ≤ OQ7Prescribed.planarNormalizedExtinction k hk σ L hL h θ α β hα hβ
+'OQ7Prescribed.scaledApertureWindow_L2_norm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.planarScalarOutgoing_coe' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.kernelQuadratic_planar_im' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.planarScalarOutgoing_work' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.planarScalarOutgoing_im_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.planarActiveAxisMaps_vector_current' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.planarActiveOutgoing_coe' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.planarActiveMaterialOperator_imaginary_coercive' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OQ7Prescribed.planarActiveMaterialEquiv_inverse_norm_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.planarNormalizedDrive_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.planarNormalizedResponse_equation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.planarNormalizedResponse_continuous' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.planarNormalizedExtinction_work_balance' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.planarNormalizedExtinction_compact_lower_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

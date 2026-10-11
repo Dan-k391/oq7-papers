@@ -1,0 +1,490 @@
+⚠ [3133/3361] Replayed PrescribedExtinction.ApertureOscillation
+warning: PrescribedExtinction/ApertureOscillation.lean:17:86: This simp argument is unused:
+  mul_left_comm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [apertureOscillation, Complex.ofReal_mul, mul_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PrescribedExtinction/ApertureOscillation.lean:19:49: This simp argument is unused:
+  mul_comm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [apertureOscillation, Complex.ofReal_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [3144/3361] Replayed PrescribedExtinction.SphericalCoordinates
+warning: PrescribedExtinction/SphericalCoordinates.lean:35:79: This simp argument is unused:
+  Matrix.mulVec
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [sphericalDerivative, sphericalJacobianMatrix, Matrix.toLin'_apply, Fin.sum_univ_three, Matrix.vecHead,
+    Matrix.vecTail]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PrescribedExtinction/SphericalCoordinates.lean:36:8: This simp argument is unused:
+  Fin.sum_univ_three
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [sphericalDerivative, sphericalJacobianMatrix, Matrix.toLin'_apply, Matrix.mulVec, Matrix.vecHead,
+    Matrix.vecTail]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PrescribedExtinction/SphericalCoordinates.lean:41:79: This simp argument is unused:
+  Matrix.mulVec
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [sphericalDerivative, sphericalJacobianMatrix, Matrix.toLin'_apply, Fin.sum_univ_three, Matrix.vecHead,
+    Matrix.vecTail]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PrescribedExtinction/SphericalCoordinates.lean:42:8: This simp argument is unused:
+  Fin.sum_univ_three
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [sphericalDerivative, sphericalJacobianMatrix, Matrix.toLin'_apply, Matrix.mulVec, Matrix.vecHead,
+    Matrix.vecTail]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PrescribedExtinction/SphericalCoordinates.lean:47:79: This simp argument is unused:
+  Matrix.mulVec
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [sphericalDerivative, sphericalJacobianMatrix, Matrix.toLin'_apply, Fin.sum_univ_three, Matrix.vecHead,
+    Matrix.vecTail]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PrescribedExtinction/SphericalCoordinates.lean:48:8: This simp argument is unused:
+  Fin.sum_univ_three
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [sphericalDerivative, sphericalJacobianMatrix, Matrix.toLin'_apply, Matrix.mulVec, Matrix.vecHead,
+    Matrix.vecTail]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [3145/3361] Replayed PrescribedExtinction.FarFieldGeometry
+warning: PrescribedExtinction/FarFieldGeometry.lean:16:59: This simp argument is unused:
+  abs_inv
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [norm_smul, hx.ne', abs_of_pos hx]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PrescribedExtinction/FarFieldGeometry.lean:16:68: This simp argument is unused:
+  abs_of_pos hx
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [norm_smul, hx.ne', abs_inv]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PrescribedExtinction/FarFieldGeometry.lean:37:0: automatically included section variable(s) unused in theorem `OQ7Prescribed.displaced_inverse_amplitude_error`:
+  [InnerProductSpace ℝ H]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [InnerProductSpace ℝ H] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3254/3361] Replayed PrescribedExtinction.ExteriorOutgoing
+warning: PrescribedExtinction/ExteriorOutgoing.lean:112:10: This simp argument is unused:
+  kernelMagnetic
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [p.vanish y (lt_of_not_ge hy), cross]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [3256/3361] Replayed PrescribedExtinction.FarFieldKernel
+warning: PrescribedExtinction/FarFieldKernel.lean:94:21: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PrescribedExtinction/FarFieldKernel.lean:94:21: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+⚠ [3257/3361] Replayed PrescribedExtinction.SetSupportedL2
+warning: PrescribedExtinction/SetSupportedL2.lean:36:0: automatically included section variable(s) unused in theorem `OQ7Prescribed.indicatorL2_coe`:
+  [InnerProductSpace ℂ E]
+  [CompleteSpace E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [InnerProductSpace ℂ E] [CompleteSpace E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3258/3361] Replayed PrescribedExtinction.TwoPieceL2
+warning: PrescribedExtinction/TwoPieceL2.lean:30:0: automatically included section variable(s) unused in theorem `OQ7Prescribed.supportedConstCLM_coe`:
+  [CompleteSpace E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CompleteSpace E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3259/3361] Replayed PrescribedExtinction.SupportedL2Maps
+warning: PrescribedExtinction/SupportedL2Maps.lean:27:0: automatically included section variable(s) unused in theorem `OQ7Prescribed.supportedConstMap_coe`:
+  [CompleteSpace E]
+  [CompleteSpace F]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CompleteSpace E] [CompleteSpace F] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3278/3361] Replayed PrescribedExtinction.PhysicalSourceFields
+warning: PrescribedExtinction/PhysicalSourceFields.lean:90:65: This simp argument is unused:
+  PiLp.smul_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [electricVolumeField, vectorCoordinate, PiLp.add_apply, Complex.real_smul, mul_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [3280/3361] Replayed PrescribedExtinction.IncidentMaxwell
+warning: PrescribedExtinction/IncidentMaxwell.lean:79:75: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: PrescribedExtinction/IncidentMaxwell.lean:87:95: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PrescribedExtinction/IncidentMaxwell.lean:87:95: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+⚠ [3282/3361] Replayed PrescribedExtinction.ExteriorKernelTests
+warning: PrescribedExtinction/ExteriorKernelTests.lean:50:79: This simp argument is unused:
+  Pi.add_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Complex.ofReal_mul, dyadicRemainder, sub_apply, PiLp.sub_apply, classicalDyadic_zero_coordinate]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PrescribedExtinction/ExteriorKernelTests.lean:114:31: This simp argument is unused:
+  zero_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hij, ite_false, zero_add, add_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PrescribedExtinction/ExteriorKernelTests.lean:114:53: This simp argument is unused:
+  add_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hij, ite_false, zero_apply, zero_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [3284/3361] Replayed PrescribedExtinction.OutgoingSourceFields
+warning: PrescribedExtinction/OutgoingSourceFields.lean:71:6: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [PiLp.smul_apply, smul_eq_mul, Matrix.cons_val_one, Matrix.cons_val_two]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PrescribedExtinction/OutgoingSourceFields.lean:71:28: This simp argument is unused:
+  Matrix.cons_val_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [PiLp.smul_apply, smul_eq_mul, Matrix.cons_val_zero, Matrix.cons_val_two]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PrescribedExtinction/OutgoingSourceFields.lean:71:49: This simp argument is unused:
+  Matrix.cons_val_two
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [PiLp.smul_apply, smul_eq_mul, Matrix.cons_val_zero, Matrix.cons_val_one]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PrescribedExtinction/OutgoingSourceFields.lean:141:29: `if_pos` has been deprecated: Use `ite_eq_left` instead
+⚠ [3286/3361] Replayed PrescribedExtinction.VolumeScatteringBridge
+warning: PrescribedExtinction/VolumeScatteringBridge.lean:60:83: This simp argument is unused:
+  PiLp.add_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [polarization, TwoLayerBody.susceptibility, tensorApply, Matrix.sub_mulVec]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [3288/3361] Replayed PrescribedExtinction.ComplexCoerciveInverse
+warning: PrescribedExtinction/ComplexCoerciveInverse.lean:14:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: PrescribedExtinction/ComplexCoerciveInverse.lean:43:0: automatically included section variable(s) unused in theorem `OQ7Prescribed.complex_imaginary_coercive_norm_bound`:
+  [CompleteSpace H]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CompleteSpace H] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: PrescribedExtinction/ComplexCoerciveInverse.lean:43:71: Variable name `hc` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hc
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [3289/3361] Replayed PrescribedExtinction.TensorLossCoercivity
+warning: PrescribedExtinction/TensorLossCoercivity.lean:34:4: Try `simp at hw` instead of `simpa using hw`
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: PrescribedExtinction/TensorLossCoercivity.lean:30:10: This simp argument is unused:
+  Metric.mem_sphere
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [dist_zero_right, basisC]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PrescribedExtinction/TensorLossCoercivity.lean:30:29: This simp argument is unused:
+  dist_zero_right
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Metric.mem_sphere, basisC]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PrescribedExtinction/TensorLossCoercivity.lean:41:40: This simp argument is unused:
+  abs_inv
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [norm_smul, Complex.norm_real, abs_of_pos hn, hn.ne']
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PrescribedExtinction/TensorLossCoercivity.lean:41:49: This simp argument is unused:
+  abs_of_pos hn
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [norm_smul, Complex.norm_real, abs_inv, hn.ne']
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PrescribedExtinction/TensorLossCoercivity.lean:49:16: This simp argument is unused:
+  zero_add
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Complex.real_smul, Complex.mul_im, Complex.ofReal_re, Complex.ofReal_im, zero_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [3299/3361] Replayed PrescribedExtinction.ActiveCurrentSpace
+warning: PrescribedExtinction/ActiveCurrentSpace.lean:59:62: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+⚠ [3300/3361] Replayed PrescribedExtinction.ActiveMaterialInverse
+warning: PrescribedExtinction/ActiveMaterialInverse.lean:11:35: Try `simp at hα` instead of `simpa using hα`
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+⚠ [3301/3361] Replayed PrescribedExtinction.RankOneScattering
+warning: PrescribedExtinction/RankOneScattering.lean:63:36: Try `simp at hα` instead of `simpa using hα`
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: PrescribedExtinction/RankOneScattering.lean:64:36: Try `simp at hβ` instead of `simpa using hβ`
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+⚠ [3303/3361] Replayed PrescribedExtinction.FarFieldCurrent
+warning: PrescribedExtinction/FarFieldCurrent.lean:136:78: `if_pos` has been deprecated: Use `ite_eq_left` instead
+⚠ [3304/3361] Replayed PrescribedExtinction.FarFieldRadial
+warning: PrescribedExtinction/FarFieldRadial.lean:11:69: This simp argument is unused:
+  unitSphere_norm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [radialDirection, norm_smul, Real.norm_eq_abs, abs_of_pos hs, smul_smul, hs.ne']
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [3305/3361] Replayed PrescribedExtinction.SphericalDomain
+warning: PrescribedExtinction/SphericalDomain.lean:103:4: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: PrescribedExtinction/SphericalDomain.lean:106:4: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+⚠ [3307/3361] Replayed PrescribedExtinction.SphericalProduct
+warning: PrescribedExtinction/SphericalProduct.lean:28:21: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+⚠ [3315/3361] Replayed PrescribedExtinction.ApertureRadialSupport
+warning: PrescribedExtinction/ApertureRadialSupport.lean:36:19: `ContinuousMultilinearMap.zero_apply` has been deprecated: Use `zero_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.zero_apply` to `zero_apply x`).
+⚠ [3318/3361] Replayed PrescribedExtinction.SlabRadialWindow
+warning: PrescribedExtinction/SlabRadialWindow.lean:35:6: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: PrescribedExtinction/SlabRadialWindow.lean:71:4: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [3324/3361] Replayed PrescribedExtinction.ApertureWindowScale
+warning: PrescribedExtinction/ApertureWindowScale.lean:25:13: This simp argument is unused:
+  mem_preimage
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Metric.mem_closedBall, dist_zero_right, norm_smul, Real.norm_eq_abs,
+    abs_of_pos (inv_pos.mpr hR)] at hm ⊢
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [3325/3361] Replayed PrescribedExtinction.SlabScaledEstimate
+warning: PrescribedExtinction/SlabScaledEstimate.lean:22:44: Variable name `hB` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hB
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: PrescribedExtinction/SlabScaledEstimate.lean:37:10: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PrescribedExtinction/SlabScaledEstimate.lean:37:10: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+⚠ [3327/3361] Replayed PrescribedExtinction.SlabSourceDerivatives
+warning: PrescribedExtinction/SlabSourceDerivatives.lean:42:40: This simp argument is unused:
+  slabHorizontalCLM_at_slab
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ContinuousLinearMap.comp_apply, slabHeightCLM_at_slab, slabSeparatedFunction, apertureWindowPartial,
+    slabHeightCLM, slabHorizontalCLM_apply, mul_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PrescribedExtinction/SlabSourceDerivatives.lean:42:67: This simp argument is unused:
+  slabHeightCLM_at_slab
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ContinuousLinearMap.comp_apply, slabHorizontalCLM_at_slab, slabSeparatedFunction, apertureWindowPartial,
+    slabHeightCLM, slabHorizontalCLM_apply, mul_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [3328/3361] Replayed PrescribedExtinction.SlabHessianEstimate
+warning: PrescribedExtinction/SlabHessianEstimate.lean:10:27: This simp argument is unused:
+  norm_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [planarScalarGreen, norm_div, apertureOscillation_norm, Complex.norm_real, abs_of_pos hk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PrescribedExtinction/SlabHessianEstimate.lean:10:37: This simp argument is unused:
+  norm_div
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [planarScalarGreen, norm_mul, apertureOscillation_norm, Complex.norm_real, abs_of_pos hk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PrescribedExtinction/SlabHessianEstimate.lean:45:8: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PrescribedExtinction/SlabHessianEstimate.lean:52:8: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PrescribedExtinction/SlabHessianEstimate.lean:64:6: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PrescribedExtinction/SlabHessianEstimate.lean:45:8: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: PrescribedExtinction/SlabHessianEstimate.lean:52:8: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: PrescribedExtinction/SlabHessianEstimate.lean:64:6: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: PrescribedExtinction/SlabHessianEstimate.lean:101:6: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [3332/3361] Replayed PrescribedExtinction.SmoothDyadicRepresentation
+warning: PrescribedExtinction/SmoothDyadicRepresentation.lean:82:4: `MeasureTheory.integrable_finset_sum` has been deprecated: Use `MeasureTheory.integrable_finsetSum` instead
+warning: PrescribedExtinction/SmoothDyadicRepresentation.lean:84:4: `MeasureTheory.integral_finset_sum` has been deprecated: Use `MeasureTheory.integral_finsetSum` instead
+⚠ [3333/3361] Replayed PrescribedExtinction.DyadicAxisRepresentation
+warning: PrescribedExtinction/DyadicAxisRepresentation.lean:39:13: `ContinuousLinearMap.sum_apply` has been deprecated: Use `sum_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.sum_apply` to `sum_apply x`).
+warning: PrescribedExtinction/DyadicAxisRepresentation.lean:83:66: `ContinuousLinearMap.smul_apply` has been deprecated: Use `smul_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.smul_apply` to `smul_apply x`).
+warning: PrescribedExtinction/DyadicAxisRepresentation.lean:101:27: This simp argument is unused:
+  mul_assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Complex.real_smul, mul_comm, mul_left_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [3339/3361] Replayed PrescribedExtinction.SeparatedL2Product
+warning: PrescribedExtinction/SeparatedL2Product.lean:13:0: automatically included section variable(s) unused in theorem `OQ7Prescribed.separatedProduct_memLp_two`:
+  [SFinite μ]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [SFinite μ] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: PrescribedExtinction/SeparatedL2Product.lean:23:0: automatically included section variable(s) unused in theorem `OQ7Prescribed.memLp_two_integral_norm_sq`:
+  [SFinite μ]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [SFinite μ] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3345/3361] Replayed PrescribedExtinction.PlanarKernelSplit
+warning: PrescribedExtinction/PlanarKernelSplit.lean:24:24: This simp argument is unused:
+  Complex.ofReal_add
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Complex.real_smul, Complex.ofReal_pow, Complex.ofReal_mul, Complex.ofReal_div,
+    Complex.ofReal_ofNat, planarRealKernel, Complex.ofReal_neg]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [3349/3361] Replayed PrescribedExtinction.PlanarScalarWork
+warning: PrescribedExtinction/PlanarScalarWork.lean:30:70: This simp argument is unused:
+  mul_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [indicator_of_notMem hm, hz hm, map_zero, zero_mul, inner_zero_left]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [3350/3361] Replayed PrescribedExtinction.InverseStability
+warning: PrescribedExtinction/InverseStability.lean:19:6: `ContinuousLinearMap.sub_apply` has been deprecated: Use `sub_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.sub_apply` to `sub_apply x`).
+warning: PrescribedExtinction/InverseStability.lean:12:0: automatically included section variable(s) unused in theorem `OQ7Prescribed.continuousLinearEquiv_response_difference_bound`:
+  [CompleteSpace H]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CompleteSpace H] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: PrescribedExtinction/InverseStability.lean:29:0: automatically included section variable(s) unused in theorem `OQ7Prescribed.continuousLinearEquiv_solution_residual_bound`:
+  [CompleteSpace H]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CompleteSpace H] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: PrescribedExtinction/InverseStability.lean:47:99: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [3357/3361] Replayed PrescribedExtinction.RotationContinuity
+warning: PrescribedExtinction/RotationContinuity.lean:29:0: automatically included section variable(s) unused in theorem `OQ7Prescribed.supportedConstMap_norm_le`:
+  [CompleteSpace E]
+  [CompleteSpace F]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CompleteSpace E] [CompleteSpace F] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: PrescribedExtinction/RotationContinuity.lean:63:29: This simp argument is unused:
+  rotatedAxis
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.cons_val_two]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PrescribedExtinction/RotationContinuity.lean:63:42: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [rotatedAxis, Matrix.cons_val_one, Matrix.cons_val_two]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PrescribedExtinction/RotationContinuity.lean:63:64: This simp argument is unused:
+  Matrix.cons_val_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [rotatedAxis, Matrix.cons_val_zero, Matrix.cons_val_two]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PrescribedExtinction/RotationContinuity.lean:63:85: This simp argument is unused:
+  Matrix.cons_val_two
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [rotatedAxis, Matrix.cons_val_zero, Matrix.cons_val_one]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [3359/3361] Replayed PrescribedExtinction.PlanarMaterialInverse
+warning: PrescribedExtinction/PlanarMaterialInverse.lean:12:13: `ContinuousLinearMap.add_apply` has been deprecated: Use `add_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.add_apply` to `add_apply x`).
+⚠ [3360/3361] Replayed PrescribedExtinction.PlanarDrive
+warning: PrescribedExtinction/PlanarDrive.lean:62:6: `if_neg` has been deprecated: Use `ite_eq_right` instead
+⚠ [3361/3361] Replayed PrescribedExtinction.PlanarResponse
+warning: PrescribedExtinction/PlanarResponse.lean:31:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+Build completed successfully (3361 jobs).
