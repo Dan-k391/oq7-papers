@@ -1,0 +1,392 @@
+def OQ7Prescribed.Theorem11Statement : Prop :=
+∀ (k P Q target : ℝ),
+  0 < k →
+    1 < P →
+      0 < Q →
+        0 < target →
+          ∀ (ε : ℝ),
+            0 < ε →
+              ε < 1 →
+                ∃ B,
+                  B.admissible P Q ∧
+                    ∃ sp sm,
+                      OQ7Prescribed.extinction k B OQ7Prescribed.Direction.plus sp.electric = target ∧
+                        OQ7Prescribed.extinction k B OQ7Prescribed.Direction.minus sm.electric = target ∧
+                          1 - ε < OQ7Prescribed.normalizedAsymmetry k B sp.electric sm.electric ∧
+                            OQ7Prescribed.normalizedAsymmetry k B sp.electric sm.electric < 1
+'OQ7Prescribed.Theorem11Statement' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.axisCoupling_bound : ∀ (u : OQ7Prescribed.Position) (v : OQ7Prescribed.Vector),
+  ‖u‖ ^ 2 = 1 → Complex.normSq (OQ7Prescribed.axisCoupling u v) ≤ OQ7Prescribed.squareNorm v
+OQ7Prescribed.axisCoupling_eq_inner : ∀ (u : OQ7Prescribed.Position) (v : OQ7Prescribed.Vector),
+  OQ7Prescribed.axisCoupling u v = inner ℂ (OQ7Prescribed.complexify u) v
+OQ7Prescribed.classicalDyadic_coordinate : ∀ (k : ℝ) (x : OQ7Prescribed.Position),
+  x ≠ 0 →
+    ∀ (i j : Fin 3),
+      ((OQ7Prescribed.classicalDyadic k x) (OQ7Prescribed.basisC j)).ofLp i =
+        (if i = j then ↑(k ^ 2) * OQ7Prescribed.outgoingGreen k x else 0) +
+          lineDeriv ℝ (fun y => lineDeriv ℝ (OQ7Prescribed.outgoingGreen k) y (OQ7Prescribed.basisR j)) x
+            (OQ7Prescribed.basisR i)
+OQ7Prescribed.classicalDyadic_measurable : ∀ (k : ℝ), Measurable (OQ7Prescribed.classicalDyadic k)
+OQ7Prescribed.complexify_continuous : Continuous OQ7Prescribed.complexify
+OQ7Prescribed.complexify_norm_sq : ∀ (u : OQ7Prescribed.Position), ‖OQ7Prescribed.complexify u‖ ^ 2 = ‖u‖ ^ 2
+OQ7Prescribed.coordinateReflect_apply : ∀ (i j : Fin 3) (x : OQ7Prescribed.Position),
+  ((OQ7Prescribed.coordinateReflect i) x).ofLp j = if j = i then -x.ofLp j else x.ofLp j
+OQ7Prescribed.coordinateSwap_apply : ∀ (i j a : Fin 3) (x : OQ7Prescribed.Position),
+  ((OQ7Prescribed.coordinateSwap i j) x).ofLp a = x.ofLp ((Equiv.swap i j) a)
+OQ7Prescribed.cutoffDyadicRemainder_eLpNorm_le : ∀ (k T : ℝ),
+  MeasureTheory.eLpNorm (OQ7Prescribed.cutoffDyadicRemainder k T) 2 MeasureTheory.volume ≤
+    ENNReal.ofReal (OQ7Prescribed.dyadicRemainderCutoffConstant k T) *
+      MeasureTheory.eLpNorm (OQ7Prescribed.cutoffGreen 0 T) 2 MeasureTheory.volume
+OQ7Prescribed.cutoffDyadicRemainder_memLp : ∀ (k T : ℝ),
+  MeasureTheory.MemLp (OQ7Prescribed.cutoffDyadicRemainder k T) 2 MeasureTheory.volume
+OQ7Prescribed.cutoffDyadicRemainder_norm_le : ∀ (k T : ℝ) (x : OQ7Prescribed.Position),
+  ‖OQ7Prescribed.cutoffDyadicRemainder k T x‖ ≤
+    OQ7Prescribed.dyadicRemainderCutoffConstant k T * ‖OQ7Prescribed.cutoffGreen 0 T x‖
+OQ7Prescribed.cutoffGreen_memLp : ∀ (k T : ℝ),
+  MeasureTheory.MemLp (OQ7Prescribed.cutoffGreen k T) 2 MeasureTheory.volume
+OQ7Prescribed.domain_compact_closure : ∀ (B : OQ7Prescribed.TwoLayerBody), IsCompact (closure B.domain)
+OQ7Prescribed.domain_subset_closedBall : ∀ (B : OQ7Prescribed.TwoLayerBody),
+  B.domain ⊆ Metric.closedBall 0 (B.aperture + B.absorberThickness + B.plateThickness)
+OQ7Prescribed.dyadicGreenDistribution_apply : ∀ (k : ℝ) (i j : Fin 3) (φ : OQ7Prescribed.ScalarTest),
+  (OQ7Prescribed.dyadicGreenDistribution k i j) φ =
+    (if i = j then k ^ 2 • ∫ (x : OQ7Prescribed.Position), φ x • OQ7Prescribed.outgoingGreen k x else 0) +
+      ∫ (x : OQ7Prescribed.Position),
+        ((OQ7Prescribed.testPartial j) ((OQ7Prescribed.testPartial i) φ)) x • OQ7Prescribed.outgoingGreen k x
+OQ7Prescribed.dyadicRemainder_cancel : ∀ (k : ℝ) (x : OQ7Prescribed.Position),
+  OQ7Prescribed.dyadicRemainder k x =
+    (↑(k ^ 2) * Complex.exp (Complex.I * ↑k * ↑‖x‖) / (↑(4 * Real.pi) * ↑‖x‖) +
+          (Complex.exp (Complex.I * ↑k * ↑‖x‖) * (Complex.I * ↑k * ↑‖x‖ - 1) + 1) / (↑(4 * Real.pi) * ↑‖x‖ ^ 3)) •
+        ContinuousLinearMap.id ℂ OQ7Prescribed.Vector +
+      ((Complex.exp (Complex.I * ↑k * ↑‖x‖) * ((Complex.I * ↑k * ↑‖x‖) ^ 2 - 3 * (Complex.I * ↑k * ↑‖x‖) + 3) - 3) /
+          (↑(4 * Real.pi) * ↑‖x‖ ^ 5)) •
+        ((InnerProductSpace.rankOne ℂ) (OQ7Prescribed.complexify x)) (OQ7Prescribed.complexify x)
+OQ7Prescribed.dyadicRemainder_measurable : ∀ (k : ℝ), Measurable (OQ7Prescribed.dyadicRemainder k)
+OQ7Prescribed.dyadicRemainder_norm_le : ∀ (k : ℝ) (x : OQ7Prescribed.Position),
+  ‖OQ7Prescribed.dyadicRemainder k x‖ ≤
+    k ^ 2 / (4 * Real.pi) * OQ7Prescribed.greenCancellationEnvelope (|k| * ‖x‖) * ‖x‖⁻¹
+OQ7Prescribed.dyadicRemainder_norm_le_on_ball : ∀ (k R : ℝ) (x : OQ7Prescribed.Position),
+  ‖x‖ ≤ R →
+    ‖OQ7Prescribed.dyadicRemainder k x‖ ≤
+      k ^ 2 / (4 * Real.pi) * OQ7Prescribed.greenCancellationEnvelope (|k| * R) * ‖x‖⁻¹
+OQ7Prescribed.exp_remainder_two_norm : ∀ (z : ℂ), ‖Complex.exp z - 1 - z‖ ≤ ‖z‖ ^ 2 * Real.exp ‖z‖
+OQ7Prescribed.green_first_cancel_norm : ∀ (z : ℂ),
+  ‖Complex.exp z * (z - 1) + 1‖ ≤ ‖z‖ ^ 2 * (1 + (‖z‖ + 1) * Real.exp ‖z‖)
+OQ7Prescribed.green_second_cancel_norm : ∀ (z : ℂ),
+  ‖Complex.exp z * (z ^ 2 - 3 * z + 3) - 3‖ ≤ ‖z‖ ^ 2 * (‖z‖ + 2 + (‖z‖ ^ 2 + 3 * ‖z‖ + 3) * Real.exp ‖z‖)
+OQ7Prescribed.green_second_poly_norm : ∀ (z : ℂ), ‖z ^ 2 - 3 * z + 3‖ ≤ ‖z‖ ^ 2 + 3 * ‖z‖ + 3
+OQ7Prescribed.greenCancellationEnvelope_mono : ∀ (s t : ℝ),
+  0 ≤ s → s ≤ t → OQ7Prescribed.greenCancellationEnvelope s ≤ OQ7Prescribed.greenCancellationEnvelope t
+OQ7Prescribed.greenCancellationEnvelope_nonneg : ∀ (s : ℝ), 0 ≤ s → 0 ≤ OQ7Prescribed.greenCancellationEnvelope s
+OQ7Prescribed.greenHessian_apply : ∀ (k : ℝ) (i j : Fin 3) (φ : OQ7Prescribed.ScalarTest),
+  (OQ7Prescribed.greenHessian k i j) φ =
+    (OQ7Prescribed.outgoingGreenDistribution k) ((OQ7Prescribed.testPartial j) ((OQ7Prescribed.testPartial i) φ))
+OQ7Prescribed.incident_absorber_coupling : ∀ (k : ℝ) (σ : OQ7Prescribed.Direction) (x : OQ7Prescribed.Position),
+  OQ7Prescribed.axisCoupling (OQ7Prescribed.basisR 0) (OQ7Prescribed.incidentElectric k σ x) = 0
+OQ7Prescribed.incident_plate_coupling : ∀ (θ k : ℝ) (σ : OQ7Prescribed.Direction) (x : OQ7Prescribed.Position),
+  OQ7Prescribed.axisCoupling (OQ7Prescribed.rotatedAxis θ) (OQ7Prescribed.incidentElectric k σ x) =
+    ↑(Real.sin θ) * OQ7Prescribed.planePhase k σ x
+OQ7Prescribed.incident_plate_rankOne : ∀ (θ k : ℝ) (σ : OQ7Prescribed.Direction) (x : OQ7Prescribed.Position),
+  OQ7Prescribed.tensorApply (OQ7Prescribed.rankOne (OQ7Prescribed.rotatedAxis θ))
+      (OQ7Prescribed.incidentElectric k σ x) =
+    (↑(Real.sin θ) * OQ7Prescribed.planePhase k σ x) • OQ7Prescribed.complexify (OQ7Prescribed.rotatedAxis θ)
+OQ7Prescribed.incident_plate_rankOne_zero_angle : ∀ (k : ℝ) (σ : OQ7Prescribed.Direction) (x : OQ7Prescribed.Position),
+  OQ7Prescribed.tensorApply (OQ7Prescribed.rankOne (OQ7Prescribed.rotatedAxis 0))
+      (OQ7Prescribed.incidentElectric k σ x) =
+    0
+OQ7Prescribed.incidentElectric_minus_conjugate : ∀ (k : ℝ) (x : OQ7Prescribed.Position),
+  OQ7Prescribed.incidentElectric k OQ7Prescribed.Direction.minus x =
+    WithLp.toLp 2 fun i => star ((OQ7Prescribed.incidentElectric k OQ7Prescribed.Direction.plus x).ofLp i)
+OQ7Prescribed.incidentElectric_squareNorm : ∀ (k : ℝ) (σ : OQ7Prescribed.Direction) (x : OQ7Prescribed.Position),
+  OQ7Prescribed.squareNorm (OQ7Prescribed.incidentElectric k σ x) = 1
+OQ7Prescribed.integral_polar_actual : ∀ (f : OQ7Prescribed.Position → ℝ),
+  ∫ (x : OQ7Prescribed.Position), f x =
+    ∫ (p : ↑OQ7Prescribed.UnitSphere × ↑(Set.Ioi 0)),
+      f (↑p.2 • ↑p.1) ∂OQ7Prescribed.sphereArea.prod (MeasureTheory.Measure.volumeIoiPow 2)
+OQ7Prescribed.layerPermittivity_admissible : ∀ (P Q a b ν : ℝ) (u : OQ7Prescribed.Position),
+  ‖u‖ ^ 2 = 1 →
+    0 ≤ a →
+      1 + a ≤ P →
+        0 ≤ b → 0 < ν → b + ν ≤ Q → OQ7Prescribed.MaterialAdmissible P Q (OQ7Prescribed.layerPermittivity a b ν u)
+OQ7Prescribed.layerPermittivity_reciprocal : ∀ (a b ν : ℝ) (u : OQ7Prescribed.Position),
+  Matrix.transpose (OQ7Prescribed.layerPermittivity a b ν u) = OQ7Prescribed.layerPermittivity a b ν u
+OQ7Prescribed.newton_classical_hessian : ∀ (x : OQ7Prescribed.Position),
+  x ≠ 0 →
+    ∀ (i j : Fin 3),
+      lineDeriv ℝ (fun y => lineDeriv ℝ (OQ7Prescribed.outgoingGreen 0) y (OQ7Prescribed.basisR j)) x
+          (OQ7Prescribed.basisR i) =
+        ↑((3 * x.ofLp i * x.ofLp j - ‖x‖ ^ 2 * if i = j then 1 else 0) / (4 * Real.pi * ‖x‖ ^ 5))
+OQ7Prescribed.newton_compensated_cutoff_tendsto : ∀ (φ : OQ7Prescribed.ScalarTest) (i j : Fin 3),
+  Filter.Tendsto (fun r => ∫ (x : OQ7Prescribed.Position) in {x | r < ‖x‖}, OQ7Prescribed.newtonCompensated φ i j x)
+    (nhds 0) (nhds (OQ7Prescribed.newtonPVValue φ i j))
+OQ7Prescribed.newtonAnnulus_integrable : ∀ (i j : Fin 3) (r T : ℝ),
+  0 < r → MeasureTheory.Integrable (OQ7Prescribed.newtonAnnulus i j r T) MeasureTheory.volume
+OQ7Prescribed.newtonAnnulus_integral_zero : ∀ (i j : Fin 3) (r T : ℝ),
+  ∫ (x : OQ7Prescribed.Position), OQ7Prescribed.newtonAnnulus i j r T x = 0
+OQ7Prescribed.newtonAnnulus_measurableSet : ∀ (r T : ℝ), MeasurableSet {x | r < ‖x‖ ∧ ‖x‖ ≤ T}
+OQ7Prescribed.newtonCompensated_bound : ∀ (φ : OQ7Prescribed.ScalarTest) (i j : Fin 3),
+  ∃ C, 0 ≤ C ∧ ∀ (x : OQ7Prescribed.Position), ‖OQ7Prescribed.newtonCompensated φ i j x‖ ≤ C * ‖x‖⁻¹ ^ 2
+OQ7Prescribed.newtonCompensated_integrable : ∀ (φ : OQ7Prescribed.ScalarTest) (i j : Fin 3),
+  MeasureTheory.Integrable (OQ7Prescribed.newtonCompensated φ i j) MeasureTheory.volume
+OQ7Prescribed.newtonCompensated_measurable : ∀ (φ : OQ7Prescribed.ScalarTest) (i j : Fin 3),
+  Measurable (OQ7Prescribed.newtonCompensated φ i j)
+OQ7Prescribed.newtonContactBoundary_tendsto : ∀ (φ : OQ7Prescribed.ScalarTest) (i j : Fin 3),
+  Filter.Tendsto (OQ7Prescribed.newtonContactBoundary φ i j) (nhds 0) (nhds (-((if i = j then 1 else 0) / 3) * φ 0))
+OQ7Prescribed.newtonDerivativeBoundary_tendsto : ∀ (φ : OQ7Prescribed.ScalarTest) (i j : Fin 3),
+  Filter.Tendsto (OQ7Prescribed.newtonDerivativeBoundary φ i j) (nhds 0) (nhds 0)
+OQ7Prescribed.newtonHessian_radial_integral_zero : ∀ (i j : Fin 3) (w : ℝ → ℝ),
+  ∫ (x : OQ7Prescribed.Position), w ‖x‖ * OQ7Prescribed.newtonHessianKernel i j x = 0
+OQ7Prescribed.newtonHessianKernel_classical : ∀ (i j : Fin 3) (x : OQ7Prescribed.Position),
+  x ≠ 0 →
+    ↑(OQ7Prescribed.newtonHessianKernel i j x) =
+      lineDeriv ℝ (fun y => lineDeriv ℝ (OQ7Prescribed.outgoingGreen 0) y (OQ7Prescribed.basisR j)) x
+        (OQ7Prescribed.basisR i)
+OQ7Prescribed.newtonHessianKernel_measurable : ∀ (i j : Fin 3), Measurable (OQ7Prescribed.newtonHessianKernel i j)
+OQ7Prescribed.newtonHessianKernel_norm_le : ∀ (i j : Fin 3) (x : OQ7Prescribed.Position),
+  ‖OQ7Prescribed.newtonHessianKernel i j x‖ ≤ Real.pi⁻¹ * ‖x‖⁻¹ ^ 3
+OQ7Prescribed.newtonHessianKernel_smul : ∀ (i j : Fin 3) (n : ↑OQ7Prescribed.UnitSphere) (r : ℝ),
+  0 < r →
+    OQ7Prescribed.newtonHessianKernel i j (r • ↑n) =
+      (3 * (↑n).ofLp i * (↑n).ofLp j - if i = j then 1 else 0) / (4 * Real.pi * r ^ 3)
+OQ7Prescribed.newtonPrincipalValue_tendsto : ∀ (φ : OQ7Prescribed.ScalarTest) (i j : Fin 3),
+  Filter.Tendsto (OQ7Prescribed.newtonPVTruncated φ i j) (nhdsWithin 0 (Set.Ioi 0))
+    (nhds (OQ7Prescribed.newtonPVValue φ i j))
+OQ7Prescribed.newtonPV_indicator_decomposition : ∀ (φ : OQ7Prescribed.ScalarTest) (i j : Fin 3) (r : ℝ),
+  ({x | r < ‖x‖}.indicator fun x => OQ7Prescribed.newtonHessianKernel i j x * φ x) =
+    {x | r < ‖x‖}.indicator (OQ7Prescribed.newtonCompensated φ i j) + fun x =>
+      φ 0 * OQ7Prescribed.newtonAnnulus i j r 1 x
+OQ7Prescribed.newtonPVTruncated_eq_compensated : ∀ (φ : OQ7Prescribed.ScalarTest) (i j : Fin 3) (r : ℝ),
+  0 < r →
+    OQ7Prescribed.newtonPVTruncated φ i j r =
+      ∫ (x : OQ7Prescribed.Position) in {x | r < ‖x‖}, OQ7Prescribed.newtonCompensated φ i j x
+OQ7Prescribed.newtonPVTruncated_integrable : ∀ (φ : OQ7Prescribed.ScalarTest) (i j : Fin 3) (r : ℝ),
+  0 < r →
+    MeasureTheory.IntegrableOn (fun x => OQ7Prescribed.newtonHessianKernel i j x * φ x) {x | r < ‖x‖}
+      MeasureTheory.volume
+OQ7Prescribed.newtonRadial_hasDerivAt : ∀ (r : ℝ),
+  r ≠ 0 → HasDerivAt OQ7Prescribed.newtonRadial (OQ7Prescribed.newtonRadialFirst r) r
+OQ7Prescribed.newtonRadialFirst_hasDerivAt : ∀ (r : ℝ),
+  r ≠ 0 → HasDerivAt OQ7Prescribed.newtonRadialFirst (OQ7Prescribed.newtonRadialSecond r) r
+OQ7Prescribed.orthogonalSphere_cone_preimage : ∀ (e : OQ7Prescribed.Position ≃ₗᵢ[ℝ] OQ7Prescribed.Position)
+  (s : Set ↑OQ7Prescribed.UnitSphere),
+  Set.Ioo 0 1 • Subtype.val '' ⇑(OQ7Prescribed.orthogonalSphere e) ⁻¹' s = ⇑e ⁻¹' (Set.Ioo 0 1 • Subtype.val '' s)
+OQ7Prescribed.orthogonalSphere_measurePreserving : ∀ (e : OQ7Prescribed.Position ≃ₗᵢ[ℝ] OQ7Prescribed.Position),
+  MeasureTheory.MeasurePreserving (⇑(OQ7Prescribed.orthogonalSphere e)) OQ7Prescribed.sphereArea
+    OQ7Prescribed.sphereArea
+OQ7Prescribed.outgoing_classical_hessian : ∀ (k : ℝ) (x : OQ7Prescribed.Position),
+  x ≠ 0 →
+    ∀ (i j : Fin 3),
+      lineDeriv ℝ (fun y => lineDeriv ℝ (OQ7Prescribed.outgoingGreen k) y (OQ7Prescribed.basisR j)) x
+          (OQ7Prescribed.basisR i) =
+        (x.ofLp i * x.ofLp j / ‖x‖ ^ 2) • OQ7Prescribed.outgoingRadialSecond k ‖x‖ +
+          ((if i = j then 1 else 0) / ‖x‖ - x.ofLp i * x.ofLp j / ‖x‖ ^ 3) • OQ7Prescribed.outgoingRadialFirst k ‖x‖
+OQ7Prescribed.outgoingGreen_eq_radial : ∀ (k : ℝ) (x : OQ7Prescribed.Position),
+  OQ7Prescribed.outgoingGreen k x = OQ7Prescribed.outgoingRadial k ‖x‖
+OQ7Prescribed.outgoingGreen_locallyIntegrable : ∀ (k : ℝ),
+  MeasureTheory.LocallyIntegrable (OQ7Prescribed.outgoingGreen k) MeasureTheory.volume
+OQ7Prescribed.outgoingGreen_measurable : ∀ (k : ℝ), Measurable (OQ7Prescribed.outgoingGreen k)
+OQ7Prescribed.outgoingGreen_memLp_on_compact : ∀ (k : ℝ) (K : Set OQ7Prescribed.Position),
+  IsCompact K → MeasureTheory.MemLp (OQ7Prescribed.outgoingGreen k) 2 (MeasureTheory.volume.restrict K)
+OQ7Prescribed.outgoingGreen_norm : ∀ (k : ℝ) (x : OQ7Prescribed.Position),
+  ‖OQ7Prescribed.outgoingGreen k x‖ = (4 * Real.pi * ‖x‖)⁻¹
+OQ7Prescribed.outgoingGreen_sq_norm_locallyIntegrable : ∀ (k : ℝ),
+  MeasureTheory.LocallyIntegrable (fun x => ‖OQ7Prescribed.outgoingGreen k x‖ ^ 2) MeasureTheory.volume
+OQ7Prescribed.outgoingGreen_zero_eq_newton : ∀ (x : OQ7Prescribed.Position),
+  OQ7Prescribed.outgoingGreen 0 x = OQ7Prescribed.newtonRadial ‖x‖
+OQ7Prescribed.outgoingGreenDistribution_apply : ∀ (k : ℝ) (φ : OQ7Prescribed.ScalarTest),
+  (OQ7Prescribed.outgoingGreenDistribution k) φ = ∫ (x : OQ7Prescribed.Position), φ x • OQ7Prescribed.outgoingGreen k x
+OQ7Prescribed.outgoingPotential_add : ∀ (k : ℝ) (p q : OQ7Prescribed.CompactPolarization),
+  OQ7Prescribed.outgoingPotential k (p.add q) =
+    OQ7Prescribed.outgoingPotential k p + OQ7Prescribed.outgoingPotential k q
+OQ7Prescribed.outgoingPotential_aestronglyMeasurable : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization),
+  MeasureTheory.AEStronglyMeasurable (OQ7Prescribed.outgoingPotential k p) MeasureTheory.volume
+OQ7Prescribed.outgoingPotential_congr_current : ∀ (k : ℝ) (p q : OQ7Prescribed.CompactPolarization),
+  p.current =ᵐ[MeasureTheory.volume] q.current →
+    OQ7Prescribed.outgoingPotential k p = OQ7Prescribed.outgoingPotential k q
+OQ7Prescribed.outgoingPotential_enorm_le : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization) (S : ℝ)
+  (x : OQ7Prescribed.Position), ‖x‖ ≤ S → ‖OQ7Prescribed.outgoingPotential k p x‖ₑ ≤ OQ7Prescribed.potentialBound k p S
+OQ7Prescribed.outgoingPotential_eq_cutoff : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization) (S : ℝ)
+  (x : OQ7Prescribed.Position),
+  ‖x‖ ≤ S →
+    OQ7Prescribed.outgoingPotential k p x =
+      MeasureTheory.convolution p.current (OQ7Prescribed.cutoffGreen k (S + p.radius)) OQ7Prescribed.vectorScalarMul
+        MeasureTheory.volume x
+OQ7Prescribed.outgoingPotential_integrable : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization)
+  (x : OQ7Prescribed.Position),
+  MeasureTheory.Integrable (fun y => OQ7Prescribed.outgoingGreen k (x - y) • p.current y) MeasureTheory.volume
+OQ7Prescribed.outgoingPotential_integrand_cutoff : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization) (S : ℝ)
+  (x y : OQ7Prescribed.Position),
+  ‖x‖ ≤ S →
+    (OQ7Prescribed.vectorScalarMul (p.current y)) (OQ7Prescribed.outgoingGreen k (x - y)) =
+      (OQ7Prescribed.vectorScalarMul (p.current y)) (OQ7Prescribed.cutoffGreen k (S + p.radius) (x - y))
+OQ7Prescribed.outgoingPotential_locallyIntegrable : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization),
+  MeasureTheory.LocallyIntegrable (OQ7Prescribed.outgoingPotential k p) MeasureTheory.volume
+OQ7Prescribed.outgoingRadial_hasDerivAt : ∀ (k r : ℝ),
+  r ≠ 0 → HasDerivAt (OQ7Prescribed.outgoingRadial k) (OQ7Prescribed.outgoingRadialFirst k r) r
+OQ7Prescribed.outgoingRadialFirst_hasDerivAt : ∀ (k r : ℝ),
+  r ≠ 0 → HasDerivAt (OQ7Prescribed.outgoingRadialFirst k) (OQ7Prescribed.outgoingRadialSecond k r) r
+OQ7Prescribed.outgoingVolumeDistribution_add : ∀ (k : ℝ) (p q : OQ7Prescribed.CompactPolarization) (i : Fin 3),
+  OQ7Prescribed.outgoingVolumeDistribution k (p.add q) i =
+    OQ7Prescribed.outgoingVolumeDistribution k p i + OQ7Prescribed.outgoingVolumeDistribution k q i
+OQ7Prescribed.outgoingVolumeDistribution_apply : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization) (i : Fin 3)
+  (φ : OQ7Prescribed.ScalarTest),
+  (OQ7Prescribed.outgoingVolumeDistribution k p i) φ =
+    k ^ 2 • (∫ (x : OQ7Prescribed.Position), φ x • OQ7Prescribed.outgoingPotential k p x).ofLp i +
+      ∑ j,
+        (∫ (x : OQ7Prescribed.Position),
+              ((OQ7Prescribed.testPartial j) ((OQ7Prescribed.testPartial i) φ)) x •
+                OQ7Prescribed.outgoingPotential k p x).ofLp
+          j
+OQ7Prescribed.pairing_self : ∀ (v : OQ7Prescribed.Vector), OQ7Prescribed.pairing v v = ↑(OQ7Prescribed.squareNorm v)
+OQ7Prescribed.permittivity_one_outside : ∀ (B : OQ7Prescribed.TwoLayerBody), ∀ x ∉ B.domain, B.permittivity x = 1
+OQ7Prescribed.permittivity_reciprocal : ∀ (B : OQ7Prescribed.TwoLayerBody) (P Q : ℝ),
+  B.admissible P Q → ∀ (x : OQ7Prescribed.Position), Matrix.transpose (B.permittivity x) = B.permittivity x
+OQ7Prescribed.planePhase_norm : ∀ (k : ℝ) (σ : OQ7Prescribed.Direction) (x : OQ7Prescribed.Position),
+  ‖OQ7Prescribed.planePhase k σ x‖ = 1
+OQ7Prescribed.polarization_zero_outside : ∀ (B : OQ7Prescribed.TwoLayerBody) (E : OQ7Prescribed.Field),
+  ∀ x ∉ B.domain, OQ7Prescribed.polarization B E x = 0
+OQ7Prescribed.potentialBound_lt_top : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization) (S : ℝ),
+  OQ7Prescribed.potentialBound k p S < ⊤
+OQ7Prescribed.potentialComponentDistribution_apply : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization) (i : Fin 3)
+  (φ : OQ7Prescribed.ScalarTest),
+  (OQ7Prescribed.potentialComponentDistribution k p i) φ =
+    (∫ (x : OQ7Prescribed.Position), φ x • OQ7Prescribed.outgoingPotential k p x).ofLp i
+OQ7Prescribed.potentialDistribution_add : ∀ (k : ℝ) (p q : OQ7Prescribed.CompactPolarization),
+  OQ7Prescribed.potentialDistribution k (p.add q) =
+    OQ7Prescribed.potentialDistribution k p + OQ7Prescribed.potentialDistribution k q
+OQ7Prescribed.potentialDistribution_apply : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization)
+  (φ : OQ7Prescribed.ScalarTest),
+  (OQ7Prescribed.potentialDistribution k p) φ =
+    ∫ (x : OQ7Prescribed.Position), φ x • OQ7Prescribed.outgoingPotential k p x
+OQ7Prescribed.quadratic_layer : ∀ (a b ν : ℝ) (u : OQ7Prescribed.Position) (v : OQ7Prescribed.Vector),
+  OQ7Prescribed.quadratic (OQ7Prescribed.layerPermittivity a b ν u) v =
+    (1 + Complex.I * ↑ν) * ↑(OQ7Prescribed.squareNorm v) +
+      (↑a + Complex.I * ↑b) * ↑(Complex.normSq (OQ7Prescribed.axisCoupling u v))
+OQ7Prescribed.quadratic_layer_im : ∀ (a b ν : ℝ) (u : OQ7Prescribed.Position) (v : OQ7Prescribed.Vector),
+  (OQ7Prescribed.quadratic (OQ7Prescribed.layerPermittivity a b ν u) v).im =
+    ν * OQ7Prescribed.squareNorm v + b * Complex.normSq (OQ7Prescribed.axisCoupling u v)
+OQ7Prescribed.quadratic_layer_re : ∀ (a b ν : ℝ) (u : OQ7Prescribed.Position) (v : OQ7Prescribed.Vector),
+  (OQ7Prescribed.quadratic (OQ7Prescribed.layerPermittivity a b ν u) v).re =
+    OQ7Prescribed.squareNorm v + a * Complex.normSq (OQ7Prescribed.axisCoupling u v)
+OQ7Prescribed.radial_lineDeriv : ∀ (F : ℝ → ℂ) (F₁ : ℂ) (x : OQ7Prescribed.Position),
+  x ≠ 0 →
+    HasDerivAt F F₁ ‖x‖ → ∀ (j : Fin 3), lineDeriv ℝ (fun y => F ‖y‖) x (OQ7Prescribed.basisR j) = (x.ofLp j / ‖x‖) • F₁
+OQ7Prescribed.radial_second_lineDeriv : ∀ (F F₁ F₂ : ℝ → ℂ),
+  (∀ (r : ℝ), 0 < r → HasDerivAt F (F₁ r) r) →
+    (∀ (r : ℝ), 0 < r → HasDerivAt F₁ (F₂ r) r) →
+      ∀ (x : OQ7Prescribed.Position),
+        x ≠ 0 →
+          ∀ (i j : Fin 3),
+            lineDeriv ℝ (fun y => lineDeriv ℝ (fun z => F ‖z‖) y (OQ7Prescribed.basisR j)) x (OQ7Prescribed.basisR i) =
+              (x.ofLp i * x.ofLp j / ‖x‖ ^ 2) • F₂ ‖x‖ +
+                ((if i = j then 1 else 0) / ‖x‖ - x.ofLp i * x.ofLp j / ‖x‖ ^ 3) • F₁ ‖x‖
+@OQ7Prescribed.radialNorm_hasFDerivAt : ∀ {E : Type u_1} [inst : NormedAddCommGroup E] [inst_1 : InnerProductSpace ℝ E]
+  (x : E), x ≠ 0 → HasFDerivAt (fun y => ‖y‖) (‖x‖⁻¹ • (innerSL ℝ) x) x
+OQ7Prescribed.rankOne_complexify_continuous : Continuous fun x =>
+  ((InnerProductSpace.rankOne ℂ) (OQ7Prescribed.complexify x)) (OQ7Prescribed.complexify x)
+OQ7Prescribed.rankOne_transpose : ∀ (u : OQ7Prescribed.Position),
+  Matrix.transpose (OQ7Prescribed.rankOne u) = OQ7Prescribed.rankOne u
+OQ7Prescribed.real_inner_basis : ∀ (x : OQ7Prescribed.Position) (j : Fin 3),
+  inner ℝ x (OQ7Prescribed.basisR j) = x.ofLp j
+OQ7Prescribed.remainderPotential_add : ∀ (k : ℝ) (p q : OQ7Prescribed.CompactPolarization),
+  OQ7Prescribed.remainderPotential k (p.add q) =
+    OQ7Prescribed.remainderPotential k p + OQ7Prescribed.remainderPotential k q
+OQ7Prescribed.remainderPotential_aestronglyMeasurable : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization),
+  MeasureTheory.AEStronglyMeasurable (OQ7Prescribed.remainderPotential k p) MeasureTheory.volume
+OQ7Prescribed.remainderPotential_congr_current : ∀ (k : ℝ) (p q : OQ7Prescribed.CompactPolarization),
+  p.current =ᵐ[MeasureTheory.volume] q.current →
+    OQ7Prescribed.remainderPotential k p = OQ7Prescribed.remainderPotential k q
+OQ7Prescribed.remainderPotential_eLpNorm_le : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization)
+  (K : Set OQ7Prescribed.Position),
+  MeasurableSet K →
+    ∀ (S : ℝ),
+      (∀ x ∈ K, ‖x‖ ≤ S) →
+        MeasureTheory.eLpNorm (OQ7Prescribed.remainderPotential k p) 2 (MeasureTheory.volume.restrict K) ≤
+          OQ7Prescribed.remainderPotentialBound k p S * MeasureTheory.volume K ^ (1 / 2)
+OQ7Prescribed.remainderPotential_enorm_le : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization) (S : ℝ)
+  (x : OQ7Prescribed.Position),
+  ‖x‖ ≤ S → ‖OQ7Prescribed.remainderPotential k p x‖ₑ ≤ OQ7Prescribed.remainderPotentialBound k p S
+OQ7Prescribed.remainderPotential_integrable : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization)
+  (x : OQ7Prescribed.Position),
+  MeasureTheory.Integrable (fun y => (OQ7Prescribed.dyadicRemainder k (x - y)) (p.current y)) MeasureTheory.volume
+OQ7Prescribed.remainderPotential_integrand_cutoff : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization) (S : ℝ)
+  (x y : OQ7Prescribed.Position),
+  ‖x‖ ≤ S →
+    (OQ7Prescribed.dyadicRemainder k (x - y)) (p.current y) =
+      (OQ7Prescribed.cutoffDyadicRemainder k (S + p.radius) (x - y)) (p.current y)
+OQ7Prescribed.remainderPotential_memLp_on_compact : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization)
+  (K : Set OQ7Prescribed.Position),
+  IsCompact K → MeasureTheory.MemLp (OQ7Prescribed.remainderPotential k p) 2 (MeasureTheory.volume.restrict K)
+OQ7Prescribed.remainderPotential_smul : ∀ (k : ℝ) (z : ℂ) (p : OQ7Prescribed.CompactPolarization),
+  OQ7Prescribed.remainderPotential k (OQ7Prescribed.CompactPolarization.scale z p) =
+    z • OQ7Prescribed.remainderPotential k p
+OQ7Prescribed.remainderPotentialBound_lt_top : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization) (S : ℝ),
+  OQ7Prescribed.remainderPotentialBound k p S < ⊤
+OQ7Prescribed.rotatedAxis_unit : ∀ (θ : ℝ), ‖OQ7Prescribed.rotatedAxis θ‖ ^ 2 = 1
+OQ7Prescribed.scalarTest_global_lipschitz : ∀ (φ : OQ7Prescribed.ScalarTest), ∃ L, LipschitzWith L ⇑φ
+OQ7Prescribed.sphere_coordinate_cross_zero : ∀ (i j : Fin 3),
+  i ≠ j → ∫ (n : ↑OQ7Prescribed.UnitSphere), (↑n).ofLp i * (↑n).ofLp j ∂OQ7Prescribed.sphereArea = 0
+OQ7Prescribed.sphere_coordinate_mul_integrable : ∀ (i j : Fin 3),
+  MeasureTheory.Integrable (fun n => (↑n).ofLp i * (↑n).ofLp j) OQ7Prescribed.sphereArea
+OQ7Prescribed.sphere_coordinate_sq_equal : ∀ (i j : Fin 3),
+  ∫ (n : ↑OQ7Prescribed.UnitSphere), (↑n).ofLp i ^ 2 ∂OQ7Prescribed.sphereArea =
+    ∫ (n : ↑OQ7Prescribed.UnitSphere), (↑n).ofLp j ^ 2 ∂OQ7Prescribed.sphereArea
+OQ7Prescribed.sphere_coordinate_sq_integral : ∀ (i : Fin 3),
+  ∫ (n : ↑OQ7Prescribed.UnitSphere), (↑n).ofLp i ^ 2 ∂OQ7Prescribed.sphereArea = 4 * Real.pi / 3
+OQ7Prescribed.sphere_integral_orthogonal : ∀ (e : OQ7Prescribed.Position ≃ₗᵢ[ℝ] OQ7Prescribed.Position)
+  (f : ↑OQ7Prescribed.UnitSphere → ℝ),
+  ∫ (n : ↑OQ7Prescribed.UnitSphere), f ((OQ7Prescribed.orthogonalSphere e) n) ∂OQ7Prescribed.sphereArea =
+    ∫ (n : ↑OQ7Prescribed.UnitSphere), f n ∂OQ7Prescribed.sphereArea
+OQ7Prescribed.sphere_newton_angular_cancellation : ∀ (i j : Fin 3),
+  ∫ (n : ↑OQ7Prescribed.UnitSphere), 3 * (↑n).ofLp i * (↑n).ofLp j - if i = j then 1 else 0 ∂OQ7Prescribed.sphereArea =
+    0
+OQ7Prescribed.sphere_second_moment : ∀ (i j : Fin 3),
+  ∫ (n : ↑OQ7Prescribed.UnitSphere), (↑n).ofLp i * (↑n).ofLp j ∂OQ7Prescribed.sphereArea =
+    if i = j then 4 * Real.pi / 3 else 0
+OQ7Prescribed.sphere_test_derivative_continuous : ∀ (φ : OQ7Prescribed.ScalarTest) (i j : Fin 3),
+  Continuous fun r =>
+    ∫ (n : ↑OQ7Prescribed.UnitSphere),
+      (↑n).ofLp j * ((OQ7Prescribed.testPartial i) φ) (r • ↑n) ∂OQ7Prescribed.sphereArea
+OQ7Prescribed.sphere_test_moment_continuous : ∀ (φ : OQ7Prescribed.ScalarTest) (i j : Fin 3),
+  Continuous fun r =>
+    ∫ (n : ↑OQ7Prescribed.UnitSphere), (↑n).ofLp i * (↑n).ofLp j * φ (r • ↑n) ∂OQ7Prescribed.sphereArea
+OQ7Prescribed.sphere_test_moment_zero : ∀ (φ : OQ7Prescribed.ScalarTest) (i j : Fin 3),
+  ∫ (n : ↑OQ7Prescribed.UnitSphere), (↑n).ofLp i * (↑n).ofLp j * φ (0 • ↑n) ∂OQ7Prescribed.sphereArea =
+    (if i = j then 4 * Real.pi / 3 else 0) * φ 0
+OQ7Prescribed.sphereArea_real_univ : OQ7Prescribed.sphereArea.real Set.univ = 4 * Real.pi
+OQ7Prescribed.sphereDirection_unit : ∀ (θ φ : ℝ), ‖OQ7Prescribed.sphereDirection θ φ‖ ^ 2 = 1
+OQ7Prescribed.squareNorm_eq_norm_sq : ∀ (v : OQ7Prescribed.Vector), OQ7Prescribed.squareNorm v = ‖v‖ ^ 2
+OQ7Prescribed.squareNorm_nonneg : ∀ (v : OQ7Prescribed.Vector), 0 ≤ OQ7Prescribed.squareNorm v
+@OQ7Prescribed.squareNorm_pos : ∀ {v : OQ7Prescribed.Vector}, v ≠ 0 → 0 < OQ7Prescribed.squareNorm v
+OQ7Prescribed.staticFourierOperator_apply_norm_le : ∀ (f : ↥OQ7Prescribed.VectorL2),
+  ‖OQ7Prescribed.staticFourierOperator f‖ ≤ ‖f‖
+OQ7Prescribed.staticFourierOperator_norm_le : ‖OQ7Prescribed.staticFourierOperator‖ ≤ 1
+OQ7Prescribed.staticFourierOperator_quadratic_im : ∀ (f : ↥OQ7Prescribed.VectorL2),
+  (inner ℂ f (OQ7Prescribed.staticFourierOperator f)).im = 0
+OQ7Prescribed.staticMultiplierCLM_norm_le : ‖OQ7Prescribed.staticMultiplierCLM‖ ≤ 1
+OQ7Prescribed.staticMultiplierLp_add : ∀ (f g : ↥OQ7Prescribed.VectorL2),
+  OQ7Prescribed.staticMultiplierLp (f + g) = OQ7Prescribed.staticMultiplierLp f + OQ7Prescribed.staticMultiplierLp g
+OQ7Prescribed.staticMultiplierLp_coe : ∀ (f : ↥OQ7Prescribed.VectorL2),
+  ↑↑(OQ7Prescribed.staticMultiplierLp f) =ᵐ[MeasureTheory.volume] fun ξ => (OQ7Prescribed.staticSymbol ξ) (↑↑f ξ)
+OQ7Prescribed.staticMultiplierLp_norm_le : ∀ (f : ↥OQ7Prescribed.VectorL2), ‖OQ7Prescribed.staticMultiplierLp f‖ ≤ ‖f‖
+OQ7Prescribed.staticMultiplierLp_quadratic_im : ∀ (f : ↥OQ7Prescribed.VectorL2),
+  (inner ℂ f (OQ7Prescribed.staticMultiplierLp f)).im = 0
+OQ7Prescribed.staticMultiplierLp_smul : ∀ (z : ℂ) (f : ↥OQ7Prescribed.VectorL2),
+  OQ7Prescribed.staticMultiplierLp (z • f) = z • OQ7Prescribed.staticMultiplierLp f
+OQ7Prescribed.staticSymbol_apply : ∀ (ξ : OQ7Prescribed.Position) (v : OQ7Prescribed.Vector),
+  (OQ7Prescribed.staticSymbol ξ) v = -↑(‖ξ‖ ^ 2)⁻¹ • OQ7Prescribed.tensorApply (OQ7Prescribed.rankOne ξ) v
+OQ7Prescribed.staticSymbol_apply_norm_le : ∀ (ξ : OQ7Prescribed.Position) (v : OQ7Prescribed.Vector),
+  ‖(OQ7Prescribed.staticSymbol ξ) v‖ ≤ ‖v‖
+OQ7Prescribed.staticSymbol_memLp : ∀ (f : ↥OQ7Prescribed.VectorL2),
+  MeasureTheory.MemLp (fun ξ => (OQ7Prescribed.staticSymbol ξ) (↑↑f ξ)) 2 MeasureTheory.volume
+OQ7Prescribed.staticSymbol_norm_le : ∀ (ξ : OQ7Prescribed.Position), ‖OQ7Prescribed.staticSymbol ξ‖ ≤ 1
+OQ7Prescribed.staticSymbol_quadratic : ∀ (ξ : OQ7Prescribed.Position) (v : OQ7Prescribed.Vector),
+  inner ℂ v ((OQ7Prescribed.staticSymbol ξ) v) = -↑(‖ξ‖ ^ 2)⁻¹ * ↑(Complex.normSq (OQ7Prescribed.axisCoupling ξ v))
+OQ7Prescribed.staticSymbol_quadratic_im : ∀ (ξ : OQ7Prescribed.Position) (v : OQ7Prescribed.Vector),
+  (inner ℂ v ((OQ7Prescribed.staticSymbol ξ) v)).im = 0
+OQ7Prescribed.susceptibility_zero_outside : ∀ (B : OQ7Prescribed.TwoLayerBody), ∀ x ∉ B.domain, B.susceptibility x = 0
+OQ7Prescribed.tensorApply_one : ∀ (v : OQ7Prescribed.Vector), OQ7Prescribed.tensorApply 1 v = v
+OQ7Prescribed.tensorApply_rankOne : ∀ (u : OQ7Prescribed.Position) (v : OQ7Prescribed.Vector),
+  OQ7Prescribed.tensorApply (OQ7Prescribed.rankOne u) v = OQ7Prescribed.axisCoupling u v • OQ7Prescribed.complexify u
+OQ7Prescribed.unitSphere_norm : ∀ (n : ↑OQ7Prescribed.UnitSphere), ‖↑n‖ = 1
+OQ7Prescribed.unitSphere_sum_sq : ∀ (n : ↑OQ7Prescribed.UnitSphere), ∑ i, (↑n).ofLp i ^ 2 = 1
+OQ7Prescribed.vectorScalarMul_apply : ∀ (v : OQ7Prescribed.Vector) (z : ℂ), (OQ7Prescribed.vectorScalarMul v) z = z • v

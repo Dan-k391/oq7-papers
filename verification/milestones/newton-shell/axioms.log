@@ -1,0 +1,41 @@
+OQ7Prescribed.exteriorCutoff_integral_tendsto : ∀ (r : ℝ) (f : OQ7Prescribed.Position → ℝ),
+  MeasureTheory.AEStronglyMeasurable f MeasureTheory.volume →
+    MeasureTheory.IntegrableOn f {x | r < ‖x‖} MeasureTheory.volume →
+      Filter.Tendsto (fun t => ∫ (x : OQ7Prescribed.Position), OQ7Prescribed.exteriorCutoff r t x * f x)
+        (nhdsWithin 0 (Set.Ioi 0)) (nhds (∫ (x : OQ7Prescribed.Position) in {x | r < ‖x‖}, f x))
+OQ7Prescribed.integrable_polar_actual : ∀ (f : OQ7Prescribed.Position → ℝ),
+  MeasureTheory.Integrable f MeasureTheory.volume →
+    MeasureTheory.Integrable (fun p => f (↑p.2 • ↑p.1))
+      (OQ7Prescribed.sphereArea.prod (MeasureTheory.Measure.volumeIoiPow 2))
+OQ7Prescribed.integral_polar_iterated_actual : ∀ (f : OQ7Prescribed.Position → ℝ),
+  MeasureTheory.Integrable f MeasureTheory.volume →
+    ∫ (x : OQ7Prescribed.Position), f x =
+      ∫ (s : ℝ) in Set.Ioi 0, s ^ 2 * ∫ (n : ↑OQ7Prescribed.UnitSphere), f (s • ↑n) ∂OQ7Prescribed.sphereArea
+OQ7Prescribed.exteriorCutoffPartial_mul_integrable : ∀ (r t : ℝ),
+  0 < r →
+    0 < t →
+      ∀ (i : Fin 3) (F : OQ7Prescribed.Position → ℝ),
+        (∀ (x : OQ7Prescribed.Position), x ≠ 0 → ContinuousAt F x) →
+          MeasureTheory.Integrable (fun x => OQ7Prescribed.exteriorCutoffPartial r t i x * F x) MeasureTheory.volume
+OQ7Prescribed.transition_radial_integral : ∀ (r t : ℝ),
+  0 < r →
+    0 < t →
+      ∀ (A : ℝ → ℝ),
+        ∫ (s : ℝ) in Set.Ioi 0, OQ7Prescribed.transitionDerivative ((s - r) / t) * A s =
+          ∫ (s : ℝ) in r..r + t, OQ7Prescribed.transitionDerivative ((s - r) / t) * A s
+OQ7Prescribed.transition_radial_rescale : ∀ (r t : ℝ),
+  0 < t →
+    ∀ (A : ℝ → ℝ),
+      t⁻¹ * ∫ (s : ℝ) in r..r + t, OQ7Prescribed.transitionDerivative ((s - r) / t) * A s =
+        ∫ (u : ℝ) in 0..1, OQ7Prescribed.transitionDerivative u * A (r + t * u)
+OQ7Prescribed.transition_average_tendsto : ∀ (r : ℝ) (A : ℝ → ℝ),
+  Continuous A →
+    Filter.Tendsto (fun t => ∫ (u : ℝ) in 0..1, OQ7Prescribed.transitionDerivative u * A (r + t * u)) (nhds 0)
+      (nhds (A r))
+'OQ7Prescribed.exteriorCutoff_integral_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.integrable_polar_actual' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.integral_polar_iterated_actual' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.exteriorCutoffPartial_mul_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.transition_radial_integral' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.transition_radial_rescale' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.transition_average_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]

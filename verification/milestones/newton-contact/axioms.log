@@ -1,0 +1,91 @@
+OQ7Prescribed.newton_cutoff_double_ibp : ∀ (r t : ℝ),
+  0 < r →
+    0 < t →
+      ∀ (φ : OQ7Prescribed.ScalarTest) (i j : Fin 3),
+        ∫ (x : OQ7Prescribed.Position),
+            OQ7Prescribed.exteriorCutoff r t x * OQ7Prescribed.newtonReal x *
+              ((OQ7Prescribed.testPartial j) ((OQ7Prescribed.testPartial i) φ)) x =
+          ((∫ (x : OQ7Prescribed.Position),
+                OQ7Prescribed.exteriorCutoff r t x * OQ7Prescribed.newtonHessianKernel i j x * φ x) +
+              ∫ (x : OQ7Prescribed.Position),
+                OQ7Prescribed.exteriorCutoffPartial r t i x * OQ7Prescribed.newtonGradient j x * φ x) -
+            ∫ (x : OQ7Prescribed.Position),
+              OQ7Prescribed.exteriorCutoffPartial r t j x * OQ7Prescribed.newtonReal x *
+                ((OQ7Prescribed.testPartial i) φ) x
+OQ7Prescribed.newton_cutoff_contact_shell : ∀ (r t : ℝ),
+  0 < r →
+    0 < t →
+      ∀ (φ : OQ7Prescribed.ScalarTest) (i j : Fin 3),
+        ∫ (x : OQ7Prescribed.Position),
+            OQ7Prescribed.exteriorCutoffPartial r t i x * OQ7Prescribed.newtonGradient j x * φ x =
+          -(4 * Real.pi)⁻¹ *
+            ∫ (u : ℝ) in 0..1,
+              OQ7Prescribed.transitionDerivative u *
+                ∫ (n : ↑OQ7Prescribed.UnitSphere),
+                  (↑n).ofLp i * (↑n).ofLp j * φ ((r + t * u) • ↑n) ∂OQ7Prescribed.sphereArea
+OQ7Prescribed.newton_cutoff_derivative_shell : ∀ (r t : ℝ),
+  0 < r →
+    0 < t →
+      ∀ (φ : OQ7Prescribed.ScalarTest) (i j : Fin 3),
+        ∫ (x : OQ7Prescribed.Position),
+            OQ7Prescribed.exteriorCutoffPartial r t j x * OQ7Prescribed.newtonReal x *
+              ((OQ7Prescribed.testPartial i) φ) x =
+          (4 * Real.pi)⁻¹ *
+            ∫ (u : ℝ) in 0..1,
+              OQ7Prescribed.transitionDerivative u *
+                ((r + t * u) *
+                  ∫ (n : ↑OQ7Prescribed.UnitSphere),
+                    (↑n).ofLp j * ((OQ7Prescribed.testPartial i) φ) ((r + t * u) • ↑n) ∂OQ7Prescribed.sphereArea)
+OQ7Prescribed.newton_punctured_double_ibp : ∀ (r : ℝ),
+  0 < r →
+    ∀ (φ : OQ7Prescribed.ScalarTest) (i j : Fin 3),
+      ∫ (x : OQ7Prescribed.Position) in {x | r < ‖x‖},
+          OQ7Prescribed.newtonReal x * ((OQ7Prescribed.testPartial j) ((OQ7Prescribed.testPartial i) φ)) x =
+        OQ7Prescribed.newtonPVTruncated φ i j r + OQ7Prescribed.newtonContactBoundary φ i j r +
+          OQ7Prescribed.newtonDerivativeBoundary φ i j r
+OQ7Prescribed.newton_inner_derivative_normal : ∀ (r : ℝ),
+  0 < r →
+    ∀ (φ : OQ7Prescribed.ScalarTest) (i j : Fin 3) (n : ↑OQ7Prescribed.UnitSphere),
+      r ^ 2 * OQ7Prescribed.newtonReal (r • ↑n) * ((OQ7Prescribed.testPartial i) φ) (r • ↑n) * -(↑n).ofLp j =
+        -r / (4 * Real.pi) * ((↑n).ofLp j * ((OQ7Prescribed.testPartial i) φ) (r • ↑n))
+OQ7Prescribed.newton_inner_contact_normal : ∀ (r : ℝ),
+  0 < r →
+    ∀ (φ : OQ7Prescribed.ScalarTest) (i j : Fin 3) (n : ↑OQ7Prescribed.UnitSphere),
+      -(r ^ 2 * OQ7Prescribed.newtonGradient j (r • ↑n) * φ (r • ↑n) * -(↑n).ofLp i) =
+        -(4 * Real.pi)⁻¹ * ((↑n).ofLp i * (↑n).ofLp j * φ (r • ↑n))
+OQ7Prescribed.newton_outer_boundary_vanishes : ∀ (φ : OQ7Prescribed.ScalarTest) (i j : Fin 3),
+  ∃ R,
+    0 < R ∧
+      ∀ (T : ℝ),
+        R ≤ T → OQ7Prescribed.newtonContactBoundary φ i j T = 0 ∧ OQ7Prescribed.newtonDerivativeBoundary φ i j T = 0
+OQ7Prescribed.newton_test_puncture_removal : ∀ (φ : OQ7Prescribed.ScalarTest),
+  Filter.Tendsto (fun r => ∫ (x : OQ7Prescribed.Position) in {x | r < ‖x‖}, OQ7Prescribed.newtonReal x * φ x) (nhds 0)
+    (nhds (∫ (x : OQ7Prescribed.Position), OQ7Prescribed.newtonReal x * φ x))
+OQ7Prescribed.newton_contact_identity_real : ∀ (φ : OQ7Prescribed.ScalarTest) (i j : Fin 3),
+  ∫ (x : OQ7Prescribed.Position),
+      OQ7Prescribed.newtonReal x * ((OQ7Prescribed.testPartial j) ((OQ7Prescribed.testPartial i) φ)) x =
+    OQ7Prescribed.newtonPVValue φ i j - (if i = j then 1 else 0) / 3 * φ 0
+OQ7Prescribed.newton_hessian_contact_apply : ∀ (φ : OQ7Prescribed.ScalarTest) (i j : Fin 3),
+  (OQ7Prescribed.greenHessian 0 i j) φ = ↑(OQ7Prescribed.newtonPVValue φ i j - (if i = j then 1 else 0) / 3 * φ 0)
+OQ7Prescribed.newtonPVDistribution_apply : ∀ (φ : OQ7Prescribed.ScalarTest) (i j : Fin 3),
+  (OQ7Prescribed.newtonPVDistribution i j) φ = ↑(OQ7Prescribed.newtonPVValue φ i j)
+OQ7Prescribed.newtonPVValue_continuous : ∀ (i j : Fin 3), Continuous fun φ => OQ7Prescribed.newtonPVValue φ i j
+OQ7Prescribed.newton_hessian_contact_distribution : ∀ (i j : Fin 3),
+  OQ7Prescribed.greenHessian 0 i j =
+    OQ7Prescribed.newtonPVDistribution i j - ((if i = j then 1 else 0) / 3) • OQ7Prescribed.newtonDirac
+def OQ7Prescribed.newtonPVDistribution : Fin 3 → Fin 3 → OQ7Prescribed.ScalarDistribution :=
+fun i j => { toFun := fun φ => ↑(OQ7Prescribed.newtonPVValue φ i j), map_add' := ⋯, map_smul' := ⋯, cont := ⋯ }
+'OQ7Prescribed.newton_cutoff_double_ibp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.newton_cutoff_contact_shell' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.newton_cutoff_derivative_shell' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.newton_punctured_double_ibp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.newton_inner_derivative_normal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.newton_inner_contact_normal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.newton_outer_boundary_vanishes' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.newton_test_puncture_removal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.newton_contact_identity_real' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.newton_hessian_contact_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.newtonPVDistribution' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.newtonPVDistribution_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.newtonPVValue_continuous' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.newton_hessian_contact_distribution' depends on axioms: [propext, Classical.choice, Quot.sound]

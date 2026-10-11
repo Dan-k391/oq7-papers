@@ -1,0 +1,16 @@
+import PrescribedExtinction.NewtonShell
+
+#check @OQ7Prescribed.exteriorCutoff_integral_tendsto
+#check @OQ7Prescribed.integrable_polar_actual
+#check @OQ7Prescribed.integral_polar_iterated_actual
+#check @OQ7Prescribed.exteriorCutoffPartial_mul_integrable
+#check @OQ7Prescribed.transition_radial_integral
+#check @OQ7Prescribed.transition_radial_rescale
+#check @OQ7Prescribed.transition_average_tendsto
+#print axioms OQ7Prescribed.exteriorCutoff_integral_tendsto
+#print axioms OQ7Prescribed.integrable_polar_actual
+#print axioms OQ7Prescribed.integral_polar_iterated_actual
+#print axioms OQ7Prescribed.exteriorCutoffPartial_mul_integrable
+#print axioms OQ7Prescribed.transition_radial_integral
+#print axioms OQ7Prescribed.transition_radial_rescale
+#print axioms OQ7Prescribed.transition_average_tendsto

@@ -17,3 +17,9 @@ import PrescribedExtinction.SphereMoments
 import PrescribedExtinction.NewtonBoundary
 import PrescribedExtinction.NewtonPV
 import PrescribedExtinction.NewtonPrincipalValue
+import PrescribedExtinction.NewtonCutoff
+import PrescribedExtinction.NewtonCutoffIBP
+import PrescribedExtinction.NewtonCutoffLimit
+import PrescribedExtinction.NewtonShell
+import PrescribedExtinction.NewtonPunctured
+import PrescribedExtinction.NewtonContact

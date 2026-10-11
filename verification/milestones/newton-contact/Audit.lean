@@ -1,0 +1,30 @@
+import PrescribedExtinction.NewtonContact
+
+#check @OQ7Prescribed.newton_cutoff_double_ibp
+#check @OQ7Prescribed.newton_cutoff_contact_shell
+#check @OQ7Prescribed.newton_cutoff_derivative_shell
+#check @OQ7Prescribed.newton_punctured_double_ibp
+#check @OQ7Prescribed.newton_inner_derivative_normal
+#check @OQ7Prescribed.newton_inner_contact_normal
+#check @OQ7Prescribed.newton_outer_boundary_vanishes
+#check @OQ7Prescribed.newton_test_puncture_removal
+#check @OQ7Prescribed.newton_contact_identity_real
+#check @OQ7Prescribed.newton_hessian_contact_apply
+#check @OQ7Prescribed.newtonPVDistribution_apply
+#check @OQ7Prescribed.newtonPVValue_continuous
+#check @OQ7Prescribed.newton_hessian_contact_distribution
+#print OQ7Prescribed.newtonPVDistribution
+#print axioms OQ7Prescribed.newton_cutoff_double_ibp
+#print axioms OQ7Prescribed.newton_cutoff_contact_shell
+#print axioms OQ7Prescribed.newton_cutoff_derivative_shell
+#print axioms OQ7Prescribed.newton_punctured_double_ibp
+#print axioms OQ7Prescribed.newton_inner_derivative_normal
+#print axioms OQ7Prescribed.newton_inner_contact_normal
+#print axioms OQ7Prescribed.newton_outer_boundary_vanishes
+#print axioms OQ7Prescribed.newton_test_puncture_removal
+#print axioms OQ7Prescribed.newton_contact_identity_real
+#print axioms OQ7Prescribed.newton_hessian_contact_apply
+#print axioms OQ7Prescribed.newtonPVDistribution
+#print axioms OQ7Prescribed.newtonPVDistribution_apply
+#print axioms OQ7Prescribed.newtonPVValue_continuous
+#print axioms OQ7Prescribed.newton_hessian_contact_distribution

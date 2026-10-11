@@ -11,7 +11,10 @@ try {
         @{ name = 'dyadic-remainder'; module = 'PrescribedExtinction.RemainderConvolution' },
         @{ name = 'spherical-moments'; module = 'PrescribedExtinction.SphereMoments' },
         @{ name = 'newton-boundary'; module = 'PrescribedExtinction.NewtonBoundary' },
-        @{ name = 'newton-principal-value'; module = 'PrescribedExtinction.NewtonPrincipalValue' }
+        @{ name = 'newton-principal-value'; module = 'PrescribedExtinction.NewtonPrincipalValue' },
+        @{ name = 'newton-cutoff'; module = 'PrescribedExtinction.NewtonCutoffIBP' },
+        @{ name = 'newton-shell'; module = 'PrescribedExtinction.NewtonShell' },
+        @{ name = 'newton-contact'; module = 'PrescribedExtinction.NewtonContact' }
     )
     foreach ($oq7Milestone in $oq7Milestones) {
         $oq7Directory = Join-Path 'verification/milestones' $oq7Milestone.name

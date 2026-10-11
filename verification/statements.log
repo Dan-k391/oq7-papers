@@ -29,6 +29,13 @@ OQ7Prescribed.classicalDyadic_coordinate : ∀ (k : ℝ) (x : OQ7Prescribed.Posi
 OQ7Prescribed.classicalDyadic_measurable : ∀ (k : ℝ), Measurable (OQ7Prescribed.classicalDyadic k)
 OQ7Prescribed.complexify_continuous : Continuous OQ7Prescribed.complexify
 OQ7Prescribed.complexify_norm_sq : ∀ (u : OQ7Prescribed.Position), ‖OQ7Prescribed.complexify u‖ ^ 2 = ‖u‖ ^ 2
+OQ7Prescribed.contDiff_lineDeriv_continuous : ∀ (F : OQ7Prescribed.Position → ℝ),
+  ContDiff ℝ 1 F → ∀ (i : Fin 3), Continuous fun x => lineDeriv ℝ F x (OQ7Prescribed.basisR i)
+OQ7Prescribed.contDiff_test_ibp : ∀ (F : OQ7Prescribed.Position → ℝ),
+  ContDiff ℝ 1 F →
+    ∀ (φ : OQ7Prescribed.ScalarTest) (i : Fin 3),
+      ∫ (x : OQ7Prescribed.Position), F x * ((OQ7Prescribed.testPartial i) φ) x =
+        -∫ (x : OQ7Prescribed.Position), lineDeriv ℝ F x (OQ7Prescribed.basisR i) * φ x
 OQ7Prescribed.coordinateReflect_apply : ∀ (i j : Fin 3) (x : OQ7Prescribed.Position),
   ((OQ7Prescribed.coordinateReflect i) x).ofLp j = if j = i then -x.ofLp j else x.ofLp j
 OQ7Prescribed.coordinateSwap_apply : ∀ (i j a : Fin 3) (x : OQ7Prescribed.Position),
@@ -69,6 +76,78 @@ OQ7Prescribed.dyadicRemainder_norm_le_on_ball : ∀ (k R : ℝ) (x : OQ7Prescrib
     ‖OQ7Prescribed.dyadicRemainder k x‖ ≤
       k ^ 2 / (4 * Real.pi) * OQ7Prescribed.greenCancellationEnvelope (|k| * R) * ‖x‖⁻¹
 OQ7Prescribed.exp_remainder_two_norm : ∀ (z : ℂ), ‖Complex.exp z - 1 - z‖ ≤ ‖z‖ ^ 2 * Real.exp ‖z‖
+OQ7Prescribed.exteriorCutoff_contDiff : ∀ (r t : ℝ), 0 < r → 0 < t → ContDiff ℝ 1 (OQ7Prescribed.exteriorCutoff r t)
+OQ7Prescribed.exteriorCutoff_gradient_ibp : ∀ (r t : ℝ),
+  0 < r →
+    0 < t →
+      ∀ (φ : OQ7Prescribed.ScalarTest) (i j : Fin 3),
+        ∫ (x : OQ7Prescribed.Position),
+            OQ7Prescribed.exteriorCutoff r t x * OQ7Prescribed.newtonGradient j x *
+              ((OQ7Prescribed.testPartial i) φ) x =
+          -∫ (x : OQ7Prescribed.Position),
+              (OQ7Prescribed.exteriorCutoffPartial r t i x * OQ7Prescribed.newtonGradient j x +
+                  OQ7Prescribed.exteriorCutoff r t x * OQ7Prescribed.newtonHessianKernel i j x) *
+                φ x
+OQ7Prescribed.exteriorCutoff_hasLineDerivAt : ∀ (r t : ℝ),
+  0 < r →
+    0 < t →
+      ∀ (i : Fin 3) (x : OQ7Prescribed.Position),
+        HasLineDerivAt ℝ (OQ7Prescribed.exteriorCutoff r t) (OQ7Prescribed.exteriorCutoffPartial r t i x) x
+          (OQ7Prescribed.basisR i)
+OQ7Prescribed.exteriorCutoff_integral_tendsto : ∀ (r : ℝ) (f : OQ7Prescribed.Position → ℝ),
+  MeasureTheory.AEStronglyMeasurable f MeasureTheory.volume →
+    MeasureTheory.IntegrableOn f {x | r < ‖x‖} MeasureTheory.volume →
+      Filter.Tendsto (fun t => ∫ (x : OQ7Prescribed.Position), OQ7Prescribed.exteriorCutoff r t x * f x)
+        (nhdsWithin 0 (Set.Ioi 0)) (nhds (∫ (x : OQ7Prescribed.Position) in {x | r < ‖x‖}, f x))
+OQ7Prescribed.exteriorCutoff_le_one : ∀ (r t : ℝ) (x : OQ7Prescribed.Position), OQ7Prescribed.exteriorCutoff r t x ≤ 1
+OQ7Prescribed.exteriorCutoff_mul_contDiff : ∀ (r t : ℝ),
+  0 < r →
+    0 < t →
+      ∀ (F : OQ7Prescribed.Position → ℝ),
+        (∀ (x : OQ7Prescribed.Position), x ≠ 0 → ContDiffAt ℝ 1 F x) →
+          ContDiff ℝ 1 fun x => OQ7Prescribed.exteriorCutoff r t x * F x
+OQ7Prescribed.exteriorCutoff_mul_lineDeriv : ∀ (r t : ℝ),
+  0 < r →
+    0 < t →
+      ∀ (F F' : OQ7Prescribed.Position → ℝ) (i : Fin 3),
+        (∀ (x : OQ7Prescribed.Position), x ≠ 0 → HasLineDerivAt ℝ F (F' x) x (OQ7Prescribed.basisR i)) →
+          ∀ (x : OQ7Prescribed.Position),
+            lineDeriv ℝ (fun y => OQ7Prescribed.exteriorCutoff r t y * F y) x (OQ7Prescribed.basisR i) =
+              OQ7Prescribed.exteriorCutoffPartial r t i x * F x + OQ7Prescribed.exteriorCutoff r t x * F' x
+OQ7Prescribed.exteriorCutoff_newton_ibp : ∀ (r t : ℝ),
+  0 < r →
+    0 < t →
+      ∀ (φ : OQ7Prescribed.ScalarTest) (j : Fin 3),
+        ∫ (x : OQ7Prescribed.Position),
+            OQ7Prescribed.exteriorCutoff r t x * OQ7Prescribed.newtonReal x * ((OQ7Prescribed.testPartial j) φ) x =
+          -∫ (x : OQ7Prescribed.Position),
+              (OQ7Prescribed.exteriorCutoffPartial r t j x * OQ7Prescribed.newtonReal x +
+                  OQ7Prescribed.exteriorCutoff r t x * OQ7Prescribed.newtonGradient j x) *
+                φ x
+OQ7Prescribed.exteriorCutoff_nonneg : ∀ (r t : ℝ) (x : OQ7Prescribed.Position), 0 ≤ OQ7Prescribed.exteriorCutoff r t x
+@OQ7Prescribed.exteriorCutoff_one : ∀ {r t : ℝ},
+  0 < t → ∀ (x : OQ7Prescribed.Position), r + t ≤ ‖x‖ → OQ7Prescribed.exteriorCutoff r t x = 1
+OQ7Prescribed.exteriorCutoff_tendsto : ∀ (r : ℝ) (x : OQ7Prescribed.Position),
+  Filter.Tendsto (fun t => OQ7Prescribed.exteriorCutoff r t x) (nhdsWithin 0 (Set.Ioi 0))
+    (nhds (if r < ‖x‖ then 1 else 0))
+@OQ7Prescribed.exteriorCutoff_zero : ∀ {r t : ℝ},
+  0 < t → ∀ (x : OQ7Prescribed.Position), ‖x‖ ≤ r → OQ7Prescribed.exteriorCutoff r t x = 0
+OQ7Prescribed.exteriorCutoffPartial_mul_continuous : ∀ (r t : ℝ),
+  0 < r →
+    0 < t →
+      ∀ (i : Fin 3) (F : OQ7Prescribed.Position → ℝ),
+        (∀ (x : OQ7Prescribed.Position), x ≠ 0 → ContinuousAt F x) →
+          Continuous fun x => OQ7Prescribed.exteriorCutoffPartial r t i x * F x
+OQ7Prescribed.exteriorCutoffPartial_mul_integrable : ∀ (r t : ℝ),
+  0 < r →
+    0 < t →
+      ∀ (i : Fin 3) (F : OQ7Prescribed.Position → ℝ),
+        (∀ (x : OQ7Prescribed.Position), x ≠ 0 → ContinuousAt F x) →
+          MeasureTheory.Integrable (fun x => OQ7Prescribed.exteriorCutoffPartial r t i x * F x) MeasureTheory.volume
+OQ7Prescribed.exteriorCutoffPartial_zero_inner : ∀ (r t : ℝ),
+  0 < t → ∀ (i : Fin 3) (x : OQ7Prescribed.Position), ‖x‖ ≤ r → OQ7Prescribed.exteriorCutoffPartial r t i x = 0
+OQ7Prescribed.exteriorCutoffPartial_zero_outer : ∀ (r t : ℝ),
+  0 < t → ∀ (i : Fin 3) (x : OQ7Prescribed.Position), r + t ≤ ‖x‖ → OQ7Prescribed.exteriorCutoffPartial r t i x = 0
 OQ7Prescribed.green_first_cancel_norm : ∀ (z : ℂ),
   ‖Complex.exp z * (z - 1) + 1‖ ≤ ‖z‖ ^ 2 * (1 + (‖z‖ + 1) * Real.exp ‖z‖)
 OQ7Prescribed.green_second_cancel_norm : ∀ (z : ℂ),
@@ -98,10 +177,18 @@ OQ7Prescribed.incidentElectric_minus_conjugate : ∀ (k : ℝ) (x : OQ7Prescribe
     WithLp.toLp 2 fun i => star ((OQ7Prescribed.incidentElectric k OQ7Prescribed.Direction.plus x).ofLp i)
 OQ7Prescribed.incidentElectric_squareNorm : ∀ (k : ℝ) (σ : OQ7Prescribed.Direction) (x : OQ7Prescribed.Position),
   OQ7Prescribed.squareNorm (OQ7Prescribed.incidentElectric k σ x) = 1
+OQ7Prescribed.integrable_polar_actual : ∀ (f : OQ7Prescribed.Position → ℝ),
+  MeasureTheory.Integrable f MeasureTheory.volume →
+    MeasureTheory.Integrable (fun p => f (↑p.2 • ↑p.1))
+      (OQ7Prescribed.sphereArea.prod (MeasureTheory.Measure.volumeIoiPow 2))
 OQ7Prescribed.integral_polar_actual : ∀ (f : OQ7Prescribed.Position → ℝ),
   ∫ (x : OQ7Prescribed.Position), f x =
     ∫ (p : ↑OQ7Prescribed.UnitSphere × ↑(Set.Ioi 0)),
       f (↑p.2 • ↑p.1) ∂OQ7Prescribed.sphereArea.prod (MeasureTheory.Measure.volumeIoiPow 2)
+OQ7Prescribed.integral_polar_iterated_actual : ∀ (f : OQ7Prescribed.Position → ℝ),
+  MeasureTheory.Integrable f MeasureTheory.volume →
+    ∫ (x : OQ7Prescribed.Position), f x =
+      ∫ (s : ℝ) in Set.Ioi 0, s ^ 2 * ∫ (n : ↑OQ7Prescribed.UnitSphere), f (s • ↑n) ∂OQ7Prescribed.sphereArea
 OQ7Prescribed.layerPermittivity_admissible : ∀ (P Q a b ν : ℝ) (u : OQ7Prescribed.Position),
   ‖u‖ ^ 2 = 1 →
     0 ≤ a →
@@ -118,6 +205,95 @@ OQ7Prescribed.newton_classical_hessian : ∀ (x : OQ7Prescribed.Position),
 OQ7Prescribed.newton_compensated_cutoff_tendsto : ∀ (φ : OQ7Prescribed.ScalarTest) (i j : Fin 3),
   Filter.Tendsto (fun r => ∫ (x : OQ7Prescribed.Position) in {x | r < ‖x‖}, OQ7Prescribed.newtonCompensated φ i j x)
     (nhds 0) (nhds (OQ7Prescribed.newtonPVValue φ i j))
+OQ7Prescribed.newton_contact_identity_real : ∀ (φ : OQ7Prescribed.ScalarTest) (i j : Fin 3),
+  ∫ (x : OQ7Prescribed.Position),
+      OQ7Prescribed.newtonReal x * ((OQ7Prescribed.testPartial j) ((OQ7Prescribed.testPartial i) φ)) x =
+    OQ7Prescribed.newtonPVValue φ i j - (if i = j then 1 else 0) / 3 * φ 0
+OQ7Prescribed.newton_cutoff_contact_shell : ∀ (r t : ℝ),
+  0 < r →
+    0 < t →
+      ∀ (φ : OQ7Prescribed.ScalarTest) (i j : Fin 3),
+        ∫ (x : OQ7Prescribed.Position),
+            OQ7Prescribed.exteriorCutoffPartial r t i x * OQ7Prescribed.newtonGradient j x * φ x =
+          -(4 * Real.pi)⁻¹ *
+            ∫ (u : ℝ) in 0..1,
+              OQ7Prescribed.transitionDerivative u *
+                ∫ (n : ↑OQ7Prescribed.UnitSphere),
+                  (↑n).ofLp i * (↑n).ofLp j * φ ((r + t * u) • ↑n) ∂OQ7Prescribed.sphereArea
+OQ7Prescribed.newton_cutoff_contact_shell_tendsto : ∀ (r : ℝ),
+  0 < r →
+    ∀ (φ : OQ7Prescribed.ScalarTest) (i j : Fin 3),
+      Filter.Tendsto
+        (fun t =>
+          ∫ (x : OQ7Prescribed.Position),
+            OQ7Prescribed.exteriorCutoffPartial r t i x * OQ7Prescribed.newtonGradient j x * φ x)
+        (nhdsWithin 0 (Set.Ioi 0)) (nhds (OQ7Prescribed.newtonContactBoundary φ i j r))
+OQ7Prescribed.newton_cutoff_derivative_shell : ∀ (r t : ℝ),
+  0 < r →
+    0 < t →
+      ∀ (φ : OQ7Prescribed.ScalarTest) (i j : Fin 3),
+        ∫ (x : OQ7Prescribed.Position),
+            OQ7Prescribed.exteriorCutoffPartial r t j x * OQ7Prescribed.newtonReal x *
+              ((OQ7Prescribed.testPartial i) φ) x =
+          (4 * Real.pi)⁻¹ *
+            ∫ (u : ℝ) in 0..1,
+              OQ7Prescribed.transitionDerivative u *
+                ((r + t * u) *
+                  ∫ (n : ↑OQ7Prescribed.UnitSphere),
+                    (↑n).ofLp j * ((OQ7Prescribed.testPartial i) φ) ((r + t * u) • ↑n) ∂OQ7Prescribed.sphereArea)
+OQ7Prescribed.newton_cutoff_derivative_shell_tendsto : ∀ (r : ℝ),
+  0 < r →
+    ∀ (φ : OQ7Prescribed.ScalarTest) (i j : Fin 3),
+      Filter.Tendsto
+        (fun t =>
+          ∫ (x : OQ7Prescribed.Position),
+            OQ7Prescribed.exteriorCutoffPartial r t j x * OQ7Prescribed.newtonReal x *
+              ((OQ7Prescribed.testPartial i) φ) x)
+        (nhdsWithin 0 (Set.Ioi 0)) (nhds (-OQ7Prescribed.newtonDerivativeBoundary φ i j r))
+OQ7Prescribed.newton_cutoff_double_ibp : ∀ (r t : ℝ),
+  0 < r →
+    0 < t →
+      ∀ (φ : OQ7Prescribed.ScalarTest) (i j : Fin 3),
+        ∫ (x : OQ7Prescribed.Position),
+            OQ7Prescribed.exteriorCutoff r t x * OQ7Prescribed.newtonReal x *
+              ((OQ7Prescribed.testPartial j) ((OQ7Prescribed.testPartial i) φ)) x =
+          ((∫ (x : OQ7Prescribed.Position),
+                OQ7Prescribed.exteriorCutoff r t x * OQ7Prescribed.newtonHessianKernel i j x * φ x) +
+              ∫ (x : OQ7Prescribed.Position),
+                OQ7Prescribed.exteriorCutoffPartial r t i x * OQ7Prescribed.newtonGradient j x * φ x) -
+            ∫ (x : OQ7Prescribed.Position),
+              OQ7Prescribed.exteriorCutoffPartial r t j x * OQ7Prescribed.newtonReal x *
+                ((OQ7Prescribed.testPartial i) φ) x
+OQ7Prescribed.newton_hessian_contact_apply : ∀ (φ : OQ7Prescribed.ScalarTest) (i j : Fin 3),
+  (OQ7Prescribed.greenHessian 0 i j) φ = ↑(OQ7Prescribed.newtonPVValue φ i j - (if i = j then 1 else 0) / 3 * φ 0)
+OQ7Prescribed.newton_hessian_contact_distribution : ∀ (i j : Fin 3),
+  OQ7Prescribed.greenHessian 0 i j =
+    OQ7Prescribed.newtonPVDistribution i j - ((if i = j then 1 else 0) / 3) • OQ7Prescribed.newtonDirac
+OQ7Prescribed.newton_inner_contact_normal : ∀ (r : ℝ),
+  0 < r →
+    ∀ (φ : OQ7Prescribed.ScalarTest) (i j : Fin 3) (n : ↑OQ7Prescribed.UnitSphere),
+      -(r ^ 2 * OQ7Prescribed.newtonGradient j (r • ↑n) * φ (r • ↑n) * -(↑n).ofLp i) =
+        -(4 * Real.pi)⁻¹ * ((↑n).ofLp i * (↑n).ofLp j * φ (r • ↑n))
+OQ7Prescribed.newton_inner_derivative_normal : ∀ (r : ℝ),
+  0 < r →
+    ∀ (φ : OQ7Prescribed.ScalarTest) (i j : Fin 3) (n : ↑OQ7Prescribed.UnitSphere),
+      r ^ 2 * OQ7Prescribed.newtonReal (r • ↑n) * ((OQ7Prescribed.testPartial i) φ) (r • ↑n) * -(↑n).ofLp j =
+        -r / (4 * Real.pi) * ((↑n).ofLp j * ((OQ7Prescribed.testPartial i) φ) (r • ↑n))
+OQ7Prescribed.newton_outer_boundary_vanishes : ∀ (φ : OQ7Prescribed.ScalarTest) (i j : Fin 3),
+  ∃ R,
+    0 < R ∧
+      ∀ (T : ℝ),
+        R ≤ T → OQ7Prescribed.newtonContactBoundary φ i j T = 0 ∧ OQ7Prescribed.newtonDerivativeBoundary φ i j T = 0
+OQ7Prescribed.newton_punctured_double_ibp : ∀ (r : ℝ),
+  0 < r →
+    ∀ (φ : OQ7Prescribed.ScalarTest) (i j : Fin 3),
+      ∫ (x : OQ7Prescribed.Position) in {x | r < ‖x‖},
+          OQ7Prescribed.newtonReal x * ((OQ7Prescribed.testPartial j) ((OQ7Prescribed.testPartial i) φ)) x =
+        OQ7Prescribed.newtonPVTruncated φ i j r + OQ7Prescribed.newtonContactBoundary φ i j r +
+          OQ7Prescribed.newtonDerivativeBoundary φ i j r
+OQ7Prescribed.newton_test_puncture_removal : ∀ (φ : OQ7Prescribed.ScalarTest),
+  Filter.Tendsto (fun r => ∫ (x : OQ7Prescribed.Position) in {x | r < ‖x‖}, OQ7Prescribed.newtonReal x * φ x) (nhds 0)
+    (nhds (∫ (x : OQ7Prescribed.Position), OQ7Prescribed.newtonReal x * φ x))
 OQ7Prescribed.newtonAnnulus_integrable : ∀ (i j : Fin 3) (r T : ℝ),
   0 < r → MeasureTheory.Integrable (OQ7Prescribed.newtonAnnulus i j r T) MeasureTheory.volume
 OQ7Prescribed.newtonAnnulus_integral_zero : ∀ (i j : Fin 3) (r T : ℝ),
@@ -133,6 +309,13 @@ OQ7Prescribed.newtonContactBoundary_tendsto : ∀ (φ : OQ7Prescribed.ScalarTest
   Filter.Tendsto (OQ7Prescribed.newtonContactBoundary φ i j) (nhds 0) (nhds (-((if i = j then 1 else 0) / 3) * φ 0))
 OQ7Prescribed.newtonDerivativeBoundary_tendsto : ∀ (φ : OQ7Prescribed.ScalarTest) (i j : Fin 3),
   Filter.Tendsto (OQ7Prescribed.newtonDerivativeBoundary φ i j) (nhds 0) (nhds 0)
+OQ7Prescribed.newtonDirac_apply : ∀ (φ : OQ7Prescribed.ScalarTest), OQ7Prescribed.newtonDirac φ = ↑(φ 0)
+OQ7Prescribed.newtonGradient_contDiffAt : ∀ (j : Fin 3) (x : OQ7Prescribed.Position),
+  x ≠ 0 → ContDiffAt ℝ 1 (OQ7Prescribed.newtonGradient j) x
+OQ7Prescribed.newtonGradient_hasLineDerivAt : ∀ (i j : Fin 3) (x : OQ7Prescribed.Position),
+  x ≠ 0 →
+    HasLineDerivAt ℝ (OQ7Prescribed.newtonGradient j) (OQ7Prescribed.newtonHessianKernel i j x) x
+      (OQ7Prescribed.basisR i)
 OQ7Prescribed.newtonHessian_radial_integral_zero : ∀ (i j : Fin 3) (w : ℝ → ℝ),
   ∫ (x : OQ7Prescribed.Position), w ‖x‖ * OQ7Prescribed.newtonHessianKernel i j x = 0
 OQ7Prescribed.newtonHessianKernel_classical : ∀ (i j : Fin 3) (x : OQ7Prescribed.Position),
@@ -140,6 +323,8 @@ OQ7Prescribed.newtonHessianKernel_classical : ∀ (i j : Fin 3) (x : OQ7Prescrib
     ↑(OQ7Prescribed.newtonHessianKernel i j x) =
       lineDeriv ℝ (fun y => lineDeriv ℝ (OQ7Prescribed.outgoingGreen 0) y (OQ7Prescribed.basisR j)) x
         (OQ7Prescribed.basisR i)
+OQ7Prescribed.newtonHessianKernel_contDiffAt : ∀ (i j : Fin 3) (x : OQ7Prescribed.Position),
+  x ≠ 0 → ContDiffAt ℝ 1 (OQ7Prescribed.newtonHessianKernel i j) x
 OQ7Prescribed.newtonHessianKernel_measurable : ∀ (i j : Fin 3), Measurable (OQ7Prescribed.newtonHessianKernel i j)
 OQ7Prescribed.newtonHessianKernel_norm_le : ∀ (i j : Fin 3) (x : OQ7Prescribed.Position),
   ‖OQ7Prescribed.newtonHessianKernel i j x‖ ≤ Real.pi⁻¹ * ‖x‖⁻¹ ^ 3
@@ -154,6 +339,10 @@ OQ7Prescribed.newtonPV_indicator_decomposition : ∀ (φ : OQ7Prescribed.ScalarT
   ({x | r < ‖x‖}.indicator fun x => OQ7Prescribed.newtonHessianKernel i j x * φ x) =
     {x | r < ‖x‖}.indicator (OQ7Prescribed.newtonCompensated φ i j) + fun x =>
       φ 0 * OQ7Prescribed.newtonAnnulus i j r 1 x
+OQ7Prescribed.newtonPVDistribution_apply : ∀ (φ : OQ7Prescribed.ScalarTest) (i j : Fin 3),
+  (OQ7Prescribed.newtonPVDistribution i j) φ = ↑(OQ7Prescribed.newtonPVValue φ i j)
+OQ7Prescribed.newtonPVRepresentation_apply : ∀ (φ : OQ7Prescribed.ScalarTest) (i j : Fin 3),
+  (OQ7Prescribed.newtonPVRepresentation i j) φ = ↑(OQ7Prescribed.newtonPVValue φ i j)
 OQ7Prescribed.newtonPVTruncated_eq_compensated : ∀ (φ : OQ7Prescribed.ScalarTest) (i j : Fin 3) (r : ℝ),
   0 < r →
     OQ7Prescribed.newtonPVTruncated φ i j r =
@@ -162,10 +351,20 @@ OQ7Prescribed.newtonPVTruncated_integrable : ∀ (φ : OQ7Prescribed.ScalarTest)
   0 < r →
     MeasureTheory.IntegrableOn (fun x => OQ7Prescribed.newtonHessianKernel i j x * φ x) {x | r < ‖x‖}
       MeasureTheory.volume
+OQ7Prescribed.newtonPVValue_continuous : ∀ (i j : Fin 3), Continuous fun φ => OQ7Prescribed.newtonPVValue φ i j
 OQ7Prescribed.newtonRadial_hasDerivAt : ∀ (r : ℝ),
   r ≠ 0 → HasDerivAt OQ7Prescribed.newtonRadial (OQ7Prescribed.newtonRadialFirst r) r
 OQ7Prescribed.newtonRadialFirst_hasDerivAt : ∀ (r : ℝ),
   r ≠ 0 → HasDerivAt OQ7Prescribed.newtonRadialFirst (OQ7Prescribed.newtonRadialSecond r) r
+OQ7Prescribed.newtonReal_contDiffAt : ∀ (x : OQ7Prescribed.Position), x ≠ 0 → ContDiffAt ℝ 1 OQ7Prescribed.newtonReal x
+OQ7Prescribed.newtonReal_eq_green : ∀ (x : OQ7Prescribed.Position),
+  ↑(OQ7Prescribed.newtonReal x) = OQ7Prescribed.outgoingGreen 0 x
+OQ7Prescribed.newtonReal_hasLineDerivAt : ∀ (j : Fin 3) (x : OQ7Prescribed.Position),
+  x ≠ 0 → HasLineDerivAt ℝ OQ7Prescribed.newtonReal (OQ7Prescribed.newtonGradient j x) x (OQ7Prescribed.basisR j)
+OQ7Prescribed.newtonReal_locallyIntegrable : MeasureTheory.LocallyIntegrable OQ7Prescribed.newtonReal
+  MeasureTheory.volume
+OQ7Prescribed.newtonReal_test_integrable : ∀ (φ : OQ7Prescribed.ScalarTest),
+  MeasureTheory.Integrable (fun x => OQ7Prescribed.newtonReal x * φ x) MeasureTheory.volume
 OQ7Prescribed.orthogonalSphere_cone_preimage : ∀ (e : OQ7Prescribed.Position ≃ₗᵢ[ℝ] OQ7Prescribed.Position)
   (s : Set ↑OQ7Prescribed.UnitSphere),
   Set.Ioo 0 1 • Subtype.val '' ⇑(OQ7Prescribed.orthogonalSphere e) ⁻¹' s = ⇑e ⁻¹' (Set.Ioo 0 1 • Subtype.val '' s)
@@ -387,6 +586,27 @@ OQ7Prescribed.susceptibility_zero_outside : ∀ (B : OQ7Prescribed.TwoLayerBody)
 OQ7Prescribed.tensorApply_one : ∀ (v : OQ7Prescribed.Vector), OQ7Prescribed.tensorApply 1 v = v
 OQ7Prescribed.tensorApply_rankOne : ∀ (u : OQ7Prescribed.Position) (v : OQ7Prescribed.Vector),
   OQ7Prescribed.tensorApply (OQ7Prescribed.rankOne u) v = OQ7Prescribed.axisCoupling u v • OQ7Prescribed.complexify u
+OQ7Prescribed.testPartial_hasLineDerivAt : ∀ (φ : OQ7Prescribed.ScalarTest) (i : Fin 3) (x : OQ7Prescribed.Position),
+  HasLineDerivAt ℝ (⇑φ) (((OQ7Prescribed.testPartial i) φ) x) x (OQ7Prescribed.basisR i)
+OQ7Prescribed.transition_average_tendsto : ∀ (r : ℝ) (A : ℝ → ℝ),
+  Continuous A →
+    Filter.Tendsto (fun t => ∫ (u : ℝ) in 0..1, OQ7Prescribed.transitionDerivative u * A (r + t * u)) (nhds 0)
+      (nhds (A r))
+OQ7Prescribed.transition_radial_integral : ∀ (r t : ℝ),
+  0 < r →
+    0 < t →
+      ∀ (A : ℝ → ℝ),
+        ∫ (s : ℝ) in Set.Ioi 0, OQ7Prescribed.transitionDerivative ((s - r) / t) * A s =
+          ∫ (s : ℝ) in r..r + t, OQ7Prescribed.transitionDerivative ((s - r) / t) * A s
+OQ7Prescribed.transition_radial_rescale : ∀ (r t : ℝ),
+  0 < t →
+    ∀ (A : ℝ → ℝ),
+      t⁻¹ * ∫ (s : ℝ) in r..r + t, OQ7Prescribed.transitionDerivative ((s - r) / t) * A s =
+        ∫ (u : ℝ) in 0..1, OQ7Prescribed.transitionDerivative u * A (r + t * u)
+OQ7Prescribed.transitionDerivative_continuous : Continuous OQ7Prescribed.transitionDerivative
+OQ7Prescribed.transitionDerivative_integral : ∫ (s : ℝ) in 0..1, OQ7Prescribed.transitionDerivative s = 1
+@OQ7Prescribed.transitionDerivative_zero_of_nonpos : ∀ {s : ℝ}, s ≤ 0 → OQ7Prescribed.transitionDerivative s = 0
+@OQ7Prescribed.transitionDerivative_zero_of_one_le : ∀ {s : ℝ}, 1 ≤ s → OQ7Prescribed.transitionDerivative s = 0
 OQ7Prescribed.unitSphere_norm : ∀ (n : ↑OQ7Prescribed.UnitSphere), ‖↑n‖ = 1
 OQ7Prescribed.unitSphere_sum_sq : ∀ (n : ↑OQ7Prescribed.UnitSphere), ∑ i, (↑n).ofLp i ^ 2 = 1
 OQ7Prescribed.vectorScalarMul_apply : ∀ (v : OQ7Prescribed.Vector) (z : ℂ), (OQ7Prescribed.vectorScalarMul v) z = z • v

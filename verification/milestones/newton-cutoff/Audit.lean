@@ -1,0 +1,14 @@
+import PrescribedExtinction.NewtonCutoffIBP
+
+#check @OQ7Prescribed.transitionDerivative_integral
+#check @OQ7Prescribed.exteriorCutoff_hasLineDerivAt
+#check @OQ7Prescribed.newtonReal_hasLineDerivAt
+#check @OQ7Prescribed.newtonGradient_hasLineDerivAt
+#check @OQ7Prescribed.exteriorCutoff_newton_ibp
+#check @OQ7Prescribed.exteriorCutoff_gradient_ibp
+#print axioms OQ7Prescribed.transitionDerivative_integral
+#print axioms OQ7Prescribed.exteriorCutoff_hasLineDerivAt
+#print axioms OQ7Prescribed.newtonReal_hasLineDerivAt
+#print axioms OQ7Prescribed.newtonGradient_hasLineDerivAt
+#print axioms OQ7Prescribed.exteriorCutoff_newton_ibp
+#print axioms OQ7Prescribed.exteriorCutoff_gradient_ibp

@@ -1,0 +1,40 @@
+OQ7Prescribed.transitionDerivative_integral : ∫ (s : ℝ) in 0..1, OQ7Prescribed.transitionDerivative s = 1
+OQ7Prescribed.exteriorCutoff_hasLineDerivAt : ∀ (r t : ℝ),
+  0 < r →
+    0 < t →
+      ∀ (i : Fin 3) (x : OQ7Prescribed.Position),
+        HasLineDerivAt ℝ (OQ7Prescribed.exteriorCutoff r t) (OQ7Prescribed.exteriorCutoffPartial r t i x) x
+          (OQ7Prescribed.basisR i)
+OQ7Prescribed.newtonReal_hasLineDerivAt : ∀ (j : Fin 3) (x : OQ7Prescribed.Position),
+  x ≠ 0 → HasLineDerivAt ℝ OQ7Prescribed.newtonReal (OQ7Prescribed.newtonGradient j x) x (OQ7Prescribed.basisR j)
+OQ7Prescribed.newtonGradient_hasLineDerivAt : ∀ (i j : Fin 3) (x : OQ7Prescribed.Position),
+  x ≠ 0 →
+    HasLineDerivAt ℝ (OQ7Prescribed.newtonGradient j) (OQ7Prescribed.newtonHessianKernel i j x) x
+      (OQ7Prescribed.basisR i)
+OQ7Prescribed.exteriorCutoff_newton_ibp : ∀ (r t : ℝ),
+  0 < r →
+    0 < t →
+      ∀ (φ : OQ7Prescribed.ScalarTest) (j : Fin 3),
+        ∫ (x : OQ7Prescribed.Position),
+            OQ7Prescribed.exteriorCutoff r t x * OQ7Prescribed.newtonReal x * ((OQ7Prescribed.testPartial j) φ) x =
+          -∫ (x : OQ7Prescribed.Position),
+              (OQ7Prescribed.exteriorCutoffPartial r t j x * OQ7Prescribed.newtonReal x +
+                  OQ7Prescribed.exteriorCutoff r t x * OQ7Prescribed.newtonGradient j x) *
+                φ x
+OQ7Prescribed.exteriorCutoff_gradient_ibp : ∀ (r t : ℝ),
+  0 < r →
+    0 < t →
+      ∀ (φ : OQ7Prescribed.ScalarTest) (i j : Fin 3),
+        ∫ (x : OQ7Prescribed.Position),
+            OQ7Prescribed.exteriorCutoff r t x * OQ7Prescribed.newtonGradient j x *
+              ((OQ7Prescribed.testPartial i) φ) x =
+          -∫ (x : OQ7Prescribed.Position),
+              (OQ7Prescribed.exteriorCutoffPartial r t i x * OQ7Prescribed.newtonGradient j x +
+                  OQ7Prescribed.exteriorCutoff r t x * OQ7Prescribed.newtonHessianKernel i j x) *
+                φ x
+'OQ7Prescribed.transitionDerivative_integral' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.exteriorCutoff_hasLineDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.newtonReal_hasLineDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.newtonGradient_hasLineDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.exteriorCutoff_newton_ibp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.exteriorCutoff_gradient_ibp' depends on axioms: [propext, Classical.choice, Quot.sound]

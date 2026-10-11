@@ -116,6 +116,29 @@ try {
     for ($oq7ByteIndex = 0; $oq7ByteIndex -lt $oq7ContactRoot.Length; $oq7ByteIndex++) {
         if ($oq7CurrentRoot[$oq7ByteIndex] -ne $oq7ContactRoot[$oq7ByteIndex]) { throw 'Dyadic milestone imports changed.' }
     }
+    $oq7PuncturedBaseline = Get-Content 'sources/pre-punctured-source-hashes.json' -Raw | ConvertFrom-Json
+    foreach ($oq7Saved in $oq7PuncturedBaseline) {
+        if ((Get-FileHash $oq7Saved.file -Algorithm SHA256).Hash -ne $oq7Saved.sha256) {
+            throw "Preserved contact-progress module differs: $($oq7Saved.file)"
+        }
+    }
+    $oq7PuncturedReport = Get-Content 'verification/milestones/pre-punctured/report.json' -Raw | ConvertFrom-Json
+    $oq7PuncturedRootHash = @($oq7PuncturedReport.sourceHashes | Where-Object { $_.file -eq 'PrescribedExtinction.lean' })[0].sha256
+    if ((Get-FileHash 'sources/pre-punctured-PrescribedExtinction.lean' -Algorithm SHA256).Hash -ne $oq7PuncturedRootHash) {
+        throw 'Contact-progress aggregate snapshot differs.'
+    }
+    $oq7PuncturedRoot = [IO.File]::ReadAllBytes((Join-Path $PSScriptRoot 'sources/pre-punctured-PrescribedExtinction.lean'))
+    if ($oq7CurrentRoot.Length -lt $oq7PuncturedRoot.Length) { throw 'Aggregate source was truncated.' }
+    for ($oq7ByteIndex = 0; $oq7ByteIndex -lt $oq7PuncturedRoot.Length; $oq7ByteIndex++) {
+        if ($oq7CurrentRoot[$oq7ByteIndex] -ne $oq7PuncturedRoot[$oq7ByteIndex]) { throw 'Contact-progress imports changed.' }
+    }
+    foreach ($oq7Required in @('OQ7Prescribed.newton_punctured_double_ibp',
+        'OQ7Prescribed.newton_inner_contact_normal', 'OQ7Prescribed.newton_inner_derivative_normal',
+        'OQ7Prescribed.newton_outer_boundary_vanishes', 'OQ7Prescribed.newton_contact_identity_real',
+        'OQ7Prescribed.newton_hessian_contact_apply', 'OQ7Prescribed.newtonPVDistribution_apply',
+        'OQ7Prescribed.newtonPVValue_continuous', 'OQ7Prescribed.newton_hessian_contact_distribution')) {
+        if ($oq7Required -notin $oq7NewKernelTheorems) { throw "Missing completed contact obligation: $oq7Required" }
+    }
     if ($oq7PdfHash -ne '3D9775D849234E828370D7C96D8BDCDD574BEB6831A7906EA6B7706579868710') { throw 'Manuscript hash differs.' }
     $oq7TargetHash = (Get-FileHash -LiteralPath 'PrescribedExtinction/Maxwell.lean' -Algorithm SHA256).Hash
     if ($oq7TargetHash -ne '071C04ED9417A1D9AC842D61B545183627E6F997C7C1899F908871608859ABF6') {
@@ -150,11 +173,16 @@ try {
         existingAggregateImportPrefixUnchanged = $true
         dyadicGreenMilestoneComplete = $false
         allPreContactLeanModulesUnchanged = $true
-        newtonContactIdentityVerified = $false
+        allPrePuncturedLeanModulesUnchanged = $true
+        newtonPuncturedDoubleIntegrationByPartsVerified = $true
+        newtonInnerNormalSignsVerified = $true
+        newtonOuterBoundaryVanishesVerified = $true
+        newtonContactIdentityVerified = $true
+        newtonDistributionalContactEqualityVerified = $true
         sphericalSecondMomentsVerified = $true
         newtonAngularBoundaryLimitsVerified = $true
         newtonPrincipalValueConvergenceVerified = $true
-        newtonPrincipalValueIsBundledDistribution = $false
+        newtonPrincipalValueIsBundledDistribution = $true
         staticNewtonIdentificationVerified = $false
         targetSourceSHA256 = $oq7TargetHash
         verifiedAtUTC = [DateTime]::UtcNow.ToString('o')
@@ -174,17 +202,19 @@ try {
         dependencyRevisions = $oq7Dependencies
         sourceHashes = $oq7Hashes
         foundationalMilestones = @(
-            @{ module = 'PrescribedExtinction.GreenKernel'; scope = 'Actual scalar kernel local L1/L2 integrability and distributional dyadic test formula'; physicalContactCoefficientVerified = $false },
+            @{ module = 'PrescribedExtinction.GreenKernel'; scope = 'Actual scalar kernel local L1/L2 integrability and distributional dyadic test formula; Newton contact identified in NewtonContact'; physicalContactCoefficientVerified = $true; positiveFrequencyOutgoingContactIdentityVerified = $false },
             @{ module = 'PrescribedExtinction.VolumePotential'; scope = 'Actual convolution exists for every compact vector L2 current; finite local bound; locally integrable potential; distributional volume formula and additivity'; boundedDyadicL2OperatorVerified = $false },
             @{ module = 'PrescribedExtinction.StaticFourier'; scope = 'Explicit static Fourier multiplier is an L2 contraction and has zero imaginary quadratic form'; identificationWithNewtonVolumePotentialVerified = $false },
-            @{ module = 'PrescribedExtinction.OutgoingRadial'; scope = 'Actual Newton and outgoing radial derivatives and classical Hessian away from origin'; physicalContactCoefficientVerified = $false },
+            @{ module = 'PrescribedExtinction.OutgoingRadial'; scope = 'Actual Newton and outgoing radial derivatives and classical Hessian away from origin; Newton distributional contact identified in NewtonContact'; physicalContactCoefficientVerified = $true; positiveFrequencyOutgoingContactIdentityVerified = $false },
             @{ module = 'PrescribedExtinction.RemainderConvolution'; scope = 'Actual classical dyadic dynamic-minus-static cancellation; explicit inverse-distance norm estimate; cutoff L2 kernel; actual convolution, compact-domain L2 bound, ae invariance and complex linearity'; identificationWithDistributionalDifferenceVerified = $false; fullPhysicalDyadicOperatorVerified = $false },
             @{ module = 'PrescribedExtinction.SphereMoments'; scope = 'Actual polar angular measure, orthogonal invariance, area 4pi and exact second moments'; actualSphereMomentsVerified = $true },
-            @{ module = 'PrescribedExtinction.NewtonBoundary'; scope = 'Actual angular contact boundary tends to minus delta_ij phi(0)/3; derivative boundary tends to zero'; puncturedIntegrationByPartsVerified = $false },
-            @{ module = 'PrescribedExtinction.NewtonPrincipalValue'; scope = 'Actual spherical principal value converges for every original test function; compensated integral and every positive-radius truncated integral are proved integrable'; fullDistributionalHessianIdentityVerified = $false }
+            @{ module = 'PrescribedExtinction.NewtonBoundary'; scope = 'Actual angular contact boundary tends to minus delta_ij phi(0)/3; derivative boundary tends to zero; connected to punctured integral in NewtonPunctured'; puncturedIntegrationByPartsVerified = $true },
+            @{ module = 'PrescribedExtinction.NewtonPrincipalValue'; scope = 'Actual spherical principal value converges for every original test function; compensated integral and every positive-radius truncated integral are proved integrable; bundled in NewtonContact'; fullDistributionalHessianIdentityVerified = $true },
+            @{ module = 'PrescribedExtinction.NewtonCutoffIBP'; scope = 'Actual smooth radial cutoff, exact derivative mass and whole-space Newton/gradient integration by parts for original test functions'; cutoffIntegrationByPartsVerified = $true },
+            @{ module = 'PrescribedExtinction.NewtonShell'; scope = 'Actual exterior cutoff convergence, integrable polar conversion, radial shell rescaling and normalized shell limit'; radialShellLimitVerified = $true },
+            @{ module = 'PrescribedExtinction.NewtonContact'; scope = 'Exact finite-radius punctured double integration by parts, inward-normal signs and vanishing outer boundaries; full Newton Hessian principal-value/contact identity; actual integral-valued principal value is a continuous distribution'; fullDistributionalHessianIdentityVerified = $true; staticFourierIdentificationVerified = $false }
         )
         unverifiedDependencies = @('3D outgoing Maxwell existence and uniqueness',
-            'Punctured integration by parts and full Newton Hessian/contact identity (sphere moments, angular boundary limits and principal-value convergence proved)',
             'Scalar distributional Helmholtz fundamental-solution identity',
             'Identification of the static Fourier operator with the distributional Newton volume operator',
             'Distributional dynamic-minus-static identification and bounded L2 realization/restriction of the full dyadic operator (classical remainder estimate and convolution bound proved)',
