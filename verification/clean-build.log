@@ -1,8 +1,16 @@
-ℹ [3209/3332] Built OQ7.ScaledRemainder (18s)
+✔ [3212/3366] Built PrescribedExtinction.Basic (7.8s)
+ℹ [3213/3366] Built OQ7.ScaledRemainder (8.4s)
 info: OQ7/ScaledRemainder.lean:73:0: 'OQ7.tendsto_scaled_quartic_remainder' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/ScaledRemainder.lean:74:0: 'OQ7.tendsto_of_scaled_square_difference' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/ScaledRemainder.lean:75:0: 'OQ7.isBigO_of_scaled_square_difference' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3210/3332] Built OQ7.ProductRemainder (21s)
+ℹ [3214/3366] Built OQ7.ExpRemainder (8.4s)
+info: OQ7/ExpRemainder.lean:65:0: 'OQ7.factorial_product_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/ExpRemainder.lean:66:0: 'OQ7.real_exp_tail_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/ExpRemainder.lean:83:0: 'OQ7.norm_algebra_exp_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/ExpRemainder.lean:107:0: 'OQ7.algebra_exp_scaled_remainder_isBigO' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/ExpRemainder.lean:108:0: 'OQ7.norm_algebra_exp_scaled_remainder' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/ExpRemainder.lean:109:0: 'OQ7.norm_algebra_exp_remainder' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3215/3366] Built OQ7.ProductRemainder (8.6s)
 info: OQ7/ProductRemainder.lean:72:0: 'OQ7.insertionError_zero' depends on axioms: [propext]
 info: OQ7/ProductRemainder.lean:111:0: 'OQ7.one_add_div_pow_le_exp' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/ProductRemainder.lean:112:0: 'OQ7.norm_insertionError_le_exp' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -10,7 +18,7 @@ info: OQ7/ProductRemainder.lean:113:0: 'OQ7.norm_insertionError_quartic' depends
 info: OQ7/ProductRemainder.lean:114:0: 'OQ7.insertionError_succ' depends on axioms: [propext]
 info: OQ7/ProductRemainder.lean:115:0: 'OQ7.norm_firstInsertion_le' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/ProductRemainder.lean:116:0: 'OQ7.norm_insertionError_le' depends on axioms: [propext, Classical.choice, Quot.sound]
-⚠ [3211/3332] Built OQ7.ModulusComparison (22s)
+⚠ [3216/3366] Built OQ7.ModulusComparison (8.8s)
 warning: OQ7/ModulusComparison.lean:331:23: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
@@ -49,22 +57,14 @@ info: OQ7/ModulusComparison.lean:488:0: 'OQ7.ModulusComparison.helmholtz_sine_co
 info: OQ7/ModulusComparison.lean:489:0: 'OQ7.ModulusComparison.endpoint_le_of_le_Ioo' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/ModulusComparison.lean:490:0: 'OQ7.ModulusComparison.helmholtz_ne_zero_before' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/ModulusComparison.lean:491:0: 'OQ7.ModulusComparison.helmholtz_modulus_comparison' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3212/3332] Built OQ7.Envelope (24s)
-info: OQ7/Envelope.lean:64:0: 'OQ7.ScalarEnvelope.active_target_properties' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/Envelope.lean:277:0: 'OQ7.ScalarEnvelope.x0_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/Envelope.lean:278:0: 'OQ7.ScalarEnvelope.radicand_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/Envelope.lean:279:0: 'OQ7.ScalarEnvelope.F_at_target' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/Envelope.lean:280:0: 'OQ7.ScalarEnvelope.tangent_remainder' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/Envelope.lean:281:0: 'OQ7.ScalarEnvelope.supporting_tangent' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/Envelope.lean:282:0: 'OQ7.ScalarEnvelope.scalar_deficit' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/Envelope.lean:283:0: 'OQ7.ScalarEnvelope.scalar_strict_gap' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/Envelope.lean:284:0: 'OQ7.ScalarEnvelope.F_alternative' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/Envelope.lean:285:0: 'OQ7.ScalarEnvelope.F_at_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/Envelope.lean:286:0: 'OQ7.ScalarEnvelope.active_interval_of_envelope' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/Envelope.lean:287:0: 'OQ7.ScalarEnvelope.scalar_deficit_of_envelope' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/Envelope.lean:288:0: 'OQ7.ScalarEnvelope.absorption_budget' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/Envelope.lean:289:0: 'OQ7.ScalarEnvelope.determinant_budget_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
-⚠ [3213/3332] Built OQ7.ResourceScalar (24s)
+ℹ [3217/3366] Built OQ7.TwoPort (9.2s)
+info: OQ7/TwoPort.lean:85:0: 'OQ7.absorptionMatrix_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/TwoPort.lean:86:0: 'OQ7.absorptance_difference' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/TwoPort.lean:87:0: 'OQ7.absorptance_coordinates' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/TwoPort.lean:88:0: 'OQ7.absorption_det' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/TwoPort.lean:89:0: 'OQ7.absorption_det_coordinates' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/TwoPort.lean:90:0: 'OQ7.transmission_positive' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [3218/3366] Built OQ7.ResourceScalar (9.4s)
 warning: OQ7/ResourceScalar.lean:153:45: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
@@ -115,25 +115,35 @@ info: OQ7/ResourceScalar.lean:487:0: 'OQ7.ResourceScalar.sum_g_half' depends on 
 info: OQ7/ResourceScalar.lean:488:0: 'OQ7.ResourceScalar.sum_g_full' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/ResourceScalar.lean:489:0: 'OQ7.ResourceScalar.sum_g_small_total' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/ResourceScalar.lean:490:0: 'OQ7.ResourceScalar.sum_g_full_cases' depends on axioms: [propext, Classical.choice, Quot.sound]
-✔ [3214/3332] Built PrescribedExtinction.Basic (23s)
-ℹ [3215/3332] Built OQ7.ExpRemainder (24s)
-info: OQ7/ExpRemainder.lean:65:0: 'OQ7.factorial_product_le' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/ExpRemainder.lean:66:0: 'OQ7.real_exp_tail_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/ExpRemainder.lean:83:0: 'OQ7.norm_algebra_exp_le' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/ExpRemainder.lean:107:0: 'OQ7.algebra_exp_scaled_remainder_isBigO' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/ExpRemainder.lean:108:0: 'OQ7.norm_algebra_exp_scaled_remainder' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/ExpRemainder.lean:109:0: 'OQ7.norm_algebra_exp_remainder' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3216/3332] Built OQ7.TwoPort (28s)
-info: OQ7/TwoPort.lean:85:0: 'OQ7.absorptionMatrix_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/TwoPort.lean:86:0: 'OQ7.absorptance_difference' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/TwoPort.lean:87:0: 'OQ7.absorptance_coordinates' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/TwoPort.lean:88:0: 'OQ7.absorption_det' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/TwoPort.lean:89:0: 'OQ7.absorption_det_coordinates' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/TwoPort.lean:90:0: 'OQ7.transmission_positive' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3217/3332] Built OQ7.SharpDeficit (8.8s)
-info: OQ7/SharpDeficit.lean:59:0: 'OQ7.ScalarEnvelope.sqrt_displacement_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/SharpDeficit.lean:60:0: 'OQ7.ScalarEnvelope.scaled_deficit_limit_of_phase' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3218/3332] Built OQ7.ResourceAsymptotics (8.9s)
+ℹ [3219/3366] Built OQ7.Envelope (10s)
+info: OQ7/Envelope.lean:64:0: 'OQ7.ScalarEnvelope.active_target_properties' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/Envelope.lean:277:0: 'OQ7.ScalarEnvelope.x0_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/Envelope.lean:278:0: 'OQ7.ScalarEnvelope.radicand_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/Envelope.lean:279:0: 'OQ7.ScalarEnvelope.F_at_target' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/Envelope.lean:280:0: 'OQ7.ScalarEnvelope.tangent_remainder' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/Envelope.lean:281:0: 'OQ7.ScalarEnvelope.supporting_tangent' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/Envelope.lean:282:0: 'OQ7.ScalarEnvelope.scalar_deficit' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/Envelope.lean:283:0: 'OQ7.ScalarEnvelope.scalar_strict_gap' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/Envelope.lean:284:0: 'OQ7.ScalarEnvelope.F_alternative' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/Envelope.lean:285:0: 'OQ7.ScalarEnvelope.F_at_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/Envelope.lean:286:0: 'OQ7.ScalarEnvelope.active_interval_of_envelope' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/Envelope.lean:287:0: 'OQ7.ScalarEnvelope.scalar_deficit_of_envelope' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/Envelope.lean:288:0: 'OQ7.ScalarEnvelope.absorption_budget' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/Envelope.lean:289:0: 'OQ7.ScalarEnvelope.determinant_budget_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+✔ [3220/3366] Built PrescribedExtinction.Maxwell (8.4s)
+✔ [3221/3366] Built PrescribedExtinction.Materials (8.8s)
+✔ [3222/3366] Built PrescribedExtinction.Geometry (8.9s)
+ℹ [3223/3366] Built OQ7.CellRemainder (8.5s)
+info: OQ7/CellRemainder.lean:125:0: 'OQ7.algebraExpTaylor_continuous' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/CellRemainder.lean:126:0: 'OQ7.algebraExp_scaled_isBigO_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/CellRemainder.lean:127:0: 'OQ7.algebraExpTaylor_isBigO_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/CellRemainder.lean:128:0: 'OQ7.triple_expTaylor_product_remainder_isBigO' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/CellRemainder.lean:129:0: 'OQ7.scalarPower_smul_continuous_isBigO' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/CellRemainder.lean:130:0: 'OQ7.triple_exp_remainder_of_tail_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/CellRemainder.lean:131:0: 'OQ7.scalarPower_isBigO_of_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/CellRemainder.lean:132:0: 'OQ7.linear_remainder_isBigO_cubic_of_quartic' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/CellRemainder.lean:133:0: 'OQ7.isBigO_reciprocal_scale_norm_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3224/3366] Built OQ7.ResourceAsymptotics (9.9s)
 info: OQ7/ResourceAsymptotics.lean:197:0: 'OQ7.ResourceFloor.cellCount_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/ResourceAsymptotics.lean:198:0: 'OQ7.ResourceFloor.cellCount_cast_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/ResourceAsymptotics.lean:199:0: 'OQ7.ResourceFloor.cellCount_eq_ceil' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -154,31 +164,22 @@ info: OQ7/ResourceAsymptotics.lean:213:0: 'OQ7.ResourceFloor.beta_quartic_lower'
 info: OQ7/ResourceAsymptotics.lean:214:0: 'OQ7.ResourceFloor.half_mean_le_halfperiod' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/ResourceAsymptotics.lean:215:0: 'OQ7.ResourceFloor.half_floor_explicit' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/ResourceAsymptotics.lean:216:0: 'OQ7.ResourceFloor.explicit_floor_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3219/3332] Built OQ7.CellRemainder (9.5s)
-info: OQ7/CellRemainder.lean:125:0: 'OQ7.algebraExpTaylor_continuous' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/CellRemainder.lean:126:0: 'OQ7.algebraExp_scaled_isBigO_one' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/CellRemainder.lean:127:0: 'OQ7.algebraExpTaylor_isBigO_one' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/CellRemainder.lean:128:0: 'OQ7.triple_expTaylor_product_remainder_isBigO' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/CellRemainder.lean:129:0: 'OQ7.scalarPower_smul_continuous_isBigO' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/CellRemainder.lean:130:0: 'OQ7.triple_exp_remainder_of_tail_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/CellRemainder.lean:131:0: 'OQ7.scalarPower_isBigO_of_le' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/CellRemainder.lean:132:0: 'OQ7.linear_remainder_isBigO_cubic_of_quartic' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/CellRemainder.lean:133:0: 'OQ7.isBigO_reciprocal_scale_norm_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
-✔ [3220/3332] Built PrescribedExtinction.Materials (13s)
-✔ [3221/3332] Built PrescribedExtinction.Geometry (13s)
-✔ [3222/3332] Built PrescribedExtinction.Maxwell (13s)
-ℹ [3223/3332] Built OQ7.Passivity (13s)
-info: OQ7/Passivity.lean:149:0: 'OQ7.passive_absorptances_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/Passivity.lean:150:0: 'OQ7.passive_det_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/Passivity.lean:151:0: 'OQ7.reflection_coordinates' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/Passivity.lean:152:0: 'OQ7.halfAsymmetry_le_b' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/Passivity.lean:153:0: 'OQ7.interference_reverse_triangle' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/Passivity.lean:154:0: 'OQ7.reflection_product_sqrt' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/Passivity.lean:155:0: 'OQ7.absorption_det_le_envelope' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/Passivity.lean:156:0: 'OQ7.responseAsymmetry_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/Passivity.lean:157:0: 'OQ7.active_matrix_deficit' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/Passivity.lean:158:0: 'OQ7.active_matrix_strict_gap' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3224/3332] Built OQ7.Transfer (13s)
+ℹ [3225/3366] Built OQ7.Layers (10s)
+info: OQ7/Layers.lean:133:0: 'OQ7.refractiveIndex_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/Layers.lean:134:0: 'OQ7.relativePermittivity_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/Layers.lean:135:0: 'OQ7.refractiveIndex_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/Layers.lean:136:0: 'OQ7.homogeneousTransfer_det' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/Layers.lean:137:0: 'OQ7.layerTransfer_det' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/Layers.lean:138:0: 'OQ7.stackTransfer_det' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/Layers.lean:139:0: 'OQ7.totalThickness_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/Layers.lean:140:0: 'OQ7.integratedLoss_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/Layers.lean:141:0: 'OQ7.integratedLoss_le_cap_mul_thickness' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3226/3366] Built OQ7.FourierSquare (10s)
+info: OQ7/FourierSquare.lean:94:0: 'OQ7.sineSquare_difference_fourier' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/FourierSquare.lean:95:0: 'OQ7.sineSquare_squareIntegral' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/FourierSquare.lean:96:0: 'OQ7.fourierMoment_normSq_coordinates' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/FourierSquare.lean:97:0: 'OQ7.sineSquare_squareIntegral_fourier' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3227/3366] Built OQ7.Transfer (10s)
 info: OQ7/Transfer.lean:257:0: 'OQ7.waveBasisInv_mul_waveBasis' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/Transfer.lean:258:0: 'OQ7.waveBasis_mul_waveBasisInv' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/Transfer.lean:259:0: 'OQ7.waveTransfer_det' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -203,22 +204,13 @@ info: OQ7/Transfer.lean:277:0: 'OQ7.absorption_fluxDefect_ratio' depends on axio
 info: OQ7/Transfer.lean:278:0: 'OQ7.transfer_absorption_fluxDefect_ratio' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/Transfer.lean:279:0: 'OQ7.coated_fluxDefect' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/Transfer.lean:280:0: 'OQ7.coated_fluxDefect_det' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3225/3332] Built OQ7.Layers (13s)
-info: OQ7/Layers.lean:133:0: 'OQ7.refractiveIndex_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/Layers.lean:134:0: 'OQ7.relativePermittivity_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/Layers.lean:135:0: 'OQ7.refractiveIndex_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/Layers.lean:136:0: 'OQ7.homogeneousTransfer_det' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/Layers.lean:137:0: 'OQ7.layerTransfer_det' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/Layers.lean:138:0: 'OQ7.stackTransfer_det' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/Layers.lean:139:0: 'OQ7.totalThickness_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/Layers.lean:140:0: 'OQ7.integratedLoss_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/Layers.lean:141:0: 'OQ7.integratedLoss_le_cap_mul_thickness' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3226/3332] Built OQ7.FourierSquare (13s)
-info: OQ7/FourierSquare.lean:94:0: 'OQ7.sineSquare_difference_fourier' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/FourierSquare.lean:95:0: 'OQ7.sineSquare_squareIntegral' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/FourierSquare.lean:96:0: 'OQ7.fourierMoment_normSq_coordinates' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/FourierSquare.lean:97:0: 'OQ7.sineSquare_squareIntegral_fourier' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3227/3332] Built OQ7.DeterminantMinkowski (13s)
+ℹ [3228/3366] Built OQ7.FourierCap (10s)
+info: OQ7/FourierCap.lean:193:0: 'OQ7.cosine_cap_majorant' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/FourierCap.lean:194:0: 'OQ7.positive_cosine_integral' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/FourierCap.lean:195:0: 'OQ7.positive_cosine_physical_period' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/FourierCap.lean:196:0: 'OQ7.capped_cosine_moment' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/FourierCap.lean:197:0: 'OQ7.capped_fourier_moment' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3229/3366] Built OQ7.DeterminantMinkowski (10s)
 info: OQ7/DeterminantMinkowski.lean:107:0: 'OQ7.determinant_lorentz_mixed' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/DeterminantMinkowski.lean:108:0: 'OQ7.posSemidef_det_coordinates' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/DeterminantMinkowski.lean:109:0: 'OQ7.posSemidef_det_add_cross' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -226,49 +218,51 @@ info: OQ7/DeterminantMinkowski.lean:110:0: 'OQ7.posSemidef_sqrt_det_minkowski' d
 info: OQ7/DeterminantMinkowski.lean:111:0: 'OQ7.posSemidef_sqrt_det_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/DeterminantMinkowski.lean:112:0: 'OQ7.posSemidef_sqrt_det_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/DeterminantMinkowski.lean:113:0: 'OQ7.posSemidef_sqrt_det_aggregate' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3228/3332] Built OQ7.FourierCap (13s)
-info: OQ7/FourierCap.lean:193:0: 'OQ7.cosine_cap_majorant' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/FourierCap.lean:194:0: 'OQ7.positive_cosine_integral' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/FourierCap.lean:195:0: 'OQ7.positive_cosine_physical_period' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/FourierCap.lean:196:0: 'OQ7.capped_cosine_moment' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/FourierCap.lean:197:0: 'OQ7.capped_fourier_moment' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3229/3332] Built OQ7.ResourceUniform (9.3s)
+ℹ [3230/3366] Built OQ7.SharpDeficit (10s)
+info: OQ7/SharpDeficit.lean:59:0: 'OQ7.ScalarEnvelope.sqrt_displacement_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/SharpDeficit.lean:60:0: 'OQ7.ScalarEnvelope.scaled_deficit_limit_of_phase' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3231/3366] Built OQ7.Passivity (10s)
+info: OQ7/Passivity.lean:149:0: 'OQ7.passive_absorptances_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/Passivity.lean:150:0: 'OQ7.passive_det_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/Passivity.lean:151:0: 'OQ7.reflection_coordinates' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/Passivity.lean:152:0: 'OQ7.halfAsymmetry_le_b' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/Passivity.lean:153:0: 'OQ7.interference_reverse_triangle' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/Passivity.lean:154:0: 'OQ7.reflection_product_sqrt' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/Passivity.lean:155:0: 'OQ7.absorption_det_le_envelope' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/Passivity.lean:156:0: 'OQ7.responseAsymmetry_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/Passivity.lean:157:0: 'OQ7.active_matrix_deficit' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/Passivity.lean:158:0: 'OQ7.active_matrix_strict_gap' depends on axioms: [propext, Classical.choice, Quot.sound]
+✔ [3232/3366] Built PrescribedExtinction.Drive (8.0s)
+ℹ [3233/3366] Built OQ7.CellNormBounds (8.8s)
+info: OQ7/CellNormBounds.lean:50:0: 'OQ7.norm_one_add_reciprocal_smul_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/CellNormBounds.lean:51:0: 'OQ7.norm_one_add_reciprocal_smul_add_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/CellNormBounds.lean:52:0: 'OQ7.reciprocalCell_insertionError_quartic_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+✔ [3234/3366] Built PrescribedExtinction.TestRegularity (9.7s)
+✔ [3235/3366] Built PrescribedExtinction.GreenKernel (9.8s)
+✔ [3236/3366] Built PrescribedExtinction.StaticFourier (10s)
+ℹ [3237/3366] Built OQ7.ResourceUniform (9.1s)
 info: OQ7/ResourceUniform.lean:81:0: 'OQ7.resource_uniform_eventual_lower_of_floor' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/ResourceUniform.lean:82:0: 'OQ7.resourceAsymptoticCoefficient_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/ResourceUniform.lean:83:0: 'OQ7.resource_scaled_full_floor_eventually_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/ResourceUniform.lean:84:0: 'OQ7.resource_sequence_eventual_lower_of_floor' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/ResourceUniform.lean:85:0: 'OQ7.resource_sequence_liminf_lower_of_floor' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3230/3332] Built OQ7.ConstructionBudget (9.9s)
+ℹ [3238/3366] Built OQ7.ConstructionBudget (9.9s)
 info: OQ7/ConstructionBudget.lean:60:0: 'OQ7.constructionShift_atTop' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/ConstructionBudget.lean:61:0: 'OQ7.constructionIndex_atTop' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/ConstructionBudget.lean:62:0: 'OQ7.constructionIndex_ratio' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/ConstructionBudget.lean:63:0: 'OQ7.constructionIndex_fits' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3231/3332] Built OQ7.QuadraticRates (10s)
-info: OQ7/QuadraticRates.lean:94:0: 'OQ7.reciprocal_square_norm_rate' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/QuadraticRates.lean:95:0: 'OQ7.reciprocal_square_scalar_rate' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/QuadraticRates.lean:96:0: 'OQ7.reciprocal_square_bound_of_isBigO' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/QuadraticRates.lean:97:0: 'OQ7.reciprocal_square_norm_rate_of_isBigO' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/QuadraticRates.lean:98:0: 'OQ7.differentiable_sequence_reciprocal_square_rate' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/QuadraticRates.lean:99:0: 'OQ7.sharp_deficit_limit_of_quadratic_rates' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3232/3332] Built OQ7.CellNormBounds (9.1s)
-info: OQ7/CellNormBounds.lean:50:0: 'OQ7.norm_one_add_reciprocal_smul_le' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/CellNormBounds.lean:51:0: 'OQ7.norm_one_add_reciprocal_smul_add_le' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/CellNormBounds.lean:52:0: 'OQ7.reciprocalCell_insertionError_quartic_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
-✔ [3233/3332] Built PrescribedExtinction.Drive (10s)
-ℹ [3234/3332] Built OQ7.PhysicalClass (14s)
+ℹ [3239/3366] Built OQ7.PhysicalClass (11s)
 info: OQ7/PhysicalClass.lean:50:0: 'OQ7.finitePhysicalStack_of_admissible' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/PhysicalClass.lean:51:0: 'OQ7.finitePhysicalStack_exists_caps' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/PhysicalClass.lean:52:0: 'OQ7.finitePhysicalStack_iff_exists_admissible' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3235/3332] Built OQ7.Scattering (14s)
-info: OQ7/Scattering.lean:97:0: 'OQ7.waveBasis_fluxForm' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/Scattering.lean:98:0: 'OQ7.waveBasis_fluxDefect' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/Scattering.lean:99:0: 'OQ7.waveFluxDefect_11' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/Scattering.lean:100:0: 'OQ7.passive_transfer_denominator_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/Scattering.lean:101:0: 'OQ7.passive_transfer_denominator_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/Scattering.lean:102:0: 'OQ7.passive_transfer_scattering' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/Scattering.lean:103:0: 'OQ7.passive_transfer_transmission_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/Scattering.lean:104:0: 'OQ7.passive_transfer_absorption_det_ratio' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3236/3332] Built OQ7.Fields (14s)
+✔ [3240/3366] Built OQ7.Target (11s)
+ℹ [3241/3366] Built OQ7.MatrixNormBridge (11s)
+info: OQ7/MatrixNormBridge.lean:55:0: 'OQ7.matrixOperatorNorm_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/MatrixNormBridge.lean:56:0: 'OQ7.matrix_entry_norm_le_operator' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/MatrixNormBridge.lean:57:0: 'OQ7.matrix_elementwise_norm_le_operator' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/MatrixNormBridge.lean:58:0: 'OQ7.matrix_isBigO_of_operatorNorm' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/MatrixNormBridge.lean:59:0: 'OQ7.matrix_tendsto_of_operatorNorm' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3242/3366] Built OQ7.Fields (11s)
 info: OQ7/Fields.lean:140:0: 'OQ7.electricField_hasDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/Fields.lean:141:0: 'OQ7.magneticField_hasDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/Fields.lean:142:0: 'OQ7.electricField_second_deriv' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -281,24 +275,7 @@ info: OQ7/Fields.lean:148:0: 'OQ7.layerElectricField_helmholtz' depends on axiom
 info: OQ7/Fields.lean:149:0: 'OQ7.layerField_transfer_boundary' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/Fields.lean:150:0: 'OQ7.directedFlux_derivative_algebra' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/Fields.lean:151:0: 'OQ7.layerDirectedFlux_hasDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3237/3332] Built OQ7.Phase (14s)
-info: OQ7/Phase.lean:133:0: 'OQ7.phase_denominator_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/Phase.lean:134:0: 'OQ7.unitPhase_normSq' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/Phase.lean:135:0: 'OQ7.normSq_add_one_of_unit' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/Phase.lean:136:0: 'OQ7.unitPhase_penalty' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/Phase.lean:137:0: 'OQ7.interference_phaseProduct' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/Phase.lean:138:0: 'OQ7.phaseProduct_re' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/Phase.lean:139:0: 'OQ7.interference_unitPhase' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/Phase.lean:140:0: 'OQ7.absorption_det_phase_penalty' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/Phase.lean:141:0: 'OQ7.absorption_det_phase_norm' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/Phase.lean:142:0: 'OQ7.phase_remainder_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3238/3332] Built OQ7.MatrixNormBridge (14s)
-info: OQ7/MatrixNormBridge.lean:55:0: 'OQ7.matrixOperatorNorm_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/MatrixNormBridge.lean:56:0: 'OQ7.matrix_entry_norm_le_operator' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/MatrixNormBridge.lean:57:0: 'OQ7.matrix_elementwise_norm_le_operator' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/MatrixNormBridge.lean:58:0: 'OQ7.matrix_isBigO_of_operatorNorm' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/MatrixNormBridge.lean:59:0: 'OQ7.matrix_tendsto_of_operatorNorm' depends on axioms: [propext, Classical.choice, Quot.sound]
-⚠ [3239/3332] Built OQ7.PhysicalQuarterWave (14s)
+⚠ [3243/3366] Built OQ7.PhysicalQuarterWave (11s)
 warning: OQ7/PhysicalQuarterWave.lean:49:12: Unused tactic linter: `push_cast` does nothing
 
 Note: This linter can be disabled with `set_option linter.unusedTactic false`
@@ -316,13 +293,21 @@ info: OQ7/PhysicalQuarterWave.lean:137:0: 'OQ7.repeatPhysicalLayers_admissible' 
 info: OQ7/PhysicalQuarterWave.lean:138:0: 'OQ7.quarterWavePair_loss' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/PhysicalQuarterWave.lean:139:0: 'OQ7.quarterWavePair_thickness' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/PhysicalQuarterWave.lean:140:0: 'OQ7.quarterWavePair_thickness_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
-✔ [3240/3332] Built OQ7.Target (14s)
-ℹ [3241/3332] Built OQ7.FourierTriangle (14s)
+ℹ [3244/3366] Built OQ7.Scattering (11s)
+info: OQ7/Scattering.lean:97:0: 'OQ7.waveBasis_fluxForm' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/Scattering.lean:98:0: 'OQ7.waveBasis_fluxDefect' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/Scattering.lean:99:0: 'OQ7.waveFluxDefect_11' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/Scattering.lean:100:0: 'OQ7.passive_transfer_denominator_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/Scattering.lean:101:0: 'OQ7.passive_transfer_denominator_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/Scattering.lean:102:0: 'OQ7.passive_transfer_scattering' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/Scattering.lean:103:0: 'OQ7.passive_transfer_transmission_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/Scattering.lean:104:0: 'OQ7.passive_transfer_absorption_det_ratio' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3245/3366] Built OQ7.FourierTriangle (12s)
 info: OQ7/FourierTriangle.lean:114:0: 'OQ7.symmetric_squareIntegral_twice_triangle' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/FourierTriangle.lean:115:0: 'OQ7.sineSquare_product_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/FourierTriangle.lean:116:0: 'OQ7.sineSquare_triangleIntegral_fourier' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/FourierTriangle.lean:117:0: 'OQ7.sineSquare_triangleIntegral_capped' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3242/3332] Built OQ7.CoreAlgebra (14s)
+ℹ [3246/3366] Built OQ7.CoreAlgebra (12s)
 info: OQ7/CoreAlgebra.lean:161:0: 'OQ7.CoreConstruction.matrixUnit21_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/CoreAlgebra.lean:162:0: 'OQ7.CoreConstruction.realGenerator_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/CoreAlgebra.lean:163:0: 'OQ7.CoreConstruction.lossGenerator_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -340,13 +325,54 @@ info: OQ7/CoreAlgebra.lean:174:0: 'OQ7.CoreConstruction.core_linear_determinant_
 info: OQ7/CoreAlgebra.lean:175:0: 'OQ7.CoreConstruction.linearizedCore_pow' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/CoreAlgebra.lean:176:0: 'OQ7.CoreConstruction.linearizedCore_reciprocal_pow' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/CoreAlgebra.lean:177:0: 'OQ7.CoreConstruction.linearizedCore_reciprocal_fullPower' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3243/3332] Built OQ7.InsertionRemainder (11s)
+ℹ [3247/3366] Built OQ7.Phase (11s)
+info: OQ7/Phase.lean:133:0: 'OQ7.phase_denominator_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/Phase.lean:134:0: 'OQ7.unitPhase_normSq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/Phase.lean:135:0: 'OQ7.normSq_add_one_of_unit' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/Phase.lean:136:0: 'OQ7.unitPhase_penalty' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/Phase.lean:137:0: 'OQ7.interference_phaseProduct' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/Phase.lean:138:0: 'OQ7.phaseProduct_re' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/Phase.lean:139:0: 'OQ7.interference_unitPhase' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/Phase.lean:140:0: 'OQ7.absorption_det_phase_penalty' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/Phase.lean:141:0: 'OQ7.absorption_det_phase_norm' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/Phase.lean:142:0: 'OQ7.phase_remainder_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3248/3366] Built OQ7.QuadraticRates (12s)
+info: OQ7/QuadraticRates.lean:94:0: 'OQ7.reciprocal_square_norm_rate' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/QuadraticRates.lean:95:0: 'OQ7.reciprocal_square_scalar_rate' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/QuadraticRates.lean:96:0: 'OQ7.reciprocal_square_bound_of_isBigO' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/QuadraticRates.lean:97:0: 'OQ7.reciprocal_square_norm_rate_of_isBigO' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/QuadraticRates.lean:98:0: 'OQ7.differentiable_sequence_reciprocal_square_rate' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/QuadraticRates.lean:99:0: 'OQ7.sharp_deficit_limit_of_quadratic_rates' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3249/3366] Built OQ7.InsertionRemainder (9.1s)
 info: OQ7/InsertionRemainder.lean:45:0: 'OQ7.firstInsertion_add' depends on axioms: [propext]
 info: OQ7/InsertionRemainder.lean:46:0: 'OQ7.firstInsertion_sub' depends on axioms: [propext]
 info: OQ7/InsertionRemainder.lean:47:0: 'OQ7.norm_firstInsertion_quintic_reciprocal_le' depends on axioms: [propext, Classical.choice, Quot.sound]
-✔ [3244/3332] Built PrescribedExtinction.GreenKernel (17s)
-✔ [3245/3332] Built PrescribedExtinction.StaticFourier (17s)
-ℹ [3246/3332] Built OQ7.ScalarSign (14s)
+✔ [3250/3366] Built PrescribedExtinction.RadialCalculus (10s)
+✔ [3251/3366] Built PrescribedExtinction.StaticSymbolCoordinates (10s)
+✔ [3252/3366] Built PrescribedExtinction.FourierL1L2 (10s)
+✔ [3253/3366] Built PrescribedExtinction.VolumePotential (11s)
+⚠ [3254/3366] Built PrescribedExtinction.ComplexCoerciveInverse (10s)
+warning: PrescribedExtinction/ComplexCoerciveInverse.lean:14:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: PrescribedExtinction/ComplexCoerciveInverse.lean:43:0: automatically included section variable(s) unused in theorem `OQ7Prescribed.complex_imaginary_coercive_norm_bound`:
+  [CompleteSpace H]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CompleteSpace H] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: PrescribedExtinction/ComplexCoerciveInverse.lean:43:71: Variable name `hc` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hc
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ℹ [3255/3366] Built OQ7.ScalarSign (8.7s)
 info: OQ7/ScalarSign.lean:108:0: 'OQ7.waveTransfer_smul' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/ScalarSign.lean:109:0: 'OQ7.transferReflectionLeft_smul' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/ScalarSign.lean:110:0: 'OQ7.transferReflectionRight_smul' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -362,7 +388,7 @@ info: OQ7/ScalarSign.lean:119:0: 'OQ7.unit_smul_fluxDefect' depends on axioms: [
 info: OQ7/ScalarSign.lean:120:0: 'OQ7.signPow_fluxDefect' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/ScalarSign.lean:121:0: 'OQ7.signPow_scattering' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/ScalarSign.lean:122:0: 'OQ7.signPow_targetPowers' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3247/3332] Built OQ7.PhysicalPassivity (14s)
+ℹ [3256/3366] Built OQ7.PhysicalPassivity (9.7s)
 info: OQ7/PhysicalPassivity.lean:124:0: 'OQ7.fluxForm_quadratic' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/PhysicalPassivity.lean:125:0: 'OQ7.fluxDefect_quadratic' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/PhysicalPassivity.lean:126:0: 'OQ7.layerDirectedFlux_antitone' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -374,7 +400,27 @@ info: OQ7/PhysicalPassivity.lean:131:0: 'OQ7.stackTransfer_denominator_ne_zero' 
 info: OQ7/PhysicalPassivity.lean:132:0: 'OQ7.stack_scattering_passive' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/PhysicalPassivity.lean:133:0: 'OQ7.stack_transmission_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/PhysicalPassivity.lean:134:0: 'OQ7.stack_absorption_det_ratio' depends on axioms: [propext, Classical.choice, Quot.sound]
-⚠ [3248/3332] Built OQ7.PhysicalGlobal (15s)
+ℹ [3257/3366] Built OQ7.PhysicalExponential (10s)
+info: OQ7/PhysicalExponential.lean:70:0: 'OQ7.homogeneousTransfer_hasDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/PhysicalExponential.lean:71:0: 'OQ7.homogeneousTransfer_eq_exp' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/PhysicalExponential.lean:72:0: 'OQ7.layerTransfer_eq_exp' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3258/3366] Built OQ7.PhysicalCore (10s)
+info: OQ7/PhysicalCore.lean:132:0: 'OQ7.CoreConstruction.realPLayer_refractiveIndex' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/PhysicalCore.lean:133:0: 'OQ7.CoreConstruction.realPLayer_transfer' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/PhysicalCore.lean:134:0: 'OQ7.CoreConstruction.coreCellLength_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/PhysicalCore.lean:135:0: 'OQ7.CoreConstruction.coreSliceWidth_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/PhysicalCore.lean:136:0: 'OQ7.CoreConstruction.coreSliceWidth_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/PhysicalCore.lean:137:0: 'OQ7.CoreConstruction.coreSliceWidth_eventually_fits' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/PhysicalCore.lean:138:0: 'OQ7.CoreConstruction.physicalCoreCell_thickness' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/PhysicalCore.lean:139:0: 'OQ7.CoreConstruction.physicalCoreCell_loss' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/PhysicalCore.lean:140:0: 'OQ7.CoreConstruction.physicalCoreCell_admissible' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/PhysicalCore.lean:141:0: 'OQ7.CoreConstruction.physicalUnmatchedCore_loss' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/PhysicalCore.lean:142:0: 'OQ7.CoreConstruction.physicalUnmatchedCore_thickness' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/PhysicalCore.lean:143:0: 'OQ7.CoreConstruction.physicalUnmatchedCore_admissible' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/PhysicalCore.lean:144:0: 'OQ7.CoreConstruction.physicalUnmatchedCore_eventually_admissible' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+⚠ [3259/3366] Built OQ7.PhysicalGlobal (12s)
 warning: OQ7/PhysicalGlobal.lean:126:53: This simp argument is unused:
   Matrix.cons_val_zero
 
@@ -423,7 +469,7 @@ info: OQ7/PhysicalGlobal.lean:423:0: 'OQ7.stackRealProfile_measurable' depends o
 info: OQ7/PhysicalGlobal.lean:424:0: 'OQ7.stackLossProfile_integrableOn' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/PhysicalGlobal.lean:425:0: 'OQ7.stackLossProfile_intervalIntegrable' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/PhysicalGlobal.lean:426:0: 'OQ7.stackLossProfile_integral' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3249/3332] Built OQ7.PhysicalCoatings (15s)
+ℹ [3260/3366] Built OQ7.PhysicalCoatings (12s)
 info: OQ7/PhysicalCoatings.lean:203:0: 'OQ7.coatingIndex₁_eq_checkpoint' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/PhysicalCoatings.lean:204:0: 'OQ7.coatingIndex₂_eq_checkpoint' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/PhysicalCoatings.lean:205:0: 'OQ7.losslessDiagonalScale_add' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -444,45 +490,10 @@ info: OQ7/PhysicalCoatings.lean:219:0: 'OQ7.physicallyCoated_thickness_lt' depen
 info: OQ7/PhysicalCoatings.lean:220:0: 'OQ7.exists_coatingPairCount' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/PhysicalCoatings.lean:221:0: 'OQ7.coatingLayers_eventually_physical' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/PhysicalCoatings.lean:222:0: 'OQ7.exists_physical_coating_family' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3250/3332] Built OQ7.FourierOpenCaps (15s)
+ℹ [3261/3366] Built OQ7.FourierOpenCaps (11s)
 info: OQ7/FourierOpenCaps.lean:65:0: 'OQ7.capped_fourier_moment_Ioo' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/FourierOpenCaps.lean:66:0: 'OQ7.sineSquare_triangleIntegral_capped_Ioo' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3251/3332] Built OQ7.PhysicalCore (15s)
-info: OQ7/PhysicalCore.lean:132:0: 'OQ7.CoreConstruction.realPLayer_refractiveIndex' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/PhysicalCore.lean:133:0: 'OQ7.CoreConstruction.realPLayer_transfer' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/PhysicalCore.lean:134:0: 'OQ7.CoreConstruction.coreCellLength_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/PhysicalCore.lean:135:0: 'OQ7.CoreConstruction.coreSliceWidth_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/PhysicalCore.lean:136:0: 'OQ7.CoreConstruction.coreSliceWidth_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/PhysicalCore.lean:137:0: 'OQ7.CoreConstruction.coreSliceWidth_eventually_fits' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/PhysicalCore.lean:138:0: 'OQ7.CoreConstruction.physicalCoreCell_thickness' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/PhysicalCore.lean:139:0: 'OQ7.CoreConstruction.physicalCoreCell_loss' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/PhysicalCore.lean:140:0: 'OQ7.CoreConstruction.physicalCoreCell_admissible' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/PhysicalCore.lean:141:0: 'OQ7.CoreConstruction.physicalUnmatchedCore_loss' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/PhysicalCore.lean:142:0: 'OQ7.CoreConstruction.physicalUnmatchedCore_thickness' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/PhysicalCore.lean:143:0: 'OQ7.CoreConstruction.physicalUnmatchedCore_admissible' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/PhysicalCore.lean:144:0: 'OQ7.CoreConstruction.physicalUnmatchedCore_eventually_admissible' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-ℹ [3252/3332] Built OQ7.CoreFluxPolynomial (15s)
-info: OQ7/CoreFluxPolynomial.lean:113:0: 'OQ7.CoreConstruction.limitingSheet_fluxDefect_polynomial' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/CoreFluxPolynomial.lean:114:0: 'OQ7.CoreConstruction.limitingSheet_fluxDeterminant_polynomial' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-info: OQ7/CoreFluxPolynomial.lean:115:0: 'OQ7.CoreConstruction.core_fluxDeterminant_polynomial' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/CoreFluxPolynomial.lean:116:0: 'OQ7.CoreConstruction.core_fluxDeterminant_real_polynomial' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/CoreFluxPolynomial.lean:117:0: 'OQ7.CoreConstruction.fluxDeterminantTail_continuous' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/CoreFluxPolynomial.lean:118:0: 'OQ7.CoreConstruction.scaled_fluxDefect_sub' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/CoreFluxPolynomial.lean:119:0: 'OQ7.CoreConstruction.limitingSheet_scaledFluxVariation_tendsto' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-info: OQ7/CoreFluxPolynomial.lean:120:0: 'OQ7.CoreConstruction.limitingSheet_scaledFluxDeterminant_tendsto' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-ℹ [3253/3332] Built OQ7.PhysicalExponential (17s)
-info: OQ7/PhysicalExponential.lean:70:0: 'OQ7.homogeneousTransfer_hasDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/PhysicalExponential.lean:71:0: 'OQ7.homogeneousTransfer_eq_exp' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/PhysicalExponential.lean:72:0: 'OQ7.layerTransfer_eq_exp' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3254/3332] Built OQ7.Gram (17s)
+ℹ [3262/3366] Built OQ7.Gram (12s)
 info: OQ7/Gram.lean:312:0: 'OQ7.mixedFlux_derivative_algebra' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/Gram.lean:313:0: 'OQ7.maxwellMixedFlux_hasDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/Gram.lean:314:0: 'OQ7.layerMixedFlux_hasDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -502,11 +513,28 @@ info: OQ7/Gram.lean:327:0: 'OQ7.gramPairKernel_swap' depends on axioms: [propext
 info: OQ7/Gram.lean:328:0: 'OQ7.gramPairKernel_diagonal' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/Gram.lean:329:0: 'OQ7.gramPairKernel_square_eq_twice_triangle' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/Gram.lean:330:0: 'OQ7.weightedGram_det_triangleIntegral' depends on axioms: [propext, Classical.choice, Quot.sound]
-✔ [3255/3332] Built PrescribedExtinction.StaticSymbolCoordinates (15s)
-✔ [3256/3332] Built PrescribedExtinction.FourierL1L2 (15s)
-✔ [3257/3332] Built PrescribedExtinction.RadialCalculus (16s)
-✔ [3258/3332] Built PrescribedExtinction.VolumePotential (17s)
-ℹ [3259/3332] Built OQ7.TargetBounds (10s)
+ℹ [3263/3366] Built OQ7.CoreFluxPolynomial (11s)
+info: OQ7/CoreFluxPolynomial.lean:113:0: 'OQ7.CoreConstruction.limitingSheet_fluxDefect_polynomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/CoreFluxPolynomial.lean:114:0: 'OQ7.CoreConstruction.limitingSheet_fluxDeterminant_polynomial' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: OQ7/CoreFluxPolynomial.lean:115:0: 'OQ7.CoreConstruction.core_fluxDeterminant_polynomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/CoreFluxPolynomial.lean:116:0: 'OQ7.CoreConstruction.core_fluxDeterminant_real_polynomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/CoreFluxPolynomial.lean:117:0: 'OQ7.CoreConstruction.fluxDeterminantTail_continuous' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/CoreFluxPolynomial.lean:118:0: 'OQ7.CoreConstruction.scaled_fluxDefect_sub' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/CoreFluxPolynomial.lean:119:0: 'OQ7.CoreConstruction.limitingSheet_scaledFluxVariation_tendsto' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: OQ7/CoreFluxPolynomial.lean:120:0: 'OQ7.CoreConstruction.limitingSheet_scaledFluxDeterminant_tendsto' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [3264/3366] Built OQ7.CoreInsertion (12s)
+info: OQ7/CoreInsertion.lean:57:0: 'OQ7.CoreConstruction.linearizedCore_firstInsertion' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/CoreInsertion.lean:58:0: 'OQ7.CoreConstruction.sheetGenerator_coreK4_anticommutator' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/CoreInsertion.lean:59:0: 'OQ7.CoreConstruction.sheetGenerator_coreK4_sandwich' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/CoreInsertion.lean:60:0: 'OQ7.CoreConstruction.core_firstInsertion_reciprocal' depends on axioms: [propext, Classical.choice, Quot.sound]
+✔ [3265/3366] Built PrescribedExtinction.NewtonKernel (8.5s)
+ℹ [3266/3366] Built OQ7.TargetBounds (7.7s)
 info: OQ7/TargetBounds.lean:92:0: 'OQ7.exactTargetClass_deficit' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/TargetBounds.lean:93:0: 'OQ7.exactTargetClass_normalizedDet_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/TargetBounds.lean:94:0: 'OQ7.exactTargetClass_asymmetry_le' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -515,31 +543,18 @@ info: OQ7/TargetBounds.lean:96:0: 'OQ7.optimalAsymmetry_le' depends on axioms: [
 info: OQ7/TargetBounds.lean:97:0: 'OQ7.stackAsymmetry_le_optimal' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/TargetBounds.lean:98:0: 'OQ7.optimal_deficit_le_stack_deficit' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/TargetBounds.lean:99:0: 'OQ7.uniform_floor_optimal_deficit' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3260/3332] Built OQ7.PhysicalResourceDeficit (10s)
+ℹ [3267/3366] Built OQ7.PhysicalResourceDeficit (7.7s)
 info: OQ7/PhysicalResourceDeficit.lean:31:0: 'OQ7.exactTargetClass_normalizedDet_deficit' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/PhysicalResourceDeficit.lean:69:0: 'OQ7.exactTargetClass_asymmetry_bddAbove' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/PhysicalResourceDeficit.lean:70:0: 'OQ7.exactTargetClass_optimal_deficit_of_normalizedDet_floor' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3261/3332] Built OQ7.StrictLoss (10s)
+ℹ [3268/3366] Built OQ7.StrictLoss (8.0s)
 info: OQ7/StrictLoss.lean:162:0: 'OQ7.layerDirectedFlux_strict' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/StrictLoss.lean:163:0: 'OQ7.layerTransfer_fluxDefect_posDef' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/StrictLoss.lean:164:0: 'OQ7.stackTransfer_fluxDefect_posDef' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/StrictLoss.lean:165:0: 'OQ7.stack_absorption_posDef' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/StrictLoss.lean:166:0: 'OQ7.stack_absorption_det_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/StrictLoss.lean:167:0: 'OQ7.exactTargetClass_strict_gap' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3262/3332] Built OQ7.MatchingResponse (10s)
-info: OQ7/MatchingResponse.lean:139:0: 'OQ7.matching_complex_re_contDiff' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/MatchingResponse.lean:140:0: 'OQ7.matching_complex_im_contDiff' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/MatchingResponse.lean:141:0: 'OQ7.matching_complex_ofReal_contDiff' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/MatchingResponse.lean:142:0: 'OQ7.matching_complex_normSq_contDiff' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/MatchingResponse.lean:143:0: 'OQ7.matching_complex_normSq_contDiffAt' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/MatchingResponse.lean:144:0: 'OQ7.logCoatedTransfer_contDiff' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/MatchingResponse.lean:145:0: 'OQ7.logCoatedTransfer_det' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/MatchingResponse.lean:146:0: 'OQ7.matchingTransmissionPower_physical' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/MatchingResponse.lean:147:0: 'OQ7.matchingMeanAbsorptance_physical' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/MatchingResponse.lean:148:0: 'OQ7.waveTransfer_contDiff' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/MatchingResponse.lean:149:0: 'OQ7.matchingResponse_contDiffAt' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/MatchingResponse.lean:150:0: 'OQ7.matchingLogResponse_contDiffAt' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3263/3332] Built OQ7.CoreFactorization (10s)
+ℹ [3269/3366] Built OQ7.CoreFactorization (8.3s)
 info: OQ7/CoreFactorization.lean:87:0: 'OQ7.CoreConstruction.homogeneousTransfer_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/CoreFactorization.lean:88:0: 'OQ7.CoreConstruction.coreQuarterTransfer_realFormula' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/CoreFactorization.lean:89:0: 'OQ7.CoreConstruction.coreQuarterTransfer_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -548,32 +563,12 @@ info: OQ7/CoreFactorization.lean:91:0: 'OQ7.CoreConstruction.symmetricConjugatio
 info: OQ7/CoreFactorization.lean:92:0: 'OQ7.CoreConstruction.physicalUnmatchedCore_transferFactorization' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
-ℹ [3264/3332] Built OQ7.CoreInsertion (27s)
-info: OQ7/CoreInsertion.lean:57:0: 'OQ7.CoreConstruction.linearizedCore_firstInsertion' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/CoreInsertion.lean:58:0: 'OQ7.CoreConstruction.sheetGenerator_coreK4_anticommutator' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/CoreInsertion.lean:59:0: 'OQ7.CoreConstruction.sheetGenerator_coreK4_sandwich' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/CoreInsertion.lean:60:0: 'OQ7.CoreConstruction.core_firstInsertion_reciprocal' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3265/3332] Built OQ7.CoreTaylor (27s)
-info: OQ7/CoreTaylor.lean:96:0: 'OQ7.CoreConstruction.tripleTaylor_product' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/CoreTaylor.lean:97:0: 'OQ7.CoreConstruction.tripleTaylor_low_tail' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/CoreTaylor.lean:98:0: 'OQ7.CoreConstruction.concrete_cellTaylorLow' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/CoreTaylor.lean:99:0: 'OQ7.CoreConstruction.concrete_cellTaylor_product' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3266/3332] Built OQ7.GramProperties (11s)
+ℹ [3270/3366] Built OQ7.GramProperties (8.1s)
 info: OQ7/GramProperties.lean:71:0: 'OQ7.weightedGram_conjTranspose' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/GramProperties.lean:72:0: 'OQ7.weightedGram_quadraticDensity' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/GramProperties.lean:73:0: 'OQ7.weightedGram_quadratic' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/GramProperties.lean:74:0: 'OQ7.weightedGram_posSemidef' depends on axioms: [propext, Classical.choice, Quot.sound]
-⚠ [3267/3332] Built OQ7.PhysicalIntegrals (11s)
-warning: OQ7/PhysicalIntegrals.lean:49:33: `if_neg` has been deprecated: Use `ite_eq_right` instead
-info: OQ7/PhysicalIntegrals.lean:152:0: 'OQ7.stackWeightedField_integrableOn' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/PhysicalIntegrals.lean:153:0: 'OQ7.stackWeightedField_intervalIntegrable' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/PhysicalIntegrals.lean:154:0: 'OQ7.stackLossProfile_zero_after' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/PhysicalIntegrals.lean:155:0: 'OQ7.stackLossProfile_integral_budget' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/PhysicalIntegrals.lean:156:0: 'OQ7.stackWeightedField_integral_budget' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/PhysicalIntegrals.lean:157:0: 'OQ7.layerTransfer_fieldState' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/PhysicalIntegrals.lean:158:0: 'OQ7.stackMixedFlux_integral' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/PhysicalIntegrals.lean:159:0: 'OQ7.stackFluxDefect_gram_entry' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3268/3332] Built OQ7.PhysicalGram (11s)
+ℹ [3271/3366] Built OQ7.PhysicalGram (8.3s)
 info: OQ7/PhysicalGram.lean:205:0: 'OQ7.stackScatteringElectric_as_field' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/PhysicalGram.lean:206:0: 'OQ7.stackScatteringMagnetic_as_field' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/PhysicalGram.lean:207:0: 'OQ7.stackScatteringElectric_hasDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -590,8 +585,51 @@ info: OQ7/PhysicalGram.lean:217:0: 'OQ7.stackScatteringWronskian' depends on axi
 info: OQ7/PhysicalGram.lean:218:0: 'OQ7.stackScatteringWedge' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/PhysicalGram.lean:219:0: 'OQ7.stackScatteringWedge_normSq' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/PhysicalGram.lean:220:0: 'OQ7.stackScatteringGramPairKernel' depends on axioms: [propext, Classical.choice, Quot.sound]
-✔ [3269/3332] Built PrescribedExtinction.NewtonKernel (11s)
-⚠ [3270/3332] Built OQ7.MatchingSheet (8.9s)
+⚠ [3272/3366] Built OQ7.PhysicalIntegrals (8.2s)
+warning: OQ7/PhysicalIntegrals.lean:49:33: `if_neg` has been deprecated: Use `ite_eq_right` instead
+info: OQ7/PhysicalIntegrals.lean:152:0: 'OQ7.stackWeightedField_integrableOn' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/PhysicalIntegrals.lean:153:0: 'OQ7.stackWeightedField_intervalIntegrable' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/PhysicalIntegrals.lean:154:0: 'OQ7.stackLossProfile_zero_after' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/PhysicalIntegrals.lean:155:0: 'OQ7.stackLossProfile_integral_budget' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/PhysicalIntegrals.lean:156:0: 'OQ7.stackWeightedField_integral_budget' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/PhysicalIntegrals.lean:157:0: 'OQ7.layerTransfer_fieldState' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/PhysicalIntegrals.lean:158:0: 'OQ7.stackMixedFlux_integral' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/PhysicalIntegrals.lean:159:0: 'OQ7.stackFluxDefect_gram_entry' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3273/3366] Built OQ7.MatchingResponse (8.5s)
+info: OQ7/MatchingResponse.lean:139:0: 'OQ7.matching_complex_re_contDiff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/MatchingResponse.lean:140:0: 'OQ7.matching_complex_im_contDiff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/MatchingResponse.lean:141:0: 'OQ7.matching_complex_ofReal_contDiff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/MatchingResponse.lean:142:0: 'OQ7.matching_complex_normSq_contDiff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/MatchingResponse.lean:143:0: 'OQ7.matching_complex_normSq_contDiffAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/MatchingResponse.lean:144:0: 'OQ7.logCoatedTransfer_contDiff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/MatchingResponse.lean:145:0: 'OQ7.logCoatedTransfer_det' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/MatchingResponse.lean:146:0: 'OQ7.matchingTransmissionPower_physical' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/MatchingResponse.lean:147:0: 'OQ7.matchingMeanAbsorptance_physical' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/MatchingResponse.lean:148:0: 'OQ7.waveTransfer_contDiff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/MatchingResponse.lean:149:0: 'OQ7.matchingResponse_contDiffAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/MatchingResponse.lean:150:0: 'OQ7.matchingLogResponse_contDiffAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+✔ [3274/3366] Built PrescribedExtinction.SphereMeasure (9.4s)
+✔ [3275/3366] Built PrescribedExtinction.OutgoingRadial (9.5s)
+ℹ [3276/3366] Built OQ7.CoreTaylor (23s)
+info: OQ7/CoreTaylor.lean:96:0: 'OQ7.CoreConstruction.tripleTaylor_product' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/CoreTaylor.lean:97:0: 'OQ7.CoreConstruction.tripleTaylor_low_tail' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/CoreTaylor.lean:98:0: 'OQ7.CoreConstruction.concrete_cellTaylorLow' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/CoreTaylor.lean:99:0: 'OQ7.CoreConstruction.concrete_cellTaylor_product' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3277/3366] Built OQ7.CoreExponential (7.5s)
+info: OQ7/CoreExponential.lean:70:0: 'OQ7.CoreConstruction.maxwellGenerator_realP' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/CoreExponential.lean:71:0: 'OQ7.CoreConstruction.maxwellGenerator_lossyP' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/CoreExponential.lean:72:0: 'OQ7.CoreConstruction.strippedCellTransfer_eq_dimensionless' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/CoreExponential.lean:73:0: 'OQ7.CoreConstruction.coreSliceParameter_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/CoreExponential.lean:74:0: 'OQ7.CoreConstruction.physicalUnmatchedCore_transfer_eq_signed_dimensionless' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: OQ7/CoreExponential.lean:75:0: 'OQ7.CoreConstruction.physicalUnmatchedCore_fluxDefect_eq_dimensionless' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [3278/3366] Built OQ7.SelectedResource (7.4s)
+info: OQ7/SelectedResource.lean:40:0: 'OQ7.selectedResourceClass_of_admissible' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/SelectedResource.lean:41:0: 'OQ7.selectedResourceClass_of_exactTarget' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [3279/3366] Built OQ7.MatchingSheet (7.7s)
 warning: OQ7/MatchingSheet.lean:53:26: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
@@ -606,21 +644,7 @@ info: OQ7/MatchingSheet.lean:76:0: 'OQ7.triangularMatchingTransfer_det' depends 
 info: OQ7/MatchingSheet.lean:77:0: 'OQ7.triangularMatchingTransfer_wave' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/MatchingSheet.lean:78:0: 'OQ7.triangularMatchingTransfer_denominator_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/MatchingSheet.lean:79:0: 'OQ7.triangularMatchingTransfer_response' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3271/3332] Built OQ7.CoreExponential (8.8s)
-info: OQ7/CoreExponential.lean:70:0: 'OQ7.CoreConstruction.maxwellGenerator_realP' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/CoreExponential.lean:71:0: 'OQ7.CoreConstruction.maxwellGenerator_lossyP' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/CoreExponential.lean:72:0: 'OQ7.CoreConstruction.strippedCellTransfer_eq_dimensionless' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/CoreExponential.lean:73:0: 'OQ7.CoreConstruction.coreSliceParameter_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/CoreExponential.lean:74:0: 'OQ7.CoreConstruction.physicalUnmatchedCore_transfer_eq_signed_dimensionless' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-info: OQ7/CoreExponential.lean:75:0: 'OQ7.CoreConstruction.physicalUnmatchedCore_fluxDefect_eq_dimensionless' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-ℹ [3272/3332] Built OQ7.SelectedResource (9.6s)
-info: OQ7/SelectedResource.lean:40:0: 'OQ7.selectedResourceClass_of_admissible' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/SelectedResource.lean:41:0: 'OQ7.selectedResourceClass_of_exactTarget' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3273/3332] Built OQ7.PhysicalAbsorption (10s)
+ℹ [3280/3366] Built OQ7.PhysicalAbsorption (8.1s)
 info: OQ7/PhysicalAbsorption.lean:205:0: 'OQ7.stackScatteringWeighted_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/PhysicalAbsorption.lean:206:0: 'OQ7.stackDepositedAbsorption_posSemidef' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/PhysicalAbsorption.lean:207:0: 'OQ7.stackAbsorption_eq_deposited' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -634,19 +658,49 @@ info: OQ7/PhysicalAbsorption.lean:214:0: 'OQ7.stackFundamentalPairKernel_integra
 info: OQ7/PhysicalAbsorption.lean:215:0: 'OQ7.stackAbsorption_physicalGramDeterminant' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/PhysicalAbsorption.lean:216:0: 'OQ7.stackAbsorption_physicalGramDeterminant_budget' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/PhysicalAbsorption.lean:217:0: 'OQ7.stackFluxDefect_physicalGramDeterminant_budget' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3274/3332] Built OQ7.PhysicalModulus (10s)
+ℹ [3281/3366] Built OQ7.PhysicalModulus (8.2s)
 info: OQ7/PhysicalModulus.lean:77:0: 'OQ7.stackFundamentalSolution_modulus_comparison' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/PhysicalModulus.lean:90:0: 'OQ7.finitePhysicalStack_modulus_comparison' depends on axioms: [propext, Classical.choice, Quot.sound]
-✔ [3275/3332] Built PrescribedExtinction.SphereMeasure (11s)
-✔ [3276/3332] Built PrescribedExtinction.OutgoingRadial (11s)
-ℹ [3277/3332] Built OQ7.PhaseSmooth (11s)
+✔ [3282/3366] Built PrescribedExtinction.GreenCancellation (7.6s)
+✔ [3283/3366] Built PrescribedExtinction.SphereMoments (7.0s)
+ℹ [3284/3366] Built OQ7.PhysicalCellRemainder (8.7s)
+info: OQ7/PhysicalCellRemainder.lean:154:0: 'OQ7.CoreConstruction.matrix_reciprocalPower_smul_eq_real' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/PhysicalCellRemainder.lean:155:0: 'OQ7.CoreConstruction.coreSliceParameter_linearizedCore' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/PhysicalCellRemainder.lean:156:0: 'OQ7.CoreConstruction.linearizedCore_reciprocal_eq_real' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/PhysicalCellRemainder.lean:157:0: 'OQ7.CoreConstruction.strippedCellTransfer_eq_linearized_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/PhysicalCellRemainder.lean:158:0: 'OQ7.CoreConstruction.tripleTaylorTail_continuous' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/PhysicalCellRemainder.lean:159:0: 'OQ7.CoreConstruction.cellTaylorTail_continuous' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/PhysicalCellRemainder.lean:160:0: 'OQ7.CoreConstruction.dimensionlessCell_quintic_remainder_isBigO' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: OQ7/PhysicalCellRemainder.lean:161:0: 'OQ7.CoreConstruction.dimensionlessCell_cubic_perturbation_isBigO' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: OQ7/PhysicalCellRemainder.lean:162:0: 'OQ7.CoreConstruction.strippedCellTransfer_quintic_norm_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: OQ7/PhysicalCellRemainder.lean:163:0: 'OQ7.CoreConstruction.cellTaylorPolynomial_coreScale_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/PhysicalCellRemainder.lean:164:0: 'OQ7.CoreConstruction.coreCellPerturbation_cubic_norm_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/PhysicalCellRemainder.lean:165:0: 'OQ7.CoreConstruction.coreCellPerturbation_coefficientRemainder_norm_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: OQ7/PhysicalCellRemainder.lean:166:0: 'OQ7.CoreConstruction.actual_core_doubleInsertion_quartic_norm_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [3285/3366] Built OQ7.PhaseSmooth (9.2s)
 info: OQ7/PhaseSmooth.lean:119:0: 'OQ7.unitPhase_contDiffAt' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/PhaseSmooth.lean:120:0: 'OQ7.transferUnitPhase_contDiffAt' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/PhaseSmooth.lean:121:0: 'OQ7.transferHalfAsymmetry_contDiffAt' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/PhaseSmooth.lean:122:0: 'OQ7.unitPhase_real_opposite' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/PhaseSmooth.lean:123:0: 'OQ7.triangularMatchingTransfer_halfAsymmetry' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/PhaseSmooth.lean:124:0: 'OQ7.triangularMatchingTransfer_unitPhase' depends on axioms: [propext, Classical.choice, Quot.sound]
-⚠ [3278/3332] Built OQ7.MatchingJacobian (11s)
+ℹ [3286/3366] Built OQ7.ResourceCells (9.1s)
+info: OQ7/ResourceCells.lean:164:0: 'OQ7.physicalFundamentalPair_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/ResourceCells.lean:165:0: 'OQ7.physicalPair_sine_lower_of_comparison' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/ResourceCells.lean:166:0: 'OQ7.cell_pairIntegral_lower_of_sineComparison' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/ResourceCells.lean:167:0: 'OQ7.cell_det_lower_of_sineComparison' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/ResourceCells.lean:168:0: 'OQ7.cell_sqrt_det_lower_of_sineComparison' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [3287/3366] Built OQ7.MatchingJacobian (9.3s)
 warning: OQ7/MatchingJacobian.lean:28:77: this tactic is never executed
 
 Note: This linter can be disabled with `set_option linter.unreachableTactic false`
@@ -740,23 +794,7 @@ info: OQ7/MatchingJacobian.lean:186:0: 'OQ7.logCoatedTransfer_sheet' depends on 
 info: OQ7/MatchingJacobian.lean:187:0: 'OQ7.matchingLogResponse_sheet' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/MatchingJacobian.lean:188:0: 'OQ7.matchingLogResponse_sheet_hasFDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/MatchingJacobian.lean:189:0: 'OQ7.matchingSheetLogJacobian_isInvertible' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3279/3332] Built OQ7.MatchingTarget (11s)
-info: OQ7/MatchingTarget.lean:182:0: 'OQ7.smallSheetRoot_properties' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/MatchingTarget.lean:183:0: 'OQ7.active_target_s_lt_one' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/MatchingTarget.lean:184:0: 'OQ7.targetSheetV_gt_two' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/MatchingTarget.lean:185:0: 'OQ7.targetSheetH_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/MatchingTarget.lean:186:0: 'OQ7.targetSheetA_properties' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/MatchingTarget.lean:187:0: 'OQ7.targetSheetV_add_H' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/MatchingTarget.lean:188:0: 'OQ7.targetSheetV_sub_H' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/MatchingTarget.lean:189:0: 'OQ7.targetSheet_response' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/MatchingTarget.lean:190:0: 'OQ7.targetSheet_inverse_gap' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/MatchingTarget.lean:191:0: 'OQ7.targetSheet_reflection_gap' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/MatchingTarget.lean:192:0: 'OQ7.targetMatchingLogs_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/MatchingTarget.lean:193:0: 'OQ7.targetMatchingLogs_diff' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/MatchingTarget.lean:194:0: 'OQ7.targetMatchingLogs_exp' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/MatchingTarget.lean:195:0: 'OQ7.targetMatchingLogs_coated_sheet' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/MatchingTarget.lean:196:0: 'OQ7.targetMatchingLogs_response' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3280/3332] Built OQ7.PhysicalCoatedCore (11s)
+ℹ [3288/3366] Built OQ7.PhysicalCoatedCore (9.3s)
 info: OQ7/PhysicalCoatedCore.lean:119:0: 'OQ7.CoreConstruction.physicalCoatedCore_transfer' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/PhysicalCoatedCore.lean:120:0: 'OQ7.CoreConstruction.physicalCoatedCore_loss' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/PhysicalCoatedCore.lean:121:0: 'OQ7.CoreConstruction.physicalCoatedCore_admissible' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -767,37 +805,7 @@ info: OQ7/PhysicalCoatedCore.lean:125:0: 'OQ7.CoreConstruction.coreCellLength_sc
 info: OQ7/PhysicalCoatedCore.lean:126:0: 'OQ7.CoreConstruction.physicalCoatedCore_eventually_dimensionless_thickness' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
-ℹ [3281/3332] Built OQ7.PhysicalCellRemainder (11s)
-info: OQ7/PhysicalCellRemainder.lean:154:0: 'OQ7.CoreConstruction.matrix_reciprocalPower_smul_eq_real' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/PhysicalCellRemainder.lean:155:0: 'OQ7.CoreConstruction.coreSliceParameter_linearizedCore' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/PhysicalCellRemainder.lean:156:0: 'OQ7.CoreConstruction.linearizedCore_reciprocal_eq_real' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/PhysicalCellRemainder.lean:157:0: 'OQ7.CoreConstruction.strippedCellTransfer_eq_linearized_add' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/PhysicalCellRemainder.lean:158:0: 'OQ7.CoreConstruction.tripleTaylorTail_continuous' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/PhysicalCellRemainder.lean:159:0: 'OQ7.CoreConstruction.cellTaylorTail_continuous' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/PhysicalCellRemainder.lean:160:0: 'OQ7.CoreConstruction.dimensionlessCell_quintic_remainder_isBigO' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-info: OQ7/PhysicalCellRemainder.lean:161:0: 'OQ7.CoreConstruction.dimensionlessCell_cubic_perturbation_isBigO' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-info: OQ7/PhysicalCellRemainder.lean:162:0: 'OQ7.CoreConstruction.strippedCellTransfer_quintic_norm_bound' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-info: OQ7/PhysicalCellRemainder.lean:163:0: 'OQ7.CoreConstruction.cellTaylorPolynomial_coreScale_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/PhysicalCellRemainder.lean:164:0: 'OQ7.CoreConstruction.coreCellPerturbation_cubic_norm_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/PhysicalCellRemainder.lean:165:0: 'OQ7.CoreConstruction.coreCellPerturbation_coefficientRemainder_norm_bound' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-info: OQ7/PhysicalCellRemainder.lean:166:0: 'OQ7.CoreConstruction.actual_core_doubleInsertion_quartic_norm_bound' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-ℹ [3282/3332] Built OQ7.ResourceCells (10s)
-info: OQ7/ResourceCells.lean:164:0: 'OQ7.physicalFundamentalPair_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/ResourceCells.lean:165:0: 'OQ7.physicalPair_sine_lower_of_comparison' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/ResourceCells.lean:166:0: 'OQ7.cell_pairIntegral_lower_of_sineComparison' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/ResourceCells.lean:167:0: 'OQ7.cell_det_lower_of_sineComparison' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/ResourceCells.lean:168:0: 'OQ7.cell_sqrt_det_lower_of_sineComparison' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3283/3332] Built OQ7.ResourcePartition (10s)
+ℹ [3289/3366] Built OQ7.ResourcePartition (9.2s)
 info: OQ7/ResourcePartition.lean:199:0: 'OQ7.resourceCellPoint_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/ResourcePartition.lean:200:0: 'OQ7.resourceCellPoint_end' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/ResourcePartition.lean:201:0: 'OQ7.resourceCellPoint_step' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -816,21 +824,25 @@ info: OQ7/ResourcePartition.lean:213:0: 'OQ7.resourceCell_subset_Ioo' depends on
 info: OQ7/ResourcePartition.lean:214:0: 'OQ7.resourceCellMass_bounds_Ioo' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/ResourcePartition.lean:215:0: 'OQ7.resourceCellU_bounds_Ioo' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/ResourcePartition.lean:216:0: 'OQ7.resourceMass_le_cap_Ioo' depends on axioms: [propext, Classical.choice, Quot.sound]
-✔ [3284/3332] Built PrescribedExtinction.GreenCancellation (10s)
-✔ [3285/3332] Built PrescribedExtinction.SphereMoments (10s)
-ℹ [3286/3332] Built OQ7.MatchingImplicit (9.2s)
-info: OQ7/MatchingImplicit.lean:77:0: 'OQ7.matchingLogResponse_sheet_coating_partial' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/MatchingImplicit.lean:78:0: 'OQ7.matching_implicit_sheet_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/MatchingImplicit.lean:79:0: 'OQ7.matching_implicit_sheet_sequence' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3287/3332] Built OQ7.SignedResponse (9.2s)
-info: OQ7/SignedResponse.lean:53:0: 'OQ7.halfAsymmetry_reflection_formula' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/SignedResponse.lean:54:0: 'OQ7.unit_smul_transferHalfAsymmetry' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/SignedResponse.lean:55:0: 'OQ7.signPow_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/SignedResponse.lean:56:0: 'OQ7.signPow_unitPhase' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/SignedResponse.lean:57:0: 'OQ7.signPow_transferUnitPhase' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/SignedResponse.lean:58:0: 'OQ7.unit_smul_responseAsymmetry' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/SignedResponse.lean:59:0: 'OQ7.signPow_transfer_det' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3288/3332] Built OQ7.PhysicalCoreRemainder (9.6s)
+ℹ [3290/3366] Built OQ7.MatchingTarget (9.4s)
+info: OQ7/MatchingTarget.lean:182:0: 'OQ7.smallSheetRoot_properties' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/MatchingTarget.lean:183:0: 'OQ7.active_target_s_lt_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/MatchingTarget.lean:184:0: 'OQ7.targetSheetV_gt_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/MatchingTarget.lean:185:0: 'OQ7.targetSheetH_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/MatchingTarget.lean:186:0: 'OQ7.targetSheetA_properties' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/MatchingTarget.lean:187:0: 'OQ7.targetSheetV_add_H' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/MatchingTarget.lean:188:0: 'OQ7.targetSheetV_sub_H' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/MatchingTarget.lean:189:0: 'OQ7.targetSheet_response' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/MatchingTarget.lean:190:0: 'OQ7.targetSheet_inverse_gap' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/MatchingTarget.lean:191:0: 'OQ7.targetSheet_reflection_gap' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/MatchingTarget.lean:192:0: 'OQ7.targetMatchingLogs_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/MatchingTarget.lean:193:0: 'OQ7.targetMatchingLogs_diff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/MatchingTarget.lean:194:0: 'OQ7.targetMatchingLogs_exp' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/MatchingTarget.lean:195:0: 'OQ7.targetMatchingLogs_coated_sheet' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/MatchingTarget.lean:196:0: 'OQ7.targetMatchingLogs_response' depends on axioms: [propext, Classical.choice, Quot.sound]
+✔ [3291/3366] Built PrescribedExtinction.NewtonBoundary (8.6s)
+✔ [3292/3366] Built PrescribedExtinction.DyadicRemainder (9.6s)
+ℹ [3293/3366] Built OQ7.PhysicalCoreRemainder (7.9s)
 info: OQ7/PhysicalCoreRemainder.lean:110:0: 'OQ7.CoreConstruction.actual_repeatedCore_quartic_remainder_norm_bound' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
@@ -840,12 +852,15 @@ info: OQ7/PhysicalCoreRemainder.lean:111:0: 'OQ7.CoreConstruction.physicalUnmatc
 info: OQ7/PhysicalCoreRemainder.lean:112:0: 'OQ7.CoreConstruction.actual_repeatedCore_quadratic_convergence_norm_bound' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
-ℹ [3289/3332] Built OQ7.MatchingOptimizer (11s)
-info: OQ7/MatchingOptimizer.lean:93:0: 'OQ7.targetSheet_unitPhase' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/MatchingOptimizer.lean:94:0: 'OQ7.triangularMatchingTransfer_reflections_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/MatchingOptimizer.lean:95:0: 'OQ7.targetSheet_halfAsymmetry' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/MatchingOptimizer.lean:96:0: 'OQ7.targetSheet_unitPhase_contDiffAt' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3290/3332] Built OQ7.PhysicalCellBounds (9.9s)
+ℹ [3294/3366] Built OQ7.SignedResponse (7.6s)
+info: OQ7/SignedResponse.lean:53:0: 'OQ7.halfAsymmetry_reflection_formula' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/SignedResponse.lean:54:0: 'OQ7.unit_smul_transferHalfAsymmetry' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/SignedResponse.lean:55:0: 'OQ7.signPow_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/SignedResponse.lean:56:0: 'OQ7.signPow_unitPhase' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/SignedResponse.lean:57:0: 'OQ7.signPow_transferUnitPhase' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/SignedResponse.lean:58:0: 'OQ7.unit_smul_responseAsymmetry' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/SignedResponse.lean:59:0: 'OQ7.signPow_transfer_det' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3295/3366] Built OQ7.PhysicalCellBounds (8.4s)
 info: OQ7/PhysicalCellBounds.lean:106:0: 'OQ7.stackFundamentalSolution_cellComparison' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/PhysicalCellBounds.lean:107:0: 'OQ7.cell_det_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/PhysicalCellBounds.lean:108:0: 'OQ7.cell_sqrt_det_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -853,7 +868,11 @@ info: OQ7/PhysicalCellBounds.lean:109:0: 'OQ7.cell_det_lower_finitePhysical' dep
 info: OQ7/PhysicalCellBounds.lean:110:0: 'OQ7.cell_sqrt_det_lower_finitePhysical' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/PhysicalCellBounds.lean:111:0: 'OQ7.cell_det_lower_admissible' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/PhysicalCellBounds.lean:112:0: 'OQ7.cell_sqrt_det_lower_admissible' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3291/3332] Built OQ7.ResourceCellsOpen (10s)
+ℹ [3296/3366] Built OQ7.MatchingImplicit (8.4s)
+info: OQ7/MatchingImplicit.lean:77:0: 'OQ7.matchingLogResponse_sheet_coating_partial' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/MatchingImplicit.lean:78:0: 'OQ7.matching_implicit_sheet_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/MatchingImplicit.lean:79:0: 'OQ7.matching_implicit_sheet_sequence' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3297/3366] Built OQ7.ResourceCellsOpen (8.5s)
 info: OQ7/ResourceCellsOpen.lean:178:0: 'OQ7.cell_pairIntegral_lower_of_sineComparison_Ioo' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/ResourceCellsOpen.lean:179:0: 'OQ7.cell_det_lower_of_sineComparison_Ioo' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/ResourceCellsOpen.lean:180:0: 'OQ7.cell_sqrt_det_lower_of_sineComparison_Ioo' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -862,24 +881,18 @@ info: OQ7/ResourceCellsOpen.lean:182:0: 'OQ7.cell_det_lower_Ioo' depends on axio
 info: OQ7/ResourceCellsOpen.lean:183:0: 'OQ7.cell_sqrt_det_lower_Ioo' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/ResourceCellsOpen.lean:184:0: 'OQ7.cell_det_lower_finitePhysical_Ioo' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/ResourceCellsOpen.lean:185:0: 'OQ7.cell_sqrt_det_lower_finitePhysical_Ioo' depends on axioms: [propext, Classical.choice, Quot.sound]
-✔ [3292/3332] Built PrescribedExtinction.NewtonBoundary (9.0s)
-✔ [3293/3332] Built PrescribedExtinction.DyadicRemainder (11s)
-ℹ [3294/3332] Built OQ7.MatchingTargetImplicit (7.6s)
+✔ [3298/3366] Built PrescribedExtinction.NewtonPV (7.9s)
+ℹ [3299/3366] Built OQ7.MatchingOptimizer (10s)
+info: OQ7/MatchingOptimizer.lean:93:0: 'OQ7.targetSheet_unitPhase' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/MatchingOptimizer.lean:94:0: 'OQ7.triangularMatchingTransfer_reflections_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/MatchingOptimizer.lean:95:0: 'OQ7.targetSheet_halfAsymmetry' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/MatchingOptimizer.lean:96:0: 'OQ7.targetSheet_unitPhase_contDiffAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+✔ [3300/3366] Built PrescribedExtinction.RemainderConvolution (8.8s)
+ℹ [3301/3366] Built OQ7.MatchingTargetImplicit (6.4s)
 info: OQ7/MatchingTargetImplicit.lean:62:0: 'OQ7.targetMatchingLogs_jacobian_conditions' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/MatchingTargetImplicit.lean:63:0: 'OQ7.exact_target_matching_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/MatchingTargetImplicit.lean:64:0: 'OQ7.exact_target_matching_sequence_operatorNorm' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3295/3332] Built OQ7.TransferSharpLimit (8.0s)
-info: OQ7/TransferSharpLimit.lean:200:0: 'OQ7.matchingResponse_eq_physical' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/TransferSharpLimit.lean:201:0: 'OQ7.transfer_exact_targets' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/TransferSharpLimit.lean:202:0: 'OQ7.transferNormalizedDet_eq_fluxdet_re' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/TransferSharpLimit.lean:203:0: 'OQ7.transfer_sharp_coordinates_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/TransferSharpLimit.lean:204:0: 'OQ7.transfer_phase_remainder' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/TransferSharpLimit.lean:205:0: 'OQ7.transferUnitPhase_nonzero_entries' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/TransferSharpLimit.lean:206:0: 'OQ7.transfer_halfAsymmetry_quadratic_rate' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/TransferSharpLimit.lean:207:0: 'OQ7.transfer_unitPhase_quadratic_rate' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/TransferSharpLimit.lean:208:0: 'OQ7.transfer_reflection_product_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/TransferSharpLimit.lean:209:0: 'OQ7.transfer_sharp_deficit_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3296/3332] Built OQ7.ResourceBounds (9.0s)
+ℹ [3302/3366] Built OQ7.ResourceBounds (7.4s)
 info: OQ7/ResourceBounds.lean:222:0: 'OQ7.physical_resource_cell_bounds_Ioo' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/ResourceBounds.lean:223:0: 'OQ7.physical_resource_half_lower_Ioo' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/ResourceBounds.lean:224:0: 'OQ7.physical_resource_full_lower_Ioo' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -892,8 +905,20 @@ info: OQ7/ResourceBounds.lean:230:0: 'OQ7.posSemidef_sqrt_det_aggregate_normaliz
 info: OQ7/ResourceBounds.lean:231:0: 'OQ7.physical_selected_sqrt_aggregate' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/ResourceBounds.lean:232:0: 'OQ7.beta_eq_squared_scalar' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/ResourceBounds.lean:233:0: 'OQ7.physical_resource_floor_of_cellBounds' depends on axioms: [propext, Classical.choice, Quot.sound]
-✔ [3297/3332] Built PrescribedExtinction.NewtonPV (9.4s)
-ℹ [3298/3332] Built OQ7.MatchedTransfer (7.8s)
+ℹ [3303/3366] Built OQ7.TransferSharpLimit (6.9s)
+info: OQ7/TransferSharpLimit.lean:200:0: 'OQ7.matchingResponse_eq_physical' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/TransferSharpLimit.lean:201:0: 'OQ7.transfer_exact_targets' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/TransferSharpLimit.lean:202:0: 'OQ7.transferNormalizedDet_eq_fluxdet_re' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/TransferSharpLimit.lean:203:0: 'OQ7.transfer_sharp_coordinates_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/TransferSharpLimit.lean:204:0: 'OQ7.transfer_phase_remainder' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/TransferSharpLimit.lean:205:0: 'OQ7.transferUnitPhase_nonzero_entries' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/TransferSharpLimit.lean:206:0: 'OQ7.transfer_halfAsymmetry_quadratic_rate' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/TransferSharpLimit.lean:207:0: 'OQ7.transfer_unitPhase_quadratic_rate' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/TransferSharpLimit.lean:208:0: 'OQ7.transfer_reflection_product_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/TransferSharpLimit.lean:209:0: 'OQ7.transfer_sharp_deficit_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+✔ [3304/3366] Built PrescribedExtinction.NewtonPrincipalValue (7.9s)
+✔ [3305/3366] Built PrescribedExtinction.DynamicGreenRegularity (8.4s)
+ℹ [3306/3366] Built OQ7.MatchedTransfer (6.5s)
 info: OQ7/MatchedTransfer.lean:83:0: 'OQ7.matchedTransferMap_differentiableAt' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/MatchedTransfer.lean:84:0: 'OQ7.matchedTransferMap_isBigO' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/MatchedTransfer.lean:85:0: 'OQ7.matchedTransferMap_response' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -901,8 +926,7 @@ info: OQ7/MatchedTransfer.lean:86:0: 'OQ7.matchedTransferMap_det' depends on axi
 info: OQ7/MatchedTransfer.lean:87:0: 'OQ7.matchedTransferMap_eq_physical_scales' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/MatchedTransfer.lean:88:0: 'OQ7.exact_target_matched_transfer_maps' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/MatchedTransfer.lean:89:0: 'OQ7.exact_target_matched_transfer_sequence_operatorNorm' depends on axioms: [propext, Classical.choice, Quot.sound]
-✔ [3299/3332] Built PrescribedExtinction.RemainderConvolution (10s)
-ℹ [3300/3332] Built OQ7.ResourceTheorem45 (8.6s)
+ℹ [3307/3366] Built OQ7.ResourceTheorem45 (7.1s)
 info: OQ7/ResourceTheorem45.lean:138:0: 'OQ7.selectedResource_half_floor' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/ResourceTheorem45.lean:139:0: 'OQ7.selectedResource_half_floor_explicit' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/ResourceTheorem45.lean:140:0: 'OQ7.selectedResource_invariant_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -912,13 +936,13 @@ info: OQ7/ResourceTheorem45.lean:143:0: 'OQ7.selectedResource_full_floor_eventua
 info: OQ7/ResourceTheorem45.lean:144:0: 'OQ7.theorem45_uniform_asymptotic' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/ResourceTheorem45.lean:145:0: 'OQ7.theorem45_sequence_eventual_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/ResourceTheorem45.lean:146:0: 'OQ7.theorem45_sequence_lowerlimit' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3301/3332] Built OQ7.PhysicalSignedTransfer (8.6s)
+ℹ [3308/3366] Built OQ7.PhysicalSignedTransfer (7.1s)
 info: OQ7/PhysicalSignedTransfer.lean:55:0: 'OQ7.physical_signed_transfer_det' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/PhysicalSignedTransfer.lean:56:0: 'OQ7.physical_signed_transfer_fluxPSD' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/PhysicalSignedTransfer.lean:57:0: 'OQ7.physical_signed_transfer_response' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/PhysicalSignedTransfer.lean:58:0: 'OQ7.physical_signed_transfer_asymmetry' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/PhysicalSignedTransfer.lean:59:0: 'OQ7.physical_signed_transfer_invariant' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3302/3332] Built OQ7.PhysicalCoreInvariant (8.7s)
+ℹ [3309/3366] Built OQ7.PhysicalCoreInvariant (7.3s)
 info: OQ7/PhysicalCoreInvariant.lean:126:0: 'OQ7.CoreConstruction.actual_repeatedCore_scaledDifference_tendsto' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
@@ -948,8 +972,8 @@ info: OQ7/PhysicalCoreInvariant.lean:135:0: 'OQ7.CoreConstruction.physicallyCoat
 info: OQ7/PhysicalCoreInvariant.lean:136:0: 'OQ7.CoreConstruction.physicallyCoatedCore_scaledResourceInvariant_tendsto' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
-✔ [3303/3332] Built PrescribedExtinction.NewtonPrincipalValue (9.2s)
-ℹ [3304/3332] Built OQ7.PhysicalLowerAsymptotics (7.7s)
+✔ [3310/3366] Built PrescribedExtinction.NewtonCutoff (7.2s)
+ℹ [3311/3366] Built OQ7.PhysicalLowerAsymptotics (6.7s)
 info: OQ7/PhysicalLowerAsymptotics.lean:81:0: 'OQ7.asymptoticCoefficient_eq_resource' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/PhysicalLowerAsymptotics.lean:82:0: 'OQ7.fullResourceDeficitFloor_scaled_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/PhysicalLowerAsymptotics.lean:83:0: 'OQ7.physical_deficit_liminf_of_full_floor' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -961,35 +985,173 @@ info: OQ7/PhysicalLowerAsymptotics.lean:156:0: 'OQ7.theorem51_optimal_full_floor
 info: OQ7/PhysicalLowerAsymptotics.lean:157:0: 'OQ7.theorem51_optimal_uniform_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/PhysicalLowerAsymptotics.lean:158:0: 'OQ7.theorem51_optimal_lowerlimit' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/PhysicalLowerAsymptotics.lean:159:0: 'OQ7.theorem51_sequence_lowerlimit' depends on axioms: [propext, Classical.choice, Quot.sound]
-✔ [3305/3332] Built PrescribedExtinction.NewtonCutoff (8.0s)
-ℹ [3306/3332] Built OQ7.PhysicalSequenceSqueeze (7.8s)
+✔ [3312/3366] Built PrescribedExtinction.NewtonCutoffLimit (7.5s)
+✔ [3313/3366] Built PrescribedExtinction.NewtonCutoffIBP (7.6s)
+ℹ [3314/3366] Built OQ7.PhysicalSequenceSqueeze (6.9s)
 info: OQ7/PhysicalSequenceSqueeze.lean:91:0: 'OQ7.physical_sequence_budget_membership' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/PhysicalSequenceSqueeze.lean:92:0: 'OQ7.physical_sequence_scaled_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/PhysicalSequenceSqueeze.lean:93:0: 'OQ7.theorem51_of_physical_constructed_sequence' depends on axioms: [propext, Classical.choice, Quot.sound]
-✔ [3307/3332] Built PrescribedExtinction.NewtonCutoffLimit (8.7s)
-✔ [3308/3332] Built PrescribedExtinction.NewtonCutoffIBP (8.9s)
-ℹ [3309/3332] Built OQ7.SharpPhysicalConstruction (7.5s)
+✔ [3315/3366] Built PrescribedExtinction.NewtonShell (9.6s)
+✔ [3316/3366] Built PrescribedExtinction.DistributionVectorCalculus (9.8s)
+ℹ [3317/3366] Built OQ7.SharpPhysicalConstruction (6.7s)
 info: OQ7/SharpPhysicalConstruction.lean:91:0: 'OQ7.sharp_physical_constructed_sequence' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/SharpPhysicalConstruction.lean:92:0: 'OQ7.theorem51' depends on axioms: [propext, Classical.choice, Quot.sound]
-✔ [3310/3332] Built PrescribedExtinction.NewtonShell (7.8s)
-✔ [3311/3332] Built OQ7 (7.1s)
-✔ [3313/3332] Built PrescribedExtinction.NewtonPunctured (8.5s)
-✔ [3314/3332] Built PrescribedExtinction.NewtonContact (7.9s)
-✔ [3315/3332] Built PrescribedExtinction.NewtonFundamental (8.0s)
-✔ [3316/3332] Built PrescribedExtinction.NewtonTempered (9.0s)
-✔ [3317/3332] Built PrescribedExtinction.NewtonHeat (9.2s)
-✔ [3318/3332] Built PrescribedExtinction.NewtonHeatPairing (8.8s)
-✔ [3319/3332] Built PrescribedExtinction.NewtonHeatFourier (8.8s)
-✔ [3320/3332] Built PrescribedExtinction.NewtonSchwartz (9.2s)
-✔ [3321/3332] Built PrescribedExtinction.NewtonFrequency (9.4s)
-✔ [3322/3332] Built PrescribedExtinction.NewtonFrequencyHeat (8.5s)
-✔ [3323/3332] Built PrescribedExtinction.NewtonSymbol (8.8s)
-✔ [3324/3332] Built PrescribedExtinction.NewtonFourier (9.0s)
-✔ [3325/3332] Built PrescribedExtinction.NewtonTransform (8.2s)
-✔ [3326/3332] Built PrescribedExtinction.NewtonCurrentPairing (8.4s)
-✔ [3327/3332] Built PrescribedExtinction.StaticOperatorDistribution (8.7s)
-✔ [3328/3332] Built PrescribedExtinction.NewtonCurrentCorrelation (8.2s)
-✔ [3329/3332] Built PrescribedExtinction.NewtonCurrentFourier (7.7s)
-✔ [3330/3332] Built PrescribedExtinction.NewtonStaticIdentification (7.9s)
-✔ [3331/3332] Built PrescribedExtinction (7.4s)
-Build completed successfully (3332 jobs).
+✔ [3318/3366] Built OQ7 (6.3s)
+✔ [3320/3366] Built PrescribedExtinction.ShrinkingCutoff (7.6s)
+✔ [3321/3366] Built PrescribedExtinction.NewtonPunctured (7.9s)
+✔ [3322/3366] Built PrescribedExtinction.NewtonContact (6.9s)
+✔ [3323/3366] Built PrescribedExtinction.RemovablePointIBP (7.2s)
+✔ [3324/3366] Built PrescribedExtinction.NewtonFundamental (8.0s)
+✔ [3325/3366] Built PrescribedExtinction.NewtonTempered (8.1s)
+✔ [3326/3366] Built PrescribedExtinction.NewtonHeat (8.2s)
+✔ [3327/3366] Built PrescribedExtinction.PolePointIBP (8.1s)
+✔ [3328/3366] Built PrescribedExtinction.OutgoingDynamicIdentity (13s)
+✔ [3329/3366] Built PrescribedExtinction.NewtonHeatPairing (7.5s)
+✔ [3330/3366] Built PrescribedExtinction.NewtonHeatFourier (7.5s)
+✔ [3331/3366] Built PrescribedExtinction.NewtonSchwartz (7.8s)
+✔ [3332/3366] Built PrescribedExtinction.NewtonFrequency (7.0s)
+✔ [3333/3366] Built PrescribedExtinction.OutgoingFundamental (7.3s)
+✔ [3334/3366] Built PrescribedExtinction.NewtonFrequencyHeat (7.2s)
+✔ [3335/3366] Built PrescribedExtinction.NewtonSymbol (7.3s)
+✔ [3336/3366] Built PrescribedExtinction.NewtonFourier (7.5s)
+✔ [3337/3366] Built PrescribedExtinction.NewtonTransform (7.2s)
+✔ [3338/3366] Built PrescribedExtinction.NewtonCurrentPairing (7.2s)
+✔ [3339/3366] Built PrescribedExtinction.StaticOperatorDistribution (7.5s)
+✔ [3340/3366] Built PrescribedExtinction.OutgoingCurrentPairing (7.1s)
+✔ [3341/3366] Built PrescribedExtinction.NewtonCurrentCorrelation (7.3s)
+✔ [3342/3366] Built PrescribedExtinction.NewtonCurrentFourier (6.8s)
+✔ [3343/3366] Built PrescribedExtinction.RemainderCurrentPairing (7.5s)
+✔ [3344/3366] Built PrescribedExtinction.NewtonStaticIdentification (6.0s)
+✔ [3345/3366] Built PrescribedExtinction.YoungConvolution (7.5s)
+✔ [3346/3366] Built PrescribedExtinction.GreenGradient (7.3s)
+✔ [3347/3366] Built PrescribedExtinction.OutgoingVolumeIdentification (9.0s)
+✔ [3348/3366] Built PrescribedExtinction.CompactOutgoingOperator (10s)
+✔ [3349/3366] Built PrescribedExtinction.GreenFirstDerivative (8.7s)
+✔ [3350/3366] Built PrescribedExtinction.RadiationKernel (8.9s)
+✔ [3351/3366] Built PrescribedExtinction.VolumeFundamental (7.4s)
+✔ [3352/3366] Built PrescribedExtinction.CompactOutgoingIdentification (8.3s)
+✔ [3353/3366] Built PrescribedExtinction.GradientCurrentPairing (7.3s)
+⚠ [3354/3366] Built PrescribedExtinction.ExteriorOutgoing (7.9s)
+warning: PrescribedExtinction/ExteriorOutgoing.lean:112:10: This simp argument is unused:
+  kernelMagnetic
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [p.vanish y (lt_of_not_ge hy), cross]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+✔ [3355/3366] Built PrescribedExtinction.DyadicMaxwellSource (7.2s)
+⚠ [3356/3366] Built PrescribedExtinction.PhysicalSourceFields (7.4s)
+warning: PrescribedExtinction/PhysicalSourceFields.lean:90:65: This simp argument is unused:
+  PiLp.smul_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [electricVolumeField, vectorCoordinate, PiLp.add_apply, Complex.real_smul, mul_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+✔ [3357/3366] Built PrescribedExtinction.WeakCurlBridge (11s)
+⚠ [3358/3366] Built PrescribedExtinction.ExteriorKernelTests (8.8s)
+warning: PrescribedExtinction/ExteriorKernelTests.lean:50:79: This simp argument is unused:
+  Pi.add_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Complex.ofReal_mul, dyadicRemainder, sub_apply, PiLp.sub_apply, classicalDyadic_zero_coordinate]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PrescribedExtinction/ExteriorKernelTests.lean:114:31: This simp argument is unused:
+  zero_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hij, ite_false, zero_add, add_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PrescribedExtinction/ExteriorKernelTests.lean:114:53: This simp argument is unused:
+  add_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hij, ite_false, zero_apply, zero_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [3359/3366] Built PrescribedExtinction.IncidentMaxwell (8.0s)
+warning: PrescribedExtinction/IncidentMaxwell.lean:79:75: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: PrescribedExtinction/IncidentMaxwell.lean:87:95: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PrescribedExtinction/IncidentMaxwell.lean:87:95: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+✔ [3360/3366] Built PrescribedExtinction.ExteriorCurrentIdentification (7.5s)
+⚠ [3361/3366] Built PrescribedExtinction.OutgoingSourceFields (7.5s)
+warning: PrescribedExtinction/OutgoingSourceFields.lean:71:6: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [PiLp.smul_apply, smul_eq_mul, Matrix.cons_val_one, Matrix.cons_val_two]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PrescribedExtinction/OutgoingSourceFields.lean:71:28: This simp argument is unused:
+  Matrix.cons_val_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [PiLp.smul_apply, smul_eq_mul, Matrix.cons_val_zero, Matrix.cons_val_two]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PrescribedExtinction/OutgoingSourceFields.lean:71:49: This simp argument is unused:
+  Matrix.cons_val_two
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [PiLp.smul_apply, smul_eq_mul, Matrix.cons_val_zero, Matrix.cons_val_one]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PrescribedExtinction/OutgoingSourceFields.lean:141:29: `if_pos` has been deprecated: Use `ite_eq_left` instead
+✔ [3362/3366] Built PrescribedExtinction.PhysicalPolarization (6.9s)
+⚠ [3363/3366] Built PrescribedExtinction.TensorLossCoercivity (7.7s)
+warning: PrescribedExtinction/TensorLossCoercivity.lean:34:4: Try `simp at hw` instead of `simpa using hw`
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: PrescribedExtinction/TensorLossCoercivity.lean:30:10: This simp argument is unused:
+  Metric.mem_sphere
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [dist_zero_right, basisC]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PrescribedExtinction/TensorLossCoercivity.lean:30:29: This simp argument is unused:
+  dist_zero_right
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Metric.mem_sphere, basisC]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PrescribedExtinction/TensorLossCoercivity.lean:41:40: This simp argument is unused:
+  abs_inv
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [norm_smul, Complex.norm_real, abs_of_pos hn, hn.ne']
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PrescribedExtinction/TensorLossCoercivity.lean:41:49: This simp argument is unused:
+  abs_of_pos hn
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [norm_smul, Complex.norm_real, abs_inv, hn.ne']
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PrescribedExtinction/TensorLossCoercivity.lean:49:16: This simp argument is unused:
+  zero_add
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Complex.real_smul, Complex.mul_im, Complex.ofReal_re, Complex.ofReal_im, zero_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [3364/3366] Built PrescribedExtinction.VolumeScatteringBridge (7.9s)
+warning: PrescribedExtinction/VolumeScatteringBridge.lean:60:83: This simp argument is unused:
+  PiLp.add_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [polarization, TwoLayerBody.susceptibility, tensorApply, Matrix.sub_mulVec]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+✔ [3365/3366] Built PrescribedExtinction (6.4s)
+Build completed successfully (3366 jobs).

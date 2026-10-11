@@ -70,3 +70,5 @@ import PrescribedExtinction.OutgoingSourceFields
 import PrescribedExtinction.IncidentMaxwell
 import PrescribedExtinction.PhysicalPolarization
 import PrescribedExtinction.VolumeScatteringBridge
+import PrescribedExtinction.ComplexCoerciveInverse
+import PrescribedExtinction.TensorLossCoercivity

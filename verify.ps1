@@ -262,7 +262,11 @@ run_cmd do
         'OQ7Prescribed.incidentMagnetic_locallySquareIntegrable',
         'OQ7Prescribed.physicalPolarization_memLp',
         'OQ7Prescribed.physicalPolarization_vanish',
-        'OQ7Prescribed.volumeTotalFields_weakMaxwell')) {
+        'OQ7Prescribed.volumeTotalFields_weakMaxwell',
+        'OQ7Prescribed.complex_imaginary_coercive_bijective',
+        'OQ7Prescribed.complexImaginaryCoerciveEquiv_inverse_norm_le',
+        'OQ7Prescribed.complexImaginaryCoerciveEquiv_inverse_imaginary_bound',
+        'OQ7Prescribed.admissible_susceptibility_bounded_inverse')) {
         if ($oq7Required -notin $oq7NewKernelTheorems) { throw "Missing outgoing operator obligation: $oq7Required" }
     }
     if ('OQ7Prescribed.scatteringStateOfVolumeEquation' -notin $oq7Constants) {
@@ -331,6 +335,8 @@ run_cmd do
         physicalFiniteBodyPolarizationCompactL2Verified = $true
         materialVolumeEquationToOriginalScatteringStateVerified = $true
         materialVolumeEquationSolvabilityVerified = $false
+        complexHilbertImaginaryCoerciveInverseVerified = $true
+        physicalAdmissibleConstitutiveSusceptibilityInverseVerified = $true
         physicalDyadicDistributionExteriorTestIdentificationVerified = $true
         outgoingWeakMaxwellRepresentationVerified = $false
         scatteringStateExistenceVerified = $false

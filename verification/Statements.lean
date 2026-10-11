@@ -3,6 +3,8 @@ import PrescribedExtinction
 #print OQ7Prescribed.Theorem11Statement
 #print axioms OQ7Prescribed.Theorem11Statement
 
+#check @OQ7Prescribed.admissible_susceptibility_bounded_inverse
+#check @OQ7Prescribed.admissible_susceptibility_imaginary_coercive
 #check @OQ7Prescribed.axisCoupling_bound
 #check @OQ7Prescribed.axisCoupling_eq_inner
 #check @OQ7Prescribed.bilinear_add_left
@@ -41,10 +43,15 @@ import PrescribedExtinction
 #check @OQ7Prescribed.compactRestrictionLp_supported
 #check @OQ7Prescribed.compactStaticOperator_apply_norm_le
 #check @OQ7Prescribed.compactTest_component_integrable
+#check @OQ7Prescribed.complex_imaginary_coercive_bijective
+#check @OQ7Prescribed.complex_imaginary_coercive_norm_bound
 #check @OQ7Prescribed.complexify_continuous
 #check @OQ7Prescribed.complexify_norm
 #check @OQ7Prescribed.complexify_norm_sq
 #check @OQ7Prescribed.complexify_sub
+#check @OQ7Prescribed.complexImaginaryCoerciveEquiv_apply
+#check @OQ7Prescribed.complexImaginaryCoerciveEquiv_inverse_imaginary_bound
+#check @OQ7Prescribed.complexImaginaryCoerciveEquiv_inverse_norm_le
 #check @OQ7Prescribed.complexRealTest_partial
 #check @OQ7Prescribed.complexTestEval_field
 #check @OQ7Prescribed.complexTestEval_partial_field
@@ -423,6 +430,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.outgoingVolumeDistribution_zero_bounded_L2_realization
 #check @OQ7Prescribed.outgoingVolumeDistribution_zero_eq_staticFourier
 #check @OQ7Prescribed.outgoingVolumeDistribution_zero_hessian_pairing
+#check @OQ7Prescribed.pairing_eq_inner
 #check @OQ7Prescribed.pairing_self
 #check @OQ7Prescribed.permittivity_one_outside
 #check @OQ7Prescribed.permittivity_reciprocal
@@ -574,7 +582,9 @@ import PrescribedExtinction
 #check @OQ7Prescribed.supportedPolarization_toLp
 #check @OQ7Prescribed.supportedVectorL2_current_ae
 #check @OQ7Prescribed.supportedVectorL2_isClosed
+#check @OQ7Prescribed.susceptibility_quadratic_im
 #check @OQ7Prescribed.susceptibility_zero_outside
+#check @OQ7Prescribed.tensor_quadratic_eq_inner
 #check @OQ7Prescribed.tensorApply_one
 #check @OQ7Prescribed.tensorApply_rankOne
 #check @OQ7Prescribed.tensorMap_apply
@@ -597,6 +607,8 @@ import PrescribedExtinction
 #check @OQ7Prescribed.unitSphere_sum_sq
 #check @OQ7Prescribed.vector_basisC_expansion
 #check @OQ7Prescribed.vector_clm_coordinate_expansion
+#check @OQ7Prescribed.vector_inner_real_smul
+#check @OQ7Prescribed.vector_strict_imaginary_coercive
 #check @OQ7Prescribed.vectorL2_locallyIntegrable
 #check @OQ7Prescribed.vectorL2ComponentDistribution_apply
 #check @OQ7Prescribed.vectorL2Distribution_apply

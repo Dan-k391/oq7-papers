@@ -15,6 +15,18 @@ def OQ7Prescribed.Theorem11Statement : Prop :=
                           1 - ε < OQ7Prescribed.normalizedAsymmetry k B sp.electric sm.electric ∧
                             OQ7Prescribed.normalizedAsymmetry k B sp.electric sm.electric < 1
 'OQ7Prescribed.Theorem11Statement' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.admissible_susceptibility_bounded_inverse : ∀ (P Q : ℝ) (T : OQ7Prescribed.Tensor),
+  OQ7Prescribed.MaterialAdmissible P Q T →
+    ∃ c,
+      0 < c ∧
+        ∃ e,
+          (∀ (v : OQ7Prescribed.Vector), e v = (OQ7Prescribed.tensorMap (T - 1)) v) ∧
+            ‖↑e.symm‖ ≤ 1 / c ∧
+              ∀ (v : OQ7Prescribed.Vector),
+                c / (‖OQ7Prescribed.tensorMap (T - 1)‖ + 1) ^ 2 * ‖v‖ ^ 2 ≤ -(inner ℂ v (e.symm v)).im
+OQ7Prescribed.admissible_susceptibility_imaginary_coercive : ∀ (P Q : ℝ) (T : OQ7Prescribed.Tensor),
+  OQ7Prescribed.MaterialAdmissible P Q T →
+    ∃ c, 0 < c ∧ ∀ (v : OQ7Prescribed.Vector), c * ‖v‖ ^ 2 ≤ (inner ℂ v ((OQ7Prescribed.tensorMap (T - 1)) v)).im
 OQ7Prescribed.axisCoupling_bound : ∀ (u : OQ7Prescribed.Position) (v : OQ7Prescribed.Vector),
   ‖u‖ ^ 2 = 1 → Complex.normSq (OQ7Prescribed.axisCoupling u v) ≤ OQ7Prescribed.squareNorm v
 OQ7Prescribed.axisCoupling_eq_inner : ∀ (u : OQ7Prescribed.Position) (v : OQ7Prescribed.Vector),
@@ -116,11 +128,29 @@ OQ7Prescribed.compactTest_component_integrable : ∀ (F : OQ7Prescribed.Field),
   MeasureTheory.LocallyIntegrable F MeasureTheory.volume →
     ∀ (i : Fin 3) (ψ : OQ7Prescribed.Position → ℂ),
       Continuous ψ → HasCompactSupport ψ → MeasureTheory.Integrable (fun x => ψ x * (F x).ofLp i) MeasureTheory.volume
+@OQ7Prescribed.complex_imaginary_coercive_bijective : ∀ {H : Type u_1} [inst : NormedAddCommGroup H]
+  [inst_1 : InnerProductSpace ℂ H] [CompleteSpace H] (A : H →L[ℂ] H) (c : ℝ),
+  0 < c → (∀ (u : H), c * ‖u‖ ^ 2 ≤ (inner ℂ u (A u)).im) → Function.Bijective ⇑A
+@OQ7Prescribed.complex_imaginary_coercive_norm_bound : ∀ {H : Type u_1} [inst : NormedAddCommGroup H]
+  [inst_1 : InnerProductSpace ℂ H] [CompleteSpace H] (A : H →L[ℂ] H) (c : ℝ),
+  0 < c → (∀ (u : H), c * ‖u‖ ^ 2 ≤ (inner ℂ u (A u)).im) → ∀ (u : H), c * ‖u‖ ≤ ‖A u‖
 OQ7Prescribed.complexify_continuous : Continuous OQ7Prescribed.complexify
 OQ7Prescribed.complexify_norm : ∀ (x : OQ7Prescribed.Position), ‖OQ7Prescribed.complexify x‖ = ‖x‖
 OQ7Prescribed.complexify_norm_sq : ∀ (u : OQ7Prescribed.Position), ‖OQ7Prescribed.complexify u‖ ^ 2 = ‖u‖ ^ 2
 OQ7Prescribed.complexify_sub : ∀ (x y : OQ7Prescribed.Position),
   OQ7Prescribed.complexify (x - y) = OQ7Prescribed.complexify x - OQ7Prescribed.complexify y
+@OQ7Prescribed.complexImaginaryCoerciveEquiv_apply : ∀ {H : Type u_1} [inst : NormedAddCommGroup H]
+  [inst_1 : InnerProductSpace ℂ H] [inst_2 : CompleteSpace H] (A : H →L[ℂ] H) (c : ℝ) (hc : 0 < c)
+  (hA : ∀ (u : H), c * ‖u‖ ^ 2 ≤ (inner ℂ u (A u)).im) (u : H),
+  (OQ7Prescribed.complexImaginaryCoerciveEquiv A c hc hA) u = A u
+@OQ7Prescribed.complexImaginaryCoerciveEquiv_inverse_imaginary_bound : ∀ {H : Type u_1} [inst : NormedAddCommGroup H]
+  [inst_1 : InnerProductSpace ℂ H] [inst_2 : CompleteSpace H] (A : H →L[ℂ] H) (c : ℝ) (hc : 0 < c)
+  (hA : ∀ (u : H), c * ‖u‖ ^ 2 ≤ (inner ℂ u (A u)).im) (u : H),
+  c / (‖A‖ + 1) ^ 2 * ‖u‖ ^ 2 ≤ -(inner ℂ u ((OQ7Prescribed.complexImaginaryCoerciveEquiv A c hc hA).symm u)).im
+@OQ7Prescribed.complexImaginaryCoerciveEquiv_inverse_norm_le : ∀ {H : Type u_1} [inst : NormedAddCommGroup H]
+  [inst_1 : InnerProductSpace ℂ H] [inst_2 : CompleteSpace H] (A : H →L[ℂ] H) (c : ℝ) (hc : 0 < c)
+  (hA : ∀ (u : H), c * ‖u‖ ^ 2 ≤ (inner ℂ u (A u)).im),
+  ‖↑(OQ7Prescribed.complexImaginaryCoerciveEquiv A c hc hA).symm‖ ≤ 1 / c
 OQ7Prescribed.complexRealTest_partial : ∀ (ψ : OQ7Prescribed.Position → ℂ) (hψ : ContDiff ℝ (↑⊤) ψ)
   (hs : HasCompactSupport ψ) (L : ℂ →L[ℝ] ℝ) (j : Fin 3) (x : OQ7Prescribed.Position),
   ((OQ7Prescribed.testPartial j) (OQ7Prescribed.complexRealTest ψ hψ hs L)) x =
@@ -1426,6 +1456,7 @@ OQ7Prescribed.outgoingVolumeDistribution_zero_hessian_pairing : ∀ (p : OQ7Pres
   (φ : OQ7Prescribed.ScalarTest),
   (OQ7Prescribed.outgoingVolumeDistribution 0 p i) φ =
     ∑ j, (OQ7Prescribed.newtonTemperedHessian i j) (OQ7Prescribed.newtonCurrentCorrelationSchwartz p φ j)
+OQ7Prescribed.pairing_eq_inner : ∀ (u v : OQ7Prescribed.Vector), OQ7Prescribed.pairing u v = inner ℂ u v
 OQ7Prescribed.pairing_self : ∀ (v : OQ7Prescribed.Vector), OQ7Prescribed.pairing v v = ↑(OQ7Prescribed.squareNorm v)
 OQ7Prescribed.permittivity_one_outside : ∀ (B : OQ7Prescribed.TwoLayerBody), ∀ x ∉ B.domain, B.permittivity x = 1
 OQ7Prescribed.permittivity_reciprocal : ∀ (B : OQ7Prescribed.TwoLayerBody) (P Q : ℝ),
@@ -1951,7 +1982,11 @@ OQ7Prescribed.supportedPolarization_toLp : ∀ (R : ℝ) (hR : 0 ≤ R) (f : ↥
 OQ7Prescribed.supportedVectorL2_current_ae : ∀ (R : ℝ) (f : ↥(OQ7Prescribed.SupportedVectorL2 R)),
   ((Metric.closedBall 0 R).indicator fun x => ↑↑↑f x) =ᵐ[MeasureTheory.volume] fun x => ↑↑↑f x
 OQ7Prescribed.supportedVectorL2_isClosed : ∀ (R : ℝ), IsClosed ↑(OQ7Prescribed.supportedVectorL2 R)
+OQ7Prescribed.susceptibility_quadratic_im : ∀ (T : OQ7Prescribed.Tensor) (v : OQ7Prescribed.Vector),
+  (inner ℂ v ((OQ7Prescribed.tensorMap (T - 1)) v)).im = (OQ7Prescribed.quadratic T v).im
 OQ7Prescribed.susceptibility_zero_outside : ∀ (B : OQ7Prescribed.TwoLayerBody), ∀ x ∉ B.domain, B.susceptibility x = 0
+OQ7Prescribed.tensor_quadratic_eq_inner : ∀ (T : OQ7Prescribed.Tensor) (v : OQ7Prescribed.Vector),
+  OQ7Prescribed.quadratic T v = inner ℂ v ((OQ7Prescribed.tensorMap T) v)
 OQ7Prescribed.tensorApply_one : ∀ (v : OQ7Prescribed.Vector), OQ7Prescribed.tensorApply 1 v = v
 OQ7Prescribed.tensorApply_rankOne : ∀ (u : OQ7Prescribed.Position) (v : OQ7Prescribed.Vector),
   OQ7Prescribed.tensorApply (OQ7Prescribed.rankOne u) v = OQ7Prescribed.axisCoupling u v • OQ7Prescribed.complexify u
@@ -2000,6 +2035,11 @@ OQ7Prescribed.unitSphere_sum_sq : ∀ (n : ↑OQ7Prescribed.UnitSphere), ∑ i, 
 OQ7Prescribed.vector_basisC_expansion : ∀ (v : OQ7Prescribed.Vector), v = ∑ j, v.ofLp j • OQ7Prescribed.basisC j
 OQ7Prescribed.vector_clm_coordinate_expansion : ∀ (A : OQ7Prescribed.Vector →L[ℂ] OQ7Prescribed.Vector)
   (v : OQ7Prescribed.Vector) (i : Fin 3), (A v).ofLp i = ∑ j, v.ofLp j * (A (OQ7Prescribed.basisC j)).ofLp i
+OQ7Prescribed.vector_inner_real_smul : ∀ (A : OQ7Prescribed.Vector →L[ℂ] OQ7Prescribed.Vector) (r : ℝ)
+  (v : OQ7Prescribed.Vector), inner ℂ (↑r • v) (A (↑r • v)) = r ^ 2 • inner ℂ v (A v)
+OQ7Prescribed.vector_strict_imaginary_coercive : ∀ (A : OQ7Prescribed.Vector →L[ℂ] OQ7Prescribed.Vector),
+  (∀ (v : OQ7Prescribed.Vector), v ≠ 0 → 0 < (inner ℂ v (A v)).im) →
+    ∃ c, 0 < c ∧ ∀ (v : OQ7Prescribed.Vector), c * ‖v‖ ^ 2 ≤ (inner ℂ v (A v)).im
 OQ7Prescribed.vectorL2_locallyIntegrable : ∀ (f : ↥OQ7Prescribed.VectorL2),
   MeasureTheory.LocallyIntegrable (fun x => ↑↑f x) MeasureTheory.volume
 OQ7Prescribed.vectorL2ComponentDistribution_apply : ∀ (f : ↥OQ7Prescribed.VectorL2) (i : Fin 3)

@@ -1,0 +1,9 @@
+import PrescribedExtinction.TensorLossCoercivity
+#check @OQ7Prescribed.complex_imaginary_coercive_bijective
+#print axioms OQ7Prescribed.complex_imaginary_coercive_bijective
+#check @OQ7Prescribed.complexImaginaryCoerciveEquiv_inverse_norm_le
+#print axioms OQ7Prescribed.complexImaginaryCoerciveEquiv_inverse_norm_le
+#check @OQ7Prescribed.complexImaginaryCoerciveEquiv_inverse_imaginary_bound
+#print axioms OQ7Prescribed.complexImaginaryCoerciveEquiv_inverse_imaginary_bound
+#check @OQ7Prescribed.admissible_susceptibility_bounded_inverse
+#print axioms OQ7Prescribed.admissible_susceptibility_bounded_inverse

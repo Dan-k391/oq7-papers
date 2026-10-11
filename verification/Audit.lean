@@ -1525,6 +1525,8 @@ import PrescribedExtinction
 #print axioms OQ7.weightedGram_quadraticDensity
 #print axioms OQ7.weightedGram.eq_1
 #print axioms OQ7Prescribed.absorption
+#print axioms OQ7Prescribed.admissible_susceptibility_bounded_inverse
+#print axioms OQ7Prescribed.admissible_susceptibility_imaginary_coercive
 #print axioms OQ7Prescribed.AnalyticTestWeakCurl
 #print axioms OQ7Prescribed.AnalyticTestWeakCurl._proof_1
 #print axioms OQ7Prescribed.AnalyticTestWeakCurl._proof_2
@@ -1667,6 +1669,8 @@ import PrescribedExtinction
 #print axioms OQ7Prescribed.compactStaticOperator_apply_norm_le
 #print axioms OQ7Prescribed.compactStaticOperator._proof_1
 #print axioms OQ7Prescribed.compactTest_component_integrable
+#print axioms OQ7Prescribed.complex_imaginary_coercive_bijective
+#print axioms OQ7Prescribed.complex_imaginary_coercive_norm_bound
 #print axioms OQ7Prescribed.complexify
 #print axioms OQ7Prescribed.complexify_continuous
 #print axioms OQ7Prescribed.complexify_norm
@@ -1674,6 +1678,15 @@ import PrescribedExtinction
 #print axioms OQ7Prescribed.complexify_sub
 #print axioms OQ7Prescribed.complexify._proof_1
 #print axioms OQ7Prescribed.complexify.eq_1
+#print axioms OQ7Prescribed.complexImaginaryCoerciveEquiv
+#print axioms OQ7Prescribed.complexImaginaryCoerciveEquiv_apply
+#print axioms OQ7Prescribed.complexImaginaryCoerciveEquiv_inverse_imaginary_bound
+#print axioms OQ7Prescribed.complexImaginaryCoerciveEquiv_inverse_norm_le
+#print axioms OQ7Prescribed.complexImaginaryCoerciveEquiv._proof_1
+#print axioms OQ7Prescribed.complexImaginaryCoerciveEquiv._proof_2
+#print axioms OQ7Prescribed.complexImaginaryCoerciveEquiv._proof_3
+#print axioms OQ7Prescribed.complexImaginaryCoerciveEquiv._proof_4
+#print axioms OQ7Prescribed.complexImaginaryCoerciveEquiv.congr_simp
 #print axioms OQ7Prescribed.complexRealTest
 #print axioms OQ7Prescribed.complexRealTest_partial
 #print axioms OQ7Prescribed.complexRealTest._proof_1
@@ -2587,6 +2600,7 @@ import PrescribedExtinction
 #print axioms OQ7Prescribed.outgoingVolumeDistribution._proof_2
 #print axioms OQ7Prescribed.outgoingVolumeDistribution.eq_1
 #print axioms OQ7Prescribed.pairing
+#print axioms OQ7Prescribed.pairing_eq_inner
 #print axioms OQ7Prescribed.pairing_self
 #print axioms OQ7Prescribed.pairing.eq_1
 #print axioms OQ7Prescribed.permittivity_one_outside
@@ -2919,7 +2933,7 @@ import PrescribedExtinction
 #print axioms OQ7Prescribed.supportedPolarization._simp_1
 #print axioms OQ7Prescribed.supportedPolarization._simp_2
 #print axioms OQ7Prescribed.supportedPolarization.congr_simp
-#print axioms OQ7Prescribed.SupportedVectorL2
+#print axioms OQ7Prescribed.supportedVectorL2
 #print axioms OQ7Prescribed.supportedVectorL2_completeSpace
 #print axioms OQ7Prescribed.supportedVectorL2_current_ae
 #print axioms OQ7Prescribed.supportedVectorL2_isClosed
@@ -2933,8 +2947,10 @@ import PrescribedExtinction
 #print axioms OQ7Prescribed.supportedVectorL2._proof_7
 #print axioms OQ7Prescribed.supportedVectorL2._proof_8
 #print axioms OQ7Prescribed.supportedVectorL2._proof_9
+#print axioms OQ7Prescribed.susceptibility_quadratic_im
 #print axioms OQ7Prescribed.susceptibility_zero_outside
 #print axioms OQ7Prescribed.Tensor
+#print axioms OQ7Prescribed.tensor_quadratic_eq_inner
 #print axioms OQ7Prescribed.tensorApply
 #print axioms OQ7Prescribed.tensorApply_one
 #print axioms OQ7Prescribed.tensorApply_rankOne
@@ -3019,6 +3035,9 @@ import PrescribedExtinction
 #print axioms OQ7Prescribed.Vector
 #print axioms OQ7Prescribed.vector_basisC_expansion
 #print axioms OQ7Prescribed.vector_clm_coordinate_expansion
+#print axioms OQ7Prescribed.vector_inner_real_smul
+#print axioms OQ7Prescribed.vector_strict_imaginary_coercive
+#print axioms OQ7Prescribed.vector_strict_imaginary_coercive._simp_1_1
 #print axioms OQ7Prescribed.vectorCoordinate
 #print axioms OQ7Prescribed.vectorCoordinate.eq_1
 #print axioms OQ7Prescribed.VectorDistribution
