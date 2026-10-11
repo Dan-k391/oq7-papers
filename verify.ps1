@@ -419,6 +419,13 @@ run_cmd do
         'OQ7Prescribed.planarNormalizedDrive_norm',
         'OQ7Prescribed.physicalBody_normalized_response_uniform_aperture_localization',
         'OQ7Prescribed.exists_plateDesign_within_cap',
+        'OQ7Prescribed.exists_nearlyPerfect_absorber_with_loss_cap',
+        'OQ7Prescribed.dielectricSlab_absorptance_strict_bounds',
+        'OQ7Prescribed.dielectricSlabLeftCurrent_Green_equation',
+        'OQ7Prescribed.dielectricSlabLeftCurrent_constitutive_coe',
+        'OQ7Prescribed.homogeneousSlabReflection_interface_formula',
+        'OQ7Prescribed.homogeneousSlabTransmission_interface_formula',
+        'OQ7Prescribed.dielectricSlab_absorptance_thick_limit',
         'OQ7Prescribed.losslessPlateDesign_active_transfer',
         'OQ7Prescribed.losslessPlateDesign_vacuum_transfer',
         'OQ7Prescribed.losslessPlateCartesian_boundary',
@@ -537,6 +544,8 @@ run_cmd do
         actualFiniteIntervalPlanarGreenOperatorVerified = $true
         physicalPlanarMatchedLayerGreenRepresentationVerified = $true
         physicalLosslessPlateCapAndExactCartesianBoundaryTransformationVerified = $true
+        physicalFiniteAbsorberWithinLossCapArbitrarilyNearPerfectVerified = $true
+        physicalAbsorberTransferAndActualPlanarGreenEquationVerified = $true
         physicalPlanarLayerRepresentationScope = 'Exact homogeneous-layer Maxwell derivatives, weighted moments, actual supported L2 currents, matched two-layer scalar Green operator and both original plane-wave incoming equations'
         planarGreenPositiveImaginaryWorkIdentityVerified = $true
         planarTwoLayerMaterialInverseUniformInRotationVerified = $true

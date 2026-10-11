@@ -76,7 +76,8 @@ try {
         @{ name = 'physical-uniform-body-response'; module = 'PrescribedExtinction.UniformBodyResponse' },
         @{ name = 'physical-uniform-aperture-powers'; module = 'PrescribedExtinction.UniformVectorCurrent' },
         @{ name = 'planar-matched-layer-green'; module = 'PrescribedExtinction.PlanarLayerIncoming' },
-        @{ name = 'planar-lossless-plate'; module = 'PrescribedExtinction.PlanarPlateJones' }
+        @{ name = 'planar-lossless-plate'; module = 'PrescribedExtinction.PlanarPlateJones' },
+        @{ name = 'planar-absorber-design'; module = 'PrescribedExtinction.PlanarSlabGreenField' }
     )
     if ($Only) {
         foreach ($oq7Name in $Only) {

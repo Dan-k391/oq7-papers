@@ -1,0 +1,65 @@
+OQ7Prescribed.dielectricSlabReflection_both_sides (k p q d : ℝ) :
+  OQ7.transferReflectionRight (OQ7.waveTransfer (OQ7.layerTransfer k (OQ7Prescribed.dielectricSlab p q d))) =
+    OQ7Prescribed.dielectricSlabReflection k p q d
+OQ7Prescribed.dielectricSlab_field_boundary (k : ℝ) (hk : 0 < k) (p q d : ℝ) (hp : 1 ≤ p) (hq : 0 ≤ q) (hd : 0 ≤ d) :
+  OQ7.layerElectricField k (OQ7Prescribed.dielectricSlab p q d) (1 + OQ7Prescribed.dielectricSlabReflection k p q d)
+        (1 - OQ7Prescribed.dielectricSlabReflection k p q d) d =
+      OQ7Prescribed.dielectricSlabTransmission k p q d ∧
+    OQ7.layerMagneticField k (OQ7Prescribed.dielectricSlab p q d) (1 + OQ7Prescribed.dielectricSlabReflection k p q d)
+        (1 - OQ7Prescribed.dielectricSlabReflection k p q d) d =
+      OQ7Prescribed.dielectricSlabTransmission k p q d
+OQ7Prescribed.dielectricSlab_absorptance_strict_bounds (k : ℝ) (hk : 0 < k) (p q d : ℝ) (hp : 1 ≤ p) (hq : 0 < q)
+  (hd : 0 < d) :
+  0 <
+      OQ7.absorptanceLeft (OQ7Prescribed.dielectricSlabReflection k p q d)
+        (OQ7Prescribed.dielectricSlabTransmission k p q d) ∧
+    OQ7.absorptanceLeft (OQ7Prescribed.dielectricSlabReflection k p q d)
+        (OQ7Prescribed.dielectricSlabTransmission k p q d) <
+      1
+OQ7Prescribed.homogeneousSlabReflection_interface_formula (k d : ℝ) (n : ℂ) (hn : n ≠ 0) (hnp : 1 + n ≠ 0) :
+  OQ7.transferReflectionLeft (OQ7.waveTransfer (OQ7.homogeneousTransfer k n d)) =
+    OQ7Prescribed.slabInterfaceReflection n * (1 - OQ7Prescribed.slabPropagation k n d ^ 2) /
+      (1 - OQ7Prescribed.slabInterfaceReflection n ^ 2 * OQ7Prescribed.slabPropagation k n d ^ 2)
+OQ7Prescribed.homogeneousSlabTransmission_interface_formula (k d : ℝ) (n : ℂ) (hn : n ≠ 0) (hnp : 1 + n ≠ 0) :
+  OQ7.transferTransmissionRight (OQ7.waveTransfer (OQ7.homogeneousTransfer k n d)) =
+    (1 - OQ7Prescribed.slabInterfaceReflection n ^ 2) * OQ7Prescribed.slabPropagation k n d /
+      (1 - OQ7Prescribed.slabInterfaceReflection n ^ 2 * OQ7Prescribed.slabPropagation k n d ^ 2)
+OQ7Prescribed.dielectricSlab_absorptance_thick_limit (k : ℝ) (hk : 0 < k) (p q : ℝ) (hp : 0 < p) (hq : 0 < q) :
+  Filter.Tendsto
+    (fun d =>
+      OQ7.absorptanceLeft (OQ7Prescribed.dielectricSlabReflection k p q d)
+        (OQ7Prescribed.dielectricSlabTransmission k p q d))
+    Filter.atTop
+    (nhds (1 - Complex.normSq (OQ7Prescribed.slabInterfaceReflection (OQ7Prescribed.dielectricSlabIndex p q))))
+OQ7Prescribed.exists_nearlyPerfect_absorber_with_loss_cap (k : ℝ) (hk : 0 < k) (Q ε : ℝ) (hQ : 0 < Q) (hε : 0 < ε) :
+  ∃ η h,
+    0 < η ∧
+      η < Q / 3 ∧
+        0 < h ∧
+          1 - ε <
+              OQ7.absorptanceLeft (OQ7Prescribed.dielectricSlabReflection k 1 η h)
+                (OQ7Prescribed.dielectricSlabTransmission k 1 η h) ∧
+            OQ7.absorptanceLeft (OQ7Prescribed.dielectricSlabReflection k 1 η h)
+                (OQ7Prescribed.dielectricSlabTransmission k 1 η h) <
+              1
+OQ7Prescribed.dielectricSlabLeftCurrent_Green_equation (k : ℝ) (hk : 0 < k) (p q d : ℝ) (hp : 1 ≤ p) (hq : 0 ≤ q)
+  (hd : 0 ≤ d) (z : ℝ) (hz : z ∈ Set.Icc 0 d) :
+  OQ7.layerElectricField k (OQ7Prescribed.dielectricSlab p q d) (1 + OQ7Prescribed.dielectricSlabReflection k p q d)
+      (1 - OQ7Prescribed.dielectricSlabReflection k p q d) z =
+    OQ7Prescribed.planarIncidentPhase k OQ7Prescribed.Direction.plus z +
+      k ^ 2 • OQ7Prescribed.scalarPlanarPotential k (↑↑↑(OQ7Prescribed.dielectricSlabLeftCurrent k p q d hp hd)) z
+OQ7Prescribed.dielectricSlabLeftCurrent_constitutive_coe (k p q d : ℝ) (hp : 1 ≤ p) (hd : 0 ≤ d) :
+  ↑↑↑(OQ7Prescribed.dielectricSlabLeftCurrent k p q d hp hd) =ᵐ[MeasureTheory.volume]
+    (Set.Ioc 0 d).indicator fun z =>
+      (↑p + Complex.I * ↑q - 1) *
+        OQ7.layerElectricField k (OQ7Prescribed.dielectricSlab p q d)
+          (1 + OQ7Prescribed.dielectricSlabReflection k p q d) (1 - OQ7Prescribed.dielectricSlabReflection k p q d) z
+'OQ7Prescribed.dielectricSlabReflection_both_sides' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.dielectricSlab_field_boundary' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.dielectricSlab_absorptance_strict_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.homogeneousSlabReflection_interface_formula' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.homogeneousSlabTransmission_interface_formula' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.dielectricSlab_absorptance_thick_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.exists_nearlyPerfect_absorber_with_loss_cap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.dielectricSlabLeftCurrent_Green_equation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.dielectricSlabLeftCurrent_constitutive_coe' depends on axioms: [propext, Classical.choice, Quot.sound]

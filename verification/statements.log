@@ -1016,6 +1016,111 @@ OQ7Prescribed.cutoffGreen_memLp : ∀ (k T : ℝ),
   MeasureTheory.MemLp (OQ7Prescribed.cutoffGreen k T) 2 MeasureTheory.volume
 OQ7Prescribed.cutoffOutgoingGradient_integrable : ∀ (k R : ℝ) (j : Fin 3),
   MeasureTheory.Integrable (OQ7Prescribed.cutoffOutgoingGradient k R j) MeasureTheory.volume
+OQ7Prescribed.dielectricSlab_absorptance_lt_one : ∀ (k : ℝ),
+  0 < k →
+    ∀ (p q d : ℝ),
+      1 ≤ p →
+        0 ≤ q →
+          0 ≤ d →
+            OQ7.absorptanceLeft (OQ7Prescribed.dielectricSlabReflection k p q d)
+                (OQ7Prescribed.dielectricSlabTransmission k p q d) <
+              1
+OQ7Prescribed.dielectricSlab_absorptance_pos : ∀ (k : ℝ),
+  0 < k →
+    ∀ (p q d : ℝ),
+      1 ≤ p →
+        0 < q →
+          0 < d →
+            0 <
+              OQ7.absorptanceLeft (OQ7Prescribed.dielectricSlabReflection k p q d)
+                (OQ7Prescribed.dielectricSlabTransmission k p q d)
+OQ7Prescribed.dielectricSlab_absorptance_strict_bounds : ∀ (k : ℝ),
+  0 < k →
+    ∀ (p q d : ℝ),
+      1 ≤ p →
+        0 < q →
+          0 < d →
+            0 <
+                OQ7.absorptanceLeft (OQ7Prescribed.dielectricSlabReflection k p q d)
+                  (OQ7Prescribed.dielectricSlabTransmission k p q d) ∧
+              OQ7.absorptanceLeft (OQ7Prescribed.dielectricSlabReflection k p q d)
+                  (OQ7Prescribed.dielectricSlabTransmission k p q d) <
+                1
+OQ7Prescribed.dielectricSlab_absorptance_thick_limit : ∀ (k : ℝ),
+  0 < k →
+    ∀ (p q : ℝ),
+      0 < p →
+        0 < q →
+          Filter.Tendsto
+            (fun d =>
+              OQ7.absorptanceLeft (OQ7Prescribed.dielectricSlabReflection k p q d)
+                (OQ7Prescribed.dielectricSlabTransmission k p q d))
+            Filter.atTop
+            (nhds (1 - Complex.normSq (OQ7Prescribed.slabInterfaceReflection (OQ7Prescribed.dielectricSlabIndex p q))))
+OQ7Prescribed.dielectricSlab_field_boundary : ∀ (k : ℝ),
+  0 < k →
+    ∀ (p q d : ℝ),
+      1 ≤ p →
+        0 ≤ q →
+          0 ≤ d →
+            OQ7.layerElectricField k (OQ7Prescribed.dielectricSlab p q d)
+                  (1 + OQ7Prescribed.dielectricSlabReflection k p q d)
+                  (1 - OQ7Prescribed.dielectricSlabReflection k p q d) d =
+                OQ7Prescribed.dielectricSlabTransmission k p q d ∧
+              OQ7.layerMagneticField k (OQ7Prescribed.dielectricSlab p q d)
+                  (1 + OQ7Prescribed.dielectricSlabReflection k p q d)
+                  (1 - OQ7Prescribed.dielectricSlabReflection k p q d) d =
+                OQ7Prescribed.dielectricSlabTransmission k p q d
+OQ7Prescribed.dielectricSlab_passive : ∀ (k : ℝ),
+  0 < k →
+    ∀ (p q d : ℝ),
+      1 ≤ p →
+        0 ≤ q →
+          0 ≤ d →
+            OQ7.Passive (OQ7Prescribed.dielectricSlabReflection k p q d)
+              (OQ7Prescribed.dielectricSlabReflection k p q d) (OQ7Prescribed.dielectricSlabTransmission k p q d)
+OQ7Prescribed.dielectricSlabIndex_im_pos : ∀ (p q : ℝ), 0 < p → 0 < q → 0 < (OQ7Prescribed.dielectricSlabIndex p q).im
+OQ7Prescribed.dielectricSlabIndex_loss_continuous : ∀ (p : ℝ), 0 < p → Continuous (OQ7Prescribed.dielectricSlabIndex p)
+OQ7Prescribed.dielectricSlabIndex_ne_zero : ∀ (p q : ℝ), 0 < p → OQ7Prescribed.dielectricSlabIndex p q ≠ 0
+OQ7Prescribed.dielectricSlabIndex_one_add_ne_zero : ∀ (p q : ℝ), 0 < p → 1 + OQ7Prescribed.dielectricSlabIndex p q ≠ 0
+OQ7Prescribed.dielectricSlabIndex_re_pos : ∀ (p q : ℝ), 0 < p → 0 < (OQ7Prescribed.dielectricSlabIndex p q).re
+OQ7Prescribed.dielectricSlabIndex_sq : ∀ (p q : ℝ), OQ7Prescribed.dielectricSlabIndex p q ^ 2 = ↑p + Complex.I * ↑q
+OQ7Prescribed.dielectricSlabLeftCurrent_constitutive_coe : ∀ (k p q d : ℝ) (hp : 1 ≤ p) (hd : 0 ≤ d),
+  ↑↑↑(OQ7Prescribed.dielectricSlabLeftCurrent k p q d hp hd) =ᵐ[MeasureTheory.volume]
+    (Set.Ioc 0 d).indicator fun z =>
+      (↑p + Complex.I * ↑q - 1) *
+        OQ7.layerElectricField k (OQ7Prescribed.dielectricSlab p q d)
+          (1 + OQ7Prescribed.dielectricSlabReflection k p q d) (1 - OQ7Prescribed.dielectricSlabReflection k p q d) z
+OQ7Prescribed.dielectricSlabLeftCurrent_Green_equation : ∀ (k : ℝ),
+  0 < k →
+    ∀ (p q d : ℝ) (hp : 1 ≤ p),
+      0 ≤ q →
+        ∀ (hd : 0 ≤ d),
+          ∀ z ∈ Set.Icc 0 d,
+            OQ7.layerElectricField k (OQ7Prescribed.dielectricSlab p q d)
+                (1 + OQ7Prescribed.dielectricSlabReflection k p q d)
+                (1 - OQ7Prescribed.dielectricSlabReflection k p q d) z =
+              OQ7Prescribed.planarIncidentPhase k OQ7Prescribed.Direction.plus z +
+                k ^ 2 •
+                  OQ7Prescribed.scalarPlanarPotential k (↑↑↑(OQ7Prescribed.dielectricSlabLeftCurrent k p q d hp hd)) z
+OQ7Prescribed.dielectricSlabLeftLayer_boundary_matching : ∀ (k : ℝ),
+  0 < k →
+    ∀ (p q d : ℝ) (hp : 1 ≤ p),
+      0 ≤ q →
+        0 ≤ d →
+          (OQ7Prescribed.dielectricSlabLeftLayer k p q d hp).electric d =
+              (OQ7Prescribed.dielectricSlabRightVacuumPoint k p q d).electric d ∧
+            (OQ7Prescribed.dielectricSlabLeftLayer k p q d hp).magnetic d =
+              (OQ7Prescribed.dielectricSlabRightVacuumPoint k p q d).magnetic d
+OQ7Prescribed.dielectricSlabReflection_both_sides : ∀ (k p q d : ℝ),
+  OQ7.transferReflectionRight (OQ7.waveTransfer (OQ7.layerTransfer k (OQ7Prescribed.dielectricSlab p q d))) =
+    OQ7Prescribed.dielectricSlabReflection k p q d
+OQ7Prescribed.dielectricSlabReflection_normSq_lt_one : ∀ (k : ℝ),
+  0 < k → ∀ (p q d : ℝ), 1 ≤ p → 0 ≤ q → 0 ≤ d → Complex.normSq (OQ7Prescribed.dielectricSlabReflection k p q d) < 1
+OQ7Prescribed.dielectricSlabTransmission_ne_zero : ∀ (k : ℝ),
+  0 < k → ∀ (p q d : ℝ), 1 ≤ p → 0 ≤ q → 0 ≤ d → OQ7Prescribed.dielectricSlabTransmission k p q d ≠ 0
+OQ7Prescribed.directedFlux_incident_reflected : ∀ (r : ℂ), OQ7.directedFlux (1 + r) (1 - r) = 1 - Complex.normSq r
+OQ7Prescribed.directedFlux_transmitted : ∀ (t : ℂ), OQ7.directedFlux t t = Complex.normSq t
 @OQ7Prescribed.displaced_distance_phase_error : ∀ {H : Type u_1} [inst : NormedAddCommGroup H]
   [inst_1 : InnerProductSpace ℝ H] (x y : H),
   0 < ‖x‖ →
@@ -1384,8 +1489,29 @@ OQ7Prescribed.electricVolumeField_smooth_slab_uniform_L2_residual : ∀ (k : ℝ
                                                       (OQ7Prescribed.scaledApertureWindow w R) q u v y‖ ^
                                                   2 ≤
                                               C ^ 2 * (∫ (t : ℝ), ‖q t‖) ^ 2 * X ^ 2 * Real.pi * L
+OQ7Prescribed.exists_nearlyPerfect_absorber_with_loss_cap : ∀ (k : ℝ),
+  0 < k →
+    ∀ (Q ε : ℝ),
+      0 < Q →
+        0 < ε →
+          ∃ η h,
+            0 < η ∧
+              η < Q / 3 ∧
+                0 < h ∧
+                  1 - ε <
+                      OQ7.absorptanceLeft (OQ7Prescribed.dielectricSlabReflection k 1 η h)
+                        (OQ7Prescribed.dielectricSlabTransmission k 1 η h) ∧
+                    OQ7.absorptanceLeft (OQ7Prescribed.dielectricSlabReflection k 1 η h)
+                        (OQ7Prescribed.dielectricSlabTransmission k 1 η h) <
+                      1
 OQ7Prescribed.exists_plateDesign_within_cap : ∀ (P : ℝ),
   1 < P → ∃ j, 1 ≤ j ∧ OQ7Prescribed.plateDesignPermittivity j ≤ P
+OQ7Prescribed.exists_weakDielectric_interface_with_loss_cap : ∀ (Q ε : ℝ),
+  0 < Q →
+    0 < ε →
+      ∃ η,
+        0 < η ∧
+          η < Q / 3 ∧ Complex.normSq (OQ7Prescribed.slabInterfaceReflection (OQ7Prescribed.dielectricSlabIndex 1 η)) < ε
 OQ7Prescribed.exp_remainder_two_norm : ∀ (z : ℂ), ‖Complex.exp z - 1 - z‖ ≤ ‖z‖ ^ 2 * Real.exp ‖z‖
 OQ7Prescribed.exterior_current_component_pairing : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization)
   (φ : OQ7Prescribed.ScalarTest),
@@ -1762,6 +1888,56 @@ OQ7Prescribed.homogeneousField_planarWaveMoments : ∀ (k a b : ℝ),
               ∫ (t : ℝ) in a..b, OQ7Prescribed.apertureOscillation k t * ((n ^ 2 - 1) * OQ7.electricField k n E₀ H₀ t) =
             OQ7Prescribed.apertureOscillation k b * (OQ7.magneticField k n E₀ H₀ b - OQ7.electricField k n E₀ H₀ b) -
               OQ7Prescribed.apertureOscillation k a * (OQ7.magneticField k n E₀ H₀ a - OQ7.electricField k n E₀ H₀ a)
+OQ7Prescribed.homogeneousSlabAbsorptance_thick_limit : ∀ (k : ℝ),
+  0 < k →
+    ∀ (n : ℂ),
+      n ≠ 0 →
+        1 + n ≠ 0 →
+          0 < n.im →
+            Filter.Tendsto
+              (fun d =>
+                OQ7.absorptanceLeft (OQ7.transferReflectionLeft (OQ7.waveTransfer (OQ7.homogeneousTransfer k n d)))
+                  (OQ7.transferTransmissionRight (OQ7.waveTransfer (OQ7.homogeneousTransfer k n d))))
+              Filter.atTop (nhds (1 - Complex.normSq (OQ7Prescribed.slabInterfaceReflection n)))
+OQ7Prescribed.homogeneousSlabReflection_interface_formula : ∀ (k d : ℝ) (n : ℂ),
+  n ≠ 0 →
+    1 + n ≠ 0 →
+      OQ7.transferReflectionLeft (OQ7.waveTransfer (OQ7.homogeneousTransfer k n d)) =
+        OQ7Prescribed.slabInterfaceReflection n * (1 - OQ7Prescribed.slabPropagation k n d ^ 2) /
+          (1 - OQ7Prescribed.slabInterfaceReflection n ^ 2 * OQ7Prescribed.slabPropagation k n d ^ 2)
+OQ7Prescribed.homogeneousSlabReflection_thick_limit : ∀ (k : ℝ),
+  0 < k →
+    ∀ (n : ℂ),
+      n ≠ 0 →
+        1 + n ≠ 0 →
+          0 < n.im →
+            Filter.Tendsto (fun d => OQ7.transferReflectionLeft (OQ7.waveTransfer (OQ7.homogeneousTransfer k n d)))
+              Filter.atTop (nhds (OQ7Prescribed.slabInterfaceReflection n))
+OQ7Prescribed.homogeneousSlabTransmission_interface_formula : ∀ (k d : ℝ) (n : ℂ),
+  n ≠ 0 →
+    1 + n ≠ 0 →
+      OQ7.transferTransmissionRight (OQ7.waveTransfer (OQ7.homogeneousTransfer k n d)) =
+        (1 - OQ7Prescribed.slabInterfaceReflection n ^ 2) * OQ7Prescribed.slabPropagation k n d /
+          (1 - OQ7Prescribed.slabInterfaceReflection n ^ 2 * OQ7Prescribed.slabPropagation k n d ^ 2)
+OQ7Prescribed.homogeneousSlabTransmission_thick_limit : ∀ (k : ℝ),
+  0 < k →
+    ∀ (n : ℂ),
+      n ≠ 0 →
+        1 + n ≠ 0 →
+          0 < n.im →
+            Filter.Tendsto (fun d => OQ7.transferTransmissionRight (OQ7.waveTransfer (OQ7.homogeneousTransfer k n d)))
+              Filter.atTop (nhds 0)
+OQ7Prescribed.homogeneousWaveTransfer_10_exponential : ∀ (k d : ℝ) (n : ℂ),
+  n ≠ 0 →
+    OQ7.waveTransfer (OQ7.homogeneousTransfer k n d) 1 0 =
+      (1 - n ^ 2) * (OQ7Prescribed.slabPropagation k n d ^ 2 - 1) / (4 * n * OQ7Prescribed.slabPropagation k n d)
+OQ7Prescribed.homogeneousWaveTransfer_11_exponential : ∀ (k d : ℝ) (n : ℂ),
+  n ≠ 0 →
+    OQ7.waveTransfer (OQ7.homogeneousTransfer k n d) 1 1 =
+      ((1 + n) ^ 2 - (1 - n) ^ 2 * OQ7Prescribed.slabPropagation k n d ^ 2) /
+        (4 * n * OQ7Prescribed.slabPropagation k n d)
+OQ7Prescribed.homogeneousWaveTransfer_offdiagonal : ∀ (k d : ℝ) (n : ℂ),
+  OQ7.waveTransfer (OQ7.homogeneousTransfer k n d) 1 0 = -OQ7.waveTransfer (OQ7.homogeneousTransfer k n d) 0 1
 OQ7Prescribed.horizontalSlabPotential_contDiff : ∀ (k s : ℝ) (w : ℂ → ℂ),
   ContDiff ℝ (↑⊤) w → HasCompactSupport w → ContDiff ℝ (↑⊤) (OQ7Prescribed.horizontalSlabPotential k s w)
 OQ7Prescribed.horizontalSlabPotential_error : ∀ (k : ℝ),
@@ -4614,6 +4790,11 @@ OQ7Prescribed.slabProductRegion_measure_lt_top : ∀ (r L : ℝ),
   MeasureTheory.volume (OQ7Prescribed.slabProductRegion r L) < ⊤
 OQ7Prescribed.slabProductRegion_volume_real : ∀ (r L : ℝ),
   0 ≤ r → 0 ≤ L → (MeasureTheory.volume (OQ7Prescribed.slabProductRegion r L)).toReal = r ^ 2 * Real.pi * L
+OQ7Prescribed.slabPropagation_ne_zero : ∀ (k : ℝ) (n : ℂ) (d : ℝ), OQ7Prescribed.slabPropagation k n d ≠ 0
+OQ7Prescribed.slabPropagation_norm : ∀ (k : ℝ) (n : ℂ) (d : ℝ),
+  ‖OQ7Prescribed.slabPropagation k n d‖ = Real.exp (-(k * n.im) * d)
+OQ7Prescribed.slabPropagation_tendsto_zero : ∀ (k : ℝ),
+  0 < k → ∀ (n : ℂ), 0 < n.im → Filter.Tendsto (OQ7Prescribed.slabPropagation k n) Filter.atTop (nhds 0)
 OQ7Prescribed.slabRadial_change_variables : ∀ (w : ℂ → ℂ),
   ContDiff ℝ (↑⊤) w →
     ∀ (x : ℂ) (k s U : ℝ),
@@ -5508,6 +5689,11 @@ OQ7Prescribed.volumeTotalMagnetic_locallySquareIntegrable : ∀ (k : ℝ) (σ : 
   OQ7Prescribed.LocallySquareIntegrable (OQ7Prescribed.volumeTotalMagnetic k σ p)
 OQ7Prescribed.weakCurlTest_all_finite_orders : ∀ (φ : OQ7Prescribed.Field),
   ContDiff ℝ (↑⊤) φ → ∀ (n : ℕ), ContDiff ℝ (↑n) φ
+OQ7Prescribed.weakDielectric_interface_at_zero : OQ7Prescribed.slabInterfaceReflection
+    (OQ7Prescribed.dielectricSlabIndex 1 0) =
+  0
+OQ7Prescribed.weakDielectric_interface_continuous : Continuous fun η =>
+  OQ7Prescribed.slabInterfaceReflection (OQ7Prescribed.dielectricSlabIndex 1 η)
 OQ7Prescribed.weighted_integral_cauchy_sq : ∀ (w g : OQ7Prescribed.Position → ℝ),
   MeasureTheory.Integrable w MeasureTheory.volume →
     MeasureTheory.Integrable (fun y => w y * g y) MeasureTheory.volume →
