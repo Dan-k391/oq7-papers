@@ -1,0 +1,10 @@
+import PrescribedExtinction.WeakCurlBridge
+#print OQ7Prescribed.HasWeakCurl
+#check @OQ7Prescribed.complexTestEval_partial_field
+#print axioms OQ7Prescribed.complexTestEval_partial_field
+#check @OQ7Prescribed.distributionCurl_eq_implies_hasWeakCurl
+#print axioms OQ7Prescribed.distributionCurl_eq_implies_hasWeakCurl
+#check @OQ7Prescribed.physicalSourceFields_first_weakCurl
+#print axioms OQ7Prescribed.physicalSourceFields_first_weakCurl
+#check @OQ7Prescribed.physicalSourceFields_second_weakCurl
+#print axioms OQ7Prescribed.physicalSourceFields_second_weakCurl

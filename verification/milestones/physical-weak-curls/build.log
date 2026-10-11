@@ -1,0 +1,9 @@
+⚠ [3264/3265] Replayed PrescribedExtinction.PhysicalSourceFields
+warning: PrescribedExtinction/PhysicalSourceFields.lean:90:65: This simp argument is unused:
+  PiLp.smul_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [electricVolumeField, vectorCoordinate, PiLp.add_apply, Complex.real_smul, mul_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Build completed successfully (3265 jobs).

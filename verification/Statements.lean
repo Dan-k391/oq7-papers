@@ -30,8 +30,13 @@ import PrescribedExtinction
 #check @OQ7Prescribed.compactRestrictionLp_smul
 #check @OQ7Prescribed.compactRestrictionLp_supported
 #check @OQ7Prescribed.compactStaticOperator_apply_norm_le
+#check @OQ7Prescribed.compactTest_component_integrable
 #check @OQ7Prescribed.complexify_continuous
 #check @OQ7Prescribed.complexify_norm_sq
+#check @OQ7Prescribed.complexRealTest_partial
+#check @OQ7Prescribed.complexTestEval_field
+#check @OQ7Prescribed.complexTestEval_partial_field
+#check @OQ7Prescribed.complexTestEval_sub
 #check @OQ7Prescribed.contDiff_lineDeriv_continuous
 #check @OQ7Prescribed.contDiff_test_ibp
 #check @OQ7Prescribed.coordinateReflect_apply
@@ -55,6 +60,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.cutoffOutgoingGradient_integrable
 #check @OQ7Prescribed.distributionCurl_add
 #check @OQ7Prescribed.distributionCurl_complex_smul
+#check @OQ7Prescribed.distributionCurl_eq_implies_hasWeakCurl
 #check @OQ7Prescribed.distributionCurl_gradient
 #check @OQ7Prescribed.distributionCurl_real_smul
 #check @OQ7Prescribed.distributionCurlCurl
@@ -114,7 +120,10 @@ import PrescribedExtinction
 #check @OQ7Prescribed.exteriorCutoffPartial_norm_le
 #check @OQ7Prescribed.exteriorCutoffPartial_zero_inner
 #check @OQ7Prescribed.exteriorCutoffPartial_zero_outer
+#check @OQ7Prescribed.fieldComponent_locallyIntegrable
+#check @OQ7Prescribed.fieldComponentDistribution_add
 #check @OQ7Prescribed.fieldComponentDistribution_apply
+#check @OQ7Prescribed.fieldComponentDistribution_complex_smul
 #check @OQ7Prescribed.fourierIntegral_L1L2_ae
 #check @OQ7Prescribed.fourierIntegral_L1L2_memLp
 #check @OQ7Prescribed.fourierIntegral_L1L2_schwartz_pairing
@@ -145,6 +154,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.integrable_polar_actual
 #check @OQ7Prescribed.integral_polar_actual
 #check @OQ7Prescribed.integral_polar_iterated_actual
+#check @OQ7Prescribed.integral_three_sub
 #check @OQ7Prescribed.layerPermittivity_admissible
 #check @OQ7Prescribed.layerPermittivity_reciprocal
 #check @OQ7Prescribed.locallySquareIntegrable_locallyIntegrable
@@ -344,7 +354,9 @@ import PrescribedExtinction
 #check @OQ7Prescribed.permittivity_one_outside
 #check @OQ7Prescribed.permittivity_reciprocal
 #check @OQ7Prescribed.physicalSourceFields_first_curl
+#check @OQ7Prescribed.physicalSourceFields_first_weakCurl
 #check @OQ7Prescribed.physicalSourceFields_second_curl
+#check @OQ7Prescribed.physicalSourceFields_second_weakCurl
 #check @OQ7Prescribed.planePhase_norm
 #check @OQ7Prescribed.polarization_zero_outside
 #check @OQ7Prescribed.polarizationCurrentComponentDistribution_apply
@@ -479,6 +491,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.susceptibility_zero_outside
 #check @OQ7Prescribed.tensorApply_one
 #check @OQ7Prescribed.tensorApply_rankOne
+#check @OQ7Prescribed.testComponent_fderiv
 #check @OQ7Prescribed.testLaplacian_apply
 #check @OQ7Prescribed.testPartial_commute
 #check @OQ7Prescribed.testPartial_eq_fderiv

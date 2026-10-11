@@ -85,8 +85,31 @@ OQ7Prescribed.compactRestrictionLp_supported : ∀ (R : ℝ) (f : ↥OQ7Prescrib
   OQ7Prescribed.compactRestrictionLp R f ∈ OQ7Prescribed.supportedVectorL2 R
 OQ7Prescribed.compactStaticOperator_apply_norm_le : ∀ (R : ℝ) (f : ↥(OQ7Prescribed.SupportedVectorL2 R)),
   ‖(OQ7Prescribed.compactStaticOperator R) f‖ ≤ ‖f‖
+OQ7Prescribed.compactTest_component_integrable : ∀ (F : OQ7Prescribed.Field),
+  MeasureTheory.LocallyIntegrable F MeasureTheory.volume →
+    ∀ (i : Fin 3) (ψ : OQ7Prescribed.Position → ℂ),
+      Continuous ψ → HasCompactSupport ψ → MeasureTheory.Integrable (fun x => ψ x * (F x).ofLp i) MeasureTheory.volume
 OQ7Prescribed.complexify_continuous : Continuous OQ7Prescribed.complexify
 OQ7Prescribed.complexify_norm_sq : ∀ (u : OQ7Prescribed.Position), ‖OQ7Prescribed.complexify u‖ ^ 2 = ‖u‖ ^ 2
+OQ7Prescribed.complexRealTest_partial : ∀ (ψ : OQ7Prescribed.Position → ℂ) (hψ : ContDiff ℝ (↑⊤) ψ)
+  (hs : HasCompactSupport ψ) (L : ℂ →L[ℝ] ℝ) (j : Fin 3) (x : OQ7Prescribed.Position),
+  ((OQ7Prescribed.testPartial j) (OQ7Prescribed.complexRealTest ψ hψ hs L)) x =
+    L ((fderiv ℝ ψ x) (OQ7Prescribed.basisR j))
+OQ7Prescribed.complexTestEval_field : ∀ (F : OQ7Prescribed.Field),
+  MeasureTheory.LocallyIntegrable F MeasureTheory.volume →
+    ∀ (i : Fin 3) (ψ : OQ7Prescribed.Position → ℂ) (hψ : ContDiff ℝ (↑⊤) ψ) (hs : HasCompactSupport ψ),
+      OQ7Prescribed.complexTestEval (OQ7Prescribed.fieldComponentDistribution F i) ψ hψ hs =
+        ∫ (x : OQ7Prescribed.Position), ψ x * (F x).ofLp i
+OQ7Prescribed.complexTestEval_partial_field : ∀ (F : OQ7Prescribed.Field),
+  MeasureTheory.LocallyIntegrable F MeasureTheory.volume →
+    ∀ (i j : Fin 3) (ψ : OQ7Prescribed.Position → ℂ) (hψ : ContDiff ℝ (↑⊤) ψ) (hs : HasCompactSupport ψ),
+      OQ7Prescribed.complexTestEval
+          ((OQ7Prescribed.distributionPartial j) (OQ7Prescribed.fieldComponentDistribution F i)) ψ hψ hs =
+        -∫ (x : OQ7Prescribed.Position), (fderiv ℝ ψ x) (OQ7Prescribed.basisR j) * (F x).ofLp i
+OQ7Prescribed.complexTestEval_sub : ∀ (S T : OQ7Prescribed.ScalarDistribution) (ψ : OQ7Prescribed.Position → ℂ)
+  (hψ : ContDiff ℝ (↑⊤) ψ) (hs : HasCompactSupport ψ),
+  OQ7Prescribed.complexTestEval (S - T) ψ hψ hs =
+    OQ7Prescribed.complexTestEval S ψ hψ hs - OQ7Prescribed.complexTestEval T ψ hψ hs
 OQ7Prescribed.contDiff_lineDeriv_continuous : ∀ (F : OQ7Prescribed.Position → ℝ),
   ContDiff ℝ 1 F → ∀ (i : Fin 3), Continuous fun x => lineDeriv ℝ F x (OQ7Prescribed.basisR i)
 OQ7Prescribed.contDiff_test_ibp : ∀ (F : OQ7Prescribed.Position → ℝ),
@@ -157,6 +180,12 @@ OQ7Prescribed.distributionCurl_add : ∀ (U V : OQ7Prescribed.CartesianDistribut
   OQ7Prescribed.distributionCurl (U + V) = OQ7Prescribed.distributionCurl U + OQ7Prescribed.distributionCurl V
 OQ7Prescribed.distributionCurl_complex_smul : ∀ (a : ℂ) (U : OQ7Prescribed.CartesianDistribution),
   OQ7Prescribed.distributionCurl (a • U) = a • OQ7Prescribed.distributionCurl U
+OQ7Prescribed.distributionCurl_eq_implies_hasWeakCurl : ∀ (F G : OQ7Prescribed.Field),
+  MeasureTheory.LocallyIntegrable F MeasureTheory.volume →
+    MeasureTheory.LocallyIntegrable G MeasureTheory.volume →
+      OQ7Prescribed.distributionCurl (OQ7Prescribed.fieldComponentDistribution F) =
+          OQ7Prescribed.fieldComponentDistribution G →
+        OQ7Prescribed.HasWeakCurl F G
 OQ7Prescribed.distributionCurl_gradient : ∀ (T : OQ7Prescribed.ScalarDistribution),
   (OQ7Prescribed.distributionCurl fun i => (OQ7Prescribed.distributionPartial i) T) = 0
 OQ7Prescribed.distributionCurl_real_smul : ∀ (a : ℝ) (U : OQ7Prescribed.CartesianDistribution),
@@ -358,10 +387,23 @@ OQ7Prescribed.exteriorCutoffPartial_zero_inner : ∀ (r t : ℝ),
   0 < t → ∀ (i : Fin 3) (x : OQ7Prescribed.Position), ‖x‖ ≤ r → OQ7Prescribed.exteriorCutoffPartial r t i x = 0
 OQ7Prescribed.exteriorCutoffPartial_zero_outer : ∀ (r t : ℝ),
   0 < t → ∀ (i : Fin 3) (x : OQ7Prescribed.Position), r + t ≤ ‖x‖ → OQ7Prescribed.exteriorCutoffPartial r t i x = 0
+OQ7Prescribed.fieldComponent_locallyIntegrable : ∀ (F : OQ7Prescribed.Field),
+  MeasureTheory.LocallyIntegrable F MeasureTheory.volume →
+    ∀ (i : Fin 3), MeasureTheory.LocallyIntegrable (fun x => (F x).ofLp i) MeasureTheory.volume
+OQ7Prescribed.fieldComponentDistribution_add : ∀ (F G : OQ7Prescribed.Field),
+  MeasureTheory.LocallyIntegrable F MeasureTheory.volume →
+    MeasureTheory.LocallyIntegrable G MeasureTheory.volume →
+      ∀ (i : Fin 3),
+        OQ7Prescribed.fieldComponentDistribution (fun x => F x + G x) i =
+          OQ7Prescribed.fieldComponentDistribution F i + OQ7Prescribed.fieldComponentDistribution G i
 OQ7Prescribed.fieldComponentDistribution_apply : ∀ (F : OQ7Prescribed.Field),
   MeasureTheory.LocallyIntegrable F MeasureTheory.volume →
     ∀ (i : Fin 3) (φ : OQ7Prescribed.ScalarTest),
       (OQ7Prescribed.fieldComponentDistribution F i) φ = ∫ (x : OQ7Prescribed.Position), ↑(φ x) * (F x).ofLp i
+OQ7Prescribed.fieldComponentDistribution_complex_smul : ∀ (a : ℂ) (F : OQ7Prescribed.Field),
+  MeasureTheory.LocallyIntegrable F MeasureTheory.volume →
+    ∀ (i : Fin 3),
+      OQ7Prescribed.fieldComponentDistribution (fun x => a • F x) i = a • OQ7Prescribed.fieldComponentDistribution F i
 @OQ7Prescribed.fourierIntegral_L1L2_ae : ∀ {F : Type u_1} [inst : NormedAddCommGroup F] [inst_1 : InnerProductSpace ℂ F]
   [inst_2 : CompleteSpace F] {f : OQ7Prescribed.Position → F},
   MeasureTheory.MemLp f 1 MeasureTheory.volume →
@@ -470,6 +512,17 @@ OQ7Prescribed.integral_polar_iterated_actual : ∀ (f : OQ7Prescribed.Position �
   MeasureTheory.Integrable f MeasureTheory.volume →
     ∫ (x : OQ7Prescribed.Position), f x =
       ∫ (s : ℝ) in Set.Ioi 0, s ^ 2 * ∫ (n : ↑OQ7Prescribed.UnitSphere), f (s • ↑n) ∂OQ7Prescribed.sphereArea
+OQ7Prescribed.integral_three_sub : ∀ (a b c d e f : OQ7Prescribed.Position → ℂ),
+  MeasureTheory.Integrable a MeasureTheory.volume →
+    MeasureTheory.Integrable b MeasureTheory.volume →
+      MeasureTheory.Integrable c MeasureTheory.volume →
+        MeasureTheory.Integrable d MeasureTheory.volume →
+          MeasureTheory.Integrable e MeasureTheory.volume →
+            MeasureTheory.Integrable f MeasureTheory.volume →
+              ∫ (x : OQ7Prescribed.Position), a x - b x + (c x - d x) + (e x - f x) =
+                ((∫ (x : OQ7Prescribed.Position), a x) - ∫ (x : OQ7Prescribed.Position), b x) +
+                    ((∫ (x : OQ7Prescribed.Position), c x) - ∫ (x : OQ7Prescribed.Position), d x) +
+                  ((∫ (x : OQ7Prescribed.Position), e x) - ∫ (x : OQ7Prescribed.Position), f x)
 OQ7Prescribed.layerPermittivity_admissible : ∀ (P Q a b ν : ℝ) (u : OQ7Prescribed.Position),
   ‖u‖ ^ 2 = 1 →
     0 ≤ a →
@@ -1090,11 +1143,17 @@ OQ7Prescribed.permittivity_reciprocal : ∀ (B : OQ7Prescribed.TwoLayerBody) (P 
 OQ7Prescribed.physicalSourceFields_first_curl : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization),
   OQ7Prescribed.distributionCurl (OQ7Prescribed.fieldComponentDistribution (OQ7Prescribed.electricVolumeField k p)) =
     (Complex.I * ↑k) • OQ7Prescribed.fieldComponentDistribution (OQ7Prescribed.magneticVolumeField k p)
+OQ7Prescribed.physicalSourceFields_first_weakCurl : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization),
+  OQ7Prescribed.HasWeakCurl (OQ7Prescribed.electricVolumeField k p) fun x =>
+    (Complex.I * ↑k) • OQ7Prescribed.magneticVolumeField k p x
 OQ7Prescribed.physicalSourceFields_second_curl : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization),
   OQ7Prescribed.distributionCurl (OQ7Prescribed.fieldComponentDistribution (OQ7Prescribed.magneticVolumeField k p)) =
     (-Complex.I * ↑k) •
       (OQ7Prescribed.fieldComponentDistribution (OQ7Prescribed.electricVolumeField k p) +
         OQ7Prescribed.polarizationCurrentComponentDistribution p)
+OQ7Prescribed.physicalSourceFields_second_weakCurl : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization),
+  OQ7Prescribed.HasWeakCurl (OQ7Prescribed.magneticVolumeField k p) fun x =>
+    (-Complex.I * ↑k) • (OQ7Prescribed.electricVolumeField k p x + p.current x)
 OQ7Prescribed.planePhase_norm : ∀ (k : ℝ) (σ : OQ7Prescribed.Direction) (x : OQ7Prescribed.Position),
   ‖OQ7Prescribed.planePhase k σ x‖ = 1
 OQ7Prescribed.polarization_zero_outside : ∀ (B : OQ7Prescribed.TwoLayerBody) (E : OQ7Prescribed.Field),
@@ -1568,6 +1627,10 @@ OQ7Prescribed.susceptibility_zero_outside : ∀ (B : OQ7Prescribed.TwoLayerBody)
 OQ7Prescribed.tensorApply_one : ∀ (v : OQ7Prescribed.Vector), OQ7Prescribed.tensorApply 1 v = v
 OQ7Prescribed.tensorApply_rankOne : ∀ (u : OQ7Prescribed.Position) (v : OQ7Prescribed.Vector),
   OQ7Prescribed.tensorApply (OQ7Prescribed.rankOne u) v = OQ7Prescribed.axisCoupling u v • OQ7Prescribed.complexify u
+OQ7Prescribed.testComponent_fderiv : ∀ (φ : OQ7Prescribed.Field),
+  ContDiff ℝ (↑⊤) φ →
+    ∀ (i j : Fin 3) (x : OQ7Prescribed.Position),
+      (fderiv ℝ (fun y => (φ y).ofLp i) x) (OQ7Prescribed.basisR j) = ((fderiv ℝ φ x) (OQ7Prescribed.basisR j)).ofLp i
 OQ7Prescribed.testLaplacian_apply : ∀ (φ : OQ7Prescribed.ScalarTest),
   OQ7Prescribed.testLaplacian φ = ∑ i, (OQ7Prescribed.testPartial i) ((OQ7Prescribed.testPartial i) φ)
 OQ7Prescribed.testPartial_commute : ∀ (φ : OQ7Prescribed.ScalarTest) (i j : Fin 3),

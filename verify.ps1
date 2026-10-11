@@ -234,7 +234,10 @@ run_cmd do
         'OQ7Prescribed.physicalSourceFields_first_curl',
         'OQ7Prescribed.physicalSourceFields_second_curl',
         'OQ7Prescribed.HasWeakCurl.implies_analyticTestWeakCurl',
-        'OQ7Prescribed.weakCurlTest_all_finite_orders')) {
+        'OQ7Prescribed.weakCurlTest_all_finite_orders',
+        'OQ7Prescribed.distributionCurl_eq_implies_hasWeakCurl',
+        'OQ7Prescribed.physicalSourceFields_first_weakCurl',
+        'OQ7Prescribed.physicalSourceFields_second_weakCurl')) {
         if ($oq7Required -notin $oq7NewKernelTheorems) { throw "Missing outgoing operator obligation: $oq7Required" }
     }
     if ($oq7PdfHash -ne '3D9775D849234E828370D7C96D8BDCDD574BEB6831A7906EA6B7706579868710') { throw 'Manuscript hash differs.' }
@@ -286,6 +289,8 @@ run_cmd do
         actualSourceFieldDistributionalCurlsVerified = $true
         outgoingPhysicalVolumeDistributionVerified = $true
         outgoingPhysicalCompactDomainL2OperatorVerified = $true
+        actualSourceFieldsBothPhysicalWeakCurlsVerified = $true
+        physicalWeakCurlsUseAllSmoothCompactComplexVectorTests = $true
         outgoingWeakMaxwellRepresentationVerified = $false
         scatteringStateExistenceVerified = $false
         allPreContactLeanModulesUnchanged = $false
@@ -344,7 +349,7 @@ run_cmd do
             @{ module = 'PrescribedExtinction.NewtonStaticIdentification'; scope = 'Actual original Newton volume distribution equals staticFourierOperator on every compactly supported vector L2 current; genuine current/test Fubini, smooth correlation, Fourier L1-L2 compatibility, and bounded physical L2 realization'; compactCurrentConvolutionIdentificationVerified = $true; physicalStaticOperatorVerified = $true }
         )
         unverifiedDependencies = @('3D outgoing Maxwell existence and uniqueness',
-            'Volume representation equivalence to weak Maxwell, regularity and Silver-Muller radiation',
+            'Exterior representative, pointwise Silver-Muller radiation and converse outgoing volume representation',
             'Full radiation identity, optical theorem, reciprocity and power balance',
             'Uniform inverse and sin-squared response factorization',
             'Uniform aperture localization including grazing singularities and all angular channels',

@@ -62,3 +62,10 @@ source fields and proves both original scalar-distribution curl equations.
 The electric representative uses the identified static L² operator plus the
 actual remainder convolution. Radiation requires an exterior representative;
 no pointwise claim is inferred from an almost-everywhere L² equality.
+
+WeakCurlBridge.lean proves both physical source curl equations against every
+smooth compact complex vector test, with all integrability justified. The test
+regularity annotation in Maxwell.lean is strengthened to explicit ENat top;
+untyped top in the pinned Mathlib meant analytic regularity. The exact earlier
+source and the formal strengthening proof are saved and audited. This fixes
+the physical weak equations without changing Theorem11Statement quantifiers.

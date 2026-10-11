@@ -1537,6 +1537,7 @@ import PrescribedExtinction
 #print axioms OQ7Prescribed.basisR
 #print axioms OQ7Prescribed.basisR.eq_1
 #print axioms OQ7Prescribed.bilinear
+#print axioms OQ7Prescribed.bilinear.eq_1
 #print axioms OQ7Prescribed.bodyDomain
 #print axioms OQ7Prescribed.CartesianDistribution
 #print axioms OQ7Prescribed.classicalDyadic
@@ -1653,11 +1654,24 @@ import PrescribedExtinction
 #print axioms OQ7Prescribed.compactStaticOperator
 #print axioms OQ7Prescribed.compactStaticOperator_apply_norm_le
 #print axioms OQ7Prescribed.compactStaticOperator._proof_1
+#print axioms OQ7Prescribed.compactTest_component_integrable
 #print axioms OQ7Prescribed.complexify
 #print axioms OQ7Prescribed.complexify_continuous
 #print axioms OQ7Prescribed.complexify_norm_sq
 #print axioms OQ7Prescribed.complexify._proof_1
 #print axioms OQ7Prescribed.complexify.eq_1
+#print axioms OQ7Prescribed.complexRealTest
+#print axioms OQ7Prescribed.complexRealTest_partial
+#print axioms OQ7Prescribed.complexRealTest._proof_1
+#print axioms OQ7Prescribed.complexRealTest._proof_2
+#print axioms OQ7Prescribed.complexRealTest._proof_3
+#print axioms OQ7Prescribed.complexRealTest.congr_simp
+#print axioms OQ7Prescribed.complexTestEval
+#print axioms OQ7Prescribed.complexTestEval_field
+#print axioms OQ7Prescribed.complexTestEval_partial_field
+#print axioms OQ7Prescribed.complexTestEval_sub
+#print axioms OQ7Prescribed.complexTestEval.congr_simp
+#print axioms OQ7Prescribed.complexTestEval.eq_1
 #print axioms OQ7Prescribed.contDiff_lineDeriv_continuous
 #print axioms OQ7Prescribed.contDiff_test_ibp
 #print axioms OQ7Prescribed.coordinateReflect
@@ -1671,6 +1685,7 @@ import PrescribedExtinction
 #print axioms OQ7Prescribed.cross._proof_1
 #print axioms OQ7Prescribed.cross._proof_2
 #print axioms OQ7Prescribed.curl
+#print axioms OQ7Prescribed.curl.eq_1
 #print axioms OQ7Prescribed.current_component_fourier
 #print axioms OQ7Prescribed.current_component_integrable
 #print axioms OQ7Prescribed.currentCorrelation_green_first_ibp
@@ -1733,6 +1748,7 @@ import PrescribedExtinction
 #print axioms OQ7Prescribed.distributionCurl_add._abel_1_2
 #print axioms OQ7Prescribed.distributionCurl_add._abel_1_3
 #print axioms OQ7Prescribed.distributionCurl_complex_smul
+#print axioms OQ7Prescribed.distributionCurl_eq_implies_hasWeakCurl
 #print axioms OQ7Prescribed.distributionCurl_gradient
 #print axioms OQ7Prescribed.distributionCurl_real_smul
 #print axioms OQ7Prescribed.distributionCurl._proof_1
@@ -1872,8 +1888,11 @@ import PrescribedExtinction
 #print axioms OQ7Prescribed.exteriorCutoffPartial.eq_1
 #print axioms OQ7Prescribed.extinction
 #print axioms OQ7Prescribed.Field
+#print axioms OQ7Prescribed.fieldComponent_locallyIntegrable
 #print axioms OQ7Prescribed.fieldComponentDistribution
+#print axioms OQ7Prescribed.fieldComponentDistribution_add
 #print axioms OQ7Prescribed.fieldComponentDistribution_apply
+#print axioms OQ7Prescribed.fieldComponentDistribution_complex_smul
 #print axioms OQ7Prescribed.fieldComponentDistribution._proof_1
 #print axioms OQ7Prescribed.fieldComponentDistribution.eq_1
 #print axioms OQ7Prescribed.fourierIntegral_L1L2_ae
@@ -1955,6 +1974,7 @@ import PrescribedExtinction
 #print axioms OQ7Prescribed.integrable_polar_actual
 #print axioms OQ7Prescribed.integral_polar_actual
 #print axioms OQ7Prescribed.integral_polar_iterated_actual
+#print axioms OQ7Prescribed.integral_three_sub
 #print axioms OQ7Prescribed.layerPermittivity
 #print axioms OQ7Prescribed.layerPermittivity_admissible
 #print axioms OQ7Prescribed.layerPermittivity_reciprocal
@@ -2424,7 +2444,9 @@ import PrescribedExtinction
 #print axioms OQ7Prescribed.permittivity_one_outside
 #print axioms OQ7Prescribed.permittivity_reciprocal
 #print axioms OQ7Prescribed.physicalSourceFields_first_curl
+#print axioms OQ7Prescribed.physicalSourceFields_first_weakCurl
 #print axioms OQ7Prescribed.physicalSourceFields_second_curl
+#print axioms OQ7Prescribed.physicalSourceFields_second_weakCurl
 #print axioms OQ7Prescribed.planePhase
 #print axioms OQ7Prescribed.planePhase_norm
 #print axioms OQ7Prescribed.planePhase.eq_1
@@ -2716,7 +2738,7 @@ import PrescribedExtinction
 #print axioms OQ7Prescribed.supportedPolarization._simp_1
 #print axioms OQ7Prescribed.supportedPolarization._simp_2
 #print axioms OQ7Prescribed.supportedPolarization.congr_simp
-#print axioms OQ7Prescribed.SupportedVectorL2
+#print axioms OQ7Prescribed.supportedVectorL2
 #print axioms OQ7Prescribed.supportedVectorL2_completeSpace
 #print axioms OQ7Prescribed.supportedVectorL2_current_ae
 #print axioms OQ7Prescribed.supportedVectorL2_isClosed
@@ -2736,6 +2758,7 @@ import PrescribedExtinction
 #print axioms OQ7Prescribed.tensorApply_one
 #print axioms OQ7Prescribed.tensorApply_rankOne
 #print axioms OQ7Prescribed.tensorApply.eq_1
+#print axioms OQ7Prescribed.testComponent_fderiv
 #print axioms OQ7Prescribed.testLaplacian
 #print axioms OQ7Prescribed.testLaplacian_apply
 #print axioms OQ7Prescribed.testLaplacian._proof_1

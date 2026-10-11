@@ -42,7 +42,8 @@ try {
         @{ name = 'young-convolution'; module = 'PrescribedExtinction.YoungConvolution' },
         @{ name = 'green-gradient-current'; module = 'PrescribedExtinction.GradientCurrentPairing' },
         @{ name = 'physical-source-fields'; module = 'PrescribedExtinction.PhysicalSourceFields' },
-        @{ name = 'smooth-test-correction'; module = 'PrescribedExtinction.TestRegularity' }
+        @{ name = 'smooth-test-correction'; module = 'PrescribedExtinction.TestRegularity' },
+        @{ name = 'physical-weak-curls'; module = 'PrescribedExtinction.WeakCurlBridge' }
     )
     if ($Only) {
         foreach ($oq7Name in $Only) {
