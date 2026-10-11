@@ -72,7 +72,8 @@ try {
         @{ name = 'physical-smooth-slab-L2'; module = 'PrescribedExtinction.SlabSmoothCenteredL2Residual' },
         @{ name = 'physical-L2-slab-aperture'; module = 'PrescribedExtinction.SlabL2PhysicalError' },
         @{ name = 'planar-material-operator'; module = 'PrescribedExtinction.PlanarResponse' },
-        @{ name = 'physical-body-planar-residual'; module = 'PrescribedExtinction.BodyResponseResidual' }
+        @{ name = 'physical-body-planar-residual'; module = 'PrescribedExtinction.BodyResponseResidual' },
+        @{ name = 'physical-uniform-body-response'; module = 'PrescribedExtinction.UniformBodyResponse' }
     )
     if ($Only) {
         foreach ($oq7Name in $Only) {

@@ -77,6 +77,8 @@
   "planarNormalizedResponseContinuousAtZeroAndExtinctionPositiveVerified": true,
   "physicalOriginalSquareBodyPlanarOperatorResidualUniformInApertureAndRotationVerified": true,
   "physicalPlanarTrialResponseEstimateWithExplicitDriveMismatchVerified": true,
+  "originalSquareApertureSmoothL2WindowApproximationVerified": true,
+  "physicalRankOneNormalizedResponseUniformInApertureAndAllRotationAnglesVerified": true,
   "physicalVectorUniformApertureLocalizationVerified": false,
   "physicalVolumeWorkBalanceVerified": true,
   "originalPhysicalAbsorptionSineSquaredFactorizationVerified": true,
@@ -113,7 +115,7 @@
   "newtonPrincipalValueIsBundledDistribution": true,
   "staticNewtonIdentificationVerified": true,
   "targetSourceSHA256": "A9950F0F1C9EA4A20FF2C480A71CC4FABDC4AB84F8173851C37A4BD56E0D231B",
-  "verifiedAtUTC": "2026-10-11T18:11:14.8964570Z",
+  "verifiedAtUTC": "2026-10-11T18:23:37.9384305Z",
   "lean": "Lean (version 4.34.1, x86_64-w64-windows-gnu, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)",
   "lakeBuildPassed": true,
   "cleanProjectBuild": false,
@@ -125,10 +127,10 @@
     "Classical.choice",
     "Quot.sound"
   ],
-  "allProjectConstantsAudited": 4773,
+  "allProjectConstantsAudited": 4829,
   "privateProjectConstantsAudited": 43,
-  "newTheoremCount": 1192,
-  "newKernelTheoremConstantCount": 2766,
+  "newTheoremCount": 1216,
+  "newKernelTheoremConstantCount": 2818,
   "newTheorems": [
     "OQ7Prescribed.activeInjection_coe",
     "OQ7Prescribed.activeInjection_inner",
@@ -157,6 +159,7 @@
     "OQ7Prescribed.activeScalarLoss_pos",
     "OQ7Prescribed.admissible_susceptibility_bounded_inverse",
     "OQ7Prescribed.admissible_susceptibility_imaginary_coercive",
+    "OQ7Prescribed.aperture_error_le_of_window_and_radius",
     "OQ7Prescribed.apertureCircleDirection_norm",
     "OQ7Prescribed.apertureCircleJet_continuous",
     "OQ7Prescribed.apertureCircleJet_first_norm_le",
@@ -197,6 +200,8 @@
     "OQ7Prescribed.apertureRadialLiftSecond_norm_le",
     "OQ7Prescribed.apertureRadialRoot_hasDerivAt",
     "OQ7Prescribed.apertureRadialRoot_pos",
+    "OQ7Prescribed.apertureWindowMismatch_L2_norm",
+    "OQ7Prescribed.apertureWindowMismatch_memLp",
     "OQ7Prescribed.apertureWindowPartial_contDiff",
     "OQ7Prescribed.apertureWindowPartial_hasCompactSupport",
     "OQ7Prescribed.apertureWindowPartial_jet_norm_le",
@@ -261,6 +266,9 @@
     "OQ7Prescribed.bodyScaledScalarLift_norm",
     "OQ7Prescribed.bodySeparatedScalarLift_coe",
     "OQ7Prescribed.bodySeparatedScalarLift_norm",
+    "OQ7Prescribed.bodySharpScalarLift_coe",
+    "OQ7Prescribed.bodySharpScalarLift_norm",
+    "OQ7Prescribed.bodySharpScalarLift_window_difference_norm",
     "OQ7Prescribed.bodySlabError_coe",
     "OQ7Prescribed.bodySlabError_uniform_bound",
     "OQ7Prescribed.bodySupportRadius_nonneg",
@@ -530,6 +538,7 @@
     "OQ7Prescribed.horizontalSlabPotential_uniform_aperture_error",
     "OQ7Prescribed.horizontalSlabTransverseKernel_uniform_error",
     "OQ7Prescribed.horizontalSquareAperture_isOpen",
+    "OQ7Prescribed.horizontalSquareAperture_mono",
     "OQ7Prescribed.horizontalSquareAperture_norm_le",
     "OQ7Prescribed.horizontalSquareAperture_physical",
     "OQ7Prescribed.horizontalSquareAperture_scaled_iff",
@@ -752,7 +761,10 @@
     "OQ7Prescribed.normalizedExtinction_reciprocity_of_sine_ne_zero",
     "OQ7Prescribed.normalizedExtinction_work_balance",
     "OQ7Prescribed.normalizedIncidentDrive_coe",
+    "OQ7Prescribed.normalizedIncidentDrive_eq_sharpLift",
     "OQ7Prescribed.normalizedIncidentDrive_ne_zero",
+    "OQ7Prescribed.normalizedIncidentDrive_separated",
+    "OQ7Prescribed.normalizedIncidentDrive_window_mismatch_norm",
     "OQ7Prescribed.normalizedRotationAsymmetry_continuous",
     "OQ7Prescribed.normalizedRotationAsymmetry_lt_one",
     "OQ7Prescribed.orthogonalSphere_cone_preimage",
@@ -835,8 +847,10 @@
     "OQ7Prescribed.physicalAbsorption_current_inner",
     "OQ7Prescribed.physicalAbsorption_sine_squared_factorization",
     "OQ7Prescribed.physicalAsymmetry_normalized_factorization",
+    "OQ7Prescribed.physicalBody_normalized_response_uniform_aperture_localization",
     "OQ7Prescribed.physicalBody_uniform_planar_operator_residual",
     "OQ7Prescribed.physicalBody_uniform_planar_response_estimate",
+    "OQ7Prescribed.physicalBody_uniform_sharp_response_estimate",
     "OQ7Prescribed.physicalExtinction_sine_squared_factorization",
     "OQ7Prescribed.physicalOutgoingVolume_farField_work",
     "OQ7Prescribed.physicalOutgoingVolume_reciprocity",
@@ -882,6 +896,8 @@
     "OQ7Prescribed.planarNormalizedAbsorption_pos",
     "OQ7Prescribed.planarNormalizedDrive_coe",
     "OQ7Prescribed.planarNormalizedDrive_ne_zero",
+    "OQ7Prescribed.planarNormalizedDrive_norm",
+    "OQ7Prescribed.planarNormalizedDrive_norm_sq",
     "OQ7Prescribed.planarNormalizedExtinction_compact_lower_bound",
     "OQ7Prescribed.planarNormalizedExtinction_continuous",
     "OQ7Prescribed.planarNormalizedExtinction_pos",
@@ -1211,11 +1227,21 @@
     "OQ7Prescribed.sphericalTripleEquiv_domain",
     "OQ7Prescribed.sphericalTripleEquiv_measurePreserving",
     "OQ7Prescribed.sphericalTripleEquiv_symm_apply",
+    "OQ7Prescribed.squareApertureWindow_integral_norm_sq",
+    "OQ7Prescribed.squareApertureWindow_L2_norm",
     "OQ7Prescribed.squareApertureWindow_memLp",
     "OQ7Prescribed.squareApertureWindow_scaled",
+    "OQ7Prescribed.squareApertureWindow_smooth_L2_approximation",
+    "OQ7Prescribed.squareApertureWindow_sub_smooth_norm_le_one",
     "OQ7Prescribed.squareNorm_eq_norm_sq",
     "OQ7Prescribed.squareNorm_nonneg",
     "OQ7Prescribed.squareNorm_pos",
+    "OQ7Prescribed.squareSmoothWindow_contDiff",
+    "OQ7Prescribed.squareSmoothWindow_hasCompactSupport",
+    "OQ7Prescribed.squareSmoothWindow_L2_error_sq",
+    "OQ7Prescribed.squareSmoothWindow_one",
+    "OQ7Prescribed.squareSmoothWindow_real_bounds",
+    "OQ7Prescribed.squareSmoothWindow_support",
     "OQ7Prescribed.staticFourierOperator_apply_norm_le",
     "OQ7Prescribed.staticFourierOperator_component_distribution_apply",
     "OQ7Prescribed.staticFourierOperator_distribution_apply",
@@ -1328,1234 +1354,1266 @@
   "manuscriptSHA256": "3D9775D849234E828370D7C96D8BDCDD574BEB6831A7906EA6B7706579868710",
   "dependencyRevisions": [
     {
-      "name": "mathlib",
+      "revision": "d13f23b723b8a846827a245b89c10fc7d3f11612",
       "trackedSourceClean": true,
-      "revision": "d13f23b723b8a846827a245b89c10fc7d3f11612"
+      "name": "mathlib"
     },
     {
-      "name": "plausible",
+      "revision": "118aa17ee84656b8bd727fef7c458ee8c833385c",
       "trackedSourceClean": true,
-      "revision": "118aa17ee84656b8bd727fef7c458ee8c833385c"
+      "name": "plausible"
     },
     {
-      "name": "LeanSearchClient",
+      "revision": "ddf04cf3949fa556442341e87d47f9f6e6074707",
       "trackedSourceClean": true,
-      "revision": "ddf04cf3949fa556442341e87d47f9f6e6074707"
+      "name": "LeanSearchClient"
     },
     {
-      "name": "importGraph",
+      "revision": "e928b72544873815af278d38681b31c0293588e3",
       "trackedSourceClean": true,
-      "revision": "e928b72544873815af278d38681b31c0293588e3"
+      "name": "importGraph"
     },
     {
-      "name": "proofwidgets",
+      "revision": "106ff4fafc74ef4ac99d81dbf3ab399118f497a5",
       "trackedSourceClean": true,
-      "revision": "106ff4fafc74ef4ac99d81dbf3ab399118f497a5"
+      "name": "proofwidgets"
     },
     {
-      "name": "aesop",
+      "revision": "355695d523e41d0554926416cba2a2b3544fbbc9",
       "trackedSourceClean": true,
-      "revision": "355695d523e41d0554926416cba2a2b3544fbbc9"
+      "name": "aesop"
     },
     {
-      "name": "Qq",
+      "revision": "6a489d9af5d0c47e5b259e2e8bcdfc1811b5a259",
       "trackedSourceClean": true,
-      "revision": "6a489d9af5d0c47e5b259e2e8bcdfc1811b5a259"
+      "name": "Qq"
     },
     {
-      "name": "batteries",
+      "revision": "f2effa3d803fda822b1f97b806c47cf2adfbcbc2",
       "trackedSourceClean": true,
-      "revision": "f2effa3d803fda822b1f97b806c47cf2adfbcbc2"
+      "name": "batteries"
     },
     {
-      "name": "Cli",
+      "revision": "e92c9f15fdfacc8536f31cfb3b7ad26c3c8cd204",
       "trackedSourceClean": true,
-      "revision": "e92c9f15fdfacc8536f31cfb3b7ad26c3c8cd204"
+      "name": "Cli"
     }
   ],
   "sourceHashes": [
     {
-      "sha256": "AF31164222DD2052B4E3AD55FE1A2809C9E70A3B39F965278872D9A8232E3956",
-      "file": "OQ7\\CellNormBounds.lean"
+      "file": "OQ7\\CellNormBounds.lean",
+      "sha256": "AF31164222DD2052B4E3AD55FE1A2809C9E70A3B39F965278872D9A8232E3956"
     },
     {
-      "sha256": "E1513A81BE7199D9CF7BC9D3F4E2D16E8019A4F86DA226CCE59890EDB847AE68",
-      "file": "OQ7\\CellRemainder.lean"
+      "file": "OQ7\\CellRemainder.lean",
+      "sha256": "E1513A81BE7199D9CF7BC9D3F4E2D16E8019A4F86DA226CCE59890EDB847AE68"
     },
     {
-      "sha256": "C2FF5B88F9D5EA70A8019743D4D09107835463F1EBC79D73FD156E8E244F356F",
-      "file": "OQ7\\ConstructionBudget.lean"
+      "file": "OQ7\\ConstructionBudget.lean",
+      "sha256": "C2FF5B88F9D5EA70A8019743D4D09107835463F1EBC79D73FD156E8E244F356F"
     },
     {
-      "sha256": "5B4CD3C356D8A34E7B608F6BDE8906DAE5E1D2D2D11D5B56C972AF39FD809729",
-      "file": "OQ7\\CoreAlgebra.lean"
+      "file": "OQ7\\CoreAlgebra.lean",
+      "sha256": "5B4CD3C356D8A34E7B608F6BDE8906DAE5E1D2D2D11D5B56C972AF39FD809729"
     },
     {
-      "sha256": "FDA309BAA3F2A35E2B4AE7EDC7EEBF868BF9CE21F77E23377B0E15D263B57CDD",
-      "file": "OQ7\\CoreExponential.lean"
+      "file": "OQ7\\CoreExponential.lean",
+      "sha256": "FDA309BAA3F2A35E2B4AE7EDC7EEBF868BF9CE21F77E23377B0E15D263B57CDD"
     },
     {
-      "sha256": "D5505550C4F8ABF9E9055F81608DFDF975EAB9CD9716DF0100B233B33FBBEC5B",
-      "file": "OQ7\\CoreFactorization.lean"
+      "file": "OQ7\\CoreFactorization.lean",
+      "sha256": "D5505550C4F8ABF9E9055F81608DFDF975EAB9CD9716DF0100B233B33FBBEC5B"
     },
     {
-      "sha256": "D071F20022163EFA3DCE5DC6FBC09EA3824DE3EA52F03C474077598AAD89E368",
-      "file": "OQ7\\CoreFluxPolynomial.lean"
+      "file": "OQ7\\CoreFluxPolynomial.lean",
+      "sha256": "D071F20022163EFA3DCE5DC6FBC09EA3824DE3EA52F03C474077598AAD89E368"
     },
     {
-      "sha256": "2B336BD25BFCFEB82C479327E70A6D18100630A6562CF274712A1A0692E60939",
-      "file": "OQ7\\CoreInsertion.lean"
+      "file": "OQ7\\CoreInsertion.lean",
+      "sha256": "2B336BD25BFCFEB82C479327E70A6D18100630A6562CF274712A1A0692E60939"
     },
     {
-      "sha256": "D82FFE24340BD3AF35A13F85F9BF94E6A2E450B55410743FC2AFE25AEF1E9072",
-      "file": "OQ7\\CoreTaylor.lean"
+      "file": "OQ7\\CoreTaylor.lean",
+      "sha256": "D82FFE24340BD3AF35A13F85F9BF94E6A2E450B55410743FC2AFE25AEF1E9072"
     },
     {
-      "sha256": "B8F6C39315F3FCEE0D1D98AC27359F3DC0A03DEA3FD73C8EB2132C90E9EC61DB",
-      "file": "OQ7\\DeterminantMinkowski.lean"
+      "file": "OQ7\\DeterminantMinkowski.lean",
+      "sha256": "B8F6C39315F3FCEE0D1D98AC27359F3DC0A03DEA3FD73C8EB2132C90E9EC61DB"
     },
     {
-      "sha256": "10636A65B9BB7CA4DD8FE00D743846D263B690646F65CDFFD284AEB5FC5DEE80",
-      "file": "OQ7\\Envelope.lean"
+      "file": "OQ7\\Envelope.lean",
+      "sha256": "10636A65B9BB7CA4DD8FE00D743846D263B690646F65CDFFD284AEB5FC5DEE80"
     },
     {
-      "sha256": "1FEC4C1E1041FA0B8D069A182DBA817845652C7B856936B14B994418A04916AD",
-      "file": "OQ7\\ExpRemainder.lean"
+      "file": "OQ7\\ExpRemainder.lean",
+      "sha256": "1FEC4C1E1041FA0B8D069A182DBA817845652C7B856936B14B994418A04916AD"
     },
     {
-      "sha256": "C147D5BE50DCA9FE3905B7608952169AF36EA38786241F2B785EF745D9B9C93A",
-      "file": "OQ7\\Fields.lean"
+      "file": "OQ7\\Fields.lean",
+      "sha256": "C147D5BE50DCA9FE3905B7608952169AF36EA38786241F2B785EF745D9B9C93A"
     },
     {
-      "sha256": "9056E0F2D266CE968C304FB3F325BB79B7185D864CDCBED15D6C04784E2F80E0",
-      "file": "OQ7\\FourierCap.lean"
+      "file": "OQ7\\FourierCap.lean",
+      "sha256": "9056E0F2D266CE968C304FB3F325BB79B7185D864CDCBED15D6C04784E2F80E0"
     },
     {
-      "sha256": "9F0FB0593A4263888B9F9974339049F548138B32BF7F9EC8495AF6AD2079C665",
-      "file": "OQ7\\FourierOpenCaps.lean"
+      "file": "OQ7\\FourierOpenCaps.lean",
+      "sha256": "9F0FB0593A4263888B9F9974339049F548138B32BF7F9EC8495AF6AD2079C665"
     },
     {
-      "sha256": "F6C0D497B7F0EB66DEF43EB0127CE21013C2CB9E07F4F8B9AAEC18DD6582EF37",
-      "file": "OQ7\\FourierSquare.lean"
+      "file": "OQ7\\FourierSquare.lean",
+      "sha256": "F6C0D497B7F0EB66DEF43EB0127CE21013C2CB9E07F4F8B9AAEC18DD6582EF37"
     },
     {
-      "sha256": "824C0299BBE810FF1248CAF88DAA6F3CECE04763EBF1B660FD6148F0C6B1FDC4",
-      "file": "OQ7\\FourierTriangle.lean"
+      "file": "OQ7\\FourierTriangle.lean",
+      "sha256": "824C0299BBE810FF1248CAF88DAA6F3CECE04763EBF1B660FD6148F0C6B1FDC4"
     },
     {
-      "sha256": "6F7243BEA101D86716692BD01CD4FED14954A6C5703101095AFA92A5914199DC",
-      "file": "OQ7\\Gram.lean"
+      "file": "OQ7\\Gram.lean",
+      "sha256": "6F7243BEA101D86716692BD01CD4FED14954A6C5703101095AFA92A5914199DC"
     },
     {
-      "sha256": "1FCFFBC54BB94A78F847E2A2CD60D0F29F187E1C0E27844EC24B6AE100565DE4",
-      "file": "OQ7\\GramProperties.lean"
+      "file": "OQ7\\GramProperties.lean",
+      "sha256": "1FCFFBC54BB94A78F847E2A2CD60D0F29F187E1C0E27844EC24B6AE100565DE4"
     },
     {
-      "sha256": "392030C7F42D4E212DFF09A861E562826C029A62917099BF9583141071A923DD",
-      "file": "OQ7\\InsertionRemainder.lean"
+      "file": "OQ7\\InsertionRemainder.lean",
+      "sha256": "392030C7F42D4E212DFF09A861E562826C029A62917099BF9583141071A923DD"
     },
     {
-      "sha256": "F6F562751517005B453C50413B13DCB16E2525925C6E5389F0061002100CF3C6",
-      "file": "OQ7\\Layers.lean"
+      "file": "OQ7\\Layers.lean",
+      "sha256": "F6F562751517005B453C50413B13DCB16E2525925C6E5389F0061002100CF3C6"
     },
     {
-      "sha256": "9380A3B8C0FCE3E880D58F858C4EF166D732C98A7470ADD652B7BF133408723D",
-      "file": "OQ7\\MatchedTransfer.lean"
+      "file": "OQ7\\MatchedTransfer.lean",
+      "sha256": "9380A3B8C0FCE3E880D58F858C4EF166D732C98A7470ADD652B7BF133408723D"
     },
     {
-      "sha256": "9D52A6C53C45594B692F52C096597DC5A1B44C5027D50E55DA39C2A93174049D",
-      "file": "OQ7\\MatchingImplicit.lean"
+      "file": "OQ7\\MatchingImplicit.lean",
+      "sha256": "9D52A6C53C45594B692F52C096597DC5A1B44C5027D50E55DA39C2A93174049D"
     },
     {
-      "sha256": "73E1FAFD8131BC6D427F1860A7BDA7D459F45A5F2921F20D8C6C1FD601F2CB6F",
-      "file": "OQ7\\MatchingJacobian.lean"
+      "file": "OQ7\\MatchingJacobian.lean",
+      "sha256": "73E1FAFD8131BC6D427F1860A7BDA7D459F45A5F2921F20D8C6C1FD601F2CB6F"
     },
     {
-      "sha256": "A8A163ECE63B5843B5A1A2178775B649CF999572682178A09200EC1F28E6FA42",
-      "file": "OQ7\\MatchingOptimizer.lean"
+      "file": "OQ7\\MatchingOptimizer.lean",
+      "sha256": "A8A163ECE63B5843B5A1A2178775B649CF999572682178A09200EC1F28E6FA42"
     },
     {
-      "sha256": "81618A45F4C9654CF8CCFA6F236C2149A6DC2FE21DB0A029E795B651DD09407D",
-      "file": "OQ7\\MatchingResponse.lean"
+      "file": "OQ7\\MatchingResponse.lean",
+      "sha256": "81618A45F4C9654CF8CCFA6F236C2149A6DC2FE21DB0A029E795B651DD09407D"
     },
     {
-      "sha256": "C0CA17649E7774079EFFA28191E393F23FA200ED5FD527BEB00F363840D625DB",
-      "file": "OQ7\\MatchingSheet.lean"
+      "file": "OQ7\\MatchingSheet.lean",
+      "sha256": "C0CA17649E7774079EFFA28191E393F23FA200ED5FD527BEB00F363840D625DB"
     },
     {
-      "sha256": "64BE656471C178FD35A767994EEF0812A723C3C2062098F6BD5D8CEA9A4ED5C5",
-      "file": "OQ7\\MatchingTarget.lean"
+      "file": "OQ7\\MatchingTarget.lean",
+      "sha256": "64BE656471C178FD35A767994EEF0812A723C3C2062098F6BD5D8CEA9A4ED5C5"
     },
     {
-      "sha256": "E7255B886AFABC27B5468B263E68BE8CAD65447F8F42A33023584D016CC42EDC",
-      "file": "OQ7\\MatchingTargetImplicit.lean"
+      "file": "OQ7\\MatchingTargetImplicit.lean",
+      "sha256": "E7255B886AFABC27B5468B263E68BE8CAD65447F8F42A33023584D016CC42EDC"
     },
     {
-      "sha256": "02186639664C6F5515313A6C87698F75FF90FAAB6B1705C0784989558D358F03",
-      "file": "OQ7\\MatrixNormBridge.lean"
+      "file": "OQ7\\MatrixNormBridge.lean",
+      "sha256": "02186639664C6F5515313A6C87698F75FF90FAAB6B1705C0784989558D358F03"
     },
     {
-      "sha256": "1F736C93F0414E7D9FE52C782801A2CBD2739DA78BA9FDCBFAE45CDBCF2797D5",
-      "file": "OQ7\\ModulusComparison.lean"
+      "file": "OQ7\\ModulusComparison.lean",
+      "sha256": "1F736C93F0414E7D9FE52C782801A2CBD2739DA78BA9FDCBFAE45CDBCF2797D5"
     },
     {
-      "sha256": "4CAAB20F55FFB6AB0FA3B23B0620ABEA208E3CD00813DCF7626F2B0BBF84F5C0",
-      "file": "OQ7\\Passivity.lean"
+      "file": "OQ7\\Passivity.lean",
+      "sha256": "4CAAB20F55FFB6AB0FA3B23B0620ABEA208E3CD00813DCF7626F2B0BBF84F5C0"
     },
     {
-      "sha256": "DFA7BD6C096033C4B7BCCD509E69AB143536E1C5E9BCD5E06A3FA231E5E3B11D",
-      "file": "OQ7\\Phase.lean"
+      "file": "OQ7\\Phase.lean",
+      "sha256": "DFA7BD6C096033C4B7BCCD509E69AB143536E1C5E9BCD5E06A3FA231E5E3B11D"
     },
     {
-      "sha256": "D3FB071DA3C929C339354524B97452CFB822A905164A6C2F832F37F835545C78",
-      "file": "OQ7\\PhaseSmooth.lean"
+      "file": "OQ7\\PhaseSmooth.lean",
+      "sha256": "D3FB071DA3C929C339354524B97452CFB822A905164A6C2F832F37F835545C78"
     },
     {
-      "sha256": "74E0DBF1376654C2A1ED39B9F8D2FFD203FFC543D74AE9C931866054161119F6",
-      "file": "OQ7\\PhysicalAbsorption.lean"
+      "file": "OQ7\\PhysicalAbsorption.lean",
+      "sha256": "74E0DBF1376654C2A1ED39B9F8D2FFD203FFC543D74AE9C931866054161119F6"
     },
     {
-      "sha256": "F4AAEF7FC6670294CD6E2764DD33D6C59B6ED22B96E572806C89802EC48E00E0",
-      "file": "OQ7\\PhysicalCellBounds.lean"
+      "file": "OQ7\\PhysicalCellBounds.lean",
+      "sha256": "F4AAEF7FC6670294CD6E2764DD33D6C59B6ED22B96E572806C89802EC48E00E0"
     },
     {
-      "sha256": "2F0B09073577826A6033D786100F05DF8967E3C80A73D447F1758AFEF605B2EE",
-      "file": "OQ7\\PhysicalCellRemainder.lean"
+      "file": "OQ7\\PhysicalCellRemainder.lean",
+      "sha256": "2F0B09073577826A6033D786100F05DF8967E3C80A73D447F1758AFEF605B2EE"
     },
     {
-      "sha256": "F4926590B00D728F35F99D81197AAA5117351EDE0BE5D327143BDE906C6C63E1",
-      "file": "OQ7\\PhysicalClass.lean"
+      "file": "OQ7\\PhysicalClass.lean",
+      "sha256": "F4926590B00D728F35F99D81197AAA5117351EDE0BE5D327143BDE906C6C63E1"
     },
     {
-      "sha256": "6102EC8D2E1DFC537DFEDF07BE5B9B6A433AE9AFE9284DA3BD362D1AF0FB8E6D",
-      "file": "OQ7\\PhysicalCoatedCore.lean"
+      "file": "OQ7\\PhysicalCoatedCore.lean",
+      "sha256": "6102EC8D2E1DFC537DFEDF07BE5B9B6A433AE9AFE9284DA3BD362D1AF0FB8E6D"
     },
     {
-      "sha256": "82E09BCA6E23FD1B5B1C402788ACBB0CDC854E337593DD341FB5D5169E0FAFA1",
-      "file": "OQ7\\PhysicalCoatings.lean"
+      "file": "OQ7\\PhysicalCoatings.lean",
+      "sha256": "82E09BCA6E23FD1B5B1C402788ACBB0CDC854E337593DD341FB5D5169E0FAFA1"
     },
     {
-      "sha256": "F9474E6EB5549E9C9805D57A49D99B2D69DE0210F0FFFAD02580F43161F68C7A",
-      "file": "OQ7\\PhysicalCore.lean"
+      "file": "OQ7\\PhysicalCore.lean",
+      "sha256": "F9474E6EB5549E9C9805D57A49D99B2D69DE0210F0FFFAD02580F43161F68C7A"
     },
     {
-      "sha256": "FF4D3E535F0CF608D8940BBDA87DEDEBBBE8393EFA8725B372D9DBD8E3A5A46F",
-      "file": "OQ7\\PhysicalCoreInvariant.lean"
+      "file": "OQ7\\PhysicalCoreInvariant.lean",
+      "sha256": "FF4D3E535F0CF608D8940BBDA87DEDEBBBE8393EFA8725B372D9DBD8E3A5A46F"
     },
     {
-      "sha256": "853BA767258172239AD828BF2CB86CFAF39054863BFD966E888656C35F900D41",
-      "file": "OQ7\\PhysicalCoreRemainder.lean"
+      "file": "OQ7\\PhysicalCoreRemainder.lean",
+      "sha256": "853BA767258172239AD828BF2CB86CFAF39054863BFD966E888656C35F900D41"
     },
     {
-      "sha256": "3FE327410B287C4DDA2EB0573E71F263DE24E0C6811FEE153EDC1E0EC70E31A6",
-      "file": "OQ7\\PhysicalExponential.lean"
+      "file": "OQ7\\PhysicalExponential.lean",
+      "sha256": "3FE327410B287C4DDA2EB0573E71F263DE24E0C6811FEE153EDC1E0EC70E31A6"
     },
     {
-      "sha256": "348D4D7C61B7D195660B4089B20BC0E339FDE514B3B63E7FA8E53430D4C317C7",
-      "file": "OQ7\\PhysicalGlobal.lean"
+      "file": "OQ7\\PhysicalGlobal.lean",
+      "sha256": "348D4D7C61B7D195660B4089B20BC0E339FDE514B3B63E7FA8E53430D4C317C7"
     },
     {
-      "sha256": "7D5D9FF6F24D75DE00E34423B706C5B53E682231F8D581EC9D743039E9ABD050",
-      "file": "OQ7\\PhysicalGram.lean"
+      "file": "OQ7\\PhysicalGram.lean",
+      "sha256": "7D5D9FF6F24D75DE00E34423B706C5B53E682231F8D581EC9D743039E9ABD050"
     },
     {
-      "sha256": "1F71EA5A5F540A56EF8F386F9DA3532FF2B5CDE3026BE53FEC3769BDF82B27F3",
-      "file": "OQ7\\PhysicalIntegrals.lean"
+      "file": "OQ7\\PhysicalIntegrals.lean",
+      "sha256": "1F71EA5A5F540A56EF8F386F9DA3532FF2B5CDE3026BE53FEC3769BDF82B27F3"
     },
     {
-      "sha256": "5D3B587C36C6BBCB6F1D6624E0C133F4B0ECE5289899D3650D0E03B9CEBE1F90",
-      "file": "OQ7\\PhysicalLowerAsymptotics.lean"
+      "file": "OQ7\\PhysicalLowerAsymptotics.lean",
+      "sha256": "5D3B587C36C6BBCB6F1D6624E0C133F4B0ECE5289899D3650D0E03B9CEBE1F90"
     },
     {
-      "sha256": "F56DC24885E1A1F9BCB3B3302EEB9B3182F080BC6EC46AEC0270DCC44115CFE7",
-      "file": "OQ7\\PhysicalModulus.lean"
+      "file": "OQ7\\PhysicalModulus.lean",
+      "sha256": "F56DC24885E1A1F9BCB3B3302EEB9B3182F080BC6EC46AEC0270DCC44115CFE7"
     },
     {
-      "sha256": "EE9939E4B2301596DA867E76D5E55F3355F95BE9E3687CDA1D3BE33084240F8E",
-      "file": "OQ7\\PhysicalPassivity.lean"
+      "file": "OQ7\\PhysicalPassivity.lean",
+      "sha256": "EE9939E4B2301596DA867E76D5E55F3355F95BE9E3687CDA1D3BE33084240F8E"
     },
     {
-      "sha256": "A0E31A67AEFFC4BD519A50A4F4C75FE424ED0A101989D1FBED85E43E5FD9F84B",
-      "file": "OQ7\\PhysicalQuarterWave.lean"
+      "file": "OQ7\\PhysicalQuarterWave.lean",
+      "sha256": "A0E31A67AEFFC4BD519A50A4F4C75FE424ED0A101989D1FBED85E43E5FD9F84B"
     },
     {
-      "sha256": "AADA8150325D0A2DCE46096711A2C6D8DBDCA31D911765B6E8456A4E1CF46C2D",
-      "file": "OQ7\\PhysicalResourceDeficit.lean"
+      "file": "OQ7\\PhysicalResourceDeficit.lean",
+      "sha256": "AADA8150325D0A2DCE46096711A2C6D8DBDCA31D911765B6E8456A4E1CF46C2D"
     },
     {
-      "sha256": "D4DEE93E927DDE6EF5F56BF995FFFA066D6E1FA3617B7AC05C366E83DDE2711E",
-      "file": "OQ7\\PhysicalSequenceSqueeze.lean"
+      "file": "OQ7\\PhysicalSequenceSqueeze.lean",
+      "sha256": "D4DEE93E927DDE6EF5F56BF995FFFA066D6E1FA3617B7AC05C366E83DDE2711E"
     },
     {
-      "sha256": "0A9622B2242FC4AB5647C94DCD6E2A40370058B5C878BC34AFA9D8A2757632BB",
-      "file": "OQ7\\PhysicalSignedTransfer.lean"
+      "file": "OQ7\\PhysicalSignedTransfer.lean",
+      "sha256": "0A9622B2242FC4AB5647C94DCD6E2A40370058B5C878BC34AFA9D8A2757632BB"
     },
     {
-      "sha256": "066AF3A4A6352B5BC21721D7B7304FF5750E02BD53DBDFB2D1B32F1B61212B56",
-      "file": "OQ7\\ProductRemainder.lean"
+      "file": "OQ7\\ProductRemainder.lean",
+      "sha256": "066AF3A4A6352B5BC21721D7B7304FF5750E02BD53DBDFB2D1B32F1B61212B56"
     },
     {
-      "sha256": "290CF890BFD2C3B8F33A5E5783D058B32BCAEB2AFE7E7048D265A8322C1D61FD",
-      "file": "OQ7\\QuadraticRates.lean"
+      "file": "OQ7\\QuadraticRates.lean",
+      "sha256": "290CF890BFD2C3B8F33A5E5783D058B32BCAEB2AFE7E7048D265A8322C1D61FD"
     },
     {
-      "sha256": "F96313B3335294193D4D5BAA358A26E07071820E2C3C40DD68901AC107AED121",
-      "file": "OQ7\\ResourceAsymptotics.lean"
+      "file": "OQ7\\ResourceAsymptotics.lean",
+      "sha256": "F96313B3335294193D4D5BAA358A26E07071820E2C3C40DD68901AC107AED121"
     },
     {
-      "sha256": "18D5B8B0A9BA5A16815B91952E81D57D0A5A232C4E52E7804BA90286CCB13440",
-      "file": "OQ7\\ResourceBounds.lean"
+      "file": "OQ7\\ResourceBounds.lean",
+      "sha256": "18D5B8B0A9BA5A16815B91952E81D57D0A5A232C4E52E7804BA90286CCB13440"
     },
     {
-      "sha256": "C4E1BF045F3F66AAD3CC16A1770C1C3A67C48E12C3D5008B52856E998C4A7011",
-      "file": "OQ7\\ResourceCells.lean"
+      "file": "OQ7\\ResourceCells.lean",
+      "sha256": "C4E1BF045F3F66AAD3CC16A1770C1C3A67C48E12C3D5008B52856E998C4A7011"
     },
     {
-      "sha256": "C25CD05446DC2F0268D092B1331AFD4C3933FC17BC039C75ABE8FCBBFF09E5AF",
-      "file": "OQ7\\ResourceCellsOpen.lean"
+      "file": "OQ7\\ResourceCellsOpen.lean",
+      "sha256": "C25CD05446DC2F0268D092B1331AFD4C3933FC17BC039C75ABE8FCBBFF09E5AF"
     },
     {
-      "sha256": "75E50BE4254C937E8A2E762F846DB143060AB8DF3365810FBDA296DE0235AF4D",
-      "file": "OQ7\\ResourcePartition.lean"
+      "file": "OQ7\\ResourcePartition.lean",
+      "sha256": "75E50BE4254C937E8A2E762F846DB143060AB8DF3365810FBDA296DE0235AF4D"
     },
     {
-      "sha256": "167A36F12A8A13449CB7BA282DBE747CA2403E89BEC50C9F9883BCEBA58533A7",
-      "file": "OQ7\\ResourceScalar.lean"
+      "file": "OQ7\\ResourceScalar.lean",
+      "sha256": "167A36F12A8A13449CB7BA282DBE747CA2403E89BEC50C9F9883BCEBA58533A7"
     },
     {
-      "sha256": "EB23D45A3B1C53873D10FFBE1448FE285F80BAA2C7D354F33C5BF1684F3E0B72",
-      "file": "OQ7\\ResourceTheorem45.lean"
+      "file": "OQ7\\ResourceTheorem45.lean",
+      "sha256": "EB23D45A3B1C53873D10FFBE1448FE285F80BAA2C7D354F33C5BF1684F3E0B72"
     },
     {
-      "sha256": "F58796D067E589145701038937C81E1517B61DF5CA59F49D1C336F6AA230B598",
-      "file": "OQ7\\ResourceUniform.lean"
+      "file": "OQ7\\ResourceUniform.lean",
+      "sha256": "F58796D067E589145701038937C81E1517B61DF5CA59F49D1C336F6AA230B598"
     },
     {
-      "sha256": "A5ED7B49E4EF20495615FD8C76BBE46190CF0226F83EB727ABCB92D9B50F2B2D",
-      "file": "OQ7\\ScalarSign.lean"
+      "file": "OQ7\\ScalarSign.lean",
+      "sha256": "A5ED7B49E4EF20495615FD8C76BBE46190CF0226F83EB727ABCB92D9B50F2B2D"
     },
     {
-      "sha256": "D2AA780910E241A7FC391A99BC6E93EC9ECEBE687CB3416751D7D729B00B73DA",
-      "file": "OQ7\\ScaledRemainder.lean"
+      "file": "OQ7\\ScaledRemainder.lean",
+      "sha256": "D2AA780910E241A7FC391A99BC6E93EC9ECEBE687CB3416751D7D729B00B73DA"
     },
     {
-      "sha256": "D17247F509D946FB81C922C454497360D4DFB30CB327BF782C1DD5A59C993433",
-      "file": "OQ7\\Scattering.lean"
+      "file": "OQ7\\Scattering.lean",
+      "sha256": "D17247F509D946FB81C922C454497360D4DFB30CB327BF782C1DD5A59C993433"
     },
     {
-      "sha256": "BFA4992C91D1E3953F002C3080AA5080D0B85CBD797F6B49474922955B98F998",
-      "file": "OQ7\\SelectedResource.lean"
+      "file": "OQ7\\SelectedResource.lean",
+      "sha256": "BFA4992C91D1E3953F002C3080AA5080D0B85CBD797F6B49474922955B98F998"
     },
     {
-      "sha256": "518D8ED0CF5A4A8EFB3F866953B46EDC515028B71376DFDEFE7D09278AB3EBA1",
-      "file": "OQ7\\SharpDeficit.lean"
+      "file": "OQ7\\SharpDeficit.lean",
+      "sha256": "518D8ED0CF5A4A8EFB3F866953B46EDC515028B71376DFDEFE7D09278AB3EBA1"
     },
     {
-      "sha256": "42E4CAD1412D3EC3768DF0FABEC01EF093571832F23F4678D475B2DD855EB674",
-      "file": "OQ7\\SharpPhysicalConstruction.lean"
+      "file": "OQ7\\SharpPhysicalConstruction.lean",
+      "sha256": "42E4CAD1412D3EC3768DF0FABEC01EF093571832F23F4678D475B2DD855EB674"
     },
     {
-      "sha256": "DA69D0D220BE9611F7942AFCC4F97F1870C3AF803EA93FAF420456E37012C28A",
-      "file": "OQ7\\SignedResponse.lean"
+      "file": "OQ7\\SignedResponse.lean",
+      "sha256": "DA69D0D220BE9611F7942AFCC4F97F1870C3AF803EA93FAF420456E37012C28A"
     },
     {
-      "sha256": "C19F0DCB064A418C9345C471D20B0D031CB73F47934BF624074A6A6F4123FF04",
-      "file": "OQ7\\StrictLoss.lean"
+      "file": "OQ7\\StrictLoss.lean",
+      "sha256": "C19F0DCB064A418C9345C471D20B0D031CB73F47934BF624074A6A6F4123FF04"
     },
     {
-      "sha256": "532340262DB79BAF66E731F1603CC7EDA172D1DCE14722959EB1FAEFEAD3EA66",
-      "file": "OQ7\\Target.lean"
+      "file": "OQ7\\Target.lean",
+      "sha256": "532340262DB79BAF66E731F1603CC7EDA172D1DCE14722959EB1FAEFEAD3EA66"
     },
     {
-      "sha256": "915BDFE895D1C9696CDB383CDFC471A532B25BF203516988A2178AD3E1C73784",
-      "file": "OQ7\\TargetBounds.lean"
+      "file": "OQ7\\TargetBounds.lean",
+      "sha256": "915BDFE895D1C9696CDB383CDFC471A532B25BF203516988A2178AD3E1C73784"
     },
     {
-      "sha256": "6F66BE71D97D3425BDEE6DE3F085D035798206281B0E191FD3B55013E380A790",
-      "file": "OQ7\\Transfer.lean"
+      "file": "OQ7\\Transfer.lean",
+      "sha256": "6F66BE71D97D3425BDEE6DE3F085D035798206281B0E191FD3B55013E380A790"
     },
     {
-      "sha256": "7FE350ED18C983F199167490237D942125C468329557DFFA88374765D3806F66",
-      "file": "OQ7\\TransferSharpLimit.lean"
+      "file": "OQ7\\TransferSharpLimit.lean",
+      "sha256": "7FE350ED18C983F199167490237D942125C468329557DFFA88374765D3806F66"
     },
     {
-      "sha256": "678F322243947DCD7BE2619632503E68EA77A3F93071FAFB0682190E65D1BF6D",
-      "file": "OQ7\\TwoPort.lean"
+      "file": "OQ7\\TwoPort.lean",
+      "sha256": "678F322243947DCD7BE2619632503E68EA77A3F93071FAFB0682190E65D1BF6D"
     },
     {
-      "sha256": "2A2B8A1523A12CF1CBA84FF5F41C36ABAC12198D76E565C3FE2A6E5259489923",
-      "file": "PrescribedExtinction\\ActiveCurrentSpace.lean"
+      "file": "PrescribedExtinction\\ActiveCurrentSpace.lean",
+      "sha256": "2A2B8A1523A12CF1CBA84FF5F41C36ABAC12198D76E565C3FE2A6E5259489923"
     },
     {
-      "sha256": "A676E58BA5F27241E9BA19F9C8FBDD4AF9D8941E88FB88823F567841B70FFEF4",
-      "file": "PrescribedExtinction\\ActiveMaterialInverse.lean"
+      "file": "PrescribedExtinction\\ActiveMaterialInverse.lean",
+      "sha256": "A676E58BA5F27241E9BA19F9C8FBDD4AF9D8941E88FB88823F567841B70FFEF4"
     },
     {
-      "sha256": "E74778AA922B4E2158AAC065DBBCBEADC91AF636FD4A250B31DD2752457DEABC",
-      "file": "PrescribedExtinction\\ApertureCircleJets.lean"
+      "file": "PrescribedExtinction\\ApertureCircleJets.lean",
+      "sha256": "E74778AA922B4E2158AAC065DBBCBEADC91AF636FD4A250B31DD2752457DEABC"
     },
     {
-      "sha256": "FE3D233C4B843270214BE168FC6214EE7D71515049D1F6CD401CC2C0A494E10E",
-      "file": "PrescribedExtinction\\ApertureCircleParity.lean"
+      "file": "PrescribedExtinction\\ApertureCircleParity.lean",
+      "sha256": "FE3D233C4B843270214BE168FC6214EE7D71515049D1F6CD401CC2C0A494E10E"
     },
     {
-      "sha256": "F9C218EAEEAB6C336854E0AE908AA6FA64E08BD87201D98780B19F857A021B66",
-      "file": "PrescribedExtinction\\ApertureL2Scale.lean"
+      "file": "PrescribedExtinction\\ApertureErrorAlgebra.lean",
+      "sha256": "622C2C1BC16992F888982310D182CFA81381CD909121CA6449D8CCDDBD39C7FD"
     },
     {
-      "sha256": "418D05D43F991A97859EA028B33E9E3ACEE483F71E8BE321378571CAA94B4BA6",
-      "file": "PrescribedExtinction\\ApertureMeanSlope.lean"
+      "file": "PrescribedExtinction\\ApertureL2Scale.lean",
+      "sha256": "F9C218EAEEAB6C336854E0AE908AA6FA64E08BD87201D98780B19F857A021B66"
     },
     {
-      "sha256": "B225EED13FA80AB0342A4C947565FABFA7D9EFCD9849E3FD35CD272D73D201D5",
-      "file": "PrescribedExtinction\\ApertureOscillation.lean"
+      "file": "PrescribedExtinction\\ApertureMeanSlope.lean",
+      "sha256": "418D05D43F991A97859EA028B33E9E3ACEE483F71E8BE321378571CAA94B4BA6"
     },
     {
-      "sha256": "4FC753FF0B3E6DBCB3F1D11838A1BA6FB7C613014AA3D4C471CE4F6A47C48028",
-      "file": "PrescribedExtinction\\ApertureRadialEstimate.lean"
+      "file": "PrescribedExtinction\\ApertureOscillation.lean",
+      "sha256": "B225EED13FA80AB0342A4C947565FABFA7D9EFCD9849E3FD35CD272D73D201D5"
     },
     {
-      "sha256": "C54964204E7F780A401B808B8500626573517C0689FF7CD133246A5D4FFC1496",
-      "file": "PrescribedExtinction\\ApertureRadialLift.lean"
+      "file": "PrescribedExtinction\\ApertureRadialEstimate.lean",
+      "sha256": "4FC753FF0B3E6DBCB3F1D11838A1BA6FB7C613014AA3D4C471CE4F6A47C48028"
     },
     {
-      "sha256": "AF1AE803102B30F7D24C714552C8D21981339C583EA0CA2979FA1DA65C490471",
-      "file": "PrescribedExtinction\\ApertureRadialSupport.lean"
+      "file": "PrescribedExtinction\\ApertureRadialLift.lean",
+      "sha256": "C54964204E7F780A401B808B8500626573517C0689FF7CD133246A5D4FFC1496"
     },
     {
-      "sha256": "34FA4FF8672657A1CDD0865488810F0EC3A302FDAECAB94882FF415900B89C8B",
-      "file": "PrescribedExtinction\\ApertureWindowScale.lean"
+      "file": "PrescribedExtinction\\ApertureRadialSupport.lean",
+      "sha256": "AF1AE803102B30F7D24C714552C8D21981339C583EA0CA2979FA1DA65C490471"
     },
     {
-      "sha256": "C28784676179D6DE3515BCD1F4A954DE966DA5ED4B1AEC980DBA4835D8C842BE",
-      "file": "PrescribedExtinction\\Basic.lean"
+      "file": "PrescribedExtinction\\ApertureWindowScale.lean",
+      "sha256": "34FA4FF8672657A1CDD0865488810F0EC3A302FDAECAB94882FF415900B89C8B"
     },
     {
-      "sha256": "0AA2380D73A7BAF5D88E089C125C87FD0C3FEAB21F30EF4D82F6EDF2B6209035",
-      "file": "PrescribedExtinction\\BodyApertureResidual.lean"
+      "file": "PrescribedExtinction\\Basic.lean",
+      "sha256": "C28784676179D6DE3515BCD1F4A954DE966DA5ED4B1AEC980DBA4835D8C842BE"
     },
     {
-      "sha256": "6FDEFD6229161D2786C43D30ED5BC594DDE5A393BAFD38607B3D39CC7D91DA35",
-      "file": "PrescribedExtinction\\BodyApertureWindow.lean"
+      "file": "PrescribedExtinction\\BodyApertureResidual.lean",
+      "sha256": "0AA2380D73A7BAF5D88E089C125C87FD0C3FEAB21F30EF4D82F6EDF2B6209035"
     },
     {
-      "sha256": "50DF1FF144D23BBAA25294843FB8F019B7B50C37147021FBEBD1AC54F29A0524",
-      "file": "PrescribedExtinction\\BodyCompressedError.lean"
+      "file": "PrescribedExtinction\\BodyApertureWindow.lean",
+      "sha256": "6FDEFD6229161D2786C43D30ED5BC594DDE5A393BAFD38607B3D39CC7D91DA35"
     },
     {
-      "sha256": "B662A768AE2D5D9F6BC706FA0D04A1E19212DD8D309B0A00986A7A14F78AC3B8",
-      "file": "PrescribedExtinction\\BodyCurrentSpace.lean"
+      "file": "PrescribedExtinction\\BodyCompressedError.lean",
+      "sha256": "50DF1FF144D23BBAA25294843FB8F019B7B50C37147021FBEBD1AC54F29A0524"
     },
     {
-      "sha256": "FFFDE9C4C4F2E564183CF50227B2476D008CC9013C52C4EFF3BE8FB4F93303CC",
-      "file": "PrescribedExtinction\\BodyLayerSeparatedCurrent.lean"
+      "file": "PrescribedExtinction\\BodyCurrentSpace.lean",
+      "sha256": "B662A768AE2D5D9F6BC706FA0D04A1E19212DD8D309B0A00986A7A14F78AC3B8"
     },
     {
-      "sha256": "C587FCEAFB2E9310EAEE0D247072F3173C8721901027F081F2B511827C8CBC39",
-      "file": "PrescribedExtinction\\BodyMaterialLift.lean"
+      "file": "PrescribedExtinction\\BodyLayerSeparatedCurrent.lean",
+      "sha256": "FFFDE9C4C4F2E564183CF50227B2476D008CC9013C52C4EFF3BE8FB4F93303CC"
     },
     {
-      "sha256": "5DEFED7DBD23DB50C1C1D74E178876E4088D966ECBF05596F2FC0D5098CE8607",
-      "file": "PrescribedExtinction\\BodyResponseResidual.lean"
+      "file": "PrescribedExtinction\\BodyMaterialLift.lean",
+      "sha256": "C587FCEAFB2E9310EAEE0D247072F3173C8721901027F081F2B511827C8CBC39"
     },
     {
-      "sha256": "66699E85890D9880F02FD35A1346EE79444206E8382DC04FEBD06F6055229858",
-      "file": "PrescribedExtinction\\BodyScaledLift.lean"
+      "file": "PrescribedExtinction\\BodyResponseResidual.lean",
+      "sha256": "5DEFED7DBD23DB50C1C1D74E178876E4088D966ECBF05596F2FC0D5098CE8607"
     },
     {
-      "sha256": "B541E09105CF7B962051BDEBFE6ED7E0A2FCB65C02FBFC1E5153B44CC3AAA4DE",
-      "file": "PrescribedExtinction\\BodySeparatedLift.lean"
+      "file": "PrescribedExtinction\\BodyScaledLift.lean",
+      "sha256": "66699E85890D9880F02FD35A1346EE79444206E8382DC04FEBD06F6055229858"
     },
     {
-      "sha256": "A20EC62B8246D0558E2A52CCA1CC7B321B2A24A3EEBE771AB312AC97DE7F267B",
-      "file": "PrescribedExtinction\\BodySlabError.lean"
+      "file": "PrescribedExtinction\\BodySeparatedLift.lean",
+      "sha256": "B541E09105CF7B962051BDEBFE6ED7E0A2FCB65C02FBFC1E5153B44CC3AAA4DE"
     },
     {
-      "sha256": "FBCF90DD0A2826A9CC721A2430CE87BB9E82717F5664B365207D06D57F070099",
-      "file": "PrescribedExtinction\\BodySlabGeometry.lean"
+      "file": "PrescribedExtinction\\BodySharpLift.lean",
+      "sha256": "7B311AE4107947D7B04F4C43C448A92F46A33CD055C15ECDEADB6CBE80BAAD1C"
     },
     {
-      "sha256": "8C9428F95C1F71A305C69D1AACBE742014A52C4B8AB396968CDDE0C67FD7F56E",
-      "file": "PrescribedExtinction\\CenteredSlabAperture.lean"
+      "file": "PrescribedExtinction\\BodySlabError.lean",
+      "sha256": "A20EC62B8246D0558E2A52CCA1CC7B321B2A24A3EEBE771AB312AC97DE7F267B"
     },
     {
-      "sha256": "27CCBBBAD1F10F6B125EEF5661C7953A39962CB7BB88FFAD82A17FA47C5EE151",
-      "file": "PrescribedExtinction\\CompactCurrentDensity.lean"
+      "file": "PrescribedExtinction\\BodySlabGeometry.lean",
+      "sha256": "FBCF90DD0A2826A9CC721A2430CE87BB9E82717F5664B365207D06D57F070099"
     },
     {
-      "sha256": "AC0826E440DAB1F78780917E8BA277B53443BDED9CD292CAAE8D791E411AF70C",
-      "file": "PrescribedExtinction\\CompactOutgoingIdentification.lean"
+      "file": "PrescribedExtinction\\CenteredSlabAperture.lean",
+      "sha256": "8C9428F95C1F71A305C69D1AACBE742014A52C4B8AB396968CDDE0C67FD7F56E"
     },
     {
-      "sha256": "B3B1DD8830C6DC7AA1C7335F8FF256C7B867AE7EF4A2B45461DE9A2B44EBEC00",
-      "file": "PrescribedExtinction\\CompactOutgoingOperator.lean"
+      "file": "PrescribedExtinction\\CompactCurrentDensity.lean",
+      "sha256": "27CCBBBAD1F10F6B125EEF5661C7953A39962CB7BB88FFAD82A17FA47C5EE151"
     },
     {
-      "sha256": "79EC011D85C761A702D9778F4CB624C61122E0194DCAED68E878F7E7B51E48BF",
-      "file": "PrescribedExtinction\\ComplexCoerciveInverse.lean"
+      "file": "PrescribedExtinction\\CompactOutgoingIdentification.lean",
+      "sha256": "AC0826E440DAB1F78780917E8BA277B53443BDED9CD292CAAE8D791E411AF70C"
     },
     {
-      "sha256": "14CE1344837E84208C5FA9EC1794A1FD0760F9B129AB8691BAE1E674B193159C",
-      "file": "PrescribedExtinction\\DenseNormBound.lean"
+      "file": "PrescribedExtinction\\CompactOutgoingOperator.lean",
+      "sha256": "B3B1DD8830C6DC7AA1C7335F8FF256C7B867AE7EF4A2B45461DE9A2B44EBEC00"
     },
     {
-      "sha256": "6EAFE833C17CDB2C21390EF82EAF2FD1B8BEE84433916F236940C9048B4B7BD0",
-      "file": "PrescribedExtinction\\DistributionVectorCalculus.lean"
+      "file": "PrescribedExtinction\\ComplexCoerciveInverse.lean",
+      "sha256": "79EC011D85C761A702D9778F4CB624C61122E0194DCAED68E878F7E7B51E48BF"
     },
     {
-      "sha256": "3C255778B8A6D83A7EE290C9A843771695F3E2F5163D666E3A4043B76E879A3C",
-      "file": "PrescribedExtinction\\Drive.lean"
+      "file": "PrescribedExtinction\\DenseNormBound.lean",
+      "sha256": "14CE1344837E84208C5FA9EC1794A1FD0760F9B129AB8691BAE1E674B193159C"
     },
     {
-      "sha256": "5697A30A8FD4E5EC117395C53455780749423B52F9709578AB276FD5209774C4",
-      "file": "PrescribedExtinction\\DyadicAxisRepresentation.lean"
+      "file": "PrescribedExtinction\\DistributionVectorCalculus.lean",
+      "sha256": "6EAFE833C17CDB2C21390EF82EAF2FD1B8BEE84433916F236940C9048B4B7BD0"
     },
     {
-      "sha256": "3BD14EA9C917BB4C4895636231F44CA00A19B597885A77F30A7B793DA8E21573",
-      "file": "PrescribedExtinction\\DyadicMaxwellSource.lean"
+      "file": "PrescribedExtinction\\Drive.lean",
+      "sha256": "3C255778B8A6D83A7EE290C9A843771695F3E2F5163D666E3A4043B76E879A3C"
     },
     {
-      "sha256": "5FB0FF5CCB18154AD79DA9FD73141660A03405DC0AD134D8269A208E4379544D",
-      "file": "PrescribedExtinction\\DyadicRemainder.lean"
+      "file": "PrescribedExtinction\\DriveWindowMismatch.lean",
+      "sha256": "3F906C01504D228416BBC7C17BD531FF669F82BE88883B98D280C023D40B8D72"
     },
     {
-      "sha256": "077A70BEF44EF8E70E0DE29CE33ECFC16F1B8AF197FCD01F521CEEF2436A5C4C",
-      "file": "PrescribedExtinction\\DynamicGreenRegularity.lean"
+      "file": "PrescribedExtinction\\DyadicAxisRepresentation.lean",
+      "sha256": "5697A30A8FD4E5EC117395C53455780749423B52F9709578AB276FD5209774C4"
     },
     {
-      "sha256": "8F15494D3A3A2223BAC79A7C542E027071E7AF153BB226AF62CB37C12ABDC15F",
-      "file": "PrescribedExtinction\\ExteriorCurrentIdentification.lean"
+      "file": "PrescribedExtinction\\DyadicMaxwellSource.lean",
+      "sha256": "3BD14EA9C917BB4C4895636231F44CA00A19B597885A77F30A7B793DA8E21573"
     },
     {
-      "sha256": "D85E570AAA34D58CB7C22FC7785FEB16513F3F65CF3DA620CF5FD9835B8FC79E",
-      "file": "PrescribedExtinction\\ExteriorKernelTests.lean"
+      "file": "PrescribedExtinction\\DyadicRemainder.lean",
+      "sha256": "5FB0FF5CCB18154AD79DA9FD73141660A03405DC0AD134D8269A208E4379544D"
     },
     {
-      "sha256": "F957A4E9CA74CFDAEB05F6922E46488F2CF56D05BB9A3A109C2CF00771B02EC4",
-      "file": "PrescribedExtinction\\ExteriorOutgoing.lean"
+      "file": "PrescribedExtinction\\DynamicGreenRegularity.lean",
+      "sha256": "077A70BEF44EF8E70E0DE29CE33ECFC16F1B8AF197FCD01F521CEEF2436A5C4C"
     },
     {
-      "sha256": "6A5CD9E457F0712B065FC7D70D36CE10439019DE4F221CFA39BBA50585DE528C",
-      "file": "PrescribedExtinction\\ExtinctionReciprocity.lean"
+      "file": "PrescribedExtinction\\ExteriorCurrentIdentification.lean",
+      "sha256": "8F15494D3A3A2223BAC79A7C542E027071E7AF153BB226AF62CB37C12ABDC15F"
     },
     {
-      "sha256": "66C222464BEB9038EE4AA88671173375DF6C4219BEE2F42E111B680821E07869",
-      "file": "PrescribedExtinction\\FarFieldCurrent.lean"
+      "file": "PrescribedExtinction\\ExteriorKernelTests.lean",
+      "sha256": "D85E570AAA34D58CB7C22FC7785FEB16513F3F65CF3DA620CF5FD9835B8FC79E"
     },
     {
-      "sha256": "A81FA4F4380C3D1242DAE5A07EF7692D27F1FFF1CA3BF7F1C0A287A920309194",
-      "file": "PrescribedExtinction\\FarFieldFlux.lean"
+      "file": "PrescribedExtinction\\ExteriorOutgoing.lean",
+      "sha256": "F957A4E9CA74CFDAEB05F6922E46488F2CF56D05BB9A3A109C2CF00771B02EC4"
     },
     {
-      "sha256": "51D5A672C1832F525AF923F0B5AFBF47A7A318C61050539A3CFC453DB36F1F08",
-      "file": "PrescribedExtinction\\FarFieldGeometry.lean"
+      "file": "PrescribedExtinction\\ExtinctionReciprocity.lean",
+      "sha256": "6A5CD9E457F0712B065FC7D70D36CE10439019DE4F221CFA39BBA50585DE528C"
     },
     {
-      "sha256": "B9ABEDE0DB7727C77C89BB5272946235711ECB93C326D3E34FC928D44B55D48D",
-      "file": "PrescribedExtinction\\FarFieldKernel.lean"
+      "file": "PrescribedExtinction\\FarFieldCurrent.lean",
+      "sha256": "66C222464BEB9038EE4AA88671173375DF6C4219BEE2F42E111B680821E07869"
     },
     {
-      "sha256": "18FACCD837AF10FE9A6B1E8A4646A6CBD7E87C3CECC0DC616582072B9C1D4AEE",
-      "file": "PrescribedExtinction\\FarFieldL2.lean"
+      "file": "PrescribedExtinction\\FarFieldFlux.lean",
+      "sha256": "A81FA4F4380C3D1242DAE5A07EF7692D27F1FFF1CA3BF7F1C0A287A920309194"
     },
     {
-      "sha256": "E2DCED38EFE03621D22BBBF8A7ABFA65FDA603E0909E2CE6BD56ACC58D3B176A",
-      "file": "PrescribedExtinction\\FarFieldPhase.lean"
+      "file": "PrescribedExtinction\\FarFieldGeometry.lean",
+      "sha256": "51D5A672C1832F525AF923F0B5AFBF47A7A318C61050539A3CFC453DB36F1F08"
     },
     {
-      "sha256": "3F7190A3B97F8141E7B34062BE5AD12575E1B989ABA34CAB1A55031EE34963C2",
-      "file": "PrescribedExtinction\\FarFieldRadial.lean"
+      "file": "PrescribedExtinction\\FarFieldKernel.lean",
+      "sha256": "B9ABEDE0DB7727C77C89BB5272946235711ECB93C326D3E34FC928D44B55D48D"
     },
     {
-      "sha256": "E9008DC3ED323F754A6D635EBBF5383BD092A387168CEAEBB4A155E7F4DE69AF",
-      "file": "PrescribedExtinction\\FarFieldWork.lean"
+      "file": "PrescribedExtinction\\FarFieldL2.lean",
+      "sha256": "18FACCD837AF10FE9A6B1E8A4646A6CBD7E87C3CECC0DC616582072B9C1D4AEE"
     },
     {
-      "sha256": "872246F1860F31DC9B0D7C72D2F2BB875855EE552CB93D479A4B1C483A8F630F",
-      "file": "PrescribedExtinction\\FarFieldWorkL2.lean"
+      "file": "PrescribedExtinction\\FarFieldPhase.lean",
+      "sha256": "E2DCED38EFE03621D22BBBF8A7ABFA65FDA603E0909E2CE6BD56ACC58D3B176A"
     },
     {
-      "sha256": "7234A02206416C797025A550D803B62A159CCE0C7E818F792079BF73F352862D",
-      "file": "PrescribedExtinction\\FixedHeightDensity.lean"
+      "file": "PrescribedExtinction\\FarFieldRadial.lean",
+      "sha256": "3F7190A3B97F8141E7B34062BE5AD12575E1B989ABA34CAB1A55031EE34963C2"
     },
     {
-      "sha256": "AF6F8DAC4E9003D91E28E4DCD1B72A9052706DC9BDD5F86CC69BACD4F02173DB",
-      "file": "PrescribedExtinction\\FourierL1L2.lean"
+      "file": "PrescribedExtinction\\FarFieldWork.lean",
+      "sha256": "E9008DC3ED323F754A6D635EBBF5383BD092A387168CEAEBB4A155E7F4DE69AF"
     },
     {
-      "sha256": "B584C06EBF199CD9565A858104B4B7D2E5989E1C6140222175E322A385DD5A25",
-      "file": "PrescribedExtinction\\Geometry.lean"
+      "file": "PrescribedExtinction\\FarFieldWorkL2.lean",
+      "sha256": "872246F1860F31DC9B0D7C72D2F2BB875855EE552CB93D479A4B1C483A8F630F"
     },
     {
-      "sha256": "8E7973880BCCC0C77B7300F2BF7FE2EEF7FE59E927F746D5FD964DD59C2B42D5",
-      "file": "PrescribedExtinction\\GradientCurrentPairing.lean"
+      "file": "PrescribedExtinction\\FixedHeightDensity.lean",
+      "sha256": "7234A02206416C797025A550D803B62A159CCE0C7E818F792079BF73F352862D"
     },
     {
-      "sha256": "93A0D5145050F289D945F7473CEA317A44FE742E8A3C8B507CD4D65207B3D72A",
-      "file": "PrescribedExtinction\\GreenCancellation.lean"
+      "file": "PrescribedExtinction\\FourierL1L2.lean",
+      "sha256": "AF6F8DAC4E9003D91E28E4DCD1B72A9052706DC9BDD5F86CC69BACD4F02173DB"
     },
     {
-      "sha256": "23AE1BE155B4F182A62FCAF5CD70C90E2C8F40587412FC7B68A2AB9150DAE28C",
-      "file": "PrescribedExtinction\\GreenFirstDerivative.lean"
+      "file": "PrescribedExtinction\\Geometry.lean",
+      "sha256": "B584C06EBF199CD9565A858104B4B7D2E5989E1C6140222175E322A385DD5A25"
     },
     {
-      "sha256": "B5194720653F05DA0AD8BEC8A45668473B85FA26B965F1E07049C945F8B0E859",
-      "file": "PrescribedExtinction\\GreenGradient.lean"
+      "file": "PrescribedExtinction\\GradientCurrentPairing.lean",
+      "sha256": "8E7973880BCCC0C77B7300F2BF7FE2EEF7FE59E927F746D5FD964DD59C2B42D5"
     },
     {
-      "sha256": "3A601832C3D6454533F558F130D988650B1215D9C1CE62CA846DD0EFFD9600DC",
-      "file": "PrescribedExtinction\\GreenKernel.lean"
+      "file": "PrescribedExtinction\\GreenCancellation.lean",
+      "sha256": "93A0D5145050F289D945F7473CEA317A44FE742E8A3C8B507CD4D65207B3D72A"
     },
     {
-      "sha256": "B4B3867F224C37A0BBF644AB88C83249E7F1E43B6AED9F82A943E04C44487484",
-      "file": "PrescribedExtinction\\HeightL1Bound.lean"
+      "file": "PrescribedExtinction\\GreenFirstDerivative.lean",
+      "sha256": "23AE1BE155B4F182A62FCAF5CD70C90E2C8F40587412FC7B68A2AB9150DAE28C"
     },
     {
-      "sha256": "27685BFD4AB101BB07D9F21D89513EBBCCAF5649C63EC20A54809FB0A55BE4F8",
-      "file": "PrescribedExtinction\\HeightSupportDensity.lean"
+      "file": "PrescribedExtinction\\GreenGradient.lean",
+      "sha256": "B5194720653F05DA0AD8BEC8A45668473B85FA26B965F1E07049C945F8B0E859"
     },
     {
-      "sha256": "CAE1D8B9F4C86F20AE7A2E060FD2AC2134458D76275671219B3A8F2C619DB755",
-      "file": "PrescribedExtinction\\IncidentMaxwell.lean"
+      "file": "PrescribedExtinction\\GreenKernel.lean",
+      "sha256": "3A601832C3D6454533F558F130D988650B1215D9C1CE62CA846DD0EFFD9600DC"
     },
     {
-      "sha256": "A6C7EB307E758F64B1F287516941BC3FCC55C96E574B4E2631275D300DE522FA",
-      "file": "PrescribedExtinction\\InverseStability.lean"
+      "file": "PrescribedExtinction\\HeightL1Bound.lean",
+      "sha256": "B4B3867F224C37A0BBF644AB88C83249E7F1E43B6AED9F82A943E04C44487484"
     },
     {
-      "sha256": "157438F50A5315D90C16FDFD649722AD88DBDCF3212C7B53616F0A2FE939D821",
-      "file": "PrescribedExtinction\\InverseTrialEstimate.lean"
+      "file": "PrescribedExtinction\\HeightSupportDensity.lean",
+      "sha256": "27685BFD4AB101BB07D9F21D89513EBBCCAF5649C63EC20A54809FB0A55BE4F8"
     },
     {
-      "sha256": "F887FF10433B031E353985B2E8528C714C04964E03D1281D6CCDCCEFC8EE8520",
-      "file": "PrescribedExtinction\\LorentzBounds.lean"
+      "file": "PrescribedExtinction\\IncidentMaxwell.lean",
+      "sha256": "CAE1D8B9F4C86F20AE7A2E060FD2AC2134458D76275671219B3A8F2C619DB755"
     },
     {
-      "sha256": "DCE3E65B7C26467E832B06A2DD9598AE6391FB1EF979257EC99BA487C070FDF0",
-      "file": "PrescribedExtinction\\LorentzCutoff.lean"
+      "file": "PrescribedExtinction\\InverseStability.lean",
+      "sha256": "A6C7EB307E758F64B1F287516941BC3FCC55C96E574B4E2631275D300DE522FA"
     },
     {
-      "sha256": "81F2A436FF342590493C73ECAE77F3E323217F6116B9B7A5E3F5A6D24850307C",
-      "file": "PrescribedExtinction\\LorentzIdentity.lean"
+      "file": "PrescribedExtinction\\InverseTrialEstimate.lean",
+      "sha256": "157438F50A5315D90C16FDFD649722AD88DBDCF3212C7B53616F0A2FE939D821"
     },
     {
-      "sha256": "26C53F6776185E5CA5E59C2278DDAF847CDA2CD71080B71D089E9DD3DDC60C3A",
-      "file": "PrescribedExtinction\\MaterialBodyInverse.lean"
+      "file": "PrescribedExtinction\\LorentzBounds.lean",
+      "sha256": "F887FF10433B031E353985B2E8528C714C04964E03D1281D6CCDCCEFC8EE8520"
     },
     {
-      "sha256": "6BBF0EB08FC0F159F45101B602A8B0BE6DC9351D988F71061D8DBCE2517AF321",
-      "file": "PrescribedExtinction\\Materials.lean"
+      "file": "PrescribedExtinction\\LorentzCutoff.lean",
+      "sha256": "DCE3E65B7C26467E832B06A2DD9598AE6391FB1EF979257EC99BA487C070FDF0"
     },
     {
-      "sha256": "78C6459DF67395572E949C20ADE3187F84E76C0B717250984B2082D2D111535A",
-      "file": "PrescribedExtinction\\MaterialVolumeUniqueness.lean"
+      "file": "PrescribedExtinction\\LorentzIdentity.lean",
+      "sha256": "81F2A436FF342590493C73ECAE77F3E323217F6116B9B7A5E3F5A6D24850307C"
     },
     {
-      "sha256": "A9950F0F1C9EA4A20FF2C480A71CC4FABDC4AB84F8173851C37A4BD56E0D231B",
-      "file": "PrescribedExtinction\\Maxwell.lean"
+      "file": "PrescribedExtinction\\MaterialBodyInverse.lean",
+      "sha256": "26C53F6776185E5CA5E59C2278DDAF847CDA2CD71080B71D089E9DD3DDC60C3A"
     },
     {
-      "sha256": "19F2AD2BFA12843CC2017E5F69E2B1975969E08C780BB8319944938919B20C95",
-      "file": "PrescribedExtinction\\NewtonBoundary.lean"
+      "file": "PrescribedExtinction\\Materials.lean",
+      "sha256": "6BBF0EB08FC0F159F45101B602A8B0BE6DC9351D988F71061D8DBCE2517AF321"
     },
     {
-      "sha256": "81FCE662C7CD20FA669EE43E025DE6434803B9EA82F3442DFF4C5D09F30DB10F",
-      "file": "PrescribedExtinction\\NewtonContact.lean"
+      "file": "PrescribedExtinction\\MaterialVolumeUniqueness.lean",
+      "sha256": "78C6459DF67395572E949C20ADE3187F84E76C0B717250984B2082D2D111535A"
     },
     {
-      "sha256": "E37F59EAADA9138D5C8A97D8D2CF85F3B73A9EA9CF47C9F246E4C6C6B30A67CA",
-      "file": "PrescribedExtinction\\NewtonCurrentCorrelation.lean"
+      "file": "PrescribedExtinction\\Maxwell.lean",
+      "sha256": "A9950F0F1C9EA4A20FF2C480A71CC4FABDC4AB84F8173851C37A4BD56E0D231B"
     },
     {
-      "sha256": "AD79A469BA7C993C95818F5E3D0CE940307FACE965E5ECBA7916C2136FAB8CBE",
-      "file": "PrescribedExtinction\\NewtonCurrentFourier.lean"
+      "file": "PrescribedExtinction\\NewtonBoundary.lean",
+      "sha256": "19F2AD2BFA12843CC2017E5F69E2B1975969E08C780BB8319944938919B20C95"
     },
     {
-      "sha256": "6DF33C1F06141D671AEEDADFFFDC265808783D6439B4EC2DBF4ED6E069D8BE33",
-      "file": "PrescribedExtinction\\NewtonCurrentPairing.lean"
+      "file": "PrescribedExtinction\\NewtonContact.lean",
+      "sha256": "81FCE662C7CD20FA669EE43E025DE6434803B9EA82F3442DFF4C5D09F30DB10F"
     },
     {
-      "sha256": "D99782437FD61F6BD64D7CF8A4000B1475C60721120B5A596EA54926C11AE92E",
-      "file": "PrescribedExtinction\\NewtonCutoff.lean"
+      "file": "PrescribedExtinction\\NewtonCurrentCorrelation.lean",
+      "sha256": "E37F59EAADA9138D5C8A97D8D2CF85F3B73A9EA9CF47C9F246E4C6C6B30A67CA"
     },
     {
-      "sha256": "A98002ADA6F2360C8E30BC2E2A29101ABCACBB014C105F8C5B39012067427597",
-      "file": "PrescribedExtinction\\NewtonCutoffIBP.lean"
+      "file": "PrescribedExtinction\\NewtonCurrentFourier.lean",
+      "sha256": "AD79A469BA7C993C95818F5E3D0CE940307FACE965E5ECBA7916C2136FAB8CBE"
     },
     {
-      "sha256": "12D535691BB12E2CE383FFBBF9F5274E46DF55325E18AC5F668AABAEDEE47B97",
-      "file": "PrescribedExtinction\\NewtonCutoffLimit.lean"
+      "file": "PrescribedExtinction\\NewtonCurrentPairing.lean",
+      "sha256": "6DF33C1F06141D671AEEDADFFFDC265808783D6439B4EC2DBF4ED6E069D8BE33"
     },
     {
-      "sha256": "F13FCD0D70AB48F7EADCF4309388EC42768355E987119B0B27DD986420E2E872",
-      "file": "PrescribedExtinction\\NewtonFourier.lean"
+      "file": "PrescribedExtinction\\NewtonCutoff.lean",
+      "sha256": "D99782437FD61F6BD64D7CF8A4000B1475C60721120B5A596EA54926C11AE92E"
     },
     {
-      "sha256": "2477696F808B3A5F6B5EA3516741CB25143925CDC9B197FC6B4659E1E3CAA0A2",
-      "file": "PrescribedExtinction\\NewtonFrequency.lean"
+      "file": "PrescribedExtinction\\NewtonCutoffIBP.lean",
+      "sha256": "A98002ADA6F2360C8E30BC2E2A29101ABCACBB014C105F8C5B39012067427597"
     },
     {
-      "sha256": "070A90D685C43312389900F8A630E31C4E8889A6996CA5F0043C661D337B718A",
-      "file": "PrescribedExtinction\\NewtonFrequencyHeat.lean"
+      "file": "PrescribedExtinction\\NewtonCutoffLimit.lean",
+      "sha256": "12D535691BB12E2CE383FFBBF9F5274E46DF55325E18AC5F668AABAEDEE47B97"
     },
     {
-      "sha256": "301C1CF98293B4783DFFF2EAFF68560CAAA8F49EB073304E9B78AC9A0AC8362E",
-      "file": "PrescribedExtinction\\NewtonFundamental.lean"
+      "file": "PrescribedExtinction\\NewtonFourier.lean",
+      "sha256": "F13FCD0D70AB48F7EADCF4309388EC42768355E987119B0B27DD986420E2E872"
     },
     {
-      "sha256": "43294481702E7ADC3329CD655A5467304E38774AA533D8DC525269859F8D0189",
-      "file": "PrescribedExtinction\\NewtonHeat.lean"
+      "file": "PrescribedExtinction\\NewtonFrequency.lean",
+      "sha256": "2477696F808B3A5F6B5EA3516741CB25143925CDC9B197FC6B4659E1E3CAA0A2"
     },
     {
-      "sha256": "2BB4FB1FD6F0CCB6DB4985791E8EB609EECD93B3695E22CB704E573CBC2ECDB2",
-      "file": "PrescribedExtinction\\NewtonHeatFourier.lean"
+      "file": "PrescribedExtinction\\NewtonFrequencyHeat.lean",
+      "sha256": "070A90D685C43312389900F8A630E31C4E8889A6996CA5F0043C661D337B718A"
     },
     {
-      "sha256": "3D431472C379FF57196009A4E380901733B59D2A4B612538EC4B32B6B6F6E8BD",
-      "file": "PrescribedExtinction\\NewtonHeatPairing.lean"
+      "file": "PrescribedExtinction\\NewtonFundamental.lean",
+      "sha256": "301C1CF98293B4783DFFF2EAFF68560CAAA8F49EB073304E9B78AC9A0AC8362E"
     },
     {
-      "sha256": "A86012EAD7511D0F67CE931B3AB653CD3D738D735A847A99B3C08388E6B95E6F",
-      "file": "PrescribedExtinction\\NewtonKernel.lean"
+      "file": "PrescribedExtinction\\NewtonHeat.lean",
+      "sha256": "43294481702E7ADC3329CD655A5467304E38774AA533D8DC525269859F8D0189"
     },
     {
-      "sha256": "36338FD7F4BC485E084E6BCE58789787DDC1FE8BF23E5A4FCDF8ECFE3FC9535B",
-      "file": "PrescribedExtinction\\NewtonPrincipalValue.lean"
+      "file": "PrescribedExtinction\\NewtonHeatFourier.lean",
+      "sha256": "2BB4FB1FD6F0CCB6DB4985791E8EB609EECD93B3695E22CB704E573CBC2ECDB2"
     },
     {
-      "sha256": "2EEB944BD5F12916ACE526217E6F5831FC06D2A114CE7A16E112144A6263132E",
-      "file": "PrescribedExtinction\\NewtonPunctured.lean"
+      "file": "PrescribedExtinction\\NewtonHeatPairing.lean",
+      "sha256": "3D431472C379FF57196009A4E380901733B59D2A4B612538EC4B32B6B6F6E8BD"
     },
     {
-      "sha256": "1FB2370B4C80D31B9B8B2032DA9C201986905F20CAE6729FDFEA369E6E83558D",
-      "file": "PrescribedExtinction\\NewtonPV.lean"
+      "file": "PrescribedExtinction\\NewtonKernel.lean",
+      "sha256": "A86012EAD7511D0F67CE931B3AB653CD3D738D735A847A99B3C08388E6B95E6F"
     },
     {
-      "sha256": "01DCD60AECE07933C05CC556E89C29559E56A43B3976E9697C5E0E830BC0E1A7",
-      "file": "PrescribedExtinction\\NewtonSchwartz.lean"
+      "file": "PrescribedExtinction\\NewtonPrincipalValue.lean",
+      "sha256": "36338FD7F4BC485E084E6BCE58789787DDC1FE8BF23E5A4FCDF8ECFE3FC9535B"
     },
     {
-      "sha256": "27E18D2200CA955F3511B6D6DF697DFF8B8006750CB5C8909B45E9A11E9FC2D0",
-      "file": "PrescribedExtinction\\NewtonShell.lean"
+      "file": "PrescribedExtinction\\NewtonPunctured.lean",
+      "sha256": "2EEB944BD5F12916ACE526217E6F5831FC06D2A114CE7A16E112144A6263132E"
     },
     {
-      "sha256": "02A03D5277CDCF69AFD3F0821CF9865493C459629B965C13917103C80F968885",
-      "file": "PrescribedExtinction\\NewtonStaticIdentification.lean"
+      "file": "PrescribedExtinction\\NewtonPV.lean",
+      "sha256": "1FB2370B4C80D31B9B8B2032DA9C201986905F20CAE6729FDFEA369E6E83558D"
     },
     {
-      "sha256": "906D98A5A54BB1D40F006CABCD43BDE0EA0C263FD136779EC2E372D8779B2E22",
-      "file": "PrescribedExtinction\\NewtonSymbol.lean"
+      "file": "PrescribedExtinction\\NewtonSchwartz.lean",
+      "sha256": "01DCD60AECE07933C05CC556E89C29559E56A43B3976E9697C5E0E830BC0E1A7"
     },
     {
-      "sha256": "1A2F75F44AF14B236A8E9B27EFCEF86C15CF42E9BF54AADF510F8EB840B4DCF6",
-      "file": "PrescribedExtinction\\NewtonTempered.lean"
+      "file": "PrescribedExtinction\\NewtonShell.lean",
+      "sha256": "27E18D2200CA955F3511B6D6DF697DFF8B8006750CB5C8909B45E9A11E9FC2D0"
     },
     {
-      "sha256": "4D84043B57394A1245EA57256462100E0AD4EDBBFE0CC437B0E491AB1C022A55",
-      "file": "PrescribedExtinction\\NewtonTransform.lean"
+      "file": "PrescribedExtinction\\NewtonStaticIdentification.lean",
+      "sha256": "02A03D5277CDCF69AFD3F0821CF9865493C459629B965C13917103C80F968885"
     },
     {
-      "sha256": "78AC2D81FF5E2BAD2F2D24EFE38C2C9274600BE987F30F74F45166E32F11064A",
-      "file": "PrescribedExtinction\\NormalizedReciprocity.lean"
+      "file": "PrescribedExtinction\\NewtonSymbol.lean",
+      "sha256": "906D98A5A54BB1D40F006CABCD43BDE0EA0C263FD136779EC2E372D8779B2E22"
     },
     {
-      "sha256": "A446CAE3A218BDC5B9E77E73DDEE0422F21EA6B94A4C2D9254650E1DA5AAE6FE",
-      "file": "PrescribedExtinction\\NormalizedRotationPowers.lean"
+      "file": "PrescribedExtinction\\NewtonTempered.lean",
+      "sha256": "1A2F75F44AF14B236A8E9B27EFCEF86C15CF42E9BF54AADF510F8EB840B4DCF6"
     },
     {
-      "sha256": "69163C6899EF5F5BDFFE259E9BCBC59D1628CBE585E964929DD3CA958B6F108D",
-      "file": "PrescribedExtinction\\NormalizedWork.lean"
+      "file": "PrescribedExtinction\\NewtonTransform.lean",
+      "sha256": "4D84043B57394A1245EA57256462100E0AD4EDBBFE0CC437B0E491AB1C022A55"
     },
     {
-      "sha256": "EB72DAAA8E6993E24216F4D25956DEB614B9A7A1FD4931C3796E92C3B9908FAB",
-      "file": "PrescribedExtinction\\OutgoingCurrentPairing.lean"
+      "file": "PrescribedExtinction\\NormalizedReciprocity.lean",
+      "sha256": "78AC2D81FF5E2BAD2F2D24EFE38C2C9274600BE987F30F74F45166E32F11064A"
     },
     {
-      "sha256": "04530CAF58F61BD65E7BBF662929C65F6AEB0A90980E9EC35442DA3780EDCF5E",
-      "file": "PrescribedExtinction\\OutgoingDissipativity.lean"
+      "file": "PrescribedExtinction\\NormalizedRotationPowers.lean",
+      "sha256": "A446CAE3A218BDC5B9E77E73DDEE0422F21EA6B94A4C2D9254650E1DA5AAE6FE"
     },
     {
-      "sha256": "8D60FA2204D26EF6EEB7011AEDE64A57A265C27230114D12F3A6D10AF165CE36",
-      "file": "PrescribedExtinction\\OutgoingDynamicIdentity.lean"
+      "file": "PrescribedExtinction\\NormalizedWork.lean",
+      "sha256": "69163C6899EF5F5BDFFE259E9BCBC59D1628CBE585E964929DD3CA958B6F108D"
     },
     {
-      "sha256": "C3318B75C2D8B4378AA43F2553E8A0F975C9E19D8E9D1BDB412CC1D40F9FECBD",
-      "file": "PrescribedExtinction\\OutgoingFundamental.lean"
+      "file": "PrescribedExtinction\\OutgoingCurrentPairing.lean",
+      "sha256": "EB72DAAA8E6993E24216F4D25956DEB614B9A7A1FD4931C3796E92C3B9908FAB"
     },
     {
-      "sha256": "B010C014BA7D30CF9FA70DD5F9B8DE3116B7CBFEE8066A425A5C4D6ADCDEE16F",
-      "file": "PrescribedExtinction\\OutgoingRadial.lean"
+      "file": "PrescribedExtinction\\OutgoingDissipativity.lean",
+      "sha256": "04530CAF58F61BD65E7BBF662929C65F6AEB0A90980E9EC35442DA3780EDCF5E"
     },
     {
-      "sha256": "E9DF4F89E73F33879DC406BE96A656BB0515EF35D78AD1D9ADB23DFC762EEDE8",
-      "file": "PrescribedExtinction\\OutgoingSourceFields.lean"
+      "file": "PrescribedExtinction\\OutgoingDynamicIdentity.lean",
+      "sha256": "8D60FA2204D26EF6EEB7011AEDE64A57A265C27230114D12F3A6D10AF165CE36"
     },
     {
-      "sha256": "EEC7C58B619DE7DB6BA6F35D6F57148A1F44FA618C2CC976E181FE925F28FEB6",
-      "file": "PrescribedExtinction\\OutgoingVolumeIdentification.lean"
+      "file": "PrescribedExtinction\\OutgoingFundamental.lean",
+      "sha256": "C3318B75C2D8B4378AA43F2553E8A0F975C9E19D8E9D1BDB412CC1D40F9FECBD"
     },
     {
-      "sha256": "35AA94973FBBEEAA32BFB4246BEACA4FC942B5BCBFB4841DC5B69A40D9FF5B88",
-      "file": "PrescribedExtinction\\PhysicalAbsorptionWork.lean"
+      "file": "PrescribedExtinction\\OutgoingRadial.lean",
+      "sha256": "B010C014BA7D30CF9FA70DD5F9B8DE3116B7CBFEE8066A425A5C4D6ADCDEE16F"
     },
     {
-      "sha256": "F0D54B75D1CDEBFEBD68A64857D556D2967D5F39E0AD10C4EC52AC70B97D11A1",
-      "file": "PrescribedExtinction\\PhysicalExtinctionWork.lean"
+      "file": "PrescribedExtinction\\OutgoingSourceFields.lean",
+      "sha256": "E9DF4F89E73F33879DC406BE96A656BB0515EF35D78AD1D9ADB23DFC762EEDE8"
     },
     {
-      "sha256": "49C53CD27C2129BC27F1273564BCBC4CC5F7841B8653697D38EF54A6D9B30BB6",
-      "file": "PrescribedExtinction\\PhysicalOpticalBalance.lean"
+      "file": "PrescribedExtinction\\OutgoingVolumeIdentification.lean",
+      "sha256": "EEC7C58B619DE7DB6BA6F35D6F57148A1F44FA618C2CC976E181FE925F28FEB6"
     },
     {
-      "sha256": "1D7B4B707B6909FD75924FB0FDD272E63ECBDCEBCCD0F05347B161617D4CF3A0",
-      "file": "PrescribedExtinction\\PhysicalPolarization.lean"
+      "file": "PrescribedExtinction\\PhysicalAbsorptionWork.lean",
+      "sha256": "35AA94973FBBEEAA32BFB4246BEACA4FC942B5BCBFB4841DC5B69A40D9FF5B88"
     },
     {
-      "sha256": "242B54C360BBA2B81A34CA03317839B7D491F8F10ED2C44B22EC77B951D067F6",
-      "file": "PrescribedExtinction\\PhysicalResponseStability.lean"
+      "file": "PrescribedExtinction\\PhysicalExtinctionWork.lean",
+      "sha256": "F0D54B75D1CDEBFEBD68A64857D556D2967D5F39E0AD10C4EC52AC70B97D11A1"
     },
     {
-      "sha256": "092EDE2B0A9FB8E6A4ABDA2742A8BFDA927F069BDDEF69FD844B8AC8C99C1FBF",
-      "file": "PrescribedExtinction\\PhysicalSourceFields.lean"
+      "file": "PrescribedExtinction\\PhysicalOpticalBalance.lean",
+      "sha256": "49C53CD27C2129BC27F1273564BCBC4CC5F7841B8653697D38EF54A6D9B30BB6"
     },
     {
-      "sha256": "D761491F3E3EC05DDE905B00A1ECB2DA1F9A883B773B165BF684BA252BCDD4F1",
-      "file": "PrescribedExtinction\\PlanarCosineWork.lean"
+      "file": "PrescribedExtinction\\PhysicalPolarization.lean",
+      "sha256": "1D7B4B707B6909FD75924FB0FDD272E63ECBDCEBCCD0F05347B161617D4CF3A0"
     },
     {
-      "sha256": "4458E249297DFF4944A51C85B49C69E6D43ABB84EDF75DA90C632EF74A7A0282",
-      "file": "PrescribedExtinction\\PlanarCurrentSpace.lean"
+      "file": "PrescribedExtinction\\PhysicalResponseStability.lean",
+      "sha256": "242B54C360BBA2B81A34CA03317839B7D491F8F10ED2C44B22EC77B951D067F6"
     },
     {
-      "sha256": "A99FE0EAC89C1ED6E6AE2A9314915BBB06C59138896C3BD49CB5F71F8272E69D",
-      "file": "PrescribedExtinction\\PlanarDrive.lean"
+      "file": "PrescribedExtinction\\PhysicalSourceFields.lean",
+      "sha256": "092EDE2B0A9FB8E6A4ABDA2742A8BFDA927F069BDDEF69FD844B8AC8C99C1FBF"
     },
     {
-      "sha256": "43F2AEA48D3AA8DF6918C36430E2F6E52640A7BDF95D381ACD87259E3EB4E379",
-      "file": "PrescribedExtinction\\PlanarGreenWork.lean"
+      "file": "PrescribedExtinction\\PlanarCosineWork.lean",
+      "sha256": "D761491F3E3EC05DDE905B00A1ECB2DA1F9A883B773B165BF684BA252BCDD4F1"
     },
     {
-      "sha256": "646A0D58BCE9FAEB9C1831653CDAE6CDAEEBF4FBDF5F1E909B38B8E978C6D8BE",
-      "file": "PrescribedExtinction\\PlanarHeightGreen.lean"
+      "file": "PrescribedExtinction\\PlanarCurrentSpace.lean",
+      "sha256": "4458E249297DFF4944A51C85B49C69E6D43ABB84EDF75DA90C632EF74A7A0282"
     },
     {
-      "sha256": "289A9306A15EAF40E4244A16886CC82FE50DE9C9C565ED5C7211BCD557A34B34",
-      "file": "PrescribedExtinction\\PlanarHeightMap.lean"
+      "file": "PrescribedExtinction\\PlanarDrive.lean",
+      "sha256": "A99FE0EAC89C1ED6E6AE2A9314915BBB06C59138896C3BD49CB5F71F8272E69D"
     },
     {
-      "sha256": "8AE60759751602A2EDF6BC5400B593FA428859CE767B0B2B4E6333FBD86C25F1",
-      "file": "PrescribedExtinction\\PlanarKernelSplit.lean"
+      "file": "PrescribedExtinction\\PlanarDriveNorm.lean",
+      "sha256": "A09C14713E9355B1087471B63BE1F28CDB6E533423E85D2DB72E71900D6C6DE9"
     },
     {
-      "sha256": "58A602AC9EF39C2D14E49B0FAF6C3B7369F7944B4BC113CFF628066D1BDBF86B",
-      "file": "PrescribedExtinction\\PlanarLayerCompression.lean"
+      "file": "PrescribedExtinction\\PlanarGreenWork.lean",
+      "sha256": "43F2AEA48D3AA8DF6918C36430E2F6E52640A7BDF95D381ACD87259E3EB4E379"
     },
     {
-      "sha256": "60726BE5ACB5E6CC5417D230B5129838DCFF3C8F437D81E998CC2E763726A99C",
-      "file": "PrescribedExtinction\\PlanarLayerKernel.lean"
+      "file": "PrescribedExtinction\\PlanarHeightGreen.lean",
+      "sha256": "646A0D58BCE9FAEB9C1831653CDAE6CDAEEBF4FBDF5F1E909B38B8E978C6D8BE"
     },
     {
-      "sha256": "A1F4E8F6C03CE7BF15E590A18420296D9FCCC55A039672C627B0D3CE5A3A1B19",
-      "file": "PrescribedExtinction\\PlanarLayerNorm.lean"
+      "file": "PrescribedExtinction\\PlanarHeightMap.lean",
+      "sha256": "289A9306A15EAF40E4244A16886CC82FE50DE9C9C565ED5C7211BCD557A34B34"
     },
     {
-      "sha256": "7D18DA3C6B401B23A3674D9B9638D214BF249C1798EFEC4358374C004A00DE60",
-      "file": "PrescribedExtinction\\PlanarMaterialInverse.lean"
+      "file": "PrescribedExtinction\\PlanarKernelSplit.lean",
+      "sha256": "8AE60759751602A2EDF6BC5400B593FA428859CE767B0B2B4E6333FBD86C25F1"
     },
     {
-      "sha256": "32E1E6E537E04A6713796014707C91CFA3AB4DE3F8C8667B2A0272E6BF2D80E5",
-      "file": "PrescribedExtinction\\PlanarQuadraticKernel.lean"
+      "file": "PrescribedExtinction\\PlanarLayerCompression.lean",
+      "sha256": "58A602AC9EF39C2D14E49B0FAF6C3B7369F7944B4BC113CFF628066D1BDBF86B"
     },
     {
-      "sha256": "D3DABBFEEC4C8BB7F3254AD7D7F233B2A3D797807FDE683D0134A91464686386",
-      "file": "PrescribedExtinction\\PlanarResponse.lean"
+      "file": "PrescribedExtinction\\PlanarLayerKernel.lean",
+      "sha256": "60726BE5ACB5E6CC5417D230B5129838DCFF3C8F437D81E998CC2E763726A99C"
     },
     {
-      "sha256": "5F2D6B6DBAB82B42623534CCBBE23C7E1645C967BD29B4B5DB26BB0544A5180F",
-      "file": "PrescribedExtinction\\PlanarScalarPotential.lean"
+      "file": "PrescribedExtinction\\PlanarLayerNorm.lean",
+      "sha256": "A1F4E8F6C03CE7BF15E590A18420296D9FCCC55A039672C627B0D3CE5A3A1B19"
     },
     {
-      "sha256": "9B8D38124A6AF434724C45BFFB9101E3A69A88A96A838FB041091E7693D94790",
-      "file": "PrescribedExtinction\\PlanarScalarWork.lean"
+      "file": "PrescribedExtinction\\PlanarMaterialInverse.lean",
+      "sha256": "7D18DA3C6B401B23A3674D9B9638D214BF249C1798EFEC4358374C004A00DE60"
     },
     {
-      "sha256": "9C6F0FE9F21E752B10EF3DA8CC12A4A03B1517A70B3735161BD7362E2870BF06",
-      "file": "PrescribedExtinction\\PolePointIBP.lean"
+      "file": "PrescribedExtinction\\PlanarQuadraticKernel.lean",
+      "sha256": "32E1E6E537E04A6713796014707C91CFA3AB4DE3F8C8667B2A0272E6BF2D80E5"
     },
     {
-      "sha256": "EFD0F304C7FEB8DBA575EBB3904AFA046154E73CFA5653A42A0BA6C5697F162A",
-      "file": "PrescribedExtinction\\PoyntingCutoff.lean"
+      "file": "PrescribedExtinction\\PlanarResponse.lean",
+      "sha256": "D3DABBFEEC4C8BB7F3254AD7D7F233B2A3D797807FDE683D0134A91464686386"
     },
     {
-      "sha256": "ED8B9B42F0BF64BE57073BA74F16728064FC479FF843729849F9B2BB97BF87E9",
-      "file": "PrescribedExtinction\\RadialCalculus.lean"
+      "file": "PrescribedExtinction\\PlanarScalarPotential.lean",
+      "sha256": "5F2D6B6DBAB82B42623534CCBBE23C7E1645C967BD29B4B5DB26BB0544A5180F"
     },
     {
-      "sha256": "A7AF45BE576CBF2DAC3611A0FCEB6350894541B8E4685B29037D4B04C7293656",
-      "file": "PrescribedExtinction\\RadialEnergyCutoff.lean"
+      "file": "PrescribedExtinction\\PlanarScalarWork.lean",
+      "sha256": "9B8D38124A6AF434724C45BFFB9101E3A69A88A96A838FB041091E7693D94790"
     },
     {
-      "sha256": "4CF96FCDAC6EC88A38DD5E1E13B2AA1DE2E71E02F1A1F70A6788964C84DD9D23",
-      "file": "PrescribedExtinction\\RadiationEnergyBounds.lean"
+      "file": "PrescribedExtinction\\PolePointIBP.lean",
+      "sha256": "9C6F0FE9F21E752B10EF3DA8CC12A4A03B1517A70B3735161BD7362E2870BF06"
     },
     {
-      "sha256": "D6782A59BF5DAE9E1A71664910D1158A258814115A694990BEAB573DB2FF754C",
-      "file": "PrescribedExtinction\\RadiationKernel.lean"
+      "file": "PrescribedExtinction\\PoyntingCutoff.lean",
+      "sha256": "EFD0F304C7FEB8DBA575EBB3904AFA046154E73CFA5653A42A0BA6C5697F162A"
     },
     {
-      "sha256": "64B11F804BC6F43CCFC2B6B2A65202C23EC8A8ACC514AB32129558B58267A437",
-      "file": "PrescribedExtinction\\RankOneAbsorption.lean"
+      "file": "PrescribedExtinction\\RadialCalculus.lean",
+      "sha256": "ED8B9B42F0BF64BE57073BA74F16728064FC479FF843729849F9B2BB97BF87E9"
     },
     {
-      "sha256": "3FB2849D49904F3AC4702E90531A1F430F99584114CE34768F2F37A1F61FBB2B",
-      "file": "PrescribedExtinction\\RankOneScattering.lean"
+      "file": "PrescribedExtinction\\RadialEnergyCutoff.lean",
+      "sha256": "A7AF45BE576CBF2DAC3611A0FCEB6350894541B8E4685B29037D4B04C7293656"
     },
     {
-      "sha256": "E7AF6B6394AD788775364C4D47B62FFF18D63D4484778FFBB7B389DEFBD86985",
-      "file": "PrescribedExtinction\\ReciprocityL2.lean"
+      "file": "PrescribedExtinction\\RadiationEnergyBounds.lean",
+      "sha256": "4CF96FCDAC6EC88A38DD5E1E13B2AA1DE2E71E02F1A1F70A6788964C84DD9D23"
     },
     {
-      "sha256": "3B2EC87DD3816C75BB89E9968F5F3B2DD763E0D4F8B8D1175EFF88011896C75A",
-      "file": "PrescribedExtinction\\RemainderConvolution.lean"
+      "file": "PrescribedExtinction\\RadiationKernel.lean",
+      "sha256": "D6782A59BF5DAE9E1A71664910D1158A258814115A694990BEAB573DB2FF754C"
     },
     {
-      "sha256": "91D40C5D919FA3A36D4BE0670AD55AA9AD1929777380596CF6E3D8A0674A9EEB",
-      "file": "PrescribedExtinction\\RemainderCurrentPairing.lean"
+      "file": "PrescribedExtinction\\RankOneAbsorption.lean",
+      "sha256": "64B11F804BC6F43CCFC2B6B2A65202C23EC8A8ACC514AB32129558B58267A437"
     },
     {
-      "sha256": "35990DE178A401B2A34E7B911B9F17DEAE17AADD524795E4F6DC3DC234F18E83",
-      "file": "PrescribedExtinction\\RemovablePointIBP.lean"
+      "file": "PrescribedExtinction\\RankOneScattering.lean",
+      "sha256": "3FB2849D49904F3AC4702E90531A1F430F99584114CE34768F2F37A1F61FBB2B"
     },
     {
-      "sha256": "F6352F8D922761F4DB15655B3B295FCB8C21B57ECC07A8C34AA9F9B2D6AA067D",
-      "file": "PrescribedExtinction\\RotationContinuity.lean"
+      "file": "PrescribedExtinction\\ReciprocityL2.lean",
+      "sha256": "E7AF6B6394AD788775364C4D47B62FFF18D63D4484778FFBB7B389DEFBD86985"
     },
     {
-      "sha256": "D076BD86AA78A4979C817BE22C5207BDD126681A831D3D022CEA6CD134A87D1C",
-      "file": "PrescribedExtinction\\RotationExtinction.lean"
+      "file": "PrescribedExtinction\\RemainderConvolution.lean",
+      "sha256": "3B2EC87DD3816C75BB89E9968F5F3B2DD763E0D4F8B8D1175EFF88011896C75A"
     },
     {
-      "sha256": "8858DE5CF5DB540B4949BCF64B2F6A2DD9DC79A674F2AFCC9D176DB0DE62CD4A",
-      "file": "PrescribedExtinction\\RotationResponse.lean"
+      "file": "PrescribedExtinction\\RemainderCurrentPairing.lean",
+      "sha256": "91D40C5D919FA3A36D4BE0670AD55AA9AD1929777380596CF6E3D8A0674A9EEB"
     },
     {
-      "sha256": "288FD7BE58D2DD852C85BF79F9ED56D66CA5A8F709FD29ABCDB559B8BED06254",
-      "file": "PrescribedExtinction\\ScalarCompactConvolution.lean"
+      "file": "PrescribedExtinction\\RemovablePointIBP.lean",
+      "sha256": "35990DE178A401B2A34E7B911B9F17DEAE17AADD524795E4F6DC3DC234F18E83"
     },
     {
-      "sha256": "C75871346D5227DC12B8B8C49906314D8FEA57D032D3D755E340643F79B9E58B",
-      "file": "PrescribedExtinction\\ScalarPiecewiseL2.lean"
+      "file": "PrescribedExtinction\\RotationContinuity.lean",
+      "sha256": "F6352F8D922761F4DB15655B3B295FCB8C21B57ECC07A8C34AA9F9B2D6AA067D"
     },
     {
-      "sha256": "D4F27E0B65B4CE72DF53151F9D75C56B0AA3CA064E6D3AF4A37E50C4B5ACF122",
-      "file": "PrescribedExtinction\\ScatteringExistence.lean"
+      "file": "PrescribedExtinction\\RotationExtinction.lean",
+      "sha256": "D076BD86AA78A4979C817BE22C5207BDD126681A831D3D022CEA6CD134A87D1C"
     },
     {
-      "sha256": "8A689D16D4274369E0A580000914E604B4AE26016EAE69FAAC805BFAB31CEBD7",
-      "file": "PrescribedExtinction\\SeparatedL2Product.lean"
+      "file": "PrescribedExtinction\\RotationResponse.lean",
+      "sha256": "8858DE5CF5DB540B4949BCF64B2F6A2DD9DC79A674F2AFCC9D176DB0DE62CD4A"
     },
     {
-      "sha256": "5DDB514D50DF9697999151CCE0FB8660A3B76479E8CDFAABB3E416330A486788",
-      "file": "PrescribedExtinction\\SetSupportedL2.lean"
+      "file": "PrescribedExtinction\\ScalarCompactConvolution.lean",
+      "sha256": "288FD7BE58D2DD852C85BF79F9ED56D66CA5A8F709FD29ABCDB559B8BED06254"
     },
     {
-      "sha256": "7B85AA314F05C955DD541591BE82390B05BA8715C5539FC81AA5C054252A33DA",
-      "file": "PrescribedExtinction\\ShrinkingCutoff.lean"
+      "file": "PrescribedExtinction\\ScalarPiecewiseL2.lean",
+      "sha256": "C75871346D5227DC12B8B8C49906314D8FEA57D032D3D755E340643F79B9E58B"
     },
     {
-      "sha256": "2FEC59B3E4DA904138CDC60AB6967B95A890FDC314B9755BCB046B0307B91171",
-      "file": "PrescribedExtinction\\SlabAngular.lean"
+      "file": "PrescribedExtinction\\ScatteringExistence.lean",
+      "sha256": "D4F27E0B65B4CE72DF53151F9D75C56B0AA3CA064E6D3AF4A37E50C4B5ACF122"
     },
     {
-      "sha256": "E3CDF6E849807FDB4485203AC40D3F8BAFB98337C502947BC71EC07ADEE32CDD",
-      "file": "PrescribedExtinction\\SlabConvolution.lean"
+      "file": "PrescribedExtinction\\SeparatedL2Product.lean",
+      "sha256": "8A689D16D4274369E0A580000914E604B4AE26016EAE69FAAC805BFAB31CEBD7"
     },
     {
-      "sha256": "4158B39CA3A498EDB894007DA7CFA591602BC2F40A28CE1DFF7D1A778887E7D0",
-      "file": "PrescribedExtinction\\SlabDerivatives.lean"
+      "file": "PrescribedExtinction\\SetSupportedL2.lean",
+      "sha256": "5DDB514D50DF9697999151CCE0FB8660A3B76479E8CDFAABB3E416330A486788"
     },
     {
-      "sha256": "CF47A788F2C02510561A4790E4D3D56675635339B2828049E1A815A3E7C06A1D",
-      "file": "PrescribedExtinction\\SlabDyadicAperture.lean"
+      "file": "PrescribedExtinction\\SharpResponseEstimate.lean",
+      "sha256": "04FC958E9AB11A47249A4632EAA1919DF2D411981D082E88072B61ADB0BDC012"
     },
     {
-      "sha256": "8DEB57E612DF77C58FC0AC584B5B931C03F5C3620C48E4FD0CCEFF4128C7D2F5",
-      "file": "PrescribedExtinction\\SlabDyadicSeparation.lean"
+      "file": "PrescribedExtinction\\ShrinkingCutoff.lean",
+      "sha256": "7B85AA314F05C955DD541591BE82390B05BA8715C5539FC81AA5C054252A33DA"
     },
     {
-      "sha256": "E2825FEB712DBEA52DBA650B465A25C68CADD7DD36FF6786D1F3C4C304A55B84",
-      "file": "PrescribedExtinction\\SlabGreen.lean"
+      "file": "PrescribedExtinction\\SlabAngular.lean",
+      "sha256": "2FEC59B3E4DA904138CDC60AB6967B95A890FDC314B9755BCB046B0307B91171"
     },
     {
-      "sha256": "847B022A8511FBCF352A3D73C922E197B0BB81A1932AB2BD4B862DE0334B0C3D",
-      "file": "PrescribedExtinction\\SlabHessianEstimate.lean"
+      "file": "PrescribedExtinction\\SlabConvolution.lean",
+      "sha256": "E3CDF6E849807FDB4485203AC40D3F8BAFB98337C502947BC71EC07ADEE32CDD"
     },
     {
-      "sha256": "32FD448C26D9C99E48568EED5F6072E84B9CBEAAD25F012003930A9AF631F4ED",
-      "file": "PrescribedExtinction\\SlabL2Aperture.lean"
+      "file": "PrescribedExtinction\\SlabDerivatives.lean",
+      "sha256": "4158B39CA3A498EDB894007DA7CFA591602BC2F40A28CE1DFF7D1A778887E7D0"
     },
     {
-      "sha256": "32E08CE90D92620C8CF6984767A48480B5A163CFB98352470CD262501C4AB56B",
-      "file": "PrescribedExtinction\\SlabL2Lift.lean"
+      "file": "PrescribedExtinction\\SlabDyadicAperture.lean",
+      "sha256": "CF47A788F2C02510561A4790E4D3D56675635339B2828049E1A815A3E7C06A1D"
     },
     {
-      "sha256": "2B6270FAB4FD529B794F6A5142C60A837B11275E52786C097059ED356DB70E61",
-      "file": "PrescribedExtinction\\SlabL2PhysicalError.lean"
+      "file": "PrescribedExtinction\\SlabDyadicSeparation.lean",
+      "sha256": "8DEB57E612DF77C58FC0AC584B5B931C03F5C3620C48E4FD0CCEFF4128C7D2F5"
     },
     {
-      "sha256": "8DFC1C08086B7D5436338994D37A641C1733AFA41635A441C94A0FC8E0F2733B",
-      "file": "PrescribedExtinction\\SlabObservationRegion.lean"
+      "file": "PrescribedExtinction\\SlabGreen.lean",
+      "sha256": "E2825FEB712DBEA52DBA650B465A25C68CADD7DD36FF6786D1F3C4C304A55B84"
     },
     {
-      "sha256": "B8BB866B63CF39359D4AC1EB470A1860EB381913DE2E3C5B9A61649710F7D15F",
-      "file": "PrescribedExtinction\\SlabPhysicalAperture.lean"
+      "file": "PrescribedExtinction\\SlabHessianEstimate.lean",
+      "sha256": "847B022A8511FBCF352A3D73C922E197B0BB81A1932AB2BD4B862DE0334B0C3D"
     },
     {
-      "sha256": "1174B873C96591DBF7C80C39203C9BA4BFCB8FC4FE24113075E033E5E58EC33A",
-      "file": "PrescribedExtinction\\SlabPhysicalMap.lean"
+      "file": "PrescribedExtinction\\SlabL2Aperture.lean",
+      "sha256": "32FD448C26D9C99E48568EED5F6072E84B9CBEAAD25F012003930A9AF631F4ED"
     },
     {
-      "sha256": "054C4601AFEB8B93512C47FF5771437523D47EA4BE355DFAFB2B846AD545B943",
-      "file": "PrescribedExtinction\\SlabPlanarMap.lean"
+      "file": "PrescribedExtinction\\SlabL2Lift.lean",
+      "sha256": "32E08CE90D92620C8CF6984767A48480B5A163CFB98352470CD262501C4AB56B"
     },
     {
-      "sha256": "F367E9D791C6AB2E7A3054F04E54772797D132F15F94EF5DEB911B889484D0AE",
-      "file": "PrescribedExtinction\\SlabPolar.lean"
+      "file": "PrescribedExtinction\\SlabL2PhysicalError.lean",
+      "sha256": "2B6270FAB4FD529B794F6A5142C60A837B11275E52786C097059ED356DB70E61"
     },
     {
-      "sha256": "B9FF83F9CF3E2BBC653CD28CF758858D6BC20BB7806C03B73C6B070183E12B53",
-      "file": "PrescribedExtinction\\SlabPotentialSeparation.lean"
+      "file": "PrescribedExtinction\\SlabObservationRegion.lean",
+      "sha256": "8DFC1C08086B7D5436338994D37A641C1733AFA41635A441C94A0FC8E0F2733B"
     },
     {
-      "sha256": "21A89ED0C8880D089AEFF3ACA42D89CEBDB6ED352097698EE17D81CC341F2880",
-      "file": "PrescribedExtinction\\SlabProductResidual.lean"
+      "file": "PrescribedExtinction\\SlabPhysicalAperture.lean",
+      "sha256": "B8BB866B63CF39359D4AC1EB470A1860EB381913DE2E3C5B9A61649710F7D15F"
     },
     {
-      "sha256": "137A04F6A7CE70AE64E1D8C8B12E02162F90B4E7E1D3BE799E99AFBB3487D115",
-      "file": "PrescribedExtinction\\SlabRadialCoordinates.lean"
+      "file": "PrescribedExtinction\\SlabPhysicalMap.lean",
+      "sha256": "1174B873C96591DBF7C80C39203C9BA4BFCB8FC4FE24113075E033E5E58EC33A"
     },
     {
-      "sha256": "56A0484C607494B2360BF417618B30121349746799D8AF8FEC77530CB31944FD",
-      "file": "PrescribedExtinction\\SlabRadialWindow.lean"
+      "file": "PrescribedExtinction\\SlabPlanarMap.lean",
+      "sha256": "054C4601AFEB8B93512C47FF5771437523D47EA4BE355DFAFB2B846AD545B943"
     },
     {
-      "sha256": "184FA0FA72C5CF0ECC17C6F449CA99496AB23BAE4BDB03FA8EE2EEEB1BFA9B94",
-      "file": "PrescribedExtinction\\SlabScaledEstimate.lean"
+      "file": "PrescribedExtinction\\SlabPolar.lean",
+      "sha256": "F367E9D791C6AB2E7A3054F04E54772797D132F15F94EF5DEB911B889484D0AE"
     },
     {
-      "sha256": "6F18095031F140864FE2A3475FE390216EDC1164432FC8019CB196C27CA11815",
-      "file": "PrescribedExtinction\\SlabSecondWindow.lean"
+      "file": "PrescribedExtinction\\SlabPotentialSeparation.lean",
+      "sha256": "B9FF83F9CF3E2BBC653CD28CF758858D6BC20BB7806C03B73C6B070183E12B53"
     },
     {
-      "sha256": "58AE4BB5D33F0192799F2270DA953D9E4C0E43E1E5AF93638FD4880C00769AEF",
-      "file": "PrescribedExtinction\\SlabSeparatedL2.lean"
+      "file": "PrescribedExtinction\\SlabProductResidual.lean",
+      "sha256": "21A89ED0C8880D089AEFF3ACA42D89CEBDB6ED352097698EE17D81CC341F2880"
     },
     {
-      "sha256": "EE0D4CBFDF123B32A80D50503AC553093632C5810686427A9D5C2726237AC889",
-      "file": "PrescribedExtinction\\SlabSmoothCenteredL2Residual.lean"
+      "file": "PrescribedExtinction\\SlabRadialCoordinates.lean",
+      "sha256": "137A04F6A7CE70AE64E1D8C8B12E02162F90B4E7E1D3BE799E99AFBB3487D115"
     },
     {
-      "sha256": "B5B69F1A5E1A3695EB7A527AD5037E31B6DFBE146B40FADD75214F6399A607AB",
-      "file": "PrescribedExtinction\\SlabSmoothDifference.lean"
+      "file": "PrescribedExtinction\\SlabRadialWindow.lean",
+      "sha256": "56A0484C607494B2360BF417618B30121349746799D8AF8FEC77530CB31944FD"
     },
     {
-      "sha256": "8632FF0766A393451534DA6C1E06DD2D031F1A48DFA2AB99C0AE725C742E687E",
-      "file": "PrescribedExtinction\\SlabSmoothL2Residual.lean"
+      "file": "PrescribedExtinction\\SlabScaledEstimate.lean",
+      "sha256": "184FA0FA72C5CF0ECC17C6F449CA99496AB23BAE4BDB03FA8EE2EEEB1BFA9B94"
     },
     {
-      "sha256": "CB86D4A3F0B70ECB606A6744A523ECF7076D684C6005884C9A352CCD5251F31B",
-      "file": "PrescribedExtinction\\SlabSourceDerivatives.lean"
+      "file": "PrescribedExtinction\\SlabSecondWindow.lean",
+      "sha256": "6F18095031F140864FE2A3475FE390216EDC1164432FC8019CB196C27CA11815"
     },
     {
-      "sha256": "6D531E89C65D9974BA3C0034F676518F7B56714AAEAD5DBE616A9D2768EA854B",
-      "file": "PrescribedExtinction\\SlabSourceGeometry.lean"
+      "file": "PrescribedExtinction\\SlabSeparatedL2.lean",
+      "sha256": "58AE4BB5D33F0192799F2270DA953D9E4C0E43E1E5AF93638FD4880C00769AEF"
     },
     {
-      "sha256": "B9D3A5C93C282883C3E800B3E2D358A5854EB1201A2E1B0BEF51157A42660023",
-      "file": "PrescribedExtinction\\SlabSupportedLift.lean"
+      "file": "PrescribedExtinction\\SlabSmoothCenteredL2Residual.lean",
+      "sha256": "EE0D4CBFDF123B32A80D50503AC553093632C5810686427A9D5C2726237AC889"
     },
     {
-      "sha256": "46FB5A7A411CB44B1DCD32ABF0D3C5C0FADCDFEFEF8062CFAE0A09D6CF73B059",
-      "file": "PrescribedExtinction\\SlabTransverseKernel.lean"
+      "file": "PrescribedExtinction\\SlabSmoothDifference.lean",
+      "sha256": "B5B69F1A5E1A3695EB7A527AD5037E31B6DFBE146B40FADD75214F6399A607AB"
     },
     {
-      "sha256": "449B5C4790DC622C0931C4F5468755E04C6AB12F969822C0F82F3057686478AD",
-      "file": "PrescribedExtinction\\SlabVolumeCoordinates.lean"
+      "file": "PrescribedExtinction\\SlabSmoothL2Residual.lean",
+      "sha256": "8632FF0766A393451534DA6C1E06DD2D031F1A48DFA2AB99C0AE725C742E687E"
     },
     {
-      "sha256": "BD466B57DAB7BF99F0F78927E05096184657B774EEF27E89AD1A2B22F60BE295",
-      "file": "PrescribedExtinction\\SmoothDyadicRepresentation.lean"
+      "file": "PrescribedExtinction\\SlabSourceDerivatives.lean",
+      "sha256": "CB86D4A3F0B70ECB606A6744A523ECF7076D684C6005884C9A352CCD5251F31B"
     },
     {
-      "sha256": "6BB0C8921DD5183B6E1D30B31842D680F34F80D728983D4EB41EC1E2B247AB55",
-      "file": "PrescribedExtinction\\SmoothOutgoingDissipativity.lean"
+      "file": "PrescribedExtinction\\SlabSourceGeometry.lean",
+      "sha256": "6D531E89C65D9974BA3C0034F676518F7B56714AAEAD5DBE616A9D2768EA854B"
     },
     {
-      "sha256": "DD5EC20245746C5DF7EDB244EBA9641519E76F9FD82BE6B262666F4C233DD0A5",
-      "file": "PrescribedExtinction\\SmoothOutgoingFields.lean"
+      "file": "PrescribedExtinction\\SlabSupportedLift.lean",
+      "sha256": "B9D3A5C93C282883C3E800B3E2D358A5854EB1201A2E1B0BEF51157A42660023"
     },
     {
-      "sha256": "30F7F359145352B9C98488CB1345EA4620B1561B1F7D62BE5CF5C84FC5473B63",
-      "file": "PrescribedExtinction\\SmoothReciprocity.lean"
+      "file": "PrescribedExtinction\\SlabTransverseKernel.lean",
+      "sha256": "46FB5A7A411CB44B1DCD32ABF0D3C5C0FADCDFEFEF8062CFAE0A09D6CF73B059"
     },
     {
-      "sha256": "875388FB1316C5D3A87FE63B607454B8C94014028C9CFB4CB2188DE467EB3955",
-      "file": "PrescribedExtinction\\SphereMeasure.lean"
+      "file": "PrescribedExtinction\\SlabVolumeCoordinates.lean",
+      "sha256": "449B5C4790DC622C0931C4F5468755E04C6AB12F969822C0F82F3057686478AD"
     },
     {
-      "sha256": "B0AF55057732CFBAFC8E4313CE68F10FBF69DF0A4ED1FCEBEB2CEA9FD928E8D2",
-      "file": "PrescribedExtinction\\SphereMoments.lean"
+      "file": "PrescribedExtinction\\SmoothDyadicRepresentation.lean",
+      "sha256": "BD466B57DAB7BF99F0F78927E05096184657B774EEF27E89AD1A2B22F60BE295"
     },
     {
-      "sha256": "DDA2636CFF0C404BD274D19EA9C6918A5A30E89C5F15C5550DC8868FA19CC429",
-      "file": "PrescribedExtinction\\SphericalAngular.lean"
+      "file": "PrescribedExtinction\\SmoothOutgoingDissipativity.lean",
+      "sha256": "6BB0C8921DD5183B6E1D30B31842D680F34F80D728983D4EB41EC1E2B247AB55"
     },
     {
-      "sha256": "3AB92499BAE5C71F4F04F2F8BD0B6C6C08A095948491516650EABDC387EAE9D4",
-      "file": "PrescribedExtinction\\SphericalCoordinates.lean"
+      "file": "PrescribedExtinction\\SmoothOutgoingFields.lean",
+      "sha256": "DD5EC20245746C5DF7EDB244EBA9641519E76F9FD82BE6B262666F4C233DD0A5"
     },
     {
-      "sha256": "D011E14E9EAF512303E8F6CF62E6962120771873785C7E0B8598B21685703009",
-      "file": "PrescribedExtinction\\SphericalDomain.lean"
+      "file": "PrescribedExtinction\\SmoothReciprocity.lean",
+      "sha256": "30F7F359145352B9C98488CB1345EA4620B1561B1F7D62BE5CF5C84FC5473B63"
     },
     {
-      "sha256": "47DFCC6A732DE4406CE7C11F8F4240AD61816178AEFA6B86E3DD498C07A934B8",
-      "file": "PrescribedExtinction\\SphericalProduct.lean"
+      "file": "PrescribedExtinction\\SphereMeasure.lean",
+      "sha256": "875388FB1316C5D3A87FE63B607454B8C94014028C9CFB4CB2188DE467EB3955"
     },
     {
-      "sha256": "42D692978742AB433A3D157F3FA41D4C736B51880DFE30A840F2465352ADBFF3",
-      "file": "PrescribedExtinction\\SphericalVolume.lean"
+      "file": "PrescribedExtinction\\SphereMoments.lean",
+      "sha256": "B0AF55057732CFBAFC8E4313CE68F10FBF69DF0A4ED1FCEBEB2CEA9FD928E8D2"
     },
     {
-      "sha256": "BCF4FF64AC8C8372292D7DE4578A7D87D3E89E197925D31088E1D45B02B62238",
-      "file": "PrescribedExtinction\\SquareApertureWindow.lean"
+      "file": "PrescribedExtinction\\SphericalAngular.lean",
+      "sha256": "DDA2636CFF0C404BD274D19EA9C6918A5A30E89C5F15C5550DC8868FA19CC429"
     },
     {
-      "sha256": "16ECC1C08E33A8CDDE982108ACF09E25C025DB1B8A28FFA8DBCA755525D51CB9",
-      "file": "PrescribedExtinction\\StaticFourier.lean"
+      "file": "PrescribedExtinction\\SphericalCoordinates.lean",
+      "sha256": "3AB92499BAE5C71F4F04F2F8BD0B6C6C08A095948491516650EABDC387EAE9D4"
     },
     {
-      "sha256": "7A4F3D1260EB0F6B1B2C874C8364A37E1DBEE95F98F6236E7D1901F535494807",
-      "file": "PrescribedExtinction\\StaticOperatorDistribution.lean"
+      "file": "PrescribedExtinction\\SphericalDomain.lean",
+      "sha256": "D011E14E9EAF512303E8F6CF62E6962120771873785C7E0B8598B21685703009"
     },
     {
-      "sha256": "34B6AFF125774FE750F182A01EA68C3D7BB09A38E69648A54A2F8D73076D70C0",
-      "file": "PrescribedExtinction\\StaticSymbolCoordinates.lean"
+      "file": "PrescribedExtinction\\SphericalProduct.lean",
+      "sha256": "47DFCC6A732DE4406CE7C11F8F4240AD61816178AEFA6B86E3DD498C07A934B8"
     },
     {
-      "sha256": "7C7B832696B927DEA1CA0FBF16EB04361145ED8EB94D4B8943F4C6794AF6315F",
-      "file": "PrescribedExtinction\\SupportedL2Maps.lean"
+      "file": "PrescribedExtinction\\SphericalVolume.lean",
+      "sha256": "42D692978742AB433A3D157F3FA41D4C736B51880DFE30A840F2465352ADBFF3"
     },
     {
-      "sha256": "C43B6F6BFDD503851D81E8B8E76BF51E725A385F8472EBF7984D4D72AA6C3E86",
-      "file": "PrescribedExtinction\\TensorLossCoercivity.lean"
+      "file": "PrescribedExtinction\\SquareApertureWindow.lean",
+      "sha256": "BCF4FF64AC8C8372292D7DE4578A7D87D3E89E197925D31088E1D45B02B62238"
     },
     {
-      "sha256": "4ED0115D94C6779A7EF097989C30E028FB6CE1DBFCD11CB31E1C65B302FDB739",
-      "file": "PrescribedExtinction\\TestRegularity.lean"
+      "file": "PrescribedExtinction\\SquareSmoothWindow.lean",
+      "sha256": "E44377A2E26C54FCBCA4CADD8A94835234847693E0414D901E694BD9B3C5471B"
     },
     {
-      "sha256": "196DED0233D056B3C8B5A376B92CACEED95FADAC06114F90C2BCB37836A802B5",
-      "file": "PrescribedExtinction\\TwoPieceL2.lean"
+      "file": "PrescribedExtinction\\SquareWindowApproximation.lean",
+      "sha256": "E2F191E63CA0A38A75AF363FCC38E98211AF1DD6070C19069B1D7EE37166CB76"
     },
     {
-      "sha256": "C36315F427457F6AF06181BEDFF4A5B1CC0F24EFD11838012FB93DB0302EB9BC",
-      "file": "PrescribedExtinction\\VolumeFundamental.lean"
+      "file": "PrescribedExtinction\\StaticFourier.lean",
+      "sha256": "16ECC1C08E33A8CDDE982108ACF09E25C025DB1B8A28FFA8DBCA755525D51CB9"
     },
     {
-      "sha256": "2B1D2E99F9A52D07B36D9A4721B9AC840F0F41045D179C5363B4FB29714353C9",
-      "file": "PrescribedExtinction\\VolumePotential.lean"
+      "file": "PrescribedExtinction\\StaticOperatorDistribution.lean",
+      "sha256": "7A4F3D1260EB0F6B1B2C874C8364A37E1DBEE95F98F6236E7D1901F535494807"
     },
     {
-      "sha256": "37AD16336613D61781490F27A68019FE9CA591057209A0DFF9309DB8D1E8B0B4",
-      "file": "PrescribedExtinction\\VolumeScatteringBridge.lean"
+      "file": "PrescribedExtinction\\StaticSymbolCoordinates.lean",
+      "sha256": "34B6AFF125774FE750F182A01EA68C3D7BB09A38E69648A54A2F8D73076D70C0"
     },
     {
-      "sha256": "FB86140F0C34B471D4C2DE99A5DB85D9AF6AAA0A448F81CFD62C5F59D416DB96",
-      "file": "PrescribedExtinction\\WeakCurlBridge.lean"
+      "file": "PrescribedExtinction\\SupportedL2Maps.lean",
+      "sha256": "7C7B832696B927DEA1CA0FBF16EB04361145ED8EB94D4B8943F4C6794AF6315F"
     },
     {
-      "sha256": "243BAC6F55DCD708003ABC2FB1144F7910168D6DBEBF0A9A3EB7EAC9FAF02BDE",
-      "file": "PrescribedExtinction\\YoungConvolution.lean"
+      "file": "PrescribedExtinction\\TensorLossCoercivity.lean",
+      "sha256": "C43B6F6BFDD503851D81E8B8E76BF51E725A385F8472EBF7984D4D72AA6C3E86"
     },
     {
-      "sha256": "0B437FB8A4043F92C4D8225F161BB014152AD58E7FD35EAFC5F0899C4E187DB0",
-      "file": "OQ7.lean"
+      "file": "PrescribedExtinction\\TestRegularity.lean",
+      "sha256": "4ED0115D94C6779A7EF097989C30E028FB6CE1DBFCD11CB31E1C65B302FDB739"
     },
     {
-      "sha256": "D40A62BB7A30C1805D5CDA2275923586910B91468A266D1417E099247E37CBCC",
-      "file": "PrescribedExtinction.lean"
+      "file": "PrescribedExtinction\\TwoPieceL2.lean",
+      "sha256": "196DED0233D056B3C8B5A376B92CACEED95FADAC06114F90C2BCB37836A802B5"
+    },
+    {
+      "file": "PrescribedExtinction\\UniformBodyResponse.lean",
+      "sha256": "690A2D2E18A7390F341F4D665EDD5F431BE25378620CCEA165985BCA5B5C254E"
+    },
+    {
+      "file": "PrescribedExtinction\\VolumeFundamental.lean",
+      "sha256": "C36315F427457F6AF06181BEDFF4A5B1CC0F24EFD11838012FB93DB0302EB9BC"
+    },
+    {
+      "file": "PrescribedExtinction\\VolumePotential.lean",
+      "sha256": "2B1D2E99F9A52D07B36D9A4721B9AC840F0F41045D179C5363B4FB29714353C9"
+    },
+    {
+      "file": "PrescribedExtinction\\VolumeScatteringBridge.lean",
+      "sha256": "37AD16336613D61781490F27A68019FE9CA591057209A0DFF9309DB8D1E8B0B4"
+    },
+    {
+      "file": "PrescribedExtinction\\WeakCurlBridge.lean",
+      "sha256": "FB86140F0C34B471D4C2DE99A5DB85D9AF6AAA0A448F81CFD62C5F59D416DB96"
+    },
+    {
+      "file": "PrescribedExtinction\\YoungConvolution.lean",
+      "sha256": "243BAC6F55DCD708003ABC2FB1144F7910168D6DBEBF0A9A3EB7EAC9FAF02BDE"
+    },
+    {
+      "file": "OQ7.lean",
+      "sha256": "0B437FB8A4043F92C4D8225F161BB014152AD58E7FD35EAFC5F0899C4E187DB0"
+    },
+    {
+      "file": "PrescribedExtinction.lean",
+      "sha256": "634C1E39E1CA14D5214A70B069EC25EFC61E62CC1A2CFFA079650D99F6A34A76"
     }
   ],
   "foundationalMilestones": [
     {
+      "positiveFrequencyOutgoingContactIdentityVerified": true,
+      "scope": "Actual scalar kernel local L1/L2 integrability and distributional dyadic test formula; Newton contact identified in NewtonContact",
       "module": "PrescribedExtinction.GreenKernel",
-      "positiveFrequencyOutgoingContactIdentityVerified": true,
-      "physicalContactCoefficientVerified": true,
-      "scope": "Actual scalar kernel local L1/L2 integrability and distributional dyadic test formula; Newton contact identified in NewtonContact"
+      "physicalContactCoefficientVerified": true
     },
     {
-      "module": "PrescribedExtinction.VolumePotential",
       "boundedDyadicL2OperatorVerified": true,
-      "scope": "Actual convolution exists for every compact vector L2 current; finite local bound; locally integrable potential; distributional volume formula and additivity"
+      "scope": "Actual convolution exists for every compact vector L2 current; finite local bound; locally integrable potential; distributional volume formula and additivity",
+      "module": "PrescribedExtinction.VolumePotential"
     },
     {
+      "scope": "Explicit static Fourier multiplier is an L2 contraction and has zero imaginary quadratic form; physical identity proved in NewtonStaticIdentification",
       "module": "PrescribedExtinction.StaticFourier",
-      "identificationWithNewtonVolumePotentialVerified": true,
-      "scope": "Explicit static Fourier multiplier is an L2 contraction and has zero imaginary quadratic form; physical identity proved in NewtonStaticIdentification"
+      "identificationWithNewtonVolumePotentialVerified": true
     },
     {
-      "module": "PrescribedExtinction.OutgoingRadial",
       "positiveFrequencyOutgoingContactIdentityVerified": true,
-      "physicalContactCoefficientVerified": true,
-      "scope": "Actual Newton and outgoing radial derivatives and classical Hessian away from origin; Newton distributional contact identified in NewtonContact"
+      "scope": "Actual Newton and outgoing radial derivatives and classical Hessian away from origin; Newton distributional contact identified in NewtonContact",
+      "module": "PrescribedExtinction.OutgoingRadial",
+      "physicalContactCoefficientVerified": true
     },
     {
-      "module": "PrescribedExtinction.RemainderConvolution",
-      "identificationWithDistributionalDifferenceVerified": true,
+      "fullPhysicalDyadicOperatorVerified": true,
       "scope": "Actual classical dyadic dynamic-minus-static cancellation; explicit inverse-distance norm estimate; cutoff L2 kernel; actual convolution, compact-domain L2 bound, ae invariance and complex linearity",
-      "fullPhysicalDyadicOperatorVerified": true
+      "module": "PrescribedExtinction.RemainderConvolution",
+      "identificationWithDistributionalDifferenceVerified": true
     },
     {
-      "module": "PrescribedExtinction.SphereMoments",
+      "actualSphereMomentsVerified": true,
       "scope": "Actual polar angular measure, orthogonal invariance, area 4pi and exact second moments",
-      "actualSphereMomentsVerified": true
+      "module": "PrescribedExtinction.SphereMoments"
     },
     {
-      "module": "PrescribedExtinction.NewtonBoundary",
       "puncturedIntegrationByPartsVerified": true,
-      "scope": "Actual angular contact boundary tends to minus delta_ij phi(0)/3; derivative boundary tends to zero; connected to punctured integral in NewtonPunctured"
+      "scope": "Actual angular contact boundary tends to minus delta_ij phi(0)/3; derivative boundary tends to zero; connected to punctured integral in NewtonPunctured",
+      "module": "PrescribedExtinction.NewtonBoundary"
     },
     {
-      "module": "PrescribedExtinction.NewtonPrincipalValue",
       "fullDistributionalHessianIdentityVerified": true,
-      "scope": "Actual spherical principal value converges for every original test function; compensated integral and every positive-radius truncated integral are proved integrable; bundled in NewtonContact"
+      "scope": "Actual spherical principal value converges for every original test function; compensated integral and every positive-radius truncated integral are proved integrable; bundled in NewtonContact",
+      "module": "PrescribedExtinction.NewtonPrincipalValue"
     },
     {
-      "module": "PrescribedExtinction.NewtonCutoffIBP",
+      "cutoffIntegrationByPartsVerified": true,
       "scope": "Actual smooth radial cutoff, exact derivative mass and whole-space Newton/gradient integration by parts for original test functions",
-      "cutoffIntegrationByPartsVerified": true
+      "module": "PrescribedExtinction.NewtonCutoffIBP"
     },
     {
-      "module": "PrescribedExtinction.NewtonShell",
       "radialShellLimitVerified": true,
-      "scope": "Actual exterior cutoff convergence, integrable polar conversion, radial shell rescaling and normalized shell limit"
+      "scope": "Actual exterior cutoff convergence, integrable polar conversion, radial shell rescaling and normalized shell limit",
+      "module": "PrescribedExtinction.NewtonShell"
     },
     {
-      "module": "PrescribedExtinction.NewtonContact",
-      "fullDistributionalHessianIdentityVerified": true,
       "staticFourierIdentificationVerified": true,
-      "scope": "Exact finite-radius punctured double integration by parts, inward-normal signs and vanishing outer boundaries; full Newton Hessian principal-value/contact identity; actual integral-valued principal value is a continuous distribution"
+      "fullDistributionalHessianIdentityVerified": true,
+      "scope": "Exact finite-radius punctured double integration by parts, inward-normal signs and vanishing outer boundaries; full Newton Hessian principal-value/contact identity; actual integral-valued principal value is a continuous distribution",
+      "module": "PrescribedExtinction.NewtonContact"
     },
     {
-      "module": "PrescribedExtinction.NewtonTransform",
+      "kernelFourierCorrespondenceVerified": true,
       "scope": "Actual scalar Newton and full contact Hessian Fourier correspondence on all Schwartz tests; both heat interchanges absolutely integrable; zero-frequency handled globally",
-      "kernelFourierCorrespondenceVerified": true
+      "module": "PrescribedExtinction.NewtonTransform"
     },
     {
-      "module": "PrescribedExtinction.NewtonStaticIdentification",
       "compactCurrentConvolutionIdentificationVerified": true,
       "scope": "Actual original Newton volume distribution equals staticFourierOperator on every compactly supported vector L2 current; genuine current/test Fubini, smooth correlation, Fourier L1-L2 compatibility, and bounded physical L2 realization",
+      "module": "PrescribedExtinction.NewtonStaticIdentification",
       "physicalStaticOperatorVerified": true
     }
   ],

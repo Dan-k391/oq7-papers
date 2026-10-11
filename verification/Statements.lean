@@ -30,6 +30,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.activeScalarLoss_pos
 #check @OQ7Prescribed.admissible_susceptibility_bounded_inverse
 #check @OQ7Prescribed.admissible_susceptibility_imaginary_coercive
+#check @OQ7Prescribed.aperture_error_le_of_window_and_radius
 #check @OQ7Prescribed.apertureCircleDirection_norm
 #check @OQ7Prescribed.apertureCircleJet_continuous
 #check @OQ7Prescribed.apertureCircleJet_first_norm_le
@@ -70,6 +71,8 @@ import PrescribedExtinction
 #check @OQ7Prescribed.apertureRadialLiftSecond_norm_le
 #check @OQ7Prescribed.apertureRadialRoot_hasDerivAt
 #check @OQ7Prescribed.apertureRadialRoot_pos
+#check @OQ7Prescribed.apertureWindowMismatch_L2_norm
+#check @OQ7Prescribed.apertureWindowMismatch_memLp
 #check @OQ7Prescribed.apertureWindowPartial_contDiff
 #check @OQ7Prescribed.apertureWindowPartial_hasCompactSupport
 #check @OQ7Prescribed.apertureWindowPartial_jet_norm_le
@@ -134,6 +137,9 @@ import PrescribedExtinction
 #check @OQ7Prescribed.bodyScaledScalarLift_norm
 #check @OQ7Prescribed.bodySeparatedScalarLift_coe
 #check @OQ7Prescribed.bodySeparatedScalarLift_norm
+#check @OQ7Prescribed.bodySharpScalarLift_coe
+#check @OQ7Prescribed.bodySharpScalarLift_norm
+#check @OQ7Prescribed.bodySharpScalarLift_window_difference_norm
 #check @OQ7Prescribed.bodySlabError_coe
 #check @OQ7Prescribed.bodySlabError_uniform_bound
 #check @OQ7Prescribed.bodySupportRadius_nonneg
@@ -403,6 +409,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.horizontalSlabPotential_uniform_aperture_error
 #check @OQ7Prescribed.horizontalSlabTransverseKernel_uniform_error
 #check @OQ7Prescribed.horizontalSquareAperture_isOpen
+#check @OQ7Prescribed.horizontalSquareAperture_mono
 #check @OQ7Prescribed.horizontalSquareAperture_norm_le
 #check @OQ7Prescribed.horizontalSquareAperture_physical
 #check @OQ7Prescribed.horizontalSquareAperture_scaled_iff
@@ -625,7 +632,10 @@ import PrescribedExtinction
 #check @OQ7Prescribed.normalizedExtinction_reciprocity_of_sine_ne_zero
 #check @OQ7Prescribed.normalizedExtinction_work_balance
 #check @OQ7Prescribed.normalizedIncidentDrive_coe
+#check @OQ7Prescribed.normalizedIncidentDrive_eq_sharpLift
 #check @OQ7Prescribed.normalizedIncidentDrive_ne_zero
+#check @OQ7Prescribed.normalizedIncidentDrive_separated
+#check @OQ7Prescribed.normalizedIncidentDrive_window_mismatch_norm
 #check @OQ7Prescribed.normalizedRotationAsymmetry_continuous
 #check @OQ7Prescribed.normalizedRotationAsymmetry_lt_one
 #check @OQ7Prescribed.orthogonalSphere_cone_preimage
@@ -708,8 +718,10 @@ import PrescribedExtinction
 #check @OQ7Prescribed.physicalAbsorption_current_inner
 #check @OQ7Prescribed.physicalAbsorption_sine_squared_factorization
 #check @OQ7Prescribed.physicalAsymmetry_normalized_factorization
+#check @OQ7Prescribed.physicalBody_normalized_response_uniform_aperture_localization
 #check @OQ7Prescribed.physicalBody_uniform_planar_operator_residual
 #check @OQ7Prescribed.physicalBody_uniform_planar_response_estimate
+#check @OQ7Prescribed.physicalBody_uniform_sharp_response_estimate
 #check @OQ7Prescribed.physicalExtinction_sine_squared_factorization
 #check @OQ7Prescribed.physicalOutgoingVolume_farField_work
 #check @OQ7Prescribed.physicalOutgoingVolume_reciprocity
@@ -755,6 +767,8 @@ import PrescribedExtinction
 #check @OQ7Prescribed.planarNormalizedAbsorption_pos
 #check @OQ7Prescribed.planarNormalizedDrive_coe
 #check @OQ7Prescribed.planarNormalizedDrive_ne_zero
+#check @OQ7Prescribed.planarNormalizedDrive_norm
+#check @OQ7Prescribed.planarNormalizedDrive_norm_sq
 #check @OQ7Prescribed.planarNormalizedExtinction_compact_lower_bound
 #check @OQ7Prescribed.planarNormalizedExtinction_continuous
 #check @OQ7Prescribed.planarNormalizedExtinction_pos
@@ -1084,11 +1098,21 @@ import PrescribedExtinction
 #check @OQ7Prescribed.sphericalTripleEquiv_domain
 #check @OQ7Prescribed.sphericalTripleEquiv_measurePreserving
 #check @OQ7Prescribed.sphericalTripleEquiv_symm_apply
+#check @OQ7Prescribed.squareApertureWindow_integral_norm_sq
+#check @OQ7Prescribed.squareApertureWindow_L2_norm
 #check @OQ7Prescribed.squareApertureWindow_memLp
 #check @OQ7Prescribed.squareApertureWindow_scaled
+#check @OQ7Prescribed.squareApertureWindow_smooth_L2_approximation
+#check @OQ7Prescribed.squareApertureWindow_sub_smooth_norm_le_one
 #check @OQ7Prescribed.squareNorm_eq_norm_sq
 #check @OQ7Prescribed.squareNorm_nonneg
 #check @OQ7Prescribed.squareNorm_pos
+#check @OQ7Prescribed.squareSmoothWindow_contDiff
+#check @OQ7Prescribed.squareSmoothWindow_hasCompactSupport
+#check @OQ7Prescribed.squareSmoothWindow_L2_error_sq
+#check @OQ7Prescribed.squareSmoothWindow_one
+#check @OQ7Prescribed.squareSmoothWindow_real_bounds
+#check @OQ7Prescribed.squareSmoothWindow_support
 #check @OQ7Prescribed.staticFourierOperator_apply_norm_le
 #check @OQ7Prescribed.staticFourierOperator_component_distribution_apply
 #check @OQ7Prescribed.staticFourierOperator_distribution_apply

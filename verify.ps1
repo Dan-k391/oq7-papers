@@ -412,6 +412,12 @@ run_cmd do
         'OQ7Prescribed.bodyScaledScalarLift_inverse_material',
         'OQ7Prescribed.bodyScaledScalarLift_material_residual_identity',
         'OQ7Prescribed.physicalBody_uniform_planar_response_estimate',
+        'OQ7Prescribed.normalizedIncidentDrive_window_mismatch_norm',
+        'OQ7Prescribed.squareApertureWindow_smooth_L2_approximation',
+        'OQ7Prescribed.bodySharpScalarLift_norm',
+        'OQ7Prescribed.normalizedIncidentDrive_eq_sharpLift',
+        'OQ7Prescribed.planarNormalizedDrive_norm',
+        'OQ7Prescribed.physicalBody_normalized_response_uniform_aperture_localization',
         'OQ7Prescribed.normalizedActiveResponse_residual_bound',
         'OQ7Prescribed.normalizedActiveResponse_angle_difference_bound')) {
         if ($oq7Required -notin $oq7NewKernelTheorems) { throw "Missing outgoing operator obligation: $oq7Required" }
@@ -521,6 +527,8 @@ run_cmd do
         planarNormalizedResponseContinuousAtZeroAndExtinctionPositiveVerified = $true
         physicalOriginalSquareBodyPlanarOperatorResidualUniformInApertureAndRotationVerified = $true
         physicalPlanarTrialResponseEstimateWithExplicitDriveMismatchVerified = $true
+        originalSquareApertureSmoothL2WindowApproximationVerified = $true
+        physicalRankOneNormalizedResponseUniformInApertureAndAllRotationAnglesVerified = $true
         physicalVectorUniformApertureLocalizationVerified = $false
         physicalVolumeWorkBalanceVerified = $true
         originalPhysicalAbsorptionSineSquaredFactorizationVerified = $true

@@ -1,0 +1,74 @@
+OQ7Prescribed.apertureWindowMismatch_L2_norm (w : ℂ → ℂ) (hw : ContDiff ℝ (↑⊤) w) (hwc : HasCompactSupport w) (R : ℝ)
+  (hR : 0 < R) :
+  ‖MeasureTheory.MemLp.toLp (OQ7Prescribed.apertureWindowMismatch w R) ⋯‖ =
+    R * ‖MeasureTheory.MemLp.toLp (OQ7Prescribed.squareApertureWindow 1 - w) ⋯‖
+OQ7Prescribed.normalizedIncidentDrive_window_mismatch_norm (k : ℝ) (B : OQ7Prescribed.TwoLayerBody)
+  (σ : OQ7Prescribed.Direction) (w : ℂ → ℂ) (hw : ContDiff ℝ (↑⊤) w) (hwc : HasCompactSupport w)
+  (hs : tsupport w ⊆ OQ7Prescribed.horizontalSquareAperture 1) :
+  ‖OQ7Prescribed.normalizedIncidentDrive k B σ -
+        (OQ7Prescribed.bodyScaledScalarLift B w hw hwc hs)
+          (OQ7Prescribed.planarNormalizedDrive k σ (B.absorberThickness + B.plateThickness) B.absorberThickness)‖ =
+    B.aperture * ‖MeasureTheory.MemLp.toLp (OQ7Prescribed.squareApertureWindow 1 - w) ⋯‖ *
+      ‖OQ7Prescribed.planarNormalizedDrive k σ (B.absorberThickness + B.plateThickness) B.absorberThickness‖
+OQ7Prescribed.squareApertureWindow_smooth_L2_approximation (ε : ℝ) (hε : 0 < ε) :
+  ∃ w,
+    ∃ (hw : ContDiff ℝ (↑⊤) w) (hwc : HasCompactSupport w),
+      tsupport w ⊆ OQ7Prescribed.horizontalSquareAperture 1 ∧
+        ‖MeasureTheory.MemLp.toLp (OQ7Prescribed.squareApertureWindow 1 - w) ⋯‖ < ε
+OQ7Prescribed.bodySharpScalarLift_norm (B : OQ7Prescribed.TwoLayerBody)
+  (q : ↥(OQ7Prescribed.PlanarCurrentL2 (B.absorberThickness + B.plateThickness))) :
+  ‖(OQ7Prescribed.bodySharpScalarLift B) q‖ = B.aperture * ‖q‖
+OQ7Prescribed.normalizedIncidentDrive_eq_sharpLift (k : ℝ) (B : OQ7Prescribed.TwoLayerBody)
+  (σ : OQ7Prescribed.Direction) :
+  OQ7Prescribed.normalizedIncidentDrive k B σ =
+    (OQ7Prescribed.bodySharpScalarLift B)
+      (OQ7Prescribed.planarNormalizedDrive k σ (B.absorberThickness + B.plateThickness) B.absorberThickness)
+OQ7Prescribed.bodySharpScalarLift_window_difference_norm (B : OQ7Prescribed.TwoLayerBody) (w : ℂ → ℂ)
+  (hw : ContDiff ℝ (↑⊤) w) (hwc : HasCompactSupport w) (hs : tsupport w ⊆ OQ7Prescribed.horizontalSquareAperture 1)
+  (q : ↥(OQ7Prescribed.PlanarCurrentL2 (B.absorberThickness + B.plateThickness))) :
+  ‖(OQ7Prescribed.bodySharpScalarLift B) q - (OQ7Prescribed.bodyScaledScalarLift B w hw hwc hs) q‖ =
+    B.aperture * ‖MeasureTheory.MemLp.toLp (OQ7Prescribed.squareApertureWindow 1 - w) ⋯‖ * ‖q‖
+OQ7Prescribed.planarNormalizedDrive_norm (k : ℝ) (σ : OQ7Prescribed.Direction) (L h : ℝ) (hh : 0 ≤ h) (hL : h ≤ L) :
+  ‖OQ7Prescribed.planarNormalizedDrive k σ L h‖ = √(L - h)
+OQ7Prescribed.physicalBody_uniform_sharp_response_estimate (k : ℝ) (hk : 0 < k) (h d : ℝ) (hH : 0 ≤ h + d) (w : ℂ → ℂ)
+  (hw : ContDiff ℝ (↑⊤) w) (hwc : HasCompactSupport w) (hs : tsupport w ⊆ OQ7Prescribed.horizontalSquareAperture 1) :
+  ∃ K,
+    0 < K ∧
+      ∀ (B : OQ7Prescribed.TwoLayerBody),
+        B.absorberThickness = h →
+          B.plateThickness = d →
+            1 ≤ B.aperture →
+              ∀ (σ : OQ7Prescribed.Direction) (θ : ℝ) (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im),
+                ‖OQ7Prescribed.normalizedActiveResponse k hk B σ θ α β hα hβ -
+                      (OQ7Prescribed.bodySharpScalarLift B)
+                        (OQ7Prescribed.planarNormalizedResponse k hk σ (B.absorberThickness + B.plateThickness) ⋯
+                          B.absorberThickness θ α β hα hβ)‖ ≤
+                  (2 * B.aperture * ‖MeasureTheory.MemLp.toLp (OQ7Prescribed.squareApertureWindow 1 - w) ⋯‖ /
+                        OQ7Prescribed.activeMaterialCoercivity α β +
+                      K / OQ7Prescribed.activeMaterialCoercivity α β ^ 2) *
+                    √d
+OQ7Prescribed.physicalBody_normalized_response_uniform_aperture_localization (k : ℝ) (hk : 0 < k) (h d : ℝ) (hh : 0 < h)
+  (hd : 0 < d) (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im) (ε : ℝ) (hε : 0 < ε) :
+  ∃ R0,
+    1 ≤ R0 ∧
+      ∀ (B : OQ7Prescribed.TwoLayerBody),
+        B.absorberThickness = h →
+          B.plateThickness = d →
+            R0 ≤ B.aperture →
+              ∀ (σ : OQ7Prescribed.Direction) (θ : ℝ),
+                ‖OQ7Prescribed.normalizedActiveResponse k hk B σ θ α β hα hβ -
+                      (OQ7Prescribed.bodySharpScalarLift B)
+                        (OQ7Prescribed.planarNormalizedResponse k hk σ (B.absorberThickness + B.plateThickness) ⋯
+                          B.absorberThickness θ α β hα hβ)‖ ≤
+                  ε * B.aperture
+'OQ7Prescribed.apertureWindowMismatch_L2_norm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.normalizedIncidentDrive_window_mismatch_norm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.squareApertureWindow_smooth_L2_approximation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.bodySharpScalarLift_norm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.normalizedIncidentDrive_eq_sharpLift' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.bodySharpScalarLift_window_difference_norm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.planarNormalizedDrive_norm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.physicalBody_uniform_sharp_response_estimate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.physicalBody_normalized_response_uniform_aperture_localization' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

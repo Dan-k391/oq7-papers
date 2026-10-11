@@ -135,6 +135,9 @@ OQ7Prescribed.admissible_susceptibility_bounded_inverse : ∀ (P Q : ℝ) (T : O
 OQ7Prescribed.admissible_susceptibility_imaginary_coercive : ∀ (P Q : ℝ) (T : OQ7Prescribed.Tensor),
   OQ7Prescribed.MaterialAdmissible P Q T →
     ∃ c, 0 < c ∧ ∀ (v : OQ7Prescribed.Vector), c * ‖v‖ ^ 2 ≤ (inner ℂ v ((OQ7Prescribed.tensorMap (T - 1)) v)).im
+OQ7Prescribed.aperture_error_le_of_window_and_radius : ∀ (ε c G K e R : ℝ),
+  0 < ε →
+    0 < c → 0 < G → 0 ≤ R → e ≤ ε * c / (4 * G) → 2 * K * G / (ε * c ^ 2) ≤ R → (2 * R * e / c + K / c ^ 2) * G ≤ ε * R
 OQ7Prescribed.apertureCircleDirection_norm : ∀ (θ : ℝ), ‖OQ7Prescribed.apertureCircleDirection θ‖ = 1
 OQ7Prescribed.apertureCircleJet_continuous : ∀ (n : ℕ) (w : ℂ → ℂ),
   ContDiff ℝ (↑⊤) w → ∀ (x : ℂ), Continuous (OQ7Prescribed.apertureCircleJet n w x)
@@ -300,6 +303,14 @@ OQ7Prescribed.apertureRadialLiftSecond_norm_le : ∀ (w : ℂ → ℂ),
 OQ7Prescribed.apertureRadialRoot_hasDerivAt : ∀ (s t : ℝ),
   |s| < t → HasDerivAt (fun y => √(y ^ 2 - s ^ 2)) (t / √(t ^ 2 - s ^ 2)) t
 OQ7Prescribed.apertureRadialRoot_pos : ∀ (s t : ℝ), |s| < t → 0 < √(t ^ 2 - s ^ 2)
+OQ7Prescribed.apertureWindowMismatch_L2_norm : ∀ (w : ℂ → ℂ) (hw : ContDiff ℝ (↑⊤) w) (hwc : HasCompactSupport w)
+  (R : ℝ) (hR : 0 < R),
+  ‖MeasureTheory.MemLp.toLp (OQ7Prescribed.apertureWindowMismatch w R) ⋯‖ =
+    R * ‖MeasureTheory.MemLp.toLp (OQ7Prescribed.squareApertureWindow 1 - w) ⋯‖
+OQ7Prescribed.apertureWindowMismatch_memLp : ∀ (w : ℂ → ℂ),
+  ContDiff ℝ (↑⊤) w →
+    HasCompactSupport w →
+      ∀ (R : ℝ), 0 < R → MeasureTheory.MemLp (OQ7Prescribed.apertureWindowMismatch w R) 2 MeasureTheory.volume
 OQ7Prescribed.apertureWindowPartial_contDiff : ∀ (w : ℂ → ℂ),
   ContDiff ℝ (↑⊤) w → ∀ (v : ℂ), ContDiff ℝ (↑⊤) (OQ7Prescribed.apertureWindowPartial w v)
 OQ7Prescribed.apertureWindowPartial_hasCompactSupport : ∀ (w : ℂ → ℂ),
@@ -559,6 +570,18 @@ OQ7Prescribed.bodySeparatedScalarLift_norm : ∀ (B : OQ7Prescribed.TwoLayerBody
   (hs : tsupport w ⊆ OQ7Prescribed.horizontalSquareAperture B.aperture)
   (q : ↥(OQ7Prescribed.PlanarCurrentL2 (B.absorberThickness + B.plateThickness))),
   ‖(OQ7Prescribed.bodySeparatedScalarLift B w hw hs) q‖ = ‖MeasureTheory.MemLp.toLp w hw‖ * ‖q‖
+OQ7Prescribed.bodySharpScalarLift_coe : ∀ (B : OQ7Prescribed.TwoLayerBody)
+  (q : ↥(OQ7Prescribed.PlanarCurrentL2 (B.absorberThickness + B.plateThickness))),
+  ↑↑↑((OQ7Prescribed.bodySharpScalarLift B) q) =ᵐ[MeasureTheory.volume]
+    OQ7Prescribed.slabSeparatedFunction (OQ7Prescribed.squareApertureWindow B.aperture) ↑↑↑q
+OQ7Prescribed.bodySharpScalarLift_norm : ∀ (B : OQ7Prescribed.TwoLayerBody)
+  (q : ↥(OQ7Prescribed.PlanarCurrentL2 (B.absorberThickness + B.plateThickness))),
+  ‖(OQ7Prescribed.bodySharpScalarLift B) q‖ = B.aperture * ‖q‖
+OQ7Prescribed.bodySharpScalarLift_window_difference_norm : ∀ (B : OQ7Prescribed.TwoLayerBody) (w : ℂ → ℂ)
+  (hw : ContDiff ℝ (↑⊤) w) (hwc : HasCompactSupport w) (hs : tsupport w ⊆ OQ7Prescribed.horizontalSquareAperture 1)
+  (q : ↥(OQ7Prescribed.PlanarCurrentL2 (B.absorberThickness + B.plateThickness))),
+  ‖(OQ7Prescribed.bodySharpScalarLift B) q - (OQ7Prescribed.bodyScaledScalarLift B w hw hwc hs) q‖ =
+    B.aperture * ‖MeasureTheory.MemLp.toLp (OQ7Prescribed.squareApertureWindow 1 - w) ⋯‖ * ‖q‖
 OQ7Prescribed.bodySlabError_coe : ∀ (k : ℝ) (hk : 0 < k) (B : OQ7Prescribed.TwoLayerBody) (hR : 1 ≤ B.aperture)
   (w : ℂ → ℂ) (hw : ContDiff ℝ (↑⊤) w) (hwc : HasCompactSupport w)
   (hs : tsupport w ⊆ OQ7Prescribed.horizontalSquareAperture 1) (u v : ℂ)
@@ -1881,6 +1904,8 @@ OQ7Prescribed.horizontalSlabTransverseKernel_uniform_error : ∀ (k : ℝ),
                                               OQ7Prescribed.scaledApertureWindow w R x)‖ ≤
                                       C / R
 OQ7Prescribed.horizontalSquareAperture_isOpen : ∀ (R : ℝ), IsOpen (OQ7Prescribed.horizontalSquareAperture R)
+@OQ7Prescribed.horizontalSquareAperture_mono : ∀ {R S : ℝ},
+  R ≤ S → OQ7Prescribed.horizontalSquareAperture R ⊆ OQ7Prescribed.horizontalSquareAperture S
 OQ7Prescribed.horizontalSquareAperture_norm_le : ∀ (R : ℝ),
   0 < R → ∀ z ∈ OQ7Prescribed.horizontalSquareAperture R, ‖z‖ ≤ R
 OQ7Prescribed.horizontalSquareAperture_physical : ∀ (R : ℝ) (x : OQ7Prescribed.Position),
@@ -2647,8 +2672,26 @@ OQ7Prescribed.normalizedExtinction_work_balance : ∀ (k : ℝ) (hk : 0 < k) (B 
 OQ7Prescribed.normalizedIncidentDrive_coe : ∀ (k : ℝ) (B : OQ7Prescribed.TwoLayerBody) (σ : OQ7Prescribed.Direction),
   ↑↑↑(OQ7Prescribed.normalizedIncidentDrive k B σ) =ᵐ[MeasureTheory.volume]
     B.domain.indicator fun x => if x.ofLp 2 < B.absorberThickness then 0 else OQ7Prescribed.planePhase k σ x
+OQ7Prescribed.normalizedIncidentDrive_eq_sharpLift : ∀ (k : ℝ) (B : OQ7Prescribed.TwoLayerBody)
+  (σ : OQ7Prescribed.Direction),
+  OQ7Prescribed.normalizedIncidentDrive k B σ =
+    (OQ7Prescribed.bodySharpScalarLift B)
+      (OQ7Prescribed.planarNormalizedDrive k σ (B.absorberThickness + B.plateThickness) B.absorberThickness)
 OQ7Prescribed.normalizedIncidentDrive_ne_zero : ∀ (k : ℝ) (B : OQ7Prescribed.TwoLayerBody)
   (σ : OQ7Prescribed.Direction), OQ7Prescribed.normalizedIncidentDrive k B σ ≠ 0
+OQ7Prescribed.normalizedIncidentDrive_separated : ∀ (k : ℝ) (B : OQ7Prescribed.TwoLayerBody)
+  (σ : OQ7Prescribed.Direction),
+  ↑↑↑(OQ7Prescribed.normalizedIncidentDrive k B σ) =ᵐ[MeasureTheory.volume]
+    OQ7Prescribed.slabSeparatedFunction (OQ7Prescribed.squareApertureWindow B.aperture)
+      ↑↑↑(OQ7Prescribed.planarNormalizedDrive k σ (B.absorberThickness + B.plateThickness) B.absorberThickness)
+OQ7Prescribed.normalizedIncidentDrive_window_mismatch_norm : ∀ (k : ℝ) (B : OQ7Prescribed.TwoLayerBody)
+  (σ : OQ7Prescribed.Direction) (w : ℂ → ℂ) (hw : ContDiff ℝ (↑⊤) w) (hwc : HasCompactSupport w)
+  (hs : tsupport w ⊆ OQ7Prescribed.horizontalSquareAperture 1),
+  ‖OQ7Prescribed.normalizedIncidentDrive k B σ -
+        (OQ7Prescribed.bodyScaledScalarLift B w hw hwc hs)
+          (OQ7Prescribed.planarNormalizedDrive k σ (B.absorberThickness + B.plateThickness) B.absorberThickness)‖ =
+    B.aperture * ‖MeasureTheory.MemLp.toLp (OQ7Prescribed.squareApertureWindow 1 - w) ⋯‖ *
+      ‖OQ7Prescribed.planarNormalizedDrive k σ (B.absorberThickness + B.plateThickness) B.absorberThickness‖
 OQ7Prescribed.normalizedRotationAsymmetry_continuous : ∀ (k : ℝ) (hk : 0 < k) (B : OQ7Prescribed.TwoLayerBody) (α β : ℂ)
   (hα : 0 < α.im) (hβ : 0 < β.im), Continuous fun θ => OQ7Prescribed.normalizedRotationAsymmetry k hk B θ α β hα hβ
 OQ7Prescribed.normalizedRotationAsymmetry_lt_one : ∀ (k : ℝ) (hk : 0 < k) (B : OQ7Prescribed.TwoLayerBody) (θ : ℝ)
@@ -2937,6 +2980,23 @@ OQ7Prescribed.physicalAsymmetry_normalized_factorization : ∀ (k : ℝ) (hk : 0
                 (OQ7Prescribed.activePhysicalSolution k hk B OQ7Prescribed.Direction.minus (OQ7Prescribed.basisR 0)
                   (OQ7Prescribed.rotatedAxis θ) α β hα hβ)))) =
         OQ7Prescribed.normalizedRotationAsymmetry k hk B θ α β hα hβ
+OQ7Prescribed.physicalBody_normalized_response_uniform_aperture_localization : ∀ (k : ℝ) (hk : 0 < k) (h d : ℝ),
+  0 < h →
+    0 < d →
+      ∀ (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im) (ε : ℝ),
+        0 < ε →
+          ∃ R0,
+            1 ≤ R0 ∧
+              ∀ (B : OQ7Prescribed.TwoLayerBody),
+                B.absorberThickness = h →
+                  B.plateThickness = d →
+                    R0 ≤ B.aperture →
+                      ∀ (σ : OQ7Prescribed.Direction) (θ : ℝ),
+                        ‖OQ7Prescribed.normalizedActiveResponse k hk B σ θ α β hα hβ -
+                              (OQ7Prescribed.bodySharpScalarLift B)
+                                (OQ7Prescribed.planarNormalizedResponse k hk σ (B.absorberThickness + B.plateThickness)
+                                  ⋯ B.absorberThickness θ α β hα hβ)‖ ≤
+                          ε * B.aperture
 OQ7Prescribed.physicalBody_uniform_planar_operator_residual : ∀ (k : ℝ) (hk : 0 < k) (h d : ℝ),
   0 ≤ h + d →
     ∀ (w : ℂ → ℂ) (hw : ContDiff ℝ (↑⊤) w) (hwc : HasCompactSupport w)
@@ -2980,6 +3040,25 @@ OQ7Prescribed.physicalBody_uniform_planar_response_estimate : ∀ (k : ℝ) (hk 
                           K * (1 / OQ7Prescribed.activeMaterialCoercivity α β) *
                             ‖OQ7Prescribed.planarNormalizedDrive k σ (B.absorberThickness + B.plateThickness)
                                 B.absorberThickness‖)
+OQ7Prescribed.physicalBody_uniform_sharp_response_estimate : ∀ (k : ℝ) (hk : 0 < k) (h d : ℝ),
+  0 ≤ h + d →
+    ∀ (w : ℂ → ℂ) (hw : ContDiff ℝ (↑⊤) w) (hwc : HasCompactSupport w),
+      tsupport w ⊆ OQ7Prescribed.horizontalSquareAperture 1 →
+        ∃ K,
+          0 < K ∧
+            ∀ (B : OQ7Prescribed.TwoLayerBody),
+              B.absorberThickness = h →
+                B.plateThickness = d →
+                  1 ≤ B.aperture →
+                    ∀ (σ : OQ7Prescribed.Direction) (θ : ℝ) (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im),
+                      ‖OQ7Prescribed.normalizedActiveResponse k hk B σ θ α β hα hβ -
+                            (OQ7Prescribed.bodySharpScalarLift B)
+                              (OQ7Prescribed.planarNormalizedResponse k hk σ (B.absorberThickness + B.plateThickness) ⋯
+                                B.absorberThickness θ α β hα hβ)‖ ≤
+                        (2 * B.aperture * ‖MeasureTheory.MemLp.toLp (OQ7Prescribed.squareApertureWindow 1 - w) ⋯‖ /
+                              OQ7Prescribed.activeMaterialCoercivity α β +
+                            K / OQ7Prescribed.activeMaterialCoercivity α β ^ 2) *
+                          √d
 OQ7Prescribed.physicalExtinction_sine_squared_factorization : ∀ (k : ℝ) (hk : 0 < k) (B : OQ7Prescribed.TwoLayerBody)
   (σ : OQ7Prescribed.Direction) (θ : ℝ) (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im),
   OQ7Prescribed.extinction k (OQ7Prescribed.rankOneBody B (OQ7Prescribed.basisR 0) (OQ7Prescribed.rotatedAxis θ) α β) σ
@@ -3191,6 +3270,10 @@ OQ7Prescribed.planarNormalizedDrive_coe : ∀ (k : ℝ) (σ : OQ7Prescribed.Dire
     (Set.Icc 0 L).indicator fun z => if z < h then 0 else OQ7Prescribed.planarIncidentPhase k σ z
 OQ7Prescribed.planarNormalizedDrive_ne_zero : ∀ (k : ℝ) (σ : OQ7Prescribed.Direction) (L h : ℝ),
   0 ≤ h → h < L → OQ7Prescribed.planarNormalizedDrive k σ L h ≠ 0
+OQ7Prescribed.planarNormalizedDrive_norm : ∀ (k : ℝ) (σ : OQ7Prescribed.Direction) (L h : ℝ),
+  0 ≤ h → h ≤ L → ‖OQ7Prescribed.planarNormalizedDrive k σ L h‖ = √(L - h)
+OQ7Prescribed.planarNormalizedDrive_norm_sq : ∀ (k : ℝ) (σ : OQ7Prescribed.Direction) (L h : ℝ),
+  0 ≤ h → h ≤ L → ‖OQ7Prescribed.planarNormalizedDrive k σ L h‖ ^ 2 = L - h
 OQ7Prescribed.planarNormalizedExtinction_compact_lower_bound : ∀ (k : ℝ) (hk : 0 < k) (σ : OQ7Prescribed.Direction)
   (L : ℝ) (hL : 0 ≤ L) (h : ℝ),
   0 ≤ h →
@@ -4688,14 +4771,38 @@ OQ7Prescribed.sphericalTripleEquiv_measurePreserving : MeasureTheory.MeasurePres
   (⇑OQ7Prescribed.sphericalTripleEquiv) MeasureTheory.volume MeasureTheory.volume
 OQ7Prescribed.sphericalTripleEquiv_symm_apply : ∀ (p : ℝ × ℝ × ℝ),
   OQ7Prescribed.sphericalTripleEquiv.symm p = ![p.1, p.2.1, p.2.2]
+OQ7Prescribed.squareApertureWindow_integral_norm_sq : ∀ (R : ℝ),
+  0 ≤ R → ∫ (z : ℂ), ‖OQ7Prescribed.squareApertureWindow R z‖ ^ 2 = R ^ 2
+OQ7Prescribed.squareApertureWindow_L2_norm : ∀ (R : ℝ),
+  0 ≤ R → ‖MeasureTheory.MemLp.toLp (OQ7Prescribed.squareApertureWindow R) ⋯‖ = R
 OQ7Prescribed.squareApertureWindow_memLp : ∀ (R : ℝ),
   MeasureTheory.MemLp (OQ7Prescribed.squareApertureWindow R) 2 MeasureTheory.volume
 OQ7Prescribed.squareApertureWindow_scaled : ∀ (R : ℝ),
   0 < R →
     OQ7Prescribed.squareApertureWindow R = OQ7Prescribed.scaledApertureWindow (OQ7Prescribed.squareApertureWindow 1) R
+OQ7Prescribed.squareApertureWindow_smooth_L2_approximation : ∀ (ε : ℝ),
+  0 < ε →
+    ∃ w,
+      ∃ (hw : ContDiff ℝ (↑⊤) w) (hwc : HasCompactSupport w),
+        tsupport w ⊆ OQ7Prescribed.horizontalSquareAperture 1 ∧
+          ‖MeasureTheory.MemLp.toLp (OQ7Prescribed.squareApertureWindow 1 - w) ⋯‖ < ε
+OQ7Prescribed.squareApertureWindow_sub_smooth_norm_le_one : ∀ (b : ContDiffBump 0),
+  b.rOut < 1 / 2 → ∀ (z : ℂ), ‖OQ7Prescribed.squareApertureWindow 1 z - OQ7Prescribed.squareSmoothWindow b z‖ ≤ 1
 OQ7Prescribed.squareNorm_eq_norm_sq : ∀ (v : OQ7Prescribed.Vector), OQ7Prescribed.squareNorm v = ‖v‖ ^ 2
 OQ7Prescribed.squareNorm_nonneg : ∀ (v : OQ7Prescribed.Vector), 0 ≤ OQ7Prescribed.squareNorm v
 @OQ7Prescribed.squareNorm_pos : ∀ {v : OQ7Prescribed.Vector}, v ≠ 0 → 0 < OQ7Prescribed.squareNorm v
+OQ7Prescribed.squareSmoothWindow_contDiff : ∀ (b : ContDiffBump 0), ContDiff ℝ (↑⊤) (OQ7Prescribed.squareSmoothWindow b)
+OQ7Prescribed.squareSmoothWindow_hasCompactSupport : ∀ (b : ContDiffBump 0),
+  b.rOut < 1 / 2 → HasCompactSupport (OQ7Prescribed.squareSmoothWindow b)
+OQ7Prescribed.squareSmoothWindow_L2_error_sq : ∀ (b : ContDiffBump 0) (hb : b.rOut < 1 / 2),
+  ‖MeasureTheory.MemLp.toLp (OQ7Prescribed.squareApertureWindow 1 - OQ7Prescribed.squareSmoothWindow b) ⋯‖ ^ 2 ≤
+    1 - (2 * b.rIn) ^ 2
+OQ7Prescribed.squareSmoothWindow_one : ∀ (b : ContDiffBump 0),
+  ∀ z ∈ OQ7Prescribed.horizontalSquareAperture (2 * b.rIn), OQ7Prescribed.squareSmoothWindow b z = 1
+OQ7Prescribed.squareSmoothWindow_real_bounds : ∀ (b : ContDiffBump 0) (z : ℂ),
+  0 ≤ ↑b z.re * ↑b z.im ∧ ↑b z.re * ↑b z.im ≤ 1
+OQ7Prescribed.squareSmoothWindow_support : ∀ (b : ContDiffBump 0),
+  b.rOut < 1 / 2 → tsupport (OQ7Prescribed.squareSmoothWindow b) ⊆ OQ7Prescribed.horizontalSquareAperture 1
 OQ7Prescribed.staticFourierOperator_apply_norm_le : ∀ (f : ↥OQ7Prescribed.VectorL2),
   ‖OQ7Prescribed.staticFourierOperator f‖ ≤ ‖f‖
 OQ7Prescribed.staticFourierOperator_component_distribution_apply : ∀ (f : ↥OQ7Prescribed.VectorL2) (i : Fin 3)
