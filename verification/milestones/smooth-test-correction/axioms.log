@@ -1,0 +1,20 @@
+def OQ7Prescribed.HasWeakCurl : OQ7Prescribed.Field → OQ7Prescribed.Field → Prop :=
+fun F G =>
+  ∀ (φ : OQ7Prescribed.Field),
+    ContDiff ℝ (↑⊤) φ →
+      HasCompactSupport φ →
+        ∫ (x : OQ7Prescribed.Position), OQ7Prescribed.bilinear (F x) (OQ7Prescribed.curl φ x) =
+          ∫ (x : OQ7Prescribed.Position), OQ7Prescribed.bilinear (G x) (φ x)
+def OQ7Prescribed.AnalyticTestWeakCurl : OQ7Prescribed.Field → OQ7Prescribed.Field → Prop :=
+fun F G =>
+  ∀ (φ : OQ7Prescribed.Field),
+    ContDiff ℝ ⊤ φ →
+      HasCompactSupport φ →
+        ∫ (x : OQ7Prescribed.Position), OQ7Prescribed.bilinear (F x) (OQ7Prescribed.curl φ x) =
+          ∫ (x : OQ7Prescribed.Position), OQ7Prescribed.bilinear (G x) (φ x)
+OQ7Prescribed.HasWeakCurl.implies_analyticTestWeakCurl : ∀ (F G : OQ7Prescribed.Field),
+  OQ7Prescribed.HasWeakCurl F G → OQ7Prescribed.AnalyticTestWeakCurl F G
+'OQ7Prescribed.HasWeakCurl.implies_analyticTestWeakCurl' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.weakCurlTest_all_finite_orders : ∀ (φ : OQ7Prescribed.Field),
+  ContDiff ℝ (↑⊤) φ → ∀ (n : ℕ), ContDiff ℝ (↑n) φ
+'OQ7Prescribed.weakCurlTest_all_finite_orders' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -10,9 +10,9 @@ in the historical paragraphs and correspondence table below. Magnetic-field
 regularity, physical scattering, localization and the prescribed-extinction
 construction remain unverified.
 
-The latest continuation kernel-verifies the **physical Newton volume operator identity with `staticFourierOperator` for every compactly supported vector L² current**, retaining the full contact Hessian and providing a bounded physical L² realization. See [STATIC.md](STATIC.md) for exact declarations and evidence. The earlier kernel Fourier milestone is recorded in [FOURIER.md](FOURIER.md); its former current-operator gaps are now closed. Every Lean module from commits `6874b492e8d49d2303bb25aa12248b489c9ad13a` and `8301dda82eaf84611a4a40982f77dc2787b16861` is preserved byte for byte. The full outgoing dyadic operator and physical Theorem 1.1 remain PARTIAL.
+The latest continuation kernel-verifies the **physical Newton volume operator identity with `staticFourierOperator` for every compactly supported vector L² current**, retaining the full contact Hessian and providing a bounded physical L² realization. See [STATIC.md](STATIC.md) for exact declarations and evidence. The earlier kernel Fourier milestone is recorded in [FOURIER.md](FOURIER.md); its former current-operator gaps are now closed. Apart from the documented smooth-test annotation correction in Maxwell.lean, every Lean module from commits `6874b492e8d49d2303bb25aa12248b489c9ad13a` and `8301dda82eaf84611a4a40982f77dc2787b16861` is preserved byte for byte. The full outgoing dyadic operator and physical Theorem 1.1 remain PARTIAL.
 
-The existing library and its exact target are preserved. Earlier milestones include actual outgoing/Newton classical Hessians, a dynamic-minus-static kernel estimate and actual remainder convolution bounds on compact domains, scalar distributions, convolution and static Fourier results. **The full physical dyadic operator and the positive-frequency outgoing contact identity remain unverified.** [CONTACT_IDENTITY.md](CONTACT_IDENTITY.md), [CONTACT.md](CONTACT.md), [DYADIC.md](DYADIC.md) and [FOUNDATIONS.md](FOUNDATIONS.md) preserve historical milestones; their former Newton-contact and kernel-Fourier gaps are closed by the latest source. No conditional substitute is advertised as Theorem 1.1.
+The existing library and theorem quantifiers are preserved; the smooth-test annotation correction is documented below. Earlier milestones include actual outgoing/Newton classical Hessians, a dynamic-minus-static kernel estimate and actual remainder convolution bounds on compact domains, scalar distributions, convolution and static Fourier results. **The full physical dyadic operator and the positive-frequency outgoing contact identity remain unverified.** [CONTACT_IDENTITY.md](CONTACT_IDENTITY.md), [CONTACT.md](CONTACT.md), [DYADIC.md](DYADIC.md) and [FOUNDATIONS.md](FOUNDATIONS.md) preserve historical milestones; their former Newton-contact and kernel-Fourier gaps are closed by the latest source. No conditional substitute is advertised as Theorem 1.1.
 
 `OQ7Prescribed.Theorem11Statement : Prop` is a **definition of an unproved proposition**, not a theorem. Its `#print axioms` output audits the definition's dependencies. It does not certify that the proposition is true.
 
@@ -111,3 +111,11 @@ lake env lean verification/Audit.lean
 The source repository excludes cached build artifacts and package checkouts. Fresh builds may need to compile dependencies. The saved `verification/clean-build.log` records a clean build of the complete project, and `verification/build.log` records the latest build. The report checks that the saved clean build used identical Lean sources. `verification/axioms.log` records all project constants; `verification/inventory.log` records the kernel inventory; and `verification/report.json` explicitly records `status: PARTIAL`, `theorem11Verified: false`, and `finalTheoremDeclaration: null`. Inventory counts are bookkeeping, not evidence that any missing analytic dependency or the target has been proved.
 
 This repository is an incremental formalization artifact, not a proof of OQ7 or Theorem 1.1.
+
+The continuation corrects the weak-curl test regularity from untyped top
+(analytic in this Mathlib) to explicit ENat top (all smooth tests). The exact
+Theorem11Statement body and all physical parameters are unchanged. The original
+source is archived at verification/physical-target-before-test-correction.txt;
+the verifier permits exactly this one annotation edit. TestRegularity.lean
+proves the corrected condition implies the original analytic-test condition.
+This strengthens the equations and avoids vacuous compact analytic testing.

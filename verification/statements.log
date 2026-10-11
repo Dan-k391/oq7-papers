@@ -438,6 +438,8 @@ OQ7Prescribed.greenHessian_eq_static_add_dynamic : ∀ (k : ℝ) (i j : Fin 3),
   OQ7Prescribed.greenHessian k i j =
     OQ7Prescribed.greenHessian 0 i j +
       Distribution.ofFun ⊤ (OQ7Prescribed.dynamicHessianRemainder k i j) MeasureTheory.volume ⊤
+OQ7Prescribed.HasWeakCurl.implies_analyticTestWeakCurl : ∀ (F G : OQ7Prescribed.Field),
+  OQ7Prescribed.HasWeakCurl F G → OQ7Prescribed.AnalyticTestWeakCurl F G
 OQ7Prescribed.incident_absorber_coupling : ∀ (k : ℝ) (σ : OQ7Prescribed.Direction) (x : OQ7Prescribed.Position),
   OQ7Prescribed.axisCoupling (OQ7Prescribed.basisR 0) (OQ7Prescribed.incidentElectric k σ x) = 0
 OQ7Prescribed.incident_plate_coupling : ∀ (θ k : ℝ) (σ : OQ7Prescribed.Direction) (x : OQ7Prescribed.Position),
@@ -1616,6 +1618,8 @@ OQ7Prescribed.vectorL2Distribution_tempered : ∀ (f : ↥OQ7Prescribed.VectorL2
   (OQ7Prescribed.vectorL2Distribution f) φ =
     (MeasureTheory.Lp.toTemperedDistribution f) (OQ7Prescribed.scalarTestSchwartz φ)
 OQ7Prescribed.vectorScalarMul_apply : ∀ (v : OQ7Prescribed.Vector) (z : ℂ), (OQ7Prescribed.vectorScalarMul v) z = z • v
+OQ7Prescribed.weakCurlTest_all_finite_orders : ∀ (φ : OQ7Prescribed.Field),
+  ContDiff ℝ (↑⊤) φ → ∀ (n : ℕ), ContDiff ℝ (↑n) φ
 OQ7Prescribed.weighted_integral_cauchy_sq : ∀ (w g : OQ7Prescribed.Position → ℝ),
   MeasureTheory.Integrable w MeasureTheory.volume →
     MeasureTheory.Integrable (fun y => w y * g y) MeasureTheory.volume →

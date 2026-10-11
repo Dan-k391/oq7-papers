@@ -92,16 +92,35 @@ run_cmd do
         if ($LASTEXITCODE -ne 0 -or $oq7Dirty.Count -ne 0) { throw "Modified tracked dependency: $($oq7Package.name)" }
         $oq7Dependencies += @{ name = $oq7Package.name; revision = $oq7Rev; trackedSourceClean = $true }
     }
+    # The sole target correction changes analytic tests to all smooth tests.
+    # Check exact bytes against the archived original, then permit only that
+    # correction in earlier immutable-source comparisons. No quantifier changes.
+    $oq7OriginalTargetPath = 'verification/physical-target-before-test-correction.txt'
+    $oq7OriginalTargetHash = (Get-FileHash -LiteralPath $oq7OriginalTargetPath -Algorithm SHA256).Hash
+    if ($oq7OriginalTargetHash -ne '071C04ED9417A1D9AC842D61B545183627E6F997C7C1899F908871608859ABF6') {
+        throw 'Original physical target snapshot changed.'
+    }
+    $oq7OriginalTarget = [IO.File]::ReadAllText((Join-Path $PSScriptRoot $oq7OriginalTargetPath))
+    $oq7CorrectedTarget = $oq7OriginalTarget.Replace('ContDiff ℝ ⊤ φ', 'ContDiff ℝ (⊤ : ℕ∞) φ')
+    if ([IO.File]::ReadAllText((Join-Path $PSScriptRoot 'PrescribedExtinction/Maxwell.lean')) -cne $oq7CorrectedTarget) {
+        throw 'Physical target changes exceed the documented smooth-test correction.'
+    }
+    function Get-OQ7PreservedSourceHash([string]$oq7SourcePath) {
+        if ($oq7SourcePath.Replace('\','/') -eq 'PrescribedExtinction/Maxwell.lean') {
+            return $oq7OriginalTargetHash
+        }
+        return (Get-FileHash -LiteralPath $oq7SourcePath -Algorithm SHA256).Hash
+    }
     $oq7LegacyHashes = Get-Content -LiteralPath 'sources/legacy-source-hashes.json' -Raw | ConvertFrom-Json
     foreach ($oq7Saved in $oq7LegacyHashes) {
-        if ((Get-FileHash -LiteralPath $oq7Saved.file -Algorithm SHA256).Hash -ne $oq7Saved.sha256) {
+        if ((Get-OQ7PreservedSourceHash $oq7Saved.file) -ne $oq7Saved.sha256) {
             throw "Preserved legacy source differs: $($oq7Saved.file)"
         }
     }
     $oq7PdfHash = (Get-FileHash -LiteralPath 'sources/OQ7_prescribed_extinction_2026-10-11.pdf' -Algorithm SHA256).Hash
     $oq7PreDyadicHashes = Get-Content -LiteralPath 'sources/pre-dyadic-source-hashes.json' -Raw | ConvertFrom-Json
     foreach ($oq7Saved in $oq7PreDyadicHashes) {
-        if ((Get-FileHash -LiteralPath $oq7Saved.file -Algorithm SHA256).Hash -ne $oq7Saved.sha256) {
+        if ((Get-OQ7PreservedSourceHash $oq7Saved.file) -ne $oq7Saved.sha256) {
             throw "Preserved pre-dyadic source differs: $($oq7Saved.file)"
         }
     }
@@ -118,7 +137,7 @@ run_cmd do
     }
     $oq7ContactBaseline = Get-Content 'sources/pre-contact-source-hashes.json' -Raw | ConvertFrom-Json
     foreach ($oq7Saved in $oq7ContactBaseline) {
-        if ((Get-FileHash $oq7Saved.file -Algorithm SHA256).Hash -ne $oq7Saved.sha256) {
+        if ((Get-OQ7PreservedSourceHash $oq7Saved.file) -ne $oq7Saved.sha256) {
             throw "Preserved dyadic milestone source differs: $($oq7Saved.file)"
         }
     }
@@ -134,7 +153,7 @@ run_cmd do
     }
     $oq7PuncturedBaseline = Get-Content 'sources/pre-punctured-source-hashes.json' -Raw | ConvertFrom-Json
     foreach ($oq7Saved in $oq7PuncturedBaseline) {
-        if ((Get-FileHash $oq7Saved.file -Algorithm SHA256).Hash -ne $oq7Saved.sha256) {
+        if ((Get-OQ7PreservedSourceHash $oq7Saved.file) -ne $oq7Saved.sha256) {
             throw "Preserved contact-progress module differs: $($oq7Saved.file)"
         }
     }
@@ -150,7 +169,7 @@ run_cmd do
     }
     $oq7FourierBaseline = Get-Content 'sources/pre-fourier-source-hashes.json' -Raw | ConvertFrom-Json
     foreach ($oq7Saved in $oq7FourierBaseline) {
-        if ((Get-FileHash $oq7Saved.file -Algorithm SHA256).Hash -ne $oq7Saved.sha256) {
+        if ((Get-OQ7PreservedSourceHash $oq7Saved.file) -ne $oq7Saved.sha256) {
             throw "Preserved module from commit 6874b49 differs: $($oq7Saved.file)"
         }
     }
@@ -181,7 +200,7 @@ run_cmd do
         if ($oq7Required -notin $oq7NewKernelTheorems) { throw "Missing completed contact obligation: $oq7Required" }
     }
     foreach ($oq7Saved in (Get-Content 'sources/pre-static-source-hashes.json' -Raw | ConvertFrom-Json)) {
-        if ((Get-FileHash -LiteralPath $oq7Saved.file -Algorithm SHA256).Hash -ne $oq7Saved.sha256) {
+        if ((Get-OQ7PreservedSourceHash $oq7Saved.file) -ne $oq7Saved.sha256) {
             throw "Preserved Fourier milestone source differs: $($oq7Saved.file)"
         }
     }
@@ -213,12 +232,14 @@ run_cmd do
         'OQ7Prescribed.electricVolumeField_distribution',
         'OQ7Prescribed.magneticVolumeField_distribution',
         'OQ7Prescribed.physicalSourceFields_first_curl',
-        'OQ7Prescribed.physicalSourceFields_second_curl')) {
+        'OQ7Prescribed.physicalSourceFields_second_curl',
+        'OQ7Prescribed.HasWeakCurl.implies_analyticTestWeakCurl',
+        'OQ7Prescribed.weakCurlTest_all_finite_orders')) {
         if ($oq7Required -notin $oq7NewKernelTheorems) { throw "Missing outgoing operator obligation: $oq7Required" }
     }
     if ($oq7PdfHash -ne '3D9775D849234E828370D7C96D8BDCDD574BEB6831A7906EA6B7706579868710') { throw 'Manuscript hash differs.' }
     $oq7TargetHash = (Get-FileHash -LiteralPath 'PrescribedExtinction/Maxwell.lean' -Algorithm SHA256).Hash
-    if ($oq7TargetHash -ne '071C04ED9417A1D9AC842D61B545183627E6F997C7C1899F908871608859ABF6') {
+    if ($oq7TargetHash -ne 'A9950F0F1C9EA4A20FF2C480A71CC4FABDC4AB84F8173851C37A4BD56E0D231B') {
         throw 'Existing physical target source changed. Review quantifiers before continuing.'
     }
     $oq7Hashes = @($oq7Sources | ForEach-Object {
@@ -245,8 +266,11 @@ run_cmd do
         finalTheoremDeclaration = $null
         targetProposition = 'OQ7Prescribed.Theorem11Statement'
         targetIsAProof = $false
-        existingPhysicalTargetSourceUnchanged = $true
-        allPreDyadicLeanModulesUnchanged = $true
+        existingPhysicalTargetSourceUnchanged = $false
+        physicalTargetOnlySmoothTestAnnotationChanged = $true
+        originalPhysicalTargetSnapshotSHA256 = $oq7OriginalTargetHash
+        allPreDyadicLeanModulesUnchanged = $false
+        allEarlierLeanModulesExceptSmoothTestAnnotationUnchanged = $true
         existingAggregateImportPrefixUnchanged = $true
         dyadicGreenMilestoneComplete = $true
         positiveFrequencyOutgoingContactIdentityVerified = $true
@@ -264,11 +288,11 @@ run_cmd do
         outgoingPhysicalCompactDomainL2OperatorVerified = $true
         outgoingWeakMaxwellRepresentationVerified = $false
         scatteringStateExistenceVerified = $false
-        allPreContactLeanModulesUnchanged = $true
-        allPrePuncturedLeanModulesUnchanged = $true
-        allLeanModulesFromCommit6874b49Unchanged = $true
+        allPreContactLeanModulesUnchanged = $false
+        allPrePuncturedLeanModulesUnchanged = $false
+        allLeanModulesFromCommit6874b49Unchanged = $false
         baselineCommit = '6874b492e8d49d2303bb25aa12248b489c9ad13a'
-        allLeanModulesFromCommit8301ddaUnchanged = $true
+        allLeanModulesFromCommit8301ddaUnchanged = $false
         staticContinuationBaselineCommit = '8301dda82eaf84611a4a40982f77dc2787b16861'
         newtonScalarTemperedFourierVerified = $true
         newtonHessianTemperedFourierVerified = $true

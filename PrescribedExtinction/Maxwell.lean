@@ -47,7 +47,7 @@ def curl (F : Field) (x : Position) : Vector := WithLp.toLp 2
 /-- Distributional curl via its action on all smooth compactly supported vector tests.
 The pairing is bilinear, so curl is formally self-transpose without conjugation. -/
 def HasWeakCurl (F G : Field) : Prop :=
-  ∀ φ : Field, ContDiff ℝ ⊤ φ → HasCompactSupport φ →
+  ∀ φ : Field, ContDiff ℝ (⊤ : ℕ∞) φ → HasCompactSupport φ →
     (∫ x : Position, bilinear (F x) (curl φ x)) =
       ∫ x : Position, bilinear (G x) (φ x)
 

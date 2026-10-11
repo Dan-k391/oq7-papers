@@ -135,6 +135,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.greenCancellationEnvelope_nonneg
 #check @OQ7Prescribed.greenHessian_apply
 #check @OQ7Prescribed.greenHessian_eq_static_add_dynamic
+#check @OQ7Prescribed.HasWeakCurl.implies_analyticTestWeakCurl
 #check @OQ7Prescribed.incident_absorber_coupling
 #check @OQ7Prescribed.incident_plate_coupling
 #check @OQ7Prescribed.incident_plate_rankOne
@@ -501,4 +502,5 @@ import PrescribedExtinction
 #check @OQ7Prescribed.vectorL2Distribution_apply
 #check @OQ7Prescribed.vectorL2Distribution_tempered
 #check @OQ7Prescribed.vectorScalarMul_apply
+#check @OQ7Prescribed.weakCurlTest_all_finite_orders
 #check @OQ7Prescribed.weighted_integral_cauchy_sq

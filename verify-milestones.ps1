@@ -41,7 +41,8 @@ try {
         @{ name = 'dyadic-maxwell-source'; module = 'PrescribedExtinction.DyadicMaxwellSource' },
         @{ name = 'young-convolution'; module = 'PrescribedExtinction.YoungConvolution' },
         @{ name = 'green-gradient-current'; module = 'PrescribedExtinction.GradientCurrentPairing' },
-        @{ name = 'physical-source-fields'; module = 'PrescribedExtinction.PhysicalSourceFields' }
+        @{ name = 'physical-source-fields'; module = 'PrescribedExtinction.PhysicalSourceFields' },
+        @{ name = 'smooth-test-correction'; module = 'PrescribedExtinction.TestRegularity' }
     )
     if ($Only) {
         foreach ($oq7Name in $Only) {

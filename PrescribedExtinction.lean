@@ -60,3 +60,4 @@ import PrescribedExtinction.GreenGradient
 import PrescribedExtinction.GreenFirstDerivative
 import PrescribedExtinction.GradientCurrentPairing
 import PrescribedExtinction.PhysicalSourceFields
+import PrescribedExtinction.TestRegularity

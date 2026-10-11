@@ -1525,6 +1525,9 @@ import PrescribedExtinction
 #print axioms OQ7.weightedGram_quadraticDensity
 #print axioms OQ7.weightedGram.eq_1
 #print axioms OQ7Prescribed.absorption
+#print axioms OQ7Prescribed.AnalyticTestWeakCurl
+#print axioms OQ7Prescribed.AnalyticTestWeakCurl._proof_1
+#print axioms OQ7Prescribed.AnalyticTestWeakCurl._proof_2
 #print axioms OQ7Prescribed.axisCoupling
 #print axioms OQ7Prescribed.axisCoupling_bound
 #print axioms OQ7Prescribed.axisCoupling_eq_inner
@@ -1915,6 +1918,7 @@ import PrescribedExtinction
 #print axioms OQ7Prescribed.HasWeakCurl
 #print axioms OQ7Prescribed.HasWeakCurl._proof_1
 #print axioms OQ7Prescribed.HasWeakCurl._proof_2
+#print axioms OQ7Prescribed.HasWeakCurl.implies_analyticTestWeakCurl
 #print axioms OQ7Prescribed.incident_absorber_coupling
 #print axioms OQ7Prescribed.incident_plate_coupling
 #print axioms OQ7Prescribed.incident_plate_rankOne
@@ -2712,7 +2716,7 @@ import PrescribedExtinction
 #print axioms OQ7Prescribed.supportedPolarization._simp_1
 #print axioms OQ7Prescribed.supportedPolarization._simp_2
 #print axioms OQ7Prescribed.supportedPolarization.congr_simp
-#print axioms OQ7Prescribed.supportedVectorL2
+#print axioms OQ7Prescribed.SupportedVectorL2
 #print axioms OQ7Prescribed.supportedVectorL2_completeSpace
 #print axioms OQ7Prescribed.supportedVectorL2_current_ae
 #print axioms OQ7Prescribed.supportedVectorL2_isClosed
@@ -2831,6 +2835,7 @@ import PrescribedExtinction
 #print axioms OQ7Prescribed.vectorScalarMul._proof_1
 #print axioms OQ7Prescribed.vectorScalarMul._proof_2
 #print axioms OQ7Prescribed.vectorScalarMul._proof_3
+#print axioms OQ7Prescribed.weakCurlTest_all_finite_orders
 #print axioms OQ7Prescribed.WeakMaxwell
 #print axioms OQ7Prescribed.weighted_integral_cauchy_sq
 
