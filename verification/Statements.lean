@@ -281,11 +281,15 @@ import PrescribedExtinction
 #check @OQ7Prescribed.electricDecayConstant_nonneg
 #check @OQ7Prescribed.electricExterior_component_distribution
 #check @OQ7Prescribed.electricExterior_eq_ae
+#check @OQ7Prescribed.electricVolumeField_centered_slab_uniform_error
+#check @OQ7Prescribed.electricVolumeField_centered_smooth_slab_uniform_L2_residual
 #check @OQ7Prescribed.electricVolumeField_component_locallyIntegrableOn
 #check @OQ7Prescribed.electricVolumeField_congr_current
 #check @OQ7Prescribed.electricVolumeField_distribution
 #check @OQ7Prescribed.electricVolumeField_locallySquareIntegrable
 #check @OQ7Prescribed.electricVolumeField_slab_uniform_aperture_error
+#check @OQ7Prescribed.electricVolumeField_smooth_slab_residual_norm_sq
+#check @OQ7Prescribed.electricVolumeField_smooth_slab_uniform_L2_residual
 #check @OQ7Prescribed.exp_remainder_two_norm
 #check @OQ7Prescribed.exterior_current_component_pairing
 #check @OQ7Prescribed.exterior_current_correlation_joint_integrable
@@ -357,6 +361,9 @@ import PrescribedExtinction
 #check @OQ7Prescribed.HasWeakCurl.add_fields
 #check @OQ7Prescribed.HasWeakCurl.congr_ae
 #check @OQ7Prescribed.HasWeakCurl.implies_analyticTestWeakCurl
+#check @OQ7Prescribed.heightProfile_fixed_support_smooth_density
+#check @OQ7Prescribed.heightProfile_integrable
+#check @OQ7Prescribed.heightProfile_integral_norm_bound
 #check @OQ7Prescribed.horizontalSlabPotential_contDiff
 #check @OQ7Prescribed.horizontalSlabPotential_error
 #check @OQ7Prescribed.horizontalSlabPotential_height_integrable
@@ -429,6 +436,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.materialVolumeCurrent_supported
 #check @OQ7Prescribed.materialVolumeEquation_exists
 #check @OQ7Prescribed.materialVolumeEquation_unique_current
+#check @OQ7Prescribed.memLp_two_integral_norm_sq
 #check @OQ7Prescribed.newton_classical_hessian
 #check @OQ7Prescribed.newton_compensated_cutoff_tendsto
 #check @OQ7Prescribed.newton_contact_identity_real
@@ -680,7 +688,10 @@ import PrescribedExtinction
 #check @OQ7Prescribed.physicalVolume_scattering_eq_Haar
 #check @OQ7Prescribed.physicalVolume_scattering_nonneg
 #check @OQ7Prescribed.physicalVolume_work_balance
+#check @OQ7Prescribed.planarScalarGreen_continuous
 #check @OQ7Prescribed.planarScalarGreen_norm
+#check @OQ7Prescribed.planarSlabTransverse_continuous_product
+#check @OQ7Prescribed.planarSlabTransverse_factorization
 #check @OQ7Prescribed.planarSlabTransverse_integrable
 #check @OQ7Prescribed.planePhase_contDiff
 #check @OQ7Prescribed.planePhase_hasFDerivAt
@@ -773,9 +784,12 @@ import PrescribedExtinction
 #check @OQ7Prescribed.scalarOutgoingPotential_slab_product_integrable
 #check @OQ7Prescribed.scalarOutgoingPotential_slab_second_horizontal_partial
 #check @OQ7Prescribed.scalarOutgoingPotential_slab_separation
+#check @OQ7Prescribed.scalarOutgoingSlabTransverse_centered_uniform_error
 #check @OQ7Prescribed.scalarOutgoingSlabTransverse_height_integrable
 #check @OQ7Prescribed.scalarOutgoingSlabTransverse_separation
 #check @OQ7Prescribed.scalarOutgoingSlabTransverse_uniform_aperture_error
+#check @OQ7Prescribed.scalarPlanarPotential_contDiff
+#check @OQ7Prescribed.scalarPlanarPotential_convolution
 #check @OQ7Prescribed.scalarTest_global_lipschitz
 #check @OQ7Prescribed.scalarTest_support_radius
 #check @OQ7Prescribed.scalarTestSchwartz_apply
@@ -793,6 +807,8 @@ import PrescribedExtinction
 #check @OQ7Prescribed.scaledApertureWindow_support
 #check @OQ7Prescribed.scaledOutgoingPhase_plane_error
 #check @OQ7Prescribed.scaledOutgoingRadial
+#check @OQ7Prescribed.separatedProduct_memLp_two
+#check @OQ7Prescribed.separatedProduct_norm
 #check @OQ7Prescribed.setRestrictionCLM_inner
 #check @OQ7Prescribed.setRestrictionCLM_norm_le
 #check @OQ7Prescribed.setSupportedL2_isClosed
@@ -827,6 +843,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.slabHeightRadiusDeriv_eq
 #check @OQ7Prescribed.slabHorizontalCLM_apply
 #check @OQ7Prescribed.slabHorizontalCLM_at_slab
+#check @OQ7Prescribed.slabPhysicalProjectionError_aestronglyMeasurable
 #check @OQ7Prescribed.slabPolar_integrable
 #check @OQ7Prescribed.slabPolar_symm
 #check @OQ7Prescribed.slabPosition_horizontal_height
@@ -834,7 +851,11 @@ import PrescribedExtinction
 #check @OQ7Prescribed.slabPosition_norm_ge
 #check @OQ7Prescribed.slabPosition_norm_sq
 #check @OQ7Prescribed.slabPosition_sub
+#check @OQ7Prescribed.slabProduct_uniform_error_integral_sq
 #check @OQ7Prescribed.slabProductFunction_hasCompactSupport
+#check @OQ7Prescribed.slabProductRegion_measurable
+#check @OQ7Prescribed.slabProductRegion_measure_lt_top
+#check @OQ7Prescribed.slabProductRegion_volume_real
 #check @OQ7Prescribed.slabRadial_change_variables
 #check @OQ7Prescribed.slabRadialWindow_error
 #check @OQ7Prescribed.slabRadialWindow_identity
@@ -844,6 +865,8 @@ import PrescribedExtinction
 #check @OQ7Prescribed.slabSeparatedFunction_contDiff
 #check @OQ7Prescribed.slabSeparatedFunction_hasCompactSupport
 #check @OQ7Prescribed.slabSeparatedFunction_horizontal_partial
+#check @OQ7Prescribed.slabSeparatedFunction_L2_norm
+#check @OQ7Prescribed.slabSeparatedFunction_memLp_two
 #check @OQ7Prescribed.slabWindow_circle
 #check @OQ7Prescribed.smooth_cutoff_bilinear_flux_integrable
 #check @OQ7Prescribed.smooth_cutoff_flux_integrable

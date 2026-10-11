@@ -988,6 +988,70 @@ OQ7Prescribed.electricExterior_component_distribution : ∀ (k : ℝ) (p : OQ7Pr
 OQ7Prescribed.electricExterior_eq_ae : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization),
   OQ7Prescribed.exteriorElectric k p =ᵐ[MeasureTheory.volume.restrict ↑(OQ7Prescribed.currentExterior p)]
     OQ7Prescribed.electricVolumeField k p
+OQ7Prescribed.electricVolumeField_centered_slab_uniform_error : ∀ (k : ℝ),
+  0 < k →
+    ∀ (w : ℂ → ℂ),
+      ContDiff ℝ (↑⊤) w →
+        HasCompactSupport w →
+          ∀ (A X L : ℝ),
+            0 ≤ A →
+              0 ≤ X →
+                0 ≤ L →
+                  tsupport w ⊆ Metric.closedBall 0 A →
+                    ∃ C,
+                      0 < C ∧
+                        ∀ (q : ℝ → ℂ),
+                          ContDiff ℝ (↑⊤) q →
+                            HasCompactSupport q →
+                              tsupport q ⊆ Metric.closedBall 0 L →
+                                ∀ (R : ℝ) (u v : ℂ),
+                                  1 ≤ R →
+                                    ‖u‖ ≤ 1 →
+                                      ‖v‖ ≤ 1 →
+                                        ∀ (p : OQ7Prescribed.CompactPolarization),
+                                          (p.current = fun y =>
+                                              OQ7Prescribed.slabSeparatedFunction
+                                                  (OQ7Prescribed.scaledApertureWindow w R) q y •
+                                                OQ7Prescribed.complexify (OQ7Prescribed.slabPosition u 0)) →
+                                            ∀ᵐ (y : OQ7Prescribed.Position),
+                                              ‖OQ7Prescribed.slabHorizontalCoordinate y‖ ≤ X * R →
+                                                |y.ofLp 2| ≤ L →
+                                                  ‖OQ7Prescribed.axisCoupling (OQ7Prescribed.slabPosition v 0)
+                                                          (OQ7Prescribed.electricVolumeField k p y) -
+                                                        OQ7Prescribed.planarSlabTransverse k
+                                                          (OQ7Prescribed.scaledApertureWindow w R) q
+                                                          (OQ7Prescribed.slabHorizontalCoordinate y) (y.ofLp 2) u v‖ ≤
+                                                    C / R * ∫ (t : ℝ), ‖q t‖
+OQ7Prescribed.electricVolumeField_centered_smooth_slab_uniform_L2_residual : ∀ (k : ℝ),
+  0 < k →
+    ∀ (w : ℂ → ℂ),
+      ContDiff ℝ (↑⊤) w →
+        HasCompactSupport w →
+          ∀ (A X L : ℝ),
+            0 ≤ A →
+              0 ≤ X →
+                0 ≤ L →
+                  tsupport w ⊆ Metric.closedBall 0 A →
+                    ∃ C,
+                      0 < C ∧
+                        ∀ (q : ℝ → ℂ),
+                          ContDiff ℝ (↑⊤) q →
+                            HasCompactSupport q →
+                              tsupport q ⊆ Metric.closedBall 0 L →
+                                ∀ (R : ℝ) (u v : ℂ),
+                                  1 ≤ R →
+                                    ‖u‖ ≤ 1 →
+                                      ‖v‖ ≤ 1 →
+                                        ∀ (p : OQ7Prescribed.CompactPolarization),
+                                          (p.current = fun y =>
+                                              OQ7Prescribed.slabSeparatedFunction
+                                                  (OQ7Prescribed.scaledApertureWindow w R) q y •
+                                                OQ7Prescribed.complexify (OQ7Prescribed.slabPosition u 0)) →
+                                            ∫ (y : ℂ × ℝ) in OQ7Prescribed.slabProductRegion (X * R) L,
+                                                ‖OQ7Prescribed.slabPhysicalProjectionError k p
+                                                      (OQ7Prescribed.scaledApertureWindow w R) q u v y‖ ^
+                                                  2 ≤
+                                              C ^ 2 * (∫ (t : ℝ), ‖q t‖) ^ 2 * X ^ 2 * Real.pi * L
 OQ7Prescribed.electricVolumeField_component_locallyIntegrableOn : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization)
   (i : Fin 3),
   MeasureTheory.LocallyIntegrableOn (fun x => (OQ7Prescribed.electricVolumeField k p x).ofLp i)
@@ -1034,6 +1098,64 @@ OQ7Prescribed.electricVolumeField_slab_uniform_aperture_error : ∀ (k : ℝ),
                                                           (OQ7Prescribed.scaledApertureWindow w R) q
                                                           (OQ7Prescribed.slabHorizontalCoordinate y) (y.ofLp 2) u v‖ ≤
                                                     C / R * ∫ (t : ℝ), ‖q t‖
+OQ7Prescribed.electricVolumeField_smooth_slab_residual_norm_sq : ∀ (k : ℝ),
+  0 < k →
+    ∀ (w : ℂ → ℂ),
+      ContDiff ℝ (↑⊤) w →
+        HasCompactSupport w →
+          ∀ (A X L : ℝ),
+            0 ≤ A →
+              0 ≤ X →
+                0 ≤ L →
+                  tsupport w ⊆ Metric.closedBall 0 A →
+                    ∃ C,
+                      0 < C ∧
+                        ∀ (q : ℝ → ℂ) (hq : ContDiff ℝ (↑⊤) q) (hqc : HasCompactSupport q),
+                          tsupport q ⊆ Metric.closedBall 0 L →
+                            ∀ (R : ℝ) (u v : ℂ),
+                              1 ≤ R →
+                                ‖u‖ ≤ 1 →
+                                  ‖v‖ ≤ 1 →
+                                    ∀ (p : OQ7Prescribed.CompactPolarization),
+                                      (p.current = fun y =>
+                                          OQ7Prescribed.slabSeparatedFunction (OQ7Prescribed.scaledApertureWindow w R) q
+                                              y •
+                                            OQ7Prescribed.complexify (OQ7Prescribed.slabPosition u 0)) →
+                                        ∫ (y : ℂ × ℝ) in OQ7Prescribed.slabProductRegion (X * R) L,
+                                            ‖OQ7Prescribed.slabPhysicalProjectionError k p
+                                                  (OQ7Prescribed.scaledApertureWindow w R) q u v y‖ ^
+                                              2 ≤
+                                          2 * C ^ 2 * X ^ 2 * Real.pi * L ^ 2 * ‖MeasureTheory.MemLp.toLp q ⋯‖ ^ 2
+OQ7Prescribed.electricVolumeField_smooth_slab_uniform_L2_residual : ∀ (k : ℝ),
+  0 < k →
+    ∀ (w : ℂ → ℂ),
+      ContDiff ℝ (↑⊤) w →
+        HasCompactSupport w →
+          ∀ (A X L : ℝ),
+            0 ≤ A →
+              0 ≤ X →
+                0 ≤ L →
+                  tsupport w ⊆ Metric.closedBall 0 A →
+                    ∃ C,
+                      0 < C ∧
+                        ∀ (q : ℝ → ℂ),
+                          ContDiff ℝ (↑⊤) q →
+                            HasCompactSupport q →
+                              tsupport q ⊆ Set.Icc 0 L →
+                                ∀ (R : ℝ) (u v : ℂ),
+                                  1 ≤ R →
+                                    ‖u‖ ≤ 1 →
+                                      ‖v‖ ≤ 1 →
+                                        ∀ (p : OQ7Prescribed.CompactPolarization),
+                                          (p.current = fun y =>
+                                              OQ7Prescribed.slabSeparatedFunction
+                                                  (OQ7Prescribed.scaledApertureWindow w R) q y •
+                                                OQ7Prescribed.complexify (OQ7Prescribed.slabPosition u 0)) →
+                                            ∫ (y : ℂ × ℝ) in OQ7Prescribed.slabProductRegion (X * R) L,
+                                                ‖OQ7Prescribed.slabPhysicalProjectionError k p
+                                                      (OQ7Prescribed.scaledApertureWindow w R) q u v y‖ ^
+                                                  2 ≤
+                                              C ^ 2 * (∫ (t : ℝ), ‖q t‖) ^ 2 * X ^ 2 * Real.pi * L
 OQ7Prescribed.exp_remainder_two_norm : ∀ (z : ℂ), ‖Complex.exp z - 1 - z‖ ≤ ‖z‖ ^ 2 * Real.exp ‖z‖
 OQ7Prescribed.exterior_current_component_pairing : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization)
   (φ : OQ7Prescribed.ScalarTest),
@@ -1364,6 +1486,24 @@ OQ7Prescribed.greenHessian_eq_static_add_dynamic : ∀ (k : ℝ) (i j : Fin 3),
     F =ᵐ[MeasureTheory.volume] F' → G =ᵐ[MeasureTheory.volume] G' → OQ7Prescribed.HasWeakCurl F' G'
 OQ7Prescribed.HasWeakCurl.implies_analyticTestWeakCurl : ∀ (F G : OQ7Prescribed.Field),
   OQ7Prescribed.HasWeakCurl F G → OQ7Prescribed.AnalyticTestWeakCurl F G
+OQ7Prescribed.heightProfile_fixed_support_smooth_density : ∀ (f : ℝ → ℂ),
+  MeasureTheory.MemLp f 2 MeasureTheory.volume →
+    ∀ (L : ℝ),
+      0 ≤ L →
+        (∀ᵐ (t : ℝ), t ∉ Metric.closedBall 0 L → f t = 0) →
+          ∀ (ε : ℝ),
+            0 < ε →
+              ∃ q,
+                ContDiff ℝ (↑⊤) q ∧
+                  HasCompactSupport q ∧
+                    tsupport q ⊆ Metric.closedBall 0 (L + 2) ∧
+                      MeasureTheory.eLpNorm (f - q) 2 MeasureTheory.volume ≤ ENNReal.ofReal ε
+OQ7Prescribed.heightProfile_integrable : ∀ (q : ℝ → ℂ),
+  MeasureTheory.MemLp q 2 MeasureTheory.volume →
+    ∀ (L : ℝ), (∀ᵐ (t : ℝ), t ∉ Set.Icc (-L) L → q t = 0) → MeasureTheory.Integrable q MeasureTheory.volume
+OQ7Prescribed.heightProfile_integral_norm_bound : ∀ (q : ℝ → ℂ) (hq : MeasureTheory.MemLp q 2 MeasureTheory.volume)
+  (L : ℝ),
+  0 ≤ L → (∀ᵐ (t : ℝ), t ∉ Set.Icc (-L) L → q t = 0) → ∫ (t : ℝ), ‖q t‖ ≤ ‖MeasureTheory.MemLp.toLp q hq‖ * √(2 * L)
 OQ7Prescribed.horizontalSlabPotential_contDiff : ∀ (k s : ℝ) (w : ℂ → ℂ),
   ContDiff ℝ (↑⊤) w → HasCompactSupport w → ContDiff ℝ (↑⊤) (OQ7Prescribed.horizontalSlabPotential k s w)
 OQ7Prescribed.horizontalSlabPotential_error : ∀ (k : ℝ),
@@ -1775,6 +1915,9 @@ OQ7Prescribed.materialVolumeEquation_unique_current : ∀ (k : ℝ),
         ∀ (σ : OQ7Prescribed.Direction) (p q : OQ7Prescribed.CompactPolarization),
           OQ7Prescribed.MaterialVolumeEquation k B σ p →
             OQ7Prescribed.MaterialVolumeEquation k B σ q → p.current =ᵐ[MeasureTheory.volume] q.current
+@OQ7Prescribed.memLp_two_integral_norm_sq : ∀ {α : Type u_1} [inst : MeasurableSpace α] {μ : MeasureTheory.Measure α}
+  [MeasureTheory.SFinite μ] (f : α → ℂ) (hf : MeasureTheory.MemLp f 2 μ),
+  ∫ (x : α), ‖f x‖ ^ 2 ∂μ = ‖MeasureTheory.MemLp.toLp f hf‖ ^ 2
 OQ7Prescribed.newton_classical_hessian : ∀ (x : OQ7Prescribed.Position),
   x ≠ 0 →
     ∀ (i j : Fin 3),
@@ -2661,7 +2804,15 @@ OQ7Prescribed.physicalVolume_work_balance : ∀ (k : ℝ) (B : OQ7Prescribed.Two
     OQ7Prescribed.extinction k B σ (OQ7Prescribed.volumeTotalElectric k σ (OQ7Prescribed.bodyCurrentPolarization B f)) =
       OQ7Prescribed.absorption k B (OQ7Prescribed.volumeTotalElectric k σ (OQ7Prescribed.bodyCurrentPolarization B f)) +
         k * (inner ℂ f ((OQ7Prescribed.bodyOutgoingOperator k B) f)).im
+OQ7Prescribed.planarScalarGreen_continuous : ∀ (k : ℝ), Continuous (OQ7Prescribed.planarScalarGreen k)
 OQ7Prescribed.planarScalarGreen_norm : ∀ (k s : ℝ), 0 < k → ‖OQ7Prescribed.planarScalarGreen k s‖ = 1 / (2 * k)
+OQ7Prescribed.planarSlabTransverse_continuous_product : ∀ (k : ℝ) (w : ℂ → ℂ) (q : ℝ → ℂ),
+  Continuous w →
+    ContDiff ℝ (↑⊤) q →
+      HasCompactSupport q → ∀ (u v : ℂ), Continuous fun y => OQ7Prescribed.planarSlabTransverse k w q y.1 y.2 u v
+OQ7Prescribed.planarSlabTransverse_factorization : ∀ (k : ℝ) (w : ℂ → ℂ) (q : ℝ → ℂ) (x u v : ℂ) (z : ℝ),
+  OQ7Prescribed.planarSlabTransverse k w q x z u v =
+    (k ^ 2 * inner ℝ u v) • (w x * OQ7Prescribed.scalarPlanarPotential k q z)
 OQ7Prescribed.planarSlabTransverse_integrable : ∀ (k : ℝ),
   0 < k →
     ∀ (w : ℂ → ℂ) (q : ℝ → ℂ),
@@ -3052,6 +3203,33 @@ OQ7Prescribed.scalarOutgoingPotential_slab_separation : ∀ (k : ℝ) (w : ℂ �
             OQ7Prescribed.scalarOutgoingPotential k (OQ7Prescribed.slabSeparatedFunction w q)
                 (OQ7Prescribed.slabPosition x z) =
               ∫ (t : ℝ), OQ7Prescribed.horizontalSlabPotential k (z - t) w x * q t
+OQ7Prescribed.scalarOutgoingSlabTransverse_centered_uniform_error : ∀ (k : ℝ),
+  0 < k →
+    ∀ (w : ℂ → ℂ),
+      ContDiff ℝ (↑⊤) w →
+        HasCompactSupport w →
+          ∀ (A X L : ℝ),
+            0 ≤ A →
+              0 ≤ X →
+                0 ≤ L →
+                  tsupport w ⊆ Metric.closedBall 0 A →
+                    ∃ C,
+                      0 < C ∧
+                        ∀ (q : ℝ → ℂ),
+                          ContDiff ℝ (↑⊤) q →
+                            HasCompactSupport q →
+                              tsupport q ⊆ Metric.closedBall 0 L →
+                                ∀ (R z : ℝ) (x u v : ℂ),
+                                  1 ≤ R →
+                                    |z| ≤ L →
+                                      ‖x‖ ≤ X * R →
+                                        ‖u‖ ≤ 1 →
+                                          ‖v‖ ≤ 1 →
+                                            ‖OQ7Prescribed.scalarOutgoingSlabTransverse k
+                                                    (OQ7Prescribed.scaledApertureWindow w R) q x z u v -
+                                                  OQ7Prescribed.planarSlabTransverse k
+                                                    (OQ7Prescribed.scaledApertureWindow w R) q x z u v‖ ≤
+                                              C / R * ∫ (t : ℝ), ‖q t‖
 OQ7Prescribed.scalarOutgoingSlabTransverse_height_integrable : ∀ (k : ℝ) (w : ℂ → ℂ) (q : ℝ → ℂ),
   ContDiff ℝ (↑⊤) w →
     ContDiff ℝ (↑⊤) q →
@@ -3095,6 +3273,11 @@ OQ7Prescribed.scalarOutgoingSlabTransverse_uniform_aperture_error : ∀ (k : ℝ
                                                   OQ7Prescribed.planarSlabTransverse k
                                                     (OQ7Prescribed.scaledApertureWindow w R) q x z u v‖ ≤
                                               C / R * ∫ (t : ℝ), ‖q t‖
+OQ7Prescribed.scalarPlanarPotential_contDiff : ∀ (k : ℝ) (q : ℝ → ℂ),
+  ContDiff ℝ (↑⊤) q → HasCompactSupport q → ContDiff ℝ (↑⊤) (OQ7Prescribed.scalarPlanarPotential k q)
+OQ7Prescribed.scalarPlanarPotential_convolution : ∀ (k : ℝ) (q : ℝ → ℂ),
+  OQ7Prescribed.scalarPlanarPotential k q =
+    MeasureTheory.convolution q (OQ7Prescribed.planarScalarGreen k) (ContinuousLinearMap.mul ℝ ℂ) MeasureTheory.volume
 OQ7Prescribed.scalarTest_global_lipschitz : ∀ (φ : OQ7Prescribed.ScalarTest), ∃ L, LipschitzWith L ⇑φ
 OQ7Prescribed.scalarTest_support_radius : ∀ (φ : OQ7Prescribed.ScalarTest),
   ∃ S, 0 < S ∧ ∀ (x : OQ7Prescribed.Position), φ x ≠ 0 → ‖x‖ ≤ S
@@ -3161,6 +3344,16 @@ OQ7Prescribed.scaledOutgoingPhase_plane_error : ∀ (k R : ℝ),
 OQ7Prescribed.scaledOutgoingRadial : ∀ (k : ℝ) (x y : OQ7Prescribed.Position),
   ↑‖x‖ * Complex.exp (-Complex.I * ↑(k * ‖x‖)) * (↑(k ^ 2) * OQ7Prescribed.outgoingRadial k ‖x - y‖) =
     ↑(k ^ 2 / (4 * Real.pi)) * OQ7Prescribed.scaledOutgoingPhase k x y
+@OQ7Prescribed.separatedProduct_memLp_two : ∀ {α : Type u_1} {β : Type u_2} [inst : MeasurableSpace α]
+  [inst_1 : MeasurableSpace β] {μ : MeasureTheory.Measure α} {ν : MeasureTheory.Measure β} [MeasureTheory.SFinite μ]
+  [MeasureTheory.SFinite ν] (f : α → ℂ) (g : β → ℂ),
+  MeasureTheory.MemLp f 2 μ → MeasureTheory.MemLp g 2 ν → MeasureTheory.MemLp (fun z => f z.1 * g z.2) 2 (μ.prod ν)
+@OQ7Prescribed.separatedProduct_norm : ∀ {α : Type u_1} {β : Type u_2} [inst : MeasurableSpace α]
+  [inst_1 : MeasurableSpace β] {μ : MeasureTheory.Measure α} {ν : MeasureTheory.Measure β}
+  [inst_2 : MeasureTheory.SFinite μ] [inst_3 : MeasureTheory.SFinite ν] (f : α → ℂ) (g : β → ℂ)
+  (hf : MeasureTheory.MemLp f 2 μ) (hg : MeasureTheory.MemLp g 2 ν),
+  ‖MeasureTheory.MemLp.toLp (fun z => f z.1 * g z.2) ⋯‖ =
+    ‖MeasureTheory.MemLp.toLp f hf‖ * ‖MeasureTheory.MemLp.toLp g hg‖
 @OQ7Prescribed.setRestrictionCLM_inner : ∀ {α : Type u_1} {E : Type u_2} [inst : MeasurableSpace α]
   [inst_1 : NormedAddCommGroup E] [inst_2 : InnerProductSpace ℂ E] [inst_3 : CompleteSpace E]
   (μ : MeasureTheory.Measure α) (s : Set α) (hs : MeasurableSet s) (f : ↥(OQ7Prescribed.SetSupportedL2 μ s))
@@ -3277,6 +3470,17 @@ OQ7Prescribed.slabHorizontalCLM_apply : ∀ (x : OQ7Prescribed.Position),
   OQ7Prescribed.slabHorizontalCLM x = OQ7Prescribed.slabHorizontalCoordinate x
 OQ7Prescribed.slabHorizontalCLM_at_slab : ∀ (v : ℂ),
   OQ7Prescribed.slabHorizontalCLM (OQ7Prescribed.slabPosition v 0) = v
+OQ7Prescribed.slabPhysicalProjectionError_aestronglyMeasurable : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization)
+  (w : ℂ → ℂ) (q : ℝ → ℂ),
+  ContDiff ℝ (↑⊤) w →
+    ContDiff ℝ (↑⊤) q →
+      HasCompactSupport w →
+        HasCompactSupport q →
+          ∀ (u v : ℂ),
+            (p.current = fun y =>
+                OQ7Prescribed.slabSeparatedFunction w q y • OQ7Prescribed.complexify (OQ7Prescribed.slabPosition u 0)) →
+              MeasureTheory.AEStronglyMeasurable (OQ7Prescribed.slabPhysicalProjectionError k p w q u v)
+                MeasureTheory.volume
 OQ7Prescribed.slabPolar_integrable : ∀ (f : ℂ → ℂ),
   Measurable f →
     MeasureTheory.Integrable f MeasureTheory.volume →
@@ -3289,8 +3493,22 @@ OQ7Prescribed.slabPosition_norm_ge : ∀ (w : ℂ) (z : ℝ), ‖w‖ ≤ ‖OQ7
 OQ7Prescribed.slabPosition_norm_sq : ∀ (w : ℂ) (z : ℝ), ‖OQ7Prescribed.slabPosition w z‖ ^ 2 = ‖w‖ ^ 2 + z ^ 2
 OQ7Prescribed.slabPosition_sub : ∀ (w y : ℂ) (z t : ℝ),
   OQ7Prescribed.slabPosition w z - OQ7Prescribed.slabPosition y t = OQ7Prescribed.slabPosition (w - y) (z - t)
+OQ7Prescribed.slabProduct_uniform_error_integral_sq : ∀ (f : ℂ × ℝ → ℂ),
+  MeasureTheory.AEStronglyMeasurable f MeasureTheory.volume →
+    ∀ (D X L R : ℝ),
+      0 ≤ D →
+        0 ≤ X →
+          0 ≤ L →
+            0 < R →
+              (∀ᵐ (y : ℂ × ℝ), y ∈ OQ7Prescribed.slabProductRegion (X * R) L → ‖f y‖ ≤ D / R) →
+                ∫ (y : ℂ × ℝ) in OQ7Prescribed.slabProductRegion (X * R) L, ‖f y‖ ^ 2 ≤ D ^ 2 * X ^ 2 * Real.pi * L
 OQ7Prescribed.slabProductFunction_hasCompactSupport : ∀ (w : ℂ → ℂ) (q : ℝ → ℂ),
   HasCompactSupport w → HasCompactSupport q → HasCompactSupport (OQ7Prescribed.slabProductFunction w q)
+OQ7Prescribed.slabProductRegion_measurable : ∀ (r L : ℝ), MeasurableSet (OQ7Prescribed.slabProductRegion r L)
+OQ7Prescribed.slabProductRegion_measure_lt_top : ∀ (r L : ℝ),
+  MeasureTheory.volume (OQ7Prescribed.slabProductRegion r L) < ⊤
+OQ7Prescribed.slabProductRegion_volume_real : ∀ (r L : ℝ),
+  0 ≤ r → 0 ≤ L → (MeasureTheory.volume (OQ7Prescribed.slabProductRegion r L)).toReal = r ^ 2 * Real.pi * L
 OQ7Prescribed.slabRadial_change_variables : ∀ (w : ℂ → ℂ),
   ContDiff ℝ (↑⊤) w →
     ∀ (x : ℂ) (k s U : ℝ),
@@ -3351,6 +3569,14 @@ OQ7Prescribed.slabSeparatedFunction_horizontal_partial : ∀ (w : ℂ → ℂ) (
       ∀ (x : OQ7Prescribed.Position) (v : ℂ),
         (fderiv ℝ (OQ7Prescribed.slabSeparatedFunction w q) x) (OQ7Prescribed.slabPosition v 0) =
           OQ7Prescribed.slabSeparatedFunction (OQ7Prescribed.apertureWindowPartial w v) q x
+OQ7Prescribed.slabSeparatedFunction_L2_norm : ∀ (w : ℂ → ℂ) (q : ℝ → ℂ)
+  (hw : MeasureTheory.MemLp w 2 MeasureTheory.volume) (hq : MeasureTheory.MemLp q 2 MeasureTheory.volume),
+  ‖MeasureTheory.MemLp.toLp (OQ7Prescribed.slabSeparatedFunction w q) ⋯‖ =
+    ‖MeasureTheory.MemLp.toLp w hw‖ * ‖MeasureTheory.MemLp.toLp q hq‖
+OQ7Prescribed.slabSeparatedFunction_memLp_two : ∀ (w : ℂ → ℂ) (q : ℝ → ℂ),
+  MeasureTheory.MemLp w 2 MeasureTheory.volume →
+    MeasureTheory.MemLp q 2 MeasureTheory.volume →
+      MeasureTheory.MemLp (OQ7Prescribed.slabSeparatedFunction w q) 2 MeasureTheory.volume
 OQ7Prescribed.slabWindow_circle : ∀ (w : ℂ → ℂ) (x : ℂ) (r : ℝ),
   ∫ (θ : ℝ) in Set.Ioo (-Real.pi) Real.pi, w (x - circleMap 0 r θ) =
     (2 * Real.pi) • OQ7Prescribed.apertureCircleJet 0 w x r

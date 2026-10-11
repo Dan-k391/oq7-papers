@@ -68,7 +68,8 @@ try {
         @{ name = 'physical-extinction-reciprocity'; module = 'PrescribedExtinction.ExtinctionReciprocity' },
         @{ name = 'physical-normalized-rotation-powers'; module = 'PrescribedExtinction.NormalizedRotationPowers' },
         @{ name = 'physical-scalar-aperture'; module = 'PrescribedExtinction.SlabScaledEstimate' },
-        @{ name = 'physical-smooth-slab-aperture'; module = 'PrescribedExtinction.SlabPhysicalAperture' }
+        @{ name = 'physical-smooth-slab-aperture'; module = 'PrescribedExtinction.SlabPhysicalAperture' },
+        @{ name = 'physical-smooth-slab-L2'; module = 'PrescribedExtinction.SlabSmoothCenteredL2Residual' }
     )
     if ($Only) {
         foreach ($oq7Name in $Only) {

@@ -373,6 +373,14 @@ run_cmd do
         'OQ7Prescribed.smoothDyadicField_eq_electricVolumeField',
         'OQ7Prescribed.smoothDyadicField_axis_source_projection',
         'OQ7Prescribed.electricVolumeField_slab_uniform_aperture_error',
+        'OQ7Prescribed.separatedProduct_norm',
+        'OQ7Prescribed.heightProfile_fixed_support_smooth_density',
+        'OQ7Prescribed.heightProfile_integral_norm_bound',
+        'OQ7Prescribed.slabProduct_uniform_error_integral_sq',
+        'OQ7Prescribed.slabSeparatedFunction_L2_norm',
+        'OQ7Prescribed.electricVolumeField_smooth_slab_uniform_L2_residual',
+        'OQ7Prescribed.electricVolumeField_centered_slab_uniform_error',
+        'OQ7Prescribed.electricVolumeField_smooth_slab_residual_norm_sq',
         'OQ7Prescribed.normalizedActiveResponse_residual_bound',
         'OQ7Prescribed.normalizedActiveResponse_angle_difference_bound')) {
         if ($oq7Required -notin $oq7NewKernelTheorems) { throw "Missing outgoing operator obligation: $oq7Required" }
@@ -472,6 +480,9 @@ run_cmd do
         smoothDyadicRepresentativeOfActualElectricVolumeFieldVerified = $true
         actualThreeDimensionalSeparatedSourceConvolutionVerified = $true
         physicalSmoothSlabTransverseApertureErrorUniformInAxesVerified = $true
+        physicalSmoothSlabL2ResidualIndependentOfApertureVerified = $true
+        actualSeparatedThreeDimensionalL2ProfileNormVerified = $true
+        heightL2FixedSupportSmoothDensityVerified = $true
         physicalSlabApertureErrorForAllL2HeightProfilesVerified = $false
         physicalVectorUniformApertureLocalizationVerified = $false
         physicalVolumeWorkBalanceVerified = $true
