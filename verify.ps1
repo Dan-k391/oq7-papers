@@ -273,7 +273,12 @@ run_cmd do
         'OQ7Prescribed.smoothMagneticSource_eq_ae',
         'OQ7Prescribed.smoothElectricSource_curl',
         'OQ7Prescribed.smoothMagneticSource_curl',
-        'OQ7Prescribed.smoothPhysicalSource_cutoff_energy')) {
+        'OQ7Prescribed.smoothPhysicalSource_cutoff_energy',
+        'OQ7Prescribed.smoothPhysicalSource_radial_energy',
+        'OQ7Prescribed.exteriorMagnetic_norm_decay',
+        'OQ7Prescribed.smoothPhysicalSource_work_nonneg',
+        'OQ7Prescribed.physicalOutgoingVolume_work_nonneg',
+        'OQ7Prescribed.compactOutgoingOperator_im_nonneg')) {
         if ($oq7Required -notin $oq7NewKernelTheorems) { throw "Missing outgoing operator obligation: $oq7Required" }
     }
     if ('OQ7Prescribed.scatteringStateOfVolumeEquation' -notin $oq7Constants) {
@@ -347,7 +352,8 @@ run_cmd do
         compactL2CurrentFixedSupportSmoothDensityVerified = $true
         smoothCurrentClassicalPhysicalSourceFieldsVerified = $true
         physicalSmoothSourceCutoffPoyntingIdentityVerified = $true
-        actualOutgoingVolumeDissipativityVerified = $false
+        actualOutgoingVolumeDissipativityVerified = $true
+        outgoingDissipativityForAllCompactL2CurrentsVerified = $true
         physicalDyadicDistributionExteriorTestIdentificationVerified = $true
         outgoingWeakMaxwellRepresentationVerified = $false
         scatteringStateExistenceVerified = $false

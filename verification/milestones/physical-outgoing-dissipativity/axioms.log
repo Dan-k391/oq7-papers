@@ -1,0 +1,40 @@
+OQ7Prescribed.smoothPhysicalSource_radial_energy : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization),
+  ContDiff ℝ (↑⊤) p.current →
+    ∀ (r : ℝ),
+      0 < r →
+        p.radius ≤ r →
+          k *
+              (∫ (x : OQ7Prescribed.Position),
+                  OQ7Prescribed.pairing (p.current x) (OQ7Prescribed.smoothElectricSource k p x)).im =
+            ∫ (x : OQ7Prescribed.Position),
+              OQ7Prescribed.sourceEnergyWeight r x *
+                (OQ7Prescribed.pairing (OQ7Prescribed.smoothElectricSource k p x)
+                    (OQ7Prescribed.cross (OQ7Prescribed.smoothMagneticSource k p x)
+                      (OQ7Prescribed.complexify (OQ7Prescribed.radialDirection x)))).re
+'OQ7Prescribed.smoothPhysicalSource_radial_energy' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.exteriorMagnetic_norm_decay : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization)
+  (x : OQ7Prescribed.Position),
+  2 * p.radius + 2 ≤ ‖x‖ →
+    ‖OQ7Prescribed.exteriorMagnetic k p x‖ ≤
+      OQ7Prescribed.magneticDecayConstant k / ‖x‖ * ∫ (y : OQ7Prescribed.Position), ‖p.current y‖
+'OQ7Prescribed.exteriorMagnetic_norm_decay' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.smoothPhysicalSource_work_nonneg : ∀ (k : ℝ),
+  0 < k →
+    ∀ (p : OQ7Prescribed.CompactPolarization),
+      ContDiff ℝ (↑⊤) p.current →
+        0 ≤
+          (∫ (x : OQ7Prescribed.Position),
+              OQ7Prescribed.pairing (p.current x) (OQ7Prescribed.smoothElectricSource k p x)).im
+'OQ7Prescribed.smoothPhysicalSource_work_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.physicalOutgoingVolume_work_nonneg : ∀ (k : ℝ),
+  0 < k →
+    ∀ (p : OQ7Prescribed.CompactPolarization),
+      0 ≤
+        (∫ (x : OQ7Prescribed.Position),
+            OQ7Prescribed.pairing (p.current x) (OQ7Prescribed.electricVolumeField k p x)).im
+'OQ7Prescribed.physicalOutgoingVolume_work_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.compactOutgoingOperator_im_nonneg : ∀ (k : ℝ),
+  0 < k →
+    ∀ (R : ℝ) (hR : 0 ≤ R) (f : ↥(OQ7Prescribed.SupportedVectorL2 R)),
+      0 ≤ (inner ℂ f ((OQ7Prescribed.compactOutgoingOperator k R hR) f)).im
+'OQ7Prescribed.compactOutgoingOperator_im_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,11 @@
+import PrescribedExtinction.OutgoingDissipativity
+#check @OQ7Prescribed.smoothPhysicalSource_radial_energy
+#print axioms OQ7Prescribed.smoothPhysicalSource_radial_energy
+#check @OQ7Prescribed.exteriorMagnetic_norm_decay
+#print axioms OQ7Prescribed.exteriorMagnetic_norm_decay
+#check @OQ7Prescribed.smoothPhysicalSource_work_nonneg
+#print axioms OQ7Prescribed.smoothPhysicalSource_work_nonneg
+#check @OQ7Prescribed.physicalOutgoingVolume_work_nonneg
+#print axioms OQ7Prescribed.physicalOutgoingVolume_work_nonneg
+#check @OQ7Prescribed.compactOutgoingOperator_im_nonneg
+#print axioms OQ7Prescribed.compactOutgoingOperator_im_nonneg

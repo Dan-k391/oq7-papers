@@ -8,6 +8,11 @@ source fields satisfying both physical weak curls and the full uniform
 Silver–Müller radiation condition** for every compact L² polarization.
 The exterior convolutions are rigorously identified with the global source
 representatives. See [OUTGOING.md](OUTGOING.md) for declarations and evidence.
+The actual bounded outgoing operator is now proved dissipative on every
+compact L² current, using a derived cutoff Poynting identity, uniform outgoing
+kernel bounds, a vanishing radial error, and fixed-support smooth density.
+The original strict material-loss condition also yields bounded constitutive
+susceptibility inverses. Neither result alone solves the material equation.
 Material scattering solvability and uniqueness, radiation power identities,
 uniform aperture localization, and the prescribed-extinction construction
 remain unverified. These are required before Theorem 1.1 can be proved.

@@ -75,3 +75,7 @@ import PrescribedExtinction.TensorLossCoercivity
 import PrescribedExtinction.CompactCurrentDensity
 import PrescribedExtinction.SmoothOutgoingFields
 import PrescribedExtinction.PoyntingCutoff
+import PrescribedExtinction.RadialEnergyCutoff
+import PrescribedExtinction.RadiationEnergyBounds
+import PrescribedExtinction.SmoothOutgoingDissipativity
+import PrescribedExtinction.OutgoingDissipativity
