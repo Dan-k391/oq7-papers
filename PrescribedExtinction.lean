@@ -72,3 +72,5 @@ import PrescribedExtinction.PhysicalPolarization
 import PrescribedExtinction.VolumeScatteringBridge
 import PrescribedExtinction.ComplexCoerciveInverse
 import PrescribedExtinction.TensorLossCoercivity
+import PrescribedExtinction.CompactCurrentDensity
+import PrescribedExtinction.SmoothOutgoingFields

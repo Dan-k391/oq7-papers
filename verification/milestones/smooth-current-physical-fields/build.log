@@ -1,0 +1,19 @@
+⚠ [3264/3267] Replayed PrescribedExtinction.PhysicalSourceFields
+warning: PrescribedExtinction/PhysicalSourceFields.lean:90:65: This simp argument is unused:
+  PiLp.smul_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [electricVolumeField, vectorCoordinate, PiLp.add_apply, Complex.real_smul, mul_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [3266/3267] Replayed PrescribedExtinction.IncidentMaxwell
+warning: PrescribedExtinction/IncidentMaxwell.lean:79:75: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: PrescribedExtinction/IncidentMaxwell.lean:87:95: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PrescribedExtinction/IncidentMaxwell.lean:87:95: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Build completed successfully (3267 jobs).

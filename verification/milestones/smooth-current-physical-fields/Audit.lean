@@ -1,0 +1,14 @@
+import PrescribedExtinction.CompactCurrentDensity
+import PrescribedExtinction.SmoothOutgoingFields
+#check @OQ7Prescribed.compactPolarization_smooth_approximation
+#print axioms OQ7Prescribed.compactPolarization_smooth_approximation
+#check @OQ7Prescribed.outgoingPotential_contDiff
+#print axioms OQ7Prescribed.outgoingPotential_contDiff
+#check @OQ7Prescribed.smoothElectricSource_eq_ae
+#print axioms OQ7Prescribed.smoothElectricSource_eq_ae
+#check @OQ7Prescribed.smoothMagneticSource_eq_ae
+#print axioms OQ7Prescribed.smoothMagneticSource_eq_ae
+#check @OQ7Prescribed.smoothElectricSource_curl
+#print axioms OQ7Prescribed.smoothElectricSource_curl
+#check @OQ7Prescribed.smoothMagneticSource_curl
+#print axioms OQ7Prescribed.smoothMagneticSource_curl

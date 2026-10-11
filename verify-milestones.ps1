@@ -52,7 +52,8 @@ try {
         @{ name = 'incident-maxwell'; module = 'PrescribedExtinction.IncidentMaxwell' },
         @{ name = 'physical-polarization'; module = 'PrescribedExtinction.PhysicalPolarization' },
         @{ name = 'material-volume-bridge'; module = 'PrescribedExtinction.VolumeScatteringBridge' },
-        @{ name = 'constitutive-coercive-inverse'; module = 'PrescribedExtinction.TensorLossCoercivity' }
+        @{ name = 'constitutive-coercive-inverse'; module = 'PrescribedExtinction.TensorLossCoercivity' },
+        @{ name = 'smooth-current-physical-fields'; module = 'PrescribedExtinction.SmoothOutgoingFields' }
     )
     if ($Only) {
         foreach ($oq7Name in $Only) {

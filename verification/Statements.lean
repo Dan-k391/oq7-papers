@@ -26,6 +26,8 @@ import PrescribedExtinction
 #check @OQ7Prescribed.compactOutgoingOperator_test_pairing
 #check @OQ7Prescribed.compactPolarization_current_hasCompactSupport
 #check @OQ7Prescribed.compactPolarization_current_integrable
+#check @OQ7Prescribed.compactPolarization_smooth_approximation
+#check @OQ7Prescribed.compactPolarization_smooth_function_approximation
 #check @OQ7Prescribed.compactRemainderConstant_nonneg
 #check @OQ7Prescribed.compactRemainderField_memLp
 #check @OQ7Prescribed.compactRemainderLp_add
@@ -174,6 +176,9 @@ import PrescribedExtinction
 #check @OQ7Prescribed.fieldComponentDistribution_add
 #check @OQ7Prescribed.fieldComponentDistribution_apply
 #check @OQ7Prescribed.fieldComponentDistribution_complex_smul
+#check @OQ7Prescribed.fieldComponentDistribution_injective
+#check @OQ7Prescribed.fieldComponentDistribution_smul
+#check @OQ7Prescribed.fieldComponentDistribution_sub
 #check @OQ7Prescribed.fourierIntegral_L1L2_ae
 #check @OQ7Prescribed.fourierIntegral_L1L2_memLp
 #check @OQ7Prescribed.fourierIntegral_L1L2_schwartz_pairing
@@ -399,6 +404,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.outgoingPotential_aestronglyMeasurable
 #check @OQ7Prescribed.outgoingPotential_component_integral
 #check @OQ7Prescribed.outgoingPotential_congr_current
+#check @OQ7Prescribed.outgoingPotential_contDiff
 #check @OQ7Prescribed.outgoingPotential_curlCurl
 #check @OQ7Prescribed.outgoingPotential_enorm_le
 #check @OQ7Prescribed.outgoingPotential_eq_cutoff
@@ -452,6 +458,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.position_ae_ne_zero
 #check @OQ7Prescribed.position_zero_volume
 #check @OQ7Prescribed.potentialBound_lt_top
+#check @OQ7Prescribed.potentialComponent_eq_fieldComponent
 #check @OQ7Prescribed.potentialComponent_first_distribution
 #check @OQ7Prescribed.potentialComponent_helmholtz_apply
 #check @OQ7Prescribed.potentialComponent_helmholtz_distribution
@@ -527,10 +534,20 @@ import PrescribedExtinction
 #check @OQ7Prescribed.shrinkingCutoffPartial_support
 #check @OQ7Prescribed.shrinkingCutoffPoleError_norm_le
 #check @OQ7Prescribed.shrinkingCutoffPoleError_tendsto
+#check @OQ7Prescribed.smoothElectricSource_contDiff
+#check @OQ7Prescribed.smoothElectricSource_curl
+#check @OQ7Prescribed.smoothElectricSource_distribution
+#check @OQ7Prescribed.smoothElectricSource_eq_ae
 #check @OQ7Prescribed.smoothField_component_partial
+#check @OQ7Prescribed.smoothField_curl_contDiff
 #check @OQ7Prescribed.smoothField_curl_continuous
 #check @OQ7Prescribed.smoothField_distributionCurl
 #check @OQ7Prescribed.smoothField_hasWeakCurl
+#check @OQ7Prescribed.smoothField_partial_contDiff
+#check @OQ7Prescribed.smoothMagneticSource_contDiff
+#check @OQ7Prescribed.smoothMagneticSource_curl
+#check @OQ7Prescribed.smoothMagneticSource_distribution
+#check @OQ7Prescribed.smoothMagneticSource_eq_ae
 #check @OQ7Prescribed.smoothScalar_distributionPartial
 #check @OQ7Prescribed.sphere_coordinate_cross_zero
 #check @OQ7Prescribed.sphere_coordinate_mul_integrable

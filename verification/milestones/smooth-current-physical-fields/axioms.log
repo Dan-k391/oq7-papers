@@ -1,0 +1,27 @@
+OQ7Prescribed.compactPolarization_smooth_approximation : ∀ (p : OQ7Prescribed.CompactPolarization) (ε : ℝ),
+  0 < ε →
+    ∃ q,
+      q.radius = p.radius + 2 ∧
+        ContDiff ℝ (↑⊤) q.current ∧ ‖MeasureTheory.MemLp.toLp p.current ⋯ - MeasureTheory.MemLp.toLp q.current ⋯‖ ≤ ε
+'OQ7Prescribed.compactPolarization_smooth_approximation' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.outgoingPotential_contDiff : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization),
+  ContDiff ℝ (↑⊤) p.current → ContDiff ℝ (↑⊤) (OQ7Prescribed.outgoingPotential k p)
+'OQ7Prescribed.outgoingPotential_contDiff' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.smoothElectricSource_eq_ae : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization),
+  ContDiff ℝ (↑⊤) p.current →
+    OQ7Prescribed.smoothElectricSource k p =ᵐ[MeasureTheory.volume] OQ7Prescribed.electricVolumeField k p
+'OQ7Prescribed.smoothElectricSource_eq_ae' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.smoothMagneticSource_eq_ae : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization),
+  ContDiff ℝ (↑⊤) p.current →
+    OQ7Prescribed.smoothMagneticSource k p =ᵐ[MeasureTheory.volume] OQ7Prescribed.magneticVolumeField k p
+'OQ7Prescribed.smoothMagneticSource_eq_ae' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.smoothElectricSource_curl : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization),
+  ContDiff ℝ (↑⊤) p.current →
+    OQ7Prescribed.curl (OQ7Prescribed.smoothElectricSource k p) = fun x =>
+      (Complex.I * ↑k) • OQ7Prescribed.smoothMagneticSource k p x
+'OQ7Prescribed.smoothElectricSource_curl' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.smoothMagneticSource_curl : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization),
+  ContDiff ℝ (↑⊤) p.current →
+    OQ7Prescribed.curl (OQ7Prescribed.smoothMagneticSource k p) = fun x =>
+      (-Complex.I * ↑k) • (OQ7Prescribed.smoothElectricSource k p x + p.current x)
+'OQ7Prescribed.smoothMagneticSource_curl' depends on axioms: [propext, Classical.choice, Quot.sound]
