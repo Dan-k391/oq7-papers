@@ -418,6 +418,11 @@ run_cmd do
         'OQ7Prescribed.normalizedIncidentDrive_eq_sharpLift',
         'OQ7Prescribed.planarNormalizedDrive_norm',
         'OQ7Prescribed.physicalBody_normalized_response_uniform_aperture_localization',
+        'OQ7Prescribed.planarTwoLayerGreen_interior_representation',
+        'OQ7Prescribed.scalarPlanarPotential_twoLayer_representation',
+        'OQ7Prescribed.planarScalarOutgoing_twoLayer_representation',
+        'OQ7Prescribed.planarTwoLayer_plus_incident_equation',
+        'OQ7Prescribed.planarTwoLayer_minus_incident_equation',
         'OQ7Prescribed.physicalBody_normalized_powers_uniform_aperture_localization',
         'OQ7Prescribed.physicalRankOne_original_powers_uniform_aperture_localization',
         'OQ7Prescribed.physicalBody_normalized_vector_current_uniform_aperture_localization',
@@ -525,6 +530,8 @@ run_cmd do
         heightL2FixedSupportSmoothDensityVerified = $true
         physicalSlabApertureErrorForAllL2HeightProfilesVerified = $true
         actualFiniteIntervalPlanarGreenOperatorVerified = $true
+        physicalPlanarMatchedLayerGreenRepresentationVerified = $true
+        physicalPlanarLayerRepresentationScope = 'Exact homogeneous-layer Maxwell derivatives, weighted moments, actual supported L2 currents, matched two-layer scalar Green operator and both original plane-wave incoming equations'
         planarGreenPositiveImaginaryWorkIdentityVerified = $true
         planarTwoLayerMaterialInverseUniformInRotationVerified = $true
         planarNormalizedResponseContinuousAtZeroAndExtinctionPositiveVerified = $true

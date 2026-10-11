@@ -200,6 +200,9 @@ OQ7Prescribed.apertureMeanSlopeDeriv_norm_le : ∀ (w : ℂ → ℂ),
     HasCompactSupport w →
       ∀ (x : ℂ) (r C : ℝ),
         0 ≤ r → (∀ (y : ℂ), ‖iteratedFDeriv ℝ 4 w y‖ ≤ C) → ‖OQ7Prescribed.apertureMeanSlopeDeriv w x r‖ ≤ C * r / 3
+OQ7Prescribed.apertureOscillation_boundary_phase : ∀ (k L z : ℝ),
+  OQ7Prescribed.apertureOscillation k (L - z) * OQ7Prescribed.apertureOscillation (-k) L =
+    OQ7Prescribed.apertureOscillation (-k) z
 OQ7Prescribed.apertureOscillation_continuous : ∀ (k : ℝ), Continuous (OQ7Prescribed.apertureOscillation k)
 OQ7Prescribed.apertureOscillation_error_bound : ∀ (k a b : ℝ),
   0 < k →
@@ -227,6 +230,11 @@ OQ7Prescribed.apertureOscillation_ibp : ∀ (k a b : ℝ) (u du : ℝ → ℂ),
           u b * OQ7Prescribed.apertureOscillation k b - u a * OQ7Prescribed.apertureOscillation k a -
             ∫ (t : ℝ) in a..b, du t * OQ7Prescribed.apertureOscillation k t
 OQ7Prescribed.apertureOscillation_norm : ∀ (k t : ℝ), ‖OQ7Prescribed.apertureOscillation k t‖ = 1
+OQ7Prescribed.apertureOscillation_opposite_mul : ∀ (k z : ℝ),
+  OQ7Prescribed.apertureOscillation k z * OQ7Prescribed.apertureOscillation (-k) z = 1
+OQ7Prescribed.apertureOscillation_sub : ∀ (k z t : ℝ),
+  OQ7Prescribed.apertureOscillation k (z - t) =
+    OQ7Prescribed.apertureOscillation k z * OQ7Prescribed.apertureOscillation (-k) t
 OQ7Prescribed.apertureOscillation_two_ibp : ∀ (k a b : ℝ),
   k ≠ 0 →
     ∀ (u du ddu : ℝ → ℂ),
@@ -862,6 +870,8 @@ OQ7Prescribed.contDiff_test_ibp : ∀ (F : OQ7Prescribed.Position → ℝ),
 @OQ7Prescribed.continuousLinearMap_inner_of_norm_mul : ∀ {E : Type u_1} {F : Type u_2} [inst : NormedAddCommGroup E]
   [inst_1 : InnerProductSpace ℂ E] [inst_2 : NormedAddCommGroup F] [inst_3 : InnerProductSpace ℂ F] (J : E →L[ℂ] F)
   (R : ℝ), (∀ (q : E), ‖J q‖ = R * ‖q‖) → ∀ (q r : E), inner ℂ (J q) (J r) = R ^ 2 • inner ℂ q r
+OQ7Prescribed.continuousOn_Ioc_indicator_memLp : ∀ (a b : ℝ) (q : ℝ → ℂ),
+  ContinuousOn q (Set.Icc a b) → MeasureTheory.MemLp ((Set.Ioc a b).indicator q) 2 MeasureTheory.volume
 OQ7Prescribed.coordinateReflect_apply : ∀ (i j : Fin 3) (x : OQ7Prescribed.Position),
   ((OQ7Prescribed.coordinateReflect i) x).ofLp j = if j = i then -x.ofLp j else x.ofLp j
 OQ7Prescribed.coordinateSwap_apply : ∀ (i j a : Fin 3) (x : OQ7Prescribed.Position),
@@ -1736,6 +1746,20 @@ OQ7Prescribed.heightSupportedProfile_integrable : ∀ (M : ℝ) (q : ↥(OQ7Pres
   MeasureTheory.Integrable (↑↑↑q) MeasureTheory.volume
 OQ7Prescribed.heightSupportEnlargement_norm : ∀ (L : ℝ) (q : ↥(OQ7Prescribed.HeightSupportedL2 L)),
   ‖OQ7Prescribed.heightSupportEnlargement L q‖ = ‖q‖
+OQ7Prescribed.homogeneousField_planarWaveMoments : ∀ (k a b : ℝ),
+  a ≤ b →
+    ∀ (n E₀ H₀ : ℂ),
+      n ≠ 0 →
+        Complex.I * ↑k *
+              ∫ (t : ℝ) in a..b,
+                OQ7Prescribed.apertureOscillation (-k) t * ((n ^ 2 - 1) * OQ7.electricField k n E₀ H₀ t) =
+            OQ7Prescribed.apertureOscillation (-k) b * (OQ7.magneticField k n E₀ H₀ b + OQ7.electricField k n E₀ H₀ b) -
+              OQ7Prescribed.apertureOscillation (-k) a *
+                (OQ7.magneticField k n E₀ H₀ a + OQ7.electricField k n E₀ H₀ a) ∧
+          Complex.I * ↑k *
+              ∫ (t : ℝ) in a..b, OQ7Prescribed.apertureOscillation k t * ((n ^ 2 - 1) * OQ7.electricField k n E₀ H₀ t) =
+            OQ7Prescribed.apertureOscillation k b * (OQ7.magneticField k n E₀ H₀ b - OQ7.electricField k n E₀ H₀ b) -
+              OQ7Prescribed.apertureOscillation k a * (OQ7.magneticField k n E₀ H₀ a - OQ7.electricField k n E₀ H₀ a)
 OQ7Prescribed.horizontalSlabPotential_contDiff : ∀ (k s : ℝ) (w : ℂ → ℂ),
   ContDiff ℝ (↑⊤) w → HasCompactSupport w → ContDiff ℝ (↑⊤) (OQ7Prescribed.horizontalSlabPotential k s w)
 OQ7Prescribed.horizontalSlabPotential_error : ∀ (k : ℝ),
@@ -3338,6 +3362,79 @@ OQ7Prescribed.planarActiveOutgoing_im_nonneg : ∀ (k : ℝ) (hk : 0 < k) (L : �
   (q : ↥(OQ7Prescribed.PlanarCurrentL2 L)), 0 ≤ (inner ℂ q ((OQ7Prescribed.planarActiveOutgoing k hk L hL h θ) q)).im
 OQ7Prescribed.planarActiveOutgoing_rotation_continuous : ∀ (k : ℝ) (hk : 0 < k) (L : ℝ) (hL : 0 ≤ L) (h : ℝ),
   Continuous fun θ => OQ7Prescribed.planarActiveOutgoing k hk L hL h θ
+OQ7Prescribed.planarGreen_indicator_integrable : ∀ (k a b z : ℝ) (q : ℝ → ℂ),
+  ContinuousOn q (Set.Icc a b) →
+    MeasureTheory.Integrable (fun t => OQ7Prescribed.planarScalarGreen k (z - t) * (Set.Ioc a b).indicator q t)
+      MeasureTheory.volume
+OQ7Prescribed.planarGreen_integral_indicator : ∀ (k a b z : ℝ),
+  a ≤ b →
+    ∀ (q : ℝ → ℂ),
+      ∫ (t : ℝ), OQ7Prescribed.planarScalarGreen k (z - t) * (Set.Ioc a b).indicator q t =
+        ∫ (t : ℝ) in a..b, OQ7Prescribed.planarScalarGreen k (z - t) * q t
+OQ7Prescribed.planarGreen_interval_exterior_left_representation : ∀ (k a b z : ℝ),
+  k ≠ 0 →
+    a ≤ b →
+      z ≤ a →
+        ∀ (E H q : ℝ → ℂ),
+          ContinuousOn E (Set.Icc a b) →
+            ContinuousOn H (Set.Icc a b) →
+              ContinuousOn q (Set.Icc a b) →
+                (∀ t ∈ Set.Ioo a b, HasDerivAt E (Complex.I * ↑k * H t) t) →
+                  (∀ t ∈ Set.Ioo a b, HasDerivAt H (Complex.I * ↑k * (E t + q t)) t) →
+                    ↑k ^ 2 * ∫ (t : ℝ) in a..b, OQ7Prescribed.planarScalarGreen k (z - t) * q t =
+                      1 / 2 * OQ7Prescribed.apertureOscillation k (b - z) * (H b - E b) -
+                        1 / 2 * OQ7Prescribed.apertureOscillation k (a - z) * (H a - E a)
+OQ7Prescribed.planarGreen_interval_exterior_right_representation : ∀ (k a b z : ℝ),
+  k ≠ 0 →
+    a ≤ b →
+      b ≤ z →
+        ∀ (E H q : ℝ → ℂ),
+          ContinuousOn E (Set.Icc a b) →
+            ContinuousOn H (Set.Icc a b) →
+              ContinuousOn q (Set.Icc a b) →
+                (∀ t ∈ Set.Ioo a b, HasDerivAt E (Complex.I * ↑k * H t) t) →
+                  (∀ t ∈ Set.Ioo a b, HasDerivAt H (Complex.I * ↑k * (E t + q t)) t) →
+                    ↑k ^ 2 * ∫ (t : ℝ) in a..b, OQ7Prescribed.planarScalarGreen k (z - t) * q t =
+                      1 / 2 * OQ7Prescribed.apertureOscillation k (z - b) * (H b + E b) -
+                        1 / 2 * OQ7Prescribed.apertureOscillation k (z - a) * (H a + E a)
+OQ7Prescribed.planarGreen_interval_interior_representation : ∀ (k a b z : ℝ),
+  k ≠ 0 →
+    a ≤ z →
+      z ≤ b →
+        ∀ (E H q : ℝ → ℂ),
+          ContinuousOn E (Set.Icc a b) →
+            ContinuousOn H (Set.Icc a b) →
+              ContinuousOn q (Set.Icc a b) →
+                (∀ t ∈ Set.Ioo a b, HasDerivAt E (Complex.I * ↑k * H t) t) →
+                  (∀ t ∈ Set.Ioo a b, HasDerivAt H (Complex.I * ↑k * (E t + q t)) t) →
+                    ↑k ^ 2 * ∫ (t : ℝ) in a..b, OQ7Prescribed.planarScalarGreen k (z - t) * q t =
+                      E z - 1 / 2 * OQ7Prescribed.apertureOscillation k (z - a) * (H a + E a) +
+                        1 / 2 * OQ7Prescribed.apertureOscillation k (b - z) * (H b - E b)
+OQ7Prescribed.planarGreen_interval_left : ∀ (k a b z : ℝ),
+  a ≤ b →
+    b ≤ z →
+      ∀ (q : ℝ → ℂ),
+        ∫ (t : ℝ) in a..b, OQ7Prescribed.planarScalarGreen k (z - t) * q t =
+          Complex.I / (2 * ↑k) * OQ7Prescribed.apertureOscillation k z *
+            ∫ (t : ℝ) in a..b, OQ7Prescribed.apertureOscillation (-k) t * q t
+OQ7Prescribed.planarGreen_interval_right : ∀ (k a b z : ℝ),
+  a ≤ b →
+    z ≤ a →
+      ∀ (q : ℝ → ℂ),
+        ∫ (t : ℝ) in a..b, OQ7Prescribed.planarScalarGreen k (z - t) * q t =
+          Complex.I / (2 * ↑k) * OQ7Prescribed.apertureOscillation (-k) z *
+            ∫ (t : ℝ) in a..b, OQ7Prescribed.apertureOscillation k t * q t
+OQ7Prescribed.planarGreen_interval_split : ∀ (k a b z : ℝ),
+  a ≤ z →
+    z ≤ b →
+      ∀ (q : ℝ → ℂ),
+        ContinuousOn q (Set.Icc a b) →
+          ∫ (t : ℝ) in a..b, OQ7Prescribed.planarScalarGreen k (z - t) * q t =
+            Complex.I / (2 * ↑k) *
+              ((OQ7Prescribed.apertureOscillation k z *
+                  ∫ (t : ℝ) in a..z, OQ7Prescribed.apertureOscillation (-k) t * q t) +
+                OQ7Prescribed.apertureOscillation (-k) z *
+                  ∫ (t : ℝ) in z..b, OQ7Prescribed.apertureOscillation k t * q t)
 OQ7Prescribed.planarHeightEmbedding_norm : ∀ (L : ℝ) (hL : 0 ≤ L) (q : ↥(OQ7Prescribed.PlanarCurrentL2 L)),
   ‖(OQ7Prescribed.planarHeightEmbedding L hL) q‖ = ‖q‖
 OQ7Prescribed.planarHeightMap_coe : ∀ (k : ℝ) (hk : 0 < k) (M L : ℝ) (hM : 0 ≤ M) (hL : 0 ≤ L)
@@ -3354,10 +3451,14 @@ OQ7Prescribed.planarHeightRaw_norm_le : ∀ (k : ℝ) (hk : 0 < k) (M L : ℝ),
         ‖OQ7Prescribed.planarHeightRaw k hk M L q‖ ≤ √L * (1 / (2 * k)) * √(2 * M) * ‖q‖
 OQ7Prescribed.planarIncidentPhase_memLp : ∀ (k : ℝ) (σ : OQ7Prescribed.Direction) (L : ℝ),
   MeasureTheory.MemLp ((Set.Icc 0 L).indicator (OQ7Prescribed.planarIncidentPhase k σ)) 2 MeasureTheory.volume
+OQ7Prescribed.planarIncidentPhase_minus : ∀ (k z : ℝ),
+  OQ7Prescribed.planarIncidentPhase k OQ7Prescribed.Direction.minus z = OQ7Prescribed.apertureOscillation (-k) z
 OQ7Prescribed.planarIncidentPhase_norm : ∀ (k : ℝ) (σ : OQ7Prescribed.Direction) (z : ℝ),
   ‖OQ7Prescribed.planarIncidentPhase k σ z‖ = 1
 OQ7Prescribed.planarIncidentPhase_physical : ∀ (k : ℝ) (σ : OQ7Prescribed.Direction) (x : ℂ) (z : ℝ),
   OQ7Prescribed.planarIncidentPhase k σ z = OQ7Prescribed.planePhase k σ (OQ7Prescribed.slabPosition x z)
+OQ7Prescribed.planarIncidentPhase_plus : ∀ (k z : ℝ),
+  OQ7Prescribed.planarIncidentPhase k OQ7Prescribed.Direction.plus z = OQ7Prescribed.apertureOscillation k z
 OQ7Prescribed.planarIncidentProfile_coe : ∀ (k : ℝ) (σ : OQ7Prescribed.Direction) (L : ℝ),
   ↑↑↑(OQ7Prescribed.planarIncidentProfile k σ L) =ᵐ[MeasureTheory.volume]
     (Set.Icc 0 L).indicator (OQ7Prescribed.planarIncidentPhase k σ)
@@ -3446,6 +3547,16 @@ OQ7Prescribed.planarScalarOutgoing_coe : ∀ (k : ℝ) (hk : 0 < k) (L : ℝ) (h
     (Set.Icc 0 L).indicator fun z => k ^ 2 • OQ7Prescribed.scalarPlanarPotential k (↑↑↑q) z
 OQ7Prescribed.planarScalarOutgoing_im_nonneg : ∀ (k : ℝ) (hk : 0 < k) (L : ℝ) (hL : 0 ≤ L)
   (q : ↥(OQ7Prescribed.PlanarCurrentL2 L)), 0 ≤ (inner ℂ q ((OQ7Prescribed.planarScalarOutgoing k hk L hL) q)).im
+OQ7Prescribed.planarScalarOutgoing_twoLayer_representation : ∀ (k : ℝ) (hk : 0 < k) (h L : ℝ) (hh : 0 ≤ h) (hL : h ≤ L)
+  (A : OQ7Prescribed.PlanarLayerField k 0 h) (W : OQ7Prescribed.PlanarLayerField k h L),
+  A.electric h = W.electric h →
+    A.magnetic h = W.magnetic h →
+      ↑↑↑((OQ7Prescribed.planarScalarOutgoing k hk L ⋯)
+                (OQ7Prescribed.planarTwoLayerL2Current k h L hh hL A W)) =ᵐ[MeasureTheory.volume]
+        (Set.Icc 0 L).indicator fun z =>
+          (if z ≤ h then A.electric z else W.electric z) -
+              1 / 2 * OQ7Prescribed.apertureOscillation k z * (A.magnetic 0 + A.electric 0) +
+            1 / 2 * OQ7Prescribed.apertureOscillation k (L - z) * (W.magnetic L - W.electric L)
 OQ7Prescribed.planarScalarOutgoing_work : ∀ (k : ℝ) (hk : 0 < k) (L : ℝ) (hL : 0 ≤ L)
   (q : ↥(OQ7Prescribed.PlanarCurrentL2 L)),
   inner ℂ q ((OQ7Prescribed.planarScalarOutgoing k hk L hL) q) =
@@ -3470,6 +3581,105 @@ OQ7Prescribed.planarSlabTransverse_integrable : ∀ (k : ℝ),
             MeasureTheory.Integrable
               (fun t => (k ^ 2 * inner ℝ u v) • (OQ7Prescribed.planarScalarGreen k (z - t) * w x) * q t)
               MeasureTheory.volume
+OQ7Prescribed.planarTwoLayer_incoming_equation : ∀ (k h L z : ℝ),
+  k ≠ 0 →
+    ∀ (hh : 0 ≤ h) (hL : h ≤ L),
+      z ∈ Set.Icc 0 L →
+        ∀ (A : OQ7Prescribed.PlanarLayerField k 0 h) (W : OQ7Prescribed.PlanarLayerField k h L),
+          A.electric h = W.electric h →
+            A.magnetic h = W.magnetic h →
+              ∀ (l r : ℂ),
+                A.magnetic 0 + A.electric 0 = 2 * l →
+                  W.magnetic L - W.electric L = -2 * r * OQ7Prescribed.apertureOscillation (-k) L →
+                    (if z ≤ h then A.electric z else W.electric z) =
+                      l * OQ7Prescribed.apertureOscillation k z + r * OQ7Prescribed.apertureOscillation (-k) z +
+                        k ^ 2 •
+                          OQ7Prescribed.scalarPlanarPotential k
+                            (↑↑↑(OQ7Prescribed.planarTwoLayerL2Current k h L hh hL A W)) z
+OQ7Prescribed.planarTwoLayer_minus_incident_equation : ∀ (k h L z : ℝ),
+  k ≠ 0 →
+    ∀ (hh : 0 ≤ h) (hL : h ≤ L),
+      z ∈ Set.Icc 0 L →
+        ∀ (A : OQ7Prescribed.PlanarLayerField k 0 h) (W : OQ7Prescribed.PlanarLayerField k h L),
+          A.electric h = W.electric h →
+            A.magnetic h = W.magnetic h →
+              A.magnetic 0 + A.electric 0 = 0 →
+                W.magnetic L - W.electric L = -2 * OQ7Prescribed.apertureOscillation (-k) L →
+                  (if z ≤ h then A.electric z else W.electric z) =
+                    OQ7Prescribed.planarIncidentPhase k OQ7Prescribed.Direction.minus z +
+                      k ^ 2 •
+                        OQ7Prescribed.scalarPlanarPotential k
+                          (↑↑↑(OQ7Prescribed.planarTwoLayerL2Current k h L hh hL A W)) z
+OQ7Prescribed.planarTwoLayer_plus_incident_equation : ∀ (k h L z : ℝ),
+  k ≠ 0 →
+    ∀ (hh : 0 ≤ h) (hL : h ≤ L),
+      z ∈ Set.Icc 0 L →
+        ∀ (A : OQ7Prescribed.PlanarLayerField k 0 h) (W : OQ7Prescribed.PlanarLayerField k h L),
+          A.electric h = W.electric h →
+            A.magnetic h = W.magnetic h →
+              A.magnetic 0 + A.electric 0 = 2 →
+                W.magnetic L - W.electric L = 0 →
+                  (if z ≤ h then A.electric z else W.electric z) =
+                    OQ7Prescribed.planarIncidentPhase k OQ7Prescribed.Direction.plus z +
+                      k ^ 2 •
+                        OQ7Prescribed.scalarPlanarPotential k
+                          (↑↑↑(OQ7Prescribed.planarTwoLayerL2Current k h L hh hL A W)) z
+OQ7Prescribed.planarTwoLayerCurrent_memLp : ∀ (h L : ℝ) (qA qW : ℝ → ℂ),
+  ContinuousOn qA (Set.Icc 0 h) →
+    ContinuousOn qW (Set.Icc h L) →
+      MeasureTheory.MemLp (OQ7Prescribed.planarTwoLayerCurrent h L qA qW) 2 MeasureTheory.volume
+OQ7Prescribed.planarTwoLayerGreen_integral : ∀ (k h L z : ℝ),
+  0 ≤ h →
+    h ≤ L →
+      ∀ (qA qW : ℝ → ℂ),
+        ContinuousOn qA (Set.Icc 0 h) →
+          ContinuousOn qW (Set.Icc h L) →
+            ∫ (t : ℝ), OQ7Prescribed.planarScalarGreen k (z - t) * OQ7Prescribed.planarTwoLayerCurrent h L qA qW t =
+              (∫ (t : ℝ) in 0..h, OQ7Prescribed.planarScalarGreen k (z - t) * qA t) +
+                ∫ (t : ℝ) in h..L, OQ7Prescribed.planarScalarGreen k (z - t) * qW t
+OQ7Prescribed.planarTwoLayerGreen_interior_representation : ∀ (k h L z : ℝ),
+  k ≠ 0 →
+    0 ≤ h →
+      h ≤ L →
+        z ∈ Set.Icc 0 L →
+          ∀ (A : OQ7Prescribed.PlanarLayerField k 0 h) (W : OQ7Prescribed.PlanarLayerField k h L),
+            A.electric h = W.electric h →
+              A.magnetic h = W.magnetic h →
+                ↑k ^ 2 *
+                    ∫ (t : ℝ),
+                      OQ7Prescribed.planarScalarGreen k (z - t) *
+                        OQ7Prescribed.planarTwoLayerCurrent h L A.current W.current t =
+                  (if z ≤ h then A.electric z else W.electric z) -
+                      1 / 2 * OQ7Prescribed.apertureOscillation k z * (A.magnetic 0 + A.electric 0) +
+                    1 / 2 * OQ7Prescribed.apertureOscillation k (L - z) * (W.magnetic L - W.electric L)
+OQ7Prescribed.planarTwoLayerL2Current_coe : ∀ (k h L : ℝ) (hh : 0 ≤ h) (hL : h ≤ L)
+  (A : OQ7Prescribed.PlanarLayerField k 0 h) (W : OQ7Prescribed.PlanarLayerField k h L),
+  ↑↑↑(OQ7Prescribed.planarTwoLayerL2Current k h L hh hL A W) =ᵐ[MeasureTheory.volume]
+    OQ7Prescribed.planarTwoLayerCurrent h L A.current W.current
+OQ7Prescribed.planarWaveMomentMinus_hasDerivAt : ∀ (k t : ℝ) (E H q : ℝ → ℂ),
+  HasDerivAt E (Complex.I * ↑k * H t) t →
+    HasDerivAt H (Complex.I * ↑k * (E t + q t)) t →
+      HasDerivAt (fun z => OQ7Prescribed.apertureOscillation k z * (H z - E z))
+        (Complex.I * ↑k * (OQ7Prescribed.apertureOscillation k t * q t)) t
+OQ7Prescribed.planarWaveMomentPlus_hasDerivAt : ∀ (k t : ℝ) (E H q : ℝ → ℂ),
+  HasDerivAt E (Complex.I * ↑k * H t) t →
+    HasDerivAt H (Complex.I * ↑k * (E t + q t)) t →
+      HasDerivAt (fun z => OQ7Prescribed.apertureOscillation (-k) z * (H z + E z))
+        (Complex.I * ↑k * (OQ7Prescribed.apertureOscillation (-k) t * q t)) t
+OQ7Prescribed.planarWaveMoments_boundary : ∀ (k a b : ℝ),
+  a ≤ b →
+    ∀ (E H q : ℝ → ℂ),
+      ContinuousOn E (Set.Icc a b) →
+        ContinuousOn H (Set.Icc a b) →
+          ContinuousOn q (Set.Icc a b) →
+            (∀ t ∈ Set.Ioo a b, HasDerivAt E (Complex.I * ↑k * H t) t) →
+              (∀ t ∈ Set.Ioo a b, HasDerivAt H (Complex.I * ↑k * (E t + q t)) t) →
+                Complex.I * ↑k * ∫ (t : ℝ) in a..b, OQ7Prescribed.apertureOscillation (-k) t * q t =
+                    OQ7Prescribed.apertureOscillation (-k) b * (H b + E b) -
+                      OQ7Prescribed.apertureOscillation (-k) a * (H a + E a) ∧
+                  Complex.I * ↑k * ∫ (t : ℝ) in a..b, OQ7Prescribed.apertureOscillation k t * q t =
+                    OQ7Prescribed.apertureOscillation k b * (H b - E b) -
+                      OQ7Prescribed.apertureOscillation k a * (H a - E a)
 OQ7Prescribed.planePhase_contDiff : ∀ (k : ℝ) (σ : OQ7Prescribed.Direction),
   ContDiff ℝ (↑⊤) (OQ7Prescribed.planePhase k σ)
 OQ7Prescribed.planePhase_hasFDerivAt : ∀ (k : ℝ) (σ : OQ7Prescribed.Direction) (x : OQ7Prescribed.Position),
@@ -3970,6 +4180,18 @@ OQ7Prescribed.scalarPlanarPotential_norm_bound : ∀ (k : ℝ),
         ∀ (z : ℝ), ‖OQ7Prescribed.scalarPlanarPotential k q z‖ ≤ 1 / (2 * k) * ∫ (t : ℝ), ‖q t‖
 OQ7Prescribed.scalarPlanarPotential_smul : ∀ (k : ℝ) (q : ℝ → ℂ) (a : ℂ),
   (OQ7Prescribed.scalarPlanarPotential k fun t => a * q t) = fun z => a * OQ7Prescribed.scalarPlanarPotential k q z
+OQ7Prescribed.scalarPlanarPotential_twoLayer_representation : ∀ (k h L z : ℝ),
+  k ≠ 0 →
+    ∀ (hh : 0 ≤ h) (hL : h ≤ L),
+      z ∈ Set.Icc 0 L →
+        ∀ (A : OQ7Prescribed.PlanarLayerField k 0 h) (W : OQ7Prescribed.PlanarLayerField k h L),
+          A.electric h = W.electric h →
+            A.magnetic h = W.magnetic h →
+              k ^ 2 •
+                  OQ7Prescribed.scalarPlanarPotential k (↑↑↑(OQ7Prescribed.planarTwoLayerL2Current k h L hh hL A W)) z =
+                (if z ≤ h then A.electric z else W.electric z) -
+                    1 / 2 * OQ7Prescribed.apertureOscillation k z * (A.magnetic 0 + A.electric 0) +
+                  1 / 2 * OQ7Prescribed.apertureOscillation k (L - z) * (W.magnetic L - W.electric L)
 OQ7Prescribed.scalarTest_global_lipschitz : ∀ (φ : OQ7Prescribed.ScalarTest), ∃ L, LipschitzWith L ⇑φ
 OQ7Prescribed.scalarTest_support_radius : ∀ (φ : OQ7Prescribed.ScalarTest),
   ∃ S, 0 < S ∧ ∀ (x : OQ7Prescribed.Position), φ x ≠ 0 → ‖x‖ ≤ S
