@@ -53,3 +53,4 @@ import PrescribedExtinction.CompactOutgoingIdentification
 import PrescribedExtinction.OutgoingFundamental
 import PrescribedExtinction.DistributionVectorCalculus
 import PrescribedExtinction.VolumeFundamental
+import PrescribedExtinction.DyadicMaxwellSource

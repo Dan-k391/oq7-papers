@@ -37,7 +37,8 @@ try {
         @{ name = 'outgoing-volume-identification'; module = 'PrescribedExtinction.OutgoingVolumeIdentification' },
         @{ name = 'compact-outgoing-operator'; module = 'PrescribedExtinction.CompactOutgoingIdentification' },
         @{ name = 'outgoing-fundamental'; module = 'PrescribedExtinction.OutgoingFundamental' },
-        @{ name = 'volume-fundamental'; module = 'PrescribedExtinction.VolumeFundamental' }
+        @{ name = 'volume-fundamental'; module = 'PrescribedExtinction.VolumeFundamental' },
+        @{ name = 'dyadic-maxwell-source'; module = 'PrescribedExtinction.DyadicMaxwellSource' }
     )
     if ($Only) {
         foreach ($oq7Name in $Only) {

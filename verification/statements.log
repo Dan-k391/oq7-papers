@@ -145,8 +145,14 @@ OQ7Prescribed.cutoffGreen_integrable : ∀ (k T : ℝ),
   MeasureTheory.Integrable (OQ7Prescribed.cutoffGreen k T) MeasureTheory.volume
 OQ7Prescribed.cutoffGreen_memLp : ∀ (k T : ℝ),
   MeasureTheory.MemLp (OQ7Prescribed.cutoffGreen k T) 2 MeasureTheory.volume
+OQ7Prescribed.distributionCurl_add : ∀ (U V : OQ7Prescribed.CartesianDistribution),
+  OQ7Prescribed.distributionCurl (U + V) = OQ7Prescribed.distributionCurl U + OQ7Prescribed.distributionCurl V
+OQ7Prescribed.distributionCurl_complex_smul : ∀ (a : ℂ) (U : OQ7Prescribed.CartesianDistribution),
+  OQ7Prescribed.distributionCurl (a • U) = a • OQ7Prescribed.distributionCurl U
 OQ7Prescribed.distributionCurl_gradient : ∀ (T : OQ7Prescribed.ScalarDistribution),
   (OQ7Prescribed.distributionCurl fun i => (OQ7Prescribed.distributionPartial i) T) = 0
+OQ7Prescribed.distributionCurl_real_smul : ∀ (a : ℝ) (U : OQ7Prescribed.CartesianDistribution),
+  OQ7Prescribed.distributionCurl (a • U) = a • OQ7Prescribed.distributionCurl U
 OQ7Prescribed.distributionCurlCurl : ∀ (U : OQ7Prescribed.CartesianDistribution) (i : Fin 3),
   OQ7Prescribed.distributionCurl (OQ7Prescribed.distributionCurl U) i =
     (OQ7Prescribed.distributionPartial i) (OQ7Prescribed.distributionDivergence U) -
@@ -154,6 +160,8 @@ OQ7Prescribed.distributionCurlCurl : ∀ (U : OQ7Prescribed.CartesianDistributio
 OQ7Prescribed.distributionPartial_commute : ∀ (T : OQ7Prescribed.ScalarDistribution) (i j : Fin 3),
   (OQ7Prescribed.distributionPartial i) ((OQ7Prescribed.distributionPartial j) T) =
     (OQ7Prescribed.distributionPartial j) ((OQ7Prescribed.distributionPartial i) T)
+OQ7Prescribed.distributionPartial_complex_smul : ∀ (a : ℂ) (T : OQ7Prescribed.ScalarDistribution) (i : Fin 3),
+  (OQ7Prescribed.distributionPartial i) (a • T) = a • (OQ7Prescribed.distributionPartial i) T
 OQ7Prescribed.domain_compact_closure : ∀ (B : OQ7Prescribed.TwoLayerBody), IsCompact (closure B.domain)
 OQ7Prescribed.domain_subset_closedBall : ∀ (B : OQ7Prescribed.TwoLayerBody),
   B.domain ⊆ Metric.closedBall 0 (B.aperture + B.absorberThickness + B.plateThickness)
@@ -866,6 +874,10 @@ OQ7Prescribed.outgoingGreen_zero_eq_newton : ∀ (x : OQ7Prescribed.Position),
   OQ7Prescribed.outgoingGreen 0 x = OQ7Prescribed.newtonRadial ‖x‖
 OQ7Prescribed.outgoingGreenDistribution_apply : ∀ (k : ℝ) (φ : OQ7Prescribed.ScalarTest),
   (OQ7Prescribed.outgoingGreenDistribution k) φ = ∫ (x : OQ7Prescribed.Position), φ x • OQ7Prescribed.outgoingGreen k x
+OQ7Prescribed.outgoingMagneticDistribution_second_curl : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization),
+  OQ7Prescribed.distributionCurl (OQ7Prescribed.outgoingMagneticDistribution k p) =
+    (-Complex.I * ↑k) •
+      (OQ7Prescribed.outgoingVolumeDistribution k p + OQ7Prescribed.polarizationCurrentComponentDistribution p)
 OQ7Prescribed.outgoingPotential_add : ∀ (k : ℝ) (p q : OQ7Prescribed.CompactPolarization),
   OQ7Prescribed.outgoingPotential k (p.add q) =
     OQ7Prescribed.outgoingPotential k p + OQ7Prescribed.outgoingPotential k q
@@ -878,6 +890,9 @@ OQ7Prescribed.outgoingPotential_component_integral : ∀ (k : ℝ) (p : OQ7Presc
 OQ7Prescribed.outgoingPotential_congr_current : ∀ (k : ℝ) (p q : OQ7Prescribed.CompactPolarization),
   p.current =ᵐ[MeasureTheory.volume] q.current →
     OQ7Prescribed.outgoingPotential k p = OQ7Prescribed.outgoingPotential k q
+OQ7Prescribed.outgoingPotential_curlCurl : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization) (i : Fin 3),
+  OQ7Prescribed.distributionCurl (OQ7Prescribed.distributionCurl (OQ7Prescribed.potentialComponentDistribution k p)) i =
+    OQ7Prescribed.outgoingVolumeDistribution k p i + OQ7Prescribed.polarizationCurrentComponentDistribution p i
 OQ7Prescribed.outgoingPotential_enorm_le : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization) (S : ℝ)
   (x : OQ7Prescribed.Position), ‖x‖ ≤ S → ‖OQ7Prescribed.outgoingPotential k p x‖ₑ ≤ OQ7Prescribed.potentialBound k p S
 OQ7Prescribed.outgoingPotential_eq_cutoff : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization) (S : ℝ)
@@ -929,6 +944,14 @@ OQ7Prescribed.outgoingVolumeDistribution_apply : ∀ (k : ℝ) (p : OQ7Prescribe
               ((OQ7Prescribed.testPartial j) ((OQ7Prescribed.testPartial i) φ)) x •
                 OQ7Prescribed.outgoingPotential k p x).ofLp
           j
+OQ7Prescribed.outgoingVolumeDistribution_curl : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization),
+  OQ7Prescribed.distributionCurl (OQ7Prescribed.outgoingVolumeDistribution k p) =
+    k ^ 2 • OQ7Prescribed.distributionCurl (OQ7Prescribed.potentialComponentDistribution k p)
+OQ7Prescribed.outgoingVolumeDistribution_eq_gradient : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization),
+  OQ7Prescribed.outgoingVolumeDistribution k p =
+    k ^ 2 • OQ7Prescribed.potentialComponentDistribution k p + fun i =>
+      (OQ7Prescribed.distributionPartial i)
+        (OQ7Prescribed.distributionDivergence (OQ7Prescribed.potentialComponentDistribution k p))
 OQ7Prescribed.outgoingVolumeDistribution_eq_staticFourier_add_remainder : ∀ (k : ℝ)
   (p : OQ7Prescribed.CompactPolarization) (i : Fin 3),
   OQ7Prescribed.outgoingVolumeDistribution k p i =
@@ -939,6 +962,18 @@ OQ7Prescribed.outgoingVolumeDistribution_eq_zero_add_remainder : ∀ (k : ℝ) (
   (i : Fin 3),
   OQ7Prescribed.outgoingVolumeDistribution k p i =
     OQ7Prescribed.outgoingVolumeDistribution 0 p i + OQ7Prescribed.remainderPotentialComponentDistribution k p i
+OQ7Prescribed.outgoingVolumeDistribution_first_curl : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization),
+  OQ7Prescribed.distributionCurl (OQ7Prescribed.outgoingVolumeDistribution k p) =
+    (Complex.I * ↑k) • OQ7Prescribed.outgoingMagneticDistribution k p
+OQ7Prescribed.outgoingVolumeDistribution_maxwell_source : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization) (i : Fin 3),
+  OQ7Prescribed.distributionCurl (OQ7Prescribed.distributionCurl (OQ7Prescribed.outgoingVolumeDistribution k p)) i -
+      k ^ 2 • OQ7Prescribed.outgoingVolumeDistribution k p i =
+    k ^ 2 • OQ7Prescribed.polarizationCurrentComponentDistribution p i
+OQ7Prescribed.outgoingVolumeDistribution_maxwell_source_L2 : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization)
+  (i : Fin 3),
+  OQ7Prescribed.distributionCurl (OQ7Prescribed.distributionCurl (OQ7Prescribed.outgoingVolumeDistribution k p)) i -
+      k ^ 2 • OQ7Prescribed.outgoingVolumeDistribution k p i =
+    k ^ 2 • OQ7Prescribed.vectorL2ComponentDistribution (MeasureTheory.MemLp.toLp p.current ⋯) i
 OQ7Prescribed.outgoingVolumeDistribution_on_ball_bounded_L2_realization : ∀ (k R : ℝ) (hR : 0 ≤ R)
   (f : ↥(OQ7Prescribed.SupportedVectorL2 R)),
   ∃ u,

@@ -1,0 +1,10 @@
+import PrescribedExtinction.DyadicMaxwellSource
+
+#check @OQ7Prescribed.outgoingVolumeDistribution_maxwell_source
+#print axioms OQ7Prescribed.outgoingVolumeDistribution_maxwell_source
+#check @OQ7Prescribed.outgoingVolumeDistribution_maxwell_source_L2
+#print axioms OQ7Prescribed.outgoingVolumeDistribution_maxwell_source_L2
+#check @OQ7Prescribed.outgoingVolumeDistribution_first_curl
+#print axioms OQ7Prescribed.outgoingVolumeDistribution_first_curl
+#check @OQ7Prescribed.outgoingMagneticDistribution_second_curl
+#print axioms OQ7Prescribed.outgoingMagneticDistribution_second_curl

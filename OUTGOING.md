@@ -20,6 +20,12 @@ does not assert an aperture-independent operator norm.
 proves the exact equation for the actual convolution with every original L²
 current. Both use the original continuous test-function distributions.
 
+`DyadicMaxwellSource.lean` then proves the actual second-order Maxwell source
+equation `(curl curl - k²) G_k p = k² p` and both first-order curl equations
+with magnetic distribution `-ik curl(g_k*p)`. The current is still any original
+compact L² current. This identifies the correct source equations; it does not
+yet supply magnetic-field regularity or the pointwise radiation condition.
+
 The proof chain includes shrinking smooth cutoffs, removable-point integration
 by parts, actual outgoing/current Fubini pairings, dynamic remainder pairings,
 the previously verified Newton operator, and commutation of distributional
