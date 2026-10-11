@@ -195,6 +195,13 @@ run_cmd do
         'OQ7Prescribed.fourierIntegral_L1L2_ae')) {
         if ($oq7Required -notin $oq7NewKernelTheorems) { throw "Missing physical static obligation: $oq7Required" }
     }
+    foreach ($oq7Required in @('OQ7Prescribed.outgoing_dyadic_contact_identity',
+        'OQ7Prescribed.outgoingVolumeDistribution_eq_staticFourier_add_remainder',
+        'OQ7Prescribed.outgoingVolumeDistribution_on_ball_bounded_L2_realization',
+        'OQ7Prescribed.outgoing_helmholtz_fundamental_distribution',
+        'OQ7Prescribed.potentialComponent_helmholtz_L2_distribution')) {
+        if ($oq7Required -notin $oq7NewKernelTheorems) { throw "Missing outgoing operator obligation: $oq7Required" }
+    }
     if ($oq7PdfHash -ne '3D9775D849234E828370D7C96D8BDCDD574BEB6831A7906EA6B7706579868710') { throw 'Manuscript hash differs.' }
     $oq7TargetHash = (Get-FileHash -LiteralPath 'PrescribedExtinction/Maxwell.lean' -Algorithm SHA256).Hash
     if ($oq7TargetHash -ne '071C04ED9417A1D9AC842D61B545183627E6F997C7C1899F908871608859ABF6') {
@@ -227,7 +234,14 @@ run_cmd do
         existingPhysicalTargetSourceUnchanged = $true
         allPreDyadicLeanModulesUnchanged = $true
         existingAggregateImportPrefixUnchanged = $true
-        dyadicGreenMilestoneComplete = $false
+        dyadicGreenMilestoneComplete = $true
+        positiveFrequencyOutgoingContactIdentityVerified = $true
+        scalarHelmholtzFundamentalSolutionVerified = $true
+        compactCurrentHelmholtzEquationVerified = $true
+        outgoingPhysicalVolumeDistributionVerified = $true
+        outgoingPhysicalCompactDomainL2OperatorVerified = $true
+        outgoingWeakMaxwellRepresentationVerified = $false
+        scatteringStateExistenceVerified = $false
         allPreContactLeanModulesUnchanged = $true
         allPrePuncturedLeanModulesUnchanged = $true
         allLeanModulesFromCommit6874b49Unchanged = $true
@@ -269,23 +283,21 @@ run_cmd do
         dependencyRevisions = $oq7Dependencies
         sourceHashes = $oq7Hashes
         foundationalMilestones = @(
-            @{ module = 'PrescribedExtinction.GreenKernel'; scope = 'Actual scalar kernel local L1/L2 integrability and distributional dyadic test formula; Newton contact identified in NewtonContact'; physicalContactCoefficientVerified = $true; positiveFrequencyOutgoingContactIdentityVerified = $false },
-            @{ module = 'PrescribedExtinction.VolumePotential'; scope = 'Actual convolution exists for every compact vector L2 current; finite local bound; locally integrable potential; distributional volume formula and additivity'; boundedDyadicL2OperatorVerified = $false },
+            @{ module = 'PrescribedExtinction.GreenKernel'; scope = 'Actual scalar kernel local L1/L2 integrability and distributional dyadic test formula; Newton contact identified in NewtonContact'; physicalContactCoefficientVerified = $true; positiveFrequencyOutgoingContactIdentityVerified = $true },
+            @{ module = 'PrescribedExtinction.VolumePotential'; scope = 'Actual convolution exists for every compact vector L2 current; finite local bound; locally integrable potential; distributional volume formula and additivity'; boundedDyadicL2OperatorVerified = $true },
             @{ module = 'PrescribedExtinction.StaticFourier'; scope = 'Explicit static Fourier multiplier is an L2 contraction and has zero imaginary quadratic form; physical identity proved in NewtonStaticIdentification'; identificationWithNewtonVolumePotentialVerified = $true },
-            @{ module = 'PrescribedExtinction.OutgoingRadial'; scope = 'Actual Newton and outgoing radial derivatives and classical Hessian away from origin; Newton distributional contact identified in NewtonContact'; physicalContactCoefficientVerified = $true; positiveFrequencyOutgoingContactIdentityVerified = $false },
-            @{ module = 'PrescribedExtinction.RemainderConvolution'; scope = 'Actual classical dyadic dynamic-minus-static cancellation; explicit inverse-distance norm estimate; cutoff L2 kernel; actual convolution, compact-domain L2 bound, ae invariance and complex linearity'; identificationWithDistributionalDifferenceVerified = $false; fullPhysicalDyadicOperatorVerified = $false },
+            @{ module = 'PrescribedExtinction.OutgoingRadial'; scope = 'Actual Newton and outgoing radial derivatives and classical Hessian away from origin; Newton distributional contact identified in NewtonContact'; physicalContactCoefficientVerified = $true; positiveFrequencyOutgoingContactIdentityVerified = $true },
+            @{ module = 'PrescribedExtinction.RemainderConvolution'; scope = 'Actual classical dyadic dynamic-minus-static cancellation; explicit inverse-distance norm estimate; cutoff L2 kernel; actual convolution, compact-domain L2 bound, ae invariance and complex linearity'; identificationWithDistributionalDifferenceVerified = $true; fullPhysicalDyadicOperatorVerified = $true },
             @{ module = 'PrescribedExtinction.SphereMoments'; scope = 'Actual polar angular measure, orthogonal invariance, area 4pi and exact second moments'; actualSphereMomentsVerified = $true },
             @{ module = 'PrescribedExtinction.NewtonBoundary'; scope = 'Actual angular contact boundary tends to minus delta_ij phi(0)/3; derivative boundary tends to zero; connected to punctured integral in NewtonPunctured'; puncturedIntegrationByPartsVerified = $true },
             @{ module = 'PrescribedExtinction.NewtonPrincipalValue'; scope = 'Actual spherical principal value converges for every original test function; compensated integral and every positive-radius truncated integral are proved integrable; bundled in NewtonContact'; fullDistributionalHessianIdentityVerified = $true },
             @{ module = 'PrescribedExtinction.NewtonCutoffIBP'; scope = 'Actual smooth radial cutoff, exact derivative mass and whole-space Newton/gradient integration by parts for original test functions'; cutoffIntegrationByPartsVerified = $true },
             @{ module = 'PrescribedExtinction.NewtonShell'; scope = 'Actual exterior cutoff convergence, integrable polar conversion, radial shell rescaling and normalized shell limit'; radialShellLimitVerified = $true },
-            @{ module = 'PrescribedExtinction.NewtonContact'; scope = 'Exact finite-radius punctured double integration by parts, inward-normal signs and vanishing outer boundaries; full Newton Hessian principal-value/contact identity; actual integral-valued principal value is a continuous distribution'; fullDistributionalHessianIdentityVerified = $true; staticFourierIdentificationVerified = $false },
+            @{ module = 'PrescribedExtinction.NewtonContact'; scope = 'Exact finite-radius punctured double integration by parts, inward-normal signs and vanishing outer boundaries; full Newton Hessian principal-value/contact identity; actual integral-valued principal value is a continuous distribution'; fullDistributionalHessianIdentityVerified = $true; staticFourierIdentificationVerified = $true },
             @{ module = 'PrescribedExtinction.NewtonTransform'; scope = 'Actual scalar Newton and full contact Hessian Fourier correspondence on all Schwartz tests; both heat interchanges absolutely integrable; zero-frequency handled globally'; kernelFourierCorrespondenceVerified = $true },
             @{ module = 'PrescribedExtinction.NewtonStaticIdentification'; scope = 'Actual original Newton volume distribution equals staticFourierOperator on every compactly supported vector L2 current; genuine current/test Fubini, smooth correlation, Fourier L1-L2 compatibility, and bounded physical L2 realization'; compactCurrentConvolutionIdentificationVerified = $true; physicalStaticOperatorVerified = $true }
         )
         unverifiedDependencies = @('3D outgoing Maxwell existence and uniqueness',
-            'Scalar distributional Helmholtz fundamental-solution identity',
-            'Distributional dynamic-minus-static identification and bounded L2 realization/restriction of the full dyadic operator (classical remainder estimate and convolution bound proved)',
             'Volume representation equivalence to weak Maxwell, regularity and Silver-Muller radiation',
             'Full radiation identity, optical theorem, reciprocity and power balance',
             'Uniform inverse and sin-squared response factorization',

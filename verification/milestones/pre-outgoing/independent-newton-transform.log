@@ -1,0 +1,21 @@
+OQ7Prescribed.newtonTempered_fourier_eq :
+  FourierTransform.fourier OQ7Prescribed.newtonTempered = OQ7Prescribed.newtonFrequencyTempered
+OQ7Prescribed.newtonTempered_fourier_integral (φ : SchwartzMap OQ7Prescribed.Position ℂ) :
+  (FourierTransform.fourier OQ7Prescribed.newtonTempered) φ =
+    ∫ (ξ : OQ7Prescribed.Position), φ ξ * OQ7Prescribed.newtonFrequencyKernel ξ
+OQ7Prescribed.newtonTemperedHessian_fourier_integral (φ : SchwartzMap OQ7Prescribed.Position ℂ) (i j : Fin 3) :
+  (FourierTransform.fourier (OQ7Prescribed.newtonTemperedHessian i j)) φ =
+    ∫ (ξ : OQ7Prescribed.Position), φ ξ * ↑(-(ξ.ofLp i * ξ.ofLp j) / ‖ξ‖ ^ 2)
+OQ7Prescribed.newtonTemperedHessian_fourier_eq (i j : Fin 3) :
+  FourierTransform.fourier (OQ7Prescribed.newtonTemperedHessian i j) = OQ7Prescribed.newtonHessianFrequencyTempered i j
+OQ7Prescribed.newtonTemperedHessian_scalarTest (φ : OQ7Prescribed.ScalarTest) (i j : Fin 3) :
+  (OQ7Prescribed.newtonTemperedHessian i j) (OQ7Prescribed.scalarTestSchwartz φ) = (OQ7Prescribed.greenHessian 0 i j) φ
+OQ7Prescribed.newtonTemperedHessian_contact_apply (φ : OQ7Prescribed.ScalarTest) (i j : Fin 3) :
+  (OQ7Prescribed.newtonTemperedHessian i j) (OQ7Prescribed.scalarTestSchwartz φ) =
+    ↑(OQ7Prescribed.newtonPVValue φ i j - (if i = j then 1 else 0) / 3 * φ 0)
+'OQ7Prescribed.newtonTempered_fourier_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.newtonTempered_fourier_integral' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.newtonTemperedHessian_fourier_integral' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.newtonTemperedHessian_fourier_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.newtonTemperedHessian_scalarTest' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.newtonTemperedHessian_contact_apply' depends on axioms: [propext, Classical.choice, Quot.sound]

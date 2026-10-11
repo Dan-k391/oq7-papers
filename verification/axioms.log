@@ -1730,6 +1730,7 @@ Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.basisR.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.bilinear' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.bodyDomain' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.CartesianDistribution' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.classicalDyadic' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.classicalDyadic_coordinate' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.classicalDyadic_coordinate._simp_1_2' depends on axioms: [propext]
@@ -1741,58 +1742,106 @@ Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.classicalDyadic_coordinate._simp_1_8' depends on axioms: [propext]
 'OQ7Prescribed.classicalDyadic_measurable' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.classicalDyadic._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:1548:14: warning: `OQ7Prescribed.classicalDyadic._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:1549:14: warning: `OQ7Prescribed.classicalDyadic._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.classicalDyadic._proof_10' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:1549:14: warning: `OQ7Prescribed.classicalDyadic._proof_10` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:1550:14: warning: `OQ7Prescribed.classicalDyadic._proof_10` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.classicalDyadic._proof_11' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:1550:14: warning: `OQ7Prescribed.classicalDyadic._proof_11` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:1551:14: warning: `OQ7Prescribed.classicalDyadic._proof_11` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.classicalDyadic._proof_12' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:1551:14: warning: `OQ7Prescribed.classicalDyadic._proof_12` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:1552:14: warning: `OQ7Prescribed.classicalDyadic._proof_12` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.classicalDyadic._proof_13' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:1552:14: warning: `OQ7Prescribed.classicalDyadic._proof_13` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:1553:14: warning: `OQ7Prescribed.classicalDyadic._proof_13` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.classicalDyadic._proof_2' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:1553:14: warning: `OQ7Prescribed.classicalDyadic._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:1554:14: warning: `OQ7Prescribed.classicalDyadic._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.classicalDyadic._proof_3' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:1554:14: warning: `OQ7Prescribed.classicalDyadic._proof_3` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:1555:14: warning: `OQ7Prescribed.classicalDyadic._proof_3` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.classicalDyadic._proof_4' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:1555:14: warning: `OQ7Prescribed.classicalDyadic._proof_4` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:1556:14: warning: `OQ7Prescribed.classicalDyadic._proof_4` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.classicalDyadic._proof_5' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:1556:14: warning: `OQ7Prescribed.classicalDyadic._proof_5` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:1557:14: warning: `OQ7Prescribed.classicalDyadic._proof_5` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.classicalDyadic._proof_6' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:1557:14: warning: `OQ7Prescribed.classicalDyadic._proof_6` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:1558:14: warning: `OQ7Prescribed.classicalDyadic._proof_6` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.classicalDyadic._proof_7' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:1558:14: warning: `OQ7Prescribed.classicalDyadic._proof_7` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:1559:14: warning: `OQ7Prescribed.classicalDyadic._proof_7` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.classicalDyadic._proof_8' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:1559:14: warning: `OQ7Prescribed.classicalDyadic._proof_8` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:1560:14: warning: `OQ7Prescribed.classicalDyadic._proof_8` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.classicalDyadic._proof_9' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:1560:14: warning: `OQ7Prescribed.classicalDyadic._proof_9` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:1561:14: warning: `OQ7Prescribed.classicalDyadic._proof_9` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.classicalDyadic.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.compactOutgoing_evaluationNormedAddCommGroup' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.compactOutgoing_evaluationNormedAddCommGroup._proof_1' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+verification/Audit.lean:1564:14: warning: `OQ7Prescribed.compactOutgoing_evaluationNormedAddCommGroup._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'OQ7Prescribed.compactOutgoing_evaluationNormedAddCommGroup._proof_2' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+verification/Audit.lean:1565:14: warning: `OQ7Prescribed.compactOutgoing_evaluationNormedAddCommGroup._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'OQ7Prescribed.compactOutgoing_evaluationNormedAddCommGroup._proof_3' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+verification/Audit.lean:1566:14: warning: `OQ7Prescribed.compactOutgoing_evaluationNormedAddCommGroup._proof_3` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'OQ7Prescribed.compactOutgoing_evaluationNormedAddCommGroup._proof_4' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+verification/Audit.lean:1567:14: warning: `OQ7Prescribed.compactOutgoing_evaluationNormedAddCommGroup._proof_4` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'OQ7Prescribed.compactOutgoing_evaluationNormedSpace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.compactOutgoing_operatorNormedAddCommGroup' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.compactOutgoing_operatorNormedAddCommGroup._proof_1' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+verification/Audit.lean:1570:14: warning: `OQ7Prescribed.compactOutgoing_operatorNormedAddCommGroup._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'OQ7Prescribed.compactOutgoing_operatorNormedSpace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.compactOutgoing_operatorNormedSpace._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+verification/Audit.lean:1572:14: warning: `OQ7Prescribed.compactOutgoing_operatorNormedSpace._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'OQ7Prescribed.compactOutgoingOperator' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.compactOutgoingOperator_apply_norm_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.compactOutgoingOperator_coe' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.compactOutgoingOperator_norm_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.compactOutgoingOperator_physical_distribution' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.compactOutgoingOperator_test_pairing' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.compactOutgoingOperator._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+verification/Audit.lean:1579:14: warning: `OQ7Prescribed.compactOutgoingOperator._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.CompactPolarization' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.compactPolarization_current_hasCompactSupport' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.compactPolarization_current_hasCompactSupport._simp_1_1' depends on axioms: [propext,
@@ -1805,33 +1854,33 @@ Note: This linter can be disabled with `set_option linter.auxLemma false`
  Quot.sound]
 'OQ7Prescribed.compactPolarization_current_integrable._simp_1_2' depends on axioms: [propext]
 'OQ7Prescribed.CompactPolarization._sizeOf_1' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:1569:14: warning: `OQ7Prescribed.CompactPolarization._sizeOf_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:1587:14: warning: `OQ7Prescribed.CompactPolarization._sizeOf_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.CompactPolarization._sizeOf_inst' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.CompactPolarization.add' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.CompactPolarization.add._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:1572:14: warning: `OQ7Prescribed.CompactPolarization.add._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:1590:14: warning: `OQ7Prescribed.CompactPolarization.add._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.CompactPolarization.add._proof_2' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:1573:14: warning: `OQ7Prescribed.CompactPolarization.add._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:1591:14: warning: `OQ7Prescribed.CompactPolarization.add._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.CompactPolarization.add._proof_3' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:1574:14: warning: `OQ7Prescribed.CompactPolarization.add._proof_3` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:1592:14: warning: `OQ7Prescribed.CompactPolarization.add._proof_3` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.CompactPolarization.add._proof_4' depends on axioms: [propext]
-verification/Audit.lean:1575:14: warning: `OQ7Prescribed.CompactPolarization.add._proof_4` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:1593:14: warning: `OQ7Prescribed.CompactPolarization.add._proof_4` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.CompactPolarization.add._proof_5' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:1576:14: warning: `OQ7Prescribed.CompactPolarization.add._proof_5` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:1594:14: warning: `OQ7Prescribed.CompactPolarization.add._proof_5` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.CompactPolarization.add._proof_6' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:1577:14: warning: `OQ7Prescribed.CompactPolarization.add._proof_6` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:1595:14: warning: `OQ7Prescribed.CompactPolarization.add._proof_6` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.CompactPolarization.casesOn' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -1852,19 +1901,89 @@ Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.CompactPolarization.recOn' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.CompactPolarization.scale' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.CompactPolarization.scale._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:1595:14: warning: `OQ7Prescribed.CompactPolarization.scale._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:1613:14: warning: `OQ7Prescribed.CompactPolarization.scale._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.CompactPolarization.scale._proof_2' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:1596:14: warning: `OQ7Prescribed.CompactPolarization.scale._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:1614:14: warning: `OQ7Prescribed.CompactPolarization.scale._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.CompactPolarization.vanish' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.compactRemainderConstant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.compactRemainderConstant_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.compactRemainderField' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.compactRemainderField_memLp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.compactRemainderField.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.compactRemainderLinear' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.compactRemainderLinear._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+verification/Audit.lean:1622:14: warning: `OQ7Prescribed.compactRemainderLinear._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'OQ7Prescribed.compactRemainderLinear._proof_2' depends on axioms: [propext, Classical.choice, Quot.sound]
+verification/Audit.lean:1623:14: warning: `OQ7Prescribed.compactRemainderLinear._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'OQ7Prescribed.compactRemainderLinear._proof_3' depends on axioms: [propext, Classical.choice, Quot.sound]
+verification/Audit.lean:1624:14: warning: `OQ7Prescribed.compactRemainderLinear._proof_3` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'OQ7Prescribed.compactRemainderLinear._proof_4' depends on axioms: [propext, Classical.choice, Quot.sound]
+verification/Audit.lean:1625:14: warning: `OQ7Prescribed.compactRemainderLinear._proof_4` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'OQ7Prescribed.compactRemainderLp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.compactRemainderLp_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.compactRemainderLp_coe' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.compactRemainderLp_norm_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.compactRemainderLp_smul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.compactRemainderLp_supported' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.compactRemainderOperator' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.compactRemainderOperator_norm_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.compactRestrictionCLM' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.compactRestrictionCLM_norm_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.compactRestrictionCLM._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+verification/Audit.lean:1636:14: warning: `OQ7Prescribed.compactRestrictionCLM._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'OQ7Prescribed.compactRestrictionLinear' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.compactRestrictionLinear._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+verification/Audit.lean:1638:14: warning: `OQ7Prescribed.compactRestrictionLinear._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'OQ7Prescribed.compactRestrictionLinear._proof_2' depends on axioms: [propext, Classical.choice, Quot.sound]
+verification/Audit.lean:1639:14: warning: `OQ7Prescribed.compactRestrictionLinear._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'OQ7Prescribed.compactRestrictionLinear._proof_3' depends on axioms: [propext, Classical.choice, Quot.sound]
+verification/Audit.lean:1640:14: warning: `OQ7Prescribed.compactRestrictionLinear._proof_3` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'OQ7Prescribed.compactRestrictionLinear._proof_4' depends on axioms: [propext, Classical.choice, Quot.sound]
+verification/Audit.lean:1641:14: warning: `OQ7Prescribed.compactRestrictionLinear._proof_4` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'OQ7Prescribed.compactRestrictionLp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.compactRestrictionLp_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.compactRestrictionLp_coe' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.compactRestrictionLp_eq_self_iff_supported' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.compactRestrictionLp_norm_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.compactRestrictionLp_smul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.compactRestrictionLp_supported' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.compactRestrictionLp._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+verification/Audit.lean:1649:14: warning: `OQ7Prescribed.compactRestrictionLp._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'OQ7Prescribed.compactStaticOperator' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.compactStaticOperator_apply_norm_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.compactStaticOperator._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+verification/Audit.lean:1652:14: warning: `OQ7Prescribed.compactStaticOperator._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.complexify' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.complexify_continuous' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.complexify_norm_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.complexify._proof_1' depends on axioms: [propext]
-verification/Audit.lean:1601:14: warning: `OQ7Prescribed.complexify._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:1656:14: warning: `OQ7Prescribed.complexify._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.complexify.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -1876,29 +1995,62 @@ Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.coordinateSwap' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.coordinateSwap_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.coordinateSwap._proof_1' depends on axioms: [propext]
-verification/Audit.lean:1610:14: warning: `OQ7Prescribed.coordinateSwap._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:1665:14: warning: `OQ7Prescribed.coordinateSwap._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.coordinateSwap.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.cross' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.cross._proof_1' depends on axioms: [propext]
-verification/Audit.lean:1613:14: warning: `OQ7Prescribed.cross._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:1668:14: warning: `OQ7Prescribed.cross._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.cross._proof_2' depends on axioms: [propext]
-verification/Audit.lean:1614:14: warning: `OQ7Prescribed.cross._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:1669:14: warning: `OQ7Prescribed.cross._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.curl' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.current_component_fourier' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.current_component_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.currentCorrelation_kernel_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.currentCorrelation_pairing_re_im' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.currentCorrelation_zero_eq_current_test_integral' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OQ7Prescribed.currentCorrelationRealTest' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.currentCorrelationRealTest_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.currentCorrelationRealTest_partial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.currentCorrelationRealTest_partial._simp_1_1' depends on axioms: [propext]
+'OQ7Prescribed.currentCorrelationRealTest._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+verification/Audit.lean:1680:14: warning: `OQ7Prescribed.currentCorrelationRealTest._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'OQ7Prescribed.currentCorrelationRealTest._proof_2' depends on axioms: [propext, Classical.choice, Quot.sound]
+verification/Audit.lean:1681:14: warning: `OQ7Prescribed.currentCorrelationRealTest._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'OQ7Prescribed.currentCorrelationRealTest._proof_3' depends on axioms: [propext, Classical.choice, Quot.sound]
+verification/Audit.lean:1682:14: warning: `OQ7Prescribed.currentCorrelationRealTest._proof_3` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.currentFarField' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.currentFarField._proof_1' depends on axioms: [propext]
-verification/Audit.lean:1619:14: warning: `OQ7Prescribed.currentFarField._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:1684:14: warning: `OQ7Prescribed.currentFarField._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'OQ7Prescribed.currentTestCorrelationVector' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.currentTestCorrelationVector_coordinate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.currentTestCorrelationVector_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.currentTestCorrelationVector._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+verification/Audit.lean:1688:14: warning: `OQ7Prescribed.currentTestCorrelationVector._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'OQ7Prescribed.currentTestCorrelationVector._proof_2' depends on axioms: [propext, Classical.choice, Quot.sound]
+verification/Audit.lean:1689:14: warning: `OQ7Prescribed.currentTestCorrelationVector._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.cutoffDyadicRemainder' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.cutoffDyadicRemainder_eLpNorm_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.cutoffDyadicRemainder_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.cutoffDyadicRemainder_memLp' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.cutoffDyadicRemainder_norm_le' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.cutoffDyadicRemainder.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -1908,7 +2060,7 @@ Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.cutoffGreen.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.Direction' does not depend on any axioms
 'OQ7Prescribed.Direction._sizeOf_1' does not depend on any axioms
-verification/Audit.lean:1630:14: warning: `OQ7Prescribed.Direction._sizeOf_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:1701:14: warning: `OQ7Prescribed.Direction._sizeOf_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.Direction._sizeOf_inst' does not depend on any axioms
@@ -1932,16 +2084,41 @@ Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.Direction.sign.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.Direction.sign.eq_2' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.Direction.sign.match_1' does not depend on any axioms
-verification/Audit.lean:1651:14: warning: `OQ7Prescribed.Direction.sign.match_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:1722:14: warning: `OQ7Prescribed.Direction.sign.match_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
+'OQ7Prescribed.distributionCurl' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.distributionCurl_gradient' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.distributionCurl._proof_1' depends on axioms: [propext]
+verification/Audit.lean:1725:14: warning: `OQ7Prescribed.distributionCurl._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'OQ7Prescribed.distributionCurl.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.distributionCurlCurl' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.distributionDivergence' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.distributionDivergence.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.distributionLaplacian' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.distributionLaplacian._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+verification/Audit.lean:1731:14: warning: `OQ7Prescribed.distributionLaplacian._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'OQ7Prescribed.distributionLaplacian._proof_2' depends on axioms: [propext, Classical.choice, Quot.sound]
+verification/Audit.lean:1732:14: warning: `OQ7Prescribed.distributionLaplacian._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'OQ7Prescribed.distributionLaplacian._proof_3' depends on axioms: [propext, Classical.choice, Quot.sound]
+verification/Audit.lean:1733:14: warning: `OQ7Prescribed.distributionLaplacian._proof_3` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'OQ7Prescribed.distributionLaplacian.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.distributionPartial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.distributionPartial_commute' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.distributionPartial._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:1653:14: warning: `OQ7Prescribed.distributionPartial._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:1737:14: warning: `OQ7Prescribed.distributionPartial._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.distributionPartial._proof_2' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:1654:14: warning: `OQ7Prescribed.distributionPartial._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:1738:14: warning: `OQ7Prescribed.distributionPartial._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.distributionPartial.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -1950,8 +2127,14 @@ Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.domain_subset_closedBall._simp_1_1' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.dyadicGreenDistribution' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.dyadicGreenDistribution_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.dyadicGreenDistribution_eq_static_add_remainder' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OQ7Prescribed.dyadicGreenDistribution_eq_static_add_remainder._abel_1_2' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
 'OQ7Prescribed.dyadicGreenDistribution._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:1661:14: warning: `OQ7Prescribed.dyadicGreenDistribution._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:1747:14: warning: `OQ7Prescribed.dyadicGreenDistribution._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.dyadicGreenDistribution.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -1964,7 +2147,9 @@ Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.dyadicRemainder_cancel._simp_1_7' depends on axioms: [propext]
 'OQ7Prescribed.dyadicRemainder_cancel._simp_1_8' depends on axioms: [propext]
 'OQ7Prescribed.dyadicRemainder_cancel._simp_1_9' depends on axioms: [propext]
+'OQ7Prescribed.dyadicRemainder_current_entry_pairing' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.dyadicRemainder_measurable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.dyadicRemainder_memLp_on_compact' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.dyadicRemainder_norm_le' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.dyadicRemainder_norm_le_on_ball' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.dyadicRemainder_norm_le._simp_1_10' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -1977,6 +2162,61 @@ Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.dyadicRemainder.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.dyadicRemainderCutoffConstant' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.dyadicRemainderCutoffConstant.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.dyadicRemainderEntry_locallyIntegrable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.dynamicGradientBound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.dynamicGradientBound_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.dynamicGradientBound.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.dynamicGradientRemainder' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.dynamicGradientRemainder_contDiffAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.dynamicGradientRemainder_hasLineDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.dynamicGradientRemainder_locallyIntegrable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.dynamicGradientRemainder_measurable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.dynamicGradientRemainder_norm_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.dynamicGradientRemainder_norm_le_on_ball' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.dynamicGradientRemainder_test_ibp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.dynamicGradientRemainder.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.dynamicHessianRemainder' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.dynamicHessianRemainder_eq_radial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.dynamicHessianRemainder_eq_radial._abel_1_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.dynamicHessianRemainder_eq_radial._abel_1_2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.dynamicHessianRemainder_locallyIntegrable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.dynamicHessianRemainder_memLp_on_compact' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.dynamicHessianRemainder_trace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.dynamicHessianRemainder_trace_distribution' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.dynamicHessianRemainder_trace._abel_1_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.dynamicHessianRemainder.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.dynamicScalarBound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.dynamicScalarBound_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.dynamicScalarBound._proof_1' depends on axioms: [propext]
+verification/Audit.lean:1798:14: warning: `OQ7Prescribed.dynamicScalarBound._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'OQ7Prescribed.dynamicScalarBound.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.dynamicScalarRemainder' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.dynamicScalarRemainder_contDiffAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.dynamicScalarRemainder_correlation_double_ibp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.dynamicScalarRemainder_double_ibp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.dynamicScalarRemainder_eq_cancel' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.dynamicScalarRemainder_eq_cancel._simp_1_2' depends on axioms: [propext]
+'OQ7Prescribed.dynamicScalarRemainder_eq_cancel._simp_1_3' depends on axioms: [propext]
+'OQ7Prescribed.dynamicScalarRemainder_eq_cancel._simp_1_4' depends on axioms: [propext]
+'OQ7Prescribed.dynamicScalarRemainder_eq_cancel._simp_1_5' depends on axioms: [propext]
+'OQ7Prescribed.dynamicScalarRemainder_eq_cancel._simp_1_6' depends on axioms: [propext]
+'OQ7Prescribed.dynamicScalarRemainder_eq_cancel._simp_1_7' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.dynamicScalarRemainder_eq_cancel._simp_1_8' depends on axioms: [propext]
+'OQ7Prescribed.dynamicScalarRemainder_hasLineDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.dynamicScalarRemainder_locallyIntegrable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.dynamicScalarRemainder_norm_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.dynamicScalarRemainder_norm_le_on_ball' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.dynamicScalarRemainder_norm_le._simp_1_3' depends on axioms: [propext]
+'OQ7Prescribed.dynamicScalarRemainder_norm_le._simp_1_4' depends on axioms: [propext]
+'OQ7Prescribed.dynamicScalarRemainder_norm_le._simp_1_5' depends on axioms: [propext]
+'OQ7Prescribed.dynamicScalarRemainder_norm_le._simp_1_6' depends on axioms: [propext]
+'OQ7Prescribed.dynamicScalarRemainder_norm_le._simp_1_7' depends on axioms: [propext]
+'OQ7Prescribed.dynamicScalarRemainder_norm_le._simp_1_8' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.dynamicScalarRemainder_norm_le._simp_1_9' depends on axioms: [propext]
+'OQ7Prescribed.dynamicScalarRemainder_test_ibp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.dynamicScalarRemainder.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.exp_remainder_two_norm' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.exteriorCutoff' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.exteriorCutoff_contDiff' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -1998,6 +2238,7 @@ Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.exteriorCutoffPartial_mul_integrable._simp_1_1' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
+'OQ7Prescribed.exteriorCutoffPartial_norm_le' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.exteriorCutoffPartial_zero_inner' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.exteriorCutoffPartial_zero_outer' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.exteriorCutoffPartial.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -2013,27 +2254,29 @@ Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.greenCancellationEnvelope_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.greenCancellationEnvelope_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.greenCancellationEnvelope._proof_1' depends on axioms: [propext]
-verification/Audit.lean:1718:14: warning: `OQ7Prescribed.greenCancellationEnvelope._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:1859:14: warning: `OQ7Prescribed.greenCancellationEnvelope._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.greenHessian' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.greenHessian_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.greenHessian_eq_static_add_dynamic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.greenHessian_eq_static_add_dynamic._abel_1_1' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.greenHessian._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:1721:14: warning: `OQ7Prescribed.greenHessian._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:1864:14: warning: `OQ7Prescribed.greenHessian._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.greenHessian._proof_2' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:1722:14: warning: `OQ7Prescribed.greenHessian._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:1865:14: warning: `OQ7Prescribed.greenHessian._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.greenHessian.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.HasWeakCurl' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.HasWeakCurl._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:1725:14: warning: `OQ7Prescribed.HasWeakCurl._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:1868:14: warning: `OQ7Prescribed.HasWeakCurl._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.HasWeakCurl._proof_2' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:1726:14: warning: `OQ7Prescribed.HasWeakCurl._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:1869:14: warning: `OQ7Prescribed.HasWeakCurl._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.incident_absorber_coupling' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -2048,11 +2291,11 @@ Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.incidentMagnetic' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.instDecidableEqDirection' does not depend on any axioms
 'OQ7Prescribed.instDecidableEqDirection._proof_1' does not depend on any axioms
-verification/Audit.lean:1738:14: warning: `OQ7Prescribed.instDecidableEqDirection._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:1881:14: warning: `OQ7Prescribed.instDecidableEqDirection._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.instDecidableEqDirection._proof_2' does not depend on any axioms
-verification/Audit.lean:1739:14: warning: `OQ7Prescribed.instDecidableEqDirection._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:1882:14: warning: `OQ7Prescribed.instDecidableEqDirection._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.instNormedAddCommGroupContinuousLinearMapComplexIdVector' depends on axioms: [propext,
@@ -2064,31 +2307,67 @@ Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.instNormedAddCommGroupContinuousLinearMapComplexIdVector_1._proof_1' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
-verification/Audit.lean:1742:14: warning: `OQ7Prescribed.instNormedAddCommGroupContinuousLinearMapComplexIdVector_1._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:1885:14: warning: `OQ7Prescribed.instNormedAddCommGroupContinuousLinearMapComplexIdVector_1._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.instNormedAddCommGroupContinuousLinearMapComplexIdVector_1._proof_2' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
-verification/Audit.lean:1743:14: warning: `OQ7Prescribed.instNormedAddCommGroupContinuousLinearMapComplexIdVector_1._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:1886:14: warning: `OQ7Prescribed.instNormedAddCommGroupContinuousLinearMapComplexIdVector_1._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.instNormedAddCommGroupContinuousLinearMapComplexIdVector_1._proof_3' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
-verification/Audit.lean:1744:14: warning: `OQ7Prescribed.instNormedAddCommGroupContinuousLinearMapComplexIdVector_1._proof_3` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:1887:14: warning: `OQ7Prescribed.instNormedAddCommGroupContinuousLinearMapComplexIdVector_1._proof_3` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.instNormedAddCommGroupContinuousLinearMapComplexIdVector_1._proof_4' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
-verification/Audit.lean:1745:14: warning: `OQ7Prescribed.instNormedAddCommGroupContinuousLinearMapComplexIdVector_1._proof_4` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:1888:14: warning: `OQ7Prescribed.instNormedAddCommGroupContinuousLinearMapComplexIdVector_1._proof_4` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'OQ7Prescribed.instNormedAddCommGroupContinuousLinearMapComplexIdVector_2' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OQ7Prescribed.instNormedAddCommGroupContinuousLinearMapComplexIdVector_2._proof_1' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+verification/Audit.lean:1890:14: warning: `OQ7Prescribed.instNormedAddCommGroupContinuousLinearMapComplexIdVector_2._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'OQ7Prescribed.instNormedAddCommGroupContinuousLinearMapComplexIdVector_3' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OQ7Prescribed.instNormedAddCommGroupContinuousLinearMapComplexIdVector_3._proof_1' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+verification/Audit.lean:1892:14: warning: `OQ7Prescribed.instNormedAddCommGroupContinuousLinearMapComplexIdVector_3._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'OQ7Prescribed.instNormedAddCommGroupContinuousLinearMapComplexIdVector_3._proof_2' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+verification/Audit.lean:1893:14: warning: `OQ7Prescribed.instNormedAddCommGroupContinuousLinearMapComplexIdVector_3._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'OQ7Prescribed.instNormedAddCommGroupContinuousLinearMapComplexIdVector_3._proof_3' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+verification/Audit.lean:1894:14: warning: `OQ7Prescribed.instNormedAddCommGroupContinuousLinearMapComplexIdVector_3._proof_3` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'OQ7Prescribed.instNormedAddCommGroupContinuousLinearMapComplexIdVector_3._proof_4' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+verification/Audit.lean:1895:14: warning: `OQ7Prescribed.instNormedAddCommGroupContinuousLinearMapComplexIdVector_3._proof_4` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.instNormedAddCommGroupContinuousLinearMapComplexIdVector._proof_1' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
-verification/Audit.lean:1746:14: warning: `OQ7Prescribed.instNormedAddCommGroupContinuousLinearMapComplexIdVector._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:1896:14: warning: `OQ7Prescribed.instNormedAddCommGroupContinuousLinearMapComplexIdVector._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.instNormedSpaceComplexContinuousLinearMapIdVector' depends on axioms: [propext,
@@ -2097,10 +2376,22 @@ Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.instNormedSpaceComplexContinuousLinearMapIdVector_1' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
+'OQ7Prescribed.instNormedSpaceComplexContinuousLinearMapIdVector_2' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OQ7Prescribed.instNormedSpaceComplexContinuousLinearMapIdVector_2._proof_1' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+verification/Audit.lean:1900:14: warning: `OQ7Prescribed.instNormedSpaceComplexContinuousLinearMapIdVector_2._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'OQ7Prescribed.instNormedSpaceComplexContinuousLinearMapIdVector_3' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
 'OQ7Prescribed.instNormedSpaceComplexContinuousLinearMapIdVector._proof_1' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
-verification/Audit.lean:1749:14: warning: `OQ7Prescribed.instNormedSpaceComplexContinuousLinearMapIdVector._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:1902:14: warning: `OQ7Prescribed.instNormedSpaceComplexContinuousLinearMapIdVector._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.integrable_polar_actual' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -2223,7 +2514,7 @@ Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.newtonContactBoundary_tendsto._simp_1_6' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.newtonContactBoundary_tendsto._simp_1_7' depends on axioms: [propext]
 'OQ7Prescribed.newtonContactBoundary._proof_1' depends on axioms: [propext]
-verification/Audit.lean:1869:14: warning: `OQ7Prescribed.newtonContactBoundary._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2022:14: warning: `OQ7Prescribed.newtonContactBoundary._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.newtonContactBoundary.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -2235,13 +2526,14 @@ Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.newtonCurrentCorrelation_hasLineDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.newtonCurrentCorrelation_lineDeriv' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.newtonCurrentCorrelation._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:1878:14: warning: `OQ7Prescribed.newtonCurrentCorrelation._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2031:14: warning: `OQ7Prescribed.newtonCurrentCorrelation._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.newtonCurrentCorrelation._proof_2' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:1879:14: warning: `OQ7Prescribed.newtonCurrentCorrelation._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2032:14: warning: `OQ7Prescribed.newtonCurrentCorrelation._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
+'OQ7Prescribed.newtonCurrentCorrelation.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.newtonCurrentCorrelationSchwartz' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.newtonCurrentCorrelationSchwartz_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.newtonCurrentCorrelationSchwartz_fourierInv' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -2252,42 +2544,42 @@ Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.newtonDerivativeBoundary' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.newtonDerivativeBoundary_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.newtonDerivativeBoundary._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:1887:14: warning: `OQ7Prescribed.newtonDerivativeBoundary._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2041:14: warning: `OQ7Prescribed.newtonDerivativeBoundary._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.newtonDerivativeBoundary._proof_2' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:1888:14: warning: `OQ7Prescribed.newtonDerivativeBoundary._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2042:14: warning: `OQ7Prescribed.newtonDerivativeBoundary._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.newtonDerivativeBoundary.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.newtonDirac' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.newtonDirac_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.newtonDirac._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:1892:14: warning: `OQ7Prescribed.newtonDirac._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2046:14: warning: `OQ7Prescribed.newtonDirac._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.newtonDirac._proof_2' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:1893:14: warning: `OQ7Prescribed.newtonDirac._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2047:14: warning: `OQ7Prescribed.newtonDirac._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.newtonDirac._proof_3' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:1894:14: warning: `OQ7Prescribed.newtonDirac._proof_3` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2048:14: warning: `OQ7Prescribed.newtonDirac._proof_3` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.newtonDirac._proof_4' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:1895:14: warning: `OQ7Prescribed.newtonDirac._proof_4` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2049:14: warning: `OQ7Prescribed.newtonDirac._proof_4` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.newtonDirac._proof_5' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:1896:14: warning: `OQ7Prescribed.newtonDirac._proof_5` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2050:14: warning: `OQ7Prescribed.newtonDirac._proof_5` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.newtonDirac._proof_6' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:1897:14: warning: `OQ7Prescribed.newtonDirac._proof_6` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2051:14: warning: `OQ7Prescribed.newtonDirac._proof_6` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.newtonDirac._proof_7' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:1898:14: warning: `OQ7Prescribed.newtonDirac._proof_7` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2052:14: warning: `OQ7Prescribed.newtonDirac._proof_7` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.newtonExterior' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -2308,7 +2600,7 @@ Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.newtonFrequencyHeatKernel_eq_real' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.newtonFrequencyHeatKernel_joint_measurable' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.newtonFrequencyHeatKernel._proof_1' depends on axioms: [propext]
-verification/Audit.lean:1916:14: warning: `OQ7Prescribed.newtonFrequencyHeatKernel._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2070:14: warning: `OQ7Prescribed.newtonFrequencyHeatKernel._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.newtonFrequencyHeatKernel.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -2319,7 +2611,7 @@ Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.newtonFrequencyKernel_split' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.newtonFrequencyKernel_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.newtonFrequencyKernel._proof_1' depends on axioms: [propext]
-verification/Audit.lean:1924:14: warning: `OQ7Prescribed.newtonFrequencyKernel._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2078:14: warning: `OQ7Prescribed.newtonFrequencyKernel._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.newtonFrequencyKernel.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -2331,19 +2623,19 @@ Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.newtonFrequencyTempered_apply._simp_1_1' does not depend on any axioms
 'OQ7Prescribed.newtonFrequencyTempered_heat_pairing' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.newtonFrequencyTempered._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:1933:14: warning: `OQ7Prescribed.newtonFrequencyTempered._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2087:14: warning: `OQ7Prescribed.newtonFrequencyTempered._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.newtonFrequencyTempered._proof_2' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:1934:14: warning: `OQ7Prescribed.newtonFrequencyTempered._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2088:14: warning: `OQ7Prescribed.newtonFrequencyTempered._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.newtonFrequencyTempered._proof_3' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:1935:14: warning: `OQ7Prescribed.newtonFrequencyTempered._proof_3` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2089:14: warning: `OQ7Prescribed.newtonFrequencyTempered._proof_3` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.newtonFrequencyTempered._proof_4' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:1936:14: warning: `OQ7Prescribed.newtonFrequencyTempered._proof_4` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2090:14: warning: `OQ7Prescribed.newtonFrequencyTempered._proof_4` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.newtonGradient' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -2363,15 +2655,15 @@ Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.newtonHeatKernel_space_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.newtonHeatKernel_space_integrable_complex' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.newtonHeatKernel._proof_1' depends on axioms: [propext]
-verification/Audit.lean:1953:14: warning: `OQ7Prescribed.newtonHeatKernel._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2107:14: warning: `OQ7Prescribed.newtonHeatKernel._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.newtonHeatKernel._proof_2' depends on axioms: [propext]
-verification/Audit.lean:1954:14: warning: `OQ7Prescribed.newtonHeatKernel._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2108:14: warning: `OQ7Prescribed.newtonHeatKernel._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.newtonHeatKernel._proof_3' depends on axioms: [propext]
-verification/Audit.lean:1955:14: warning: `OQ7Prescribed.newtonHeatKernel._proof_3` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2109:14: warning: `OQ7Prescribed.newtonHeatKernel._proof_3` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.newtonHeatKernel.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -2388,15 +2680,15 @@ Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.newtonHessianFrequencyTempered' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.newtonHessianFrequencyTempered_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.newtonHessianFrequencyTempered._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:1969:14: warning: `OQ7Prescribed.newtonHessianFrequencyTempered._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2123:14: warning: `OQ7Prescribed.newtonHessianFrequencyTempered._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.newtonHessianFrequencyTempered._proof_2' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:1970:14: warning: `OQ7Prescribed.newtonHessianFrequencyTempered._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2124:14: warning: `OQ7Prescribed.newtonHessianFrequencyTempered._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.newtonHessianFrequencyTempered._proof_3' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:1971:14: warning: `OQ7Prescribed.newtonHessianFrequencyTempered._proof_3` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2125:14: warning: `OQ7Prescribed.newtonHessianFrequencyTempered._proof_3` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.newtonHessianFrequencyTempered.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -2415,11 +2707,11 @@ Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.newtonHessianKernel_smul._simp_1_8' depends on axioms: [propext]
 'OQ7Prescribed.newtonHessianKernel_trace' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.newtonHessianKernel._proof_1' depends on axioms: [propext]
-verification/Audit.lean:1987:14: warning: `OQ7Prescribed.newtonHessianKernel._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2141:14: warning: `OQ7Prescribed.newtonHessianKernel._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.newtonHessianKernel._proof_2' depends on axioms: [propext]
-verification/Audit.lean:1988:14: warning: `OQ7Prescribed.newtonHessianKernel._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2142:14: warning: `OQ7Prescribed.newtonHessianKernel._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.newtonHessianKernel.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -2429,29 +2721,29 @@ Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.newtonPVDistribution' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.newtonPVDistribution_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.newtonPVDistribution._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:1995:14: warning: `OQ7Prescribed.newtonPVDistribution._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2149:14: warning: `OQ7Prescribed.newtonPVDistribution._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.newtonPVDistribution._proof_2' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:1996:14: warning: `OQ7Prescribed.newtonPVDistribution._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2150:14: warning: `OQ7Prescribed.newtonPVDistribution._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.newtonPVDistribution._proof_3' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:1997:14: warning: `OQ7Prescribed.newtonPVDistribution._proof_3` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2151:14: warning: `OQ7Prescribed.newtonPVDistribution._proof_3` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.newtonPVRepresentation' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.newtonPVRepresentation_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.newtonPVRepresentation._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2000:14: warning: `OQ7Prescribed.newtonPVRepresentation._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2154:14: warning: `OQ7Prescribed.newtonPVRepresentation._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.newtonPVRepresentation._proof_2' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2001:14: warning: `OQ7Prescribed.newtonPVRepresentation._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2155:14: warning: `OQ7Prescribed.newtonPVRepresentation._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.newtonPVRepresentation._proof_3' depends on axioms: [propext]
-verification/Audit.lean:2002:14: warning: `OQ7Prescribed.newtonPVRepresentation._proof_3` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2156:14: warning: `OQ7Prescribed.newtonPVRepresentation._proof_3` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.newtonPVRepresentation.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -2459,11 +2751,11 @@ Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.newtonPVTruncated_eq_compensated' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.newtonPVTruncated_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.newtonPVTruncated._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2007:14: warning: `OQ7Prescribed.newtonPVTruncated._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2161:14: warning: `OQ7Prescribed.newtonPVTruncated._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.newtonPVTruncated._proof_2' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2008:14: warning: `OQ7Prescribed.newtonPVTruncated._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2162:14: warning: `OQ7Prescribed.newtonPVTruncated._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.newtonPVTruncated.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -2474,7 +2766,7 @@ Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.newtonRadial' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.newtonRadial_hasDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.newtonRadial._proof_1' depends on axioms: [propext]
-verification/Audit.lean:2016:14: warning: `OQ7Prescribed.newtonRadial._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2170:14: warning: `OQ7Prescribed.newtonRadial._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.newtonRadial.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -2490,7 +2782,7 @@ Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.newtonRadialFirst.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.newtonRadialSecond' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.newtonRadialSecond._proof_1' depends on axioms: [propext]
-verification/Audit.lean:2029:14: warning: `OQ7Prescribed.newtonRadialSecond._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2183:14: warning: `OQ7Prescribed.newtonRadialSecond._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.newtonRadialSecond.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -2508,7 +2800,7 @@ Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.newtonReal_locallyIntegrable' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.newtonReal_test_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.newtonReal._proof_1' depends on axioms: [propext]
-verification/Audit.lean:2044:14: warning: `OQ7Prescribed.newtonReal._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2198:14: warning: `OQ7Prescribed.newtonReal._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.newtonReal.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -2521,27 +2813,27 @@ Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.newtonTempered_heat_pairing' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.newtonTempered_scalarTest' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.newtonTempered._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2054:14: warning: `OQ7Prescribed.newtonTempered._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2208:14: warning: `OQ7Prescribed.newtonTempered._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.newtonTempered._proof_2' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2055:14: warning: `OQ7Prescribed.newtonTempered._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2209:14: warning: `OQ7Prescribed.newtonTempered._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.newtonTempered._proof_3' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2056:14: warning: `OQ7Prescribed.newtonTempered._proof_3` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2210:14: warning: `OQ7Prescribed.newtonTempered._proof_3` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.newtonTempered._proof_4' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2057:14: warning: `OQ7Prescribed.newtonTempered._proof_4` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2211:14: warning: `OQ7Prescribed.newtonTempered._proof_4` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.newtonTempered._proof_5' depends on axioms: [propext]
-verification/Audit.lean:2058:14: warning: `OQ7Prescribed.newtonTempered._proof_5` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2212:14: warning: `OQ7Prescribed.newtonTempered._proof_5` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.newtonTempered._proof_6' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2059:14: warning: `OQ7Prescribed.newtonTempered._proof_6` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2213:14: warning: `OQ7Prescribed.newtonTempered._proof_6` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.newtonTemperedHessian' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -2561,11 +2853,11 @@ Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.newtonTemperedHessian_fourier_integral._simp_1_7' depends on axioms: [propext]
 'OQ7Prescribed.newtonTemperedHessian_scalarTest' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.newtonTemperedHessian._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2074:14: warning: `OQ7Prescribed.newtonTemperedHessian._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2228:14: warning: `OQ7Prescribed.newtonTemperedHessian._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.newtonTemperedHessian._proof_2' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2075:14: warning: `OQ7Prescribed.newtonTemperedHessian._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2229:14: warning: `OQ7Prescribed.newtonTemperedHessian._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.newtonTemperedHessian.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -2575,45 +2867,55 @@ Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.orthogonalSphere_cone_preimage._simp_1_1' depends on axioms: [propext]
 'OQ7Prescribed.orthogonalSphere_measurePreserving' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.orthogonalSphere._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2082:14: warning: `OQ7Prescribed.orthogonalSphere._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2236:14: warning: `OQ7Prescribed.orthogonalSphere._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.orthogonalSphere._proof_2' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2083:14: warning: `OQ7Prescribed.orthogonalSphere._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2237:14: warning: `OQ7Prescribed.orthogonalSphere._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.orthogonalSphere._proof_3' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2084:14: warning: `OQ7Prescribed.orthogonalSphere._proof_3` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2238:14: warning: `OQ7Prescribed.orthogonalSphere._proof_3` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.orthogonalSphere._proof_4' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2085:14: warning: `OQ7Prescribed.orthogonalSphere._proof_4` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2239:14: warning: `OQ7Prescribed.orthogonalSphere._proof_4` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.orthogonalSphere._proof_5' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2086:14: warning: `OQ7Prescribed.orthogonalSphere._proof_5` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2240:14: warning: `OQ7Prescribed.orthogonalSphere._proof_5` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.orthogonalSphere._proof_6' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2087:14: warning: `OQ7Prescribed.orthogonalSphere._proof_6` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2241:14: warning: `OQ7Prescribed.orthogonalSphere._proof_6` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.orthogonalSphere._proof_7' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2088:14: warning: `OQ7Prescribed.orthogonalSphere._proof_7` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2242:14: warning: `OQ7Prescribed.orthogonalSphere._proof_7` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.orthogonalSphere._proof_8' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2089:14: warning: `OQ7Prescribed.orthogonalSphere._proof_8` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2243:14: warning: `OQ7Prescribed.orthogonalSphere._proof_8` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.orthogonalSphere._simp_1' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2090:14: warning: `OQ7Prescribed.orthogonalSphere._simp_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2244:14: warning: `OQ7Prescribed.orthogonalSphere._simp_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.Outgoing' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.outgoing_classical_hessian' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.outgoing_current_correlation_joint_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.outgoing_current_correlation_pairing_integrable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OQ7Prescribed.outgoing_current_pairing_integrand_cutoff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.outgoing_current_test_joint_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.outgoing_dyadic_contact_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.outgoing_helmholtz_fundamental_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.outgoing_helmholtz_fundamental_distribution' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.outgoingGreen' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.outgoingGreen_eq_radial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.outgoingGreen_helmholtz_test_integral' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.outgoingGreen_locallyIntegrable' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.outgoingGreen_measurable' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.outgoingGreen_memLp_on_compact' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -2621,27 +2923,28 @@ Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.outgoingGreen_sq_norm_locallyIntegrable' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.outgoingGreen_zero_eq_newton' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.outgoingGreen._proof_1' depends on axioms: [propext]
-verification/Audit.lean:2101:14: warning: `OQ7Prescribed.outgoingGreen._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2263:14: warning: `OQ7Prescribed.outgoingGreen._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.outgoingGreen.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.outgoingGreenDistribution' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.outgoingGreenDistribution_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.outgoingGreenDistribution._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2105:14: warning: `OQ7Prescribed.outgoingGreenDistribution._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2267:14: warning: `OQ7Prescribed.outgoingGreenDistribution._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.outgoingGreenDistribution._proof_2' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2106:14: warning: `OQ7Prescribed.outgoingGreenDistribution._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2268:14: warning: `OQ7Prescribed.outgoingGreenDistribution._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.outgoingGreenDistribution._proof_3' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2107:14: warning: `OQ7Prescribed.outgoingGreenDistribution._proof_3` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2269:14: warning: `OQ7Prescribed.outgoingGreenDistribution._proof_3` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.outgoingPotential' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.outgoingPotential_add' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.outgoingPotential_aestronglyMeasurable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.outgoingPotential_component_integral' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.outgoingPotential_congr_current' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.outgoingPotential_enorm_le' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.outgoingPotential_eq_cutoff' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -2651,6 +2954,7 @@ Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.outgoingPotential_locallyIntegrable' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.outgoingPotential_zero_component_integral' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.outgoingRadial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.outgoingRadial_contDiffAt' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.outgoingRadial_hasDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.outgoingRadial_hasDerivAt._simp_1_1' depends on axioms: [propext]
 'OQ7Prescribed.outgoingRadial_hasDerivAt._simp_1_2' depends on axioms: [propext]
@@ -2659,12 +2963,21 @@ Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.outgoingRadial_hasDerivAt._simp_1_5' depends on axioms: [propext]
 'OQ7Prescribed.outgoingRadial_hasDerivAt._simp_1_6' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.outgoingRadial_hasDerivAt._simp_1_7' depends on axioms: [propext]
+'OQ7Prescribed.outgoingRadial_helmholtz' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.outgoingRadial_helmholtz._simp_1_1' depends on axioms: [propext]
+'OQ7Prescribed.outgoingRadial_helmholtz._simp_1_2' depends on axioms: [propext]
+'OQ7Prescribed.outgoingRadial_helmholtz._simp_1_3' depends on axioms: [propext]
+'OQ7Prescribed.outgoingRadial_helmholtz._simp_1_4' depends on axioms: [propext]
+'OQ7Prescribed.outgoingRadial_helmholtz._simp_1_5' depends on axioms: [propext]
+'OQ7Prescribed.outgoingRadial_helmholtz._simp_1_6' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.outgoingRadial_helmholtz._simp_1_7' depends on axioms: [propext]
 'OQ7Prescribed.outgoingRadial._proof_1' depends on axioms: [propext]
-verification/Audit.lean:2128:14: warning: `OQ7Prescribed.outgoingRadial._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2300:14: warning: `OQ7Prescribed.outgoingRadial._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.outgoingRadial.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.outgoingRadialFirst' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.outgoingRadialFirst_contDiffAt' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.outgoingRadialFirst_hasDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.outgoingRadialFirst_hasDerivAt._simp_1_1' depends on axioms: [propext]
 'OQ7Prescribed.outgoingRadialFirst_hasDerivAt._simp_1_2' depends on axioms: [propext]
@@ -2673,16 +2986,40 @@ Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.outgoingRadialFirst_hasDerivAt._simp_1_5' depends on axioms: [propext]
 'OQ7Prescribed.outgoingRadialFirst_hasDerivAt._simp_1_6' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.outgoingRadialFirst_hasDerivAt._simp_1_7' depends on axioms: [propext]
+'OQ7Prescribed.outgoingRadialFirst_sub_static' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.outgoingRadialFirst_sub_static_norm_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.outgoingRadialFirst_sub_static_norm_le._simp_1_1' depends on axioms: [propext]
+'OQ7Prescribed.outgoingRadialFirst_sub_static_norm_le._simp_1_2' depends on axioms: [propext]
+'OQ7Prescribed.outgoingRadialFirst_sub_static_norm_le._simp_1_3' depends on axioms: [propext]
+'OQ7Prescribed.outgoingRadialFirst_sub_static_norm_le._simp_1_4' depends on axioms: [propext]
+'OQ7Prescribed.outgoingRadialFirst_sub_static_norm_le._simp_1_5' depends on axioms: [propext]
+'OQ7Prescribed.outgoingRadialFirst_sub_static_norm_le._simp_1_6' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OQ7Prescribed.outgoingRadialFirst_sub_static_norm_le._simp_1_7' depends on axioms: [propext]
+'OQ7Prescribed.outgoingRadialFirst_sub_static._simp_1_1' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.outgoingRadialFirst.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.outgoingRadialSecond' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.outgoingRadialSecond._proof_1' depends on axioms: [propext]
-verification/Audit.lean:2141:14: warning: `OQ7Prescribed.outgoingRadialSecond._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2324:14: warning: `OQ7Prescribed.outgoingRadialSecond._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.outgoingRadialSecond.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.outgoingVolumeDistribution' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.outgoingVolumeDistribution_add' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.outgoingVolumeDistribution_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.outgoingVolumeDistribution_eq_staticFourier_add_remainder' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OQ7Prescribed.outgoingVolumeDistribution_eq_zero_add_remainder' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OQ7Prescribed.outgoingVolumeDistribution_eq_zero_add_remainder._abel_1_1' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OQ7Prescribed.outgoingVolumeDistribution_on_ball_bounded_L2_realization' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
 'OQ7Prescribed.outgoingVolumeDistribution_zero_bounded_L2_realization' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
@@ -2693,11 +3030,11 @@ Note: This linter can be disabled with `set_option linter.auxLemma false`
  Classical.choice,
  Quot.sound]
 'OQ7Prescribed.outgoingVolumeDistribution._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2149:14: warning: `OQ7Prescribed.outgoingVolumeDistribution._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2336:14: warning: `OQ7Prescribed.outgoingVolumeDistribution._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.outgoingVolumeDistribution._proof_2' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2150:14: warning: `OQ7Prescribed.outgoingVolumeDistribution._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2337:14: warning: `OQ7Prescribed.outgoingVolumeDistribution._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.outgoingVolumeDistribution.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -2712,64 +3049,105 @@ Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.polarization' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.polarization_zero_outside' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.polarization.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.polarizationCurrentComponentDistribution' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.polarizationCurrentComponentDistribution_apply' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OQ7Prescribed.polarizationCurrentComponentDistribution_eq_vectorL2' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OQ7Prescribed.polarizationCurrentComponentDistribution._proof_1' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+verification/Audit.lean:2353:14: warning: `OQ7Prescribed.polarizationCurrentComponentDistribution._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'OQ7Prescribed.polarizationCurrentComponentDistribution._proof_2' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+verification/Audit.lean:2354:14: warning: `OQ7Prescribed.polarizationCurrentComponentDistribution._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'OQ7Prescribed.polarizationCurrentComponentDistribution._proof_3' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+verification/Audit.lean:2355:14: warning: `OQ7Prescribed.polarizationCurrentComponentDistribution._proof_3` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.Position' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.position_ae_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.position_zero_volume' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.potentialBound' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.potentialBound_lt_top' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.potentialBound._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2168:14: warning: `OQ7Prescribed.potentialBound._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2361:14: warning: `OQ7Prescribed.potentialBound._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.potentialBound._proof_2' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2169:14: warning: `OQ7Prescribed.potentialBound._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2362:14: warning: `OQ7Prescribed.potentialBound._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.potentialBound._proof_3' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2170:14: warning: `OQ7Prescribed.potentialBound._proof_3` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2363:14: warning: `OQ7Prescribed.potentialBound._proof_3` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.potentialBound._proof_4' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2171:14: warning: `OQ7Prescribed.potentialBound._proof_4` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2364:14: warning: `OQ7Prescribed.potentialBound._proof_4` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.potentialBound._proof_5' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2172:14: warning: `OQ7Prescribed.potentialBound._proof_5` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2365:14: warning: `OQ7Prescribed.potentialBound._proof_5` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
+'OQ7Prescribed.potentialComponent_helmholtz_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.potentialComponent_helmholtz_distribution' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.potentialComponent_helmholtz_L2_distribution' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.potentialComponentDistribution' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.potentialComponentDistribution_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.potentialComponentDistribution_apply_integral' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.potentialComponentDistribution_correlation_re_im' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OQ7Prescribed.potentialComponentDistribution_dynamic_hessian_pairing' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OQ7Prescribed.potentialComponentDistribution_dynamic_hessian_pairing._abel_1_1' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
 'OQ7Prescribed.potentialComponentDistribution_newton_pairing' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.potentialComponentDistribution_newtonTempered' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.potentialComponentDistribution_outgoing_pairing' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
 'OQ7Prescribed.potentialComponentDistribution_zero_apply_integral' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
 'OQ7Prescribed.potentialComponentDistribution._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2178:14: warning: `OQ7Prescribed.potentialComponentDistribution._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2379:14: warning: `OQ7Prescribed.potentialComponentDistribution._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.potentialComponentDistribution._proof_2' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2179:14: warning: `OQ7Prescribed.potentialComponentDistribution._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2380:14: warning: `OQ7Prescribed.potentialComponentDistribution._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.potentialComponentDistribution._proof_3' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2180:14: warning: `OQ7Prescribed.potentialComponentDistribution._proof_3` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2381:14: warning: `OQ7Prescribed.potentialComponentDistribution._proof_3` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.potentialComponentDistribution._proof_4' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2181:14: warning: `OQ7Prescribed.potentialComponentDistribution._proof_4` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2382:14: warning: `OQ7Prescribed.potentialComponentDistribution._proof_4` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.potentialComponentDistribution._proof_5' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2182:14: warning: `OQ7Prescribed.potentialComponentDistribution._proof_5` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2383:14: warning: `OQ7Prescribed.potentialComponentDistribution._proof_5` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.potentialComponentDistribution._proof_6' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2183:14: warning: `OQ7Prescribed.potentialComponentDistribution._proof_6` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2384:14: warning: `OQ7Prescribed.potentialComponentDistribution._proof_6` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.potentialComponentDistribution._proof_7' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2184:14: warning: `OQ7Prescribed.potentialComponentDistribution._proof_7` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2385:14: warning: `OQ7Prescribed.potentialComponentDistribution._proof_7` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.potentialComponentDistribution.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -2777,7 +3155,7 @@ Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.potentialDistribution_add' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.potentialDistribution_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.potentialDistribution._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2189:14: warning: `OQ7Prescribed.potentialDistribution._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2390:14: warning: `OQ7Prescribed.potentialDistribution._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.quadratic' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -2787,6 +3165,7 @@ Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.quadratic.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.radial_lineDeriv' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.radial_second_lineDeriv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.radialHessian_trace' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.radialNorm_hasFDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.rankOne' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.rankOne_complexify_continuous' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -2803,6 +3182,15 @@ Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.reflectedCurrentComponent_hasCompactSupport._simp_1_2' depends on axioms: [propext]
 'OQ7Prescribed.reflectedCurrentComponent_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.reflectedCurrentComponent.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.remainder_current_correlation_inner' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.remainder_current_correlation_joint_integrable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OQ7Prescribed.remainder_current_correlation_pairing_integrable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OQ7Prescribed.remainder_current_pairing_integrand_cutoff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.remainder_current_test_joint_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.remainderPotential' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.remainderPotential_add' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.remainderPotential_aestronglyMeasurable' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -2812,22 +3200,96 @@ Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.remainderPotential_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.remainderPotential_integrand_cutoff' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.remainderPotential_integrand_cutoff._simp_1_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.remainderPotential_locallyIntegrable' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.remainderPotential_memLp_on_compact' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.remainderPotential_smul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.remainderPotential_test_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.remainderPotential_test_pairing' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.remainderPotential._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2222:14: warning: `OQ7Prescribed.remainderPotential._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2432:14: warning: `OQ7Prescribed.remainderPotential._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.remainderPotential._proof_2' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2223:14: warning: `OQ7Prescribed.remainderPotential._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2433:14: warning: `OQ7Prescribed.remainderPotential._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.remainderPotentialBound' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.remainderPotentialBound_lt_top' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.remainderPotentialBound._proof_1' depends on axioms: [propext]
-verification/Audit.lean:2226:14: warning: `OQ7Prescribed.remainderPotentialBound._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2436:14: warning: `OQ7Prescribed.remainderPotentialBound._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
+'OQ7Prescribed.remainderPotentialComponentDistribution' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.remainderPotentialComponentDistribution_dynamic_pairing' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OQ7Prescribed.remainderPotentialComponentDistribution_dynamic_pairing._simp_1_1' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OQ7Prescribed.remainderPotentialComponentDistribution_pairing' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OQ7Prescribed.remainderPotentialComponentDistribution_pairing_sum' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OQ7Prescribed.remainderPotentialComponentDistribution._proof_1' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+verification/Audit.lean:2442:14: warning: `OQ7Prescribed.remainderPotentialComponentDistribution._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'OQ7Prescribed.remainderPotentialComponentDistribution._proof_2' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+verification/Audit.lean:2443:14: warning: `OQ7Prescribed.remainderPotentialComponentDistribution._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'OQ7Prescribed.remainderPotentialComponentDistribution._proof_3' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+verification/Audit.lean:2444:14: warning: `OQ7Prescribed.remainderPotentialComponentDistribution._proof_3` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'OQ7Prescribed.remainderPotentialComponentDistribution._proof_4' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+verification/Audit.lean:2445:14: warning: `OQ7Prescribed.remainderPotentialComponentDistribution._proof_4` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'OQ7Prescribed.remainderPotentialComponentDistribution._proof_5' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+verification/Audit.lean:2446:14: warning: `OQ7Prescribed.remainderPotentialComponentDistribution._proof_5` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'OQ7Prescribed.remainderPotentialComponentDistribution._proof_6' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+verification/Audit.lean:2447:14: warning: `OQ7Prescribed.remainderPotentialComponentDistribution._proof_6` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'OQ7Prescribed.remainderPotentialComponentDistribution._proof_7' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+verification/Audit.lean:2448:14: warning: `OQ7Prescribed.remainderPotentialComponentDistribution._proof_7` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'OQ7Prescribed.remainderPotentialComponentDistribution._proof_8' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+verification/Audit.lean:2449:14: warning: `OQ7Prescribed.remainderPotentialComponentDistribution._proof_8` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'OQ7Prescribed.remainderPotentialComponentDistribution.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.remainderPotentialDistribution' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.remainderPotentialDistribution_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.remainderPotentialDistribution_pairing' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.remainderPotentialDistribution._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+verification/Audit.lean:2454:14: warning: `OQ7Prescribed.remainderPotentialDistribution._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'OQ7Prescribed.removable_point_complex_test_ibp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.removable_point_test_ibp' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.rotatedAxis' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.rotatedAxis_unit' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.rotatedAxis.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -2841,32 +3303,32 @@ Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.scalarTestSchwartz_hasCompactSupport' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.scalarTestSchwartz_partial' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.scalarTestSchwartz._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2239:14: warning: `OQ7Prescribed.scalarTestSchwartz._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2469:14: warning: `OQ7Prescribed.scalarTestSchwartz._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.scalarTestSchwartz._proof_2' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2240:14: warning: `OQ7Prescribed.scalarTestSchwartz._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2470:14: warning: `OQ7Prescribed.scalarTestSchwartz._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.scattering' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.ScatteringState' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.ScatteringState._sizeOf_1' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2243:14: warning: `OQ7Prescribed.ScatteringState._sizeOf_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2473:14: warning: `OQ7Prescribed.ScatteringState._sizeOf_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.ScatteringState._sizeOf_inst' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.ScatteringState.casesOn' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.ScatteringState.compactPolarization' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.ScatteringState.compactPolarization._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2247:14: warning: `OQ7Prescribed.ScatteringState.compactPolarization._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2477:14: warning: `OQ7Prescribed.ScatteringState.compactPolarization._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.ScatteringState.compactPolarization._proof_2' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2248:14: warning: `OQ7Prescribed.ScatteringState.compactPolarization._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2478:14: warning: `OQ7Prescribed.ScatteringState.compactPolarization._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.ScatteringState.compactPolarization._simp_1' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2249:14: warning: `OQ7Prescribed.ScatteringState.compactPolarization._simp_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2479:14: warning: `OQ7Prescribed.ScatteringState.compactPolarization._simp_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.ScatteringState.ctorIdx' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -2885,6 +3347,24 @@ Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.ScatteringState.outgoing' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.ScatteringState.rec' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.ScatteringState.recOn' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.shrinking_cutoff_integral_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.shrinking_cutoff_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.shrinkingCutoffError_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.shrinkingCutoffError_integrable_and_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.shrinkingCutoffError_norm_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.shrinkingCutoffError_norm_le._simp_1_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.shrinkingCutoffError_norm_le._simp_1_2' depends on axioms: [propext]
+'OQ7Prescribed.shrinkingCutoffError_norm_le._simp_1_3' depends on axioms: [propext]
+'OQ7Prescribed.shrinkingCutoffError_norm_le._simp_1_4' depends on axioms: [propext]
+'OQ7Prescribed.shrinkingCutoffError_norm_le._simp_1_5' depends on axioms: [propext]
+'OQ7Prescribed.shrinkingCutoffError_norm_le._simp_1_6' depends on axioms: [propext]
+'OQ7Prescribed.shrinkingCutoffError_norm_le._simp_1_7' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.shrinkingCutoffError_norm_le._simp_1_8' depends on axioms: [propext]
+'OQ7Prescribed.shrinkingCutoffError_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.shrinkingCutoffError_tendsto_of_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.shrinkingCutoffPartial_support' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.shrinkingCutoffPartial_support._simp_1_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.shrinkingCutoffPartial_support._simp_1_2' depends on axioms: [propext]
 'OQ7Prescribed.sphere_coordinate_cross_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.sphere_coordinate_mul_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.sphere_coordinate_sq_equal' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -2900,11 +3380,11 @@ Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.sphereArea_finite' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.sphereArea_real_univ' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.sphereArea._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2280:14: warning: `OQ7Prescribed.sphereArea._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2528:14: warning: `OQ7Prescribed.sphereArea._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.sphereArea._proof_2' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2281:14: warning: `OQ7Prescribed.sphereArea._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2529:14: warning: `OQ7Prescribed.sphereArea._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.sphereArea.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -2913,7 +3393,7 @@ Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.sphereDirection.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.squareAperture' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.squareAperture._proof_1' depends on axioms: [propext]
-verification/Audit.lean:2287:14: warning: `OQ7Prescribed.squareAperture._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2535:14: warning: `OQ7Prescribed.squareAperture._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.squareNorm' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -2935,34 +3415,34 @@ Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.staticFourierOperator_quadratic_im' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.staticFourierOperator_tempered_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.staticFourierOperator._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2302:14: warning: `OQ7Prescribed.staticFourierOperator._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2550:14: warning: `OQ7Prescribed.staticFourierOperator._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.staticFourierOperator._proof_2' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2303:14: warning: `OQ7Prescribed.staticFourierOperator._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2551:14: warning: `OQ7Prescribed.staticFourierOperator._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.staticFourierOperator._proof_3' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2304:14: warning: `OQ7Prescribed.staticFourierOperator._proof_3` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2552:14: warning: `OQ7Prescribed.staticFourierOperator._proof_3` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.staticMultiplierCLM' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.staticMultiplierCLM_norm_le' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.staticMultiplierCLM._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2307:14: warning: `OQ7Prescribed.staticMultiplierCLM._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2555:14: warning: `OQ7Prescribed.staticMultiplierCLM._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.staticMultiplierLinear' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.staticMultiplierLinear._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2309:14: warning: `OQ7Prescribed.staticMultiplierLinear._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2557:14: warning: `OQ7Prescribed.staticMultiplierLinear._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.staticMultiplierLinear._proof_2' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2310:14: warning: `OQ7Prescribed.staticMultiplierLinear._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2558:14: warning: `OQ7Prescribed.staticMultiplierLinear._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.staticMultiplierLinear._proof_3' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2311:14: warning: `OQ7Prescribed.staticMultiplierLinear._proof_3` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2559:14: warning: `OQ7Prescribed.staticMultiplierLinear._proof_3` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.staticMultiplierLp' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -2972,25 +3452,25 @@ Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.staticMultiplierLp_quadratic_im' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.staticMultiplierLp_smul' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.staticMultiplierLp._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2318:14: warning: `OQ7Prescribed.staticMultiplierLp._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2566:14: warning: `OQ7Prescribed.staticMultiplierLp._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.staticMultiplierWithOriginLp' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.staticMultiplierWithOriginLp_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.staticMultiplierWithOriginLp._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2321:14: warning: `OQ7Prescribed.staticMultiplierWithOriginLp._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2569:14: warning: `OQ7Prescribed.staticMultiplierWithOriginLp._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.staticMultiplierWithOriginLp._proof_2' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2322:14: warning: `OQ7Prescribed.staticMultiplierWithOriginLp._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2570:14: warning: `OQ7Prescribed.staticMultiplierWithOriginLp._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.staticMultiplierWithOriginLp._proof_3' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2323:14: warning: `OQ7Prescribed.staticMultiplierWithOriginLp._proof_3` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2571:14: warning: `OQ7Prescribed.staticMultiplierWithOriginLp._proof_3` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.staticMultiplierWithOriginLp._proof_4' depends on axioms: [propext]
-verification/Audit.lean:2324:14: warning: `OQ7Prescribed.staticMultiplierWithOriginLp._proof_4` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2572:14: warning: `OQ7Prescribed.staticMultiplierWithOriginLp._proof_4` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.staticSymbol' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -3004,43 +3484,43 @@ Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.staticSymbol_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.staticSymbol_zero_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.staticSymbol._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2335:14: warning: `OQ7Prescribed.staticSymbol._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2583:14: warning: `OQ7Prescribed.staticSymbol._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.staticSymbol._proof_10' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2336:14: warning: `OQ7Prescribed.staticSymbol._proof_10` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2584:14: warning: `OQ7Prescribed.staticSymbol._proof_10` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.staticSymbol._proof_2' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2337:14: warning: `OQ7Prescribed.staticSymbol._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2585:14: warning: `OQ7Prescribed.staticSymbol._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.staticSymbol._proof_3' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2338:14: warning: `OQ7Prescribed.staticSymbol._proof_3` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2586:14: warning: `OQ7Prescribed.staticSymbol._proof_3` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.staticSymbol._proof_4' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2339:14: warning: `OQ7Prescribed.staticSymbol._proof_4` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2587:14: warning: `OQ7Prescribed.staticSymbol._proof_4` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.staticSymbol._proof_5' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2340:14: warning: `OQ7Prescribed.staticSymbol._proof_5` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2588:14: warning: `OQ7Prescribed.staticSymbol._proof_5` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.staticSymbol._proof_6' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2341:14: warning: `OQ7Prescribed.staticSymbol._proof_6` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2589:14: warning: `OQ7Prescribed.staticSymbol._proof_6` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.staticSymbol._proof_7' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2342:14: warning: `OQ7Prescribed.staticSymbol._proof_7` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2590:14: warning: `OQ7Prescribed.staticSymbol._proof_7` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.staticSymbol._proof_8' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2343:14: warning: `OQ7Prescribed.staticSymbol._proof_8` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2591:14: warning: `OQ7Prescribed.staticSymbol._proof_8` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.staticSymbol._proof_9' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2344:14: warning: `OQ7Prescribed.staticSymbol._proof_9` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2592:14: warning: `OQ7Prescribed.staticSymbol._proof_9` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.staticSymbol.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -3050,6 +3530,77 @@ Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.staticSymbolWithOrigin_memLp' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.staticSymbolWithOrigin_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.staticSymbolWithOrigin.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.supportedPolarization' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.supportedPolarization_add_current_ae' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.supportedPolarization_current_ae' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.supportedPolarization_current_eLpNorm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.supportedPolarization_smul_current_ae' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.supportedPolarization_toLp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.supportedPolarization._proof_1' depends on axioms: [propext]
+verification/Audit.lean:2606:14: warning: `OQ7Prescribed.supportedPolarization._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'OQ7Prescribed.supportedPolarization._proof_2' depends on axioms: [propext, Classical.choice, Quot.sound]
+verification/Audit.lean:2607:14: warning: `OQ7Prescribed.supportedPolarization._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'OQ7Prescribed.supportedPolarization._proof_3' depends on axioms: [propext, Classical.choice, Quot.sound]
+verification/Audit.lean:2608:14: warning: `OQ7Prescribed.supportedPolarization._proof_3` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'OQ7Prescribed.supportedPolarization._simp_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+verification/Audit.lean:2609:14: warning: `OQ7Prescribed.supportedPolarization._simp_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'OQ7Prescribed.supportedPolarization._simp_2' depends on axioms: [propext]
+verification/Audit.lean:2610:14: warning: `OQ7Prescribed.supportedPolarization._simp_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'OQ7Prescribed.supportedPolarization.congr_simp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.SupportedVectorL2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.supportedVectorL2_completeSpace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.supportedVectorL2_current_ae' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.supportedVectorL2_isClosed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.supportedVectorL2._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+verification/Audit.lean:2616:14: warning: `OQ7Prescribed.supportedVectorL2._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'OQ7Prescribed.supportedVectorL2._proof_10' depends on axioms: [propext, Classical.choice, Quot.sound]
+verification/Audit.lean:2617:14: warning: `OQ7Prescribed.supportedVectorL2._proof_10` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'OQ7Prescribed.supportedVectorL2._proof_2' depends on axioms: [propext, Classical.choice, Quot.sound]
+verification/Audit.lean:2618:14: warning: `OQ7Prescribed.supportedVectorL2._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'OQ7Prescribed.supportedVectorL2._proof_3' depends on axioms: [propext, Classical.choice, Quot.sound]
+verification/Audit.lean:2619:14: warning: `OQ7Prescribed.supportedVectorL2._proof_3` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'OQ7Prescribed.supportedVectorL2._proof_4' depends on axioms: [propext, Classical.choice, Quot.sound]
+verification/Audit.lean:2620:14: warning: `OQ7Prescribed.supportedVectorL2._proof_4` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'OQ7Prescribed.supportedVectorL2._proof_5' depends on axioms: [propext, Classical.choice, Quot.sound]
+verification/Audit.lean:2621:14: warning: `OQ7Prescribed.supportedVectorL2._proof_5` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'OQ7Prescribed.supportedVectorL2._proof_6' depends on axioms: [propext, Classical.choice, Quot.sound]
+verification/Audit.lean:2622:14: warning: `OQ7Prescribed.supportedVectorL2._proof_6` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'OQ7Prescribed.supportedVectorL2._proof_7' depends on axioms: [propext, Classical.choice, Quot.sound]
+verification/Audit.lean:2623:14: warning: `OQ7Prescribed.supportedVectorL2._proof_7` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'OQ7Prescribed.supportedVectorL2._proof_8' depends on axioms: [propext, Classical.choice, Quot.sound]
+verification/Audit.lean:2624:14: warning: `OQ7Prescribed.supportedVectorL2._proof_8` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'OQ7Prescribed.supportedVectorL2._proof_9' depends on axioms: [propext, Classical.choice, Quot.sound]
+verification/Audit.lean:2625:14: warning: `OQ7Prescribed.supportedVectorL2._proof_9` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.susceptibility_zero_outside' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.Tensor' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.tensorApply' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -3059,27 +3610,30 @@ Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.testLaplacian' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.testLaplacian_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.testLaplacian._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2360:14: warning: `OQ7Prescribed.testLaplacian._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2634:14: warning: `OQ7Prescribed.testLaplacian._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.testLaplacian._proof_2' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2361:14: warning: `OQ7Prescribed.testLaplacian._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2635:14: warning: `OQ7Prescribed.testLaplacian._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.testLaplacian._proof_3' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2362:14: warning: `OQ7Prescribed.testLaplacian._proof_3` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2636:14: warning: `OQ7Prescribed.testLaplacian._proof_3` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.testLaplacian._proof_4' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2363:14: warning: `OQ7Prescribed.testLaplacian._proof_4` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2637:14: warning: `OQ7Prescribed.testLaplacian._proof_4` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.testLaplacian.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.testPartial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.testPartial_commute' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.testPartial_eq_fderiv' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.testPartial_hasLineDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.testPartial_hasLineDerivAt._simp_1_1' depends on axioms: [propext]
+'OQ7Prescribed.testPartial_second_eq_fderiv' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.testPartial._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2368:14: warning: `OQ7Prescribed.testPartial._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2645:14: warning: `OQ7Prescribed.testPartial._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.testPartial.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -3089,6 +3643,13 @@ Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.transition_radial_rescale' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.transitionDerivative' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.transitionDerivative_continuous' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.transitionDerivative_global_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.transitionDerivative_hasCompactSupport' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.transitionDerivative_hasCompactSupport._simp_1_1' depends on axioms: [propext]
+'OQ7Prescribed.transitionDerivative_hasCompactSupport._simp_1_2' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OQ7Prescribed.transitionDerivative_hasCompactSupport._simp_1_3' depends on axioms: [propext]
 'OQ7Prescribed.transitionDerivative_integral' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.transitionDerivative_zero_of_nonpos' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.transitionDerivative_zero_of_one_le' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -3096,7 +3657,7 @@ Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.transverseProjection' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.TwoLayerBody' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.TwoLayerBody._sizeOf_1' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2382:14: warning: `OQ7Prescribed.TwoLayerBody._sizeOf_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2664:14: warning: `OQ7Prescribed.TwoLayerBody._sizeOf_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.TwoLayerBody._sizeOf_inst' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -3131,55 +3692,57 @@ Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.unitSphere_norm._simp_1_1' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.unitSphere_sum_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.Vector' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.vector_basisC_expansion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.vector_clm_coordinate_expansion' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.vectorCoordinate' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.vectorCoordinate.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.VectorDistribution' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.VectorL2' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.vectorL2_locallyIntegrable' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.VectorL2._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2420:14: warning: `OQ7Prescribed.VectorL2._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2704:14: warning: `OQ7Prescribed.VectorL2._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.VectorL2._proof_2' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2421:14: warning: `OQ7Prescribed.VectorL2._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2705:14: warning: `OQ7Prescribed.VectorL2._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.VectorL2._proof_3' depends on axioms: [propext]
-verification/Audit.lean:2422:14: warning: `OQ7Prescribed.VectorL2._proof_3` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2706:14: warning: `OQ7Prescribed.VectorL2._proof_3` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.vectorL2ComponentDistribution' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.vectorL2ComponentDistribution_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.vectorL2ComponentDistribution._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2425:14: warning: `OQ7Prescribed.vectorL2ComponentDistribution._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2709:14: warning: `OQ7Prescribed.vectorL2ComponentDistribution._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.vectorL2ComponentDistribution._proof_2' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2426:14: warning: `OQ7Prescribed.vectorL2ComponentDistribution._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2710:14: warning: `OQ7Prescribed.vectorL2ComponentDistribution._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.vectorL2ComponentDistribution._proof_3' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2427:14: warning: `OQ7Prescribed.vectorL2ComponentDistribution._proof_3` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2711:14: warning: `OQ7Prescribed.vectorL2ComponentDistribution._proof_3` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.vectorL2ComponentDistribution._proof_4' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2428:14: warning: `OQ7Prescribed.vectorL2ComponentDistribution._proof_4` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2712:14: warning: `OQ7Prescribed.vectorL2ComponentDistribution._proof_4` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.vectorL2ComponentDistribution._proof_5' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2429:14: warning: `OQ7Prescribed.vectorL2ComponentDistribution._proof_5` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2713:14: warning: `OQ7Prescribed.vectorL2ComponentDistribution._proof_5` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.vectorL2ComponentDistribution._proof_6' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2430:14: warning: `OQ7Prescribed.vectorL2ComponentDistribution._proof_6` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2714:14: warning: `OQ7Prescribed.vectorL2ComponentDistribution._proof_6` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.vectorL2ComponentDistribution._proof_7' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2431:14: warning: `OQ7Prescribed.vectorL2ComponentDistribution._proof_7` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2715:14: warning: `OQ7Prescribed.vectorL2ComponentDistribution._proof_7` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.vectorL2ComponentDistribution._proof_8' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2432:14: warning: `OQ7Prescribed.vectorL2ComponentDistribution._proof_8` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2716:14: warning: `OQ7Prescribed.vectorL2ComponentDistribution._proof_8` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.vectorL2ComponentDistribution.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -3187,34 +3750,34 @@ Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.vectorL2Distribution_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.vectorL2Distribution_tempered' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.vectorL2Distribution._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2437:14: warning: `OQ7Prescribed.vectorL2Distribution._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2721:14: warning: `OQ7Prescribed.vectorL2Distribution._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.vectorL2Distribution._proof_2' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2438:14: warning: `OQ7Prescribed.vectorL2Distribution._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2722:14: warning: `OQ7Prescribed.vectorL2Distribution._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.vectorL2Distribution._proof_3' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2439:14: warning: `OQ7Prescribed.vectorL2Distribution._proof_3` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2723:14: warning: `OQ7Prescribed.vectorL2Distribution._proof_3` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.vectorL2Distribution._proof_4' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2440:14: warning: `OQ7Prescribed.vectorL2Distribution._proof_4` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2724:14: warning: `OQ7Prescribed.vectorL2Distribution._proof_4` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.vectorOperatorApply' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.vectorScalarMul' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.vectorScalarMul_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OQ7Prescribed.vectorScalarMul._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2444:14: warning: `OQ7Prescribed.vectorScalarMul._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2728:14: warning: `OQ7Prescribed.vectorScalarMul._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.vectorScalarMul._proof_2' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2445:14: warning: `OQ7Prescribed.vectorScalarMul._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2729:14: warning: `OQ7Prescribed.vectorScalarMul._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.vectorScalarMul._proof_3' depends on axioms: [propext, Classical.choice, Quot.sound]
-verification/Audit.lean:2446:14: warning: `OQ7Prescribed.vectorScalarMul._proof_3` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+verification/Audit.lean:2730:14: warning: `OQ7Prescribed.vectorScalarMul._proof_3` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
 
 Note: This linter can be disabled with `set_option linter.auxLemma false`
 'OQ7Prescribed.WeakMaxwell' depends on axioms: [propext, Classical.choice, Quot.sound]

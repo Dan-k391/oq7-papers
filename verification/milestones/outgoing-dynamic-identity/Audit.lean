@@ -1,0 +1,4 @@
+import PrescribedExtinction.OutgoingDynamicIdentity 
+#check @OQ7Prescribed.greenHessian_eq_static_add_dynamic #print axioms OQ7Prescribed.greenHessian_eq_static_add_dynamic
+#check @OQ7Prescribed.dyadicGreenDistribution_eq_static_add_remainder #print axioms OQ7Prescribed.dyadicGreenDistribution_eq_static_add_remainder
+#check @OQ7Prescribed.outgoing_dyadic_contact_identity #print axioms OQ7Prescribed.outgoing_dyadic_contact_identity

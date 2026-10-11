@@ -1,0 +1,29 @@
+warning: mathlib: repository 'C:/Users/Daniel/Documents/Codex/2026-10-09/set-up-a-local-ai-mathematical/outputs/math-research-lab/lean/.lake/packages\mathlib' has local changes
+warning: plausible: repository 'C:/Users/Daniel/Documents/Codex/2026-10-09/set-up-a-local-ai-mathematical/outputs/math-research-lab/lean/.lake/packages\plausible' has local changes
+warning: LeanSearchClient: repository 'C:/Users/Daniel/Documents/Codex/2026-10-09/set-up-a-local-ai-mathematical/outputs/math-research-lab/lean/.lake/packages\LeanSearchClient' has local changes
+warning: importGraph: repository 'C:/Users/Daniel/Documents/Codex/2026-10-09/set-up-a-local-ai-mathematical/outputs/math-research-lab/lean/.lake/packages\importGraph' has local changes
+warning: proofwidgets: repository 'C:/Users/Daniel/Documents/Codex/2026-10-09/set-up-a-local-ai-mathematical/outputs/math-research-lab/lean/.lake/packages\proofwidgets' has local changes
+warning: aesop: repository 'C:/Users/Daniel/Documents/Codex/2026-10-09/set-up-a-local-ai-mathematical/outputs/math-research-lab/lean/.lake/packages\aesop' has local changes
+warning: Qq: repository 'C:/Users/Daniel/Documents/Codex/2026-10-09/set-up-a-local-ai-mathematical/outputs/math-research-lab/lean/.lake/packages\Qq' has local changes
+warning: batteries: repository 'C:/Users/Daniel/Documents/Codex/2026-10-09/set-up-a-local-ai-mathematical/outputs/math-research-lab/lean/.lake/packages\batteries' has local changes
+warning: Cli: repository 'C:/Users/Daniel/Documents/Codex/2026-10-09/set-up-a-local-ai-mathematical/outputs/math-research-lab/lean/.lake/packages\Cli' has local changes
+OQ7Prescribed.compactOutgoingOperator_norm_le : ∀ (k R : ℝ) (hR : 0 ≤ R),
+  ‖OQ7Prescribed.compactOutgoingOperator k R hR‖ ≤ 1 + OQ7Prescribed.compactRemainderConstant k R
+'OQ7Prescribed.compactOutgoingOperator_norm_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.compactOutgoingOperator_physical_distribution : ∀ (k R : ℝ) (hR : 0 ≤ R)
+  (f : ↥(OQ7Prescribed.SupportedVectorL2 R)) (i : Fin 3) (φ : OQ7Prescribed.ScalarTest),
+  Function.support ⇑φ ⊆ Metric.closedBall 0 R →
+    (OQ7Prescribed.vectorL2ComponentDistribution (↑((OQ7Prescribed.compactOutgoingOperator k R hR) f)) i) φ =
+      (OQ7Prescribed.outgoingVolumeDistribution k (OQ7Prescribed.supportedPolarization R hR f) i) φ
+'OQ7Prescribed.compactOutgoingOperator_physical_distribution' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.outgoingVolumeDistribution_on_ball_bounded_L2_realization : ∀ (k R : ℝ) (hR : 0 ≤ R)
+  (f : ↥(OQ7Prescribed.SupportedVectorL2 R)),
+  ∃ u,
+    (∀ (i : Fin 3) (φ : OQ7Prescribed.ScalarTest),
+        Function.support ⇑φ ⊆ Metric.closedBall 0 R →
+          (OQ7Prescribed.vectorL2ComponentDistribution (↑u) i) φ =
+            (OQ7Prescribed.outgoingVolumeDistribution k (OQ7Prescribed.supportedPolarization R hR f) i) φ) ∧
+      ‖u‖ ≤ (1 + OQ7Prescribed.compactRemainderConstant k R) * ‖f‖
+'OQ7Prescribed.outgoingVolumeDistribution_on_ball_bounded_L2_realization' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

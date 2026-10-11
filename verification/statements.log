@@ -27,10 +27,64 @@ OQ7Prescribed.classicalDyadic_coordinate : ∀ (k : ℝ) (x : OQ7Prescribed.Posi
           lineDeriv ℝ (fun y => lineDeriv ℝ (OQ7Prescribed.outgoingGreen k) y (OQ7Prescribed.basisR j)) x
             (OQ7Prescribed.basisR i)
 OQ7Prescribed.classicalDyadic_measurable : ∀ (k : ℝ), Measurable (OQ7Prescribed.classicalDyadic k)
+OQ7Prescribed.compactOutgoingOperator_apply_norm_le : ∀ (k R : ℝ) (hR : 0 ≤ R)
+  (f : ↥(OQ7Prescribed.SupportedVectorL2 R)),
+  ‖(OQ7Prescribed.compactOutgoingOperator k R hR) f‖ ≤ (1 + OQ7Prescribed.compactRemainderConstant k R) * ‖f‖
+OQ7Prescribed.compactOutgoingOperator_coe : ∀ (k R : ℝ) (hR : 0 ≤ R) (f : ↥(OQ7Prescribed.SupportedVectorL2 R)),
+  ↑↑↑((OQ7Prescribed.compactOutgoingOperator k R hR) f) =ᵐ[MeasureTheory.volume]
+    (Metric.closedBall 0 R).indicator fun x =>
+      ↑↑(OQ7Prescribed.staticFourierOperator ↑f) x +
+        OQ7Prescribed.remainderPotential k (OQ7Prescribed.supportedPolarization R hR f) x
+OQ7Prescribed.compactOutgoingOperator_norm_le : ∀ (k R : ℝ) (hR : 0 ≤ R),
+  ‖OQ7Prescribed.compactOutgoingOperator k R hR‖ ≤ 1 + OQ7Prescribed.compactRemainderConstant k R
+OQ7Prescribed.compactOutgoingOperator_physical_distribution : ∀ (k R : ℝ) (hR : 0 ≤ R)
+  (f : ↥(OQ7Prescribed.SupportedVectorL2 R)) (i : Fin 3) (φ : OQ7Prescribed.ScalarTest),
+  Function.support ⇑φ ⊆ Metric.closedBall 0 R →
+    (OQ7Prescribed.vectorL2ComponentDistribution (↑((OQ7Prescribed.compactOutgoingOperator k R hR) f)) i) φ =
+      (OQ7Prescribed.outgoingVolumeDistribution k (OQ7Prescribed.supportedPolarization R hR f) i) φ
+OQ7Prescribed.compactOutgoingOperator_test_pairing : ∀ (k R : ℝ) (hR : 0 ≤ R) (f : ↥(OQ7Prescribed.SupportedVectorL2 R))
+  (φ : OQ7Prescribed.ScalarTest),
+  Function.support ⇑φ ⊆ Metric.closedBall 0 R →
+    ∫ (x : OQ7Prescribed.Position), φ x • ↑↑↑((OQ7Prescribed.compactOutgoingOperator k R hR) f) x =
+      (∫ (x : OQ7Prescribed.Position), φ x • ↑↑(OQ7Prescribed.staticFourierOperator ↑f) x) +
+        ∫ (x : OQ7Prescribed.Position),
+          φ x • OQ7Prescribed.remainderPotential k (OQ7Prescribed.supportedPolarization R hR f) x
 OQ7Prescribed.compactPolarization_current_hasCompactSupport : ∀ (p : OQ7Prescribed.CompactPolarization),
   HasCompactSupport p.current
 OQ7Prescribed.compactPolarization_current_integrable : ∀ (p : OQ7Prescribed.CompactPolarization),
   MeasureTheory.Integrable p.current MeasureTheory.volume
+OQ7Prescribed.compactRemainderConstant_nonneg : ∀ (k R : ℝ), 0 ≤ OQ7Prescribed.compactRemainderConstant k R
+OQ7Prescribed.compactRemainderField_memLp : ∀ (k R : ℝ) (hR : 0 ≤ R) (f : ↥(OQ7Prescribed.SupportedVectorL2 R)),
+  MeasureTheory.MemLp (OQ7Prescribed.compactRemainderField k R hR f) 2 MeasureTheory.volume
+OQ7Prescribed.compactRemainderLp_add : ∀ (k R : ℝ) (hR : 0 ≤ R) (f g : ↥(OQ7Prescribed.SupportedVectorL2 R)),
+  OQ7Prescribed.compactRemainderLp k R hR (f + g) =
+    OQ7Prescribed.compactRemainderLp k R hR f + OQ7Prescribed.compactRemainderLp k R hR g
+OQ7Prescribed.compactRemainderLp_coe : ∀ (k R : ℝ) (hR : 0 ≤ R) (f : ↥(OQ7Prescribed.SupportedVectorL2 R)),
+  ↑↑(OQ7Prescribed.compactRemainderLp k R hR f) =ᵐ[MeasureTheory.volume] OQ7Prescribed.compactRemainderField k R hR f
+OQ7Prescribed.compactRemainderLp_norm_le : ∀ (k R : ℝ) (hR : 0 ≤ R) (f : ↥(OQ7Prescribed.SupportedVectorL2 R)),
+  ‖OQ7Prescribed.compactRemainderLp k R hR f‖ ≤ OQ7Prescribed.compactRemainderConstant k R * ‖f‖
+OQ7Prescribed.compactRemainderLp_smul : ∀ (k R : ℝ) (hR : 0 ≤ R) (z : ℂ) (f : ↥(OQ7Prescribed.SupportedVectorL2 R)),
+  OQ7Prescribed.compactRemainderLp k R hR (z • f) = z • OQ7Prescribed.compactRemainderLp k R hR f
+OQ7Prescribed.compactRemainderLp_supported : ∀ (k R : ℝ) (hR : 0 ≤ R) (f : ↥(OQ7Prescribed.SupportedVectorL2 R)),
+  OQ7Prescribed.compactRemainderLp k R hR f ∈ OQ7Prescribed.supportedVectorL2 R
+OQ7Prescribed.compactRemainderOperator_norm_le : ∀ (k R : ℝ) (hR : 0 ≤ R),
+  ‖OQ7Prescribed.compactRemainderOperator k R hR‖ ≤ OQ7Prescribed.compactRemainderConstant k R
+OQ7Prescribed.compactRestrictionCLM_norm_le : ∀ (R : ℝ), ‖OQ7Prescribed.compactRestrictionCLM R‖ ≤ 1
+OQ7Prescribed.compactRestrictionLp_add : ∀ (R : ℝ) (f g : ↥OQ7Prescribed.VectorL2),
+  OQ7Prescribed.compactRestrictionLp R (f + g) =
+    OQ7Prescribed.compactRestrictionLp R f + OQ7Prescribed.compactRestrictionLp R g
+OQ7Prescribed.compactRestrictionLp_coe : ∀ (R : ℝ) (f : ↥OQ7Prescribed.VectorL2),
+  ↑↑(OQ7Prescribed.compactRestrictionLp R f) =ᵐ[MeasureTheory.volume] (Metric.closedBall 0 R).indicator fun x => ↑↑f x
+OQ7Prescribed.compactRestrictionLp_eq_self_iff_supported : ∀ (R : ℝ) (f : ↥OQ7Prescribed.VectorL2),
+  OQ7Prescribed.compactRestrictionLp R f = f ↔ f ∈ OQ7Prescribed.supportedVectorL2 R
+OQ7Prescribed.compactRestrictionLp_norm_le : ∀ (R : ℝ) (f : ↥OQ7Prescribed.VectorL2),
+  ‖OQ7Prescribed.compactRestrictionLp R f‖ ≤ ‖f‖
+OQ7Prescribed.compactRestrictionLp_smul : ∀ (R : ℝ) (z : ℂ) (f : ↥OQ7Prescribed.VectorL2),
+  OQ7Prescribed.compactRestrictionLp R (z • f) = z • OQ7Prescribed.compactRestrictionLp R f
+OQ7Prescribed.compactRestrictionLp_supported : ∀ (R : ℝ) (f : ↥OQ7Prescribed.VectorL2),
+  OQ7Prescribed.compactRestrictionLp R f ∈ OQ7Prescribed.supportedVectorL2 R
+OQ7Prescribed.compactStaticOperator_apply_norm_le : ∀ (R : ℝ) (f : ↥(OQ7Prescribed.SupportedVectorL2 R)),
+  ‖(OQ7Prescribed.compactStaticOperator R) f‖ ≤ ‖f‖
 OQ7Prescribed.complexify_continuous : Continuous OQ7Prescribed.complexify
 OQ7Prescribed.complexify_norm_sq : ∀ (u : OQ7Prescribed.Position), ‖OQ7Prescribed.complexify u‖ ^ 2 = ‖u‖ ^ 2
 OQ7Prescribed.contDiff_lineDeriv_continuous : ∀ (F : OQ7Prescribed.Position → ℝ),
@@ -49,10 +103,39 @@ OQ7Prescribed.current_component_fourier : ∀ (p : OQ7Prescribed.CompactPolariza
   FourierTransform.fourier (fun y => (p.current y).ofLp j) ξ = (FourierTransform.fourier p.current ξ).ofLp j
 OQ7Prescribed.current_component_integrable : ∀ (p : OQ7Prescribed.CompactPolarization) (i : Fin 3),
   MeasureTheory.Integrable (fun y => (p.current y).ofLp i) MeasureTheory.volume
+OQ7Prescribed.currentCorrelation_kernel_integrable : ∀ (p : OQ7Prescribed.CompactPolarization)
+  (φ : OQ7Prescribed.ScalarTest) (j : Fin 3) {f : OQ7Prescribed.Position → ℂ},
+  MeasureTheory.LocallyIntegrable f MeasureTheory.volume →
+    MeasureTheory.Integrable (fun z => OQ7Prescribed.newtonCurrentCorrelation p φ j z * f z) MeasureTheory.volume
+OQ7Prescribed.currentCorrelation_pairing_re_im : ∀ (p : OQ7Prescribed.CompactPolarization)
+  (φ : OQ7Prescribed.ScalarTest) (j : Fin 3) {f : OQ7Prescribed.Position → ℂ},
+  MeasureTheory.LocallyIntegrable f MeasureTheory.volume →
+    ∫ (z : OQ7Prescribed.Position), OQ7Prescribed.newtonCurrentCorrelation p φ j z * f z =
+      (∫ (z : OQ7Prescribed.Position), (OQ7Prescribed.currentCorrelationRealTest Complex.reCLM p φ j) z • f z) +
+        Complex.I *
+          ∫ (z : OQ7Prescribed.Position), (OQ7Prescribed.currentCorrelationRealTest Complex.imCLM p φ j) z • f z
+OQ7Prescribed.currentCorrelation_zero_eq_current_test_integral : ∀ (p : OQ7Prescribed.CompactPolarization)
+  (φ : OQ7Prescribed.ScalarTest) (i : Fin 3),
+  OQ7Prescribed.newtonCurrentCorrelation p φ i 0 = ∫ (x : OQ7Prescribed.Position), φ x • (p.current x).ofLp i
+OQ7Prescribed.currentCorrelationRealTest_apply : ∀ (L : ℂ →L[ℝ] ℝ) (p : OQ7Prescribed.CompactPolarization)
+  (φ : OQ7Prescribed.ScalarTest) (j : Fin 3) (z : OQ7Prescribed.Position),
+  (OQ7Prescribed.currentCorrelationRealTest L p φ j) z = L (OQ7Prescribed.newtonCurrentCorrelation p φ j z)
+OQ7Prescribed.currentCorrelationRealTest_partial : ∀ (L : ℂ →L[ℝ] ℝ) (p : OQ7Prescribed.CompactPolarization)
+  (φ : OQ7Prescribed.ScalarTest) (j i : Fin 3),
+  (OQ7Prescribed.testPartial i) (OQ7Prescribed.currentCorrelationRealTest L p φ j) =
+    OQ7Prescribed.currentCorrelationRealTest L p ((OQ7Prescribed.testPartial i) φ) j
+OQ7Prescribed.currentTestCorrelationVector_coordinate : ∀ (p : OQ7Prescribed.CompactPolarization)
+  (φ : OQ7Prescribed.ScalarTest) (z : OQ7Prescribed.Position) (i : Fin 3),
+  (OQ7Prescribed.currentTestCorrelationVector p φ z).ofLp i = OQ7Prescribed.newtonCurrentCorrelation p φ i z
+OQ7Prescribed.currentTestCorrelationVector_integrable : ∀ (p : OQ7Prescribed.CompactPolarization)
+  (φ : OQ7Prescribed.ScalarTest) (z : OQ7Prescribed.Position),
+  MeasureTheory.Integrable (fun y => ↑(φ (z + y)) • p.current y) MeasureTheory.volume
 OQ7Prescribed.cutoffDyadicRemainder_eLpNorm_le : ∀ (k T : ℝ),
   MeasureTheory.eLpNorm (OQ7Prescribed.cutoffDyadicRemainder k T) 2 MeasureTheory.volume ≤
     ENNReal.ofReal (OQ7Prescribed.dyadicRemainderCutoffConstant k T) *
       MeasureTheory.eLpNorm (OQ7Prescribed.cutoffGreen 0 T) 2 MeasureTheory.volume
+OQ7Prescribed.cutoffDyadicRemainder_integrable : ∀ (k T : ℝ),
+  MeasureTheory.Integrable (OQ7Prescribed.cutoffDyadicRemainder k T) MeasureTheory.volume
 OQ7Prescribed.cutoffDyadicRemainder_memLp : ∀ (k T : ℝ),
   MeasureTheory.MemLp (OQ7Prescribed.cutoffDyadicRemainder k T) 2 MeasureTheory.volume
 OQ7Prescribed.cutoffDyadicRemainder_norm_le : ∀ (k T : ℝ) (x : OQ7Prescribed.Position),
@@ -62,6 +145,15 @@ OQ7Prescribed.cutoffGreen_integrable : ∀ (k T : ℝ),
   MeasureTheory.Integrable (OQ7Prescribed.cutoffGreen k T) MeasureTheory.volume
 OQ7Prescribed.cutoffGreen_memLp : ∀ (k T : ℝ),
   MeasureTheory.MemLp (OQ7Prescribed.cutoffGreen k T) 2 MeasureTheory.volume
+OQ7Prescribed.distributionCurl_gradient : ∀ (T : OQ7Prescribed.ScalarDistribution),
+  (OQ7Prescribed.distributionCurl fun i => (OQ7Prescribed.distributionPartial i) T) = 0
+OQ7Prescribed.distributionCurlCurl : ∀ (U : OQ7Prescribed.CartesianDistribution) (i : Fin 3),
+  OQ7Prescribed.distributionCurl (OQ7Prescribed.distributionCurl U) i =
+    (OQ7Prescribed.distributionPartial i) (OQ7Prescribed.distributionDivergence U) -
+      OQ7Prescribed.distributionLaplacian (U i)
+OQ7Prescribed.distributionPartial_commute : ∀ (T : OQ7Prescribed.ScalarDistribution) (i j : Fin 3),
+  (OQ7Prescribed.distributionPartial i) ((OQ7Prescribed.distributionPartial j) T) =
+    (OQ7Prescribed.distributionPartial j) ((OQ7Prescribed.distributionPartial i) T)
 OQ7Prescribed.domain_compact_closure : ∀ (B : OQ7Prescribed.TwoLayerBody), IsCompact (closure B.domain)
 OQ7Prescribed.domain_subset_closedBall : ∀ (B : OQ7Prescribed.TwoLayerBody),
   B.domain ⊆ Metric.closedBall 0 (B.aperture + B.absorberThickness + B.plateThickness)
@@ -70,6 +162,11 @@ OQ7Prescribed.dyadicGreenDistribution_apply : ∀ (k : ℝ) (i j : Fin 3) (φ : 
     (if i = j then k ^ 2 • ∫ (x : OQ7Prescribed.Position), φ x • OQ7Prescribed.outgoingGreen k x else 0) +
       ∫ (x : OQ7Prescribed.Position),
         ((OQ7Prescribed.testPartial j) ((OQ7Prescribed.testPartial i) φ)) x • OQ7Prescribed.outgoingGreen k x
+OQ7Prescribed.dyadicGreenDistribution_eq_static_add_remainder : ∀ (k : ℝ) (i j : Fin 3),
+  OQ7Prescribed.dyadicGreenDistribution k i j =
+    OQ7Prescribed.greenHessian 0 i j +
+      Distribution.ofFun ⊤ (fun x => ((OQ7Prescribed.dyadicRemainder k x) (OQ7Prescribed.basisC j)).ofLp i)
+        MeasureTheory.volume ⊤
 OQ7Prescribed.dyadicRemainder_cancel : ∀ (k : ℝ) (x : OQ7Prescribed.Position),
   OQ7Prescribed.dyadicRemainder k x =
     (↑(k ^ 2) * Complex.exp (Complex.I * ↑k * ↑‖x‖) / (↑(4 * Real.pi) * ↑‖x‖) +
@@ -78,7 +175,17 @@ OQ7Prescribed.dyadicRemainder_cancel : ∀ (k : ℝ) (x : OQ7Prescribed.Position
       ((Complex.exp (Complex.I * ↑k * ↑‖x‖) * ((Complex.I * ↑k * ↑‖x‖) ^ 2 - 3 * (Complex.I * ↑k * ↑‖x‖) + 3) - 3) /
           (↑(4 * Real.pi) * ↑‖x‖ ^ 5)) •
         ((InnerProductSpace.rankOne ℂ) (OQ7Prescribed.complexify x)) (OQ7Prescribed.complexify x)
+OQ7Prescribed.dyadicRemainder_current_entry_pairing : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization)
+  (φ : OQ7Prescribed.ScalarTest) (i j : Fin 3),
+  ∫ (z : OQ7Prescribed.Position),
+      OQ7Prescribed.newtonCurrentCorrelation p φ j z *
+        ((OQ7Prescribed.dyadicRemainder k z) (OQ7Prescribed.basisC j)).ofLp i =
+    (∫ (z : OQ7Prescribed.Position),
+        OQ7Prescribed.newtonCurrentCorrelation p φ j z * OQ7Prescribed.dynamicHessianRemainder k i j z) +
+      if j = i then k ^ 2 • (OQ7Prescribed.potentialComponentDistribution k p i) φ else 0
 OQ7Prescribed.dyadicRemainder_measurable : ∀ (k : ℝ), Measurable (OQ7Prescribed.dyadicRemainder k)
+OQ7Prescribed.dyadicRemainder_memLp_on_compact : ∀ (k : ℝ) (K : Set OQ7Prescribed.Position),
+  IsCompact K → MeasureTheory.MemLp (OQ7Prescribed.dyadicRemainder k) 2 (MeasureTheory.volume.restrict K)
 OQ7Prescribed.dyadicRemainder_norm_le : ∀ (k : ℝ) (x : OQ7Prescribed.Position),
   ‖OQ7Prescribed.dyadicRemainder k x‖ ≤
     k ^ 2 / (4 * Real.pi) * OQ7Prescribed.greenCancellationEnvelope (|k| * ‖x‖) * ‖x‖⁻¹
@@ -86,6 +193,72 @@ OQ7Prescribed.dyadicRemainder_norm_le_on_ball : ∀ (k R : ℝ) (x : OQ7Prescrib
   ‖x‖ ≤ R →
     ‖OQ7Prescribed.dyadicRemainder k x‖ ≤
       k ^ 2 / (4 * Real.pi) * OQ7Prescribed.greenCancellationEnvelope (|k| * R) * ‖x‖⁻¹
+OQ7Prescribed.dyadicRemainderEntry_locallyIntegrable : ∀ (k : ℝ) (i j : Fin 3),
+  MeasureTheory.LocallyIntegrable (fun x => ((OQ7Prescribed.dyadicRemainder k x) (OQ7Prescribed.basisC j)).ofLp i)
+    MeasureTheory.volume
+OQ7Prescribed.dynamicGradientBound_nonneg : ∀ (k R : ℝ), 0 ≤ R → 0 ≤ OQ7Prescribed.dynamicGradientBound k R
+OQ7Prescribed.dynamicGradientRemainder_contDiffAt : ∀ (k : ℝ) (j : Fin 3) (x : OQ7Prescribed.Position),
+  x ≠ 0 → ContDiffAt ℝ 1 (OQ7Prescribed.dynamicGradientRemainder k j) x
+OQ7Prescribed.dynamicGradientRemainder_hasLineDerivAt : ∀ (k : ℝ) (i j : Fin 3) (x : OQ7Prescribed.Position),
+  x ≠ 0 →
+    HasLineDerivAt ℝ (OQ7Prescribed.dynamicGradientRemainder k j) (OQ7Prescribed.dynamicHessianRemainder k i j x) x
+      (OQ7Prescribed.basisR i)
+OQ7Prescribed.dynamicGradientRemainder_locallyIntegrable : ∀ (k : ℝ) (j : Fin 3),
+  MeasureTheory.LocallyIntegrable (OQ7Prescribed.dynamicGradientRemainder k j) MeasureTheory.volume
+OQ7Prescribed.dynamicGradientRemainder_measurable : ∀ (k : ℝ) (j : Fin 3),
+  Measurable (OQ7Prescribed.dynamicGradientRemainder k j)
+OQ7Prescribed.dynamicGradientRemainder_norm_le : ∀ (k : ℝ) (j : Fin 3) (x : OQ7Prescribed.Position),
+  ‖OQ7Prescribed.dynamicGradientRemainder k j x‖ ≤ OQ7Prescribed.dynamicGradientBound k ‖x‖
+OQ7Prescribed.dynamicGradientRemainder_norm_le_on_ball : ∀ (k R : ℝ) (j : Fin 3) (x : OQ7Prescribed.Position),
+  ‖x‖ ≤ R → ‖OQ7Prescribed.dynamicGradientRemainder k j x‖ ≤ OQ7Prescribed.dynamicGradientBound k R
+OQ7Prescribed.dynamicGradientRemainder_test_ibp : ∀ (k : ℝ) (i j : Fin 3) (φ : OQ7Prescribed.ScalarTest),
+  ∫ (x : OQ7Prescribed.Position), ((OQ7Prescribed.testPartial i) φ) x • OQ7Prescribed.dynamicGradientRemainder k j x =
+    -∫ (x : OQ7Prescribed.Position), φ x • OQ7Prescribed.dynamicHessianRemainder k i j x
+OQ7Prescribed.dynamicHessianRemainder_eq_radial : ∀ (k : ℝ) (i j : Fin 3) (x : OQ7Prescribed.Position),
+  x ≠ 0 →
+    OQ7Prescribed.dynamicHessianRemainder k i j x =
+      (x.ofLp i * x.ofLp j / ‖x‖ ^ 2) •
+          (OQ7Prescribed.outgoingRadialSecond k ‖x‖ - OQ7Prescribed.outgoingRadialSecond 0 ‖x‖) +
+        ((if i = j then 1 else 0) / ‖x‖ - x.ofLp i * x.ofLp j / ‖x‖ ^ 3) •
+          (OQ7Prescribed.outgoingRadialFirst k ‖x‖ - OQ7Prescribed.outgoingRadialFirst 0 ‖x‖)
+OQ7Prescribed.dynamicHessianRemainder_locallyIntegrable : ∀ (k : ℝ) (i j : Fin 3),
+  MeasureTheory.LocallyIntegrable (OQ7Prescribed.dynamicHessianRemainder k i j) MeasureTheory.volume
+OQ7Prescribed.dynamicHessianRemainder_memLp_on_compact : ∀ (k : ℝ) (i j : Fin 3) (K : Set OQ7Prescribed.Position),
+  IsCompact K → MeasureTheory.MemLp (OQ7Prescribed.dynamicHessianRemainder k i j) 2 (MeasureTheory.volume.restrict K)
+OQ7Prescribed.dynamicHessianRemainder_trace : ∀ (k : ℝ) (x : OQ7Prescribed.Position),
+  ∑ i, OQ7Prescribed.dynamicHessianRemainder k i i x = -↑(k ^ 2) * OQ7Prescribed.outgoingGreen k x
+OQ7Prescribed.dynamicHessianRemainder_trace_distribution : ∀ (k : ℝ),
+  ∑ i, Distribution.ofFun ⊤ (OQ7Prescribed.dynamicHessianRemainder k i i) MeasureTheory.volume ⊤ =
+    -k ^ 2 • OQ7Prescribed.outgoingGreenDistribution k
+OQ7Prescribed.dynamicScalarBound_nonneg : ∀ (k R : ℝ), 0 ≤ R → 0 ≤ OQ7Prescribed.dynamicScalarBound k R
+OQ7Prescribed.dynamicScalarRemainder_contDiffAt : ∀ (k : ℝ) (x : OQ7Prescribed.Position),
+  x ≠ 0 → ContDiffAt ℝ 1 (OQ7Prescribed.dynamicScalarRemainder k) x
+OQ7Prescribed.dynamicScalarRemainder_correlation_double_ibp : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization)
+  (φ : OQ7Prescribed.ScalarTest) (l i j : Fin 3),
+  ∫ (z : OQ7Prescribed.Position),
+      OQ7Prescribed.newtonCurrentCorrelation p ((OQ7Prescribed.testPartial j) ((OQ7Prescribed.testPartial i) φ)) l z *
+        OQ7Prescribed.dynamicScalarRemainder k z =
+    ∫ (z : OQ7Prescribed.Position),
+      OQ7Prescribed.newtonCurrentCorrelation p φ l z * OQ7Prescribed.dynamicHessianRemainder k i j z
+OQ7Prescribed.dynamicScalarRemainder_double_ibp : ∀ (k : ℝ) (i j : Fin 3) (φ : OQ7Prescribed.ScalarTest),
+  ∫ (x : OQ7Prescribed.Position),
+      ((OQ7Prescribed.testPartial j) ((OQ7Prescribed.testPartial i) φ)) x • OQ7Prescribed.dynamicScalarRemainder k x =
+    ∫ (x : OQ7Prescribed.Position), φ x • OQ7Prescribed.dynamicHessianRemainder k i j x
+OQ7Prescribed.dynamicScalarRemainder_eq_cancel : ∀ (k : ℝ) (x : OQ7Prescribed.Position),
+  OQ7Prescribed.dynamicScalarRemainder k x = (Complex.exp (Complex.I * ↑k * ↑‖x‖) - 1) / (↑(4 * Real.pi) * ↑‖x‖)
+OQ7Prescribed.dynamicScalarRemainder_hasLineDerivAt : ∀ (k : ℝ) (j : Fin 3) (x : OQ7Prescribed.Position),
+  x ≠ 0 →
+    HasLineDerivAt ℝ (OQ7Prescribed.dynamicScalarRemainder k) (OQ7Prescribed.dynamicGradientRemainder k j x) x
+      (OQ7Prescribed.basisR j)
+OQ7Prescribed.dynamicScalarRemainder_locallyIntegrable : ∀ (k : ℝ),
+  MeasureTheory.LocallyIntegrable (OQ7Prescribed.dynamicScalarRemainder k) MeasureTheory.volume
+OQ7Prescribed.dynamicScalarRemainder_norm_le : ∀ (k : ℝ) (x : OQ7Prescribed.Position),
+  ‖OQ7Prescribed.dynamicScalarRemainder k x‖ ≤ OQ7Prescribed.dynamicScalarBound k ‖x‖
+OQ7Prescribed.dynamicScalarRemainder_norm_le_on_ball : ∀ (k R : ℝ) (x : OQ7Prescribed.Position),
+  ‖x‖ ≤ R → ‖OQ7Prescribed.dynamicScalarRemainder k x‖ ≤ OQ7Prescribed.dynamicScalarBound k R
+OQ7Prescribed.dynamicScalarRemainder_test_ibp : ∀ (k : ℝ) (j : Fin 3) (φ : OQ7Prescribed.ScalarTest),
+  ∫ (x : OQ7Prescribed.Position), ((OQ7Prescribed.testPartial j) φ) x • OQ7Prescribed.dynamicScalarRemainder k x =
+    -∫ (x : OQ7Prescribed.Position), φ x • OQ7Prescribed.dynamicGradientRemainder k j x
 OQ7Prescribed.exp_remainder_two_norm : ∀ (z : ℂ), ‖Complex.exp z - 1 - z‖ ≤ ‖z‖ ^ 2 * Real.exp ‖z‖
 OQ7Prescribed.exteriorCutoff_contDiff : ∀ (r t : ℝ), 0 < r → 0 < t → ContDiff ℝ 1 (OQ7Prescribed.exteriorCutoff r t)
 OQ7Prescribed.exteriorCutoff_gradient_ibp : ∀ (r t : ℝ),
@@ -155,6 +328,11 @@ OQ7Prescribed.exteriorCutoffPartial_mul_integrable : ∀ (r t : ℝ),
       ∀ (i : Fin 3) (F : OQ7Prescribed.Position → ℝ),
         (∀ (x : OQ7Prescribed.Position), x ≠ 0 → ContinuousAt F x) →
           MeasureTheory.Integrable (fun x => OQ7Prescribed.exteriorCutoffPartial r t i x * F x) MeasureTheory.volume
+OQ7Prescribed.exteriorCutoffPartial_norm_le : ∀ (r t M : ℝ),
+  0 < t →
+    0 ≤ M →
+      (∀ (s : ℝ), ‖OQ7Prescribed.transitionDerivative s‖ ≤ M) →
+        ∀ (i : Fin 3) (x : OQ7Prescribed.Position), ‖OQ7Prescribed.exteriorCutoffPartial r t i x‖ ≤ M / t
 OQ7Prescribed.exteriorCutoffPartial_zero_inner : ∀ (r t : ℝ),
   0 < t → ∀ (i : Fin 3) (x : OQ7Prescribed.Position), ‖x‖ ≤ r → OQ7Prescribed.exteriorCutoffPartial r t i x = 0
 OQ7Prescribed.exteriorCutoffPartial_zero_outer : ∀ (r t : ℝ),
@@ -188,6 +366,10 @@ OQ7Prescribed.greenCancellationEnvelope_nonneg : ∀ (s : ℝ), 0 ≤ s → 0 �
 OQ7Prescribed.greenHessian_apply : ∀ (k : ℝ) (i j : Fin 3) (φ : OQ7Prescribed.ScalarTest),
   (OQ7Prescribed.greenHessian k i j) φ =
     (OQ7Prescribed.outgoingGreenDistribution k) ((OQ7Prescribed.testPartial j) ((OQ7Prescribed.testPartial i) φ))
+OQ7Prescribed.greenHessian_eq_static_add_dynamic : ∀ (k : ℝ) (i j : Fin 3),
+  OQ7Prescribed.greenHessian k i j =
+    OQ7Prescribed.greenHessian 0 i j +
+      Distribution.ofFun ⊤ (OQ7Prescribed.dynamicHessianRemainder k i j) MeasureTheory.volume ⊤
 OQ7Prescribed.incident_absorber_coupling : ∀ (k : ℝ) (σ : OQ7Prescribed.Direction) (x : OQ7Prescribed.Position),
   OQ7Prescribed.axisCoupling (OQ7Prescribed.basisR 0) (OQ7Prescribed.incidentElectric k σ x) = 0
 OQ7Prescribed.incident_plate_coupling : ∀ (θ k : ℝ) (σ : OQ7Prescribed.Direction) (x : OQ7Prescribed.Position),
@@ -637,8 +819,40 @@ OQ7Prescribed.outgoing_classical_hessian : ∀ (k : ℝ) (x : OQ7Prescribed.Posi
           (OQ7Prescribed.basisR i) =
         (x.ofLp i * x.ofLp j / ‖x‖ ^ 2) • OQ7Prescribed.outgoingRadialSecond k ‖x‖ +
           ((if i = j then 1 else 0) / ‖x‖ - x.ofLp i * x.ofLp j / ‖x‖ ^ 3) • OQ7Prescribed.outgoingRadialFirst k ‖x‖
+OQ7Prescribed.outgoing_current_correlation_joint_integrable : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization)
+  (φ : OQ7Prescribed.ScalarTest) (i : Fin 3),
+  MeasureTheory.Integrable (fun q => ↑(φ (q.1 + q.2)) * OQ7Prescribed.outgoingGreen k q.1 * (p.current q.2).ofLp i)
+    (MeasureTheory.volume.prod MeasureTheory.volume)
+OQ7Prescribed.outgoing_current_correlation_pairing_integrable : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization)
+  (φ : OQ7Prescribed.ScalarTest) (i : Fin 3),
+  MeasureTheory.Integrable (fun z => OQ7Prescribed.outgoingGreen k z * OQ7Prescribed.newtonCurrentCorrelation p φ i z)
+    MeasureTheory.volume
+OQ7Prescribed.outgoing_current_pairing_integrand_cutoff : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization)
+  (φ : OQ7Prescribed.ScalarTest) (i : Fin 3) (S : ℝ),
+  (∀ (x : OQ7Prescribed.Position), φ x ≠ 0 → ‖x‖ ≤ S) →
+    ∀ (x y : OQ7Prescribed.Position),
+      ↑(φ x) * OQ7Prescribed.outgoingGreen k (x - y) * (p.current y).ofLp i =
+        ↑(φ x) * OQ7Prescribed.cutoffGreen k (S + p.radius) (x - y) * (p.current y).ofLp i
+OQ7Prescribed.outgoing_current_test_joint_integrable : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization)
+  (φ : OQ7Prescribed.ScalarTest) (i : Fin 3),
+  MeasureTheory.Integrable (fun q => ↑(φ q.1) * OQ7Prescribed.outgoingGreen k (q.1 - q.2) * (p.current q.2).ofLp i)
+    (MeasureTheory.volume.prod MeasureTheory.volume)
+OQ7Prescribed.outgoing_dyadic_contact_identity : ∀ (k : ℝ) (i j : Fin 3),
+  OQ7Prescribed.dyadicGreenDistribution k i j =
+    OQ7Prescribed.newtonPVDistribution i j - ((if i = j then 1 else 0) / 3) • OQ7Prescribed.newtonDirac +
+      Distribution.ofFun ⊤ (fun x => ((OQ7Prescribed.dyadicRemainder k x) (OQ7Prescribed.basisC j)).ofLp i)
+        MeasureTheory.volume ⊤
+OQ7Prescribed.outgoing_helmholtz_fundamental_apply : ∀ (k : ℝ) (φ : OQ7Prescribed.ScalarTest),
+  (OQ7Prescribed.outgoingGreenDistribution k) (OQ7Prescribed.testLaplacian φ) +
+      k ^ 2 • (OQ7Prescribed.outgoingGreenDistribution k) φ =
+    -↑(φ 0)
+OQ7Prescribed.outgoing_helmholtz_fundamental_distribution : ∀ (k : ℝ),
+  ∑ i, OQ7Prescribed.greenHessian k i i + k ^ 2 • OQ7Prescribed.outgoingGreenDistribution k = -OQ7Prescribed.newtonDirac
 OQ7Prescribed.outgoingGreen_eq_radial : ∀ (k : ℝ) (x : OQ7Prescribed.Position),
   OQ7Prescribed.outgoingGreen k x = OQ7Prescribed.outgoingRadial k ‖x‖
+OQ7Prescribed.outgoingGreen_helmholtz_test_integral : ∀ (k : ℝ) (φ : OQ7Prescribed.ScalarTest),
+  ∫ (x : OQ7Prescribed.Position), ((OQ7Prescribed.testLaplacian φ) x + k ^ 2 * φ x) • OQ7Prescribed.outgoingGreen k x =
+    -↑(φ 0)
 OQ7Prescribed.outgoingGreen_locallyIntegrable : ∀ (k : ℝ),
   MeasureTheory.LocallyIntegrable (OQ7Prescribed.outgoingGreen k) MeasureTheory.volume
 OQ7Prescribed.outgoingGreen_measurable : ∀ (k : ℝ), Measurable (OQ7Prescribed.outgoingGreen k)
@@ -657,6 +871,10 @@ OQ7Prescribed.outgoingPotential_add : ∀ (k : ℝ) (p q : OQ7Prescribed.Compact
     OQ7Prescribed.outgoingPotential k p + OQ7Prescribed.outgoingPotential k q
 OQ7Prescribed.outgoingPotential_aestronglyMeasurable : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization),
   MeasureTheory.AEStronglyMeasurable (OQ7Prescribed.outgoingPotential k p) MeasureTheory.volume
+OQ7Prescribed.outgoingPotential_component_integral : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization) (i : Fin 3)
+  (x : OQ7Prescribed.Position),
+  (OQ7Prescribed.outgoingPotential k p x).ofLp i =
+    ∫ (y : OQ7Prescribed.Position), OQ7Prescribed.outgoingGreen k (x - y) * (p.current y).ofLp i
 OQ7Prescribed.outgoingPotential_congr_current : ∀ (k : ℝ) (p q : OQ7Prescribed.CompactPolarization),
   p.current =ᵐ[MeasureTheory.volume] q.current →
     OQ7Prescribed.outgoingPotential k p = OQ7Prescribed.outgoingPotential k q
@@ -682,10 +900,23 @@ OQ7Prescribed.outgoingPotential_zero_component_integral : ∀ (p : OQ7Prescribed
   (x : OQ7Prescribed.Position),
   (OQ7Prescribed.outgoingPotential 0 p x).ofLp i =
     ∫ (y : OQ7Prescribed.Position), OQ7Prescribed.outgoingGreen 0 (x - y) * (p.current y).ofLp i
+OQ7Prescribed.outgoingRadial_contDiffAt : ∀ (k r : ℝ), r ≠ 0 → ContDiffAt ℝ 1 (OQ7Prescribed.outgoingRadial k) r
 OQ7Prescribed.outgoingRadial_hasDerivAt : ∀ (k r : ℝ),
   r ≠ 0 → HasDerivAt (OQ7Prescribed.outgoingRadial k) (OQ7Prescribed.outgoingRadialFirst k r) r
+OQ7Prescribed.outgoingRadial_helmholtz : ∀ (k r : ℝ),
+  OQ7Prescribed.outgoingRadialSecond k r + (2 / r) • OQ7Prescribed.outgoingRadialFirst k r =
+    -↑(k ^ 2) * OQ7Prescribed.outgoingRadial k r
+OQ7Prescribed.outgoingRadialFirst_contDiffAt : ∀ (k r : ℝ),
+  r ≠ 0 → ContDiffAt ℝ 1 (OQ7Prescribed.outgoingRadialFirst k) r
 OQ7Prescribed.outgoingRadialFirst_hasDerivAt : ∀ (k r : ℝ),
   r ≠ 0 → HasDerivAt (OQ7Prescribed.outgoingRadialFirst k) (OQ7Prescribed.outgoingRadialSecond k r) r
+OQ7Prescribed.outgoingRadialFirst_sub_static : ∀ (k r : ℝ),
+  OQ7Prescribed.outgoingRadialFirst k r - OQ7Prescribed.outgoingRadialFirst 0 r =
+    (Complex.exp (Complex.I * ↑k * ↑r) * (Complex.I * ↑k * ↑r - 1) + 1) / (↑(4 * Real.pi) * ↑r ^ 2)
+OQ7Prescribed.outgoingRadialFirst_sub_static_norm_le : ∀ (k r : ℝ),
+  0 < r →
+    ‖OQ7Prescribed.outgoingRadialFirst k r - OQ7Prescribed.outgoingRadialFirst 0 r‖ ≤
+      OQ7Prescribed.dynamicGradientBound k r
 OQ7Prescribed.outgoingVolumeDistribution_add : ∀ (k : ℝ) (p q : OQ7Prescribed.CompactPolarization) (i : Fin 3),
   OQ7Prescribed.outgoingVolumeDistribution k (p.add q) i =
     OQ7Prescribed.outgoingVolumeDistribution k p i + OQ7Prescribed.outgoingVolumeDistribution k q i
@@ -698,6 +929,24 @@ OQ7Prescribed.outgoingVolumeDistribution_apply : ∀ (k : ℝ) (p : OQ7Prescribe
               ((OQ7Prescribed.testPartial j) ((OQ7Prescribed.testPartial i) φ)) x •
                 OQ7Prescribed.outgoingPotential k p x).ofLp
           j
+OQ7Prescribed.outgoingVolumeDistribution_eq_staticFourier_add_remainder : ∀ (k : ℝ)
+  (p : OQ7Prescribed.CompactPolarization) (i : Fin 3),
+  OQ7Prescribed.outgoingVolumeDistribution k p i =
+    OQ7Prescribed.vectorL2ComponentDistribution
+        (OQ7Prescribed.staticFourierOperator (MeasureTheory.MemLp.toLp p.current ⋯)) i +
+      OQ7Prescribed.remainderPotentialComponentDistribution k p i
+OQ7Prescribed.outgoingVolumeDistribution_eq_zero_add_remainder : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization)
+  (i : Fin 3),
+  OQ7Prescribed.outgoingVolumeDistribution k p i =
+    OQ7Prescribed.outgoingVolumeDistribution 0 p i + OQ7Prescribed.remainderPotentialComponentDistribution k p i
+OQ7Prescribed.outgoingVolumeDistribution_on_ball_bounded_L2_realization : ∀ (k R : ℝ) (hR : 0 ≤ R)
+  (f : ↥(OQ7Prescribed.SupportedVectorL2 R)),
+  ∃ u,
+    (∀ (i : Fin 3) (φ : OQ7Prescribed.ScalarTest),
+        Function.support ⇑φ ⊆ Metric.closedBall 0 R →
+          (OQ7Prescribed.vectorL2ComponentDistribution (↑u) i) φ =
+            (OQ7Prescribed.outgoingVolumeDistribution k (OQ7Prescribed.supportedPolarization R hR f) i) φ) ∧
+      ‖u‖ ≤ (1 + OQ7Prescribed.compactRemainderConstant k R) * ‖f‖
 OQ7Prescribed.outgoingVolumeDistribution_zero_bounded_L2_realization : ∀ (p : OQ7Prescribed.CompactPolarization),
   ∃ u,
     (∀ (i : Fin 3), OQ7Prescribed.outgoingVolumeDistribution 0 p i = OQ7Prescribed.vectorL2ComponentDistribution u i) ∧
@@ -718,14 +967,54 @@ OQ7Prescribed.planePhase_norm : ∀ (k : ℝ) (σ : OQ7Prescribed.Direction) (x 
   ‖OQ7Prescribed.planePhase k σ x‖ = 1
 OQ7Prescribed.polarization_zero_outside : ∀ (B : OQ7Prescribed.TwoLayerBody) (E : OQ7Prescribed.Field),
   ∀ x ∉ B.domain, OQ7Prescribed.polarization B E x = 0
+OQ7Prescribed.polarizationCurrentComponentDistribution_apply : ∀ (p : OQ7Prescribed.CompactPolarization) (i : Fin 3)
+  (φ : OQ7Prescribed.ScalarTest),
+  (OQ7Prescribed.polarizationCurrentComponentDistribution p i) φ =
+    ∫ (x : OQ7Prescribed.Position), φ x • (p.current x).ofLp i
+OQ7Prescribed.polarizationCurrentComponentDistribution_eq_vectorL2 : ∀ (p : OQ7Prescribed.CompactPolarization)
+  (i : Fin 3),
+  OQ7Prescribed.polarizationCurrentComponentDistribution p i =
+    OQ7Prescribed.vectorL2ComponentDistribution (MeasureTheory.MemLp.toLp p.current ⋯) i
 OQ7Prescribed.position_ae_ne_zero : ∀ᵐ (ξ : OQ7Prescribed.Position), ξ ≠ 0
 OQ7Prescribed.position_zero_volume : MeasureTheory.volume {0} = 0
 OQ7Prescribed.potentialBound_lt_top : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization) (S : ℝ),
   OQ7Prescribed.potentialBound k p S < ⊤
+OQ7Prescribed.potentialComponent_helmholtz_apply : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization) (i : Fin 3)
+  (φ : OQ7Prescribed.ScalarTest),
+  (OQ7Prescribed.potentialComponentDistribution k p i) (OQ7Prescribed.testLaplacian φ) +
+      k ^ 2 • (OQ7Prescribed.potentialComponentDistribution k p i) φ =
+    -∫ (x : OQ7Prescribed.Position), φ x • (p.current x).ofLp i
+OQ7Prescribed.potentialComponent_helmholtz_distribution : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization) (i : Fin 3),
+  OQ7Prescribed.distributionLaplacian (OQ7Prescribed.potentialComponentDistribution k p i) +
+      k ^ 2 • OQ7Prescribed.potentialComponentDistribution k p i =
+    -OQ7Prescribed.polarizationCurrentComponentDistribution p i
+OQ7Prescribed.potentialComponent_helmholtz_L2_distribution : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization)
+  (i : Fin 3),
+  OQ7Prescribed.distributionLaplacian (OQ7Prescribed.potentialComponentDistribution k p i) +
+      k ^ 2 • OQ7Prescribed.potentialComponentDistribution k p i =
+    -OQ7Prescribed.vectorL2ComponentDistribution (MeasureTheory.MemLp.toLp p.current ⋯) i
 OQ7Prescribed.potentialComponentDistribution_apply : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization) (i : Fin 3)
   (φ : OQ7Prescribed.ScalarTest),
   (OQ7Prescribed.potentialComponentDistribution k p i) φ =
     (∫ (x : OQ7Prescribed.Position), φ x • OQ7Prescribed.outgoingPotential k p x).ofLp i
+OQ7Prescribed.potentialComponentDistribution_apply_integral : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization)
+  (i : Fin 3) (φ : OQ7Prescribed.ScalarTest),
+  (OQ7Prescribed.potentialComponentDistribution k p i) φ =
+    ∫ (x : OQ7Prescribed.Position), ↑(φ x) * (OQ7Prescribed.outgoingPotential k p x).ofLp i
+OQ7Prescribed.potentialComponentDistribution_correlation_re_im : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization)
+  (φ : OQ7Prescribed.ScalarTest) (i : Fin 3),
+  (OQ7Prescribed.potentialComponentDistribution k p i) φ =
+    (OQ7Prescribed.outgoingGreenDistribution k) (OQ7Prescribed.currentCorrelationRealTest Complex.reCLM p φ i) +
+      Complex.I *
+        (OQ7Prescribed.outgoingGreenDistribution k) (OQ7Prescribed.currentCorrelationRealTest Complex.imCLM p φ i)
+OQ7Prescribed.potentialComponentDistribution_dynamic_hessian_pairing : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization)
+  (φ : OQ7Prescribed.ScalarTest) (l i j : Fin 3),
+  (OQ7Prescribed.potentialComponentDistribution k p l)
+      ((OQ7Prescribed.testPartial j) ((OQ7Prescribed.testPartial i) φ)) =
+    (OQ7Prescribed.potentialComponentDistribution 0 p l)
+        ((OQ7Prescribed.testPartial j) ((OQ7Prescribed.testPartial i) φ)) +
+      ∫ (z : OQ7Prescribed.Position),
+        OQ7Prescribed.newtonCurrentCorrelation p φ l z * OQ7Prescribed.dynamicHessianRemainder k i j z
 OQ7Prescribed.potentialComponentDistribution_newton_pairing : ∀ (p : OQ7Prescribed.CompactPolarization)
   (φ : OQ7Prescribed.ScalarTest) (i : Fin 3),
   (OQ7Prescribed.potentialComponentDistribution 0 p i) φ =
@@ -734,6 +1023,10 @@ OQ7Prescribed.potentialComponentDistribution_newtonTempered : ∀ (p : OQ7Prescr
   (φ : OQ7Prescribed.ScalarTest) (j : Fin 3),
   (OQ7Prescribed.potentialComponentDistribution 0 p j) φ =
     OQ7Prescribed.newtonTempered (OQ7Prescribed.newtonCurrentCorrelationSchwartz p φ j)
+OQ7Prescribed.potentialComponentDistribution_outgoing_pairing : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization)
+  (φ : OQ7Prescribed.ScalarTest) (i : Fin 3),
+  (OQ7Prescribed.potentialComponentDistribution k p i) φ =
+    ∫ (z : OQ7Prescribed.Position), OQ7Prescribed.outgoingGreen k z * OQ7Prescribed.newtonCurrentCorrelation p φ i z
 OQ7Prescribed.potentialComponentDistribution_zero_apply_integral : ∀ (p : OQ7Prescribed.CompactPolarization) (i : Fin 3)
   (φ : OQ7Prescribed.ScalarTest),
   (OQ7Prescribed.potentialComponentDistribution 0 p i) φ =
@@ -767,6 +1060,10 @@ OQ7Prescribed.radial_second_lineDeriv : ∀ (F F₁ F₂ : ℝ → ℂ),
             lineDeriv ℝ (fun y => lineDeriv ℝ (fun z => F ‖z‖) y (OQ7Prescribed.basisR j)) x (OQ7Prescribed.basisR i) =
               (x.ofLp i * x.ofLp j / ‖x‖ ^ 2) • F₂ ‖x‖ +
                 ((if i = j then 1 else 0) / ‖x‖ - x.ofLp i * x.ofLp j / ‖x‖ ^ 3) • F₁ ‖x‖
+OQ7Prescribed.radialHessian_trace : ∀ (x : OQ7Prescribed.Position),
+  x ≠ 0 →
+    ∀ (A B : ℂ),
+      ∑ i, ((x.ofLp i * x.ofLp i / ‖x‖ ^ 2) • A + (1 / ‖x‖ - x.ofLp i * x.ofLp i / ‖x‖ ^ 3) • B) = A + (2 / ‖x‖) • B
 @OQ7Prescribed.radialNorm_hasFDerivAt : ∀ {E : Type u_1} [inst : NormedAddCommGroup E] [inst_1 : InnerProductSpace ℝ E]
   (x : E), x ≠ 0 → HasFDerivAt (fun y => ‖y‖) (‖x‖⁻¹ • (innerSL ℝ) x) x
 OQ7Prescribed.rankOne_complexify_continuous : Continuous fun x =>
@@ -783,6 +1080,29 @@ OQ7Prescribed.reflectedCurrentComponent_hasCompactSupport : ∀ (p : OQ7Prescrib
   HasCompactSupport (OQ7Prescribed.reflectedCurrentComponent p j)
 OQ7Prescribed.reflectedCurrentComponent_integrable : ∀ (p : OQ7Prescribed.CompactPolarization) (j : Fin 3),
   MeasureTheory.Integrable (OQ7Prescribed.reflectedCurrentComponent p j) MeasureTheory.volume
+OQ7Prescribed.remainder_current_correlation_inner : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization)
+  (φ : OQ7Prescribed.ScalarTest) (z : OQ7Prescribed.Position),
+  ∫ (y : OQ7Prescribed.Position), ↑(φ (z + y)) • (OQ7Prescribed.dyadicRemainder k z) (p.current y) =
+    (OQ7Prescribed.dyadicRemainder k z) (OQ7Prescribed.currentTestCorrelationVector p φ z)
+OQ7Prescribed.remainder_current_correlation_joint_integrable : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization)
+  (φ : OQ7Prescribed.ScalarTest),
+  MeasureTheory.Integrable (fun q => ↑(φ (q.1 + q.2)) • (OQ7Prescribed.dyadicRemainder k q.1) (p.current q.2))
+    (MeasureTheory.volume.prod MeasureTheory.volume)
+OQ7Prescribed.remainder_current_correlation_pairing_integrable : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization)
+  (φ : OQ7Prescribed.ScalarTest),
+  MeasureTheory.Integrable
+    (fun z => (OQ7Prescribed.dyadicRemainder k z) (OQ7Prescribed.currentTestCorrelationVector p φ z))
+    MeasureTheory.volume
+OQ7Prescribed.remainder_current_pairing_integrand_cutoff : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization)
+  (φ : OQ7Prescribed.ScalarTest) (S : ℝ),
+  (∀ (x : OQ7Prescribed.Position), φ x ≠ 0 → ‖x‖ ≤ S) →
+    ∀ (x y : OQ7Prescribed.Position),
+      ↑(φ x) • (OQ7Prescribed.dyadicRemainder k (x - y)) (p.current y) =
+        ↑(φ x) • (OQ7Prescribed.cutoffDyadicRemainder k (S + p.radius) (x - y)) (p.current y)
+OQ7Prescribed.remainder_current_test_joint_integrable : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization)
+  (φ : OQ7Prescribed.ScalarTest),
+  MeasureTheory.Integrable (fun q => ↑(φ q.1) • (OQ7Prescribed.dyadicRemainder k (q.1 - q.2)) (p.current q.2))
+    (MeasureTheory.volume.prod MeasureTheory.volume)
 OQ7Prescribed.remainderPotential_add : ∀ (k : ℝ) (p q : OQ7Prescribed.CompactPolarization),
   OQ7Prescribed.remainderPotential k (p.add q) =
     OQ7Prescribed.remainderPotential k p + OQ7Prescribed.remainderPotential k q
@@ -809,14 +1129,71 @@ OQ7Prescribed.remainderPotential_integrand_cutoff : ∀ (k : ℝ) (p : OQ7Prescr
   ‖x‖ ≤ S →
     (OQ7Prescribed.dyadicRemainder k (x - y)) (p.current y) =
       (OQ7Prescribed.cutoffDyadicRemainder k (S + p.radius) (x - y)) (p.current y)
+OQ7Prescribed.remainderPotential_locallyIntegrable : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization),
+  MeasureTheory.LocallyIntegrable (OQ7Prescribed.remainderPotential k p) MeasureTheory.volume
 OQ7Prescribed.remainderPotential_memLp_on_compact : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization)
   (K : Set OQ7Prescribed.Position),
   IsCompact K → MeasureTheory.MemLp (OQ7Prescribed.remainderPotential k p) 2 (MeasureTheory.volume.restrict K)
 OQ7Prescribed.remainderPotential_smul : ∀ (k : ℝ) (z : ℂ) (p : OQ7Prescribed.CompactPolarization),
   OQ7Prescribed.remainderPotential k (OQ7Prescribed.CompactPolarization.scale z p) =
     z • OQ7Prescribed.remainderPotential k p
+OQ7Prescribed.remainderPotential_test_integrable : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization)
+  (φ : OQ7Prescribed.ScalarTest),
+  MeasureTheory.Integrable (fun x => ↑(φ x) • OQ7Prescribed.remainderPotential k p x) MeasureTheory.volume
+OQ7Prescribed.remainderPotential_test_pairing : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization)
+  (φ : OQ7Prescribed.ScalarTest),
+  ∫ (x : OQ7Prescribed.Position), ↑(φ x) • OQ7Prescribed.remainderPotential k p x =
+    ∫ (z : OQ7Prescribed.Position),
+      (OQ7Prescribed.dyadicRemainder k z) (OQ7Prescribed.currentTestCorrelationVector p φ z)
 OQ7Prescribed.remainderPotentialBound_lt_top : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization) (S : ℝ),
   OQ7Prescribed.remainderPotentialBound k p S < ⊤
+OQ7Prescribed.remainderPotentialComponentDistribution_dynamic_pairing : ∀ (k : ℝ)
+  (p : OQ7Prescribed.CompactPolarization) (φ : OQ7Prescribed.ScalarTest) (i : Fin 3),
+  (OQ7Prescribed.remainderPotentialComponentDistribution k p i) φ =
+    k ^ 2 • (OQ7Prescribed.potentialComponentDistribution k p i) φ +
+      ∑ j,
+        ∫ (z : OQ7Prescribed.Position),
+          OQ7Prescribed.newtonCurrentCorrelation p φ j z * OQ7Prescribed.dynamicHessianRemainder k i j z
+OQ7Prescribed.remainderPotentialComponentDistribution_pairing : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization)
+  (φ : OQ7Prescribed.ScalarTest) (i : Fin 3),
+  (OQ7Prescribed.remainderPotentialComponentDistribution k p i) φ =
+    (∫ (z : OQ7Prescribed.Position),
+          (OQ7Prescribed.dyadicRemainder k z) (OQ7Prescribed.currentTestCorrelationVector p φ z)).ofLp
+      i
+OQ7Prescribed.remainderPotentialComponentDistribution_pairing_sum : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization)
+  (φ : OQ7Prescribed.ScalarTest) (i : Fin 3),
+  (OQ7Prescribed.remainderPotentialComponentDistribution k p i) φ =
+    ∑ j,
+      ∫ (z : OQ7Prescribed.Position),
+        OQ7Prescribed.newtonCurrentCorrelation p φ j z *
+          ((OQ7Prescribed.dyadicRemainder k z) (OQ7Prescribed.basisC j)).ofLp i
+OQ7Prescribed.remainderPotentialDistribution_apply : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization)
+  (φ : OQ7Prescribed.ScalarTest),
+  (OQ7Prescribed.remainderPotentialDistribution k p) φ =
+    ∫ (x : OQ7Prescribed.Position), φ x • OQ7Prescribed.remainderPotential k p x
+OQ7Prescribed.remainderPotentialDistribution_pairing : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization)
+  (φ : OQ7Prescribed.ScalarTest),
+  (OQ7Prescribed.remainderPotentialDistribution k p) φ =
+    ∫ (z : OQ7Prescribed.Position),
+      (OQ7Prescribed.dyadicRemainder k z) (OQ7Prescribed.currentTestCorrelationVector p φ z)
+OQ7Prescribed.removable_point_complex_test_ibp : ∀ (F D : OQ7Prescribed.Position → ℂ) (i : Fin 3),
+  (∀ (x : OQ7Prescribed.Position), x ≠ 0 → ContDiffAt ℝ 1 F x) →
+    (∀ (x : OQ7Prescribed.Position), x ≠ 0 → HasLineDerivAt ℝ F (D x) x (OQ7Prescribed.basisR i)) →
+      MeasureTheory.LocallyIntegrable F MeasureTheory.volume →
+        MeasureTheory.LocallyIntegrable D MeasureTheory.volume →
+          (∃ R, 0 < R ∧ ∃ M, 0 ≤ M ∧ ∀ (x : OQ7Prescribed.Position), ‖x‖ ≤ R → ‖F x‖ ≤ M) →
+            ∀ (φ : OQ7Prescribed.ScalarTest),
+              ∫ (x : OQ7Prescribed.Position), ((OQ7Prescribed.testPartial i) φ) x • F x =
+                -∫ (x : OQ7Prescribed.Position), φ x • D x
+OQ7Prescribed.removable_point_test_ibp : ∀ (F D : OQ7Prescribed.Position → ℝ) (i : Fin 3),
+  (∀ (x : OQ7Prescribed.Position), x ≠ 0 → ContDiffAt ℝ 1 F x) →
+    (∀ (x : OQ7Prescribed.Position), x ≠ 0 → HasLineDerivAt ℝ F (D x) x (OQ7Prescribed.basisR i)) →
+      MeasureTheory.LocallyIntegrable F MeasureTheory.volume →
+        MeasureTheory.LocallyIntegrable D MeasureTheory.volume →
+          (∃ R, 0 < R ∧ ∃ M, 0 ≤ M ∧ ∀ (x : OQ7Prescribed.Position), ‖x‖ ≤ R → ‖F x‖ ≤ M) →
+            ∀ (φ : OQ7Prescribed.ScalarTest),
+              ∫ (x : OQ7Prescribed.Position), F x * ((OQ7Prescribed.testPartial i) φ) x =
+                -∫ (x : OQ7Prescribed.Position), D x * φ x
 OQ7Prescribed.rotatedAxis_unit : ∀ (θ : ℝ), ‖OQ7Prescribed.rotatedAxis θ‖ ^ 2 = 1
 OQ7Prescribed.scalarTest_global_lipschitz : ∀ (φ : OQ7Prescribed.ScalarTest), ∃ L, LipschitzWith L ⇑φ
 OQ7Prescribed.scalarTest_support_radius : ∀ (φ : OQ7Prescribed.ScalarTest),
@@ -831,6 +1208,58 @@ OQ7Prescribed.scalarTestSchwartz_hasCompactSupport : ∀ (φ : OQ7Prescribed.Sca
 OQ7Prescribed.scalarTestSchwartz_partial : ∀ (φ : OQ7Prescribed.ScalarTest) (i : Fin 3),
   LineDeriv.lineDerivOp (OQ7Prescribed.basisR i) (OQ7Prescribed.scalarTestSchwartz φ) =
     OQ7Prescribed.scalarTestSchwartz ((OQ7Prescribed.testPartial i) φ)
+OQ7Prescribed.shrinking_cutoff_integral_tendsto : ∀ (f : OQ7Prescribed.Position → ℝ),
+  MeasureTheory.Integrable f MeasureTheory.volume →
+    Filter.Tendsto (fun ε => ∫ (x : OQ7Prescribed.Position), OQ7Prescribed.exteriorCutoff ε ε x * f x)
+      (nhdsWithin 0 (Set.Ioi 0)) (nhds (∫ (x : OQ7Prescribed.Position), f x))
+OQ7Prescribed.shrinking_cutoff_tendsto : ∀ (x : OQ7Prescribed.Position),
+  x ≠ 0 → Filter.Tendsto (fun ε => OQ7Prescribed.exteriorCutoff ε ε x) (nhdsWithin 0 (Set.Ioi 0)) (nhds 1)
+OQ7Prescribed.shrinkingCutoffError_integrable : ∀ (ε : ℝ),
+  0 < ε →
+    ∀ (F : OQ7Prescribed.Position → ℝ),
+      (∀ (x : OQ7Prescribed.Position), x ≠ 0 → ContinuousAt F x) →
+        ∀ (φ : OQ7Prescribed.ScalarTest) (i : Fin 3),
+          MeasureTheory.Integrable (fun x => OQ7Prescribed.exteriorCutoffPartial ε ε i x * F x * φ x)
+            MeasureTheory.volume
+OQ7Prescribed.shrinkingCutoffError_integrable_and_tendsto : ∀ (F : OQ7Prescribed.Position → ℝ),
+  (∀ (x : OQ7Prescribed.Position), x ≠ 0 → ContinuousAt F x) →
+    (∃ R, 0 < R ∧ ∃ C, 0 ≤ C ∧ ∀ (x : OQ7Prescribed.Position), ‖x‖ ≤ R → ‖F x‖ ≤ C) →
+      ∀ (φ : OQ7Prescribed.ScalarTest) (i : Fin 3),
+        (∀ (ε : ℝ),
+            0 < ε →
+              MeasureTheory.Integrable (fun x => OQ7Prescribed.exteriorCutoffPartial ε ε i x * F x * φ x)
+                MeasureTheory.volume) ∧
+          Filter.Tendsto
+            (fun ε => ∫ (x : OQ7Prescribed.Position), OQ7Prescribed.exteriorCutoffPartial ε ε i x * F x * φ x)
+            (nhdsWithin 0 (Set.Ioi 0)) (nhds 0)
+OQ7Prescribed.shrinkingCutoffError_norm_le : ∀ (ε R M C T : ℝ),
+  0 < ε →
+    2 * ε ≤ R →
+      0 ≤ M →
+        0 ≤ C →
+          0 ≤ T →
+            (∀ (s : ℝ), ‖OQ7Prescribed.transitionDerivative s‖ ≤ M) →
+              ∀ (F : OQ7Prescribed.Position → ℝ),
+                (∀ (x : OQ7Prescribed.Position), ‖x‖ ≤ R → ‖F x‖ ≤ C) →
+                  ∀ (φ : OQ7Prescribed.ScalarTest),
+                    (∀ (x : OQ7Prescribed.Position), ‖φ x‖ ≤ T) →
+                      ∀ (i : Fin 3),
+                        ‖∫ (x : OQ7Prescribed.Position), OQ7Prescribed.exteriorCutoffPartial ε ε i x * F x * φ x‖ ≤
+                          8 * M * C * T * MeasureTheory.volume.real (Metric.ball 0 1) * ε ^ 2
+OQ7Prescribed.shrinkingCutoffError_tendsto : ∀ (F : OQ7Prescribed.Position → ℝ),
+  (∀ (x : OQ7Prescribed.Position), x ≠ 0 → ContinuousAt F x) →
+    (∃ R, 0 < R ∧ ∃ C, 0 ≤ C ∧ ∀ (x : OQ7Prescribed.Position), ‖x‖ ≤ R → ‖F x‖ ≤ C) →
+      ∀ (φ : OQ7Prescribed.ScalarTest) (i : Fin 3),
+        Filter.Tendsto
+          (fun ε => ∫ (x : OQ7Prescribed.Position), OQ7Prescribed.exteriorCutoffPartial ε ε i x * F x * φ x)
+          (nhdsWithin 0 (Set.Ioi 0)) (nhds 0)
+OQ7Prescribed.shrinkingCutoffError_tendsto_of_bound : ∀ (F : OQ7Prescribed.Position → ℝ),
+  (∃ R, 0 < R ∧ ∃ C, 0 ≤ C ∧ ∀ (x : OQ7Prescribed.Position), ‖x‖ ≤ R → ‖F x‖ ≤ C) →
+    ∀ (φ : OQ7Prescribed.ScalarTest) (i : Fin 3),
+      Filter.Tendsto (fun ε => ∫ (x : OQ7Prescribed.Position), OQ7Prescribed.exteriorCutoffPartial ε ε i x * F x * φ x)
+        (nhdsWithin 0 (Set.Ioi 0)) (nhds 0)
+OQ7Prescribed.shrinkingCutoffPartial_support : ∀ (ε : ℝ),
+  0 < ε → ∀ (i : Fin 3), Function.support (OQ7Prescribed.exteriorCutoffPartial ε ε i) ⊆ Metric.closedBall 0 (2 * ε)
 OQ7Prescribed.sphere_coordinate_cross_zero : ∀ (i j : Fin 3),
   i ≠ j → ∫ (n : ↑OQ7Prescribed.UnitSphere), (↑n).ofLp i * (↑n).ofLp j ∂OQ7Prescribed.sphereArea = 0
 OQ7Prescribed.sphere_coordinate_mul_integrable : ∀ (i j : Fin 3),
@@ -933,14 +1362,40 @@ OQ7Prescribed.staticSymbolWithOrigin_memLp : ∀ (A : OQ7Prescribed.Vector →L[
   MeasureTheory.MemLp (fun ξ => (OQ7Prescribed.staticSymbolWithOrigin A ξ) (↑↑f ξ)) 2 MeasureTheory.volume
 OQ7Prescribed.staticSymbolWithOrigin_zero : ∀ (A : OQ7Prescribed.Vector →L[ℂ] OQ7Prescribed.Vector),
   OQ7Prescribed.staticSymbolWithOrigin A 0 = A
+OQ7Prescribed.supportedPolarization_add_current_ae : ∀ (R : ℝ) (hR : 0 ≤ R)
+  (f g : ↥(OQ7Prescribed.SupportedVectorL2 R)),
+  (OQ7Prescribed.supportedPolarization R hR (f + g)).current =ᵐ[MeasureTheory.volume]
+    ((OQ7Prescribed.supportedPolarization R hR f).add (OQ7Prescribed.supportedPolarization R hR g)).current
+OQ7Prescribed.supportedPolarization_current_ae : ∀ (R : ℝ) (hR : 0 ≤ R) (f : ↥(OQ7Prescribed.SupportedVectorL2 R)),
+  (OQ7Prescribed.supportedPolarization R hR f).current =ᵐ[MeasureTheory.volume] ↑↑↑f
+OQ7Prescribed.supportedPolarization_current_eLpNorm : ∀ (R : ℝ) (hR : 0 ≤ R) (f : ↥(OQ7Prescribed.SupportedVectorL2 R)),
+  (MeasureTheory.eLpNorm (OQ7Prescribed.supportedPolarization R hR f).current 2 MeasureTheory.volume).toReal = ‖f‖
+OQ7Prescribed.supportedPolarization_smul_current_ae : ∀ (R : ℝ) (hR : 0 ≤ R) (z : ℂ)
+  (f : ↥(OQ7Prescribed.SupportedVectorL2 R)),
+  (OQ7Prescribed.supportedPolarization R hR (z • f)).current =ᵐ[MeasureTheory.volume]
+    (OQ7Prescribed.CompactPolarization.scale z (OQ7Prescribed.supportedPolarization R hR f)).current
+OQ7Prescribed.supportedPolarization_toLp : ∀ (R : ℝ) (hR : 0 ≤ R) (f : ↥(OQ7Prescribed.SupportedVectorL2 R)),
+  MeasureTheory.MemLp.toLp (OQ7Prescribed.supportedPolarization R hR f).current ⋯ = ↑f
+OQ7Prescribed.supportedVectorL2_current_ae : ∀ (R : ℝ) (f : ↥(OQ7Prescribed.SupportedVectorL2 R)),
+  ((Metric.closedBall 0 R).indicator fun x => ↑↑↑f x) =ᵐ[MeasureTheory.volume] fun x => ↑↑↑f x
+OQ7Prescribed.supportedVectorL2_isClosed : ∀ (R : ℝ), IsClosed ↑(OQ7Prescribed.supportedVectorL2 R)
 OQ7Prescribed.susceptibility_zero_outside : ∀ (B : OQ7Prescribed.TwoLayerBody), ∀ x ∉ B.domain, B.susceptibility x = 0
 OQ7Prescribed.tensorApply_one : ∀ (v : OQ7Prescribed.Vector), OQ7Prescribed.tensorApply 1 v = v
 OQ7Prescribed.tensorApply_rankOne : ∀ (u : OQ7Prescribed.Position) (v : OQ7Prescribed.Vector),
   OQ7Prescribed.tensorApply (OQ7Prescribed.rankOne u) v = OQ7Prescribed.axisCoupling u v • OQ7Prescribed.complexify u
 OQ7Prescribed.testLaplacian_apply : ∀ (φ : OQ7Prescribed.ScalarTest),
   OQ7Prescribed.testLaplacian φ = ∑ i, (OQ7Prescribed.testPartial i) ((OQ7Prescribed.testPartial i) φ)
+OQ7Prescribed.testPartial_commute : ∀ (φ : OQ7Prescribed.ScalarTest) (i j : Fin 3),
+  (OQ7Prescribed.testPartial i) ((OQ7Prescribed.testPartial j) φ) =
+    (OQ7Prescribed.testPartial j) ((OQ7Prescribed.testPartial i) φ)
+OQ7Prescribed.testPartial_eq_fderiv : ∀ (φ : OQ7Prescribed.ScalarTest) (i : Fin 3) (x : OQ7Prescribed.Position),
+  ((OQ7Prescribed.testPartial i) φ) x = (fderiv ℝ (⇑φ) x) (OQ7Prescribed.basisR i)
 OQ7Prescribed.testPartial_hasLineDerivAt : ∀ (φ : OQ7Prescribed.ScalarTest) (i : Fin 3) (x : OQ7Prescribed.Position),
   HasLineDerivAt ℝ (⇑φ) (((OQ7Prescribed.testPartial i) φ) x) x (OQ7Prescribed.basisR i)
+OQ7Prescribed.testPartial_second_eq_fderiv : ∀ (φ : OQ7Prescribed.ScalarTest) (i j : Fin 3)
+  (x : OQ7Prescribed.Position),
+  ((OQ7Prescribed.testPartial j) ((OQ7Prescribed.testPartial i) φ)) x =
+    ((fderiv ℝ (fderiv ℝ ⇑φ) x) (OQ7Prescribed.basisR j)) (OQ7Prescribed.basisR i)
 OQ7Prescribed.transition_average_tendsto : ∀ (r : ℝ) (A : ℝ → ℝ),
   Continuous A →
     Filter.Tendsto (fun t => ∫ (u : ℝ) in 0..1, OQ7Prescribed.transitionDerivative u * A (r + t * u)) (nhds 0)
@@ -957,11 +1412,16 @@ OQ7Prescribed.transition_radial_rescale : ∀ (r t : ℝ),
       t⁻¹ * ∫ (s : ℝ) in r..r + t, OQ7Prescribed.transitionDerivative ((s - r) / t) * A s =
         ∫ (u : ℝ) in 0..1, OQ7Prescribed.transitionDerivative u * A (r + t * u)
 OQ7Prescribed.transitionDerivative_continuous : Continuous OQ7Prescribed.transitionDerivative
+OQ7Prescribed.transitionDerivative_global_bound : ∃ M, 0 ≤ M ∧ ∀ (s : ℝ), ‖OQ7Prescribed.transitionDerivative s‖ ≤ M
+OQ7Prescribed.transitionDerivative_hasCompactSupport : HasCompactSupport OQ7Prescribed.transitionDerivative
 OQ7Prescribed.transitionDerivative_integral : ∫ (s : ℝ) in 0..1, OQ7Prescribed.transitionDerivative s = 1
 @OQ7Prescribed.transitionDerivative_zero_of_nonpos : ∀ {s : ℝ}, s ≤ 0 → OQ7Prescribed.transitionDerivative s = 0
 @OQ7Prescribed.transitionDerivative_zero_of_one_le : ∀ {s : ℝ}, 1 ≤ s → OQ7Prescribed.transitionDerivative s = 0
 OQ7Prescribed.unitSphere_norm : ∀ (n : ↑OQ7Prescribed.UnitSphere), ‖↑n‖ = 1
 OQ7Prescribed.unitSphere_sum_sq : ∀ (n : ↑OQ7Prescribed.UnitSphere), ∑ i, (↑n).ofLp i ^ 2 = 1
+OQ7Prescribed.vector_basisC_expansion : ∀ (v : OQ7Prescribed.Vector), v = ∑ j, v.ofLp j • OQ7Prescribed.basisC j
+OQ7Prescribed.vector_clm_coordinate_expansion : ∀ (A : OQ7Prescribed.Vector →L[ℂ] OQ7Prescribed.Vector)
+  (v : OQ7Prescribed.Vector) (i : Fin 3), (A v).ofLp i = ∑ j, v.ofLp j * (A (OQ7Prescribed.basisC j)).ofLp i
 OQ7Prescribed.vectorL2_locallyIntegrable : ∀ (f : ↥OQ7Prescribed.VectorL2),
   MeasureTheory.LocallyIntegrable (fun x => ↑↑f x) MeasureTheory.volume
 OQ7Prescribed.vectorL2ComponentDistribution_apply : ∀ (f : ↥OQ7Prescribed.VectorL2) (i : Fin 3)

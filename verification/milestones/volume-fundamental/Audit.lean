@@ -1,0 +1,5 @@
+import PrescribedExtinction.VolumeFundamental 
+#check @OQ7Prescribed.distributionPartial_commute #print axioms OQ7Prescribed.distributionPartial_commute
+#check @OQ7Prescribed.distributionCurlCurl #print axioms OQ7Prescribed.distributionCurlCurl
+#check @OQ7Prescribed.potentialComponent_helmholtz_distribution #print axioms OQ7Prescribed.potentialComponent_helmholtz_distribution
+#check @OQ7Prescribed.potentialComponent_helmholtz_L2_distribution #print axioms OQ7Prescribed.potentialComponent_helmholtz_L2_distribution

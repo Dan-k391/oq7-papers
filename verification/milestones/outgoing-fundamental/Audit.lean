@@ -1,0 +1,4 @@
+import PrescribedExtinction.OutgoingFundamental 
+#check @OQ7Prescribed.outgoing_helmholtz_fundamental_distribution #print axioms OQ7Prescribed.outgoing_helmholtz_fundamental_distribution
+#check @OQ7Prescribed.outgoing_helmholtz_fundamental_apply #print axioms OQ7Prescribed.outgoing_helmholtz_fundamental_apply
+#check @OQ7Prescribed.outgoingGreen_helmholtz_test_integral #print axioms OQ7Prescribed.outgoingGreen_helmholtz_test_integral

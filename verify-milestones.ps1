@@ -32,7 +32,12 @@ try {
         @{ name = 'fourier-l1-l2'; module = 'PrescribedExtinction.FourierL1L2' },
         @{ name = 'static-operator-distribution'; module = 'PrescribedExtinction.StaticOperatorDistribution' },
         @{ name = 'newton-current-fourier'; module = 'PrescribedExtinction.NewtonCurrentFourier' },
-        @{ name = 'newton-static-identification'; module = 'PrescribedExtinction.NewtonStaticIdentification' }
+        @{ name = 'newton-static-identification'; module = 'PrescribedExtinction.NewtonStaticIdentification' },
+        @{ name = 'outgoing-dynamic-identity'; module = 'PrescribedExtinction.OutgoingDynamicIdentity' },
+        @{ name = 'outgoing-volume-identification'; module = 'PrescribedExtinction.OutgoingVolumeIdentification' },
+        @{ name = 'compact-outgoing-operator'; module = 'PrescribedExtinction.CompactOutgoingIdentification' },
+        @{ name = 'outgoing-fundamental'; module = 'PrescribedExtinction.OutgoingFundamental' },
+        @{ name = 'volume-fundamental'; module = 'PrescribedExtinction.VolumeFundamental' }
     )
     if ($Only) {
         foreach ($oq7Name in $Only) {
