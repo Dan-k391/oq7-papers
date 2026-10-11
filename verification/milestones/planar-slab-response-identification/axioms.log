@@ -1,0 +1,67 @@
+OQ7Prescribed.slabCoupledAbsorber_electric_eq_green (k : ℝ) (hk : 0 < k) (A W : OQ7.HomogeneousLayer) (θ : ℝ)
+  (σ : OQ7Prescribed.Direction) (hpA : 1 ≤ A.p) (hpW : 1 ≤ W.p) (hqA : 0 ≤ A.q) (hqW : 0 ≤ W.q) (hdA : 0 ≤ A.width)
+  (hdW : 0 ≤ W.width) (z : ℝ) (hz : z ∈ Set.Icc 0 A.width) :
+  (OQ7Prescribed.slabCoupledAbsorber k A W θ σ hpA).electric z =
+    k ^ 2 •
+        OQ7Prescribed.scalarPlanarPotential k
+          (↑↑↑(OQ7Prescribed.planarLayerL2Current k 0 A.width (A.width + W.width) ⋯ hdA ⋯
+                  (OQ7Prescribed.slabCoupledAbsorber k A W θ σ hpA)))
+          z +
+      ↑(Real.cos θ) *
+        k ^ 2 •
+          OQ7Prescribed.scalarPlanarPotential k
+            (↑↑↑(OQ7Prescribed.planarLayerL2Current k A.width (A.width + W.width) (A.width + W.width) hdA ⋯ ⋯
+                    (OQ7Prescribed.slabCoupledPlate k A W θ σ hpW)))
+            z
+OQ7Prescribed.slabCoupledPlate_electric_eq_green (k : ℝ) (hk : 0 < k) (A W : OQ7.HomogeneousLayer) (θ : ℝ)
+  (σ : OQ7Prescribed.Direction) (hpA : 1 ≤ A.p) (hpW : 1 ≤ W.p) (hqA : 0 ≤ A.q) (hqW : 0 ≤ W.q) (hdA : 0 ≤ A.width)
+  (hdW : 0 ≤ W.width) (z : ℝ) (hz : z ∈ Set.Icc A.width (A.width + W.width)) :
+  (OQ7Prescribed.slabCoupledPlate k A W θ σ hpW).electric z =
+    OQ7Prescribed.planarIncidentPhase k σ z +
+        ↑(Real.cos θ) *
+          k ^ 2 •
+            OQ7Prescribed.scalarPlanarPotential k
+              (↑↑↑(OQ7Prescribed.planarLayerL2Current k 0 A.width (A.width + W.width) ⋯ hdA ⋯
+                      (OQ7Prescribed.slabCoupledAbsorber k A W θ σ hpA)))
+              z +
+      k ^ 2 •
+        OQ7Prescribed.scalarPlanarPotential k
+          (↑↑↑(OQ7Prescribed.planarLayerL2Current k A.width (A.width + W.width) (A.width + W.width) hdA ⋯ ⋯
+                  (OQ7Prescribed.slabCoupledPlate k A W θ σ hpW)))
+          z
+OQ7Prescribed.slabCoupledCurrent_material_equation (k : ℝ) (hk : 0 < k) (A W : OQ7.HomogeneousLayer) (θ : ℝ)
+  (σ : OQ7Prescribed.Direction) (hpA : 1 ≤ A.p) (hpW : 1 ≤ W.p) (hqA : 0 ≤ A.q) (hqW : 0 ≤ W.q) (hdA : 0 ≤ A.width)
+  (hdW : 0 ≤ W.width) (hα : OQ7.relativePermittivity A - 1 ≠ 0) (hβ : OQ7.relativePermittivity W - 1 ≠ 0) :
+  (OQ7Prescribed.planarActiveMaterialOperator k hk (A.width + W.width) ⋯ A.width θ (OQ7.relativePermittivity A - 1)
+        (OQ7.relativePermittivity W - 1))
+      (OQ7Prescribed.slabCoupledCurrent k A W θ σ hpA hpW hdA hdW) =
+    -OQ7Prescribed.planarNormalizedDrive k σ (A.width + W.width) A.width
+OQ7Prescribed.slabCoupledCurrent_eq_planarNormalizedResponse (k : ℝ) (hk : 0 < k) (A W : OQ7.HomogeneousLayer) (θ : ℝ)
+  (σ : OQ7Prescribed.Direction) (hpA : 1 ≤ A.p) (hpW : 1 ≤ W.p) (hqA : 0 < A.q) (hqW : 0 < W.q) (hdA : 0 ≤ A.width)
+  (hdW : 0 ≤ W.width) :
+  OQ7Prescribed.slabCoupledCurrent k A W θ σ hpA hpW hdA hdW =
+    OQ7Prescribed.planarNormalizedResponse k hk σ (A.width + W.width) ⋯ A.width θ (OQ7.relativePermittivity A - 1)
+      (OQ7.relativePermittivity W - 1) ⋯ ⋯
+OQ7Prescribed.dielectricSlabLeft_absorptance_integral (k : ℝ) (hk : 0 < k) (p q d : ℝ) (hp : 1 ≤ p) (hq : 0 ≤ q)
+  (hd : 0 ≤ d) :
+  k * q *
+      ∫ (z : ℝ) in 0..d,
+        Complex.normSq
+          (OQ7.layerElectricField k (OQ7Prescribed.dielectricSlab p q d)
+            (1 + OQ7Prescribed.dielectricSlabReflection k p q d) (1 - OQ7Prescribed.dielectricSlabReflection k p q d)
+            z) =
+    OQ7.absorptanceLeft (OQ7Prescribed.dielectricSlabReflection k p q d)
+      (OQ7Prescribed.dielectricSlabTransmission k p q d)
+OQ7Prescribed.dielectricSlabRight_absorptance_integral (k : ℝ) (hk : 0 < k) (p q d : ℝ) (hp : 1 ≤ p) (hq : 0 ≤ q)
+  (hd : 0 ≤ d) :
+  k * q * ∫ (z : ℝ) in 0..d, Complex.normSq ((OQ7Prescribed.dielectricSlabRightLayer k p q d hp).electric z) =
+    OQ7.absorptanceLeft (OQ7Prescribed.dielectricSlabReflection k p q d)
+      (OQ7Prescribed.dielectricSlabTransmission k p q d)
+'OQ7Prescribed.slabCoupledAbsorber_electric_eq_green' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.slabCoupledPlate_electric_eq_green' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.slabCoupledCurrent_material_equation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.slabCoupledCurrent_eq_planarNormalizedResponse' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OQ7Prescribed.dielectricSlabLeft_absorptance_integral' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.dielectricSlabRight_absorptance_integral' depends on axioms: [propext, Classical.choice, Quot.sound]
