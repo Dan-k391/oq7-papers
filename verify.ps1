@@ -278,7 +278,16 @@ run_cmd do
         'OQ7Prescribed.exteriorMagnetic_norm_decay',
         'OQ7Prescribed.smoothPhysicalSource_work_nonneg',
         'OQ7Prescribed.physicalOutgoingVolume_work_nonneg',
-        'OQ7Prescribed.compactOutgoingOperator_im_nonneg')) {
+        'OQ7Prescribed.compactOutgoingOperator_im_nonneg',
+        'OQ7Prescribed.setSupportedL2_isClosed',
+        'OQ7Prescribed.twoPieceSupportedOperator_negative_imaginary_bound',
+        'OQ7Prescribed.bodyOutgoingOperator_coe',
+        'OQ7Prescribed.bodyOutgoingOperator_im_nonneg',
+        'OQ7Prescribed.materialBodyOperator_imaginary_coercive',
+        'OQ7Prescribed.materialBodyEquiv_inverse_norm_le',
+        'OQ7Prescribed.materialBodySolution_physicalVolumeEquation',
+        'OQ7Prescribed.materialVolumeEquation_exists',
+        'OQ7Prescribed.physicalScatteringState_exists')) {
         if ($oq7Required -notin $oq7NewKernelTheorems) { throw "Missing outgoing operator obligation: $oq7Required" }
     }
     if ('OQ7Prescribed.scatteringStateOfVolumeEquation' -notin $oq7Constants) {
@@ -346,7 +355,9 @@ run_cmd do
         classicalSmoothCurlToPhysicalWeakCurlVerified = $true
         physicalFiniteBodyPolarizationCompactL2Verified = $true
         materialVolumeEquationToOriginalScatteringStateVerified = $true
-        materialVolumeEquationSolvabilityVerified = $false
+        materialVolumeEquationSolvabilityVerified = $true
+        actualBodyDomainOutgoingCompressionVerified = $true
+        materialBodyInverseBoundDependsOnlyOnTensorLossData = $true
         complexHilbertImaginaryCoerciveInverseVerified = $true
         physicalAdmissibleConstitutiveSusceptibilityInverseVerified = $true
         compactL2CurrentFixedSupportSmoothDensityVerified = $true
@@ -356,7 +367,7 @@ run_cmd do
         outgoingDissipativityForAllCompactL2CurrentsVerified = $true
         physicalDyadicDistributionExteriorTestIdentificationVerified = $true
         outgoingWeakMaxwellRepresentationVerified = $false
-        scatteringStateExistenceVerified = $false
+        scatteringStateExistenceVerified = $true
         allPreContactLeanModulesUnchanged = $false
         allPrePuncturedLeanModulesUnchanged = $false
         allLeanModulesFromCommit6874b49Unchanged = $false
@@ -412,8 +423,8 @@ run_cmd do
             @{ module = 'PrescribedExtinction.NewtonTransform'; scope = 'Actual scalar Newton and full contact Hessian Fourier correspondence on all Schwartz tests; both heat interchanges absolutely integrable; zero-frequency handled globally'; kernelFourierCorrespondenceVerified = $true },
             @{ module = 'PrescribedExtinction.NewtonStaticIdentification'; scope = 'Actual original Newton volume distribution equals staticFourierOperator on every compactly supported vector L2 current; genuine current/test Fubini, smooth correlation, Fourier L1-L2 compatibility, and bounded physical L2 realization'; compactCurrentConvolutionIdentificationVerified = $true; physicalStaticOperatorVerified = $true }
         )
-        unverifiedDependencies = @('3D outgoing Maxwell existence and uniqueness',
-            'Converse outgoing volume representation and material volume-equation solvability',
+        unverifiedDependencies = @('Uniqueness of arbitrary physical outgoing Maxwell states',
+            'Converse outgoing volume representation',
             'Full radiation identity, optical theorem, reciprocity and power balance',
             'Uniform inverse and sin-squared response factorization',
             'Uniform aperture localization including grazing singularities and all angular channels',

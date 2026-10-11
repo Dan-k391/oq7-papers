@@ -55,7 +55,8 @@ try {
         @{ name = 'constitutive-coercive-inverse'; module = 'PrescribedExtinction.TensorLossCoercivity' },
         @{ name = 'smooth-current-physical-fields'; module = 'PrescribedExtinction.SmoothOutgoingFields' },
         @{ name = 'physical-cutoff-poynting'; module = 'PrescribedExtinction.PoyntingCutoff' },
-        @{ name = 'physical-outgoing-dissipativity'; module = 'PrescribedExtinction.OutgoingDissipativity' }
+        @{ name = 'physical-outgoing-dissipativity'; module = 'PrescribedExtinction.OutgoingDissipativity' },
+        @{ name = 'physical-scattering-existence'; module = 'PrescribedExtinction.ScatteringExistence' }
     )
     if ($Only) {
         foreach ($oq7Name in $Only) {

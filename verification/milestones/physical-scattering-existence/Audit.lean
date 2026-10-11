@@ -1,0 +1,19 @@
+import PrescribedExtinction.ScatteringExistence
+#check @OQ7Prescribed.setSupportedL2_isClosed
+#print axioms OQ7Prescribed.setSupportedL2_isClosed
+#check @OQ7Prescribed.twoPieceSupportedOperator_negative_imaginary_bound
+#print axioms OQ7Prescribed.twoPieceSupportedOperator_negative_imaginary_bound
+#check @OQ7Prescribed.bodyOutgoingOperator_coe
+#print axioms OQ7Prescribed.bodyOutgoingOperator_coe
+#check @OQ7Prescribed.bodyOutgoingOperator_im_nonneg
+#print axioms OQ7Prescribed.bodyOutgoingOperator_im_nonneg
+#check @OQ7Prescribed.materialBodyOperator_imaginary_coercive
+#print axioms OQ7Prescribed.materialBodyOperator_imaginary_coercive
+#check @OQ7Prescribed.materialBodyEquiv_inverse_norm_le
+#print axioms OQ7Prescribed.materialBodyEquiv_inverse_norm_le
+#check @OQ7Prescribed.materialBodySolution_physicalVolumeEquation
+#print axioms OQ7Prescribed.materialBodySolution_physicalVolumeEquation
+#check @OQ7Prescribed.materialVolumeEquation_exists
+#print axioms OQ7Prescribed.materialVolumeEquation_exists
+#check @OQ7Prescribed.physicalScatteringState_exists
+#print axioms OQ7Prescribed.physicalScatteringState_exists

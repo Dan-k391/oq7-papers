@@ -1,5 +1,19 @@
 # Physical outgoing volume operator
 
+`ScatteringExistence.lean` now proves `materialVolumeEquation_exists` and
+`physicalScatteringState_exists` for every original admissible finite body,
+positive frequency, and either incident direction. The closed Hilbert space
+is supported on the actual body domain. Its outgoing operator is the
+compression of the identified physical operator. Strict tensor loss and
+proved outgoing dissipativity give `materialBodyEquiv`, a genuine inverse
+of `T_k - chi^{-1}`. `materialBodyEquiv_inverse_norm_le` bounds its norm by
+`1 / min a.loss b.loss`, where the two loss constants come solely from the
+actual constitutive tensors. The solution is converted to the original
+physical fields, both weak Maxwell curls, and full uniform Silver–Müller
+condition. No Maxwell solvability or volume equation is assumed in these
+existence declarations. Exact statements and axiom exports are under
+`verification/milestones/physical-scattering-existence/`.
+
 Theorem 1.1 remains unproved. This milestone closes the outgoing kernel and
 compact-current operator identification following the verified static operator.
 

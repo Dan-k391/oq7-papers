@@ -1,0 +1,52 @@
+@OQ7Prescribed.setSupportedL2_isClosed : ∀ {α : Type u_1} {E : Type u_2} [inst : MeasurableSpace α]
+  [inst_1 : NormedAddCommGroup E] [inst_2 : InnerProductSpace ℂ E] [CompleteSpace E] (μ : MeasureTheory.Measure α)
+  (s : Set α), MeasurableSet s → IsClosed ↑(OQ7Prescribed.setSupportedL2 μ s)
+'OQ7Prescribed.setSupportedL2_isClosed' depends on axioms: [propext, Classical.choice, Quot.sound]
+@OQ7Prescribed.twoPieceSupportedOperator_negative_imaginary_bound : ∀ {α : Type u_1} {E : Type u_2}
+  [inst : MeasurableSpace α] [inst_1 : NormedAddCommGroup E] [inst_2 : InnerProductSpace ℂ E] [inst_3 : CompleteSpace E]
+  (μ : MeasureTheory.Measure α) (s t : Set α) (ht : MeasurableSet t) (A B : E →L[ℂ] E) (c : ℝ),
+  (∀ (v : E), c * ‖v‖ ^ 2 ≤ -(inner ℂ v (A v)).im) →
+    (∀ (v : E), c * ‖v‖ ^ 2 ≤ -(inner ℂ v (B v)).im) →
+      ∀ (f : ↥(OQ7Prescribed.SetSupportedL2 μ s)),
+        c * ‖f‖ ^ 2 ≤ -(inner ℂ f ((OQ7Prescribed.twoPieceSupportedOperator μ s t ht A B) f)).im
+'OQ7Prescribed.twoPieceSupportedOperator_negative_imaginary_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+OQ7Prescribed.bodyOutgoingOperator_coe : ∀ (k : ℝ) (B : OQ7Prescribed.TwoLayerBody)
+  (f : ↥(OQ7Prescribed.BodyCurrentL2 B)),
+  ↑↑↑((OQ7Prescribed.bodyOutgoingOperator k B) f) =ᵐ[MeasureTheory.volume]
+    B.domain.indicator (OQ7Prescribed.electricVolumeField k (OQ7Prescribed.bodyCurrentPolarization B f))
+'OQ7Prescribed.bodyOutgoingOperator_coe' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.bodyOutgoingOperator_im_nonneg : ∀ (k : ℝ),
+  0 < k →
+    ∀ (B : OQ7Prescribed.TwoLayerBody) (f : ↥(OQ7Prescribed.BodyCurrentL2 B)),
+      0 ≤ (inner ℂ f ((OQ7Prescribed.bodyOutgoingOperator k B) f)).im
+'OQ7Prescribed.bodyOutgoingOperator_im_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.materialBodyOperator_imaginary_coercive : ∀ (k : ℝ),
+  0 < k →
+    ∀ (B : OQ7Prescribed.TwoLayerBody) (a : OQ7Prescribed.SusceptibilityInverseData B.absorberPermittivity)
+      (b : OQ7Prescribed.SusceptibilityInverseData B.platePermittivity) (f : ↥(OQ7Prescribed.BodyCurrentL2 B)),
+      OQ7Prescribed.materialBodyCoercivity B a b * ‖f‖ ^ 2 ≤
+        (inner ℂ f ((OQ7Prescribed.materialBodyOperator k B a b) f)).im
+'OQ7Prescribed.materialBodyOperator_imaginary_coercive' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.materialBodyEquiv_inverse_norm_le : ∀ (k : ℝ) (hk : 0 < k) (B : OQ7Prescribed.TwoLayerBody)
+  (a : OQ7Prescribed.SusceptibilityInverseData B.absorberPermittivity)
+  (b : OQ7Prescribed.SusceptibilityInverseData B.platePermittivity),
+  ‖↑(OQ7Prescribed.materialBodyEquiv k hk B a b).symm‖ ≤ 1 / min a.loss b.loss
+'OQ7Prescribed.materialBodyEquiv_inverse_norm_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.materialBodySolution_physicalVolumeEquation : ∀ (k : ℝ) (hk : 0 < k) (B : OQ7Prescribed.TwoLayerBody)
+  (σ : OQ7Prescribed.Direction) (a : OQ7Prescribed.SusceptibilityInverseData B.absorberPermittivity)
+  (b : OQ7Prescribed.SusceptibilityInverseData B.platePermittivity),
+  OQ7Prescribed.MaterialVolumeEquation k B σ
+    (OQ7Prescribed.bodyCurrentPolarization B (OQ7Prescribed.materialBodySolution k hk B σ a b))
+'OQ7Prescribed.materialBodySolution_physicalVolumeEquation' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.materialVolumeEquation_exists : ∀ (k : ℝ),
+  0 < k →
+    ∀ (P Q : ℝ) (B : OQ7Prescribed.TwoLayerBody),
+      B.admissible P Q → ∀ (σ : OQ7Prescribed.Direction), ∃ p, OQ7Prescribed.MaterialVolumeEquation k B σ p
+'OQ7Prescribed.materialVolumeEquation_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.physicalScatteringState_exists : ∀ (k : ℝ),
+  0 < k →
+    ∀ (P Q : ℝ) (B : OQ7Prescribed.TwoLayerBody),
+      B.admissible P Q → ∀ (σ : OQ7Prescribed.Direction), Nonempty (OQ7Prescribed.ScatteringState k B σ)
+'OQ7Prescribed.physicalScatteringState_exists' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -12,8 +12,12 @@ The actual bounded outgoing operator is now proved dissipative on every
 compact L² current, using a derived cutoff Poynting identity, uniform outgoing
 kernel bounds, a vanishing radial error, and fixed-support smooth density.
 The original strict material-loss condition also yields bounded constitutive
-susceptibility inverses. Neither result alone solves the material equation.
-Material scattering solvability and uniqueness, radiation power identities,
+susceptibility inverses. Together they now yield a genuine inverse of the
+actual body-domain material operator and physical scattering states for every
+admissible finite body and positive frequency, with both weak Maxwell curls
+and the original full uniform radiation condition. The inverse norm bound
+depends only on the two tensors' inverse-loss constants, with no aperture factor.
+Uniqueness of arbitrary outgoing states, radiation power identities,
 uniform aperture localization, and the prescribed-extinction construction
 remain unverified. These are required before Theorem 1.1 can be proved.
 

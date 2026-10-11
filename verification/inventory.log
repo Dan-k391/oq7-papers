@@ -36,6 +36,8 @@ AUDIT-THEOREM OQ7.phaseProduct_re._simp_1_6
 AUDIT-CONSTANT OQ7.resourceCellU_bounds_Ioo
 AUDIT-THEOREM OQ7.resourceCellU_bounds_Ioo
 AUDIT-CONSTANT OQ7.stackTransmissionPower
+AUDIT-CONSTANT OQ7Prescribed.bodyCurrentInclusion._proof_1
+AUDIT-THEOREM OQ7Prescribed.bodyCurrentInclusion._proof_1
 AUDIT-CONSTANT OQ7.active_matrix_deficit._simp_1_6
 AUDIT-THEOREM OQ7.active_matrix_deficit._simp_1_6
 AUDIT-CONSTANT OQ7Prescribed.newtonReal_hasLineDerivAt._simp_1_3
@@ -55,10 +57,12 @@ AUDIT-THEOREM OQ7Prescribed.sphere_coordinate_sq_equal
 AUDIT-CONSTANT OQ7.ResourceFloor.U
 AUDIT-CONSTANT OQ7Prescribed.gradientPotentialComponentDistribution._proof_3
 AUDIT-THEOREM OQ7Prescribed.gradientPotentialComponentDistribution._proof_3
+AUDIT-CONSTANT OQ7Prescribed.bodyOutgoingOperator
 AUDIT-CONSTANT OQ7.gramPairKernel_diagonal
 AUDIT-THEOREM OQ7.gramPairKernel_diagonal
 AUDIT-CONSTANT OQ7Prescribed.newtonTempered_apply._simp_1_1
 AUDIT-THEOREM OQ7Prescribed.newtonTempered_apply._simp_1_1
+AUDIT-CONSTANT OQ7Prescribed.SusceptibilityInverseData.noConfusion
 AUDIT-CONSTANT OQ7Prescribed.newton_classical_hessian._simp_1_4
 AUDIT-THEOREM OQ7Prescribed.newton_classical_hessian._simp_1_4
 AUDIT-CONSTANT OQ7.ResourceFloor.U_div_cellCount_tendsto
@@ -138,6 +142,8 @@ AUDIT-CONSTANT OQ7.resourceCell_subset
 AUDIT-THEOREM OQ7.resourceCell_subset
 AUDIT-CONSTANT OQ7.CoreConstruction.homogeneousTransfer_mul._simp_1_5
 AUDIT-THEOREM OQ7.CoreConstruction.homogeneousTransfer_mul._simp_1_5
+AUDIT-CONSTANT OQ7Prescribed.materialBodySolution_physicalVolumeEquation
+AUDIT-THEOREM OQ7Prescribed.materialBodySolution_physicalVolumeEquation
 AUDIT-CONSTANT OQ7Prescribed.axisCoupling.eq_1
 AUDIT-THEOREM OQ7Prescribed.axisCoupling.eq_1
 AUDIT-CONSTANT OQ7Prescribed.greenHessian_apply
@@ -160,6 +166,8 @@ AUDIT-CONSTANT OQ7.stackScatteringElectric_hasDerivAt
 AUDIT-THEOREM OQ7.stackScatteringElectric_hasDerivAt
 AUDIT-CONSTANT OQ7Prescribed.newtonHessianFrequency_staticSymbol
 AUDIT-THEOREM OQ7Prescribed.newtonHessianFrequency_staticSymbol
+AUDIT-CONSTANT OQ7Prescribed.bodyCurrentInclusionLinear._proof_12
+AUDIT-THEOREM OQ7Prescribed.bodyCurrentInclusionLinear._proof_12
 AUDIT-CONSTANT OQ7.stackMagneticField
 AUDIT-CONSTANT OQ7.ScalarEnvelope.sqrt_displacement_bound
 AUDIT-THEOREM OQ7.ScalarEnvelope.sqrt_displacement_bound
@@ -201,6 +209,7 @@ AUDIT-CONSTANT OQ7Prescribed.incidentMagnetic_eq
 AUDIT-THEOREM OQ7Prescribed.incidentMagnetic_eq
 AUDIT-CONSTANT OQ7.CoreConstruction.lossyPLayer.eq_1
 AUDIT-THEOREM OQ7.CoreConstruction.lossyPLayer.eq_1
+AUDIT-CONSTANT OQ7Prescribed.materialBodyCoercivity
 AUDIT-CONSTANT OQ7.ScalarEnvelope.tangent_remainder
 AUDIT-THEOREM OQ7.ScalarEnvelope.tangent_remainder
 AUDIT-CONSTANT OQ7.physical_resource_floor_of_cellBounds
@@ -230,6 +239,8 @@ AUDIT-CONSTANT OQ7Prescribed.CompactPolarization.toSupportedLp._proof_9
 AUDIT-THEOREM OQ7Prescribed.CompactPolarization.toSupportedLp._proof_9
 AUDIT-CONSTANT OQ7.firstInsertion.eq_def
 AUDIT-THEOREM OQ7.firstInsertion.eq_def
+AUDIT-CONSTANT OQ7Prescribed.bodyOutgoingOperator_inner
+AUDIT-THEOREM OQ7Prescribed.bodyOutgoingOperator_inner
 AUDIT-CONSTANT OQ7Prescribed.newton_classical_hessian._simp_1_8
 AUDIT-THEOREM OQ7Prescribed.newton_classical_hessian._simp_1_8
 AUDIT-CONSTANT OQ7.integratedLoss_nonneg
@@ -346,6 +357,9 @@ AUDIT-CONSTANT OQ7Prescribed.potentialComponentDistribution._proof_5
 AUDIT-THEOREM OQ7Prescribed.potentialComponentDistribution._proof_5
 AUDIT-CONSTANT OQ7.resourceCellU_bounds_Ioo._simp_1_6
 AUDIT-THEOREM OQ7.resourceCellU_bounds_Ioo._simp_1_6
+AUDIT-CONSTANT OQ7Prescribed.BodyCurrentL2
+AUDIT-CONSTANT OQ7Prescribed.bodyIncidentCurrent._proof_6
+AUDIT-THEOREM OQ7Prescribed.bodyIncidentCurrent._proof_6
 AUDIT-CONSTANT OQ7.tendsto_scaled_quartic_remainder
 AUDIT-THEOREM OQ7.tendsto_scaled_quartic_remainder
 AUDIT-CONSTANT OQ7Prescribed.outgoing_helmholtz_fundamental_apply
@@ -387,6 +401,8 @@ AUDIT-CONSTANT OQ7.triangularMatchingTransfer_unitPhase._simp_1_6
 AUDIT-THEOREM OQ7.triangularMatchingTransfer_unitPhase._simp_1_6
 AUDIT-CONSTANT OQ7.stackTransfer_fluxDefect_posSemidef
 AUDIT-THEOREM OQ7.stackTransfer_fluxDefect_posSemidef
+AUDIT-CONSTANT OQ7Prescribed.supportedSliceCLM._proof_1
+AUDIT-THEOREM OQ7Prescribed.supportedSliceCLM._proof_1
 AUDIT-CONSTANT OQ7.CoreConstruction.physicalCoatedCore_eventually_dimensionless_thickness
 AUDIT-THEOREM OQ7.CoreConstruction.physicalCoatedCore_eventually_dimensionless_thickness
 AUDIT-CONSTANT OQ7.refractiveIndex_quarterWave
@@ -414,6 +430,8 @@ AUDIT-CONSTANT OQ7.CoreConstruction.actual_repeatedCore_scaledFluxDeterminant_te
 AUDIT-THEOREM OQ7.CoreConstruction.actual_repeatedCore_scaledFluxDeterminant_tendsto
 AUDIT-CONSTANT OQ7Prescribed.quadratic_layer_re
 AUDIT-THEOREM OQ7Prescribed.quadratic_layer_re
+AUDIT-CONSTANT OQ7Prescribed.bodyOutgoingOperator._proof_1
+AUDIT-THEOREM OQ7Prescribed.bodyOutgoingOperator._proof_1
 AUDIT-CONSTANT OQ7.ResourceScalar.slope
 AUDIT-CONSTANT OQ7.stackScatteringStates
 AUDIT-CONSTANT OQ7Prescribed.dynamicScalarRemainder_eq_cancel._simp_1_3
@@ -480,6 +498,8 @@ AUDIT-CONSTANT OQ7.stackNormalizedAbsorptionDet
 AUDIT-CONSTANT OQ7.stackFundamentalSolution_cellComparison
 AUDIT-THEOREM OQ7.stackFundamentalSolution_cellComparison
 AUDIT-CONSTANT OQ7Prescribed.newtonCurrentCorrelation
+AUDIT-CONSTANT OQ7Prescribed.supportedSliceLinear._proof_4
+AUDIT-THEOREM OQ7Prescribed.supportedSliceLinear._proof_4
 AUDIT-CONSTANT OQ7Prescribed.compactOutgoingOperator_coe
 AUDIT-THEOREM OQ7Prescribed.compactOutgoingOperator_coe
 AUDIT-CONSTANT OQ7.targetMatchingLogs_exp
@@ -492,6 +512,8 @@ AUDIT-CONSTANT OQ7Prescribed.ScatteringState.recOn
 AUDIT-CONSTANT OQ7Prescribed.Direction.sign
 AUDIT-CONSTANT OQ7Prescribed.newtonContactBoundary.eq_1
 AUDIT-THEOREM OQ7Prescribed.newtonContactBoundary.eq_1
+AUDIT-CONSTANT OQ7Prescribed.bodyOutgoingOperator._proof_2
+AUDIT-THEOREM OQ7Prescribed.bodyOutgoingOperator._proof_2
 AUDIT-CONSTANT OQ7.ModulusComparison.sineRatio_hasDerivAt
 AUDIT-THEOREM OQ7.ModulusComparison.sineRatio_hasDerivAt
 AUDIT-CONSTANT OQ7.CoreConstruction.tripleTaylorTerm.eq_1
@@ -580,16 +602,22 @@ AUDIT-THEOREM OQ7Prescribed.potentialComponentDistribution._proof_7
 AUDIT-CONSTANT OQ7.CoreConstruction.physicalCoreCell_transferFactorization
 AUDIT-THEOREM OQ7.CoreConstruction.physicalCoreCell_transferFactorization
 AUDIT-CONSTANT OQ7Prescribed.ScalarDistribution
+AUDIT-CONSTANT OQ7Prescribed.materialBodyEquiv_inverse_norm_le
+AUDIT-THEOREM OQ7Prescribed.materialBodyEquiv_inverse_norm_le
 AUDIT-CONSTANT OQ7Prescribed.radialDirection_sub_norm_le_distance._simp_1_6
 AUDIT-THEOREM OQ7Prescribed.radialDirection_sub_norm_le_distance._simp_1_6
 AUDIT-CONSTANT OQ7.ResourceScalar.sin_sq_lower_half._simp_1_7
 AUDIT-THEOREM OQ7.ResourceScalar.sin_sq_lower_half._simp_1_7
+AUDIT-CONSTANT OQ7Prescribed.materialBodyOperator._proof_5
+AUDIT-THEOREM OQ7Prescribed.materialBodyOperator._proof_5
 AUDIT-CONSTANT OQ7.waveBasisInv.eq_1
 AUDIT-THEOREM OQ7.waveBasisInv.eq_1
 AUDIT-CONSTANT OQ7.stackPhysicalGramDeterminant._simp_1_8
 AUDIT-THEOREM OQ7.stackPhysicalGramDeterminant._simp_1_8
 AUDIT-CONSTANT OQ7.matchingLogResponse_sheet_hasFDerivAt
 AUDIT-THEOREM OQ7.matchingLogResponse_sheet_hasFDerivAt
+AUDIT-CONSTANT OQ7Prescribed.twoPieceSupportedOperator_coe
+AUDIT-THEOREM OQ7Prescribed.twoPieceSupportedOperator_coe
 AUDIT-CONSTANT OQ7Prescribed.CompactPolarization.toSupportedLp
 AUDIT-CONSTANT OQ7.CoreConstruction.linearizedCore_firstInsertion
 AUDIT-THEOREM OQ7.CoreConstruction.linearizedCore_firstInsertion
@@ -611,6 +639,8 @@ AUDIT-THEOREM OQ7.fluxDefect.eq_1
 AUDIT-CONSTANT OQ7.homogeneousTransfer_det._simp_1_2
 AUDIT-THEOREM OQ7.homogeneousTransfer_det._simp_1_2
 AUDIT-CONSTANT OQ7.resourceCellMass
+AUDIT-CONSTANT OQ7Prescribed.materialVolumeEquation_exists
+AUDIT-THEOREM OQ7Prescribed.materialVolumeEquation_exists
 AUDIT-CONSTANT OQ7Prescribed.HasWeakCurl._proof_1
 AUDIT-THEOREM OQ7Prescribed.HasWeakCurl._proof_1
 AUDIT-CONSTANT OQ7.theorem45_sequence_eventual_lower
@@ -639,6 +669,8 @@ AUDIT-CONSTANT OQ7Prescribed.vectorL2ComponentDistribution_apply
 AUDIT-THEOREM OQ7Prescribed.vectorL2ComponentDistribution_apply
 AUDIT-CONSTANT OQ7.theorem51_of_physical_constructed_sequence
 AUDIT-THEOREM OQ7.theorem51_of_physical_constructed_sequence
+AUDIT-CONSTANT OQ7Prescribed.bodyIncidentCurrent._proof_5
+AUDIT-THEOREM OQ7Prescribed.bodyIncidentCurrent._proof_5
 AUDIT-CONSTANT OQ7Prescribed.magneticVolumeField_locallySquareIntegrable
 AUDIT-THEOREM OQ7Prescribed.magneticVolumeField_locallySquareIntegrable
 AUDIT-CONSTANT OQ7Prescribed.staticFourierOperator._proof_2
@@ -647,6 +679,7 @@ AUDIT-CONSTANT OQ7.one_add_div_pow_le_exp._simp_1_1
 AUDIT-THEOREM OQ7.one_add_div_pow_le_exp._simp_1_1
 AUDIT-CONSTANT OQ7Prescribed.dyadicRemainder_norm_le_on_ball
 AUDIT-THEOREM OQ7Prescribed.dyadicRemainder_norm_le_on_ball
+AUDIT-CONSTANT OQ7Prescribed.SusceptibilityInverseData.ctorIdx
 AUDIT-CONSTANT OQ7.ResourceFloor.cellCount_atTop
 AUDIT-THEOREM OQ7.ResourceFloor.cellCount_atTop
 AUDIT-CONSTANT OQ7Prescribed.instNormedAddCommGroupContinuousLinearMapComplexIdVector_2
@@ -654,6 +687,8 @@ AUDIT-CONSTANT OQ7.CoreConstruction.physicalCoatedCore.eq_1
 AUDIT-THEOREM OQ7.CoreConstruction.physicalCoatedCore.eq_1
 AUDIT-CONSTANT OQ7Prescribed.newtonFrequencyTempered_heat_pairing
 AUDIT-THEOREM OQ7Prescribed.newtonFrequencyTempered_heat_pairing
+AUDIT-CONSTANT OQ7Prescribed.bodySupportRadius_nonneg
+AUDIT-THEOREM OQ7Prescribed.bodySupportRadius_nonneg
 AUDIT-CONSTANT OQ7.fluxForm.eq_1
 AUDIT-THEOREM OQ7.fluxForm.eq_1
 AUDIT-CONSTANT OQ7.stackWeightedField.eq_1
@@ -723,8 +758,11 @@ AUDIT-THEOREM OQ7Prescribed.tensorMap._proof_7
 AUDIT-CONSTANT OQ7.sheetLogVHJacobian
 AUDIT-CONSTANT OQ7Prescribed.pole_point_test_ibp
 AUDIT-THEOREM OQ7Prescribed.pole_point_test_ibp
+AUDIT-CONSTANT OQ7Prescribed.materialBodyCoercivity_pos
+AUDIT-THEOREM OQ7Prescribed.materialBodyCoercivity_pos
 AUDIT-CONSTANT OQ7.CoreConstruction.physicalCoatedCore_transfer._simp_1_2
 AUDIT-THEOREM OQ7.CoreConstruction.physicalCoatedCore_transfer._simp_1_2
+AUDIT-CONSTANT OQ7Prescribed.bodySupportRadius
 AUDIT-CONSTANT OQ7Prescribed.outgoingGreenDistribution._proof_2
 AUDIT-THEOREM OQ7Prescribed.outgoingGreenDistribution._proof_2
 AUDIT-CONSTANT OQ7Prescribed.outgoingElectricField_eq_ae
@@ -776,6 +814,8 @@ AUDIT-CONSTANT OQ7.resourceCellU_bounds._simp_1_1
 AUDIT-THEOREM OQ7.resourceCellU_bounds._simp_1_1
 AUDIT-CONSTANT OQ7.CoreConstruction.linearFluxVariation.eq_1
 AUDIT-THEOREM OQ7.CoreConstruction.linearFluxVariation.eq_1
+AUDIT-CONSTANT OQ7Prescribed.supportedConstLinear._proof_10
+AUDIT-THEOREM OQ7Prescribed.supportedConstLinear._proof_10
 AUDIT-CONSTANT OQ7Prescribed.newtonHessianFrequencyTempered
 AUDIT-CONSTANT OQ7.CoreConstruction.core_firstInsertion_reciprocal._simp_1_1
 AUDIT-THEOREM OQ7.CoreConstruction.core_firstInsertion_reciprocal._simp_1_1
@@ -837,6 +877,8 @@ AUDIT-CONSTANT OQ7Prescribed.newtonDerivativeBoundary.eq_1
 AUDIT-THEOREM OQ7Prescribed.newtonDerivativeBoundary.eq_1
 AUDIT-CONSTANT OQ7.sheetVHJacobian_isInvertible
 AUDIT-THEOREM OQ7.sheetVHJacobian_isInvertible
+AUDIT-CONSTANT OQ7Prescribed.SusceptibilityInverseData.negative_imaginary_bound
+AUDIT-THEOREM OQ7Prescribed.SusceptibilityInverseData.negative_imaginary_bound
 AUDIT-CONSTANT OQ7.reciprocal_square_norm_rate
 AUDIT-THEOREM OQ7.reciprocal_square_norm_rate
 AUDIT-CONSTANT OQ7Prescribed.remainderPotentialComponentDistribution._proof_8
@@ -902,6 +944,7 @@ AUDIT-THEOREM OQ7.exactTargetClass_asymmetry_le
 AUDIT-CONSTANT OQ7Prescribed.currentTestCorrelationVector._proof_2
 AUDIT-THEOREM OQ7Prescribed.currentTestCorrelationVector._proof_2
 AUDIT-CONSTANT OQ7Prescribed.basisR
+AUDIT-CONSTANT OQ7Prescribed.SusceptibilityInverseData.noConfusionType
 AUDIT-CONSTANT OQ7.CoreConstruction.coreSliceParameter
 AUDIT-CONSTANT OQ7.coatingLayers_transfer._simp_1_2
 AUDIT-THEOREM OQ7.coatingLayers_transfer._simp_1_2
@@ -916,6 +959,8 @@ AUDIT-THEOREM OQ7Prescribed.newtonDirac._proof_4
 AUDIT-CONSTANT OQ7Prescribed.compactRestrictionLinear
 AUDIT-CONSTANT OQ7Prescribed.newtonHeatKernel_fourier
 AUDIT-THEOREM OQ7Prescribed.newtonHeatKernel_fourier
+AUDIT-CONSTANT OQ7Prescribed.setRestrictionCLM_inner
+AUDIT-THEOREM OQ7Prescribed.setRestrictionCLM_inner
 AUDIT-CONSTANT OQ7.sharp_deficit_limit_of_quadratic_rates._simp_1_6
 AUDIT-THEOREM OQ7.sharp_deficit_limit_of_quadratic_rates._simp_1_6
 AUDIT-CONSTANT OQ7Prescribed.scalarTest_support_radius
@@ -942,6 +987,7 @@ AUDIT-CONSTANT OQ7.cell_det_lower_of_sineComparison._simp_1_2
 AUDIT-THEOREM OQ7.cell_det_lower_of_sineComparison._simp_1_2
 AUDIT-CONSTANT OQ7Prescribed.currentCorrelation_green_first_ibp
 AUDIT-THEOREM OQ7Prescribed.currentCorrelation_green_first_ibp
+AUDIT-CONSTANT OQ7Prescribed.SusceptibilityInverseData.inverse
 AUDIT-CONSTANT OQ7.coatingLayers_transfer._simp_1_7
 AUDIT-THEOREM OQ7.coatingLayers_transfer._simp_1_7
 AUDIT-CONSTANT OQ7.partialState.eq_1
@@ -988,6 +1034,8 @@ AUDIT-CONSTANT OQ7.norm_insertionError_quartic._simp_1_6
 AUDIT-THEOREM OQ7.norm_insertionError_quartic._simp_1_6
 AUDIT-CONSTANT OQ7.ModulusComparison.comparisonWronskian_continuousOn
 AUDIT-THEOREM OQ7.ModulusComparison.comparisonWronskian_continuousOn
+AUDIT-CONSTANT OQ7Prescribed.twoPieceSupportedOperator._proof_1
+AUDIT-THEOREM OQ7Prescribed.twoPieceSupportedOperator._proof_1
 AUDIT-CONSTANT OQ7.coatingLayers_transfer._simp_1_5
 AUDIT-THEOREM OQ7.coatingLayers_transfer._simp_1_5
 AUDIT-CONSTANT OQ7.cell_det_lower_of_sineComparison._simp_1_4
@@ -1076,6 +1124,8 @@ AUDIT-THEOREM OQ7Prescribed.outgoingSourceFields_second_weakCurl
 AUDIT-CONSTANT OQ7Prescribed.absorption
 AUDIT-CONSTANT OQ7Prescribed.pairing_self
 AUDIT-THEOREM OQ7Prescribed.pairing_self
+AUDIT-CONSTANT OQ7Prescribed.compactOutgoingOperator.congr_simp
+AUDIT-THEOREM OQ7Prescribed.compactOutgoingOperator.congr_simp
 AUDIT-CONSTANT OQ7.electricField.eq_1
 AUDIT-THEOREM OQ7.electricField.eq_1
 AUDIT-CONSTANT OQ7Prescribed.outgoingRadialFirst_sub_static_norm_le._simp_1_2
@@ -1092,6 +1142,7 @@ AUDIT-CONSTANT OQ7Prescribed.newtonCurrentCorrelationSchwartz_fourierInv
 AUDIT-THEOREM OQ7Prescribed.newtonCurrentCorrelationSchwartz_fourierInv
 AUDIT-CONSTANT OQ7Prescribed.remainderPotentialComponentDistribution._proof_1
 AUDIT-THEOREM OQ7Prescribed.remainderPotentialComponentDistribution._proof_1
+AUDIT-CONSTANT OQ7Prescribed.setSupportedL2
 AUDIT-CONSTANT OQ7.ResourceFloor.scaled_beta_identity._simp_1_7
 AUDIT-THEOREM OQ7.ResourceFloor.scaled_beta_identity._simp_1_7
 AUDIT-CONSTANT OQ7.coatingIndex_ratios
@@ -1119,6 +1170,7 @@ AUDIT-CONSTANT OQ7.CoreConstruction.coreQuarterTransfer_realFormula._simp_1_7
 AUDIT-THEOREM OQ7.CoreConstruction.coreQuarterTransfer_realFormula._simp_1_7
 AUDIT-CONSTANT OQ7.CoreConstruction.core_linearFluxVariation_lowerRight._simp_1_4
 AUDIT-THEOREM OQ7.CoreConstruction.core_linearFluxVariation_lowerRight._simp_1_4
+AUDIT-CONSTANT OQ7Prescribed.admissibleSusceptibilityInverseData
 AUDIT-CONSTANT OQ7Prescribed.orthogonalSphere._proof_6
 AUDIT-THEOREM OQ7Prescribed.orthogonalSphere._proof_6
 AUDIT-CONSTANT OQ7Prescribed.exteriorCutoffPartial_zero_outer
@@ -1136,10 +1188,13 @@ AUDIT-CONSTANT OQ7.physical_sequence_scaled_limit._simp_1_1
 AUDIT-THEOREM OQ7.physical_sequence_scaled_limit._simp_1_1
 AUDIT-CONSTANT OQ7Prescribed.newton_cutoff_derivative_shell._simp_1_5
 AUDIT-THEOREM OQ7Prescribed.newton_cutoff_derivative_shell._simp_1_5
+AUDIT-CONSTANT OQ7Prescribed.bodyIncidentCurrent._proof_3
+AUDIT-THEOREM OQ7Prescribed.bodyIncidentCurrent._proof_3
 AUDIT-CONSTANT OQ7.absorption_det
 AUDIT-THEOREM OQ7.absorption_det
 AUDIT-CONSTANT OQ7Prescribed.shrinkingCutoffPoleError_norm_le._simp_1_3
 AUDIT-THEOREM OQ7Prescribed.shrinkingCutoffPoleError_norm_le._simp_1_3
+AUDIT-CONSTANT OQ7Prescribed.bodyCurrentPolarization
 AUDIT-CONSTANT OQ7Prescribed.greenCancellationEnvelope._proof_1
 AUDIT-THEOREM OQ7Prescribed.greenCancellationEnvelope._proof_1
 AUDIT-CONSTANT OQ7Prescribed.kernelMagnetic_norm_le_far
@@ -1165,6 +1220,8 @@ AUDIT-CONSTANT OQ7.layerFluxDefect_gram_entry
 AUDIT-THEOREM OQ7.layerFluxDefect_gram_entry
 AUDIT-CONSTANT OQ7.absorptance_coordinates
 AUDIT-THEOREM OQ7.absorptance_coordinates
+AUDIT-CONSTANT OQ7Prescribed.supportedConstLinear._proof_6
+AUDIT-THEOREM OQ7Prescribed.supportedConstLinear._proof_6
 AUDIT-CONSTANT OQ7Prescribed.sphere_coordinate_mul_integrable
 AUDIT-THEOREM OQ7Prescribed.sphere_coordinate_mul_integrable
 AUDIT-CONSTANT OQ7.sineSquare_triangleIntegral_capped_Ioo
@@ -1186,6 +1243,8 @@ AUDIT-CONSTANT OQ7Prescribed.supportedPolarization_current_eLpNorm
 AUDIT-THEOREM OQ7Prescribed.supportedPolarization_current_eLpNorm
 AUDIT-CONSTANT OQ7Prescribed.currentCorrelation_greenHessian_distribution_pairing
 AUDIT-THEOREM OQ7Prescribed.currentCorrelation_greenHessian_distribution_pairing
+AUDIT-CONSTANT OQ7Prescribed.supportedSliceLinear._proof_1
+AUDIT-THEOREM OQ7Prescribed.supportedSliceLinear._proof_1
 AUDIT-CONSTANT OQ7.theorem51_optimal_lowerlimit
 AUDIT-THEOREM OQ7.theorem51_optimal_lowerlimit
 AUDIT-CONSTANT OQ7.partialTransfer._unsafe_rec
@@ -1199,6 +1258,8 @@ AUDIT-THEOREM OQ7Prescribed.testPartial_hasLineDerivAt
 AUDIT-CONSTANT OQ7.stackTransfer.match_1
 AUDIT-CONSTANT OQ7.signPow_transferUnitPhase
 AUDIT-THEOREM OQ7.signPow_transferUnitPhase
+AUDIT-CONSTANT OQ7Prescribed.BodyCurrentL2._proof_2
+AUDIT-THEOREM OQ7Prescribed.BodyCurrentL2._proof_2
 AUDIT-CONSTANT OQ7Prescribed.outgoingPotential_add
 AUDIT-THEOREM OQ7Prescribed.outgoingPotential_add
 AUDIT-CONSTANT OQ7.ResourceScalar.abs_g_div_le_abs
@@ -1230,6 +1291,7 @@ AUDIT-CONSTANT OQ7Prescribed.compactPolarization_smooth_function_approximation._
 AUDIT-THEOREM OQ7Prescribed.compactPolarization_smooth_function_approximation._simp_1_2
 AUDIT-CONSTANT OQ7Prescribed.classicalDyadic_coordinate
 AUDIT-THEOREM OQ7Prescribed.classicalDyadic_coordinate
+AUDIT-CONSTANT OQ7Prescribed.supportedConstLinear
 AUDIT-CONSTANT OQ7Prescribed.newtonTemperedHessian_contact_apply
 AUDIT-THEOREM OQ7Prescribed.newtonTemperedHessian_contact_apply
 AUDIT-CONSTANT OQ7Prescribed.remainderPotentialComponentDistribution._proof_4
@@ -1270,10 +1332,14 @@ AUDIT-THEOREM OQ7.CoreConstruction.core_linearFluxVariation_lowerRight._simp_1_3
 AUDIT-CONSTANT OQ7Prescribed.newtonCurrentCorrelation._proof_1
 AUDIT-THEOREM OQ7Prescribed.newtonCurrentCorrelation._proof_1
 AUDIT-CONSTANT OQ7Prescribed.polarizationCurrentComponentDistribution
+AUDIT-CONSTANT OQ7Prescribed.bodyIncidentCurrent._proof_1
+AUDIT-THEOREM OQ7Prescribed.bodyIncidentCurrent._proof_1
 AUDIT-CONSTANT OQ7.ScalarEnvelope.scalar_strict_gap
 AUDIT-THEOREM OQ7.ScalarEnvelope.scalar_strict_gap
 AUDIT-CONSTANT OQ7Prescribed.staticSymbolWithOrigin.eq_1
 AUDIT-THEOREM OQ7Prescribed.staticSymbolWithOrigin.eq_1
+AUDIT-CONSTANT OQ7Prescribed.indicatorL2_supported
+AUDIT-THEOREM OQ7Prescribed.indicatorL2_supported
 AUDIT-CONSTANT OQ7.waveBasis_incoming_states
 AUDIT-THEOREM OQ7.waveBasis_incoming_states
 AUDIT-CONSTANT OQ7.stackMagneticField_maxwell_offInterfaces._simp_1_10
@@ -1310,6 +1376,8 @@ AUDIT-CONSTANT OQ7.CoreConstruction.physicalUnmatchedCore_loss._simp_1_8
 AUDIT-THEOREM OQ7.CoreConstruction.physicalUnmatchedCore_loss._simp_1_8
 AUDIT-CONSTANT OQ7.homogeneousTransfer_det._simp_1_7
 AUDIT-THEOREM OQ7.homogeneousTransfer_det._simp_1_7
+AUDIT-CONSTANT OQ7Prescribed.materialBodyOperator._proof_6
+AUDIT-THEOREM OQ7Prescribed.materialBodyOperator._proof_6
 AUDIT-CONSTANT OQ7Prescribed.newton_cutoff_derivative_shell._simp_1_7
 AUDIT-THEOREM OQ7Prescribed.newton_cutoff_derivative_shell._simp_1_7
 AUDIT-CONSTANT OQ7Prescribed.newtonHessianFrequency_schwartz_integrable
@@ -1320,8 +1388,12 @@ AUDIT-CONSTANT OQ7.electricField_hasDerivAt._simp_1_2
 AUDIT-THEOREM OQ7.electricField_hasDerivAt._simp_1_2
 AUDIT-CONSTANT OQ7.transfer_absorption_fluxDefect_ratio
 AUDIT-THEOREM OQ7.transfer_absorption_fluxDefect_ratio
+AUDIT-CONSTANT OQ7Prescribed.setSupportedL2_isClosed
+AUDIT-THEOREM OQ7Prescribed.setSupportedL2_isClosed
 AUDIT-CONSTANT OQ7Prescribed.remainderPotentialComponentDistribution_pairing
 AUDIT-THEOREM OQ7Prescribed.remainderPotentialComponentDistribution_pairing
+AUDIT-CONSTANT OQ7Prescribed.supportedConstLinear._proof_1
+AUDIT-THEOREM OQ7Prescribed.supportedConstLinear._proof_1
 AUDIT-CONSTANT OQ7.coatingIndex_bounds
 AUDIT-THEOREM OQ7.coatingIndex_bounds
 AUDIT-CONSTANT OQ7Prescribed.sphere_test_moment_zero
@@ -1345,6 +1417,8 @@ AUDIT-THEOREM OQ7.interference.eq_1
 AUDIT-CONSTANT OQ7Prescribed.TwoLayerBody._sizeOf_1
 AUDIT-CONSTANT OQ7Prescribed.bodyDomain_isOpen._simp_1_1
 AUDIT-THEOREM OQ7Prescribed.bodyDomain_isOpen._simp_1_1
+AUDIT-CONSTANT OQ7Prescribed.bodyCurrentInclusionLinear._proof_7
+AUDIT-THEOREM OQ7Prescribed.bodyCurrentInclusionLinear._proof_7
 AUDIT-CONSTANT OQ7Prescribed.staticFourierOperator_entry_pairing_integrable
 AUDIT-THEOREM OQ7Prescribed.staticFourierOperator_entry_pairing_integrable
 AUDIT-CONSTANT OQ7Prescribed.outgoingRadial_hasDerivAt._simp_1_5
@@ -1385,6 +1459,8 @@ AUDIT-CONSTANT OQ7.cell_det_lower_Ioo
 AUDIT-THEOREM OQ7.cell_det_lower_Ioo
 AUDIT-CONSTANT OQ7Prescribed.weighted_source_flux_lower_bound_ae._simp_1_1
 AUDIT-THEOREM OQ7Prescribed.weighted_source_flux_lower_bound_ae._simp_1_1
+AUDIT-CONSTANT OQ7Prescribed.setSupportedL2._proof_3
+AUDIT-THEOREM OQ7Prescribed.setSupportedL2._proof_3
 AUDIT-CONSTANT OQ7.phase_remainder_bound
 AUDIT-THEOREM OQ7.phase_remainder_bound
 AUDIT-CONSTANT OQ7Prescribed.vector_inner_real_smul
@@ -1396,6 +1472,8 @@ AUDIT-THEOREM OQ7.targetMatchingLogs_exp._simp_1_1
 AUDIT-CONSTANT OQ7Prescribed.remainderPotential_integrand_cutoff
 AUDIT-THEOREM OQ7Prescribed.remainderPotential_integrand_cutoff
 AUDIT-CONSTANT OQ7.ScalarEnvelope.ActiveTarget
+AUDIT-CONSTANT OQ7Prescribed.supportedSliceCLM_coe
+AUDIT-THEOREM OQ7Prescribed.supportedSliceCLM_coe
 AUDIT-CONSTANT OQ7Prescribed.incidentMagnetic.eq_1
 AUDIT-THEOREM OQ7Prescribed.incidentMagnetic.eq_1
 AUDIT-CONSTANT OQ7Prescribed.newton_heat_pairing_time_integrable
@@ -1438,6 +1516,8 @@ AUDIT-THEOREM OQ7.CoreConstruction.physicalCoreCell_thickness
 AUDIT-CONSTANT OQ7.capped_cosine_moment
 AUDIT-THEOREM OQ7.capped_cosine_moment
 AUDIT-CONSTANT OQ7.CoreConstruction.tripleTaylorTerm
+AUDIT-CONSTANT OQ7Prescribed.bodyInverseSusceptibility._proof_3
+AUDIT-THEOREM OQ7Prescribed.bodyInverseSusceptibility._proof_3
 AUDIT-CONSTANT OQ7Prescribed.cutoffOutgoingGradient
 AUDIT-CONSTANT OQ7Prescribed.newtonAnnulus_measurableSet
 AUDIT-THEOREM OQ7Prescribed.newtonAnnulus_measurableSet
@@ -1447,6 +1527,8 @@ AUDIT-CONSTANT OQ7.stackPhysicalGramDeterminant._simp_1_2
 AUDIT-THEOREM OQ7.stackPhysicalGramDeterminant._simp_1_2
 AUDIT-CONSTANT OQ7Prescribed.sourceEnergyWeight_nonneg
 AUDIT-THEOREM OQ7Prescribed.sourceEnergyWeight_nonneg
+AUDIT-CONSTANT OQ7Prescribed.setRestrictionLinear._proof_2
+AUDIT-THEOREM OQ7Prescribed.setRestrictionLinear._proof_2
 AUDIT-CONSTANT OQ7.cell_sqrt_det_lower
 AUDIT-THEOREM OQ7.cell_sqrt_det_lower
 AUDIT-CONSTANT OQ7Prescribed.staticSymbol_norm_le
@@ -1495,6 +1577,8 @@ AUDIT-CONSTANT OQ7Prescribed.newton_inner_contact_normal._simp_1_4
 AUDIT-THEOREM OQ7Prescribed.newton_inner_contact_normal._simp_1_4
 AUDIT-CONSTANT OQ7.CoreConstruction.core_linearFluxVariation_lowerRight._simp_1_2
 AUDIT-THEOREM OQ7.CoreConstruction.core_linearFluxVariation_lowerRight._simp_1_2
+AUDIT-CONSTANT OQ7Prescribed.materialBodyOperator_imaginary_coercive
+AUDIT-THEOREM OQ7Prescribed.materialBodyOperator_imaginary_coercive
 AUDIT-CONSTANT OQ7.CoreConstruction.actual_repeatedCore_quadratic_convergence_norm_bound
 AUDIT-THEOREM OQ7.CoreConstruction.actual_repeatedCore_quadratic_convergence_norm_bound
 AUDIT-CONSTANT OQ7.posSemidef_sqrt_det_minkowski
@@ -1530,6 +1614,7 @@ AUDIT-CONSTANT OQ7.CoreConstruction.physicallyCoatedCore_scaledFluxDeterminant_t
 AUDIT-THEOREM OQ7.CoreConstruction.physicallyCoatedCore_scaledFluxDeterminant_tendsto
 AUDIT-CONSTANT OQ7Prescribed.remainder_current_pairing_integrand_cutoff
 AUDIT-THEOREM OQ7Prescribed.remainder_current_pairing_integrand_cutoff
+AUDIT-CONSTANT OQ7Prescribed.SusceptibilityInverseData.rec
 AUDIT-CONSTANT OQ7.sharp_deficit_limit_of_quadratic_rates._simp_1_7
 AUDIT-THEOREM OQ7.sharp_deficit_limit_of_quadratic_rates._simp_1_7
 AUDIT-CONSTANT OQ7.PhysicalParameters
@@ -1544,6 +1629,8 @@ AUDIT-CONSTANT OQ7.resourceCellPoint.eq_1
 AUDIT-THEOREM OQ7.resourceCellPoint.eq_1
 AUDIT-CONSTANT OQ7Prescribed.remainderPotentialBound
 AUDIT-CONSTANT OQ7Prescribed.TwoLayerBody.casesOn
+AUDIT-CONSTANT OQ7Prescribed.CompactPolarization.mk.congr_simp
+AUDIT-THEOREM OQ7Prescribed.CompactPolarization.mk.congr_simp
 AUDIT-CONSTANT OQ7.transferResponseAsymmetry.eq_1
 AUDIT-THEOREM OQ7.transferResponseAsymmetry.eq_1
 AUDIT-CONSTANT OQ7Prescribed.TwoLayerBody.absorberThickness
@@ -1559,6 +1646,8 @@ AUDIT-CONSTANT OQ7Prescribed.newton_frequency_heat_time_integral
 AUDIT-THEOREM OQ7Prescribed.newton_frequency_heat_time_integral
 AUDIT-CONSTANT OQ7Prescribed.radiationKernelConstant._proof_1
 AUDIT-THEOREM OQ7Prescribed.radiationKernelConstant._proof_1
+AUDIT-CONSTANT OQ7Prescribed.setRestrictionLinear._proof_4
+AUDIT-THEOREM OQ7Prescribed.setRestrictionLinear._proof_4
 AUDIT-CONSTANT OQ7.quarterWavePair.eq_1
 AUDIT-THEOREM OQ7.quarterWavePair.eq_1
 AUDIT-CONSTANT OQ7Prescribed.staticFourierOperator
@@ -1569,6 +1658,9 @@ AUDIT-THEOREM OQ7Prescribed.complexImaginaryCoerciveEquiv_apply
 AUDIT-CONSTANT OQ7.ModulusComparison.radialNumerator_hasDerivAt
 AUDIT-THEOREM OQ7.ModulusComparison.radialNumerator_hasDerivAt
 AUDIT-CONSTANT OQ7Prescribed.CompactPolarization._sizeOf_inst
+AUDIT-CONSTANT OQ7Prescribed.materialBodyEquiv
+AUDIT-CONSTANT OQ7Prescribed.supportedConstLinear._proof_7
+AUDIT-THEOREM OQ7Prescribed.supportedConstLinear._proof_7
 AUDIT-CONSTANT OQ7Prescribed.distributionCurl_eq_implies_hasWeakCurl
 AUDIT-THEOREM OQ7Prescribed.distributionCurl_eq_implies_hasWeakCurl
 AUDIT-CONSTANT OQ7Prescribed.sphereArea_finite
@@ -1589,6 +1681,8 @@ AUDIT-CONSTANT OQ7.reciprocal_square_norm_rate._simp_1_3
 AUDIT-THEOREM OQ7.reciprocal_square_norm_rate._simp_1_3
 AUDIT-CONSTANT OQ7.ScalarEnvelope.radicand_nonneg
 AUDIT-THEOREM OQ7.ScalarEnvelope.radicand_nonneg
+AUDIT-CONSTANT OQ7Prescribed.bodySupportRadius.eq_1
+AUDIT-THEOREM OQ7Prescribed.bodySupportRadius.eq_1
 AUDIT-CONSTANT OQ7Prescribed.shrinkingCutoffPoleError_norm_le._simp_1_6
 AUDIT-THEOREM OQ7Prescribed.shrinkingCutoffPoleError_norm_le._simp_1_6
 AUDIT-CONSTANT OQ7.stackFundamentalSolution_cellComparison_Ioo
@@ -1608,6 +1702,8 @@ AUDIT-CONSTANT OQ7.electricField_second_deriv
 AUDIT-THEOREM OQ7.electricField_second_deriv
 AUDIT-CONSTANT OQ7.stackScatteringWeighted_integrable
 AUDIT-THEOREM OQ7.stackScatteringWeighted_integrable
+AUDIT-CONSTANT OQ7Prescribed.bodyCurrentPolarization_current_ae
+AUDIT-THEOREM OQ7Prescribed.bodyCurrentPolarization_current_ae
 AUDIT-CONSTANT OQ7Prescribed.distributionCurl_add._abel_1_3
 AUDIT-THEOREM OQ7Prescribed.distributionCurl_add._abel_1_3
 AUDIT-CONSTANT OQ7.matchingTransmissionPower.eq_1
@@ -1772,6 +1868,9 @@ AUDIT-CONSTANT OQ7Prescribed.newtonCompensated.eq_1
 AUDIT-THEOREM OQ7Prescribed.newtonCompensated.eq_1
 AUDIT-CONSTANT OQ7Prescribed.supportedVectorL2._proof_7
 AUDIT-THEOREM OQ7Prescribed.supportedVectorL2._proof_7
+AUDIT-CONSTANT OQ7Prescribed.setSupportedL2._proof_5
+AUDIT-THEOREM OQ7Prescribed.setSupportedL2._proof_5
+AUDIT-CONSTANT OQ7Prescribed.SusceptibilityInverseData.recOn
 AUDIT-CONSTANT OQ7Prescribed.dynamicScalarRemainder_eq_cancel._simp_1_7
 AUDIT-THEOREM OQ7Prescribed.dynamicScalarRemainder_eq_cancel._simp_1_7
 AUDIT-CONSTANT OQ7Prescribed.distributionCurl.eq_1
@@ -1855,12 +1954,16 @@ AUDIT-THEOREM OQ7Prescribed.newtonPVDistribution_apply
 AUDIT-CONSTANT OQ7Prescribed.newtonTempered._proof_1
 AUDIT-THEOREM OQ7Prescribed.newtonTempered._proof_1
 AUDIT-CONSTANT OQ7Prescribed.Direction.rec
+AUDIT-CONSTANT OQ7Prescribed.bodyInverseSusceptibility_coe
+AUDIT-THEOREM OQ7Prescribed.bodyInverseSusceptibility_coe
 AUDIT-CONSTANT OQ7Prescribed.shrinkingCutoffError_norm_le._simp_1_2
 AUDIT-THEOREM OQ7Prescribed.shrinkingCutoffError_norm_le._simp_1_2
 AUDIT-CONSTANT OQ7Prescribed.newtonFrequencyExterior_memLp._simp_1_2
 AUDIT-THEOREM OQ7Prescribed.newtonFrequencyExterior_memLp._simp_1_2
 AUDIT-CONSTANT OQ7.ResourceFloor.explicit_floor_pos
 AUDIT-THEOREM OQ7.ResourceFloor.explicit_floor_pos
+AUDIT-CONSTANT OQ7Prescribed.setSupportedL2._proof_2
+AUDIT-THEOREM OQ7Prescribed.setSupportedL2._proof_2
 AUDIT-CONSTANT OQ7.sharp_deficit_limit_of_quadratic_rates
 AUDIT-THEOREM OQ7.sharp_deficit_limit_of_quadratic_rates
 AUDIT-CONSTANT OQ7.waveBasis_fluxDefect
@@ -1977,6 +2080,8 @@ AUDIT-CONSTANT OQ7Prescribed.position_ae_ne_zero
 AUDIT-THEOREM OQ7Prescribed.position_ae_ne_zero
 AUDIT-CONSTANT OQ7.constructionIndex_ratio._simp_1_3
 AUDIT-THEOREM OQ7.constructionIndex_ratio._simp_1_3
+AUDIT-CONSTANT OQ7Prescribed.supportedConstLinear._proof_11
+AUDIT-THEOREM OQ7Prescribed.supportedConstLinear._proof_11
 AUDIT-CONSTANT OQ7.CoreConstruction.coreQuarterTransfer_realFormula._simp_1_6
 AUDIT-THEOREM OQ7.CoreConstruction.coreQuarterTransfer_realFormula._simp_1_6
 AUDIT-CONSTANT OQ7Prescribed.complexify
@@ -2021,6 +2126,8 @@ AUDIT-CONSTANT OQ7Prescribed.newtonRadialFirst_hasDerivAt._simp_1_3
 AUDIT-THEOREM OQ7Prescribed.newtonRadialFirst_hasDerivAt._simp_1_3
 AUDIT-CONSTANT OQ7.targetSheet_halfAsymmetry._simp_1_7
 AUDIT-THEOREM OQ7.targetSheet_halfAsymmetry._simp_1_7
+AUDIT-CONSTANT OQ7Prescribed.indicatorL2.congr_simp
+AUDIT-THEOREM OQ7Prescribed.indicatorL2.congr_simp
 AUDIT-CONSTANT OQ7.targetMatchingLogs_exp._simp_1_7
 AUDIT-THEOREM OQ7.targetMatchingLogs_exp._simp_1_7
 AUDIT-CONSTANT OQ7Prescribed.domain_subset_closedBall._simp_1_1
@@ -2039,6 +2146,7 @@ AUDIT-CONSTANT OQ7.norm_one_add_reciprocal_smul_le
 AUDIT-THEOREM OQ7.norm_one_add_reciprocal_smul_le
 AUDIT-CONSTANT OQ7Prescribed.weighted_source_flux_lower_bound_ae._simp_1_7
 AUDIT-THEOREM OQ7Prescribed.weighted_source_flux_lower_bound_ae._simp_1_7
+AUDIT-CONSTANT OQ7Prescribed.SusceptibilityInverseData._sizeOf_1
 AUDIT-CONSTANT OQ7Prescribed.vectorScalarMulReal._proof_1
 AUDIT-THEOREM OQ7Prescribed.vectorScalarMulReal._proof_1
 AUDIT-CONSTANT OQ7.stackScatteringWronskian
@@ -2125,6 +2233,7 @@ AUDIT-THEOREM OQ7Prescribed.sphere_second_moment._simp_1_1
 AUDIT-CONSTANT OQ7.partialTransfer._f
 AUDIT-CONSTANT OQ7.ResourceFloor.full_floor_limit
 AUDIT-THEOREM OQ7.ResourceFloor.full_floor_limit
+AUDIT-CONSTANT OQ7Prescribed.supportedConstCLM
 AUDIT-CONSTANT OQ7Prescribed.newtonTemperedHessian.eq_1
 AUDIT-THEOREM OQ7Prescribed.newtonTemperedHessian.eq_1
 AUDIT-CONSTANT OQ7Prescribed.outgoingPotential_integrand_cutoff
@@ -2146,6 +2255,7 @@ AUDIT-THEOREM OQ7.physical_signed_transfer_fluxPSD
 AUDIT-CONSTANT OQ7Prescribed.exterior_current_test_joint_integrable
 AUDIT-THEOREM OQ7Prescribed.exterior_current_test_joint_integrable
 AUDIT-CONSTANT OQ7Prescribed.WeakMaxwell
+AUDIT-CONSTANT OQ7Prescribed.setRestrictionCLM
 AUDIT-CONSTANT OQ7.CoreConstruction.core_linear_determinant_coefficient._simp_1_2
 AUDIT-THEOREM OQ7.CoreConstruction.core_linear_determinant_coefficient._simp_1_2
 AUDIT-CONSTANT OQ7Prescribed.kernel_radiation_defect_norm_le._simp_1_1
@@ -2179,6 +2289,8 @@ AUDIT-CONSTANT OQ7.PhysicalParameters.casesOn
 AUDIT-CONSTANT OQ7Prescribed.vectorL2Distribution
 AUDIT-CONSTANT OQ7Prescribed.currentDyadicTestPairing
 AUDIT-CONSTANT OQ7.partialTransfer._sunfold
+AUDIT-CONSTANT OQ7Prescribed.bodyAbsorberSlice_measurable
+AUDIT-THEOREM OQ7Prescribed.bodyAbsorberSlice_measurable
 AUDIT-CONSTANT OQ7Prescribed.CompactPolarization.toSupportedLp._proof_1
 AUDIT-THEOREM OQ7Prescribed.CompactPolarization.toSupportedLp._proof_1
 AUDIT-CONSTANT OQ7.stackTransfer_det
@@ -2208,6 +2320,8 @@ AUDIT-CONSTANT OQ7Prescribed.newton_schwartz_exterior_integrable
 AUDIT-THEOREM OQ7Prescribed.newton_schwartz_exterior_integrable
 AUDIT-CONSTANT OQ7.homogeneousTransfer_det
 AUDIT-THEOREM OQ7.homogeneousTransfer_det
+AUDIT-CONSTANT OQ7Prescribed.bodyInverseSusceptibility_negative_imaginary_bound
+AUDIT-THEOREM OQ7Prescribed.bodyInverseSusceptibility_negative_imaginary_bound
 AUDIT-CONSTANT OQ7.triangularMatchingTransfer_response
 AUDIT-THEOREM OQ7.triangularMatchingTransfer_response
 AUDIT-CONSTANT OQ7.ResourceScalar.H._proof_1
@@ -2233,6 +2347,8 @@ AUDIT-CONSTANT OQ7Prescribed.kernelMagnetic_norm_le._simp_1_4
 AUDIT-THEOREM OQ7Prescribed.kernelMagnetic_norm_le._simp_1_4
 AUDIT-CONSTANT _private.OQ7.PhysicalGlobal.0.OQ7.partialTransfer.match_1.eq_2
 AUDIT-THEOREM _private.OQ7.PhysicalGlobal.0.OQ7.partialTransfer.match_1.eq_2
+AUDIT-CONSTANT OQ7Prescribed.setRestrictionCLM._proof_1
+AUDIT-THEOREM OQ7Prescribed.setRestrictionCLM._proof_1
 AUDIT-CONSTANT OQ7.HomogeneousLayer.mk
 AUDIT-CONSTANT OQ7Prescribed.TwoLayerBody.rec
 AUDIT-CONSTANT OQ7.quarterWavePair_thickness._simp_1_3
@@ -2246,6 +2362,8 @@ AUDIT-CONSTANT OQ7Prescribed.newtonRadialFirst_hasDerivAt
 AUDIT-THEOREM OQ7Prescribed.newtonRadialFirst_hasDerivAt
 AUDIT-CONSTANT OQ7.tendsto_scaled_quartic_remainder._simp_1_1
 AUDIT-THEOREM OQ7.tendsto_scaled_quartic_remainder._simp_1_1
+AUDIT-CONSTANT OQ7Prescribed.bodyCurrentInclusionLinear._proof_2
+AUDIT-THEOREM OQ7Prescribed.bodyCurrentInclusionLinear._proof_2
 AUDIT-CONSTANT OQ7.norm_insertionError_quartic._simp_1_4
 AUDIT-THEOREM OQ7.norm_insertionError_quartic._simp_1_4
 AUDIT-CONSTANT OQ7Prescribed.potentialComponentDistribution._proof_1
@@ -2299,6 +2417,8 @@ AUDIT-CONSTANT OQ7.transmissionPower.eq_1
 AUDIT-THEOREM OQ7.transmissionPower.eq_1
 AUDIT-CONSTANT OQ7Prescribed.fieldComponentDistribution._proof_1
 AUDIT-THEOREM OQ7Prescribed.fieldComponentDistribution._proof_1
+AUDIT-CONSTANT OQ7Prescribed.bodyCurrentInclusionLinear._proof_4
+AUDIT-THEOREM OQ7Prescribed.bodyCurrentInclusionLinear._proof_4
 AUDIT-CONSTANT OQ7.cell_det_lower_finitePhysical_Ioo
 AUDIT-THEOREM OQ7.cell_det_lower_finitePhysical_Ioo
 AUDIT-CONSTANT OQ7Prescribed.dyadicRemainder.eq_1
@@ -2317,6 +2437,8 @@ AUDIT-CONSTANT OQ7.CoreConstruction.core_linearFluxVariation_lowerRight._simp_1_
 AUDIT-THEOREM OQ7.CoreConstruction.core_linearFluxVariation_lowerRight._simp_1_1
 AUDIT-CONSTANT OQ7.ScalarEnvelope.active_target_properties
 AUDIT-THEOREM OQ7.ScalarEnvelope.active_target_properties
+AUDIT-CONSTANT OQ7Prescribed.bodyCurrentL2_completeSpace
+AUDIT-THEOREM OQ7Prescribed.bodyCurrentL2_completeSpace
 AUDIT-CONSTANT OQ7.stackLossProfile.eq_2
 AUDIT-THEOREM OQ7.stackLossProfile.eq_2
 AUDIT-CONSTANT OQ7Prescribed.quadratic_layer_im
@@ -2346,6 +2468,8 @@ AUDIT-THEOREM OQ7Prescribed.newtonHessianFrequencyTempered._proof_1
 AUDIT-CONSTANT OQ7Prescribed.Direction.ctorIdx
 AUDIT-CONSTANT OQ7.layerTransfer_quarterWave._simp_1_3
 AUDIT-THEOREM OQ7.layerTransfer_quarterWave._simp_1_3
+AUDIT-CONSTANT OQ7Prescribed.bodyCurrentInclusionLinear._proof_11
+AUDIT-THEOREM OQ7Prescribed.bodyCurrentInclusionLinear._proof_11
 AUDIT-CONSTANT OQ7.CoreConstruction.cellTaylorPolynomial
 AUDIT-CONSTANT OQ7.logCoatedTransfer_det
 AUDIT-THEOREM OQ7.logCoatedTransfer_det
@@ -2538,6 +2662,8 @@ AUDIT-CONSTANT OQ7.losslessDiagonalScale.eq_1
 AUDIT-THEOREM OQ7.losslessDiagonalScale.eq_1
 AUDIT-CONSTANT OQ7.cell_sqrt_det_lower_finitePhysical
 AUDIT-THEOREM OQ7.cell_sqrt_det_lower_finitePhysical
+AUDIT-CONSTANT OQ7Prescribed.bodyCurrentInclusionLinear._proof_14
+AUDIT-THEOREM OQ7Prescribed.bodyCurrentInclusionLinear._proof_14
 AUDIT-CONSTANT OQ7.ResourceScalar.sum_g_half
 AUDIT-THEOREM OQ7.ResourceScalar.sum_g_half
 AUDIT-CONSTANT OQ7.absorptanceLeft
@@ -2611,6 +2737,8 @@ AUDIT-THEOREM OQ7.capped_fourier_moment_Ioo
 AUDIT-CONSTANT OQ7.stackTransfer._sunfold
 AUDIT-CONSTANT OQ7Prescribed.testLaplacian.eq_1
 AUDIT-THEOREM OQ7Prescribed.testLaplacian.eq_1
+AUDIT-CONSTANT OQ7Prescribed.bodyAbsorberSlice._proof_1
+AUDIT-THEOREM OQ7Prescribed.bodyAbsorberSlice._proof_1
 AUDIT-CONSTANT OQ7Prescribed.outgoingRadialFirst_sub_static_norm_le._simp_1_6
 AUDIT-THEOREM OQ7Prescribed.outgoingRadialFirst_sub_static_norm_le._simp_1_6
 AUDIT-CONSTANT OQ7Prescribed.remainderPotential_aestronglyMeasurable
@@ -2638,6 +2766,7 @@ AUDIT-CONSTANT OQ7Prescribed.outgoingPotential_eq_cutoff
 AUDIT-THEOREM OQ7Prescribed.outgoingPotential_eq_cutoff
 AUDIT-CONSTANT OQ7Prescribed.newtonCompensated_integrable._simp_1_2
 AUDIT-THEOREM OQ7Prescribed.newtonCompensated_integrable._simp_1_2
+AUDIT-CONSTANT OQ7Prescribed.SusceptibilityInverseData.loss
 AUDIT-CONSTANT OQ7.CoreConstruction.dimensionlessCell._proof_2
 AUDIT-THEOREM OQ7.CoreConstruction.dimensionlessCell._proof_2
 AUDIT-CONSTANT OQ7Prescribed.tensorMap_apply
@@ -2652,6 +2781,8 @@ AUDIT-CONSTANT OQ7.sineSquare_triangleIntegral_capped._simp_1_2
 AUDIT-THEOREM OQ7.sineSquare_triangleIntegral_capped._simp_1_2
 AUDIT-CONSTANT OQ7.partialTransfer_continuous
 AUDIT-THEOREM OQ7.partialTransfer_continuous
+AUDIT-CONSTANT OQ7Prescribed.materialBodySolution_equation
+AUDIT-THEOREM OQ7Prescribed.materialBodySolution_equation
 AUDIT-CONSTANT OQ7.stackElectricField_maxwell
 AUDIT-THEOREM OQ7.stackElectricField_maxwell
 AUDIT-CONSTANT OQ7.transfer_left_boundary
@@ -2717,6 +2848,8 @@ AUDIT-CONSTANT OQ7Prescribed.remainderPotentialComponentDistribution._proof_5
 AUDIT-THEOREM OQ7Prescribed.remainderPotentialComponentDistribution._proof_5
 AUDIT-CONSTANT OQ7Prescribed.domain_compact_closure
 AUDIT-THEOREM OQ7Prescribed.domain_compact_closure
+AUDIT-CONSTANT OQ7Prescribed.bodyCurrentInclusionLinear._proof_3
+AUDIT-THEOREM OQ7Prescribed.bodyCurrentInclusionLinear._proof_3
 AUDIT-CONSTANT OQ7Prescribed.sourceEnergyCutoff.eq_1
 AUDIT-THEOREM OQ7Prescribed.sourceEnergyCutoff.eq_1
 AUDIT-CONSTANT OQ7Prescribed.VectorL2._proof_2
@@ -2734,6 +2867,7 @@ AUDIT-CONSTANT OQ7Prescribed.classicalDyadic_coordinate._simp_1_5
 AUDIT-THEOREM OQ7Prescribed.classicalDyadic_coordinate._simp_1_5
 AUDIT-CONSTANT OQ7.positive_cosine_integral
 AUDIT-THEOREM OQ7.positive_cosine_integral
+AUDIT-CONSTANT OQ7Prescribed.bodyCurrentInclusion
 AUDIT-CONSTANT OQ7.sheetLogVHJacobian_isInvertible
 AUDIT-THEOREM OQ7.sheetLogVHJacobian_isInvertible
 AUDIT-CONSTANT OQ7.fluxDefect
@@ -2761,6 +2895,8 @@ AUDIT-CONSTANT OQ7.CoreConstruction.coreSliceParameter_linearizedCore._simp_1_6
 AUDIT-THEOREM OQ7.CoreConstruction.coreSliceParameter_linearizedCore._simp_1_6
 AUDIT-CONSTANT OQ7.partialTransfer.eq_2
 AUDIT-THEOREM OQ7.partialTransfer.eq_2
+AUDIT-CONSTANT OQ7Prescribed.bodyCurrentPolarization.eq_1
+AUDIT-THEOREM OQ7Prescribed.bodyCurrentPolarization.eq_1
 AUDIT-CONSTANT OQ7Prescribed.CompactPolarization.toSupportedLp._proof_3
 AUDIT-THEOREM OQ7Prescribed.CompactPolarization.toSupportedLp._proof_3
 AUDIT-CONSTANT OQ7Prescribed.remainderPotentialComponentDistribution_dynamic_pairing._simp_1_1
@@ -2770,6 +2906,7 @@ AUDIT-THEOREM OQ7Prescribed.bilinear_complexify_self
 AUDIT-CONSTANT OQ7Prescribed.ScatteringState._sizeOf_inst
 AUDIT-CONSTANT OQ7Prescribed.instNormedAddCommGroupContinuousLinearMapComplexIdVector_3._proof_2
 AUDIT-THEOREM OQ7Prescribed.instNormedAddCommGroupContinuousLinearMapComplexIdVector_3._proof_2
+AUDIT-CONSTANT OQ7Prescribed.bodyIncidentCurrent
 AUDIT-CONSTANT OQ7.sineSquare_triangleIntegral_capped_Ioo._simp_1_2
 AUDIT-THEOREM OQ7.sineSquare_triangleIntegral_capped_Ioo._simp_1_2
 AUDIT-CONSTANT OQ7.ResourceScalar.g
@@ -2798,6 +2935,8 @@ AUDIT-CONSTANT OQ7Prescribed.newtonGradient_contDiffAt
 AUDIT-THEOREM OQ7Prescribed.newtonGradient_contDiffAt
 AUDIT-CONSTANT OQ7.resourceCellU_sum._simp_1_3
 AUDIT-THEOREM OQ7.resourceCellU_sum._simp_1_3
+AUDIT-CONSTANT OQ7Prescribed.supportedConstLinear._proof_4
+AUDIT-THEOREM OQ7Prescribed.supportedConstLinear._proof_4
 AUDIT-CONSTANT OQ7.ResourceFloor.scaled_beta_identity._simp_1_5
 AUDIT-THEOREM OQ7.ResourceFloor.scaled_beta_identity._simp_1_5
 AUDIT-CONSTANT OQ7Prescribed.newtonTempered._proof_2
@@ -2813,6 +2952,7 @@ AUDIT-CONSTANT OQ7Prescribed.newtonCurrentCorrelation_hasLineDerivAt
 AUDIT-THEOREM OQ7Prescribed.newtonCurrentCorrelation_hasLineDerivAt
 AUDIT-CONSTANT OQ7Prescribed.testLaplacian_apply
 AUDIT-THEOREM OQ7Prescribed.testLaplacian_apply
+AUDIT-CONSTANT OQ7Prescribed.SusceptibilityInverseData._sizeOf_inst
 AUDIT-CONSTANT OQ7Prescribed.polarization
 AUDIT-CONSTANT OQ7.ResourceScalar.g_continuous
 AUDIT-THEOREM OQ7.ResourceScalar.g_continuous
@@ -3002,6 +3142,8 @@ AUDIT-CONSTANT OQ7.CoreConstruction.limitingSheet_det
 AUDIT-THEOREM OQ7.CoreConstruction.limitingSheet_det
 AUDIT-CONSTANT OQ7Prescribed.smooth_source_cutoff_energy
 AUDIT-THEOREM OQ7Prescribed.smooth_source_cutoff_energy
+AUDIT-CONSTANT OQ7Prescribed.bodyOutgoingOperator_im_nonneg
+AUDIT-THEOREM OQ7Prescribed.bodyOutgoingOperator_im_nonneg
 AUDIT-CONSTANT OQ7.reciprocal_square_norm_rate._simp_1_6
 AUDIT-THEOREM OQ7.reciprocal_square_norm_rate._simp_1_6
 AUDIT-CONSTANT OQ7.CoreConstruction.dimensionlessCell_quintic_remainder_isBigO
@@ -3015,6 +3157,8 @@ AUDIT-THEOREM OQ7.stackMagneticField_cons
 AUDIT-CONSTANT OQ7.coated_fluxDefect
 AUDIT-THEOREM OQ7.coated_fluxDefect
 AUDIT-CONSTANT OQ7.relativePermittivity
+AUDIT-CONSTANT OQ7Prescribed.supportedConstLinear._proof_9
+AUDIT-THEOREM OQ7Prescribed.supportedConstLinear._proof_9
 AUDIT-CONSTANT OQ7.stackScatteringMagnetic_as_field
 AUDIT-THEOREM OQ7.stackScatteringMagnetic_as_field
 AUDIT-CONSTANT OQ7.CoreConstruction.cubicCoefficient
@@ -3067,6 +3211,7 @@ AUDIT-CONSTANT OQ7Prescribed.incident_plate_rankOne
 AUDIT-THEOREM OQ7Prescribed.incident_plate_rankOne
 AUDIT-CONSTANT OQ7Prescribed.outgoing_classical_hessian
 AUDIT-THEOREM OQ7Prescribed.outgoing_classical_hessian
+AUDIT-CONSTANT OQ7Prescribed.SusceptibilityInverseData.mk.noConfusion
 AUDIT-CONSTANT OQ7Prescribed.distributionLaplacian
 AUDIT-CONSTANT OQ7.stackWeightedField_integrableOn
 AUDIT-THEOREM OQ7.stackWeightedField_integrableOn
@@ -3074,6 +3219,7 @@ AUDIT-CONSTANT OQ7Prescribed.CompactPolarization.toSupportedLp._proof_2
 AUDIT-THEOREM OQ7Prescribed.CompactPolarization.toSupportedLp._proof_2
 AUDIT-CONSTANT OQ7.fieldTransfer_waveBasis
 AUDIT-THEOREM OQ7.fieldTransfer_waveBasis
+AUDIT-CONSTANT OQ7Prescribed.materialBodySolution
 AUDIT-CONSTANT OQ7Prescribed.newtonDirac._proof_5
 AUDIT-THEOREM OQ7Prescribed.newtonDirac._proof_5
 AUDIT-CONSTANT OQ7.stackScatteringWedge._simp_1_7
@@ -3145,6 +3291,8 @@ AUDIT-CONSTANT OQ7.quarterWavePair_loss
 AUDIT-THEOREM OQ7.quarterWavePair_loss
 AUDIT-CONSTANT OQ7Prescribed.newtonContactBoundary_tendsto
 AUDIT-THEOREM OQ7Prescribed.newtonContactBoundary_tendsto
+AUDIT-CONSTANT OQ7Prescribed.supportedSliceLinear._proof_2
+AUDIT-THEOREM OQ7Prescribed.supportedSliceLinear._proof_2
 AUDIT-CONSTANT OQ7Prescribed.fieldComponentDistribution.eq_1
 AUDIT-THEOREM OQ7Prescribed.fieldComponentDistribution.eq_1
 AUDIT-CONSTANT OQ7Prescribed.displaced_kernelMagnetic_norm_decay._simp_1_3
@@ -3188,6 +3336,10 @@ AUDIT-CONSTANT OQ7.stack_transmission_ne_zero
 AUDIT-THEOREM OQ7.stack_transmission_ne_zero
 AUDIT-CONSTANT OQ7Prescribed.outgoingRadialFirst_sub_static._simp_1_1
 AUDIT-THEOREM OQ7Prescribed.outgoingRadialFirst_sub_static._simp_1_1
+AUDIT-CONSTANT OQ7Prescribed.BodyCurrentL2._proof_1
+AUDIT-THEOREM OQ7Prescribed.BodyCurrentL2._proof_1
+AUDIT-CONSTANT OQ7Prescribed.setRestrictionCLM_norm_le
+AUDIT-THEOREM OQ7Prescribed.setRestrictionCLM_norm_le
 AUDIT-CONSTANT OQ7.resourceCell_subset_Ioo
 AUDIT-THEOREM OQ7.resourceCell_subset_Ioo
 AUDIT-CONSTANT OQ7.resourceCellMass.eq_1
@@ -3202,6 +3354,8 @@ AUDIT-CONSTANT OQ7.transfer_boundary_states._simp_1_9
 AUDIT-THEOREM OQ7.transfer_boundary_states._simp_1_9
 AUDIT-CONSTANT OQ7Prescribed.instNormedAddCommGroupContinuousLinearMapComplexIdVector_1._proof_1
 AUDIT-THEOREM OQ7Prescribed.instNormedAddCommGroupContinuousLinearMapComplexIdVector_1._proof_1
+AUDIT-CONSTANT OQ7Prescribed.materialBodyOperator._proof_2
+AUDIT-THEOREM OQ7Prescribed.materialBodyOperator._proof_2
 AUDIT-CONSTANT OQ7Prescribed.scatteringStateOfVolumeEquation._proof_2
 AUDIT-THEOREM OQ7Prescribed.scatteringStateOfVolumeEquation._proof_2
 AUDIT-CONSTANT OQ7Prescribed.incidentElectric_curl
@@ -3251,12 +3405,14 @@ AUDIT-CONSTANT OQ7.CoreConstruction.coreH_upperRight._simp_1_6
 AUDIT-THEOREM OQ7.CoreConstruction.coreH_upperRight._simp_1_6
 AUDIT-CONSTANT OQ7Prescribed.classicalDyadic_coordinate._simp_1_8
 AUDIT-THEOREM OQ7Prescribed.classicalDyadic_coordinate._simp_1_8
+AUDIT-CONSTANT OQ7Prescribed.SusceptibilityInverseData.mk._flat_ctor
 AUDIT-CONSTANT OQ7.ResourceScalar.sin_sq_lower_half._simp_1_5
 AUDIT-THEOREM OQ7.ResourceScalar.sin_sq_lower_half._simp_1_5
 AUDIT-CONSTANT OQ7.fluxDefect_mul_posSemidef
 AUDIT-THEOREM OQ7.fluxDefect_mul_posSemidef
 AUDIT-CONSTANT OQ7Prescribed.CompactPolarization.radius_nonneg
 AUDIT-THEOREM OQ7Prescribed.CompactPolarization.radius_nonneg
+AUDIT-CONSTANT OQ7Prescribed.SusceptibilityInverseData
 AUDIT-CONSTANT OQ7.directedFlux_derivative_algebra
 AUDIT-THEOREM OQ7.directedFlux_derivative_algebra
 AUDIT-CONSTANT OQ7.CoreConstruction.coreSliceParameter_linearizedCore._simp_1_7
@@ -3267,6 +3423,8 @@ AUDIT-CONSTANT OQ7.magneticField_hasDerivAt
 AUDIT-THEOREM OQ7.magneticField_hasDerivAt
 AUDIT-CONSTANT OQ7Prescribed.staticMultiplierLp_add
 AUDIT-THEOREM OQ7Prescribed.staticMultiplierLp_add
+AUDIT-CONSTANT OQ7Prescribed.materialBodyOperator._proof_4
+AUDIT-THEOREM OQ7Prescribed.materialBodyOperator._proof_4
 AUDIT-CONSTANT OQ7Prescribed.newtonFrequencyExterior_memLp._simp_1_3
 AUDIT-THEOREM OQ7Prescribed.newtonFrequencyExterior_memLp._simp_1_3
 AUDIT-CONSTANT OQ7.interfacePositions.eq_def
@@ -3282,6 +3440,10 @@ AUDIT-THEOREM OQ7Prescribed.newton_heat_representation
 AUDIT-CONSTANT OQ7.sineSquare_triangleIntegral_fourier
 AUDIT-THEOREM OQ7.sineSquare_triangleIntegral_fourier
 AUDIT-CONSTANT OQ7Prescribed.bodyDomain
+AUDIT-CONSTANT OQ7Prescribed.SusceptibilityInverseData.mk.injEq
+AUDIT-THEOREM OQ7Prescribed.SusceptibilityInverseData.mk.injEq
+AUDIT-CONSTANT OQ7Prescribed.indicatorL2_norm_le
+AUDIT-THEOREM OQ7Prescribed.indicatorL2_norm_le
 AUDIT-CONSTANT OQ7Prescribed.incidentMagnetic_locallySquareIntegrable
 AUDIT-THEOREM OQ7Prescribed.incidentMagnetic_locallySquareIntegrable
 AUDIT-CONSTANT OQ7.real_exp_tail_bound
@@ -3399,6 +3561,8 @@ AUDIT-CONSTANT OQ7.electricField_hasDerivAt._simp_1_4
 AUDIT-THEOREM OQ7.electricField_hasDerivAt._simp_1_4
 AUDIT-CONSTANT OQ7.absorption_fluxDefect_congruence
 AUDIT-THEOREM OQ7.absorption_fluxDefect_congruence
+AUDIT-CONSTANT OQ7Prescribed.bodyOutgoingOperator._proof_3
+AUDIT-THEOREM OQ7Prescribed.bodyOutgoingOperator._proof_3
 AUDIT-CONSTANT OQ7Prescribed.crossRightMap._proof_1
 AUDIT-THEOREM OQ7Prescribed.crossRightMap._proof_1
 AUDIT-CONSTANT OQ7.CoreConstruction.physicalCoatedCore_loss
@@ -3508,6 +3672,8 @@ AUDIT-CONSTANT OQ7Prescribed.compactStaticOperator_apply_norm_le
 AUDIT-THEOREM OQ7Prescribed.compactStaticOperator_apply_norm_le
 AUDIT-CONSTANT OQ7Prescribed.newtonFrequencyKernel_split
 AUDIT-THEOREM OQ7Prescribed.newtonFrequencyKernel_split
+AUDIT-CONSTANT OQ7Prescribed.bodyCurrentInclusionLinear._proof_10
+AUDIT-THEOREM OQ7Prescribed.bodyCurrentInclusionLinear._proof_10
 AUDIT-CONSTANT OQ7Prescribed.compactTest_component_integrable
 AUDIT-THEOREM OQ7Prescribed.compactTest_component_integrable
 AUDIT-CONSTANT OQ7.theorem45_sequence_lowerlimit
@@ -3567,6 +3733,8 @@ AUDIT-CONSTANT OQ7.layerDirectedFlux_antitone
 AUDIT-THEOREM OQ7.layerDirectedFlux_antitone
 AUDIT-CONSTANT OQ7Prescribed.rotatedAxis.eq_1
 AUDIT-THEOREM OQ7Prescribed.rotatedAxis.eq_1
+AUDIT-CONSTANT OQ7Prescribed.indicatorL2_smul
+AUDIT-THEOREM OQ7Prescribed.indicatorL2_smul
 AUDIT-CONSTANT OQ7.targetSheet_reflection_gap
 AUDIT-THEOREM OQ7.targetSheet_reflection_gap
 AUDIT-CONSTANT OQ7Prescribed.compactOutgoingOperator_norm_le
@@ -3577,6 +3745,8 @@ AUDIT-CONSTANT OQ7.posSemidef_sqrt_det_aggregate_normalized
 AUDIT-THEOREM OQ7.posSemidef_sqrt_det_aggregate_normalized
 AUDIT-CONSTANT OQ7.transfer_boundary_states
 AUDIT-THEOREM OQ7.transfer_boundary_states
+AUDIT-CONSTANT OQ7Prescribed.SusceptibilityInverseData.mk.sizeOf_spec
+AUDIT-THEOREM OQ7Prescribed.SusceptibilityInverseData.mk.sizeOf_spec
 AUDIT-CONSTANT OQ7.HomogeneousLayer.rec
 AUDIT-CONSTANT OQ7.phaseProduct_re._simp_1_2
 AUDIT-THEOREM OQ7.phaseProduct_re._simp_1_2
@@ -3655,6 +3825,7 @@ AUDIT-CONSTANT OQ7Prescribed.polarizationCurrentComponentDistribution_eq_vectorL
 AUDIT-THEOREM OQ7Prescribed.polarizationCurrentComponentDistribution_eq_vectorL2
 AUDIT-CONSTANT OQ7.CoreConstruction.physicalUnmatchedCore_loss._simp_1_6
 AUDIT-THEOREM OQ7.CoreConstruction.physicalUnmatchedCore_loss._simp_1_6
+AUDIT-CONSTANT OQ7Prescribed.SusceptibilityInverseData.casesOn
 AUDIT-CONSTANT OQ7Prescribed.CompactPolarization.mk
 AUDIT-CONSTANT OQ7Prescribed.outgoingPotential_curlCurl
 AUDIT-THEOREM OQ7Prescribed.outgoingPotential_curlCurl
@@ -3686,6 +3857,8 @@ AUDIT-THEOREM OQ7Prescribed.removable_point_test_ibp
 AUDIT-CONSTANT OQ7Prescribed.tensor_quadratic_eq_inner
 AUDIT-THEOREM OQ7Prescribed.tensor_quadratic_eq_inner
 AUDIT-CONSTANT OQ7.Mat2
+AUDIT-CONSTANT OQ7Prescribed.indicatorL2._proof_1
+AUDIT-THEOREM OQ7Prescribed.indicatorL2._proof_1
 AUDIT-CONSTANT OQ7.resource_scaled_full_floor_eventually_lower
 AUDIT-THEOREM OQ7.resource_scaled_full_floor_eventually_lower
 AUDIT-CONSTANT OQ7.layerMagneticField_maxwell
@@ -3770,12 +3943,16 @@ AUDIT-CONSTANT OQ7.CoreConstruction.core_linearFluxVariation_lowerRight._simp_1_
 AUDIT-THEOREM OQ7.CoreConstruction.core_linearFluxVariation_lowerRight._simp_1_6
 AUDIT-CONSTANT OQ7.resourceCellU_bounds._simp_1_6
 AUDIT-THEOREM OQ7.resourceCellU_bounds._simp_1_6
+AUDIT-CONSTANT OQ7Prescribed.SusceptibilityInverseData.forward_eq
+AUDIT-THEOREM OQ7Prescribed.SusceptibilityInverseData.forward_eq
 AUDIT-CONSTANT OQ7Prescribed.outgoingRadialFirst_sub_static_norm_le._simp_1_1
 AUDIT-THEOREM OQ7Prescribed.outgoingRadialFirst_sub_static_norm_le._simp_1_1
 AUDIT-CONSTANT OQ7.unit_smul_transmissionPower
 AUDIT-THEOREM OQ7.unit_smul_transmissionPower
 AUDIT-CONSTANT OQ7.CoreConstruction.coreJ.eq_1
 AUDIT-THEOREM OQ7.CoreConstruction.coreJ.eq_1
+AUDIT-CONSTANT OQ7Prescribed.indicatorL2_coe
+AUDIT-THEOREM OQ7Prescribed.indicatorL2_coe
 AUDIT-CONSTANT OQ7.norm_firstInsertion_quintic_reciprocal_le
 AUDIT-THEOREM OQ7.norm_firstInsertion_quintic_reciprocal_le
 AUDIT-CONSTANT OQ7.ResourceScalar.g_zero
@@ -3806,6 +3983,8 @@ AUDIT-CONSTANT OQ7.losslessDiagonalScale_pow
 AUDIT-THEOREM OQ7.losslessDiagonalScale_pow
 AUDIT-CONSTANT OQ7.positive_cosine_physical_period._simp_1_4
 AUDIT-THEOREM OQ7.positive_cosine_physical_period._simp_1_4
+AUDIT-CONSTANT OQ7Prescribed.admissibleSusceptibilityInverseData._proof_1
+AUDIT-THEOREM OQ7Prescribed.admissibleSusceptibilityInverseData._proof_1
 AUDIT-CONSTANT OQ7Prescribed.ScatteringState.outgoing
 AUDIT-THEOREM OQ7Prescribed.ScatteringState.outgoing
 AUDIT-CONSTANT OQ7.CoreConstruction.dimensionlessCell.eq_1
@@ -3821,6 +4000,8 @@ AUDIT-CONSTANT OQ7Prescribed.newtonContactBoundary_tendsto._simp_1_7
 AUDIT-THEOREM OQ7Prescribed.newtonContactBoundary_tendsto._simp_1_7
 AUDIT-CONSTANT OQ7Prescribed.CompactPolarization.vanish
 AUDIT-THEOREM OQ7Prescribed.CompactPolarization.vanish
+AUDIT-CONSTANT OQ7Prescribed.bodyCurrentInclusionLinear._proof_8
+AUDIT-THEOREM OQ7Prescribed.bodyCurrentInclusionLinear._proof_8
 AUDIT-CONSTANT OQ7.cell_det_lower_of_sineComparison._simp_1_1
 AUDIT-THEOREM OQ7.cell_det_lower_of_sineComparison._simp_1_1
 AUDIT-CONSTANT OQ7Prescribed.vectorL2ComponentDistribution._proof_4
@@ -3880,6 +4061,7 @@ AUDIT-CONSTANT OQ7.ResourceScalar.f_upper
 AUDIT-THEOREM OQ7.ResourceScalar.f_upper
 AUDIT-CONSTANT OQ7.CoreConstruction.matrixUnit21.eq_1
 AUDIT-THEOREM OQ7.CoreConstruction.matrixUnit21.eq_1
+AUDIT-CONSTANT OQ7Prescribed.materialBodyOperator
 AUDIT-CONSTANT OQ7Prescribed.LocallySquareIntegrable
 AUDIT-CONSTANT OQ7.ResourceFloor.halfCellCount
 AUDIT-CONSTANT OQ7.matchedTransferMap_det
@@ -3949,8 +4131,12 @@ AUDIT-CONSTANT OQ7.layerElectricField_helmholtz
 AUDIT-THEOREM OQ7.layerElectricField_helmholtz
 AUDIT-CONSTANT OQ7.CoreConstruction.linearFluxVariation
 AUDIT-CONSTANT OQ7.ModulusComparison.rhoSlope
+AUDIT-CONSTANT OQ7Prescribed.physicalScatteringState_exists
+AUDIT-THEOREM OQ7Prescribed.physicalScatteringState_exists
 AUDIT-CONSTANT OQ7.norm_algebra_exp_le
 AUDIT-THEOREM OQ7.norm_algebra_exp_le
+AUDIT-CONSTANT OQ7Prescribed.supportedSliceLinear._proof_3
+AUDIT-THEOREM OQ7Prescribed.supportedSliceLinear._proof_3
 AUDIT-CONSTANT OQ7Prescribed.exteriorElectric_component_locallyIntegrableOn
 AUDIT-THEOREM OQ7Prescribed.exteriorElectric_component_locallyIntegrableOn
 AUDIT-CONSTANT OQ7Prescribed.locallySquareIntegrable_locallyIntegrable
@@ -4002,11 +4188,14 @@ AUDIT-CONSTANT OQ7.insertionError_zero
 AUDIT-THEOREM OQ7.insertionError_zero
 AUDIT-CONSTANT OQ7Prescribed.polarizationCurrentComponentDistribution._proof_3
 AUDIT-THEOREM OQ7Prescribed.polarizationCurrentComponentDistribution._proof_3
+AUDIT-CONSTANT OQ7Prescribed.supportedConstLinear._proof_3
+AUDIT-THEOREM OQ7Prescribed.supportedConstLinear._proof_3
 AUDIT-CONSTANT OQ7Prescribed.kernelMagnetic
 AUDIT-CONSTANT OQ7Prescribed.currentCorrelation_zero_eq_current_test_integral
 AUDIT-THEOREM OQ7Prescribed.currentCorrelation_zero_eq_current_test_integral
 AUDIT-CONSTANT OQ7.scalarPower_isBigO_of_le._simp_1_1
 AUDIT-THEOREM OQ7.scalarPower_isBigO_of_le._simp_1_1
+AUDIT-CONSTANT OQ7Prescribed.bodyInverseSusceptibility
 AUDIT-CONSTANT OQ7Prescribed.vectorScalarMul._proof_3
 AUDIT-THEOREM OQ7Prescribed.vectorScalarMul._proof_3
 AUDIT-CONSTANT OQ7.physicalFundamentalPair_integrable
@@ -4044,8 +4233,11 @@ AUDIT-CONSTANT OQ7Prescribed.kernelMagnetic_norm_decay._simp_1_5
 AUDIT-THEOREM OQ7Prescribed.kernelMagnetic_norm_decay._simp_1_5
 AUDIT-CONSTANT OQ7Prescribed.dyadicRemainder_cancel._simp_1_7
 AUDIT-THEOREM OQ7Prescribed.dyadicRemainder_cancel._simp_1_7
+AUDIT-CONSTANT OQ7Prescribed.bodyIncidentCurrent._proof_2
+AUDIT-THEOREM OQ7Prescribed.bodyIncidentCurrent._proof_2
 AUDIT-CONSTANT OQ7Prescribed.radialDirection_sub_norm_le_distance._simp_1_7
 AUDIT-THEOREM OQ7Prescribed.radialDirection_sub_norm_le_distance._simp_1_7
+AUDIT-CONSTANT OQ7Prescribed.setRestrictionLinear
 AUDIT-CONSTANT OQ7Prescribed.newtonFrequencyKernel_measurable
 AUDIT-THEOREM OQ7Prescribed.newtonFrequencyKernel_measurable
 AUDIT-CONSTANT OQ7Prescribed.compactRestrictionLinear._proof_3
@@ -4056,6 +4248,8 @@ AUDIT-CONSTANT OQ7.CoreConstruction.coreH_upperRight._simp_1_8
 AUDIT-THEOREM OQ7.CoreConstruction.coreH_upperRight._simp_1_8
 AUDIT-CONSTANT OQ7Prescribed.exteriorCutoff_le_one
 AUDIT-THEOREM OQ7Prescribed.exteriorCutoff_le_one
+AUDIT-CONSTANT OQ7Prescribed.materialBodySolution._proof_1
+AUDIT-THEOREM OQ7Prescribed.materialBodySolution._proof_1
 AUDIT-CONSTANT OQ7.CoreConstruction.physicalUnmatchedCore_loss._simp_1_3
 AUDIT-THEOREM OQ7.CoreConstruction.physicalUnmatchedCore_loss._simp_1_3
 AUDIT-CONSTANT OQ7Prescribed.potentialComponent_helmholtz_apply
@@ -4138,6 +4332,8 @@ AUDIT-CONSTANT OQ7Prescribed.testLaplacian._proof_1
 AUDIT-THEOREM OQ7Prescribed.testLaplacian._proof_1
 AUDIT-CONSTANT OQ7Prescribed.newtonFrequencyTempered._proof_2
 AUDIT-THEOREM OQ7Prescribed.newtonFrequencyTempered._proof_2
+AUDIT-CONSTANT OQ7Prescribed.bodyCurrentPolarization._proof_2
+AUDIT-THEOREM OQ7Prescribed.bodyCurrentPolarization._proof_2
 AUDIT-CONSTANT OQ7.waveTransfer.eq_1
 AUDIT-THEOREM OQ7.waveTransfer.eq_1
 AUDIT-CONSTANT OQ7Prescribed.kernelMagnetic_norm_le._simp_1_5
@@ -4172,6 +4368,8 @@ AUDIT-CONSTANT OQ7Prescribed.newtonContactBoundary_tendsto._simp_1_6
 AUDIT-THEOREM OQ7Prescribed.newtonContactBoundary_tendsto._simp_1_6
 AUDIT-CONSTANT OQ7.active_matrix_deficit._simp_1_5
 AUDIT-THEOREM OQ7.active_matrix_deficit._simp_1_5
+AUDIT-CONSTANT OQ7Prescribed.twoPieceSupportedOperator._proof_3
+AUDIT-THEOREM OQ7Prescribed.twoPieceSupportedOperator._proof_3
 AUDIT-CONSTANT OQ7Prescribed.newton_heat_scalar_integral
 AUDIT-THEOREM OQ7Prescribed.newton_heat_scalar_integral
 AUDIT-CONSTANT OQ7.CoreConstruction.lossGenerator
@@ -4209,6 +4407,8 @@ AUDIT-CONSTANT OQ7.inputFieldStates.eq_1
 AUDIT-THEOREM OQ7.inputFieldStates.eq_1
 AUDIT-CONSTANT OQ7.ScalarEnvelope.scaled_deficit_limit_of_phase._simp_1_5
 AUDIT-THEOREM OQ7.ScalarEnvelope.scaled_deficit_limit_of_phase._simp_1_5
+AUDIT-CONSTANT OQ7Prescribed.twoPieceSupportedOperator_negative_imaginary_bound
+AUDIT-THEOREM OQ7Prescribed.twoPieceSupportedOperator_negative_imaginary_bound
 AUDIT-CONSTANT OQ7.ModulusComparison.rho_hasDerivAt
 AUDIT-THEOREM OQ7.ModulusComparison.rho_hasDerivAt
 AUDIT-CONSTANT OQ7Prescribed.dynamicHessianRemainder_eq_radial._abel_1_2
@@ -4219,6 +4419,12 @@ AUDIT-CONSTANT OQ7Prescribed.curl_real_smul
 AUDIT-THEOREM OQ7Prescribed.curl_real_smul
 AUDIT-CONSTANT OQ7Prescribed.distributionPartial._proof_1
 AUDIT-THEOREM OQ7Prescribed.distributionPartial._proof_1
+AUDIT-CONSTANT OQ7Prescribed.bodyIncident_memLp
+AUDIT-THEOREM OQ7Prescribed.bodyIncident_memLp
+AUDIT-CONSTANT OQ7Prescribed.setRestrictionLinear._proof_3
+AUDIT-THEOREM OQ7Prescribed.setRestrictionLinear._proof_3
+AUDIT-CONSTANT OQ7Prescribed.supportedConstLinear._proof_8
+AUDIT-THEOREM OQ7Prescribed.supportedConstLinear._proof_8
 AUDIT-CONSTANT OQ7.PhysicalParameters.Q
 AUDIT-CONSTANT OQ7Prescribed.newtonHessianKernel
 AUDIT-CONSTANT OQ7Prescribed.outgoingRadialFirst_sub_static
@@ -4442,6 +4648,8 @@ AUDIT-CONSTANT OQ7Prescribed.outgoingRadialFirst_sub_static_norm_le._simp_1_3
 AUDIT-THEOREM OQ7Prescribed.outgoingRadialFirst_sub_static_norm_le._simp_1_3
 AUDIT-CONSTANT OQ7.ResourceScalar.tangent_intercept_nonpos
 AUDIT-THEOREM OQ7.ResourceScalar.tangent_intercept_nonpos
+AUDIT-CONSTANT OQ7Prescribed.setSupportedL2._proof_7
+AUDIT-THEOREM OQ7Prescribed.setSupportedL2._proof_7
 AUDIT-CONSTANT OQ7.physical_signed_transfer_invariant
 AUDIT-THEOREM OQ7.physical_signed_transfer_invariant
 AUDIT-CONSTANT OQ7.CoreConstruction.core_linear_determinant_coefficient._simp_1_4
@@ -4459,6 +4667,8 @@ AUDIT-CONSTANT OQ7Prescribed.outgoingVolumeDistribution.eq_1
 AUDIT-THEOREM OQ7Prescribed.outgoingVolumeDistribution.eq_1
 AUDIT-CONSTANT OQ7Prescribed.polarizationCurrentComponentDistribution_apply
 AUDIT-THEOREM OQ7Prescribed.polarizationCurrentComponentDistribution_apply
+AUDIT-CONSTANT OQ7Prescribed.bodyIncidentCurrent_coe
+AUDIT-THEOREM OQ7Prescribed.bodyIncidentCurrent_coe
 AUDIT-CONSTANT OQ7Prescribed.compactRestrictionLp
 AUDIT-CONSTANT OQ7.magneticField_hasDerivAt._simp_1_4
 AUDIT-THEOREM OQ7.magneticField_hasDerivAt._simp_1_4
@@ -4478,6 +4688,10 @@ AUDIT-CONSTANT OQ7Prescribed.TwoLayerBody.mk._flat_ctor
 AUDIT-CONSTANT OQ7.coatingIndex₂
 AUDIT-CONSTANT OQ7.transferTransmissionLeft_smul
 AUDIT-THEOREM OQ7.transferTransmissionLeft_smul
+AUDIT-CONSTANT OQ7Prescribed.SusceptibilityInverseData.loss_pos
+AUDIT-THEOREM OQ7Prescribed.SusceptibilityInverseData.loss_pos
+AUDIT-CONSTANT OQ7Prescribed.bodyCurrentInclusionLinear._proof_1
+AUDIT-THEOREM OQ7Prescribed.bodyCurrentInclusionLinear._proof_1
 AUDIT-CONSTANT OQ7Prescribed.smoothMagneticSource
 AUDIT-CONSTANT OQ7Prescribed.newtonDirac._proof_2
 AUDIT-THEOREM OQ7Prescribed.newtonDirac._proof_2
@@ -4487,6 +4701,8 @@ AUDIT-CONSTANT OQ7.insertionError.eq_1
 AUDIT-THEOREM OQ7.insertionError.eq_1
 AUDIT-CONSTANT OQ7Prescribed.smoothElectricSource_distribution._abel_1_2
 AUDIT-THEOREM OQ7Prescribed.smoothElectricSource_distribution._abel_1_2
+AUDIT-CONSTANT OQ7Prescribed.setSupportedL2._proof_6
+AUDIT-THEOREM OQ7Prescribed.setSupportedL2._proof_6
 AUDIT-CONSTANT OQ7.ModulusComparison.normalized_radial_identity._simp_1_5
 AUDIT-THEOREM OQ7.ModulusComparison.normalized_radial_identity._simp_1_5
 AUDIT-CONSTANT OQ7.transfer_right_boundary._simp_1_5
@@ -4541,6 +4757,8 @@ AUDIT-CONSTANT OQ7.ResourceScalar.sin_sq_lower_half._simp_1_4
 AUDIT-THEOREM OQ7.ResourceScalar.sin_sq_lower_half._simp_1_4
 AUDIT-CONSTANT OQ7Prescribed.newtonHessianKernel._proof_1
 AUDIT-THEOREM OQ7Prescribed.newtonHessianKernel._proof_1
+AUDIT-CONSTANT OQ7Prescribed.bodyCurrentInclusionLinear._proof_6
+AUDIT-THEOREM OQ7Prescribed.bodyCurrentInclusionLinear._proof_6
 AUDIT-CONSTANT OQ7.maxwellGenerator
 AUDIT-CONSTANT OQ7.signPow_unitPhase
 AUDIT-THEOREM OQ7.signPow_unitPhase
@@ -4582,6 +4800,8 @@ AUDIT-CONSTANT OQ7.matchingMeanAbsorptance.eq_1
 AUDIT-THEOREM OQ7.matchingMeanAbsorptance.eq_1
 AUDIT-CONSTANT OQ7.matrixOperatorNorm_nonneg
 AUDIT-THEOREM OQ7.matrixOperatorNorm_nonneg
+AUDIT-CONSTANT OQ7Prescribed.twoPieceSupportedOperator._proof_2
+AUDIT-THEOREM OQ7Prescribed.twoPieceSupportedOperator._proof_2
 AUDIT-CONSTANT OQ7Prescribed.newtonPVDistribution._proof_1
 AUDIT-THEOREM OQ7Prescribed.newtonPVDistribution._proof_1
 AUDIT-CONSTANT OQ7.norm_firstInsertion_quintic_reciprocal_le._simp_1_4
@@ -4625,6 +4845,7 @@ AUDIT-CONSTANT OQ7Prescribed.supportedVectorL2._proof_2
 AUDIT-THEOREM OQ7Prescribed.supportedVectorL2._proof_2
 AUDIT-CONSTANT OQ7Prescribed.physicalPolarization_vanish
 AUDIT-THEOREM OQ7Prescribed.physicalPolarization_vanish
+AUDIT-CONSTANT OQ7Prescribed.SusceptibilityInverseData.mk
 AUDIT-CONSTANT OQ7Prescribed.shrinkingCutoffPoleError_norm_le._simp_1_8
 AUDIT-THEOREM OQ7Prescribed.shrinkingCutoffPoleError_norm_le._simp_1_8
 AUDIT-CONSTANT OQ7.CoreConstruction.physicalUnmatchedCore_admissible._simp_1_2
@@ -4720,6 +4941,7 @@ AUDIT-CONSTANT OQ7Prescribed.CompactPolarization.mk.injEq
 AUDIT-THEOREM OQ7Prescribed.CompactPolarization.mk.injEq
 AUDIT-CONSTANT OQ7Prescribed.newtonFrequencyLocal
 AUDIT-CONSTANT OQ7Prescribed.planePhase
+AUDIT-CONSTANT OQ7Prescribed.supportedSliceCLM
 AUDIT-CONSTANT OQ7Prescribed.outgoingRadialFirst_hasDerivAt._simp_1_3
 AUDIT-THEOREM OQ7Prescribed.outgoingRadialFirst_hasDerivAt._simp_1_3
 AUDIT-CONSTANT OQ7Prescribed.sphere_test_derivative_continuous
@@ -4776,6 +4998,8 @@ AUDIT-CONSTANT OQ7.transferTransmissionLeft.eq_1
 AUDIT-THEOREM OQ7.transferTransmissionLeft.eq_1
 AUDIT-CONSTANT OQ7Prescribed.kernel_radiation_defect._simp_1_9
 AUDIT-THEOREM OQ7Prescribed.kernel_radiation_defect._simp_1_9
+AUDIT-CONSTANT OQ7Prescribed.setSupportedL2._proof_4
+AUDIT-THEOREM OQ7Prescribed.setSupportedL2._proof_4
 AUDIT-CONSTANT OQ7.stackLossProfile_integrableOn
 AUDIT-THEOREM OQ7.stackLossProfile_integrableOn
 AUDIT-CONSTANT OQ7Prescribed.TwoLayerBody.mk.inj
@@ -4876,6 +5100,8 @@ AUDIT-CONSTANT OQ7Prescribed.dynamicHessianRemainder_locallyIntegrable
 AUDIT-THEOREM OQ7Prescribed.dynamicHessianRemainder_locallyIntegrable
 AUDIT-CONSTANT OQ7Prescribed.incidentMagnetic_curl
 AUDIT-THEOREM OQ7Prescribed.incidentMagnetic_curl
+AUDIT-CONSTANT OQ7Prescribed.bodyOutgoingOperator_coe
+AUDIT-THEOREM OQ7Prescribed.bodyOutgoingOperator_coe
 AUDIT-CONSTANT OQ7.physical_resource_half_lower_Ioo
 AUDIT-THEOREM OQ7.physical_resource_half_lower_Ioo
 AUDIT-CONSTANT OQ7Prescribed.squareNorm_pos
@@ -4913,6 +5139,8 @@ AUDIT-CONSTANT OQ7Prescribed.compactPolarization_current_hasCompactSupport
 AUDIT-THEOREM OQ7Prescribed.compactPolarization_current_hasCompactSupport
 AUDIT-CONSTANT OQ7Prescribed.outgoingVolumeDistribution._proof_2
 AUDIT-THEOREM OQ7Prescribed.outgoingVolumeDistribution._proof_2
+AUDIT-CONSTANT OQ7Prescribed.bodyInverseSusceptibility._proof_2
+AUDIT-THEOREM OQ7Prescribed.bodyInverseSusceptibility._proof_2
 AUDIT-CONSTANT OQ7.stackResourceInvariant.eq_1
 AUDIT-THEOREM OQ7.stackResourceInvariant.eq_1
 AUDIT-CONSTANT OQ7Prescribed.dyadicRemainder_cancel._simp_1_11
@@ -4931,6 +5159,8 @@ AUDIT-THEOREM OQ7Prescribed.CompactPolarization.mk.inj
 AUDIT-CONSTANT OQ7.firstInsertion._f
 AUDIT-CONSTANT OQ7Prescribed.outgoingSourceFields_first_weakCurl
 AUDIT-THEOREM OQ7Prescribed.outgoingSourceFields_first_weakCurl
+AUDIT-CONSTANT OQ7Prescribed.indicatorL2_eq_self_iff
+AUDIT-THEOREM OQ7Prescribed.indicatorL2_eq_self_iff
 AUDIT-CONSTANT OQ7.CoreConstruction.tripleTaylor_low_tail
 AUDIT-THEOREM OQ7.CoreConstruction.tripleTaylor_low_tail
 AUDIT-CONSTANT OQ7.stackLossProfile_intervalIntegrable
@@ -5034,6 +5264,8 @@ AUDIT-CONSTANT OQ7.triangularMatchingTransfer_unitPhase._simp_1_2
 AUDIT-THEOREM OQ7.triangularMatchingTransfer_unitPhase._simp_1_2
 AUDIT-CONSTANT OQ7Prescribed.dynamicHessianRemainder_eq_radial
 AUDIT-THEOREM OQ7Prescribed.dynamicHessianRemainder_eq_radial
+AUDIT-CONSTANT OQ7Prescribed.setSupportedL2._proof_8
+AUDIT-THEOREM OQ7Prescribed.setSupportedL2._proof_8
 AUDIT-CONSTANT OQ7Prescribed.layerPermittivity
 AUDIT-CONSTANT _private.PrescribedExtinction.Maxwell.0.OQ7Prescribed.Direction.sign.match_1.eq_1
 AUDIT-THEOREM _private.PrescribedExtinction.Maxwell.0.OQ7Prescribed.Direction.sign.match_1.eq_1
@@ -5050,6 +5282,8 @@ AUDIT-THEOREM OQ7.sharp_deficit_limit_of_quadratic_rates._simp_1_2
 AUDIT-CONSTANT OQ7Prescribed.bilinear_add_right
 AUDIT-THEOREM OQ7Prescribed.bilinear_add_right
 AUDIT-CONSTANT OQ7.optimalAsymmetry
+AUDIT-CONSTANT OQ7Prescribed.supportedConstCLM_coe
+AUDIT-THEOREM OQ7Prescribed.supportedConstCLM_coe
 AUDIT-CONSTANT OQ7Prescribed.newtonRadialFirst.eq_1
 AUDIT-THEOREM OQ7Prescribed.newtonRadialFirst.eq_1
 AUDIT-CONSTANT OQ7Prescribed.newtonCurrentCorrelation_hasCompactSupport
@@ -5069,6 +5303,8 @@ AUDIT-CONSTANT OQ7Prescribed.currentTestCorrelationVector_coordinate
 AUDIT-THEOREM OQ7Prescribed.currentTestCorrelationVector_coordinate
 AUDIT-CONSTANT OQ7.tendsto_scaled_quartic_remainder._simp_1_2
 AUDIT-THEOREM OQ7.tendsto_scaled_quartic_remainder._simp_1_2
+AUDIT-CONSTANT OQ7Prescribed.supportedConstLinear._proof_2
+AUDIT-THEOREM OQ7Prescribed.supportedConstLinear._proof_2
 AUDIT-CONSTANT OQ7.transfer_absorption_fluxDefect
 AUDIT-THEOREM OQ7.transfer_absorption_fluxDefect
 AUDIT-CONSTANT OQ7.resourceCellMass_sum
@@ -5092,6 +5328,8 @@ AUDIT-CONSTANT OQ7.partialTransfer
 AUDIT-CONSTANT OQ7Prescribed.newtonFrequencyTempered._proof_3
 AUDIT-THEOREM OQ7Prescribed.newtonFrequencyTempered._proof_3
 AUDIT-CONSTANT OQ7.LayerAdmissible
+AUDIT-CONSTANT OQ7Prescribed.bodyIncidentCurrent._proof_7
+AUDIT-THEOREM OQ7Prescribed.bodyIncidentCurrent._proof_7
 AUDIT-CONSTANT OQ7Prescribed.kernel_radiation_defect._simp_1_4
 AUDIT-THEOREM OQ7Prescribed.kernel_radiation_defect._simp_1_4
 AUDIT-CONSTANT OQ7Prescribed.cutoffGreen
@@ -5147,6 +5385,8 @@ AUDIT-CONSTANT OQ7.constructionIndex_fits._simp_1_5
 AUDIT-THEOREM OQ7.constructionIndex_fits._simp_1_5
 AUDIT-CONSTANT OQ7Prescribed.transitionDerivative_hasCompactSupport._simp_1_1
 AUDIT-THEOREM OQ7Prescribed.transitionDerivative_hasCompactSupport._simp_1_1
+AUDIT-CONSTANT OQ7Prescribed.indicatorL2_add
+AUDIT-THEOREM OQ7Prescribed.indicatorL2_add
 AUDIT-CONSTANT OQ7Prescribed.outgoingGreenDistribution_apply
 AUDIT-THEOREM OQ7Prescribed.outgoingGreenDistribution_apply
 AUDIT-CONSTANT OQ7.targetSheet_response
@@ -5167,6 +5407,8 @@ AUDIT-THEOREM OQ7Prescribed.gradientPotential._proof_2
 AUDIT-CONSTANT OQ7Prescribed.vectorConjugate_apply
 AUDIT-THEOREM OQ7Prescribed.vectorConjugate_apply
 AUDIT-CONSTANT OQ7Prescribed.VectorDistribution
+AUDIT-CONSTANT OQ7Prescribed.bodyCurrentPolarization._proof_1
+AUDIT-THEOREM OQ7Prescribed.bodyCurrentPolarization._proof_1
 AUDIT-CONSTANT OQ7.quarterWaveLayer._proof_1
 AUDIT-THEOREM OQ7.quarterWaveLayer._proof_1
 AUDIT-CONSTANT OQ7Prescribed.sourceEnergyCutoff_current_work
@@ -5306,6 +5548,8 @@ AUDIT-THEOREM OQ7.active_matrix_strict_gap
 AUDIT-CONSTANT OQ7Prescribed.ScatteringState.noConfusionType
 AUDIT-CONSTANT OQ7.electricField_state_coordinate._simp_1_2
 AUDIT-THEOREM OQ7.electricField_state_coordinate._simp_1_2
+AUDIT-CONSTANT OQ7Prescribed.materialBodyEquiv_apply
+AUDIT-THEOREM OQ7Prescribed.materialBodyEquiv_apply
 AUDIT-CONSTANT OQ7Prescribed.outgoingGreenDistribution._proof_1
 AUDIT-THEOREM OQ7Prescribed.outgoingGreenDistribution._proof_1
 AUDIT-CONSTANT OQ7.HomogeneousLayer._sizeOf_inst
@@ -5319,12 +5563,15 @@ AUDIT-CONSTANT OQ7Prescribed.currentDyadicTestPairing.eq_1
 AUDIT-THEOREM OQ7Prescribed.currentDyadicTestPairing.eq_1
 AUDIT-CONSTANT OQ7.sineSquare_triangleIntegral_capped._simp_1_5
 AUDIT-THEOREM OQ7.sineSquare_triangleIntegral_capped._simp_1_5
+AUDIT-CONSTANT OQ7Prescribed.bodyIncidentCurrent._proof_8
+AUDIT-THEOREM OQ7Prescribed.bodyIncidentCurrent._proof_8
 AUDIT-CONSTANT OQ7.CoreConstruction.cellFourthCoefficient.eq_1
 AUDIT-THEOREM OQ7.CoreConstruction.cellFourthCoefficient.eq_1
 AUDIT-CONSTANT OQ7.matrixElectricWedge_normSq._simp_1_2
 AUDIT-THEOREM OQ7.matrixElectricWedge_normSq._simp_1_2
 AUDIT-CONSTANT OQ7.repeatPhysicalLayers.eq_1
 AUDIT-THEOREM OQ7.repeatPhysicalLayers.eq_1
+AUDIT-CONSTANT OQ7Prescribed.SetSupportedL2
 AUDIT-CONSTANT OQ7.quarterWavePair_thickness._simp_1_4
 AUDIT-THEOREM OQ7.quarterWavePair_thickness._simp_1_4
 AUDIT-CONSTANT OQ7Prescribed.newtonTemperedHessian_fourier_eq
@@ -5335,6 +5582,7 @@ AUDIT-CONSTANT OQ7Prescribed.sourceEnergyCutoff_contDiff
 AUDIT-THEOREM OQ7Prescribed.sourceEnergyCutoff_contDiff
 AUDIT-CONSTANT OQ7Prescribed.exteriorElectric_norm_le
 AUDIT-THEOREM OQ7Prescribed.exteriorElectric_norm_le
+AUDIT-CONSTANT OQ7Prescribed.bodyAbsorberSlice
 AUDIT-CONSTANT OQ7Prescribed.newtonTemperedHessian_fourier
 AUDIT-THEOREM OQ7Prescribed.newtonTemperedHessian_fourier
 AUDIT-CONSTANT OQ7Prescribed.crossRightMap
@@ -5436,10 +5684,14 @@ AUDIT-THEOREM OQ7.resourceCellU_bounds._simp_1_4
 AUDIT-CONSTANT OQ7.tendsto_scaled_quartic_remainder._simp_1_5
 AUDIT-THEOREM OQ7.tendsto_scaled_quartic_remainder._simp_1_5
 AUDIT-CONSTANT OQ7.CoreConstruction.coreJ
+AUDIT-CONSTANT OQ7Prescribed.bodyCurrentInclusionLinear._proof_13
+AUDIT-THEOREM OQ7Prescribed.bodyCurrentInclusionLinear._proof_13
 AUDIT-CONSTANT OQ7.stackAbsorption_physicalGramDeterminant
 AUDIT-THEOREM OQ7.stackAbsorption_physicalGramDeterminant
 AUDIT-CONSTANT OQ7.stackElectricField.eq_1
 AUDIT-THEOREM OQ7.stackElectricField.eq_1
+AUDIT-CONSTANT OQ7Prescribed.bodyInverseSusceptibility._proof_1
+AUDIT-THEOREM OQ7Prescribed.bodyInverseSusceptibility._proof_1
 AUDIT-CONSTANT OQ7Prescribed.basisC
 AUDIT-CONSTANT OQ7.norm_insertionError_quartic._simp_1_5
 AUDIT-THEOREM OQ7.norm_insertionError_quartic._simp_1_5
@@ -5510,16 +5762,22 @@ AUDIT-CONSTANT OQ7.ResourceFloor.cellCount_lower
 AUDIT-THEOREM OQ7.ResourceFloor.cellCount_lower
 AUDIT-CONSTANT OQ7Prescribed.complexify.eq_1
 AUDIT-THEOREM OQ7Prescribed.complexify.eq_1
+AUDIT-CONSTANT OQ7Prescribed.materialBodyOperator._proof_3
+AUDIT-THEOREM OQ7Prescribed.materialBodyOperator._proof_3
 AUDIT-CONSTANT OQ7Prescribed.complexRealTest
 AUDIT-CONSTANT OQ7Prescribed.sphereDirection_unit
 AUDIT-THEOREM OQ7Prescribed.sphereDirection_unit
 AUDIT-CONSTANT OQ7.meanAbsorptance
+AUDIT-CONSTANT OQ7Prescribed.SusceptibilityInverseData.mk.inj
+AUDIT-THEOREM OQ7Prescribed.SusceptibilityInverseData.mk.inj
 AUDIT-CONSTANT OQ7.stackMagneticField.eq_1
 AUDIT-THEOREM OQ7.stackMagneticField.eq_1
 AUDIT-CONSTANT OQ7.CoreConstruction.core_linear_determinant_coefficient._simp_1_5
 AUDIT-THEOREM OQ7.CoreConstruction.core_linear_determinant_coefficient._simp_1_5
 AUDIT-CONSTANT OQ7Prescribed.staticFourierOperator_norm_le
 AUDIT-THEOREM OQ7Prescribed.staticFourierOperator_norm_le
+AUDIT-CONSTANT OQ7Prescribed.setRestrictionLinear._proof_1
+AUDIT-THEOREM OQ7Prescribed.setRestrictionLinear._proof_1
 AUDIT-CONSTANT OQ7Prescribed.susceptibility_quadratic_im
 AUDIT-THEOREM OQ7Prescribed.susceptibility_quadratic_im
 AUDIT-CONSTANT OQ7.absorption_boundary_flux
@@ -5541,8 +5799,13 @@ AUDIT-CONSTANT OQ7Prescribed.kernel_radiation_defect_norm_le._simp_1_6
 AUDIT-THEOREM OQ7Prescribed.kernel_radiation_defect_norm_le._simp_1_6
 AUDIT-CONSTANT OQ7Prescribed.admissible_susceptibility_imaginary_coercive
 AUDIT-THEOREM OQ7Prescribed.admissible_susceptibility_imaginary_coercive
+AUDIT-CONSTANT OQ7Prescribed.bodyCurrentInclusionLinear
+AUDIT-CONSTANT OQ7Prescribed.bodyCurrentInclusionLinear._proof_9
+AUDIT-THEOREM OQ7Prescribed.bodyCurrentInclusionLinear._proof_9
 AUDIT-CONSTANT OQ7.CoreConstruction.actual_repeatedCore_operatorNorm_tendsto
 AUDIT-THEOREM OQ7.CoreConstruction.actual_repeatedCore_operatorNorm_tendsto
+AUDIT-CONSTANT OQ7Prescribed.supportedConstLinear._proof_5
+AUDIT-THEOREM OQ7Prescribed.supportedConstLinear._proof_5
 AUDIT-CONSTANT OQ7Prescribed.dyadicRemainder_cancel._simp_1_5
 AUDIT-THEOREM OQ7Prescribed.dyadicRemainder_cancel._simp_1_5
 AUDIT-CONSTANT OQ7.electricField_hasDerivAt._simp_1_1
@@ -5606,10 +5869,14 @@ AUDIT-CONSTANT OQ7Prescribed.smoothElectricSource_curl
 AUDIT-THEOREM OQ7Prescribed.smoothElectricSource_curl
 AUDIT-CONSTANT OQ7.stack_absorption_det_ratio
 AUDIT-THEOREM OQ7.stack_absorption_det_ratio
+AUDIT-CONSTANT OQ7Prescribed.materialBodyOperator._proof_1
+AUDIT-THEOREM OQ7Prescribed.materialBodyOperator._proof_1
 AUDIT-CONSTANT OQ7.ScalarEnvelope.D0
 AUDIT-CONSTANT OQ7Prescribed.compactRestrictionLinear._proof_4
 AUDIT-THEOREM OQ7Prescribed.compactRestrictionLinear._proof_4
 AUDIT-CONSTANT OQ7Prescribed.sourceEnergyCutoff
+AUDIT-CONSTANT OQ7Prescribed.supportedConstCLM._proof_1
+AUDIT-THEOREM OQ7Prescribed.supportedConstCLM._proof_1
 AUDIT-CONSTANT OQ7Prescribed.kernel_radiation_defect_norm_le._simp_1_2
 AUDIT-THEOREM OQ7Prescribed.kernel_radiation_defect_norm_le._simp_1_2
 AUDIT-CONSTANT OQ7.scalarPower_smul_continuous_isBigO
@@ -5629,6 +5896,8 @@ AUDIT-THEOREM OQ7Prescribed.kernel_radiation_defect._simp_1_6
 AUDIT-CONSTANT OQ7Prescribed.staticMultiplierLinear._proof_2
 AUDIT-THEOREM OQ7Prescribed.staticMultiplierLinear._proof_2
 AUDIT-CONSTANT OQ7.stackReflectionRight
+AUDIT-CONSTANT OQ7Prescribed.setSupportedL2._proof_1
+AUDIT-THEOREM OQ7Prescribed.setSupportedL2._proof_1
 AUDIT-CONSTANT OQ7Prescribed.transitionDerivative_hasCompactSupport
 AUDIT-THEOREM OQ7Prescribed.transitionDerivative_hasCompactSupport
 AUDIT-CONSTANT OQ7Prescribed.susceptibility_zero_outside
@@ -5652,6 +5921,7 @@ AUDIT-THEOREM OQ7.active_matrix_deficit._simp_1_4
 AUDIT-CONSTANT OQ7Prescribed.newtonHeatKernel._proof_2
 AUDIT-THEOREM OQ7Prescribed.newtonHeatKernel._proof_2
 AUDIT-CONSTANT OQ7.resourceAsymptoticCoefficient
+AUDIT-CONSTANT OQ7Prescribed.indicatorL2
 AUDIT-CONSTANT OQ7Prescribed.outgoingGradient.eq_1
 AUDIT-THEOREM OQ7Prescribed.outgoingGradient.eq_1
 AUDIT-CONSTANT OQ7Prescribed.exteriorCutoffPartial_mul_continuous
@@ -5674,6 +5944,8 @@ AUDIT-CONSTANT OQ7.ResourceScalar.H_continuous
 AUDIT-THEOREM OQ7.ResourceScalar.H_continuous
 AUDIT-CONSTANT OQ7Prescribed.kernel_radiation_defect_norm_le._simp_1_3
 AUDIT-THEOREM OQ7Prescribed.kernel_radiation_defect_norm_le._simp_1_3
+AUDIT-CONSTANT OQ7Prescribed.bodyCurrentInclusionLinear._proof_15
+AUDIT-THEOREM OQ7Prescribed.bodyCurrentInclusionLinear._proof_15
 AUDIT-CONSTANT OQ7Prescribed.dynamicScalarRemainder_eq_cancel._simp_1_4
 AUDIT-THEOREM OQ7Prescribed.dynamicScalarRemainder_eq_cancel._simp_1_4
 AUDIT-CONSTANT OQ7.stackAbsorption_eq_deposited
@@ -5694,6 +5966,7 @@ AUDIT-CONSTANT OQ7Prescribed.outgoingRadial_helmholtz._simp_1_7
 AUDIT-THEOREM OQ7Prescribed.outgoingRadial_helmholtz._simp_1_7
 AUDIT-CONSTANT OQ7.ResourceScalar.g_tangent_full
 AUDIT-THEOREM OQ7.ResourceScalar.g_tangent_full
+AUDIT-CONSTANT OQ7Prescribed.supportedSliceLinear
 AUDIT-CONSTANT OQ7Prescribed.supportedVectorL2._proof_5
 AUDIT-THEOREM OQ7Prescribed.supportedVectorL2._proof_5
 AUDIT-CONSTANT OQ7.fourierMoment_normSq_coordinates
@@ -5723,11 +5996,15 @@ AUDIT-CONSTANT OQ7.ResourceScalar.numerator_lower_small
 AUDIT-THEOREM OQ7.ResourceScalar.numerator_lower_small
 AUDIT-CONSTANT OQ7Prescribed.newton_inner_contact_normal._simp_1_6
 AUDIT-THEOREM OQ7Prescribed.newton_inner_contact_normal._simp_1_6
+AUDIT-CONSTANT OQ7Prescribed.bodyCurrentInclusionLinear._proof_5
+AUDIT-THEOREM OQ7Prescribed.bodyCurrentInclusionLinear._proof_5
 AUDIT-CONSTANT OQ7.resourceCellPoint_le_next
 AUDIT-THEOREM OQ7.resourceCellPoint_le_next
 AUDIT-CONSTANT OQ7.absorption_fluxDefect_ratio._simp_1_1
 AUDIT-THEOREM OQ7.absorption_fluxDefect_ratio._simp_1_1
 AUDIT-CONSTANT OQ7Prescribed.distributionDivergence
+AUDIT-CONSTANT OQ7Prescribed.supportedSliceLinear._proof_5
+AUDIT-THEOREM OQ7Prescribed.supportedSliceLinear._proof_5
 AUDIT-CONSTANT OQ7.norm_one_add_reciprocal_smul_add_le
 AUDIT-THEOREM OQ7.norm_one_add_reciprocal_smul_add_le
 AUDIT-CONSTANT OQ7Prescribed.rankOne.eq_1
@@ -5741,6 +6018,8 @@ AUDIT-THEOREM OQ7.hasDerivAt_if_le
 AUDIT-CONSTANT OQ7Prescribed.sourceEnergyWeight_continuous
 AUDIT-THEOREM OQ7Prescribed.sourceEnergyWeight_continuous
 AUDIT-CONSTANT OQ7Prescribed.Vector
+AUDIT-CONSTANT OQ7Prescribed.bodyCurrentPolarization._simp_2
+AUDIT-THEOREM OQ7Prescribed.bodyCurrentPolarization._simp_2
 AUDIT-CONSTANT OQ7.stackScatteringGramPairKernel
 AUDIT-THEOREM OQ7.stackScatteringGramPairKernel
 AUDIT-CONSTANT OQ7.stackRealProfile.eq_2
@@ -5814,6 +6093,7 @@ AUDIT-CONSTANT OQ7.insertionError_succ._abel_1_5
 AUDIT-THEOREM OQ7.insertionError_succ._abel_1_5
 AUDIT-CONSTANT OQ7.physical_resource_half_lower_finitePhysical_Ioo
 AUDIT-THEOREM OQ7.physical_resource_half_lower_finitePhysical_Ioo
+AUDIT-CONSTANT OQ7Prescribed.twoPieceSupportedOperator
 AUDIT-CONSTANT OQ7.ScalarEnvelope.scalar_deficit
 AUDIT-THEOREM OQ7.ScalarEnvelope.scalar_deficit
 AUDIT-CONSTANT OQ7.beta_eq_squared_scalar
@@ -5822,6 +6102,8 @@ AUDIT-CONSTANT OQ7.CoreConstruction.physicalUnmatchedCore_thickness._simp_1_6
 AUDIT-THEOREM OQ7.CoreConstruction.physicalUnmatchedCore_thickness._simp_1_6
 AUDIT-CONSTANT OQ7Prescribed.dynamicScalarRemainder_norm_le
 AUDIT-THEOREM OQ7Prescribed.dynamicScalarRemainder_norm_le
+AUDIT-CONSTANT OQ7Prescribed.bodyIncidentCurrent._proof_4
+AUDIT-THEOREM OQ7Prescribed.bodyIncidentCurrent._proof_4
 AUDIT-CONSTANT OQ7Prescribed.compactField_bilinear_integrable
 AUDIT-THEOREM OQ7Prescribed.compactField_bilinear_integrable
 AUDIT-CONSTANT OQ7.physical_sequence_scaled_limit._simp_1_5

@@ -50,7 +50,42 @@ OQ7Prescribed.bilinear_real_smul_right : ∀ (u v : OQ7Prescribed.Vector) (r : �
   OQ7Prescribed.bilinear u (r • v) = ↑r * OQ7Prescribed.bilinear u v
 OQ7Prescribed.bilinear_vectorConjugate_right : ∀ (u v : OQ7Prescribed.Vector),
   OQ7Prescribed.bilinear u (OQ7Prescribed.vectorConjugate v) = OQ7Prescribed.pairing v u
+OQ7Prescribed.bodyAbsorberSlice_measurable : ∀ (B : OQ7Prescribed.TwoLayerBody),
+  MeasurableSet (OQ7Prescribed.bodyAbsorberSlice B)
+OQ7Prescribed.bodyCurrentPolarization_current_ae : ∀ (B : OQ7Prescribed.TwoLayerBody)
+  (f : ↥(OQ7Prescribed.BodyCurrentL2 B)),
+  (OQ7Prescribed.bodyCurrentPolarization B f).current =ᵐ[MeasureTheory.volume] ↑↑↑f
 OQ7Prescribed.bodyDomain_isOpen : ∀ (B : OQ7Prescribed.TwoLayerBody), IsOpen B.domain
+OQ7Prescribed.bodyIncident_memLp : ∀ (k : ℝ) (B : OQ7Prescribed.TwoLayerBody) (σ : OQ7Prescribed.Direction),
+  MeasureTheory.MemLp (B.domain.indicator (OQ7Prescribed.incidentElectric k σ)) 2 MeasureTheory.volume
+OQ7Prescribed.bodyIncidentCurrent_coe : ∀ (k : ℝ) (B : OQ7Prescribed.TwoLayerBody) (σ : OQ7Prescribed.Direction),
+  ↑↑↑(OQ7Prescribed.bodyIncidentCurrent k B σ) =ᵐ[MeasureTheory.volume]
+    B.domain.indicator (OQ7Prescribed.incidentElectric k σ)
+OQ7Prescribed.bodyInverseSusceptibility_coe : ∀ (B : OQ7Prescribed.TwoLayerBody)
+  (a : OQ7Prescribed.SusceptibilityInverseData B.absorberPermittivity)
+  (b : OQ7Prescribed.SusceptibilityInverseData B.platePermittivity) (f : ↥(OQ7Prescribed.BodyCurrentL2 B)),
+  ↑↑↑((OQ7Prescribed.bodyInverseSusceptibility B a b) f) =ᵐ[MeasureTheory.volume] fun x =>
+    if x.ofLp 2 < B.absorberThickness then a.inverse.symm (↑↑↑f x) else b.inverse.symm (↑↑↑f x)
+OQ7Prescribed.bodyInverseSusceptibility_negative_imaginary_bound : ∀ (B : OQ7Prescribed.TwoLayerBody)
+  (a : OQ7Prescribed.SusceptibilityInverseData B.absorberPermittivity)
+  (b : OQ7Prescribed.SusceptibilityInverseData B.platePermittivity) (f : ↥(OQ7Prescribed.BodyCurrentL2 B)),
+  OQ7Prescribed.materialBodyCoercivity B a b * ‖f‖ ^ 2 ≤
+    -(inner ℂ f ((OQ7Prescribed.bodyInverseSusceptibility B a b) f)).im
+OQ7Prescribed.bodyOutgoingOperator_coe : ∀ (k : ℝ) (B : OQ7Prescribed.TwoLayerBody)
+  (f : ↥(OQ7Prescribed.BodyCurrentL2 B)),
+  ↑↑↑((OQ7Prescribed.bodyOutgoingOperator k B) f) =ᵐ[MeasureTheory.volume]
+    B.domain.indicator (OQ7Prescribed.electricVolumeField k (OQ7Prescribed.bodyCurrentPolarization B f))
+OQ7Prescribed.bodyOutgoingOperator_im_nonneg : ∀ (k : ℝ),
+  0 < k →
+    ∀ (B : OQ7Prescribed.TwoLayerBody) (f : ↥(OQ7Prescribed.BodyCurrentL2 B)),
+      0 ≤ (inner ℂ f ((OQ7Prescribed.bodyOutgoingOperator k B) f)).im
+OQ7Prescribed.bodyOutgoingOperator_inner : ∀ (k : ℝ) (B : OQ7Prescribed.TwoLayerBody)
+  (f : ↥(OQ7Prescribed.BodyCurrentL2 B)),
+  inner ℂ f ((OQ7Prescribed.bodyOutgoingOperator k B) f) =
+    inner ℂ ((OQ7Prescribed.bodyCurrentInclusion B) f)
+      ((OQ7Prescribed.compactOutgoingOperator k (OQ7Prescribed.bodySupportRadius B) ⋯)
+        ((OQ7Prescribed.bodyCurrentInclusion B) f))
+OQ7Prescribed.bodySupportRadius_nonneg : ∀ (B : OQ7Prescribed.TwoLayerBody), 0 ≤ OQ7Prescribed.bodySupportRadius B
 OQ7Prescribed.classicalDyadic_coordinate : ∀ (k : ℝ) (x : OQ7Prescribed.Position),
   x ≠ 0 →
     ∀ (i j : Fin 3),
@@ -874,6 +909,29 @@ OQ7Prescribed.incidentMagnetic_locallySquareIntegrable : ∀ (k : ℝ) (σ : OQ7
 OQ7Prescribed.incidentMagnetic_second_weakCurl : ∀ (k : ℝ) (σ : OQ7Prescribed.Direction),
   OQ7Prescribed.HasWeakCurl (OQ7Prescribed.incidentMagnetic k σ) fun x =>
     (-Complex.I * ↑k) • OQ7Prescribed.incidentElectric k σ x
+@OQ7Prescribed.indicatorL2_add : ∀ {α : Type u_1} {E : Type u_2} [inst : MeasurableSpace α]
+  [inst_1 : NormedAddCommGroup E] [InnerProductSpace ℂ E] [CompleteSpace E] (μ : MeasureTheory.Measure α) (s : Set α)
+  (hs : MeasurableSet s) (f g : ↥(MeasureTheory.Lp E 2 μ)),
+  OQ7Prescribed.indicatorL2 μ s hs (f + g) = OQ7Prescribed.indicatorL2 μ s hs f + OQ7Prescribed.indicatorL2 μ s hs g
+@OQ7Prescribed.indicatorL2_coe : ∀ {α : Type u_1} {E : Type u_2} [inst : MeasurableSpace α]
+  [inst_1 : NormedAddCommGroup E] [InnerProductSpace ℂ E] [CompleteSpace E] (μ : MeasureTheory.Measure α) (s : Set α)
+  (hs : MeasurableSet s) (f : ↥(MeasureTheory.Lp E 2 μ)),
+  ↑↑(OQ7Prescribed.indicatorL2 μ s hs f) =ᵐ[μ] s.indicator fun x => ↑↑f x
+@OQ7Prescribed.indicatorL2_eq_self_iff : ∀ {α : Type u_1} {E : Type u_2} [inst : MeasurableSpace α]
+  [inst_1 : NormedAddCommGroup E] [inst_2 : InnerProductSpace ℂ E] [CompleteSpace E] (μ : MeasureTheory.Measure α)
+  (s : Set α) (hs : MeasurableSet s) (f : ↥(MeasureTheory.Lp E 2 μ)),
+  OQ7Prescribed.indicatorL2 μ s hs f = f ↔ f ∈ OQ7Prescribed.setSupportedL2 μ s
+@OQ7Prescribed.indicatorL2_norm_le : ∀ {α : Type u_1} {E : Type u_2} [inst : MeasurableSpace α]
+  [inst_1 : NormedAddCommGroup E] [InnerProductSpace ℂ E] [CompleteSpace E] (μ : MeasureTheory.Measure α) (s : Set α)
+  (hs : MeasurableSet s) (f : ↥(MeasureTheory.Lp E 2 μ)), ‖OQ7Prescribed.indicatorL2 μ s hs f‖ ≤ ‖f‖
+@OQ7Prescribed.indicatorL2_smul : ∀ {α : Type u_1} {E : Type u_2} [inst : MeasurableSpace α]
+  [inst_1 : NormedAddCommGroup E] [inst_2 : InnerProductSpace ℂ E] [CompleteSpace E] (μ : MeasureTheory.Measure α)
+  (s : Set α) (hs : MeasurableSet s) (z : ℂ) (f : ↥(MeasureTheory.Lp E 2 μ)),
+  OQ7Prescribed.indicatorL2 μ s hs (z • f) = z • OQ7Prescribed.indicatorL2 μ s hs f
+@OQ7Prescribed.indicatorL2_supported : ∀ {α : Type u_1} {E : Type u_2} [inst : MeasurableSpace α]
+  [inst_1 : NormedAddCommGroup E] [inst_2 : InnerProductSpace ℂ E] [CompleteSpace E] (μ : MeasureTheory.Measure α)
+  (s : Set α) (hs : MeasurableSet s) (f : ↥(MeasureTheory.Lp E 2 μ)),
+  OQ7Prescribed.indicatorL2 μ s hs f ∈ OQ7Prescribed.setSupportedL2 μ s
 OQ7Prescribed.integrable_polar_actual : ∀ (f : OQ7Prescribed.Position → ℝ),
   MeasureTheory.Integrable f MeasureTheory.volume →
     MeasureTheory.Integrable (fun p => f (↑p.2 • ↑p.1))
@@ -950,6 +1008,37 @@ OQ7Prescribed.magneticVolumeField_distribution : ∀ (k : ℝ) (p : OQ7Prescribe
     OQ7Prescribed.outgoingMagneticDistribution k p i
 OQ7Prescribed.magneticVolumeField_locallySquareIntegrable : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization),
   OQ7Prescribed.LocallySquareIntegrable (OQ7Prescribed.magneticVolumeField k p)
+OQ7Prescribed.materialBodyCoercivity_pos : ∀ (B : OQ7Prescribed.TwoLayerBody)
+  (a : OQ7Prescribed.SusceptibilityInverseData B.absorberPermittivity)
+  (b : OQ7Prescribed.SusceptibilityInverseData B.platePermittivity), 0 < OQ7Prescribed.materialBodyCoercivity B a b
+OQ7Prescribed.materialBodyEquiv_apply : ∀ (k : ℝ) (hk : 0 < k) (B : OQ7Prescribed.TwoLayerBody)
+  (a : OQ7Prescribed.SusceptibilityInverseData B.absorberPermittivity)
+  (b : OQ7Prescribed.SusceptibilityInverseData B.platePermittivity) (f : ↥(OQ7Prescribed.BodyCurrentL2 B)),
+  (OQ7Prescribed.materialBodyEquiv k hk B a b) f = (OQ7Prescribed.materialBodyOperator k B a b) f
+OQ7Prescribed.materialBodyEquiv_inverse_norm_le : ∀ (k : ℝ) (hk : 0 < k) (B : OQ7Prescribed.TwoLayerBody)
+  (a : OQ7Prescribed.SusceptibilityInverseData B.absorberPermittivity)
+  (b : OQ7Prescribed.SusceptibilityInverseData B.platePermittivity),
+  ‖↑(OQ7Prescribed.materialBodyEquiv k hk B a b).symm‖ ≤ 1 / min a.loss b.loss
+OQ7Prescribed.materialBodyOperator_imaginary_coercive : ∀ (k : ℝ),
+  0 < k →
+    ∀ (B : OQ7Prescribed.TwoLayerBody) (a : OQ7Prescribed.SusceptibilityInverseData B.absorberPermittivity)
+      (b : OQ7Prescribed.SusceptibilityInverseData B.platePermittivity) (f : ↥(OQ7Prescribed.BodyCurrentL2 B)),
+      OQ7Prescribed.materialBodyCoercivity B a b * ‖f‖ ^ 2 ≤
+        (inner ℂ f ((OQ7Prescribed.materialBodyOperator k B a b) f)).im
+OQ7Prescribed.materialBodySolution_equation : ∀ (k : ℝ) (hk : 0 < k) (B : OQ7Prescribed.TwoLayerBody)
+  (σ : OQ7Prescribed.Direction) (a : OQ7Prescribed.SusceptibilityInverseData B.absorberPermittivity)
+  (b : OQ7Prescribed.SusceptibilityInverseData B.platePermittivity),
+  (OQ7Prescribed.materialBodyOperator k B a b) (OQ7Prescribed.materialBodySolution k hk B σ a b) =
+    -OQ7Prescribed.bodyIncidentCurrent k B σ
+OQ7Prescribed.materialBodySolution_physicalVolumeEquation : ∀ (k : ℝ) (hk : 0 < k) (B : OQ7Prescribed.TwoLayerBody)
+  (σ : OQ7Prescribed.Direction) (a : OQ7Prescribed.SusceptibilityInverseData B.absorberPermittivity)
+  (b : OQ7Prescribed.SusceptibilityInverseData B.platePermittivity),
+  OQ7Prescribed.MaterialVolumeEquation k B σ
+    (OQ7Prescribed.bodyCurrentPolarization B (OQ7Prescribed.materialBodySolution k hk B σ a b))
+OQ7Prescribed.materialVolumeEquation_exists : ∀ (k : ℝ),
+  0 < k →
+    ∀ (P Q : ℝ) (B : OQ7Prescribed.TwoLayerBody),
+      B.admissible P Q → ∀ (σ : OQ7Prescribed.Direction), ∃ p, OQ7Prescribed.MaterialVolumeEquation k B σ p
 OQ7Prescribed.newton_classical_hessian : ∀ (x : OQ7Prescribed.Position),
   x ≠ 0 →
     ∀ (i j : Fin 3),
@@ -1609,6 +1698,10 @@ OQ7Prescribed.physicalPolarization_memLp : ∀ (B : OQ7Prescribed.TwoLayerBody) 
 OQ7Prescribed.physicalPolarization_vanish : ∀ (B : OQ7Prescribed.TwoLayerBody) (E : OQ7Prescribed.Field)
   (x : OQ7Prescribed.Position),
   B.aperture + B.absorberThickness + B.plateThickness < ‖x‖ → OQ7Prescribed.polarization B E x = 0
+OQ7Prescribed.physicalScatteringState_exists : ∀ (k : ℝ),
+  0 < k →
+    ∀ (P Q : ℝ) (B : OQ7Prescribed.TwoLayerBody),
+      B.admissible P Q → ∀ (σ : OQ7Prescribed.Direction), Nonempty (OQ7Prescribed.ScatteringState k B σ)
 OQ7Prescribed.physicalSourceFields_first_curl : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization),
   OQ7Prescribed.distributionCurl (OQ7Prescribed.fieldComponentDistribution (OQ7Prescribed.electricVolumeField k p)) =
     (Complex.I * ↑k) • OQ7Prescribed.fieldComponentDistribution (OQ7Prescribed.magneticVolumeField k p)
@@ -1919,6 +2012,16 @@ OQ7Prescribed.scalarVectorConvolution_memLp_two : ∀ (K : OQ7Prescribed.Positio
         MeasureTheory.MemLp (OQ7Prescribed.scalarVectorConvolution K f) 2 MeasureTheory.volume ∧
           ∫ (x : OQ7Prescribed.Position), ‖OQ7Prescribed.scalarVectorConvolution K f x‖ ^ 2 ≤
             (∫ (y : OQ7Prescribed.Position), ‖K y‖) ^ 2 * ∫ (x : OQ7Prescribed.Position), ‖f x‖ ^ 2
+@OQ7Prescribed.setRestrictionCLM_inner : ∀ {α : Type u_1} {E : Type u_2} [inst : MeasurableSpace α]
+  [inst_1 : NormedAddCommGroup E] [inst_2 : InnerProductSpace ℂ E] [inst_3 : CompleteSpace E]
+  (μ : MeasureTheory.Measure α) (s : Set α) (hs : MeasurableSet s) (f : ↥(OQ7Prescribed.SetSupportedL2 μ s))
+  (g : ↥(MeasureTheory.Lp E 2 μ)), inner ℂ ↑f ↑((OQ7Prescribed.setRestrictionCLM μ s hs) g) = inner ℂ (↑f) g
+@OQ7Prescribed.setRestrictionCLM_norm_le : ∀ {α : Type u_1} {E : Type u_2} [inst : MeasurableSpace α]
+  [inst_1 : NormedAddCommGroup E] [inst_2 : InnerProductSpace ℂ E] [inst_3 : CompleteSpace E]
+  (μ : MeasureTheory.Measure α) (s : Set α) (hs : MeasurableSet s), ‖OQ7Prescribed.setRestrictionCLM μ s hs‖ ≤ 1
+@OQ7Prescribed.setSupportedL2_isClosed : ∀ {α : Type u_1} {E : Type u_2} [inst : MeasurableSpace α]
+  [inst_1 : NormedAddCommGroup E] [inst_2 : InnerProductSpace ℂ E] [CompleteSpace E] (μ : MeasureTheory.Measure α)
+  (s : Set α), MeasurableSet s → IsClosed ↑(OQ7Prescribed.setSupportedL2 μ s)
 OQ7Prescribed.shrinking_cutoff_integral_tendsto : ∀ (f : OQ7Prescribed.Position → ℝ),
   MeasureTheory.Integrable f MeasureTheory.volume →
     Filter.Tendsto (fun ε => ∫ (x : OQ7Prescribed.Position), OQ7Prescribed.exteriorCutoff ε ε x * f x)
@@ -2260,6 +2363,10 @@ OQ7Prescribed.staticSymbolWithOrigin_memLp : ∀ (A : OQ7Prescribed.Vector →L[
   MeasureTheory.MemLp (fun ξ => (OQ7Prescribed.staticSymbolWithOrigin A ξ) (↑↑f ξ)) 2 MeasureTheory.volume
 OQ7Prescribed.staticSymbolWithOrigin_zero : ∀ (A : OQ7Prescribed.Vector →L[ℂ] OQ7Prescribed.Vector),
   OQ7Prescribed.staticSymbolWithOrigin A 0 = A
+@OQ7Prescribed.supportedConstCLM_coe : ∀ {α : Type u_1} {E : Type u_2} [inst : MeasurableSpace α]
+  [inst_1 : NormedAddCommGroup E] [inst_2 : InnerProductSpace ℂ E] [CompleteSpace E] (μ : MeasureTheory.Measure α)
+  (s : Set α) (A : E →L[ℂ] E) (f : ↥(OQ7Prescribed.SetSupportedL2 μ s)),
+  ↑↑↑((OQ7Prescribed.supportedConstCLM μ s A) f) =ᵐ[μ] fun x => A (↑↑↑f x)
 OQ7Prescribed.supportedPolarization_add_current_ae : ∀ (R : ℝ) (hR : 0 ≤ R)
   (f g : ↥(OQ7Prescribed.SupportedVectorL2 R)),
   (OQ7Prescribed.supportedPolarization R hR (f + g)).current =ᵐ[MeasureTheory.volume]
@@ -2274,6 +2381,10 @@ OQ7Prescribed.supportedPolarization_smul_current_ae : ∀ (R : ℝ) (hR : 0 ≤ 
     (OQ7Prescribed.CompactPolarization.scale z (OQ7Prescribed.supportedPolarization R hR f)).current
 OQ7Prescribed.supportedPolarization_toLp : ∀ (R : ℝ) (hR : 0 ≤ R) (f : ↥(OQ7Prescribed.SupportedVectorL2 R)),
   MeasureTheory.MemLp.toLp (OQ7Prescribed.supportedPolarization R hR f).current ⋯ = ↑f
+@OQ7Prescribed.supportedSliceCLM_coe : ∀ {α : Type u_1} {E : Type u_2} [inst : MeasurableSpace α]
+  [inst_1 : NormedAddCommGroup E] [inst_2 : InnerProductSpace ℂ E] [inst_3 : CompleteSpace E]
+  (μ : MeasureTheory.Measure α) (s t : Set α) (ht : MeasurableSet t) (f : ↥(OQ7Prescribed.SetSupportedL2 μ s)),
+  ↑↑↑((OQ7Prescribed.supportedSliceCLM μ s t ht) f) =ᵐ[μ] t.indicator fun x => ↑↑↑f x
 OQ7Prescribed.supportedVectorL2_current_ae : ∀ (R : ℝ) (f : ↥(OQ7Prescribed.SupportedVectorL2 R)),
   ((Metric.closedBall 0 R).indicator fun x => ↑↑↑f x) =ᵐ[MeasureTheory.volume] fun x => ↑↑↑f x
 OQ7Prescribed.supportedVectorL2_isClosed : ∀ (R : ℝ), IsClosed ↑(OQ7Prescribed.supportedVectorL2 R)
@@ -2325,6 +2436,18 @@ OQ7Prescribed.transitionDerivative_hasCompactSupport : HasCompactSupport OQ7Pres
 OQ7Prescribed.transitionDerivative_integral : ∫ (s : ℝ) in 0..1, OQ7Prescribed.transitionDerivative s = 1
 @OQ7Prescribed.transitionDerivative_zero_of_nonpos : ∀ {s : ℝ}, s ≤ 0 → OQ7Prescribed.transitionDerivative s = 0
 @OQ7Prescribed.transitionDerivative_zero_of_one_le : ∀ {s : ℝ}, 1 ≤ s → OQ7Prescribed.transitionDerivative s = 0
+@OQ7Prescribed.twoPieceSupportedOperator_coe : ∀ {α : Type u_1} {E : Type u_2} [inst : MeasurableSpace α]
+  [inst_1 : NormedAddCommGroup E] [inst_2 : InnerProductSpace ℂ E] [inst_3 : CompleteSpace E]
+  (μ : MeasureTheory.Measure α) (s t : Set α) (ht : MeasurableSet t) (A B : E →L[ℂ] E)
+  (f : ↥(OQ7Prescribed.SetSupportedL2 μ s)),
+  ↑↑↑((OQ7Prescribed.twoPieceSupportedOperator μ s t ht A B) f) =ᵐ[μ] fun x => if x ∈ t then A (↑↑↑f x) else B (↑↑↑f x)
+@OQ7Prescribed.twoPieceSupportedOperator_negative_imaginary_bound : ∀ {α : Type u_1} {E : Type u_2}
+  [inst : MeasurableSpace α] [inst_1 : NormedAddCommGroup E] [inst_2 : InnerProductSpace ℂ E] [inst_3 : CompleteSpace E]
+  (μ : MeasureTheory.Measure α) (s t : Set α) (ht : MeasurableSet t) (A B : E →L[ℂ] E) (c : ℝ),
+  (∀ (v : E), c * ‖v‖ ^ 2 ≤ -(inner ℂ v (A v)).im) →
+    (∀ (v : E), c * ‖v‖ ^ 2 ≤ -(inner ℂ v (B v)).im) →
+      ∀ (f : ↥(OQ7Prescribed.SetSupportedL2 μ s)),
+        c * ‖f‖ ^ 2 ≤ -(inner ℂ f ((OQ7Prescribed.twoPieceSupportedOperator μ s t ht A B) f)).im
 OQ7Prescribed.unitSphere_norm : ∀ (n : ↑OQ7Prescribed.UnitSphere), ‖↑n‖ = 1
 OQ7Prescribed.unitSphere_sum_sq : ∀ (n : ↑OQ7Prescribed.UnitSphere), ∑ i, (↑n).ofLp i ^ 2 = 1
 OQ7Prescribed.vector_basisC_expansion : ∀ (v : OQ7Prescribed.Vector), v = ∑ j, v.ofLp j • OQ7Prescribed.basisC j

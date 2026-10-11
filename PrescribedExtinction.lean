@@ -79,3 +79,8 @@ import PrescribedExtinction.RadialEnergyCutoff
 import PrescribedExtinction.RadiationEnergyBounds
 import PrescribedExtinction.SmoothOutgoingDissipativity
 import PrescribedExtinction.OutgoingDissipativity
+import PrescribedExtinction.SetSupportedL2
+import PrescribedExtinction.TwoPieceL2
+import PrescribedExtinction.BodyCurrentSpace
+import PrescribedExtinction.MaterialBodyInverse
+import PrescribedExtinction.ScatteringExistence
