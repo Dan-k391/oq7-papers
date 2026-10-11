@@ -3,6 +3,9 @@ import PrescribedExtinction
 #print OQ7Prescribed.Theorem11Statement
 #print axioms OQ7Prescribed.Theorem11Statement
 
+#check @OQ7Prescribed.activeForwardMaterial_coe
+#check @OQ7Prescribed.activeForwardMaterial_inverse_left
+#check @OQ7Prescribed.activeForwardMaterial_inverse_right
 #check @OQ7Prescribed.activeInjection_coe
 #check @OQ7Prescribed.activeInjection_inner
 #check @OQ7Prescribed.activeInjection_norm
@@ -204,6 +207,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.compactTest_component_integrable
 #check @OQ7Prescribed.complex_imaginary_coercive_bijective
 #check @OQ7Prescribed.complex_imaginary_coercive_norm_bound
+#check @OQ7Prescribed.complex_re_im_coefficient
 #check @OQ7Prescribed.complexify_continuous
 #check @OQ7Prescribed.complexify_norm
 #check @OQ7Prescribed.complexify_norm_sq
@@ -370,6 +374,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.exists_planar_design_near_unit_asymmetry
 #check @OQ7Prescribed.exists_plateDesign_within_cap
 #check @OQ7Prescribed.exists_positive_loss_plate_design_asymmetry
+#check @OQ7Prescribed.exists_uniform_parameter_neighborhood_of_compact
 #check @OQ7Prescribed.exists_weakDielectric_interface_with_loss_cap
 #check @OQ7Prescribed.exp_remainder_two_norm
 #check @OQ7Prescribed.exterior_current_component_pairing
@@ -515,6 +520,10 @@ import PrescribedExtinction
 #check @OQ7Prescribed.integral_spherical_actual
 #check @OQ7Prescribed.integral_three_sub
 #check @OQ7Prescribed.inverse_trial_residual_estimate
+#check @OQ7Prescribed.isOpen_strict_region_of_continuousAt_on_open
+#check @OQ7Prescribed.isotropicLayer_susceptibility
+#check @OQ7Prescribed.isotropicSusceptibilityOperator_coe
+#check @OQ7Prescribed.isotropicSusceptibilityOperator_joint_continuous
 #check @OQ7Prescribed.kernel_radiation_defect
 #check @OQ7Prescribed.kernel_radiation_defect_norm_le
 #check @OQ7Prescribed.kernelMagnetic_gradient
@@ -811,10 +820,25 @@ import PrescribedExtinction
 #check @OQ7Prescribed.physicalBody_uniform_planar_operator_residual
 #check @OQ7Prescribed.physicalBody_uniform_planar_response_estimate
 #check @OQ7Prescribed.physicalBody_uniform_sharp_response_estimate
+#check @OQ7Prescribed.physicalElectricOperator_joint_continuous
+#check @OQ7Prescribed.physicalElectricOperator_zero_isUnit
 #check @OQ7Prescribed.physicalExtinction_sine_squared_factorization
 #check @OQ7Prescribed.physicalOutgoingVolume_farField_work
 #check @OQ7Prescribed.physicalOutgoingVolume_reciprocity
 #check @OQ7Prescribed.physicalOutgoingVolume_work_nonneg
+#check @OQ7Prescribed.physicalPerturbed_preserves_compact_bracket
+#check @OQ7Prescribed.physicalPerturbedAbsorption_eq_original
+#check @OQ7Prescribed.physicalPerturbedAbsorption_joint_continuousAt
+#check @OQ7Prescribed.physicalPerturbedAbsorption_zero_eq_original
+#check @OQ7Prescribed.physicalPerturbedAsymmetry_eq_original
+#check @OQ7Prescribed.physicalPerturbedAsymmetry_joint_continuousAt
+#check @OQ7Prescribed.physicalPerturbedAsymmetry_zero_eq_original
+#check @OQ7Prescribed.physicalPerturbedCurrent_joint_continuousAt
+#check @OQ7Prescribed.physicalPerturbedCurrent_physicalVolumeEquation
+#check @OQ7Prescribed.physicalPerturbedCurrent_zero_eq_active
+#check @OQ7Prescribed.physicalPerturbedExtinction_eq_original
+#check @OQ7Prescribed.physicalPerturbedExtinction_joint_continuousAt
+#check @OQ7Prescribed.physicalPerturbedExtinction_zero_eq_original
 #check @OQ7Prescribed.physicalPolarization_indicator
 #check @OQ7Prescribed.physicalPolarization_memLp
 #check @OQ7Prescribed.physicalPolarization_vanish
@@ -822,6 +846,9 @@ import PrescribedExtinction
 #check @OQ7Prescribed.physicalRankOne_original_asymmetry_uniform_aperture_localization
 #check @OQ7Prescribed.physicalRankOne_original_powers_uniform_aperture_localization
 #check @OQ7Prescribed.physicalRankOne_prescribedExtinctionOfPlanarDesign
+#check @OQ7Prescribed.physicalRestrictedElectric_eq_total
+#check @OQ7Prescribed.physicalRestrictedElectric_equation
+#check @OQ7Prescribed.physicalRestrictedElectric_joint_continuousAt
 #check @OQ7Prescribed.physicalScattering_sine_squared_factorization
 #check @OQ7Prescribed.physicalScatteringState_exists
 #check @OQ7Prescribed.physicalSlab_uniform_L2_aperture_residual
@@ -968,6 +995,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.rankOne_complexify_continuous
 #check @OQ7Prescribed.rankOne_transpose
 #check @OQ7Prescribed.rankOneBody_polarization
+#check @OQ7Prescribed.rankOneElectricUnit_val
 #check @OQ7Prescribed.rankOnePhysical_extinction_reciprocity
 #check @OQ7Prescribed.rankOnePhysicalScatteringState_exists
 #check @OQ7Prescribed.rankOneRotationExtinction_continuous
@@ -1345,7 +1373,10 @@ import PrescribedExtinction
 #check @OQ7Prescribed.tensor_quadratic_eq_inner
 #check @OQ7Prescribed.tensorApply_one
 #check @OQ7Prescribed.tensorApply_rankOne
+#check @OQ7Prescribed.tensorMap_add_apply
 #check @OQ7Prescribed.tensorMap_apply
+#check @OQ7Prescribed.tensorMap_isotropicLayer
+#check @OQ7Prescribed.tensorMap_one_apply
 #check @OQ7Prescribed.tensorMap_smul_apply
 #check @OQ7Prescribed.testComponent_fderiv
 #check @OQ7Prescribed.testLaplacian_apply
@@ -1401,3 +1432,6 @@ import PrescribedExtinction
 #check @OQ7Prescribed.weakDielectric_interface_continuous
 #check @OQ7Prescribed.weighted_integral_cauchy_sq
 #check @OQ7Prescribed.weighted_source_flux_lower_bound_ae
+#check @OQ7Prescribed.woodburyElectricOperator_left_inverse
+#check @OQ7Prescribed.woodburyElectricOperator_right_inverse
+#check @OQ7Prescribed.woodburySusceptibility_inverse_apply

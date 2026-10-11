@@ -1,0 +1,56 @@
+OQ7Prescribed.woodburyElectricOperator_right_inverse.{u_1, u_2} {H : Type u_1} {S : Type u_2} [NormedAddCommGroup H]
+  [NormedSpace ℂ H] [CompleteSpace H] [NormedAddCommGroup S] [NormedSpace ℂ S] [CompleteSpace S] (K : H →L[ℂ] H)
+  (J : S →L[ℂ] H) (P : H →L[ℂ] S) (C D : S →L[ℂ] S) (hCD : C ∘SL D = ContinuousLinearMap.id ℂ S) (e : S ≃L[ℂ] S)
+  (he : ↑e = P ∘SL K ∘SL J - D) (x : H) :
+  (OQ7Prescribed.woodburyElectricOperator K J P C) ((OQ7Prescribed.woodburyElectricInverse K J P e) x) = x
+OQ7Prescribed.woodburyElectricOperator_left_inverse.{u_1, u_2} {H : Type u_1} {S : Type u_2} [NormedAddCommGroup H]
+  [NormedSpace ℂ H] [CompleteSpace H] [NormedAddCommGroup S] [NormedSpace ℂ S] [CompleteSpace S] (K : H →L[ℂ] H)
+  (J : S →L[ℂ] H) (P : H →L[ℂ] S) (C D : S →L[ℂ] S) (hDC : D ∘SL C = ContinuousLinearMap.id ℂ S) (e : S ≃L[ℂ] S)
+  (he : ↑e = P ∘SL K ∘SL J - D) (x : H) :
+  (OQ7Prescribed.woodburyElectricInverse K J P e) ((OQ7Prescribed.woodburyElectricOperator K J P C) x) = x
+OQ7Prescribed.rankOneElectricUnit_val (k : ℝ) (hk : 0 < k) (B : OQ7Prescribed.TwoLayerBody) (θ : ℝ) (α β : ℂ)
+  (hα : 0 < α.im) (hβ : 0 < β.im) :
+  ↑(OQ7Prescribed.rankOneElectricUnit k hk B θ α β hα hβ) = OQ7Prescribed.physicalElectricOperator k B 0 θ α β
+OQ7Prescribed.physicalPerturbedCurrent_zero_eq_active (k : ℝ) (hk : 0 < k) (B : OQ7Prescribed.TwoLayerBody)
+  (σ : OQ7Prescribed.Direction) (θ : ℝ) (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im) :
+  OQ7Prescribed.physicalPerturbedCurrent k B σ 0 θ α β =
+    (OQ7Prescribed.activeInjection B (OQ7Prescribed.basisR 0) (OQ7Prescribed.rotatedAxis θ))
+      (OQ7Prescribed.activePhysicalSolution k hk B σ (OQ7Prescribed.basisR 0) (OQ7Prescribed.rotatedAxis θ) α β hα hβ)
+OQ7Prescribed.physicalPerturbedCurrent_physicalVolumeEquation (k : ℝ) (B : OQ7Prescribed.TwoLayerBody)
+  (σ : OQ7Prescribed.Direction) (ν θ : ℝ) (α β : ℂ) (hL : IsUnit (OQ7Prescribed.physicalElectricOperator k B ν θ α β)) :
+  OQ7Prescribed.MaterialVolumeEquation k (OQ7Prescribed.isotropicRankOneBody B ν θ α β) σ
+    (OQ7Prescribed.bodyCurrentPolarization B (OQ7Prescribed.physicalPerturbedCurrent k B σ ν θ α β))
+OQ7Prescribed.physicalPerturbedAsymmetry_eq_original (k : ℝ) (B : OQ7Prescribed.TwoLayerBody) (ν θ : ℝ) (α β : ℂ)
+  (hL : IsUnit (OQ7Prescribed.physicalElectricOperator k B ν θ α β)) :
+  OQ7Prescribed.physicalPerturbedAsymmetry k B ν θ α β =
+    OQ7Prescribed.normalizedAsymmetry k (OQ7Prescribed.isotropicRankOneBody B ν θ α β)
+      (OQ7Prescribed.volumeTotalElectric k OQ7Prescribed.Direction.plus
+        (OQ7Prescribed.bodyCurrentPolarization B
+          (OQ7Prescribed.physicalPerturbedCurrent k B OQ7Prescribed.Direction.plus ν θ α β)))
+      (OQ7Prescribed.volumeTotalElectric k OQ7Prescribed.Direction.minus
+        (OQ7Prescribed.bodyCurrentPolarization B
+          (OQ7Prescribed.physicalPerturbedCurrent k B OQ7Prescribed.Direction.minus ν θ α β)))
+OQ7Prescribed.physicalPerturbed_preserves_compact_bracket (k : ℝ) (hk : 0 < k) (B : OQ7Prescribed.TwoLayerBody)
+  (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im) (a b target m cap : ℝ) (hcap : 0 < cap)
+  (hX : ∀ θ ∈ Set.Icc a b, 0 < OQ7Prescribed.physicalPerturbedExtinction k B OQ7Prescribed.Direction.plus 0 θ α β)
+  (hG : ∀ θ ∈ Set.Icc a b, m < OQ7Prescribed.physicalPerturbedAsymmetry k B 0 θ α β)
+  (hlo : OQ7Prescribed.physicalPerturbedExtinction k B OQ7Prescribed.Direction.plus 0 a α β < target)
+  (hhi : target < OQ7Prescribed.physicalPerturbedExtinction k B OQ7Prescribed.Direction.plus 0 b α β) :
+  ∃ ν,
+    0 < ν ∧
+      ν < cap ∧
+        OQ7Prescribed.physicalPerturbedExtinction k B OQ7Prescribed.Direction.plus ν a α β < target ∧
+          target < OQ7Prescribed.physicalPerturbedExtinction k B OQ7Prescribed.Direction.plus ν b α β ∧
+            ∀ θ ∈ Set.Icc a b,
+              IsUnit (OQ7Prescribed.physicalElectricOperator k B ν θ α β) ∧
+                0 < OQ7Prescribed.physicalPerturbedExtinction k B OQ7Prescribed.Direction.plus ν θ α β ∧
+                  m < OQ7Prescribed.physicalPerturbedAsymmetry k B ν θ α β
+'OQ7Prescribed.woodburyElectricOperator_right_inverse' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.woodburyElectricOperator_left_inverse' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.rankOneElectricUnit_val' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.physicalPerturbedCurrent_zero_eq_active' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.physicalPerturbedCurrent_physicalVolumeEquation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OQ7Prescribed.physicalPerturbedAsymmetry_eq_original' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.physicalPerturbed_preserves_compact_bracket' depends on axioms: [propext, Classical.choice, Quot.sound]

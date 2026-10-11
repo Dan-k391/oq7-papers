@@ -431,6 +431,13 @@ run_cmd do
         'OQ7Prescribed.exists_planar_design_near_unit_asymmetry',
         'OQ7Prescribed.physicalRankOne_exists_extinction_bracket',
         'OQ7Prescribed.physicalRankOne_prescribedExtinctionOfPlanarDesign',
+        'OQ7Prescribed.woodburyElectricOperator_right_inverse',
+        'OQ7Prescribed.woodburyElectricOperator_left_inverse',
+        'OQ7Prescribed.rankOneElectricUnit_val',
+        'OQ7Prescribed.physicalPerturbedCurrent_zero_eq_active',
+        'OQ7Prescribed.physicalPerturbedCurrent_physicalVolumeEquation',
+        'OQ7Prescribed.physicalPerturbedAsymmetry_eq_original',
+        'OQ7Prescribed.physicalPerturbed_preserves_compact_bracket',
         'OQ7Prescribed.dielectricSlabLeft_absorptance_integral',
         'OQ7Prescribed.dielectricSlabRight_absorptance_integral',
         'OQ7Prescribed.dielectricSlabLeftAt_Green_interior',
@@ -583,6 +590,9 @@ run_cmd do
         physicalPlanarPositiveLossDesignWithinMaterialCapsVerified = $true
         physicalRankOneFirstExactExtinctionBracketVerified = $true
         physicalRankOnePrescribedExtinctionAndOriginalAsymmetryVerified = $true
+        physicalElectricBoundedWoodburyInverseVerified = $true
+        actualIsotropicLossTensorVolumeEquationAndOriginalPowersVerified = $true
+        physicalPositiveIsotropicLossPreservesCompactExtinctionBracketVerified = $true
         physicalPrescribedExtinctionConstructionScope = 'Actual rank-one finite-body fields, common exact original extinction, original near-unit asymmetry; strict positive isotropic loss and final admissibility still require proof'
         physicalAbsorberTransferAndActualPlanarGreenEquationVerified = $true
         physicalPlanarLayerRepresentationScope = 'Exact homogeneous-layer Maxwell derivatives, weighted moments, actual supported L2 currents, matched two-layer scalar Green operator and both original plane-wave incoming equations'
