@@ -1,0 +1,8 @@
+import PrescribedExtinction.GreenKernel
+
+#check OQ7Prescribed.outgoingGreen_locallyIntegrable
+#check OQ7Prescribed.outgoingGreen_memLp_on_compact
+#check OQ7Prescribed.dyadicGreenDistribution_apply
+#print axioms OQ7Prescribed.outgoingGreen_locallyIntegrable
+#print axioms OQ7Prescribed.outgoingGreen_memLp_on_compact
+#print axioms OQ7Prescribed.dyadicGreenDistribution_apply

@@ -84,6 +84,10 @@ try {
     }
     $oq7PdfHash = (Get-FileHash -LiteralPath 'sources/OQ7_prescribed_extinction_2026-10-11.pdf' -Algorithm SHA256).Hash
     if ($oq7PdfHash -ne '3D9775D849234E828370D7C96D8BDCDD574BEB6831A7906EA6B7706579868710') { throw 'Manuscript hash differs.' }
+    $oq7TargetHash = (Get-FileHash -LiteralPath 'PrescribedExtinction/Maxwell.lean' -Algorithm SHA256).Hash
+    if ($oq7TargetHash -ne '071C04ED9417A1D9AC842D61B545183627E6F997C7C1899F908871608859ABF6') {
+        throw 'Existing physical target source changed. Review quantifiers before continuing.'
+    }
     $oq7Hashes = @($oq7Sources | ForEach-Object {
         @{ file = [IO.Path]::GetRelativePath($PSScriptRoot, $_.FullName); sha256 = (Get-FileHash -LiteralPath $_.FullName -Algorithm SHA256).Hash }
     })
@@ -108,6 +112,8 @@ try {
         finalTheoremDeclaration = $null
         targetProposition = 'OQ7Prescribed.Theorem11Statement'
         targetIsAProof = $false
+        existingPhysicalTargetSourceUnchanged = $true
+        targetSourceSHA256 = $oq7TargetHash
         verifiedAtUTC = [DateTime]::UtcNow.ToString('o')
         lean = $oq7Version
         lakeBuildPassed = $true
@@ -124,8 +130,16 @@ try {
         manuscriptSHA256 = $oq7PdfHash
         dependencyRevisions = $oq7Dependencies
         sourceHashes = $oq7Hashes
+        foundationalMilestones = @(
+            @{ module = 'PrescribedExtinction.GreenKernel'; scope = 'Actual scalar kernel local L1/L2 integrability and distributional dyadic test formula'; physicalContactCoefficientVerified = $false },
+            @{ module = 'PrescribedExtinction.VolumePotential'; scope = 'Actual convolution exists for every compact vector L2 current; finite local bound; locally integrable potential; distributional volume formula and additivity'; boundedDyadicL2OperatorVerified = $false },
+            @{ module = 'PrescribedExtinction.StaticFourier'; scope = 'Explicit static Fourier multiplier is an L2 contraction and has zero imaginary quadratic form'; identificationWithNewtonVolumePotentialVerified = $false }
+        )
         unverifiedDependencies = @('3D outgoing Maxwell existence and uniqueness',
-            'Distributional dyadic Green operator including contact term; boundedness and equivalence to weak Maxwell',
+            'Scalar distributional Helmholtz fundamental-solution identity and explicit Hessian principal-value/contact formula',
+            'Identification of the static Fourier operator with the distributional Newton volume operator',
+            'Dynamic remainder kernel, Schur bound and bounded L2 realization/restriction of the full dyadic operator',
+            'Volume representation equivalence to weak Maxwell, regularity and Silver-Muller radiation',
             'Full radiation identity, optical theorem, reciprocity and power balance',
             'Uniform inverse and sin-squared response factorization',
             'Uniform aperture localization including grazing singularities and all angular channels',
@@ -134,5 +148,5 @@ try {
             'Positive-loss perturbation of solutions and second exact-extinction bracket',
             'Order of limits, constant dependencies, strict nonattainment and final assembly')
     } | ConvertTo-Json -Depth 12 | Set-Content -LiteralPath 'verification/report.json' -Encoding utf8
-    Write-Output "PARTIAL: complete project builds; $($oq7NewTheorems.Count) new supporting theorems checked. Theorem 1.1 is unproved."
+    Write-Output 'PARTIAL: supporting source compilation and axiom audit passed. Theorem 1.1 remains unproved.'
 } finally { Pop-Location }

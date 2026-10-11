@@ -1,0 +1,25 @@
+OQ7Prescribed.outgoingPotential_integrable (k : ℝ) (p : OQ7Prescribed.CompactPolarization)
+  (x : OQ7Prescribed.Position) :
+  MeasureTheory.Integrable (fun y => OQ7Prescribed.outgoingGreen k (x - y) • p.current y) MeasureTheory.volume
+OQ7Prescribed.outgoingPotential_enorm_le (k : ℝ) (p : OQ7Prescribed.CompactPolarization) (S : ℝ)
+  (x : OQ7Prescribed.Position) (hx : ‖x‖ ≤ S) :
+  ‖OQ7Prescribed.outgoingPotential k p x‖ₑ ≤ OQ7Prescribed.potentialBound k p S
+OQ7Prescribed.outgoingPotential_locallyIntegrable (k : ℝ) (p : OQ7Prescribed.CompactPolarization) :
+  MeasureTheory.LocallyIntegrable (OQ7Prescribed.outgoingPotential k p) MeasureTheory.volume
+OQ7Prescribed.outgoingVolumeDistribution_apply (k : ℝ) (p : OQ7Prescribed.CompactPolarization) (i : Fin 3)
+  (φ : OQ7Prescribed.ScalarTest) :
+  (OQ7Prescribed.outgoingVolumeDistribution k p i) φ =
+    k ^ 2 • (∫ (x : OQ7Prescribed.Position), φ x • OQ7Prescribed.outgoingPotential k p x).ofLp i +
+      ∑ j,
+        (∫ (x : OQ7Prescribed.Position),
+              ((OQ7Prescribed.testPartial j) ((OQ7Prescribed.testPartial i) φ)) x •
+                OQ7Prescribed.outgoingPotential k p x).ofLp
+          j
+OQ7Prescribed.outgoingVolumeDistribution_add (k : ℝ) (p q : OQ7Prescribed.CompactPolarization) (i : Fin 3) :
+  OQ7Prescribed.outgoingVolumeDistribution k (p.add q) i =
+    OQ7Prescribed.outgoingVolumeDistribution k p i + OQ7Prescribed.outgoingVolumeDistribution k q i
+'OQ7Prescribed.outgoingPotential_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.outgoingPotential_enorm_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.outgoingPotential_locallyIntegrable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.outgoingVolumeDistribution_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.outgoingVolumeDistribution_add' depends on axioms: [propext, Classical.choice, Quot.sound]

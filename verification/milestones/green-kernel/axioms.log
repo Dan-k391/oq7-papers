@@ -1,0 +1,12 @@
+OQ7Prescribed.outgoingGreen_locallyIntegrable (k : ℝ) :
+  MeasureTheory.LocallyIntegrable (OQ7Prescribed.outgoingGreen k) MeasureTheory.volume
+OQ7Prescribed.outgoingGreen_memLp_on_compact (k : ℝ) (K : Set OQ7Prescribed.Position) (hK : IsCompact K) :
+  MeasureTheory.MemLp (OQ7Prescribed.outgoingGreen k) 2 (MeasureTheory.volume.restrict K)
+OQ7Prescribed.dyadicGreenDistribution_apply (k : ℝ) (i j : Fin 3) (φ : OQ7Prescribed.ScalarTest) :
+  (OQ7Prescribed.dyadicGreenDistribution k i j) φ =
+    (if i = j then k ^ 2 • ∫ (x : OQ7Prescribed.Position), φ x • OQ7Prescribed.outgoingGreen k x else 0) +
+      ∫ (x : OQ7Prescribed.Position),
+        ((OQ7Prescribed.testPartial j) ((OQ7Prescribed.testPartial i) φ)) x • OQ7Prescribed.outgoingGreen k x
+'OQ7Prescribed.outgoingGreen_locallyIntegrable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.outgoingGreen_memLp_on_compact' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.dyadicGreenDistribution_apply' depends on axioms: [propext, Classical.choice, Quot.sound]

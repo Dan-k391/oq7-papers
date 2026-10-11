@@ -1,0 +1,8 @@
+import PrescribedExtinction.StaticFourier
+
+#check OQ7Prescribed.staticSymbol_apply
+#check OQ7Prescribed.staticFourierOperator_norm_le
+#check OQ7Prescribed.staticFourierOperator_quadratic_im
+#print axioms OQ7Prescribed.staticSymbol_apply
+#print axioms OQ7Prescribed.staticFourierOperator_norm_le
+#print axioms OQ7Prescribed.staticFourierOperator_quadratic_im

@@ -1,0 +1,8 @@
+OQ7Prescribed.staticSymbol_apply (ξ : OQ7Prescribed.Position) (v : OQ7Prescribed.Vector) :
+  (OQ7Prescribed.staticSymbol ξ) v = -↑(‖ξ‖ ^ 2)⁻¹ • OQ7Prescribed.tensorApply (OQ7Prescribed.rankOne ξ) v
+OQ7Prescribed.staticFourierOperator_norm_le : ‖OQ7Prescribed.staticFourierOperator‖ ≤ 1
+OQ7Prescribed.staticFourierOperator_quadratic_im (f : ↥OQ7Prescribed.VectorL2) :
+  (inner ℂ f (OQ7Prescribed.staticFourierOperator f)).im = 0
+'OQ7Prescribed.staticSymbol_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.staticFourierOperator_norm_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.staticFourierOperator_quadratic_im' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,12 @@
+import PrescribedExtinction.VolumePotential
+
+#check OQ7Prescribed.outgoingPotential_integrable
+#check OQ7Prescribed.outgoingPotential_enorm_le
+#check OQ7Prescribed.outgoingPotential_locallyIntegrable
+#check OQ7Prescribed.outgoingVolumeDistribution_apply
+#check OQ7Prescribed.outgoingVolumeDistribution_add
+#print axioms OQ7Prescribed.outgoingPotential_integrable
+#print axioms OQ7Prescribed.outgoingPotential_enorm_le
+#print axioms OQ7Prescribed.outgoingPotential_locallyIntegrable
+#print axioms OQ7Prescribed.outgoingVolumeDistribution_apply
+#print axioms OQ7Prescribed.outgoingVolumeDistribution_add

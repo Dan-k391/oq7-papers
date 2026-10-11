@@ -2,7 +2,7 @@
 
 **Theorem 1.1 has not been kernel-verified. No final proof declaration exists.**
 
-The new library defines a concrete three-dimensional weak Maxwell scattering problem and the manuscript's fully quantified target, and proves 29 supporting geometric, constitutive, and incident-field lemmas. It does not replace the requested claim with a theorem about arbitrary power data or an assumed scattering operator. The substantial analytic dependencies listed below remain unverified; no conditional substitute is advertised as Theorem 1.1.
+The existing library and its exact target are preserved. This continuation adds the actual outgoing scalar Green distribution, convolution for compactly supported vector L² currents, the distributional volume potential, and a bounded explicit static Fourier operator. It does not replace the requested claim with a theorem about arbitrary power data or an assumed scattering operator. The substantial analytic dependencies listed below remain unverified; no conditional substitute is advertised as Theorem 1.1.
 
 `OQ7Prescribed.Theorem11Statement : Prop` is a **definition of an unproved proposition**, not a theorem. Its `#print axioms` output audits the definition's dependencies. It does not certify that the proposition is true.
 
@@ -23,6 +23,11 @@ The new library defines a concrete three-dimensional weak Maxwell scattering pro
 | `PrescribedExtinction/Geometry.lean` | The slab lies in a finite closed ball; its closure is compact; exterior permittivity is vacuum; admissible layer tensors give pointwise transpose reciprocity | Does not prove electromagnetic reciprocity |
 | `PrescribedExtinction/Maxwell.lean` | Unit incident amplitude, conjugacy of the two incident electric fields, unit spherical directions | Maxwell equations, outgoing condition and power expressions are definitions here; their analytic consequences remain open |
 | `PrescribedExtinction/Drive.lean` | Exact absorber projection zero, plate projection `sin θ` times the phase, and exact zero-angle projected drive | Does not prove solution or power factorization, or uniformity as θ tends to zero |
+| `PrescribedExtinction/GreenKernel.lean` | Local L¹ and local L² integrability of `exp(ik|x|)/(4π|x|)`; its genuine test-function distribution; full distributional Hessian and dyadic test formula | Neither the Helmholtz fundamental-solution identity nor the explicit principal-value/contact formula is proved |
+| `PrescribedExtinction/VolumePotential.lean` | The actual convolution exists at every point for compact vector L² currents; finite bounds on bounded regions; local integrability; full distributional volume formula and additivity | The differentiated potential is not yet realized as a bounded L² operator or identified with physical scattered fields |
+| `PrescribedExtinction/StaticFourier.lean` | The explicit symbol `-ξξᵀ/|ξ|²` gives an L² contraction by Mathlib's unitary Fourier transform; its imaginary quadratic form vanishes | Its identification with the distributional Newton volume operator remains unproved; this is not passivity of the outgoing operator |
+
+See [FOUNDATIONS.md](FOUNDATIONS.md) for the exact scope, formulas and next proof gates. Each of the three new modules has its own build and `#print axioms` export under `verification/milestones/`. The original PARTIAL verification evidence is preserved under `verification/milestones/initial-partial/`. The physical target's existing source file is checked byte-for-byte by `verify.ps1`.
 
 There are no `sorry`, `admit`, custom mathematical axioms, or native proof shortcuts in the project sources. The verification script checks source gates and exports transitive `#print axioms` reports for every imported declaration in both project namespaces, including definitions and generated constants. Permitted foundational axioms are Lean/Mathlib's `propext`, `Classical.choice`, and `Quot.sound`.
 
@@ -44,7 +49,7 @@ The following are **UNVERIFIED in Lean**, irrespective of the preceding informal
 
 | Manuscript obligation | Remaining formal work |
 | --- | --- |
-| §2, equations (5)–(8), PDF p.4 | Construct the outgoing dyadic Green operator as a bounded operator on compact-domain vector L², with zero extension and the distributional contact term. Prove the static multiplier bound, the dynamic difference bound, and equivalence to outgoing weak Maxwell solutions. |
+| §2, equations (5)–(8), PDF p.4 | The full distributional expression and actual scalar convolution are now defined with integrability proved. Still prove the fundamental-solution identity, explicit contact term, identification with the checked static Fourier operator, the dynamic remainder bound, bounded L² realization/restriction, and equivalence to outgoing weak Maxwell solutions. |
 | §2, equations (6)–(7), and §1 equation (2), pp.3–4 | Prove far-field asymptotics, all-channel radiation identity, forward optical theorem, positivity, integrability and power balance. No electromagnetic identity is a structure assumption. |
 | §1 and §2, pp.3–5 | Prove Lorentz reciprocity for these rough coefficients and outgoing states, including exact equal extinction for the two plane waves. Matrix transpose symmetry alone is insufficient. |
 | Lemma 2.1 and §2.1, pp.4–5 | Prove the complex coercive inverse, uniform aperture/angle bound, continuity and physical rank-one response factorization. Only the finite-dimensional material action and projected drive have been proved. |
@@ -69,6 +74,7 @@ On a machine with the pinned Lean toolchain available and network access for mis
 
 ```powershell
 ./configure.ps1
+./verify-milestones.ps1
 ./verify.ps1 -Clean
 ```
 
@@ -76,6 +82,7 @@ If Lean is not on PATH, supply `-LeanBin 'C:\path\to\lean-4.34.1-windows\bin'` t
 
 ```powershell
 ./configure.ps1 -PackagesDirectory 'C:\path\to\existing\.lake\packages'
+./verify-milestones.ps1 -LeanBin 'C:\path\to\lean\bin'
 ./verify.ps1 -LeanBin 'C:\path\to\lean\bin' -Clean
 ```
 
@@ -89,6 +96,6 @@ lake env lean verification/Statements.lean
 lake env lean verification/Audit.lean
 ```
 
-The source repository excludes cached build artifacts and package checkouts. Fresh builds may need to compile dependencies. The saved `verification/clean-build.log` records a clean build of the complete project, and `verification/build.log` records the latest build. The report checks that the saved clean build used identical Lean sources. `verification/axioms.log` records all project constants; `verification/inventory.log` records the kernel inventory; and `verification/report.json` explicitly records `status: PARTIAL`, `theorem11Verified: false`, and `finalTheoremDeclaration: null`. The named supporting-theorem count excludes automatically generated equation lemmas and auxiliary proof constants.
+The source repository excludes cached build artifacts and package checkouts. Fresh builds may need to compile dependencies. The saved `verification/clean-build.log` records a clean build of the complete project, and `verification/build.log` records the latest build. The report checks that the saved clean build used identical Lean sources. `verification/axioms.log` records all project constants; `verification/inventory.log` records the kernel inventory; and `verification/report.json` explicitly records `status: PARTIAL`, `theorem11Verified: false`, and `finalTheoremDeclaration: null`. Inventory counts are bookkeeping, not evidence that any missing analytic dependency or the target has been proved.
 
 This repository is an incremental formalization artifact, not a proof of OQ7 or Theorem 1.1.
