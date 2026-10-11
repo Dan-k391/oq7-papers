@@ -96,3 +96,7 @@ import PrescribedExtinction.PhysicalAbsorptionWork
 import PrescribedExtinction.RankOneAbsorption
 import PrescribedExtinction.InverseStability
 import PrescribedExtinction.PhysicalResponseStability
+import PrescribedExtinction.FarFieldGeometry
+import PrescribedExtinction.FarFieldPhase
+import PrescribedExtinction.FarFieldKernel
+import PrescribedExtinction.FarFieldCurrent

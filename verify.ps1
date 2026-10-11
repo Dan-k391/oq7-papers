@@ -307,6 +307,11 @@ run_cmd do
         'OQ7Prescribed.activePhysicalAbsorption_work',
         'OQ7Prescribed.activeInverseMaterial_loss_integral',
         'OQ7Prescribed.physicalAbsorption_sine_squared_factorization',
+        'OQ7Prescribed.displaced_dyadic_farField_error',
+        'OQ7Prescribed.exteriorElectric_uniform_farField_error',
+        'OQ7Prescribed.compactCurrentFarField_continuous',
+        'OQ7Prescribed.volumePhysicalFarField_eq',
+        'OQ7Prescribed.outgoingElectric_uniform_physical_farField_error',
         'OQ7Prescribed.normalizedActiveResponse_residual_bound',
         'OQ7Prescribed.normalizedActiveResponse_angle_difference_bound')) {
         if ($oq7Required -notin $oq7NewKernelTheorems) { throw "Missing outgoing operator obligation: $oq7Required" }
@@ -387,6 +392,8 @@ run_cmd do
         originalPhysicalExtinctionSineSquaredFactorizationVerified = $true
         normalizedResponseDefinedAtZeroRotationVerified = $true
         physicalAbsorptionEqualsCurrentWorkVerified = $true
+        actualElectricUniformFullVectorFarFieldVerified = $true
+        originalPhysicalFarFieldIdentificationVerified = $true
         physicalVolumeWorkBalanceVerified = $true
         originalPhysicalAbsorptionSineSquaredFactorizationVerified = $true
         normalizedPhysicalResponseUniformResidualBoundVerified = $true

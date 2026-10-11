@@ -1,0 +1,39 @@
+OQ7Prescribed.displaced_dyadic_farField_error (k R : ℝ) (hR : 0 ≤ R) (x y : OQ7Prescribed.Position)
+  (hx : 2 * R + 2 ≤ ‖x‖) (hy : ‖y‖ ≤ R) (v : OQ7Prescribed.Vector) :
+  ‖(↑‖x‖ * Complex.exp (-Complex.I * ↑(k * ‖x‖))) • (OQ7Prescribed.classicalDyadic k (x - y)) v -
+        (↑(k ^ 2 / (4 * Real.pi)) * Complex.exp (-Complex.I * ↑(k * inner ℝ (OQ7Prescribed.radialDirection x) y))) •
+          OQ7Prescribed.transverseProjection (OQ7Prescribed.radialDirection x) v‖ ≤
+    OQ7Prescribed.farFieldKernelConstant k R / ‖x‖ * ‖v‖
+OQ7Prescribed.exteriorElectric_uniform_farField_error (k : ℝ) (p : OQ7Prescribed.CompactPolarization)
+  (x : OQ7Prescribed.Position) (hx : 2 * p.radius + 2 ≤ ‖x‖) :
+  ‖(↑‖x‖ * Complex.exp (-Complex.I * ↑(k * ‖x‖))) • OQ7Prescribed.exteriorElectric k p x -
+        OQ7Prescribed.compactCurrentFarField k p (OQ7Prescribed.radialDirection x)‖ ≤
+    OQ7Prescribed.farFieldKernelConstant k p.radius / ‖x‖ * ∫ (y : OQ7Prescribed.Position), ‖p.current y‖
+OQ7Prescribed.compactCurrentFarField_continuous (k : ℝ) (p : OQ7Prescribed.CompactPolarization) :
+  Continuous (OQ7Prescribed.compactCurrentFarField k p)
+OQ7Prescribed.volumePhysicalFarField_eq (k : ℝ) (B : OQ7Prescribed.TwoLayerBody) (σ : OQ7Prescribed.Direction)
+  (f : ↥(OQ7Prescribed.BodyCurrentL2 B))
+  (hp : OQ7Prescribed.MaterialVolumeEquation k B σ (OQ7Prescribed.bodyCurrentPolarization B f))
+  (n : OQ7Prescribed.Position) :
+  OQ7Prescribed.currentFarField k B (OQ7Prescribed.volumeTotalElectric k σ (OQ7Prescribed.bodyCurrentPolarization B f))
+      n =
+    OQ7Prescribed.compactCurrentFarField k (OQ7Prescribed.bodyCurrentPolarization B f) n
+OQ7Prescribed.outgoingElectric_uniform_physical_farField_error (k : ℝ) (B : OQ7Prescribed.TwoLayerBody)
+  (σ : OQ7Prescribed.Direction) (f : ↥(OQ7Prescribed.BodyCurrentL2 B))
+  (hp : OQ7Prescribed.MaterialVolumeEquation k B σ (OQ7Prescribed.bodyCurrentPolarization B f))
+  (x : OQ7Prescribed.Position) (hx : 2 * (OQ7Prescribed.bodyCurrentPolarization B f).radius + 2 ≤ ‖x‖) :
+  ‖(↑‖x‖ * Complex.exp (-Complex.I * ↑(k * ‖x‖))) •
+          (OQ7Prescribed.volumeTotalElectric k σ (OQ7Prescribed.bodyCurrentPolarization B f) x -
+            OQ7Prescribed.incidentElectric k σ x) -
+        OQ7Prescribed.currentFarField k B
+          (OQ7Prescribed.volumeTotalElectric k σ (OQ7Prescribed.bodyCurrentPolarization B f))
+          (OQ7Prescribed.radialDirection x)‖ ≤
+    OQ7Prescribed.farFieldKernelConstant k (OQ7Prescribed.bodyCurrentPolarization B f).radius / ‖x‖ *
+      ∫ (y : OQ7Prescribed.Position), ‖(OQ7Prescribed.bodyCurrentPolarization B f).current y‖
+'OQ7Prescribed.displaced_dyadic_farField_error' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.exteriorElectric_uniform_farField_error' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.compactCurrentFarField_continuous' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.volumePhysicalFarField_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.outgoingElectric_uniform_physical_farField_error' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

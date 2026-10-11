@@ -1,0 +1,12 @@
+import PrescribedExtinction.FarFieldCurrent
+
+#check OQ7Prescribed.displaced_dyadic_farField_error
+#check OQ7Prescribed.exteriorElectric_uniform_farField_error
+#check OQ7Prescribed.compactCurrentFarField_continuous
+#check OQ7Prescribed.volumePhysicalFarField_eq
+#check OQ7Prescribed.outgoingElectric_uniform_physical_farField_error
+#print axioms OQ7Prescribed.displaced_dyadic_farField_error
+#print axioms OQ7Prescribed.exteriorElectric_uniform_farField_error
+#print axioms OQ7Prescribed.compactCurrentFarField_continuous
+#print axioms OQ7Prescribed.volumePhysicalFarField_eq
+#print axioms OQ7Prescribed.outgoingElectric_uniform_physical_farField_error

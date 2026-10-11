@@ -48,6 +48,8 @@
   "originalPhysicalExtinctionSineSquaredFactorizationVerified": true,
   "normalizedResponseDefinedAtZeroRotationVerified": true,
   "physicalAbsorptionEqualsCurrentWorkVerified": true,
+  "actualElectricUniformFullVectorFarFieldVerified": true,
+  "originalPhysicalFarFieldIdentificationVerified": true,
   "physicalVolumeWorkBalanceVerified": true,
   "originalPhysicalAbsorptionSineSquaredFactorizationVerified": true,
   "normalizedPhysicalResponseUniformResidualBoundVerified": true,
@@ -83,7 +85,7 @@
   "newtonPrincipalValueIsBundledDistribution": true,
   "staticNewtonIdentificationVerified": true,
   "targetSourceSHA256": "A9950F0F1C9EA4A20FF2C480A71CC4FABDC4AB84F8173851C37A4BD56E0D231B",
-  "verifiedAtUTC": "2026-10-11T13:02:54.4722905Z",
+  "verifiedAtUTC": "2026-10-11T13:22:55.2027269Z",
   "lean": "Lean (version 4.34.1, x86_64-w64-windows-gnu, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)",
   "lakeBuildPassed": true,
   "cleanProjectBuild": false,
@@ -95,10 +97,10 @@
     "Classical.choice",
     "Quot.sound"
   ],
-  "allProjectConstantsAudited": 3595,
+  "allProjectConstantsAudited": 3683,
   "privateProjectConstantsAudited": 31,
-  "newTheoremCount": 769,
-  "newKernelTheoremConstantCount": 1717,
+  "newTheoremCount": 793,
+  "newKernelTheoremConstantCount": 1799,
   "newTheorems": [
     "OQ7Prescribed.activeInjection_coe",
     "OQ7Prescribed.activeInjection_inner",
@@ -154,6 +156,7 @@
     "OQ7Prescribed.bodySupportRadius_nonneg",
     "OQ7Prescribed.bodyVolumeTotalElectricCurrent_eq",
     "OQ7Prescribed.classicalDyadic_coordinate",
+    "OQ7Prescribed.classicalDyadic_leading_error",
     "OQ7Prescribed.classicalDyadic_measurable",
     "OQ7Prescribed.classicalDyadic_norm_le_far",
     "OQ7Prescribed.classicalDyadic_test_integrable_of_zero",
@@ -163,6 +166,10 @@
     "OQ7Prescribed.compactCurrent_outgoingOperator_im_nonneg",
     "OQ7Prescribed.compactCurrent_outgoingOperator_im_nonneg_of_smooth",
     "OQ7Prescribed.compactCurrent_outgoingOperator_inner",
+    "OQ7Prescribed.compactCurrent_phase_integrable",
+    "OQ7Prescribed.compactCurrentFarField_continuous",
+    "OQ7Prescribed.compactCurrentFarField_integral",
+    "OQ7Prescribed.compactCurrentFarField_norm_le",
     "OQ7Prescribed.compactField_bilinear_integrable",
     "OQ7Prescribed.compactField_curl_hasCompactSupport",
     "OQ7Prescribed.compactOutgoingOperator_apply_norm_le",
@@ -212,10 +219,13 @@
     "OQ7Prescribed.continuousLinearEquiv_solution_residual_bound",
     "OQ7Prescribed.coordinateReflect_apply",
     "OQ7Prescribed.coordinateSwap_apply",
+    "OQ7Prescribed.cross_add_left",
     "OQ7Prescribed.cross_complexify_real_smul",
     "OQ7Prescribed.cross_cross",
     "OQ7Prescribed.cross_norm_le",
+    "OQ7Prescribed.cross_smul_left",
     "OQ7Prescribed.cross_squareNorm_identity",
+    "OQ7Prescribed.cross_sub_left",
     "OQ7Prescribed.cross_sub_right",
     "OQ7Prescribed.crossRightMap_apply",
     "OQ7Prescribed.curl_real_smul",
@@ -234,6 +244,7 @@
     "OQ7Prescribed.currentDyadicTestPairing_eq",
     "OQ7Prescribed.currentDyadicTestPairing_exterior_integrable",
     "OQ7Prescribed.currentDyadicTestPairing_exterior_integral",
+    "OQ7Prescribed.currentPlanePhase_norm",
     "OQ7Prescribed.currentTestCorrelationVector_coordinate",
     "OQ7Prescribed.currentTestCorrelationVector_integrable",
     "OQ7Prescribed.cutoff_curl_pairing_real",
@@ -245,6 +256,9 @@
     "OQ7Prescribed.cutoffGreen_integrable",
     "OQ7Prescribed.cutoffGreen_memLp",
     "OQ7Prescribed.cutoffOutgoingGradient_integrable",
+    "OQ7Prescribed.displaced_distance_phase_error",
+    "OQ7Prescribed.displaced_dyadic_farField_error",
+    "OQ7Prescribed.displaced_inverse_amplitude_error",
     "OQ7Prescribed.displaced_kernel_radiation_norm_le",
     "OQ7Prescribed.displaced_kernelMagnetic_norm_decay",
     "OQ7Prescribed.distributionCurl_add",
@@ -330,6 +344,7 @@
     "OQ7Prescribed.exteriorElectric_test_integrable",
     "OQ7Prescribed.exteriorElectric_test_pairing",
     "OQ7Prescribed.exteriorElectric_test_pointwise",
+    "OQ7Prescribed.exteriorElectric_uniform_farField_error",
     "OQ7Prescribed.exteriorMagnetic_integrable_far",
     "OQ7Prescribed.exteriorMagnetic_norm_decay",
     "OQ7Prescribed.fieldComponent_locallyIntegrable",
@@ -393,6 +408,7 @@
     "OQ7Prescribed.kernel_radiation_defect",
     "OQ7Prescribed.kernel_radiation_defect_norm_le",
     "OQ7Prescribed.kernelMagnetic_gradient",
+    "OQ7Prescribed.kernelMagnetic_leading",
     "OQ7Prescribed.kernelMagnetic_norm_decay",
     "OQ7Prescribed.kernelMagnetic_norm_le",
     "OQ7Prescribed.kernelMagnetic_norm_le_far",
@@ -560,6 +576,7 @@
     "OQ7Prescribed.outgoing_dyadic_contact_identity",
     "OQ7Prescribed.outgoing_helmholtz_fundamental_apply",
     "OQ7Prescribed.outgoing_helmholtz_fundamental_distribution",
+    "OQ7Prescribed.outgoingElectric_uniform_physical_farField_error",
     "OQ7Prescribed.outgoingElectricField_eq_ae",
     "OQ7Prescribed.outgoingElectricField_locallySquareIntegrable",
     "OQ7Prescribed.outgoingGradient_eq_static_add_dynamic",
@@ -667,6 +684,7 @@
     "OQ7Prescribed.potentialDistribution_add",
     "OQ7Prescribed.potentialDistribution_apply",
     "OQ7Prescribed.poynting_flux_lower_bound",
+    "OQ7Prescribed.purePhase_norm_sub_le",
     "OQ7Prescribed.quadratic_layer",
     "OQ7Prescribed.quadratic_layer_im",
     "OQ7Prescribed.quadratic_layer_re",
@@ -682,6 +700,7 @@
     "OQ7Prescribed.rankOneBody_polarization",
     "OQ7Prescribed.rankOnePhysicalScatteringState_exists",
     "OQ7Prescribed.real_inner_basis",
+    "OQ7Prescribed.realDot_eq_inner",
     "OQ7Prescribed.reflectedCurrentComponent_fourier_neg",
     "OQ7Prescribed.reflectedCurrentComponent_hasCompactSupport",
     "OQ7Prescribed.reflectedCurrentComponent_integrable",
@@ -720,6 +739,8 @@
     "OQ7Prescribed.scalarTestSchwartz_partial",
     "OQ7Prescribed.scalarVectorConvolution_ae_integrable",
     "OQ7Prescribed.scalarVectorConvolution_memLp_two",
+    "OQ7Prescribed.scaledOutgoingPhase_plane_error",
+    "OQ7Prescribed.scaledOutgoingRadial",
     "OQ7Prescribed.setRestrictionCLM_inner",
     "OQ7Prescribed.setRestrictionCLM_norm_le",
     "OQ7Prescribed.setSupportedL2_isClosed",
@@ -842,6 +863,10 @@
     "OQ7Prescribed.transitionDerivative_integral",
     "OQ7Prescribed.transitionDerivative_zero_of_nonpos",
     "OQ7Prescribed.transitionDerivative_zero_of_one_le",
+    "OQ7Prescribed.transverseProjection_cross",
+    "OQ7Prescribed.transverseProjection_difference_le",
+    "OQ7Prescribed.transverseProjection_norm_le",
+    "OQ7Prescribed.transverseProjectionMap_apply",
     "OQ7Prescribed.twoPieceSupportedMap_adjoint_inner",
     "OQ7Prescribed.twoPieceSupportedMap_coe",
     "OQ7Prescribed.twoPieceSupportedOperator_coe",
@@ -863,6 +888,7 @@
     "OQ7Prescribed.vectorScalarMul_apply",
     "OQ7Prescribed.volumeAbsorption_body_inner",
     "OQ7Prescribed.volumeExtinction_current_work",
+    "OQ7Prescribed.volumePhysicalFarField_eq",
     "OQ7Prescribed.volumeTotalElectric_locallySquareIntegrable",
     "OQ7Prescribed.volumeTotalFields_weakMaxwell",
     "OQ7Prescribed.volumeTotalMagnetic_locallySquareIntegrable",
@@ -875,49 +901,49 @@
   "manuscriptSHA256": "3D9775D849234E828370D7C96D8BDCDD574BEB6831A7906EA6B7706579868710",
   "dependencyRevisions": [
     {
-      "trackedSourceClean": true,
       "revision": "d13f23b723b8a846827a245b89c10fc7d3f11612",
-      "name": "mathlib"
+      "name": "mathlib",
+      "trackedSourceClean": true
     },
     {
-      "trackedSourceClean": true,
       "revision": "118aa17ee84656b8bd727fef7c458ee8c833385c",
-      "name": "plausible"
+      "name": "plausible",
+      "trackedSourceClean": true
     },
     {
-      "trackedSourceClean": true,
       "revision": "ddf04cf3949fa556442341e87d47f9f6e6074707",
-      "name": "LeanSearchClient"
+      "name": "LeanSearchClient",
+      "trackedSourceClean": true
     },
     {
-      "trackedSourceClean": true,
       "revision": "e928b72544873815af278d38681b31c0293588e3",
-      "name": "importGraph"
+      "name": "importGraph",
+      "trackedSourceClean": true
     },
     {
-      "trackedSourceClean": true,
       "revision": "106ff4fafc74ef4ac99d81dbf3ab399118f497a5",
-      "name": "proofwidgets"
+      "name": "proofwidgets",
+      "trackedSourceClean": true
     },
     {
-      "trackedSourceClean": true,
       "revision": "355695d523e41d0554926416cba2a2b3544fbbc9",
-      "name": "aesop"
+      "name": "aesop",
+      "trackedSourceClean": true
     },
     {
-      "trackedSourceClean": true,
       "revision": "6a489d9af5d0c47e5b259e2e8bcdfc1811b5a259",
-      "name": "Qq"
+      "name": "Qq",
+      "trackedSourceClean": true
     },
     {
-      "trackedSourceClean": true,
       "revision": "f2effa3d803fda822b1f97b806c47cf2adfbcbc2",
-      "name": "batteries"
+      "name": "batteries",
+      "trackedSourceClean": true
     },
     {
-      "trackedSourceClean": true,
       "revision": "e92c9f15fdfacc8536f31cfb3b7ad26c3c8cd204",
-      "name": "Cli"
+      "name": "Cli",
+      "trackedSourceClean": true
     }
   ],
   "sourceHashes": [
@@ -1294,6 +1320,22 @@
       "sha256": "F957A4E9CA74CFDAEB05F6922E46488F2CF56D05BB9A3A109C2CF00771B02EC4"
     },
     {
+      "file": "PrescribedExtinction\\FarFieldCurrent.lean",
+      "sha256": "66C222464BEB9038EE4AA88671173375DF6C4219BEE2F42E111B680821E07869"
+    },
+    {
+      "file": "PrescribedExtinction\\FarFieldGeometry.lean",
+      "sha256": "51D5A672C1832F525AF923F0B5AFBF47A7A318C61050539A3CFC453DB36F1F08"
+    },
+    {
+      "file": "PrescribedExtinction\\FarFieldKernel.lean",
+      "sha256": "B9ABEDE0DB7727C77C89BB5272946235711ECB93C326D3E34FC928D44B55D48D"
+    },
+    {
+      "file": "PrescribedExtinction\\FarFieldPhase.lean",
+      "sha256": "E2DCED38EFE03621D22BBBF8A7ABFA65FDA603E0909E2CE6BD56ACC58D3B176A"
+    },
+    {
       "file": "PrescribedExtinction\\FourierL1L2.lean",
       "sha256": "AF6F8DAC4E9003D91E28E4DCD1B72A9052706DC9BDD5F86CC69BACD4F02173DB"
     },
@@ -1627,7 +1669,7 @@
     },
     {
       "file": "PrescribedExtinction.lean",
-      "sha256": "F8743A09E809CB38544C3FB1B1AE6ABF188FA68EF1641CF883A334725794D41B"
+      "sha256": "1B9844B61B3EFED5E8434882B24BEE4710CB7F7FEDD9093528A0E577E682F4C8"
     }
   ],
   "foundationalMilestones": [
@@ -1639,8 +1681,8 @@
     },
     {
       "scope": "Actual convolution exists for every compact vector L2 current; finite local bound; locally integrable potential; distributional volume formula and additivity",
-      "module": "PrescribedExtinction.VolumePotential",
-      "boundedDyadicL2OperatorVerified": true
+      "boundedDyadicL2OperatorVerified": true,
+      "module": "PrescribedExtinction.VolumePotential"
     },
     {
       "scope": "Explicit static Fourier multiplier is an L2 contraction and has zero imaginary quadratic form; physical identity proved in NewtonStaticIdentification",
@@ -1655,13 +1697,13 @@
     },
     {
       "scope": "Actual classical dyadic dynamic-minus-static cancellation; explicit inverse-distance norm estimate; cutoff L2 kernel; actual convolution, compact-domain L2 bound, ae invariance and complex linearity",
-      "fullPhysicalDyadicOperatorVerified": true,
       "identificationWithDistributionalDifferenceVerified": true,
+      "fullPhysicalDyadicOperatorVerified": true,
       "module": "PrescribedExtinction.RemainderConvolution"
     },
     {
-      "scope": "Actual polar angular measure, orthogonal invariance, area 4pi and exact second moments",
       "actualSphereMomentsVerified": true,
+      "scope": "Actual polar angular measure, orthogonal invariance, area 4pi and exact second moments",
       "module": "PrescribedExtinction.SphereMoments"
     },
     {
@@ -1676,8 +1718,8 @@
     },
     {
       "scope": "Actual smooth radial cutoff, exact derivative mass and whole-space Newton/gradient integration by parts for original test functions",
-      "module": "PrescribedExtinction.NewtonCutoffIBP",
-      "cutoffIntegrationByPartsVerified": true
+      "cutoffIntegrationByPartsVerified": true,
+      "module": "PrescribedExtinction.NewtonCutoffIBP"
     },
     {
       "scope": "Actual exterior cutoff convergence, integrable polar conversion, radial shell rescaling and normalized shell limit",
@@ -1697,8 +1739,8 @@
     },
     {
       "scope": "Actual original Newton volume distribution equals staticFourierOperator on every compactly supported vector L2 current; genuine current/test Fubini, smooth correlation, Fourier L1-L2 compatibility, and bounded physical L2 realization",
-      "compactCurrentConvolutionIdentificationVerified": true,
       "physicalStaticOperatorVerified": true,
+      "compactCurrentConvolutionIdentificationVerified": true,
       "module": "PrescribedExtinction.NewtonStaticIdentification"
     }
   ],

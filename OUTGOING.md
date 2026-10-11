@@ -1,5 +1,15 @@
 # Physical outgoing volume operator
 
+`FarFieldCurrent.lean` identifies the actual electric Green-current field's
+leading amplitude with the original full vector physical far-field expression.
+`FarFieldKernel.lean` derives its uniform displaced-source kernel error,
+including the phase, inverse-distance amplitude, transverse projection, and
+lower-order dyadic terms. The integrated error is uniform over the entire
+observation sphere for every original compact L² current. The far field is
+continuous in direction and bounded uniformly. This does not yet prove the
+full angular scattering/work identity. Evidence:
+`verification/milestones/physical-full-far-field/`.
+
 `PhysicalAbsorptionWork.lean` identifies the original local dielectric
 absorption integral with total-field/current work and proves the exact
 physical work balance: extinction equals absorption plus outgoing-volume
@@ -19,7 +29,7 @@ incident-drive and solved-current sine factorizations and the exact
 integral. `normalizedActiveResponse` is defined at every real angle, including
 zero, and its norm has the aperture/axis-independent inverse bound. This is
 an exact identity for the reconstructed physical fields, not an assigned power
-law. Reciprocity, the full angular radiation identity, absorption/scattering
+law. Reciprocity, the full angular radiation identity, scattering
 factorization, and uniform aperture localization remain unproved. Evidence:
 `verification/milestones/physical-rotation-extinction/`.
 
