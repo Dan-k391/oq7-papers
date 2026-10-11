@@ -1,5 +1,15 @@
 # Physical outgoing volume operator
 
+`RotationResponse.lean` and `RotationExtinction.lean` prove the physical
+incident-drive and solved-current sine factorizations and the exact
+`physicalExtinction_sine_squared_factorization` for the original extinction
+integral. `normalizedActiveResponse` is defined at every real angle, including
+zero, and its norm has the aperture/axis-independent inverse bound. This is
+an exact identity for the reconstructed physical fields, not an assigned power
+law. Reciprocity, the full angular radiation identity, absorption/scattering
+factorization, and uniform aperture localization remain unproved. Evidence:
+`verification/milestones/physical-rotation-extinction/`.
+
 `RankOneScattering.lean` also supplies actual physical scattering states for
 the manuscript's intermediate tensors `I + alpha u u^T` and `I + beta v v^T`,
 with positive imaginary parts of the two scalar coefficients. The explicit

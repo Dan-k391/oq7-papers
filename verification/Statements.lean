@@ -12,11 +12,15 @@ import PrescribedExtinction
 #check @OQ7Prescribed.activeMaterialEquiv_apply
 #check @OQ7Prescribed.activeMaterialEquiv_inverse_norm_le
 #check @OQ7Prescribed.activeMaterialOperator_imaginary_coercive
+#check @OQ7Prescribed.activePhysicalExtinction_work
 #check @OQ7Prescribed.activePhysicalSolution_equation
 #check @OQ7Prescribed.activePhysicalSolution_physicalVolumeEquation
+#check @OQ7Prescribed.activePhysicalSolution_sine_factorization
+#check @OQ7Prescribed.activeProjectedIncident_sine_factorization
 #check @OQ7Prescribed.activeProjectedOutgoing_im_nonneg
 #check @OQ7Prescribed.activeProjection_coe
 #check @OQ7Prescribed.activeProjection_injection
+#check @OQ7Prescribed.activeProjection_inner
 #check @OQ7Prescribed.activeScalarLoss_pos
 #check @OQ7Prescribed.admissible_susceptibility_bounded_inverse
 #check @OQ7Prescribed.admissible_susceptibility_imaginary_coercive
@@ -35,6 +39,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.bilinear_real_smul_right
 #check @OQ7Prescribed.bilinear_vectorConjugate_right
 #check @OQ7Prescribed.bodyAbsorberSlice_measurable
+#check @OQ7Prescribed.bodyCurrent_incident_work
 #check @OQ7Prescribed.bodyCurrentPolarization_current_ae
 #check @OQ7Prescribed.bodyDomain_isOpen
 #check @OQ7Prescribed.bodyIncident_memLp
@@ -435,6 +440,8 @@ import PrescribedExtinction
 #check @OQ7Prescribed.newtonTemperedHessian_fourier_eq
 #check @OQ7Prescribed.newtonTemperedHessian_fourier_integral
 #check @OQ7Prescribed.newtonTemperedHessian_scalarTest
+#check @OQ7Prescribed.normalizedActiveResponse_norm_le
+#check @OQ7Prescribed.normalizedIncidentDrive_coe
 #check @OQ7Prescribed.orthogonalSphere_cone_preimage
 #check @OQ7Prescribed.orthogonalSphere_measurePreserving
 #check @OQ7Prescribed.outgoing_classical_hessian
@@ -510,6 +517,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.pairing_self
 #check @OQ7Prescribed.permittivity_one_outside
 #check @OQ7Prescribed.permittivity_reciprocal
+#check @OQ7Prescribed.physicalExtinction_sine_squared_factorization
 #check @OQ7Prescribed.physicalOutgoingVolume_work_nonneg
 #check @OQ7Prescribed.physicalPolarization_indicator
 #check @OQ7Prescribed.physicalPolarization_memLp
@@ -741,6 +749,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.vectorL2Distribution_apply
 #check @OQ7Prescribed.vectorL2Distribution_tempered
 #check @OQ7Prescribed.vectorScalarMul_apply
+#check @OQ7Prescribed.volumeExtinction_current_work
 #check @OQ7Prescribed.volumeTotalElectric_locallySquareIntegrable
 #check @OQ7Prescribed.volumeTotalFields_weakMaxwell
 #check @OQ7Prescribed.volumeTotalMagnetic_locallySquareIntegrable

@@ -89,3 +89,6 @@ import PrescribedExtinction.SupportedL2Maps
 import PrescribedExtinction.ActiveCurrentSpace
 import PrescribedExtinction.ActiveMaterialInverse
 import PrescribedExtinction.RankOneScattering
+import PrescribedExtinction.PhysicalExtinctionWork
+import PrescribedExtinction.RotationResponse
+import PrescribedExtinction.RotationExtinction

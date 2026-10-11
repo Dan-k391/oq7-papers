@@ -21,6 +21,14 @@ Uniqueness of arbitrary outgoing states, radiation power identities,
 uniform aperture localization, and the prescribed-extinction construction
 remain unverified. These are required before Theorem 1.1 can be proved.
 
+For the manuscript's intermediate rank-one tensors, the exact physical
+scalar-current inverse is also verified, independently of aperture and
+rotation. The original projected drive and solved current factor as `sin theta`
+times normalized quantities, and the original physical extinction factors as
+`sin(theta)^2` times the normalized work. The auxiliary response is defined
+at zero rotation without division by a vanishing sine. Uniform aperture
+localization and the exact prescribed-extinction witness are still unproved.
+
 The physical Newton volume operator equals `staticFourierOperator` for every compactly supported vector L² current, retaining the full contact Hessian. See [STATIC.md](STATIC.md) and [FOURIER.md](FOURIER.md). Apart from the documented smooth-test annotation correction in Maxwell.lean, every Lean module from commits `6874b492e8d49d2303bb25aa12248b489c9ad13a` and `8301dda82eaf84611a4a40982f77dc2787b16861` is preserved byte for byte.
 
 The existing library and theorem quantifiers are preserved; the smooth-test annotation correction is documented below. [CONTACT_IDENTITY.md](CONTACT_IDENTITY.md), [CONTACT.md](CONTACT.md), [DYADIC.md](DYADIC.md), [FOUNDATIONS.md](FOUNDATIONS.md), and the correspondence table below preserve historical milestones; their former contact and outgoing-source gaps are closed by the latest source. No conditional substitute is advertised as Theorem 1.1.

@@ -295,7 +295,12 @@ run_cmd do
         'OQ7Prescribed.activeMaterialOperator_imaginary_coercive',
         'OQ7Prescribed.activeMaterialEquiv_inverse_norm_le',
         'OQ7Prescribed.activePhysicalSolution_physicalVolumeEquation',
-        'OQ7Prescribed.rankOnePhysicalScatteringState_exists')) {
+        'OQ7Prescribed.rankOnePhysicalScatteringState_exists',
+        'OQ7Prescribed.activeProjectedIncident_sine_factorization',
+        'OQ7Prescribed.activePhysicalSolution_sine_factorization',
+        'OQ7Prescribed.normalizedActiveResponse_norm_le',
+        'OQ7Prescribed.activePhysicalExtinction_work',
+        'OQ7Prescribed.physicalExtinction_sine_squared_factorization')) {
         if ($oq7Required -notin $oq7NewKernelTheorems) { throw "Missing outgoing operator obligation: $oq7Required" }
     }
     if ('OQ7Prescribed.scatteringStateOfVolumeEquation' -notin $oq7Constants) {
@@ -370,6 +375,9 @@ run_cmd do
         physicalRankOneActiveCurrentEmbeddingVerified = $true
         rankOneInverseBoundIndependentOfApertureAndAxesVerified = $true
         intermediateRankOnePhysicalScatteringExistenceVerified = $true
+        physicalCurrentSineFactorizationVerified = $true
+        originalPhysicalExtinctionSineSquaredFactorizationVerified = $true
+        normalizedResponseDefinedAtZeroRotationVerified = $true
         complexHilbertImaginaryCoerciveInverseVerified = $true
         physicalAdmissibleConstitutiveSusceptibilityInverseVerified = $true
         compactL2CurrentFixedSupportSmoothDensityVerified = $true
@@ -438,7 +446,7 @@ run_cmd do
         unverifiedDependencies = @('Uniqueness of arbitrary physical outgoing Maxwell states',
             'Converse outgoing volume representation',
             'Full radiation identity, optical theorem, reciprocity and power balance',
-            'Uniform inverse and sin-squared response factorization',
+            'Physical absorption/scattering sin-squared response factorization',
             'Uniform aperture localization including grazing singularities and all angular channels',
             'Planar construction and normalized zero-angle / zero-plate-loss limits',
             'First exact-extinction bracket and physical continuity',

@@ -1,0 +1,11 @@
+import PrescribedExtinction.RotationExtinction
+#check @OQ7Prescribed.activeProjectedIncident_sine_factorization
+#print axioms OQ7Prescribed.activeProjectedIncident_sine_factorization
+#check @OQ7Prescribed.activePhysicalSolution_sine_factorization
+#print axioms OQ7Prescribed.activePhysicalSolution_sine_factorization
+#check @OQ7Prescribed.normalizedActiveResponse_norm_le
+#print axioms OQ7Prescribed.normalizedActiveResponse_norm_le
+#check @OQ7Prescribed.activePhysicalExtinction_work
+#print axioms OQ7Prescribed.activePhysicalExtinction_work
+#check @OQ7Prescribed.physicalExtinction_sine_squared_factorization
+#print axioms OQ7Prescribed.physicalExtinction_sine_squared_factorization
