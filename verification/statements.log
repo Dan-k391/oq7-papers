@@ -679,11 +679,31 @@ OQ7Prescribed.incident_plate_rankOne_zero_angle : ∀ (k : ℝ) (σ : OQ7Prescri
   OQ7Prescribed.tensorApply (OQ7Prescribed.rankOne (OQ7Prescribed.rotatedAxis 0))
       (OQ7Prescribed.incidentElectric k σ x) =
     0
+OQ7Prescribed.incidentElectric_contDiff : ∀ (k : ℝ) (σ : OQ7Prescribed.Direction),
+  ContDiff ℝ (↑⊤) (OQ7Prescribed.incidentElectric k σ)
+OQ7Prescribed.incidentElectric_curl : ∀ (k : ℝ) (σ : OQ7Prescribed.Direction) (x : OQ7Prescribed.Position),
+  OQ7Prescribed.curl (OQ7Prescribed.incidentElectric k σ) x = (Complex.I * ↑k) • OQ7Prescribed.incidentMagnetic k σ x
+OQ7Prescribed.incidentElectric_first_weakCurl : ∀ (k : ℝ) (σ : OQ7Prescribed.Direction),
+  OQ7Prescribed.HasWeakCurl (OQ7Prescribed.incidentElectric k σ) fun x =>
+    (Complex.I * ↑k) • OQ7Prescribed.incidentMagnetic k σ x
+OQ7Prescribed.incidentElectric_locallySquareIntegrable : ∀ (k : ℝ) (σ : OQ7Prescribed.Direction),
+  OQ7Prescribed.LocallySquareIntegrable (OQ7Prescribed.incidentElectric k σ)
 OQ7Prescribed.incidentElectric_minus_conjugate : ∀ (k : ℝ) (x : OQ7Prescribed.Position),
   OQ7Prescribed.incidentElectric k OQ7Prescribed.Direction.minus x =
     WithLp.toLp 2 fun i => star ((OQ7Prescribed.incidentElectric k OQ7Prescribed.Direction.plus x).ofLp i)
 OQ7Prescribed.incidentElectric_squareNorm : ∀ (k : ℝ) (σ : OQ7Prescribed.Direction) (x : OQ7Prescribed.Position),
   OQ7Prescribed.squareNorm (OQ7Prescribed.incidentElectric k σ x) = 1
+OQ7Prescribed.incidentMagnetic_contDiff : ∀ (k : ℝ) (σ : OQ7Prescribed.Direction),
+  ContDiff ℝ (↑⊤) (OQ7Prescribed.incidentMagnetic k σ)
+OQ7Prescribed.incidentMagnetic_curl : ∀ (k : ℝ) (σ : OQ7Prescribed.Direction) (x : OQ7Prescribed.Position),
+  OQ7Prescribed.curl (OQ7Prescribed.incidentMagnetic k σ) x = (-Complex.I * ↑k) • OQ7Prescribed.incidentElectric k σ x
+OQ7Prescribed.incidentMagnetic_eq : ∀ (k : ℝ) (σ : OQ7Prescribed.Direction),
+  OQ7Prescribed.incidentMagnetic k σ = fun x => (-↑σ.sign * OQ7Prescribed.planePhase k σ x) • OQ7Prescribed.basisC 0
+OQ7Prescribed.incidentMagnetic_locallySquareIntegrable : ∀ (k : ℝ) (σ : OQ7Prescribed.Direction),
+  OQ7Prescribed.LocallySquareIntegrable (OQ7Prescribed.incidentMagnetic k σ)
+OQ7Prescribed.incidentMagnetic_second_weakCurl : ∀ (k : ℝ) (σ : OQ7Prescribed.Direction),
+  OQ7Prescribed.HasWeakCurl (OQ7Prescribed.incidentMagnetic k σ) fun x =>
+    (-Complex.I * ↑k) • OQ7Prescribed.incidentElectric k σ x
 OQ7Prescribed.integrable_polar_actual : ∀ (f : OQ7Prescribed.Position → ℝ),
   MeasureTheory.Integrable f MeasureTheory.volume →
     MeasureTheory.Integrable (fun p => f (↑p.2 • ↑p.1))
@@ -1402,6 +1422,11 @@ OQ7Prescribed.physicalSourceFields_second_curl : ∀ (k : ℝ) (p : OQ7Prescribe
 OQ7Prescribed.physicalSourceFields_second_weakCurl : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization),
   OQ7Prescribed.HasWeakCurl (OQ7Prescribed.magneticVolumeField k p) fun x =>
     (-Complex.I * ↑k) • (OQ7Prescribed.electricVolumeField k p x + p.current x)
+OQ7Prescribed.planePhase_contDiff : ∀ (k : ℝ) (σ : OQ7Prescribed.Direction),
+  ContDiff ℝ (↑⊤) (OQ7Prescribed.planePhase k σ)
+OQ7Prescribed.planePhase_hasFDerivAt : ∀ (k : ℝ) (σ : OQ7Prescribed.Direction) (x : OQ7Prescribed.Position),
+  HasFDerivAt (OQ7Prescribed.planePhase k σ)
+    ((Complex.I * ↑(σ.sign * k) * OQ7Prescribed.planePhase k σ x) • Complex.ofRealCLM ∘SL PiLp.proj 2 (fun x => ℝ) 2) x
 OQ7Prescribed.planePhase_norm : ∀ (k : ℝ) (σ : OQ7Prescribed.Direction) (x : OQ7Prescribed.Position),
   ‖OQ7Prescribed.planePhase k σ x‖ = 1
 OQ7Prescribed.polarization_zero_outside : ∀ (B : OQ7Prescribed.TwoLayerBody) (E : OQ7Prescribed.Field),
@@ -1757,6 +1782,24 @@ OQ7Prescribed.shrinkingCutoffPoleError_tendsto : ∀ (F : OQ7Prescribed.Position
     ∀ (φ : OQ7Prescribed.ScalarTest) (i : Fin 3),
       Filter.Tendsto (fun ε => ∫ (x : OQ7Prescribed.Position), OQ7Prescribed.exteriorCutoffPartial ε ε i x * F x * φ x)
         (nhdsWithin 0 (Set.Ioi 0)) (nhds 0)
+OQ7Prescribed.smoothField_component_partial : ∀ (F : OQ7Prescribed.Field),
+  ContDiff ℝ (↑⊤) F →
+    ∀ (i j : Fin 3),
+      (OQ7Prescribed.distributionPartial j) (OQ7Prescribed.fieldComponentDistribution F i) =
+        Distribution.ofFun ⊤ (fun x => ((fderiv ℝ F x) (OQ7Prescribed.basisR j)).ofLp i) MeasureTheory.volume ⊤
+OQ7Prescribed.smoothField_curl_continuous : ∀ (F : OQ7Prescribed.Field),
+  ContDiff ℝ (↑⊤) F → Continuous (OQ7Prescribed.curl F)
+OQ7Prescribed.smoothField_distributionCurl : ∀ (F : OQ7Prescribed.Field),
+  ContDiff ℝ (↑⊤) F →
+    OQ7Prescribed.distributionCurl (OQ7Prescribed.fieldComponentDistribution F) =
+      OQ7Prescribed.fieldComponentDistribution (OQ7Prescribed.curl F)
+OQ7Prescribed.smoothField_hasWeakCurl : ∀ (F : OQ7Prescribed.Field),
+  ContDiff ℝ (↑⊤) F → OQ7Prescribed.HasWeakCurl F (OQ7Prescribed.curl F)
+OQ7Prescribed.smoothScalar_distributionPartial : ∀ (f : OQ7Prescribed.Position → ℂ),
+  ContDiff ℝ (↑⊤) f →
+    ∀ (j : Fin 3),
+      (OQ7Prescribed.distributionPartial j) (Distribution.ofFun ⊤ f MeasureTheory.volume ⊤) =
+        Distribution.ofFun ⊤ (fun x => (fderiv ℝ f x) (OQ7Prescribed.basisR j)) MeasureTheory.volume ⊤
 OQ7Prescribed.sphere_coordinate_cross_zero : ∀ (i j : Fin 3),
   i ≠ j → ∫ (n : ↑OQ7Prescribed.UnitSphere), (↑n).ofLp i * (↑n).ofLp j ∂OQ7Prescribed.sphereArea = 0
 OQ7Prescribed.sphere_coordinate_mul_integrable : ∀ (i j : Fin 3),

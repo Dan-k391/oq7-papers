@@ -1,0 +1,13 @@
+import PrescribedExtinction.IncidentMaxwell
+#check @OQ7Prescribed.smoothScalar_distributionPartial
+#print axioms OQ7Prescribed.smoothScalar_distributionPartial
+#check @OQ7Prescribed.smoothField_hasWeakCurl
+#print axioms OQ7Prescribed.smoothField_hasWeakCurl
+#check @OQ7Prescribed.incidentElectric_first_weakCurl
+#print axioms OQ7Prescribed.incidentElectric_first_weakCurl
+#check @OQ7Prescribed.incidentMagnetic_second_weakCurl
+#print axioms OQ7Prescribed.incidentMagnetic_second_weakCurl
+#check @OQ7Prescribed.incidentElectric_locallySquareIntegrable
+#print axioms OQ7Prescribed.incidentElectric_locallySquareIntegrable
+#check @OQ7Prescribed.incidentMagnetic_locallySquareIntegrable
+#print axioms OQ7Prescribed.incidentMagnetic_locallySquareIntegrable

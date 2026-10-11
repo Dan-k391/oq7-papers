@@ -254,7 +254,12 @@ run_cmd do
         'OQ7Prescribed.electricExterior_component_distribution',
         'OQ7Prescribed.electricExterior_eq_ae',
         'OQ7Prescribed.magneticExterior_eq_pointwise_far',
-        'OQ7Prescribed.outgoingPhysicalSourceFields')) {
+        'OQ7Prescribed.outgoingPhysicalSourceFields',
+        'OQ7Prescribed.smoothField_hasWeakCurl',
+        'OQ7Prescribed.incidentElectric_first_weakCurl',
+        'OQ7Prescribed.incidentMagnetic_second_weakCurl',
+        'OQ7Prescribed.incidentElectric_locallySquareIntegrable',
+        'OQ7Prescribed.incidentMagnetic_locallySquareIntegrable')) {
         if ($oq7Required -notin $oq7NewKernelTheorems) { throw "Missing outgoing operator obligation: $oq7Required" }
     }
     if ($oq7PdfHash -ne '3D9775D849234E828370D7C96D8BDCDD574BEB6831A7906EA6B7706579868710') { throw 'Manuscript hash differs.' }
@@ -315,6 +320,8 @@ run_cmd do
         physicalExteriorElectricL2RepresentativeIdentificationVerified = $true
         physicalGlobalOutgoingWeakMaxwellSourceFieldsVerified = $true
         physicalExteriorMagneticPointwiseIdentificationVerified = $true
+        physicalIncidentPlaneWaveWeakMaxwellVerified = $true
+        classicalSmoothCurlToPhysicalWeakCurlVerified = $true
         physicalDyadicDistributionExteriorTestIdentificationVerified = $true
         outgoingWeakMaxwellRepresentationVerified = $false
         scatteringStateExistenceVerified = $false

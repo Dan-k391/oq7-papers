@@ -48,7 +48,8 @@ try {
         @{ name = 'exterior-current-radiation'; module = 'PrescribedExtinction.ExteriorOutgoing' },
         @{ name = 'exterior-kernel-tests'; module = 'PrescribedExtinction.ExteriorKernelTests' },
         @{ name = 'exterior-electric-identification'; module = 'PrescribedExtinction.ExteriorCurrentIdentification' },
-        @{ name = 'outgoing-source-fields'; module = 'PrescribedExtinction.OutgoingSourceFields' }
+        @{ name = 'outgoing-source-fields'; module = 'PrescribedExtinction.OutgoingSourceFields' },
+        @{ name = 'incident-maxwell'; module = 'PrescribedExtinction.IncidentMaxwell' }
     )
     if ($Only) {
         foreach ($oq7Name in $Only) {
