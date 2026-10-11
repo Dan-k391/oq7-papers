@@ -1,0 +1,10 @@
+import PrescribedExtinction.ExtinctionReciprocity
+
+#check OQ7Prescribed.tensor_bilinear_reciprocity
+#check OQ7Prescribed.bodySusceptibility_reciprocal
+#check OQ7Prescribed.reciprocalMaterialVolume_incident_work
+#check OQ7Prescribed.physicalVolume_extinction_reciprocity
+#print axioms OQ7Prescribed.tensor_bilinear_reciprocity
+#print axioms OQ7Prescribed.bodySusceptibility_reciprocal
+#print axioms OQ7Prescribed.reciprocalMaterialVolume_incident_work
+#print axioms OQ7Prescribed.physicalVolume_extinction_reciprocity

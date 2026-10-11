@@ -64,6 +64,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.bodyOutgoingOperator_im_nonneg
 #check @OQ7Prescribed.bodyOutgoingOperator_inner
 #check @OQ7Prescribed.bodySupportRadius_nonneg
+#check @OQ7Prescribed.bodySusceptibility_reciprocal
 #check @OQ7Prescribed.bodyVolumeTotalElectricCurrent_eq
 #check @OQ7Prescribed.classicalDyadic_coordinate
 #check @OQ7Prescribed.classicalDyadic_leading_error
@@ -72,6 +73,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.classicalDyadic_test_integrable_of_zero
 #check @OQ7Prescribed.classicalDyadic_zero_coordinate
 #check @OQ7Prescribed.compact_scalar_weight_integrable
+#check @OQ7Prescribed.compactCurrent_incident_bilinear_integrable
 #check @OQ7Prescribed.compactCurrent_outgoingOperator_coe
 #check @OQ7Prescribed.compactCurrent_outgoingOperator_im_nonneg
 #check @OQ7Prescribed.compactCurrent_outgoingOperator_im_nonneg_of_smooth
@@ -307,6 +309,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.incidentElectric_first_weakCurl
 #check @OQ7Prescribed.incidentElectric_locallySquareIntegrable
 #check @OQ7Prescribed.incidentElectric_minus_conjugate
+#check @OQ7Prescribed.incidentElectric_norm
 #check @OQ7Prescribed.incidentElectric_squareNorm
 #check @OQ7Prescribed.incidentMagnetic_contDiff
 #check @OQ7Prescribed.incidentMagnetic_curl
@@ -582,6 +585,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.physicalSourceFields_second_weakCurl
 #check @OQ7Prescribed.physicalVolume_absorption_le_extinction
 #check @OQ7Prescribed.physicalVolume_energy_balance
+#check @OQ7Prescribed.physicalVolume_extinction_reciprocity
 #check @OQ7Prescribed.physicalVolume_Haar_energy_balance
 #check @OQ7Prescribed.physicalVolume_scattering_eq_Haar
 #check @OQ7Prescribed.physicalVolume_scattering_nonneg
@@ -633,6 +637,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.real_inner_basis
 #check @OQ7Prescribed.real_inner_norm_square_error
 #check @OQ7Prescribed.realDot_eq_inner
+#check @OQ7Prescribed.reciprocalMaterialVolume_incident_work
 #check @OQ7Prescribed.reflectedCurrentComponent_fourier_neg
 #check @OQ7Prescribed.reflectedCurrentComponent_hasCompactSupport
 #check @OQ7Prescribed.reflectedCurrentComponent_integrable
@@ -817,6 +822,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.supportedVectorL2_isClosed
 #check @OQ7Prescribed.susceptibility_quadratic_im
 #check @OQ7Prescribed.susceptibility_zero_outside
+#check @OQ7Prescribed.tensor_bilinear_reciprocity
 #check @OQ7Prescribed.tensor_quadratic_eq_inner
 #check @OQ7Prescribed.tensorApply_one
 #check @OQ7Prescribed.tensorApply_rankOne
@@ -865,6 +871,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.vectorScalarMul_apply
 #check @OQ7Prescribed.volumeAbsorption_body_inner
 #check @OQ7Prescribed.volumeExtinction_current_work
+#check @OQ7Prescribed.volumeExtinction_global_current_work
 #check @OQ7Prescribed.volumePhysicalFarField_eq
 #check @OQ7Prescribed.volumeTotalElectric_locallySquareIntegrable
 #check @OQ7Prescribed.volumeTotalFields_weakMaxwell

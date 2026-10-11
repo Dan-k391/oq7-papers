@@ -64,7 +64,8 @@ try {
         @{ name = 'physical-full-far-field'; module = 'PrescribedExtinction.FarFieldCurrent' },
         @{ name = 'physical-haar-radiation-work'; module = 'PrescribedExtinction.FarFieldWorkL2' },
         @{ name = 'physical-optical-balance'; module = 'PrescribedExtinction.PhysicalOpticalBalance' },
-        @{ name = 'physical-volume-reciprocity'; module = 'PrescribedExtinction.ReciprocityL2' }
+        @{ name = 'physical-volume-reciprocity'; module = 'PrescribedExtinction.ReciprocityL2' },
+        @{ name = 'physical-extinction-reciprocity'; module = 'PrescribedExtinction.ExtinctionReciprocity' }
     )
     if ($Only) {
         foreach ($oq7Name in $Only) {

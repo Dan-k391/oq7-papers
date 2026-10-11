@@ -337,6 +337,10 @@ run_cmd do
         'OQ7Prescribed.smoothPhysicalSources_reciprocity',
         'OQ7Prescribed.compactCurrents_bilinear_volume_integrable',
         'OQ7Prescribed.physicalOutgoingVolume_reciprocity',
+        'OQ7Prescribed.tensor_bilinear_reciprocity',
+        'OQ7Prescribed.bodySusceptibility_reciprocal',
+        'OQ7Prescribed.reciprocalMaterialVolume_incident_work',
+        'OQ7Prescribed.physicalVolume_extinction_reciprocity',
         'OQ7Prescribed.normalizedActiveResponse_residual_bound',
         'OQ7Prescribed.normalizedActiveResponse_angle_difference_bound')) {
         if ($oq7Required -notin $oq7NewKernelTheorems) { throw "Missing outgoing operator obligation: $oq7Required" }
@@ -424,6 +428,7 @@ run_cmd do
         originalThetaPhiSurfaceMeasureConversionVerified = $true
         originalPhysicalOpticalWorkIdentityVerified = $true
         actualPhysicalOutgoingVolumeReciprocityVerified = $true
+        originalPhysicalExtinctionReciprocityVerified = $true
         physicalVolumeWorkBalanceVerified = $true
         originalPhysicalAbsorptionSineSquaredFactorizationVerified = $true
         normalizedPhysicalResponseUniformResidualBoundVerified = $true

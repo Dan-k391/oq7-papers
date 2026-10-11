@@ -116,3 +116,4 @@ import PrescribedExtinction.LorentzIdentity
 import PrescribedExtinction.LorentzBounds
 import PrescribedExtinction.SmoothReciprocity
 import PrescribedExtinction.ReciprocityL2
+import PrescribedExtinction.ExtinctionReciprocity

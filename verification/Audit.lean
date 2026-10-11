@@ -1713,6 +1713,7 @@ import PrescribedExtinction
 #print axioms OQ7Prescribed.bodySupportRadius
 #print axioms OQ7Prescribed.bodySupportRadius_nonneg
 #print axioms OQ7Prescribed.bodySupportRadius.eq_1
+#print axioms OQ7Prescribed.bodySusceptibility_reciprocal
 #print axioms OQ7Prescribed.bodyVolumeTotalElectricCurrent_eq
 #print axioms OQ7Prescribed.CartesianDistribution
 #print axioms OQ7Prescribed.classicalDyadic
@@ -1751,6 +1752,7 @@ import PrescribedExtinction
 #print axioms OQ7Prescribed.classicalDyadic._proof_9
 #print axioms OQ7Prescribed.classicalDyadic.eq_1
 #print axioms OQ7Prescribed.compact_scalar_weight_integrable
+#print axioms OQ7Prescribed.compactCurrent_incident_bilinear_integrable
 #print axioms OQ7Prescribed.compactCurrent_outgoingOperator_coe
 #print axioms OQ7Prescribed.compactCurrent_outgoingOperator_im_nonneg
 #print axioms OQ7Prescribed.compactCurrent_outgoingOperator_im_nonneg_of_smooth
@@ -2343,6 +2345,7 @@ import PrescribedExtinction
 #print axioms OQ7Prescribed.incidentElectric_locallySquareIntegrable
 #print axioms OQ7Prescribed.incidentElectric_minus_conjugate
 #print axioms OQ7Prescribed.incidentElectric_minus_conjugate._simp_1_7
+#print axioms OQ7Prescribed.incidentElectric_norm
 #print axioms OQ7Prescribed.incidentElectric_squareNorm
 #print axioms OQ7Prescribed.incidentElectric.eq_1
 #print axioms OQ7Prescribed.incidentMagnetic
@@ -3040,6 +3043,7 @@ import PrescribedExtinction
 #print axioms OQ7Prescribed.physicalSourceFields_second_weakCurl
 #print axioms OQ7Prescribed.physicalVolume_absorption_le_extinction
 #print axioms OQ7Prescribed.physicalVolume_energy_balance
+#print axioms OQ7Prescribed.physicalVolume_extinction_reciprocity
 #print axioms OQ7Prescribed.physicalVolume_Haar_energy_balance
 #print axioms OQ7Prescribed.physicalVolume_scattering_eq_Haar
 #print axioms OQ7Prescribed.physicalVolume_scattering_nonneg
@@ -3143,6 +3147,7 @@ import PrescribedExtinction
 #print axioms OQ7Prescribed.realDot
 #print axioms OQ7Prescribed.realDot_eq_inner
 #print axioms OQ7Prescribed.realDot.eq_1
+#print axioms OQ7Prescribed.reciprocalMaterialVolume_incident_work
 #print axioms OQ7Prescribed.reflectedCurrentComponent
 #print axioms OQ7Prescribed.reflectedCurrentComponent_fourier_neg
 #print axioms OQ7Prescribed.reflectedCurrentComponent_hasCompactSupport
@@ -3265,7 +3270,7 @@ import PrescribedExtinction
 #print axioms OQ7Prescribed.setRestrictionLinear._proof_2
 #print axioms OQ7Prescribed.setRestrictionLinear._proof_3
 #print axioms OQ7Prescribed.setRestrictionLinear._proof_4
-#print axioms OQ7Prescribed.SetSupportedL2
+#print axioms OQ7Prescribed.setSupportedL2
 #print axioms OQ7Prescribed.setSupportedL2_isClosed
 #print axioms OQ7Prescribed.setSupportedL2._proof_1
 #print axioms OQ7Prescribed.setSupportedL2._proof_2
@@ -3665,6 +3670,7 @@ import PrescribedExtinction
 #print axioms OQ7Prescribed.SusceptibilityInverseData.rec
 #print axioms OQ7Prescribed.SusceptibilityInverseData.recOn
 #print axioms OQ7Prescribed.Tensor
+#print axioms OQ7Prescribed.tensor_bilinear_reciprocity
 #print axioms OQ7Prescribed.tensor_quadratic_eq_inner
 #print axioms OQ7Prescribed.tensorApply
 #print axioms OQ7Prescribed.tensorApply_one
@@ -3839,6 +3845,7 @@ import PrescribedExtinction
 #print axioms OQ7Prescribed.vectorScalarMulReal._proof_3
 #print axioms OQ7Prescribed.volumeAbsorption_body_inner
 #print axioms OQ7Prescribed.volumeExtinction_current_work
+#print axioms OQ7Prescribed.volumeExtinction_global_current_work
 #print axioms OQ7Prescribed.volumePhysicalFarField_eq
 #print axioms OQ7Prescribed.volumeTotalElectric
 #print axioms OQ7Prescribed.volumeTotalElectric_locallySquareIntegrable

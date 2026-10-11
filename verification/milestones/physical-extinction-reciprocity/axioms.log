@@ -1,0 +1,29 @@
+OQ7Prescribed.tensor_bilinear_reciprocity (T : OQ7Prescribed.Tensor) (hT : Matrix.transpose T = T)
+  (u v : OQ7Prescribed.Vector) :
+  OQ7Prescribed.bilinear (OQ7Prescribed.tensorApply T u) v = OQ7Prescribed.bilinear (OQ7Prescribed.tensorApply T v) u
+OQ7Prescribed.bodySusceptibility_reciprocal (B : OQ7Prescribed.TwoLayerBody)
+  (ha : Matrix.transpose B.absorberPermittivity = B.absorberPermittivity)
+  (hb : Matrix.transpose B.platePermittivity = B.platePermittivity) (x : OQ7Prescribed.Position) :
+  Matrix.transpose (B.susceptibility x) = B.susceptibility x
+OQ7Prescribed.reciprocalMaterialVolume_incident_work (k : ℝ) (hk : 0 < k) (B : OQ7Prescribed.TwoLayerBody)
+  (ha : Matrix.transpose B.absorberPermittivity = B.absorberPermittivity)
+  (hb : Matrix.transpose B.platePermittivity = B.platePermittivity) (p q : OQ7Prescribed.CompactPolarization)
+  (hp : OQ7Prescribed.MaterialVolumeEquation k B OQ7Prescribed.Direction.plus p)
+  (hq : OQ7Prescribed.MaterialVolumeEquation k B OQ7Prescribed.Direction.minus q) :
+  ∫ (x : OQ7Prescribed.Position),
+      OQ7Prescribed.bilinear (p.current x) (OQ7Prescribed.incidentElectric k OQ7Prescribed.Direction.minus x) =
+    ∫ (x : OQ7Prescribed.Position),
+      OQ7Prescribed.bilinear (q.current x) (OQ7Prescribed.incidentElectric k OQ7Prescribed.Direction.plus x)
+OQ7Prescribed.physicalVolume_extinction_reciprocity (k : ℝ) (hk : 0 < k) (B : OQ7Prescribed.TwoLayerBody)
+  (ha : Matrix.transpose B.absorberPermittivity = B.absorberPermittivity)
+  (hb : Matrix.transpose B.platePermittivity = B.platePermittivity) (p q : OQ7Prescribed.CompactPolarization)
+  (hp : OQ7Prescribed.MaterialVolumeEquation k B OQ7Prescribed.Direction.plus p)
+  (hq : OQ7Prescribed.MaterialVolumeEquation k B OQ7Prescribed.Direction.minus q) :
+  OQ7Prescribed.extinction k B OQ7Prescribed.Direction.plus
+      (OQ7Prescribed.volumeTotalElectric k OQ7Prescribed.Direction.plus p) =
+    OQ7Prescribed.extinction k B OQ7Prescribed.Direction.minus
+      (OQ7Prescribed.volumeTotalElectric k OQ7Prescribed.Direction.minus q)
+'OQ7Prescribed.tensor_bilinear_reciprocity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.bodySusceptibility_reciprocal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.reciprocalMaterialVolume_incident_work' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.physicalVolume_extinction_reciprocity' depends on axioms: [propext, Classical.choice, Quot.sound]
