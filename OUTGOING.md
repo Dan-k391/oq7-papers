@@ -51,7 +51,7 @@ clean project build is in `verification/clean-build.log`.
 Reproduction: configure the exact pinned dependencies as in README, then run
 `./verify.ps1 -Clean` and `./verify-milestones.ps1` with the pinned Lean binary.
 
-Still required: weak Maxwell
+Still required: exterior representatives
 and pointwise outgoing representation; full-sphere radiation, passivity and
 reciprocity; physical solution existence and uniqueness; uniform localization;
 planar synthesis and both exact-extinction adjustments. None follows merely
@@ -69,3 +69,9 @@ regularity annotation in Maxwell.lean is strengthened to explicit ENat top;
 untyped top in the pinned Mathlib meant analytic regularity. The exact earlier
 source and the formal strengthening proof are saved and audited. This fixes
 the physical weak equations without changing Theorem11Statement quantifiers.
+
+RadiationKernel.lean proves the exact single-source Silver–Müller defect and
+the uniform displaced-source bound for every source in a radius-R ball and
+every observation direction, with explicit k/R dependence. The magnetic kernel
+is identified with the actual outgoing gradient. These kernel estimates must
+still be integrated and connected to the original L² field representatives.

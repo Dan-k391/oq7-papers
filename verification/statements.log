@@ -19,6 +19,12 @@ OQ7Prescribed.axisCoupling_bound : ∀ (u : OQ7Prescribed.Position) (v : OQ7Pres
   ‖u‖ ^ 2 = 1 → Complex.normSq (OQ7Prescribed.axisCoupling u v) ≤ OQ7Prescribed.squareNorm v
 OQ7Prescribed.axisCoupling_eq_inner : ∀ (u : OQ7Prescribed.Position) (v : OQ7Prescribed.Vector),
   OQ7Prescribed.axisCoupling u v = inner ℂ (OQ7Prescribed.complexify u) v
+OQ7Prescribed.bilinear_complexify_eq_inner : ∀ (x : OQ7Prescribed.Position) (v : OQ7Prescribed.Vector),
+  OQ7Prescribed.bilinear (OQ7Prescribed.complexify x) v = inner ℂ (OQ7Prescribed.complexify x) v
+OQ7Prescribed.bilinear_complexify_self : ∀ (x : OQ7Prescribed.Position),
+  OQ7Prescribed.bilinear (OQ7Prescribed.complexify x) (OQ7Prescribed.complexify x) = ↑(‖x‖ ^ 2)
+OQ7Prescribed.bilinear_radial_smul_norm_le : ∀ (x : OQ7Prescribed.Position) (v : OQ7Prescribed.Vector),
+  ‖OQ7Prescribed.bilinear (OQ7Prescribed.complexify x) v • OQ7Prescribed.complexify x‖ ≤ ‖x‖ ^ 2 * ‖v‖
 OQ7Prescribed.classicalDyadic_coordinate : ∀ (k : ℝ) (x : OQ7Prescribed.Position),
   x ≠ 0 →
     ∀ (i j : Fin 3),
@@ -90,7 +96,10 @@ OQ7Prescribed.compactTest_component_integrable : ∀ (F : OQ7Prescribed.Field),
     ∀ (i : Fin 3) (ψ : OQ7Prescribed.Position → ℂ),
       Continuous ψ → HasCompactSupport ψ → MeasureTheory.Integrable (fun x => ψ x * (F x).ofLp i) MeasureTheory.volume
 OQ7Prescribed.complexify_continuous : Continuous OQ7Prescribed.complexify
+OQ7Prescribed.complexify_norm : ∀ (x : OQ7Prescribed.Position), ‖OQ7Prescribed.complexify x‖ = ‖x‖
 OQ7Prescribed.complexify_norm_sq : ∀ (u : OQ7Prescribed.Position), ‖OQ7Prescribed.complexify u‖ ^ 2 = ‖u‖ ^ 2
+OQ7Prescribed.complexify_sub : ∀ (x y : OQ7Prescribed.Position),
+  OQ7Prescribed.complexify (x - y) = OQ7Prescribed.complexify x - OQ7Prescribed.complexify y
 OQ7Prescribed.complexRealTest_partial : ∀ (ψ : OQ7Prescribed.Position → ℂ) (hψ : ContDiff ℝ (↑⊤) ψ)
   (hs : HasCompactSupport ψ) (L : ℂ →L[ℝ] ℝ) (j : Fin 3) (x : OQ7Prescribed.Position),
   ((OQ7Prescribed.testPartial j) (OQ7Prescribed.complexRealTest ψ hψ hs L)) x =
@@ -121,6 +130,14 @@ OQ7Prescribed.coordinateReflect_apply : ∀ (i j : Fin 3) (x : OQ7Prescribed.Pos
   ((OQ7Prescribed.coordinateReflect i) x).ofLp j = if j = i then -x.ofLp j else x.ofLp j
 OQ7Prescribed.coordinateSwap_apply : ∀ (i j a : Fin 3) (x : OQ7Prescribed.Position),
   ((OQ7Prescribed.coordinateSwap i j) x).ofLp a = x.ofLp ((Equiv.swap i j) a)
+OQ7Prescribed.cross_cross : ∀ (a b c : OQ7Prescribed.Vector),
+  OQ7Prescribed.cross (OQ7Prescribed.cross a b) c = OQ7Prescribed.bilinear a c • b - OQ7Prescribed.bilinear b c • a
+OQ7Prescribed.cross_norm_le : ∀ (u v : OQ7Prescribed.Vector), ‖OQ7Prescribed.cross u v‖ ≤ ‖u‖ * ‖v‖
+OQ7Prescribed.cross_squareNorm_identity : ∀ (u v : OQ7Prescribed.Vector),
+  OQ7Prescribed.squareNorm (OQ7Prescribed.cross u v) + Complex.normSq (OQ7Prescribed.pairing u v) =
+    OQ7Prescribed.squareNorm u * OQ7Prescribed.squareNorm v
+OQ7Prescribed.cross_sub_right : ∀ (u v w : OQ7Prescribed.Vector),
+  OQ7Prescribed.cross u (v - w) = OQ7Prescribed.cross u v - OQ7Prescribed.cross u w
 OQ7Prescribed.current_component_fourier : ∀ (p : OQ7Prescribed.CompactPolarization) (j : Fin 3)
   (ξ : OQ7Prescribed.Position),
   FourierTransform.fourier (fun y => (p.current y).ofLp j) ξ = (FourierTransform.fourier p.current ξ).ofLp j
@@ -176,6 +193,16 @@ OQ7Prescribed.cutoffGreen_memLp : ∀ (k T : ℝ),
   MeasureTheory.MemLp (OQ7Prescribed.cutoffGreen k T) 2 MeasureTheory.volume
 OQ7Prescribed.cutoffOutgoingGradient_integrable : ∀ (k R : ℝ) (j : Fin 3),
   MeasureTheory.Integrable (OQ7Prescribed.cutoffOutgoingGradient k R j) MeasureTheory.volume
+OQ7Prescribed.displaced_kernel_radiation_norm_le : ∀ (k R : ℝ),
+  0 ≤ R →
+    ∀ (x y : OQ7Prescribed.Position),
+      2 * R + 2 ≤ ‖x‖ →
+        ‖y‖ ≤ R →
+          ∀ (v : OQ7Prescribed.Vector),
+            ‖OQ7Prescribed.cross (OQ7Prescribed.kernelMagnetic k (x - y) v)
+                    (OQ7Prescribed.complexify (OQ7Prescribed.radialDirection x)) -
+                  (OQ7Prescribed.classicalDyadic k (x - y)) v‖ ≤
+              OQ7Prescribed.radiationKernelConstant k R / ‖x‖ ^ 2 * ‖v‖
 OQ7Prescribed.distributionCurl_add : ∀ (U V : OQ7Prescribed.CartesianDistribution),
   OQ7Prescribed.distributionCurl (U + V) = OQ7Prescribed.distributionCurl U + OQ7Prescribed.distributionCurl V
 OQ7Prescribed.distributionCurl_complex_smul : ∀ (a : ℂ) (U : OQ7Prescribed.CartesianDistribution),
@@ -523,6 +550,30 @@ OQ7Prescribed.integral_three_sub : ∀ (a b c d e f : OQ7Prescribed.Position →
                 ((∫ (x : OQ7Prescribed.Position), a x) - ∫ (x : OQ7Prescribed.Position), b x) +
                     ((∫ (x : OQ7Prescribed.Position), c x) - ∫ (x : OQ7Prescribed.Position), d x) +
                   ((∫ (x : OQ7Prescribed.Position), e x) - ∫ (x : OQ7Prescribed.Position), f x)
+OQ7Prescribed.kernel_radiation_defect : ∀ (k : ℝ) (x : OQ7Prescribed.Position),
+  x ≠ 0 →
+    ∀ (v : OQ7Prescribed.Vector),
+      OQ7Prescribed.cross (OQ7Prescribed.kernelMagnetic k x v) (OQ7Prescribed.complexify (‖x‖⁻¹ • x)) -
+          (OQ7Prescribed.classicalDyadic k x) v =
+        (OQ7Prescribed.outgoingRadial k ‖x‖ / ↑‖x‖ ^ 2) • v +
+          ((2 * Complex.I * ↑k * ↑‖x‖ - 3) * OQ7Prescribed.outgoingRadial k ‖x‖ / ↑‖x‖ ^ 4) •
+            OQ7Prescribed.bilinear (OQ7Prescribed.complexify x) v • OQ7Prescribed.complexify x
+OQ7Prescribed.kernel_radiation_defect_norm_le : ∀ (k : ℝ) (x : OQ7Prescribed.Position),
+  x ≠ 0 →
+    ∀ (v : OQ7Prescribed.Vector),
+      ‖OQ7Prescribed.cross (OQ7Prescribed.kernelMagnetic k x v) (OQ7Prescribed.complexify (‖x‖⁻¹ • x)) -
+            (OQ7Prescribed.classicalDyadic k x) v‖ ≤
+        (2 * |k| / (4 * Real.pi * ‖x‖ ^ 2) + 1 / (Real.pi * ‖x‖ ^ 3)) * ‖v‖
+OQ7Prescribed.kernelMagnetic_gradient : ∀ (k : ℝ) (x : OQ7Prescribed.Position) (v : OQ7Prescribed.Vector),
+  OQ7Prescribed.kernelMagnetic k x v =
+    (-Complex.I * ↑k) •
+      !₂[OQ7Prescribed.outgoingGradient k 1 x * v.ofLp 2 - OQ7Prescribed.outgoingGradient k 2 x * v.ofLp 1,
+        OQ7Prescribed.outgoingGradient k 2 x * v.ofLp 0 - OQ7Prescribed.outgoingGradient k 0 x * v.ofLp 2,
+        OQ7Prescribed.outgoingGradient k 0 x * v.ofLp 1 - OQ7Prescribed.outgoingGradient k 1 x * v.ofLp 0]
+OQ7Prescribed.kernelMagnetic_norm_le : ∀ (k : ℝ) (x : OQ7Prescribed.Position),
+  x ≠ 0 →
+    ∀ (v : OQ7Prescribed.Vector),
+      ‖OQ7Prescribed.kernelMagnetic k x v‖ ≤ |k| * (|k| * ‖x‖ + 1) / (4 * Real.pi * ‖x‖ ^ 2) * ‖v‖
 OQ7Prescribed.layerPermittivity_admissible : ∀ (P Q a b ν : ℝ) (u : OQ7Prescribed.Position),
   ‖u‖ ^ 2 = 1 →
     0 ≤ a →
@@ -1274,6 +1325,10 @@ OQ7Prescribed.radial_second_lineDeriv : ∀ (F F₁ F₂ : ℝ → ℂ),
             lineDeriv ℝ (fun y => lineDeriv ℝ (fun z => F ‖z‖) y (OQ7Prescribed.basisR j)) x (OQ7Prescribed.basisR i) =
               (x.ofLp i * x.ofLp j / ‖x‖ ^ 2) • F₂ ‖x‖ +
                 ((if i = j then 1 else 0) / ‖x‖ - x.ofLp i * x.ofLp j / ‖x‖ ^ 3) • F₁ ‖x‖
+OQ7Prescribed.radialDirection_sub_norm_le : ∀ (x y : OQ7Prescribed.Position),
+  ‖y‖ < ‖x‖ → ‖OQ7Prescribed.radialDirection (x - y) - OQ7Prescribed.radialDirection x‖ ≤ 2 * ‖y‖ / (‖x‖ - ‖y‖)
+OQ7Prescribed.radialDirection_sub_norm_le_distance : ∀ (x y : OQ7Prescribed.Position),
+  ‖y‖ < ‖x‖ → ‖OQ7Prescribed.radialDirection (x - y) - OQ7Prescribed.radialDirection x‖ ≤ 2 * ‖y‖ / ‖x - y‖
 OQ7Prescribed.radialHessian_trace : ∀ (x : OQ7Prescribed.Position),
   x ≠ 0 →
     ∀ (A B : ℂ),

@@ -43,7 +43,8 @@ try {
         @{ name = 'green-gradient-current'; module = 'PrescribedExtinction.GradientCurrentPairing' },
         @{ name = 'physical-source-fields'; module = 'PrescribedExtinction.PhysicalSourceFields' },
         @{ name = 'smooth-test-correction'; module = 'PrescribedExtinction.TestRegularity' },
-        @{ name = 'physical-weak-curls'; module = 'PrescribedExtinction.WeakCurlBridge' }
+        @{ name = 'physical-weak-curls'; module = 'PrescribedExtinction.WeakCurlBridge' },
+        @{ name = 'radiation-kernel'; module = 'PrescribedExtinction.RadiationKernel' }
     )
     if ($Only) {
         foreach ($oq7Name in $Only) {

@@ -1,0 +1,39 @@
+OQ7Prescribed.cross_norm_le : ∀ (u v : OQ7Prescribed.Vector), ‖OQ7Prescribed.cross u v‖ ≤ ‖u‖ * ‖v‖
+'OQ7Prescribed.cross_norm_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.radialDirection_sub_norm_le_distance : ∀ (x y : OQ7Prescribed.Position),
+  ‖y‖ < ‖x‖ → ‖OQ7Prescribed.radialDirection (x - y) - OQ7Prescribed.radialDirection x‖ ≤ 2 * ‖y‖ / ‖x - y‖
+'OQ7Prescribed.radialDirection_sub_norm_le_distance' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.kernelMagnetic_gradient : ∀ (k : ℝ) (x : OQ7Prescribed.Position) (v : OQ7Prescribed.Vector),
+  OQ7Prescribed.kernelMagnetic k x v =
+    (-Complex.I * ↑k) •
+      !₂[OQ7Prescribed.outgoingGradient k 1 x * v.ofLp 2 - OQ7Prescribed.outgoingGradient k 2 x * v.ofLp 1,
+        OQ7Prescribed.outgoingGradient k 2 x * v.ofLp 0 - OQ7Prescribed.outgoingGradient k 0 x * v.ofLp 2,
+        OQ7Prescribed.outgoingGradient k 0 x * v.ofLp 1 - OQ7Prescribed.outgoingGradient k 1 x * v.ofLp 0]
+'OQ7Prescribed.kernelMagnetic_gradient' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.kernel_radiation_defect : ∀ (k : ℝ) (x : OQ7Prescribed.Position),
+  x ≠ 0 →
+    ∀ (v : OQ7Prescribed.Vector),
+      OQ7Prescribed.cross (OQ7Prescribed.kernelMagnetic k x v) (OQ7Prescribed.complexify (‖x‖⁻¹ • x)) -
+          (OQ7Prescribed.classicalDyadic k x) v =
+        (OQ7Prescribed.outgoingRadial k ‖x‖ / ↑‖x‖ ^ 2) • v +
+          ((2 * Complex.I * ↑k * ↑‖x‖ - 3) * OQ7Prescribed.outgoingRadial k ‖x‖ / ↑‖x‖ ^ 4) •
+            OQ7Prescribed.bilinear (OQ7Prescribed.complexify x) v • OQ7Prescribed.complexify x
+'OQ7Prescribed.kernel_radiation_defect' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.kernel_radiation_defect_norm_le : ∀ (k : ℝ) (x : OQ7Prescribed.Position),
+  x ≠ 0 →
+    ∀ (v : OQ7Prescribed.Vector),
+      ‖OQ7Prescribed.cross (OQ7Prescribed.kernelMagnetic k x v) (OQ7Prescribed.complexify (‖x‖⁻¹ • x)) -
+            (OQ7Prescribed.classicalDyadic k x) v‖ ≤
+        (2 * |k| / (4 * Real.pi * ‖x‖ ^ 2) + 1 / (Real.pi * ‖x‖ ^ 3)) * ‖v‖
+'OQ7Prescribed.kernel_radiation_defect_norm_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.displaced_kernel_radiation_norm_le : ∀ (k R : ℝ),
+  0 ≤ R →
+    ∀ (x y : OQ7Prescribed.Position),
+      2 * R + 2 ≤ ‖x‖ →
+        ‖y‖ ≤ R →
+          ∀ (v : OQ7Prescribed.Vector),
+            ‖OQ7Prescribed.cross (OQ7Prescribed.kernelMagnetic k (x - y) v)
+                    (OQ7Prescribed.complexify (OQ7Prescribed.radialDirection x)) -
+                  (OQ7Prescribed.classicalDyadic k (x - y)) v‖ ≤
+              OQ7Prescribed.radiationKernelConstant k R / ‖x‖ ^ 2 * ‖v‖
+'OQ7Prescribed.displaced_kernel_radiation_norm_le' depends on axioms: [propext, Classical.choice, Quot.sound]

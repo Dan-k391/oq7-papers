@@ -237,7 +237,11 @@ run_cmd do
         'OQ7Prescribed.weakCurlTest_all_finite_orders',
         'OQ7Prescribed.distributionCurl_eq_implies_hasWeakCurl',
         'OQ7Prescribed.physicalSourceFields_first_weakCurl',
-        'OQ7Prescribed.physicalSourceFields_second_weakCurl')) {
+        'OQ7Prescribed.physicalSourceFields_second_weakCurl',
+        'OQ7Prescribed.kernelMagnetic_gradient',
+        'OQ7Prescribed.kernel_radiation_defect',
+        'OQ7Prescribed.kernel_radiation_defect_norm_le',
+        'OQ7Prescribed.displaced_kernel_radiation_norm_le')) {
         if ($oq7Required -notin $oq7NewKernelTheorems) { throw "Missing outgoing operator obligation: $oq7Required" }
     }
     if ($oq7PdfHash -ne '3D9775D849234E828370D7C96D8BDCDD574BEB6831A7906EA6B7706579868710') { throw 'Manuscript hash differs.' }
@@ -291,6 +295,8 @@ run_cmd do
         outgoingPhysicalCompactDomainL2OperatorVerified = $true
         actualSourceFieldsBothPhysicalWeakCurlsVerified = $true
         physicalWeakCurlsUseAllSmoothCompactComplexVectorTests = $true
+        actualDyadicKernelRadiationDefectVerified = $true
+        allDirectionDisplacedSourceRadiationBoundVerified = $true
         outgoingWeakMaxwellRepresentationVerified = $false
         scatteringStateExistenceVerified = $false
         allPreContactLeanModulesUnchanged = $false

@@ -62,3 +62,4 @@ import PrescribedExtinction.GradientCurrentPairing
 import PrescribedExtinction.PhysicalSourceFields
 import PrescribedExtinction.TestRegularity
 import PrescribedExtinction.WeakCurlBridge
+import PrescribedExtinction.RadiationKernel

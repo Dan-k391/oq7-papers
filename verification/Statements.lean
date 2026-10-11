@@ -5,6 +5,9 @@ import PrescribedExtinction
 
 #check @OQ7Prescribed.axisCoupling_bound
 #check @OQ7Prescribed.axisCoupling_eq_inner
+#check @OQ7Prescribed.bilinear_complexify_eq_inner
+#check @OQ7Prescribed.bilinear_complexify_self
+#check @OQ7Prescribed.bilinear_radial_smul_norm_le
 #check @OQ7Prescribed.classicalDyadic_coordinate
 #check @OQ7Prescribed.classicalDyadic_measurable
 #check @OQ7Prescribed.compactOutgoingOperator_apply_norm_le
@@ -32,7 +35,9 @@ import PrescribedExtinction
 #check @OQ7Prescribed.compactStaticOperator_apply_norm_le
 #check @OQ7Prescribed.compactTest_component_integrable
 #check @OQ7Prescribed.complexify_continuous
+#check @OQ7Prescribed.complexify_norm
 #check @OQ7Prescribed.complexify_norm_sq
+#check @OQ7Prescribed.complexify_sub
 #check @OQ7Prescribed.complexRealTest_partial
 #check @OQ7Prescribed.complexTestEval_field
 #check @OQ7Prescribed.complexTestEval_partial_field
@@ -41,6 +46,10 @@ import PrescribedExtinction
 #check @OQ7Prescribed.contDiff_test_ibp
 #check @OQ7Prescribed.coordinateReflect_apply
 #check @OQ7Prescribed.coordinateSwap_apply
+#check @OQ7Prescribed.cross_cross
+#check @OQ7Prescribed.cross_norm_le
+#check @OQ7Prescribed.cross_squareNorm_identity
+#check @OQ7Prescribed.cross_sub_right
 #check @OQ7Prescribed.current_component_fourier
 #check @OQ7Prescribed.current_component_integrable
 #check @OQ7Prescribed.currentCorrelation_green_first_ibp
@@ -58,6 +67,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.cutoffGreen_integrable
 #check @OQ7Prescribed.cutoffGreen_memLp
 #check @OQ7Prescribed.cutoffOutgoingGradient_integrable
+#check @OQ7Prescribed.displaced_kernel_radiation_norm_le
 #check @OQ7Prescribed.distributionCurl_add
 #check @OQ7Prescribed.distributionCurl_complex_smul
 #check @OQ7Prescribed.distributionCurl_eq_implies_hasWeakCurl
@@ -155,6 +165,10 @@ import PrescribedExtinction
 #check @OQ7Prescribed.integral_polar_actual
 #check @OQ7Prescribed.integral_polar_iterated_actual
 #check @OQ7Prescribed.integral_three_sub
+#check @OQ7Prescribed.kernel_radiation_defect
+#check @OQ7Prescribed.kernel_radiation_defect_norm_le
+#check @OQ7Prescribed.kernelMagnetic_gradient
+#check @OQ7Prescribed.kernelMagnetic_norm_le
 #check @OQ7Prescribed.layerPermittivity_admissible
 #check @OQ7Prescribed.layerPermittivity_reciprocal
 #check @OQ7Prescribed.locallySquareIntegrable_locallyIntegrable
@@ -386,6 +400,8 @@ import PrescribedExtinction
 #check @OQ7Prescribed.quadratic_layer_re
 #check @OQ7Prescribed.radial_lineDeriv
 #check @OQ7Prescribed.radial_second_lineDeriv
+#check @OQ7Prescribed.radialDirection_sub_norm_le
+#check @OQ7Prescribed.radialDirection_sub_norm_le_distance
 #check @OQ7Prescribed.radialHessian_trace
 #check @OQ7Prescribed.radialNorm_hasFDerivAt
 #check @OQ7Prescribed.rankOne_complexify_continuous
