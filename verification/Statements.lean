@@ -94,6 +94,8 @@ import PrescribedExtinction
 #check @OQ7Prescribed.dynamicScalarRemainder_norm_le
 #check @OQ7Prescribed.dynamicScalarRemainder_norm_le_on_ball
 #check @OQ7Prescribed.dynamicScalarRemainder_test_ibp
+#check @OQ7Prescribed.electricVolumeField_distribution
+#check @OQ7Prescribed.electricVolumeField_locallySquareIntegrable
 #check @OQ7Prescribed.exp_remainder_two_norm
 #check @OQ7Prescribed.exteriorCutoff_contDiff
 #check @OQ7Prescribed.exteriorCutoff_gradient_ibp
@@ -112,6 +114,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.exteriorCutoffPartial_norm_le
 #check @OQ7Prescribed.exteriorCutoffPartial_zero_inner
 #check @OQ7Prescribed.exteriorCutoffPartial_zero_outer
+#check @OQ7Prescribed.fieldComponentDistribution_apply
 #check @OQ7Prescribed.fourierIntegral_L1L2_ae
 #check @OQ7Prescribed.fourierIntegral_L1L2_memLp
 #check @OQ7Prescribed.fourierIntegral_L1L2_schwartz_pairing
@@ -143,6 +146,9 @@ import PrescribedExtinction
 #check @OQ7Prescribed.integral_polar_iterated_actual
 #check @OQ7Prescribed.layerPermittivity_admissible
 #check @OQ7Prescribed.layerPermittivity_reciprocal
+#check @OQ7Prescribed.locallySquareIntegrable_locallyIntegrable
+#check @OQ7Prescribed.magneticVolumeField_distribution
+#check @OQ7Prescribed.magneticVolumeField_locallySquareIntegrable
 #check @OQ7Prescribed.newton_classical_hessian
 #check @OQ7Prescribed.newton_compensated_cutoff_tendsto
 #check @OQ7Prescribed.newton_contact_identity_real
@@ -336,6 +342,8 @@ import PrescribedExtinction
 #check @OQ7Prescribed.pairing_self
 #check @OQ7Prescribed.permittivity_one_outside
 #check @OQ7Prescribed.permittivity_reciprocal
+#check @OQ7Prescribed.physicalSourceFields_first_curl
+#check @OQ7Prescribed.physicalSourceFields_second_curl
 #check @OQ7Prescribed.planePhase_norm
 #check @OQ7Prescribed.polarization_zero_outside
 #check @OQ7Prescribed.polarizationCurrentComponentDistribution_apply
@@ -357,6 +365,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.potentialComponentDistribution_newtonTempered
 #check @OQ7Prescribed.potentialComponentDistribution_outgoing_pairing
 #check @OQ7Prescribed.potentialComponentDistribution_zero_apply_integral
+#check @OQ7Prescribed.potentialCurlField_locallySquareIntegrable
 #check @OQ7Prescribed.potentialDistribution_add
 #check @OQ7Prescribed.potentialDistribution_apply
 #check @OQ7Prescribed.quadratic_layer

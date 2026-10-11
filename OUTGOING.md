@@ -24,7 +24,7 @@ current. Both use the original continuous test-function distributions.
 equation `(curl curl - k²) G_k p = k² p` and both first-order curl equations
 with magnetic distribution `-ik curl(g_k*p)`. The current is still any original
 compact L² current. This identifies the correct source equations; it does not
-yet supply magnetic-field regularity or the pointwise radiation condition.
+yet supply the pointwise radiation condition.
 
 `YoungConvolution.lean` supplies the missing L¹-kernel/L²-current bound, with
 actual convolution existence almost everywhere. `PolePointIBP.lean` proves
@@ -51,8 +51,14 @@ clean project build is in `verification/clean-build.log`.
 Reproduction: configure the exact pinned dependencies as in README, then run
 `./verify.ps1 -Clean` and `./verify-milestones.ps1` with the pinned Lean binary.
 
-Still required: actual locally square-integrable magnetic fields; weak Maxwell
+Still required: weak Maxwell
 and pointwise outgoing representation; full-sphere radiation, passivity and
 reciprocity; physical solution existence and uniqueness; uniform localization;
 planar synthesis and both exact-extinction adjustments. None follows merely
 from the scalar Helmholtz or bounded electric-operator identities.
+
+PhysicalSourceFields.lean constructs actual locally L² electric and magnetic
+source fields and proves both original scalar-distribution curl equations.
+The electric representative uses the identified static L² operator plus the
+actual remainder convolution. Radiation requires an exterior representative;
+no pointwise claim is inferred from an almost-everywhere L² equality.

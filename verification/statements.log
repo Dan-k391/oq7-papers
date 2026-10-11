@@ -275,6 +275,11 @@ OQ7Prescribed.dynamicScalarRemainder_norm_le_on_ball : ∀ (k R : ℝ) (x : OQ7P
 OQ7Prescribed.dynamicScalarRemainder_test_ibp : ∀ (k : ℝ) (j : Fin 3) (φ : OQ7Prescribed.ScalarTest),
   ∫ (x : OQ7Prescribed.Position), ((OQ7Prescribed.testPartial j) φ) x • OQ7Prescribed.dynamicScalarRemainder k x =
     -∫ (x : OQ7Prescribed.Position), φ x • OQ7Prescribed.dynamicGradientRemainder k j x
+OQ7Prescribed.electricVolumeField_distribution : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization) (i : Fin 3),
+  OQ7Prescribed.fieldComponentDistribution (OQ7Prescribed.electricVolumeField k p) i =
+    OQ7Prescribed.outgoingVolumeDistribution k p i
+OQ7Prescribed.electricVolumeField_locallySquareIntegrable : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization),
+  OQ7Prescribed.LocallySquareIntegrable (OQ7Prescribed.electricVolumeField k p)
 OQ7Prescribed.exp_remainder_two_norm : ∀ (z : ℂ), ‖Complex.exp z - 1 - z‖ ≤ ‖z‖ ^ 2 * Real.exp ‖z‖
 OQ7Prescribed.exteriorCutoff_contDiff : ∀ (r t : ℝ), 0 < r → 0 < t → ContDiff ℝ 1 (OQ7Prescribed.exteriorCutoff r t)
 OQ7Prescribed.exteriorCutoff_gradient_ibp : ∀ (r t : ℝ),
@@ -353,6 +358,10 @@ OQ7Prescribed.exteriorCutoffPartial_zero_inner : ∀ (r t : ℝ),
   0 < t → ∀ (i : Fin 3) (x : OQ7Prescribed.Position), ‖x‖ ≤ r → OQ7Prescribed.exteriorCutoffPartial r t i x = 0
 OQ7Prescribed.exteriorCutoffPartial_zero_outer : ∀ (r t : ℝ),
   0 < t → ∀ (i : Fin 3) (x : OQ7Prescribed.Position), r + t ≤ ‖x‖ → OQ7Prescribed.exteriorCutoffPartial r t i x = 0
+OQ7Prescribed.fieldComponentDistribution_apply : ∀ (F : OQ7Prescribed.Field),
+  MeasureTheory.LocallyIntegrable F MeasureTheory.volume →
+    ∀ (i : Fin 3) (φ : OQ7Prescribed.ScalarTest),
+      (OQ7Prescribed.fieldComponentDistribution F i) φ = ∫ (x : OQ7Prescribed.Position), ↑(φ x) * (F x).ofLp i
 @OQ7Prescribed.fourierIntegral_L1L2_ae : ∀ {F : Type u_1} [inst : NormedAddCommGroup F] [inst_1 : InnerProductSpace ℂ F]
   [inst_2 : CompleteSpace F] {f : OQ7Prescribed.Position → F},
   MeasureTheory.MemLp f 1 MeasureTheory.volume →
@@ -466,6 +475,13 @@ OQ7Prescribed.layerPermittivity_admissible : ∀ (P Q a b ν : ℝ) (u : OQ7Pres
         0 ≤ b → 0 < ν → b + ν ≤ Q → OQ7Prescribed.MaterialAdmissible P Q (OQ7Prescribed.layerPermittivity a b ν u)
 OQ7Prescribed.layerPermittivity_reciprocal : ∀ (a b ν : ℝ) (u : OQ7Prescribed.Position),
   Matrix.transpose (OQ7Prescribed.layerPermittivity a b ν u) = OQ7Prescribed.layerPermittivity a b ν u
+OQ7Prescribed.locallySquareIntegrable_locallyIntegrable : ∀ (F : OQ7Prescribed.Field),
+  OQ7Prescribed.LocallySquareIntegrable F → MeasureTheory.LocallyIntegrable F MeasureTheory.volume
+OQ7Prescribed.magneticVolumeField_distribution : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization) (i : Fin 3),
+  OQ7Prescribed.fieldComponentDistribution (OQ7Prescribed.magneticVolumeField k p) i =
+    OQ7Prescribed.outgoingMagneticDistribution k p i
+OQ7Prescribed.magneticVolumeField_locallySquareIntegrable : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization),
+  OQ7Prescribed.LocallySquareIntegrable (OQ7Prescribed.magneticVolumeField k p)
 OQ7Prescribed.newton_classical_hessian : ∀ (x : OQ7Prescribed.Position),
   x ≠ 0 →
     ∀ (i j : Fin 3),
@@ -1069,6 +1085,14 @@ OQ7Prescribed.pairing_self : ∀ (v : OQ7Prescribed.Vector), OQ7Prescribed.pairi
 OQ7Prescribed.permittivity_one_outside : ∀ (B : OQ7Prescribed.TwoLayerBody), ∀ x ∉ B.domain, B.permittivity x = 1
 OQ7Prescribed.permittivity_reciprocal : ∀ (B : OQ7Prescribed.TwoLayerBody) (P Q : ℝ),
   B.admissible P Q → ∀ (x : OQ7Prescribed.Position), Matrix.transpose (B.permittivity x) = B.permittivity x
+OQ7Prescribed.physicalSourceFields_first_curl : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization),
+  OQ7Prescribed.distributionCurl (OQ7Prescribed.fieldComponentDistribution (OQ7Prescribed.electricVolumeField k p)) =
+    (Complex.I * ↑k) • OQ7Prescribed.fieldComponentDistribution (OQ7Prescribed.magneticVolumeField k p)
+OQ7Prescribed.physicalSourceFields_second_curl : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization),
+  OQ7Prescribed.distributionCurl (OQ7Prescribed.fieldComponentDistribution (OQ7Prescribed.magneticVolumeField k p)) =
+    (-Complex.I * ↑k) •
+      (OQ7Prescribed.fieldComponentDistribution (OQ7Prescribed.electricVolumeField k p) +
+        OQ7Prescribed.polarizationCurrentComponentDistribution p)
 OQ7Prescribed.planePhase_norm : ∀ (k : ℝ) (σ : OQ7Prescribed.Direction) (x : OQ7Prescribed.Position),
   ‖OQ7Prescribed.planePhase k σ x‖ = 1
 OQ7Prescribed.polarization_zero_outside : ∀ (B : OQ7Prescribed.TwoLayerBody) (E : OQ7Prescribed.Field),
@@ -1158,6 +1182,8 @@ OQ7Prescribed.potentialComponentDistribution_zero_apply_integral : ∀ (p : OQ7P
   (φ : OQ7Prescribed.ScalarTest),
   (OQ7Prescribed.potentialComponentDistribution 0 p i) φ =
     ∫ (x : OQ7Prescribed.Position), ↑(φ x) * (OQ7Prescribed.outgoingPotential 0 p x).ofLp i
+OQ7Prescribed.potentialCurlField_locallySquareIntegrable : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization),
+  OQ7Prescribed.LocallySquareIntegrable (OQ7Prescribed.potentialCurlField k p)
 OQ7Prescribed.potentialDistribution_add : ∀ (k : ℝ) (p q : OQ7Prescribed.CompactPolarization),
   OQ7Prescribed.potentialDistribution k (p.add q) =
     OQ7Prescribed.potentialDistribution k p + OQ7Prescribed.potentialDistribution k q

@@ -1,0 +1,14 @@
+import PrescribedExtinction.PhysicalSourceFields
+
+#check @OQ7Prescribed.electricVolumeField_locallySquareIntegrable
+#print axioms OQ7Prescribed.electricVolumeField_locallySquareIntegrable
+#check @OQ7Prescribed.magneticVolumeField_locallySquareIntegrable
+#print axioms OQ7Prescribed.magneticVolumeField_locallySquareIntegrable
+#check @OQ7Prescribed.electricVolumeField_distribution
+#print axioms OQ7Prescribed.electricVolumeField_distribution
+#check @OQ7Prescribed.magneticVolumeField_distribution
+#print axioms OQ7Prescribed.magneticVolumeField_distribution
+#check @OQ7Prescribed.physicalSourceFields_first_curl
+#print axioms OQ7Prescribed.physicalSourceFields_first_curl
+#check @OQ7Prescribed.physicalSourceFields_second_curl
+#print axioms OQ7Prescribed.physicalSourceFields_second_curl

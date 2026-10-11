@@ -40,7 +40,8 @@ try {
         @{ name = 'volume-fundamental'; module = 'PrescribedExtinction.VolumeFundamental' },
         @{ name = 'dyadic-maxwell-source'; module = 'PrescribedExtinction.DyadicMaxwellSource' },
         @{ name = 'young-convolution'; module = 'PrescribedExtinction.YoungConvolution' },
-        @{ name = 'green-gradient-current'; module = 'PrescribedExtinction.GradientCurrentPairing' }
+        @{ name = 'green-gradient-current'; module = 'PrescribedExtinction.GradientCurrentPairing' },
+        @{ name = 'physical-source-fields'; module = 'PrescribedExtinction.PhysicalSourceFields' }
     )
     if ($Only) {
         foreach ($oq7Name in $Only) {

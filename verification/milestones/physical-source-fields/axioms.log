@@ -1,0 +1,24 @@
+OQ7Prescribed.electricVolumeField_locallySquareIntegrable : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization),
+  OQ7Prescribed.LocallySquareIntegrable (OQ7Prescribed.electricVolumeField k p)
+'OQ7Prescribed.electricVolumeField_locallySquareIntegrable' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.magneticVolumeField_locallySquareIntegrable : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization),
+  OQ7Prescribed.LocallySquareIntegrable (OQ7Prescribed.magneticVolumeField k p)
+'OQ7Prescribed.magneticVolumeField_locallySquareIntegrable' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.electricVolumeField_distribution : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization) (i : Fin 3),
+  OQ7Prescribed.fieldComponentDistribution (OQ7Prescribed.electricVolumeField k p) i =
+    OQ7Prescribed.outgoingVolumeDistribution k p i
+'OQ7Prescribed.electricVolumeField_distribution' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.magneticVolumeField_distribution : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization) (i : Fin 3),
+  OQ7Prescribed.fieldComponentDistribution (OQ7Prescribed.magneticVolumeField k p) i =
+    OQ7Prescribed.outgoingMagneticDistribution k p i
+'OQ7Prescribed.magneticVolumeField_distribution' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.physicalSourceFields_first_curl : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization),
+  OQ7Prescribed.distributionCurl (OQ7Prescribed.fieldComponentDistribution (OQ7Prescribed.electricVolumeField k p)) =
+    (Complex.I * ↑k) • OQ7Prescribed.fieldComponentDistribution (OQ7Prescribed.magneticVolumeField k p)
+'OQ7Prescribed.physicalSourceFields_first_curl' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.physicalSourceFields_second_curl : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization),
+  OQ7Prescribed.distributionCurl (OQ7Prescribed.fieldComponentDistribution (OQ7Prescribed.magneticVolumeField k p)) =
+    (-Complex.I * ↑k) •
+      (OQ7Prescribed.fieldComponentDistribution (OQ7Prescribed.electricVolumeField k p) +
+        OQ7Prescribed.polarizationCurrentComponentDistribution p)
+'OQ7Prescribed.physicalSourceFields_second_curl' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -207,7 +207,13 @@ run_cmd do
         'OQ7Prescribed.outgoingGreen_first_distribution',
         'OQ7Prescribed.gradientPotential_ae_integrable_on_compact',
         'OQ7Prescribed.gradientPotential_memLp_on_compact',
-        'OQ7Prescribed.potentialComponent_first_distribution')) {
+        'OQ7Prescribed.potentialComponent_first_distribution',
+        'OQ7Prescribed.electricVolumeField_locallySquareIntegrable',
+        'OQ7Prescribed.magneticVolumeField_locallySquareIntegrable',
+        'OQ7Prescribed.electricVolumeField_distribution',
+        'OQ7Prescribed.magneticVolumeField_distribution',
+        'OQ7Prescribed.physicalSourceFields_first_curl',
+        'OQ7Prescribed.physicalSourceFields_second_curl')) {
         if ($oq7Required -notin $oq7NewKernelTheorems) { throw "Missing outgoing operator obligation: $oq7Required" }
     }
     if ($oq7PdfHash -ne '3D9775D849234E828370D7C96D8BDCDD574BEB6831A7906EA6B7706579868710') { throw 'Manuscript hash differs.' }
@@ -252,6 +258,8 @@ run_cmd do
         outgoingGreenFirstDistributionalDerivativeVerified = $true
         actualGradientCurrentLocalL2Verified = $true
         actualGradientCurrentDistributionalIdentificationVerified = $true
+        actualElectricAndMagneticSourceFieldsLocalL2Verified = $true
+        actualSourceFieldDistributionalCurlsVerified = $true
         outgoingPhysicalVolumeDistributionVerified = $true
         outgoingPhysicalCompactDomainL2OperatorVerified = $true
         outgoingWeakMaxwellRepresentationVerified = $false

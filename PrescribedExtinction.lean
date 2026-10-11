@@ -59,3 +59,4 @@ import PrescribedExtinction.PolePointIBP
 import PrescribedExtinction.GreenGradient
 import PrescribedExtinction.GreenFirstDerivative
 import PrescribedExtinction.GradientCurrentPairing
+import PrescribedExtinction.PhysicalSourceFields
