@@ -1243,6 +1243,17 @@ OQ7Prescribed.scalarTestSchwartz_hasCompactSupport : ∀ (φ : OQ7Prescribed.Sca
 OQ7Prescribed.scalarTestSchwartz_partial : ∀ (φ : OQ7Prescribed.ScalarTest) (i : Fin 3),
   LineDeriv.lineDerivOp (OQ7Prescribed.basisR i) (OQ7Prescribed.scalarTestSchwartz φ) =
     OQ7Prescribed.scalarTestSchwartz ((OQ7Prescribed.testPartial i) φ)
+OQ7Prescribed.scalarVectorConvolution_ae_integrable : ∀ (K : OQ7Prescribed.Position → ℂ) (f : OQ7Prescribed.Field),
+  MeasureTheory.Integrable K MeasureTheory.volume →
+    MeasureTheory.Integrable f MeasureTheory.volume →
+      ∀ᵐ (x : OQ7Prescribed.Position), MeasureTheory.Integrable (fun y => K y • f (x - y)) MeasureTheory.volume
+OQ7Prescribed.scalarVectorConvolution_memLp_two : ∀ (K : OQ7Prescribed.Position → ℂ) (f : OQ7Prescribed.Field),
+  MeasureTheory.Integrable K MeasureTheory.volume →
+    MeasureTheory.Integrable f MeasureTheory.volume →
+      MeasureTheory.MemLp f 2 MeasureTheory.volume →
+        MeasureTheory.MemLp (OQ7Prescribed.scalarVectorConvolution K f) 2 MeasureTheory.volume ∧
+          ∫ (x : OQ7Prescribed.Position), ‖OQ7Prescribed.scalarVectorConvolution K f x‖ ^ 2 ≤
+            (∫ (y : OQ7Prescribed.Position), ‖K y‖) ^ 2 * ∫ (x : OQ7Prescribed.Position), ‖f x‖ ^ 2
 OQ7Prescribed.shrinking_cutoff_integral_tendsto : ∀ (f : OQ7Prescribed.Position → ℝ),
   MeasureTheory.Integrable f MeasureTheory.volume →
     Filter.Tendsto (fun ε => ∫ (x : OQ7Prescribed.Position), OQ7Prescribed.exteriorCutoff ε ε x * f x)
@@ -1468,3 +1479,10 @@ OQ7Prescribed.vectorL2Distribution_tempered : ∀ (f : ↥OQ7Prescribed.VectorL2
   (OQ7Prescribed.vectorL2Distribution f) φ =
     (MeasureTheory.Lp.toTemperedDistribution f) (OQ7Prescribed.scalarTestSchwartz φ)
 OQ7Prescribed.vectorScalarMul_apply : ∀ (v : OQ7Prescribed.Vector) (z : ℂ), (OQ7Prescribed.vectorScalarMul v) z = z • v
+OQ7Prescribed.weighted_integral_cauchy_sq : ∀ (w g : OQ7Prescribed.Position → ℝ),
+  MeasureTheory.Integrable w MeasureTheory.volume →
+    MeasureTheory.Integrable (fun y => w y * g y) MeasureTheory.volume →
+      MeasureTheory.Integrable (fun y => w y * g y ^ 2) MeasureTheory.volume →
+        (∀ᵐ (y : OQ7Prescribed.Position), 0 ≤ w y) →
+          (∫ (y : OQ7Prescribed.Position), w y * g y) ^ 2 ≤
+            (∫ (y : OQ7Prescribed.Position), w y) * ∫ (y : OQ7Prescribed.Position), w y * g y ^ 2

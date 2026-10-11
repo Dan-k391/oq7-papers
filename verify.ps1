@@ -202,7 +202,8 @@ run_cmd do
         'OQ7Prescribed.potentialComponent_helmholtz_L2_distribution',
         'OQ7Prescribed.outgoingVolumeDistribution_maxwell_source_L2',
         'OQ7Prescribed.outgoingVolumeDistribution_first_curl',
-        'OQ7Prescribed.outgoingMagneticDistribution_second_curl')) {
+        'OQ7Prescribed.outgoingMagneticDistribution_second_curl',
+        'OQ7Prescribed.scalarVectorConvolution_memLp_two')) {
         if ($oq7Required -notin $oq7NewKernelTheorems) { throw "Missing outgoing operator obligation: $oq7Required" }
     }
     if ($oq7PdfHash -ne '3D9775D849234E828370D7C96D8BDCDD574BEB6831A7906EA6B7706579868710') { throw 'Manuscript hash differs.' }
@@ -243,6 +244,7 @@ run_cmd do
         compactCurrentHelmholtzEquationVerified = $true
         dyadicMaxwellSourceDistributionVerified = $true
         bothMaxwellCurlSourceDistributionEquationsVerified = $true
+        L1KernelL2CurrentConvolutionBoundVerified = $true
         outgoingPhysicalVolumeDistributionVerified = $true
         outgoingPhysicalCompactDomainL2OperatorVerified = $true
         outgoingWeakMaxwellRepresentationVerified = $false

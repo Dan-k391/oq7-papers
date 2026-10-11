@@ -380,6 +380,8 @@ import PrescribedExtinction
 #check @OQ7Prescribed.scalarTestSchwartz_fderiv_basis
 #check @OQ7Prescribed.scalarTestSchwartz_hasCompactSupport
 #check @OQ7Prescribed.scalarTestSchwartz_partial
+#check @OQ7Prescribed.scalarVectorConvolution_ae_integrable
+#check @OQ7Prescribed.scalarVectorConvolution_memLp_two
 #check @OQ7Prescribed.shrinking_cutoff_integral_tendsto
 #check @OQ7Prescribed.shrinking_cutoff_tendsto
 #check @OQ7Prescribed.shrinkingCutoffError_integrable
@@ -464,3 +466,4 @@ import PrescribedExtinction
 #check @OQ7Prescribed.vectorL2Distribution_apply
 #check @OQ7Prescribed.vectorL2Distribution_tempered
 #check @OQ7Prescribed.vectorScalarMul_apply
+#check @OQ7Prescribed.weighted_integral_cauchy_sq

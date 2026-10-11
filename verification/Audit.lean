@@ -2488,6 +2488,12 @@ import PrescribedExtinction
 #print axioms OQ7Prescribed.scalarTestSchwartz_partial
 #print axioms OQ7Prescribed.scalarTestSchwartz._proof_1
 #print axioms OQ7Prescribed.scalarTestSchwartz._proof_2
+#print axioms OQ7Prescribed.scalarVectorConvolution
+#print axioms OQ7Prescribed.scalarVectorConvolution_ae_integrable
+#print axioms OQ7Prescribed.scalarVectorConvolution_memLp_two
+#print axioms OQ7Prescribed.scalarVectorConvolution._proof_1
+#print axioms OQ7Prescribed.scalarVectorConvolution._proof_2
+#print axioms OQ7Prescribed.scalarVectorConvolution.eq_1
 #print axioms OQ7Prescribed.scattering
 #print axioms OQ7Prescribed.ScatteringState
 #print axioms OQ7Prescribed.ScatteringState._sizeOf_1
@@ -2749,6 +2755,7 @@ import PrescribedExtinction
 #print axioms OQ7Prescribed.vectorScalarMul._proof_2
 #print axioms OQ7Prescribed.vectorScalarMul._proof_3
 #print axioms OQ7Prescribed.WeakMaxwell
+#print axioms OQ7Prescribed.weighted_integral_cauchy_sq
 
 run_cmd do
   let env ← Lean.getEnv

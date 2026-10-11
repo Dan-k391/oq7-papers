@@ -38,7 +38,8 @@ try {
         @{ name = 'compact-outgoing-operator'; module = 'PrescribedExtinction.CompactOutgoingIdentification' },
         @{ name = 'outgoing-fundamental'; module = 'PrescribedExtinction.OutgoingFundamental' },
         @{ name = 'volume-fundamental'; module = 'PrescribedExtinction.VolumeFundamental' },
-        @{ name = 'dyadic-maxwell-source'; module = 'PrescribedExtinction.DyadicMaxwellSource' }
+        @{ name = 'dyadic-maxwell-source'; module = 'PrescribedExtinction.DyadicMaxwellSource' },
+        @{ name = 'young-convolution'; module = 'PrescribedExtinction.YoungConvolution' }
     )
     if ($Only) {
         foreach ($oq7Name in $Only) {

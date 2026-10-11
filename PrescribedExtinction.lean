@@ -54,3 +54,4 @@ import PrescribedExtinction.OutgoingFundamental
 import PrescribedExtinction.DistributionVectorCalculus
 import PrescribedExtinction.VolumeFundamental
 import PrescribedExtinction.DyadicMaxwellSource
+import PrescribedExtinction.YoungConvolution
