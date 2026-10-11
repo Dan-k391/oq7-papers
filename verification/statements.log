@@ -1087,6 +1087,7 @@ OQ7Prescribed.dielectricSlabIndex_loss_continuous : ∀ (p : ℝ), 0 < p → Con
 OQ7Prescribed.dielectricSlabIndex_ne_zero : ∀ (p q : ℝ), 0 < p → OQ7Prescribed.dielectricSlabIndex p q ≠ 0
 OQ7Prescribed.dielectricSlabIndex_one_add_ne_zero : ∀ (p q : ℝ), 0 < p → 1 + OQ7Prescribed.dielectricSlabIndex p q ≠ 0
 OQ7Prescribed.dielectricSlabIndex_re_pos : ∀ (p q : ℝ), 0 < p → 0 < (OQ7Prescribed.dielectricSlabIndex p q).re
+OQ7Prescribed.dielectricSlabIndex_real_square : ∀ (n : ℝ), 0 < n → OQ7Prescribed.dielectricSlabIndex (n ^ 2) 0 = ↑n
 OQ7Prescribed.dielectricSlabIndex_sq : ∀ (p q : ℝ), OQ7Prescribed.dielectricSlabIndex p q ^ 2 = ↑p + Complex.I * ↑q
 OQ7Prescribed.dielectricSlabLeft_absorptance_integral : ∀ (k : ℝ),
   0 < k →
@@ -1155,6 +1156,13 @@ OQ7Prescribed.dielectricSlabLeftAt_Green_interior : ∀ (k : ℝ),
                           (OQ7Prescribed.dielectricSlabLeftAt k p q a b hp)))
                   z =
               (OQ7Prescribed.dielectricSlabLeftAt k p q a b hp).electric z - OQ7Prescribed.apertureOscillation k (z - a)
+@OQ7Prescribed.dielectricSlabLeftAt_loss_position_continuous : ∀ {X : Type u_1} [inst : TopologicalSpace X] (k : ℝ),
+  0 < k →
+    ∀ (p a b : ℝ) (hp : 1 ≤ p),
+      a ≤ b →
+        ∀ (q : X → OQ7Prescribed.NonnegativeSlabLoss) (z : X → ℝ),
+          Continuous q →
+            Continuous z → Continuous fun x => (OQ7Prescribed.dielectricSlabLeftAt k p (↑(q x)) a b hp).electric (z x)
 OQ7Prescribed.dielectricSlabLeftCurrent_constitutive_coe : ∀ (k p q d : ℝ) (hp : 1 ≤ p) (hd : 0 ≤ d),
   ↑↑↑(OQ7Prescribed.dielectricSlabLeftCurrent k p q d hp hd) =ᵐ[MeasureTheory.volume]
     (Set.Ioc 0 d).indicator fun z =>
@@ -1185,6 +1193,8 @@ OQ7Prescribed.dielectricSlabLeftLayer_boundary_matching : ∀ (k : ℝ),
 OQ7Prescribed.dielectricSlabReflection_both_sides : ∀ (k p q d : ℝ),
   OQ7.transferReflectionRight (OQ7.waveTransfer (OQ7.layerTransfer k (OQ7Prescribed.dielectricSlab p q d))) =
     OQ7Prescribed.dielectricSlabReflection k p q d
+OQ7Prescribed.dielectricSlabReflection_loss_continuous : ∀ (k : ℝ),
+  0 < k → ∀ (p d : ℝ), 1 ≤ p → 0 ≤ d → Continuous fun q => OQ7Prescribed.dielectricSlabReflection k p (↑q) d
 OQ7Prescribed.dielectricSlabReflection_norm_lt_one : ∀ (k : ℝ),
   0 < k → ∀ (p q d : ℝ), 1 ≤ p → 0 ≤ q → 0 ≤ d → ‖OQ7Prescribed.dielectricSlabReflection k p q d‖ < 1
 OQ7Prescribed.dielectricSlabReflection_normSq_lt_one : ∀ (k : ℝ),
@@ -1197,6 +1207,16 @@ OQ7Prescribed.dielectricSlabRight_absorptance_integral : ∀ (k : ℝ),
           k * q * ∫ (z : ℝ) in 0..d, Complex.normSq ((OQ7Prescribed.dielectricSlabRightLayer k p q d hp).electric z) =
             OQ7.absorptanceLeft (OQ7Prescribed.dielectricSlabReflection k p q d)
               (OQ7Prescribed.dielectricSlabTransmission k p q d)
+OQ7Prescribed.dielectricSlabRightAt_absorptance_integral : ∀ (k : ℝ),
+  0 < k →
+    ∀ (A : OQ7.HomogeneousLayer) (hpA : 1 ≤ A.p),
+      0 ≤ A.q →
+        0 ≤ A.width →
+          k * A.q *
+              ∫ (z : ℝ) in 0..A.width,
+                Complex.normSq ((OQ7Prescribed.dielectricSlabRightAt k A.p A.q 0 A.width hpA).electric z) =
+            OQ7.absorptanceLeft (OQ7Prescribed.dielectricSlabReflection k A.p A.q A.width)
+              (OQ7Prescribed.dielectricSlabTransmission k A.p A.q A.width)
 OQ7Prescribed.dielectricSlabRightAt_boundary : ∀ (k : ℝ),
   0 < k →
     ∀ (p q a b : ℝ) (hp : 1 ≤ p),
@@ -1251,6 +1271,13 @@ OQ7Prescribed.dielectricSlabRightAt_Green_interior : ∀ (k : ℝ),
                   z =
               (OQ7Prescribed.dielectricSlabRightAt k p q a b hp).electric z -
                 OQ7Prescribed.apertureOscillation k (b - z)
+@OQ7Prescribed.dielectricSlabRightAt_loss_position_continuous : ∀ {X : Type u_1} [inst : TopologicalSpace X] (k : ℝ),
+  0 < k →
+    ∀ (p a b : ℝ) (hp : 1 ≤ p),
+      a ≤ b →
+        ∀ (q : X → OQ7Prescribed.NonnegativeSlabLoss) (z : X → ℝ),
+          Continuous q →
+            Continuous z → Continuous fun x => (OQ7Prescribed.dielectricSlabRightAt k p (↑(q x)) a b hp).electric (z x)
 OQ7Prescribed.dielectricSlabRightLayer_boundary : ∀ (k : ℝ),
   0 < k →
     ∀ (p q d : ℝ) (hp : 1 ≤ p),
@@ -1264,8 +1291,12 @@ OQ7Prescribed.dielectricSlabRightLayer_boundary : ∀ (k : ℝ),
                   1 + OQ7Prescribed.dielectricSlabReflection k p q d ∧
                 (OQ7Prescribed.dielectricSlabRightLayer k p q d hp).magnetic d =
                   OQ7Prescribed.dielectricSlabReflection k p q d - 1
+OQ7Prescribed.dielectricSlabTransmission_loss_continuous : ∀ (k : ℝ),
+  0 < k → ∀ (p d : ℝ), 1 ≤ p → 0 ≤ d → Continuous fun q => OQ7Prescribed.dielectricSlabTransmission k p (↑q) d
 OQ7Prescribed.dielectricSlabTransmission_ne_zero : ∀ (k : ℝ),
   0 < k → ∀ (p q d : ℝ), 1 ≤ p → 0 ≤ q → 0 ≤ d → OQ7Prescribed.dielectricSlabTransmission k p q d ≠ 0
+OQ7Prescribed.dielectricSlabWaveTransfer_loss_continuous : ∀ (k p d : ℝ),
+  0 < p → Continuous fun q => OQ7.waveTransfer (OQ7.layerTransfer k (OQ7Prescribed.dielectricSlab p q d))
 OQ7Prescribed.directedFlux_incident_reflected : ∀ (r : ℂ), OQ7.directedFlux (1 + r) (1 - r) = 1 - Complex.normSq r
 OQ7Prescribed.directedFlux_transmitted : ∀ (t : ℂ), OQ7.directedFlux t t = Complex.normSq t
 @OQ7Prescribed.displaced_distance_phase_error : ∀ {H : Type u_1} [inst : NormedAddCommGroup H]
@@ -1651,8 +1682,39 @@ OQ7Prescribed.exists_nearlyPerfect_absorber_with_loss_cap : ∀ (k : ℝ),
                     OQ7.absorptanceLeft (OQ7Prescribed.dielectricSlabReflection k 1 η h)
                         (OQ7Prescribed.dielectricSlabTransmission k 1 η h) <
                       1
+OQ7Prescribed.exists_planar_design_near_unit_asymmetry : ∀ (k : ℝ) (hk : 0 < k) (P Q ε : ℝ),
+  1 < P →
+    0 < Q →
+      0 < ε →
+        ∃ A W,
+          ∃ (_ : 1 ≤ A.p) (_ : 1 ≤ W.p) (hqA : 0 < A.q) (hqW : 0 < W.q) (hdA : 0 < A.width) (hdW : 0 < W.width),
+            A.p ≤ P ∧
+              W.p ≤ P ∧
+                A.q < Q / 3 ∧
+                  W.q < Q / 3 ∧
+                    1 - ε <
+                      OQ7Prescribed.planarNormalizedAsymmetry k hk (A.width + W.width) ⋯ A.width 0
+                        (OQ7.relativePermittivity A - 1) (OQ7.relativePermittivity W - 1) ⋯ ⋯
 OQ7Prescribed.exists_plateDesign_within_cap : ∀ (P : ℝ),
   1 < P → ∃ j, 1 ≤ j ∧ OQ7Prescribed.plateDesignPermittivity j ≤ P
+OQ7Prescribed.exists_positive_loss_plate_design_asymmetry : ∀ (k : ℝ),
+  0 < k →
+    ∀ (A : OQ7.HomogeneousLayer) (hpA : 1 ≤ A.p),
+      0 < A.q →
+        0 < A.width →
+          ∀ (j : ℕ) (hj : 1 ≤ j) (Q ε : ℝ),
+            0 < Q →
+              1 - ε <
+                  OQ7.absorptanceLeft (OQ7Prescribed.dielectricSlabReflection k A.p A.q A.width)
+                    (OQ7Prescribed.dielectricSlabTransmission k A.p A.q A.width) →
+                ∃ δ,
+                  0 < δ ∧
+                    δ < Q / 3 ∧
+                      1 - ε <
+                        OQ7Prescribed.slabFormulaAsymmetry k A
+                          (OQ7Prescribed.dielectricSlab (OQ7Prescribed.plateDesignPermittivity j) δ
+                            (OQ7Prescribed.plateDesignThickness k j))
+                          0 hpA ⋯
 OQ7Prescribed.exists_weakDielectric_interface_with_loss_cap : ∀ (Q ε : ℝ),
   0 < Q →
     0 < ε →
@@ -2021,6 +2083,12 @@ OQ7Prescribed.heightSupportedProfile_integrable : ∀ (M : ℝ) (q : ↥(OQ7Pres
   MeasureTheory.Integrable (↑↑↑q) MeasureTheory.volume
 OQ7Prescribed.heightSupportEnlargement_norm : ∀ (L : ℝ) (q : ↥(OQ7Prescribed.HeightSupportedL2 L)),
   ‖OQ7Prescribed.heightSupportEnlargement L q‖ = ‖q‖
+@OQ7Prescribed.homogeneousElectricField_parameter_continuous : ∀ {X : Type u_1} [inst : TopologicalSpace X] (k : ℝ)
+  (n E H : X → ℂ) (z : X → ℝ),
+  Continuous n →
+    Continuous E →
+      Continuous H →
+        Continuous z → (∀ (x : X), n x ≠ 0) → Continuous fun x => OQ7.electricField k (n x) (E x) (H x) (z x)
 OQ7Prescribed.homogeneousField_planarWaveMoments : ∀ (k a b : ℝ),
   a ≤ b →
     ∀ (n E₀ H₀ : ℂ),
@@ -2074,6 +2142,8 @@ OQ7Prescribed.homogeneousSlabTransmission_thick_limit : ∀ (k : ℝ),
           0 < n.im →
             Filter.Tendsto (fun d => OQ7.transferTransmissionRight (OQ7.waveTransfer (OQ7.homogeneousTransfer k n d)))
               Filter.atTop (nhds 0)
+OQ7Prescribed.homogeneousTransfer_index_loss_continuous : ∀ (k p d : ℝ),
+  0 < p → Continuous fun q => OQ7.homogeneousTransfer k (OQ7Prescribed.dielectricSlabIndex p q) d
 OQ7Prescribed.homogeneousWaveTransfer_10_exponential : ∀ (k d : ℝ) (n : ℂ),
   n ≠ 0 →
     OQ7.waveTransfer (OQ7.homogeneousTransfer k n d) 1 0 =
@@ -2527,6 +2597,67 @@ OQ7Prescribed.losslessPlateDesign_active_transfer : ∀ (k : ℝ),
     ∀ (j : ℕ),
       1 ≤ j →
         OQ7.homogeneousTransfer k (↑(OQ7Prescribed.plateDesignIndex j)) (OQ7Prescribed.plateDesignThickness k j) = 1
+OQ7Prescribed.losslessPlateDesign_actual_coefficients : ∀ (k : ℝ),
+  0 < k →
+    ∀ (j : ℕ),
+      1 ≤ j →
+        OQ7Prescribed.dielectricSlabReflection k (OQ7Prescribed.plateDesignPermittivity j) 0
+              (OQ7Prescribed.plateDesignThickness k j) =
+            0 ∧
+          OQ7Prescribed.dielectricSlabTransmission k (OQ7Prescribed.plateDesignPermittivity j) 0
+              (OQ7Prescribed.plateDesignThickness k j) =
+            1
+OQ7Prescribed.losslessPlateDesign_actual_transfer : ∀ (k : ℝ),
+  0 < k →
+    ∀ (j : ℕ),
+      1 ≤ j →
+        OQ7.layerTransfer k
+            (OQ7Prescribed.dielectricSlab (OQ7Prescribed.plateDesignPermittivity j) 0
+              (OQ7Prescribed.plateDesignThickness k j)) =
+          1
+OQ7Prescribed.losslessPlateDesign_asymmetry_value : ∀ (k : ℝ),
+  0 < k →
+    ∀ (A : OQ7.HomogeneousLayer) (hpA : 1 ≤ A.p),
+      0 ≤ A.q →
+        0 ≤ A.width →
+          ∀ (j : ℕ) (hj : 1 ≤ j),
+            OQ7Prescribed.slabFormulaAsymmetry k A
+                (OQ7Prescribed.dielectricSlab (OQ7Prescribed.plateDesignPermittivity j) 0
+                  (OQ7Prescribed.plateDesignThickness k j))
+                0 hpA ⋯ =
+              OQ7.absorptanceLeft (OQ7Prescribed.dielectricSlabReflection k A.p A.q A.width)
+                (OQ7Prescribed.dielectricSlabTransmission k A.p A.q A.width)
+OQ7Prescribed.losslessPlateDesign_coupled_amplitudes : ∀ (k : ℝ),
+  0 < k →
+    ∀ (A : OQ7.HomogeneousLayer) (j : ℕ),
+      1 ≤ j →
+        OQ7Prescribed.slabAbsorberAmplitude k A
+              (OQ7Prescribed.dielectricSlab (OQ7Prescribed.plateDesignPermittivity j) 0
+                (OQ7Prescribed.plateDesignThickness k j))
+              0 OQ7Prescribed.Direction.plus =
+            0 ∧
+          Complex.normSq
+              (OQ7Prescribed.slabAbsorberAmplitude k A
+                (OQ7Prescribed.dielectricSlab (OQ7Prescribed.plateDesignPermittivity j) 0
+                  (OQ7Prescribed.plateDesignThickness k j))
+                0 OQ7Prescribed.Direction.minus) =
+            4
+OQ7Prescribed.losslessPlateDesign_coupled_power_values : ∀ (k : ℝ),
+  0 < k →
+    ∀ (A : OQ7.HomogeneousLayer) (hpA : 1 ≤ A.p),
+      0 ≤ A.q →
+        0 ≤ A.width →
+          ∀ (j : ℕ) (hj : 1 ≤ j),
+            let W :=
+              OQ7Prescribed.dielectricSlab (OQ7Prescribed.plateDesignPermittivity j) 0
+                (OQ7Prescribed.plateDesignThickness k j);
+            have hpW := ⋯;
+            OQ7Prescribed.slabIntegralAbsorption k A W 0 OQ7Prescribed.Direction.plus hpA hpW = 0 ∧
+              OQ7Prescribed.slabIntegralAbsorption k A W 0 OQ7Prescribed.Direction.minus hpA hpW =
+                  4 *
+                    OQ7.absorptanceLeft (OQ7Prescribed.dielectricSlabReflection k A.p A.q A.width)
+                      (OQ7Prescribed.dielectricSlabTransmission k A.p A.q A.width) ∧
+                OQ7Prescribed.slabFormulaExtinction k A W 0 = 4
 OQ7Prescribed.losslessPlateDesign_vacuum_field_boundary : ∀ (k : ℝ),
   0 < k →
     ∀ (j : ℕ),
@@ -2534,6 +2665,8 @@ OQ7Prescribed.losslessPlateDesign_vacuum_field_boundary : ∀ (k : ℝ),
         ∀ (E H : ℂ),
           OQ7.electricField k 1 E H (OQ7Prescribed.plateDesignThickness k j) = -E ∧
             OQ7.magneticField k 1 E H (OQ7Prescribed.plateDesignThickness k j) = -H
+OQ7Prescribed.losslessPlateDesign_vacuum_phase : ∀ (k : ℝ),
+  0 < k → ∀ (j : ℕ), 1 ≤ j → OQ7Prescribed.apertureOscillation k (OQ7Prescribed.plateDesignThickness k j) = -1
 OQ7Prescribed.losslessPlateDesign_vacuum_transfer : ∀ (k : ℝ),
   0 < k → ∀ (j : ℕ), 1 ≤ j → OQ7.homogeneousTransfer k 1 (OQ7Prescribed.plateDesignThickness k j) = -1
 OQ7Prescribed.lp_norm_sq_eq_restricted_integral : ∀ (D : ↥OQ7Prescribed.ScalarVolumeL2)
@@ -3604,6 +3737,19 @@ OQ7Prescribed.physicalPolarization_memLp : ∀ (B : OQ7Prescribed.TwoLayerBody) 
 OQ7Prescribed.physicalPolarization_vanish : ∀ (B : OQ7Prescribed.TwoLayerBody) (E : OQ7Prescribed.Field)
   (x : OQ7Prescribed.Position),
   B.aperture + B.absorberThickness + B.plateThickness < ‖x‖ → OQ7Prescribed.polarization B E x = 0
+OQ7Prescribed.physicalRankOne_exists_extinction_bracket : ∀ (k : ℝ) (hk : 0 < k) (h d : ℝ) (hh : 0 < h) (hd : 0 < d)
+  (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im) (target m : ℝ),
+  0 < target →
+    m < OQ7Prescribed.planarNormalizedAsymmetry k hk (h + d) ⋯ h 0 α β hα hβ →
+      ∃ B a b,
+        B.absorberThickness = h ∧
+          B.plateThickness = d ∧
+            0 < a ∧
+              a < b ∧
+                b < Real.pi ∧
+                  OQ7Prescribed.rankOneRotationExtinction k hk B OQ7Prescribed.Direction.plus a α β hα hβ < target ∧
+                    target < OQ7Prescribed.rankOneRotationExtinction k hk B OQ7Prescribed.Direction.plus b α β hα hβ ∧
+                      ∀ θ ∈ Set.Icc a b, m < OQ7Prescribed.normalizedRotationAsymmetry k hk B θ α β hα hβ
 OQ7Prescribed.physicalRankOne_original_asymmetry_uniform_aperture_localization : ∀ (k : ℝ) (hk : 0 < k) (h d : ℝ),
   0 < h →
     0 < d →
@@ -3665,6 +3811,26 @@ OQ7Prescribed.physicalRankOne_original_powers_uniform_aperture_localization : �
                                     OQ7Prescribed.planarNormalizedAbsorption k hk σ
                                       (B.absorberThickness + B.plateThickness) ⋯ B.absorberThickness θ α β hα hβ)| ≤
                           ε * B.aperture ^ 2 * Real.sin θ ^ 2
+OQ7Prescribed.physicalRankOne_prescribedExtinctionOfPlanarDesign : ∀ (k : ℝ) (hk : 0 < k) (h d : ℝ) (hh : 0 < h)
+  (hd : 0 < d) (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im) (target m : ℝ),
+  0 < target →
+    m < OQ7Prescribed.planarNormalizedAsymmetry k hk (h + d) ⋯ h 0 α β hα hβ →
+      ∃ B θ,
+        B.absorberThickness = h ∧
+          B.plateThickness = d ∧
+            θ ∈ Set.Ioo 0 Real.pi ∧
+              OQ7Prescribed.rankOneRotationExtinction k hk B OQ7Prescribed.Direction.plus θ α β hα hβ = target ∧
+                OQ7Prescribed.rankOneRotationExtinction k hk B OQ7Prescribed.Direction.minus θ α β hα hβ = target ∧
+                  m <
+                      OQ7Prescribed.normalizedAsymmetry k
+                        (OQ7Prescribed.rankOneBody B (OQ7Prescribed.basisR 0) (OQ7Prescribed.rotatedAxis θ) α β)
+                        (OQ7Prescribed.rankOnePhysicalElectric k hk B OQ7Prescribed.Direction.plus θ α β hα hβ)
+                        (OQ7Prescribed.rankOnePhysicalElectric k hk B OQ7Prescribed.Direction.minus θ α β hα hβ) ∧
+                    OQ7Prescribed.normalizedAsymmetry k
+                        (OQ7Prescribed.rankOneBody B (OQ7Prescribed.basisR 0) (OQ7Prescribed.rotatedAxis θ) α β)
+                        (OQ7Prescribed.rankOnePhysicalElectric k hk B OQ7Prescribed.Direction.plus θ α β hα hβ)
+                        (OQ7Prescribed.rankOnePhysicalElectric k hk B OQ7Prescribed.Direction.minus θ α β hα hβ) <
+                      1
 OQ7Prescribed.physicalScattering_sine_squared_factorization : ∀ (k : ℝ) (hk : 0 < k) (B : OQ7Prescribed.TwoLayerBody)
   (σ : OQ7Prescribed.Direction) (θ : ℝ) (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im),
   OQ7Prescribed.scattering k (OQ7Prescribed.rankOneBody B (OQ7Prescribed.basisR 0) (OQ7Prescribed.rotatedAxis θ) α β)
@@ -3911,6 +4077,9 @@ OQ7Prescribed.planarIncidentPhase_physical : ∀ (k : ℝ) (σ : OQ7Prescribed.D
   OQ7Prescribed.planarIncidentPhase k σ z = OQ7Prescribed.planePhase k σ (OQ7Prescribed.slabPosition x z)
 OQ7Prescribed.planarIncidentPhase_plus : ∀ (k z : ℝ),
   OQ7Prescribed.planarIncidentPhase k OQ7Prescribed.Direction.plus z = OQ7Prescribed.apertureOscillation k z
+OQ7Prescribed.planarIncidentPhase_plus_star : ∀ (k z : ℝ),
+  (starRingEnd ℂ) (OQ7Prescribed.planarIncidentPhase k OQ7Prescribed.Direction.plus z) =
+    OQ7Prescribed.apertureOscillation (-k) z
 OQ7Prescribed.planarIncidentProfile_coe : ∀ (k : ℝ) (σ : OQ7Prescribed.Direction) (L : ℝ),
   ↑↑↑(OQ7Prescribed.planarIncidentProfile k σ L) =ᵐ[MeasureTheory.volume]
     (Set.Icc 0 L).indicator (OQ7Prescribed.planarIncidentPhase k σ)
@@ -3956,6 +4125,12 @@ OQ7Prescribed.planarLayerL2Current_const_mul : ∀ (k a b L : ℝ) (ha : 0 ≤ a
 OQ7Prescribed.planarNormalizedAbsorption_continuous : ∀ (k : ℝ) (hk : 0 < k) (σ : OQ7Prescribed.Direction) (L : ℝ)
   (hL : 0 ≤ L) (h : ℝ) (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im),
   Continuous fun θ => OQ7Prescribed.planarNormalizedAbsorption k hk σ L hL h θ α β hα hβ
+OQ7Prescribed.planarNormalizedAbsorption_eq_slabIntegral : ∀ (k : ℝ) (hk : 0 < k) (A W : OQ7.HomogeneousLayer) (θ : ℝ)
+  (σ : OQ7Prescribed.Direction) (hpA : 1 ≤ A.p) (hpW : 1 ≤ W.p) (hqA : 0 < A.q) (hqW : 0 < W.q) (hdA : 0 ≤ A.width)
+  (hdW : 0 ≤ W.width),
+  OQ7Prescribed.planarNormalizedAbsorption k hk σ (A.width + W.width) ⋯ A.width θ (OQ7.relativePermittivity A - 1)
+      (OQ7.relativePermittivity W - 1) ⋯ ⋯ =
+    OQ7Prescribed.slabIntegralAbsorption k A W θ σ hpA hpW
 OQ7Prescribed.planarNormalizedAbsorption_le_extinction : ∀ (k : ℝ) (hk : 0 < k) (σ : OQ7Prescribed.Direction) (L : ℝ)
   (hL : 0 ≤ L) (h θ : ℝ) (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im),
   OQ7Prescribed.planarNormalizedAbsorption k hk σ L hL h θ α β hα hβ ≤
@@ -3971,6 +4146,11 @@ OQ7Prescribed.planarNormalizedAsymmetry_continuous : ∀ (k : ℝ) (hk : 0 < k) 
     h < L →
       ∀ (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im),
         Continuous fun θ => OQ7Prescribed.planarNormalizedAsymmetry k hk L hL h θ α β hα hβ
+OQ7Prescribed.planarNormalizedAsymmetry_eq_slabFormula : ∀ (k : ℝ) (hk : 0 < k) (A W : OQ7.HomogeneousLayer) (θ : ℝ)
+  (hpA : 1 ≤ A.p) (hpW : 1 ≤ W.p) (hqA : 0 < A.q) (hqW : 0 < W.q) (hdA : 0 ≤ A.width) (hdW : 0 ≤ W.width),
+  OQ7Prescribed.planarNormalizedAsymmetry k hk (A.width + W.width) ⋯ A.width θ (OQ7.relativePermittivity A - 1)
+      (OQ7.relativePermittivity W - 1) ⋯ ⋯ =
+    OQ7Prescribed.slabFormulaAsymmetry k A W θ hpA hpW
 OQ7Prescribed.planarNormalizedAsymmetry_lt_one : ∀ (k : ℝ) (hk : 0 < k) (h d : ℝ) (hh : 0 < h) (hd : 0 < d) (θ : ℝ)
   (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im), OQ7Prescribed.planarNormalizedAsymmetry k hk (h + d) ⋯ h θ α β hα hβ < 1
 OQ7Prescribed.planarNormalizedDrive_coe : ∀ (k : ℝ) (σ : OQ7Prescribed.Direction) (L h : ℝ),
@@ -3991,6 +4171,14 @@ OQ7Prescribed.planarNormalizedExtinction_compact_lower_bound : ∀ (k : ℝ) (hk
 OQ7Prescribed.planarNormalizedExtinction_continuous : ∀ (k : ℝ) (hk : 0 < k) (σ : OQ7Prescribed.Direction) (L : ℝ)
   (hL : 0 ≤ L) (h : ℝ) (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im),
   Continuous fun θ => OQ7Prescribed.planarNormalizedExtinction k hk σ L hL h θ α β hα hβ
+OQ7Prescribed.planarNormalizedExtinction_plus_eq_slabFormula : ∀ (k : ℝ) (hk : 0 < k) (A W : OQ7.HomogeneousLayer)
+  (θ : ℝ),
+  1 ≤ A.p →
+    1 ≤ W.p →
+      ∀ (hqA : 0 < A.q) (hqW : 0 < W.q) (hdA : 0 ≤ A.width) (hdW : 0 ≤ W.width),
+        OQ7Prescribed.planarNormalizedExtinction k hk OQ7Prescribed.Direction.plus (A.width + W.width) ⋯ A.width θ
+            (OQ7.relativePermittivity A - 1) (OQ7.relativePermittivity W - 1) ⋯ ⋯ =
+          OQ7Prescribed.slabFormulaExtinction k A W θ
 OQ7Prescribed.planarNormalizedExtinction_pos : ∀ (k : ℝ) (hk : 0 < k) (σ : OQ7Prescribed.Direction) (L : ℝ) (hL : 0 ≤ L)
   (h θ : ℝ),
   0 ≤ h →
@@ -4359,6 +4547,13 @@ OQ7Prescribed.rankOnePhysicalScatteringState_exists : ∀ (k : ℝ),
   0 < k →
     ∀ (B : OQ7Prescribed.TwoLayerBody) (σ : OQ7Prescribed.Direction) (u v : OQ7Prescribed.Position) (α β : ℂ),
       0 < α.im → 0 < β.im → Nonempty (OQ7Prescribed.ScatteringState k (OQ7Prescribed.rankOneBody B u v α β) σ)
+OQ7Prescribed.rankOneRotationExtinction_continuous : ∀ (k : ℝ) (hk : 0 < k) (B : OQ7Prescribed.TwoLayerBody)
+  (σ : OQ7Prescribed.Direction) (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im),
+  Continuous fun θ => OQ7Prescribed.rankOneRotationExtinction k hk B σ θ α β hα hβ
+OQ7Prescribed.rankOneRotationExtinction_factorization : ∀ (k : ℝ) (hk : 0 < k) (B : OQ7Prescribed.TwoLayerBody)
+  (σ : OQ7Prescribed.Direction) (θ : ℝ) (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im),
+  OQ7Prescribed.rankOneRotationExtinction k hk B σ θ α β hα hβ =
+    Real.sin θ ^ 2 * OQ7Prescribed.normalizedExtinction k hk B σ θ α β hα hβ
 OQ7Prescribed.real_inner_basis : ∀ (x : OQ7Prescribed.Position) (j : Fin 3),
   inner ℝ x (OQ7Prescribed.basisR j) = x.ofLp j
 OQ7Prescribed.real_inner_norm_square_error : ∀ (u v f : OQ7Prescribed.Vector),
@@ -4511,6 +4706,8 @@ OQ7Prescribed.rotatedAxis_unit : ∀ (θ : ℝ), ‖OQ7Prescribed.rotatedAxis θ
 OQ7Prescribed.scalarAxisPolarization_current : ∀ (f : OQ7Prescribed.Position → ℂ) (hf : Continuous f)
   (hc : HasCompactSupport f) (a : OQ7Prescribed.Position),
   (OQ7Prescribed.scalarAxisPolarization f hf hc a).current = fun x => f x • OQ7Prescribed.complexify a
+OQ7Prescribed.scalarConstitutive_negative_imaginary : ∀ (α z : ℂ),
+  α ≠ 0 → -(inner ℂ (α * z) (α⁻¹ * (α * z))).im = α.im * Complex.normSq z
 OQ7Prescribed.scalarInverse_negative_imaginary : ∀ (α z : ℂ),
   -(inner ℂ z (α⁻¹ • z)).im = OQ7Prescribed.activeScalarLoss α * ‖z‖ ^ 2
 OQ7Prescribed.scalarOutgoingPotential_contDiff : ∀ (k : ℝ) (f : OQ7Prescribed.Position → ℂ),
@@ -4940,6 +5137,21 @@ OQ7Prescribed.shrinkingCutoffPoleError_tendsto : ∀ (F : OQ7Prescribed.Position
       Filter.Tendsto (fun ε => ∫ (x : OQ7Prescribed.Position), OQ7Prescribed.exteriorCutoffPartial ε ε i x * F x * φ x)
         (nhdsWithin 0 (Set.Ioi 0)) (nhds 0)
 OQ7Prescribed.sine_ne_zero_dense : Dense {θ | Real.sin θ ≠ 0}
+@OQ7Prescribed.slabAbsorberAmplitude_loss_angle_continuous : ∀ {X : Type u_1} [inst : TopologicalSpace X] (k : ℝ),
+  0 < k →
+    ∀ (A : OQ7.HomogeneousLayer),
+      1 ≤ A.p →
+        0 ≤ A.q →
+          0 ≤ A.width →
+            ∀ (p d : ℝ),
+              1 ≤ p →
+                0 ≤ d →
+                  ∀ (q : X → OQ7Prescribed.NonnegativeSlabLoss) (θ : X → ℝ),
+                    Continuous q →
+                      Continuous θ →
+                        ∀ (σ : OQ7Prescribed.Direction),
+                          Continuous fun x =>
+                            OQ7Prescribed.slabAbsorberAmplitude k A (OQ7Prescribed.dielectricSlab p (↑(q x)) d) (θ x) σ
 OQ7Prescribed.slabAmplitudes_feedback : ∀ (k : ℝ) (A W : OQ7.HomogeneousLayer) (θ : ℝ),
   OQ7Prescribed.slabFeedback k A W θ ≠ 0 →
     ∀ (σ : OQ7Prescribed.Direction),
@@ -5054,6 +5266,36 @@ OQ7Prescribed.slabCoupledAbsorber_Green_interior : ∀ (k : ℝ),
                   z =
               (OQ7Prescribed.slabCoupledAbsorber k A W θ σ hpA).electric z -
                 OQ7Prescribed.slabAbsorberAmplitude k A W θ σ * OQ7Prescribed.apertureOscillation k (A.width - z)
+@OQ7Prescribed.slabCoupledAbsorber_loss_angle_position_continuous : ∀ {X : Type u_1} [inst : TopologicalSpace X]
+  (k : ℝ),
+  0 < k →
+    ∀ (A : OQ7.HomogeneousLayer) (hpA : 1 ≤ A.p),
+      0 ≤ A.q →
+        0 ≤ A.width →
+          ∀ (p d : ℝ),
+            1 ≤ p →
+              0 ≤ d →
+                ∀ (q : X → OQ7Prescribed.NonnegativeSlabLoss) (θ z : X → ℝ),
+                  Continuous q →
+                    Continuous θ →
+                      Continuous z →
+                        ∀ (σ : OQ7Prescribed.Direction),
+                          Continuous fun x =>
+                            (OQ7Prescribed.slabCoupledAbsorber k A (OQ7Prescribed.dielectricSlab p (↑(q x)) d) (θ x) σ
+                                  hpA).electric
+                              (z x)
+OQ7Prescribed.slabCoupledCurrent_absorption_integral : ∀ (k : ℝ) (A W : OQ7.HomogeneousLayer) (θ : ℝ)
+  (σ : OQ7Prescribed.Direction) (hpA : 1 ≤ A.p) (hpW : 1 ≤ W.p) (hdA : 0 ≤ A.width) (hdW : 0 ≤ W.width),
+  OQ7.relativePermittivity A - 1 ≠ 0 →
+    OQ7.relativePermittivity W - 1 ≠ 0 →
+      -(inner ℂ (OQ7Prescribed.slabCoupledCurrent k A W θ σ hpA hpW hdA hdW)
+              ((OQ7Prescribed.planarInverseMaterial (A.width + W.width) A.width (OQ7.relativePermittivity A - 1)
+                  (OQ7.relativePermittivity W - 1))
+                (OQ7Prescribed.slabCoupledCurrent k A W θ σ hpA hpW hdA hdW))).im =
+        (A.q * ∫ (z : ℝ) in 0..A.width, Complex.normSq ((OQ7Prescribed.slabCoupledAbsorber k A W θ σ hpA).electric z)) +
+          W.q *
+            ∫ (z : ℝ) in A.width..A.width + W.width,
+              Complex.normSq ((OQ7Prescribed.slabCoupledPlate k A W θ σ hpW).electric z)
 OQ7Prescribed.slabCoupledCurrent_coe : ∀ (k : ℝ) (A W : OQ7.HomogeneousLayer) (θ : ℝ) (σ : OQ7Prescribed.Direction)
   (hpA : 1 ≤ A.p) (hpW : 1 ≤ W.p) (hdA : 0 ≤ A.width) (hdW : 0 ≤ W.width),
   ↑↑↑(OQ7Prescribed.slabCoupledCurrent k A W θ σ hpA hpW hdA hdW) =ᵐ[MeasureTheory.volume] fun z =>
@@ -5078,6 +5320,13 @@ OQ7Prescribed.slabCoupledCurrent_material_equation : ∀ (k : ℝ) (hk : 0 < k) 
                   (OQ7.relativePermittivity A - 1) (OQ7.relativePermittivity W - 1))
                 (OQ7Prescribed.slabCoupledCurrent k A W θ σ hpA hpW hdA hdW) =
               -OQ7Prescribed.planarNormalizedDrive k σ (A.width + W.width) A.width
+OQ7Prescribed.slabCoupledCurrent_plus_drive_inner : ∀ (k : ℝ) (A W : OQ7.HomogeneousLayer) (θ : ℝ) (hpA : 1 ≤ A.p)
+  (hpW : 1 ≤ W.p) (hdA : 0 ≤ A.width) (hdW : 0 ≤ W.width),
+  inner ℂ (OQ7Prescribed.planarNormalizedDrive k OQ7Prescribed.Direction.plus (A.width + W.width) A.width)
+      (OQ7Prescribed.slabCoupledCurrent k A W θ OQ7Prescribed.Direction.plus hpA hpW hdA hdW) =
+    ∫ (z : ℝ) in A.width..A.width + W.width,
+      OQ7Prescribed.apertureOscillation (-k) z *
+        (OQ7Prescribed.slabCoupledPlate k A W θ OQ7Prescribed.Direction.plus hpW).current z
 OQ7Prescribed.slabCoupledPlate_constitutive : ∀ (k : ℝ) (A W : OQ7.HomogeneousLayer) (θ : ℝ)
   (σ : OQ7Prescribed.Direction) (hpW : 1 ≤ W.p) (z : ℝ),
   (OQ7Prescribed.slabCoupledPlate k A W θ σ hpW).current z =
@@ -5134,11 +5383,77 @@ OQ7Prescribed.slabCoupledPlate_Green_interior : ∀ (k : ℝ),
                   OQ7Prescribed.slabPlateLeftAmplitude k A W θ σ * OQ7Prescribed.apertureOscillation k (z - A.width) -
                 OQ7Prescribed.slabPlateRightAmplitude k A W σ *
                   OQ7Prescribed.apertureOscillation k (A.width + W.width - z)
+@OQ7Prescribed.slabCoupledPlate_loss_angle_position_continuous : ∀ {X : Type u_1} [inst : TopologicalSpace X] (k : ℝ),
+  0 < k →
+    ∀ (A : OQ7.HomogeneousLayer),
+      1 ≤ A.p →
+        0 ≤ A.q →
+          0 ≤ A.width →
+            ∀ (p d : ℝ) (hp : 1 ≤ p),
+              0 ≤ d →
+                ∀ (q : X → OQ7Prescribed.NonnegativeSlabLoss) (θ z : X → ℝ),
+                  Continuous q →
+                    Continuous θ →
+                      Continuous z →
+                        ∀ (σ : OQ7Prescribed.Direction),
+                          Continuous fun x =>
+                            (OQ7Prescribed.slabCoupledPlate k A (OQ7Prescribed.dielectricSlab p (↑(q x)) d) (θ x) σ
+                                  hp).electric
+                              (z x)
+OQ7Prescribed.slabCoupledPlate_plus_weighted_moment : ∀ (k : ℝ),
+  0 < k →
+    ∀ (A W : OQ7.HomogeneousLayer) (θ : ℝ) (hpW : 1 ≤ W.p),
+      0 ≤ W.q →
+        0 ≤ W.width →
+          Complex.I * ↑k *
+              ∫ (z : ℝ) in A.width..A.width + W.width,
+                OQ7Prescribed.apertureOscillation (-k) z *
+                  (OQ7Prescribed.slabCoupledPlate k A W θ OQ7Prescribed.Direction.plus hpW).current z =
+            2 * OQ7Prescribed.slabPlusPlateAmplitude k A W θ *
+              (OQ7Prescribed.apertureOscillation (-k) (A.width + W.width) *
+                  OQ7Prescribed.dielectricSlabTransmission k W.p W.q W.width -
+                OQ7Prescribed.apertureOscillation (-k) A.width)
+OQ7Prescribed.slabDesignAsymmetry_joint_continuousAt_zero : ∀ (k : ℝ),
+  0 < k →
+    ∀ (A : OQ7.HomogeneousLayer) (hpA : 1 ≤ A.p),
+      0 ≤ A.q →
+        0 ≤ A.width →
+          ∀ (j : ℕ) (hj : 1 ≤ j),
+            ContinuousAt
+              (fun x =>
+                OQ7Prescribed.slabFormulaAsymmetry k A
+                  (OQ7Prescribed.dielectricSlab (OQ7Prescribed.plateDesignPermittivity j) (↑x.1)
+                    (OQ7Prescribed.plateDesignThickness k j))
+                  x.2 hpA ⋯)
+              (⟨0, ⋯⟩, 0)
+@OQ7Prescribed.slabFeedback_loss_angle_continuous : ∀ {X : Type u_1} [inst : TopologicalSpace X] (k : ℝ),
+  0 < k →
+    ∀ (A : OQ7.HomogeneousLayer) (p d : ℝ),
+      1 ≤ p →
+        0 ≤ d →
+          ∀ (q : X → OQ7Prescribed.NonnegativeSlabLoss) (θ : X → ℝ),
+            Continuous q →
+              Continuous θ →
+                Continuous fun x => OQ7Prescribed.slabFeedback k A (OQ7Prescribed.dielectricSlab p (↑(q x)) d) (θ x)
 OQ7Prescribed.slabFeedback_ne_zero : ∀ (k : ℝ),
   0 < k →
     ∀ (A W : OQ7.HomogeneousLayer),
       1 ≤ A.p →
         0 ≤ A.q → 0 ≤ A.width → 1 ≤ W.p → 0 ≤ W.q → 0 ≤ W.width → ∀ (θ : ℝ), OQ7Prescribed.slabFeedback k A W θ ≠ 0
+@OQ7Prescribed.slabFormulaExtinction_loss_angle_continuous : ∀ {X : Type u_1} [inst : TopologicalSpace X] (k : ℝ),
+  0 < k →
+    ∀ (A : OQ7.HomogeneousLayer),
+      1 ≤ A.p →
+        0 ≤ A.q →
+          0 ≤ A.width →
+            ∀ (p d : ℝ),
+              1 ≤ p →
+                0 ≤ d →
+                  ∀ (q : X → OQ7Prescribed.NonnegativeSlabLoss) (θ : X → ℝ),
+                    Continuous q →
+                      Continuous θ →
+                        Continuous fun x =>
+                          OQ7Prescribed.slabFormulaExtinction k A (OQ7Prescribed.dielectricSlab p (↑(q x)) d) (θ x)
 OQ7Prescribed.slabGreen_locallyIntegrable : ∀ (k z : ℝ),
   MeasureTheory.LocallyIntegrable (OQ7Prescribed.slabGreen k z) MeasureTheory.volume
 OQ7Prescribed.slabGreen_measurable : ∀ (k z : ℝ), Measurable (OQ7Prescribed.slabGreen k z)
@@ -5169,6 +5484,32 @@ OQ7Prescribed.slabHorizontalCLM_apply : ∀ (x : OQ7Prescribed.Position),
   OQ7Prescribed.slabHorizontalCLM x = OQ7Prescribed.slabHorizontalCoordinate x
 OQ7Prescribed.slabHorizontalCLM_at_slab : ∀ (v : ℂ),
   OQ7Prescribed.slabHorizontalCLM (OQ7Prescribed.slabPosition v 0) = v
+OQ7Prescribed.slabIntegralAbsorption_absorber_part : ∀ (k : ℝ),
+  0 < k →
+    ∀ (A W : OQ7.HomogeneousLayer) (θ : ℝ) (σ : OQ7Prescribed.Direction) (hpA : 1 ≤ A.p) (hpW : 1 ≤ W.p),
+      0 ≤ A.q →
+        0 ≤ A.width →
+          OQ7Prescribed.slabIntegralAbsorption k A W θ σ hpA hpW =
+            Complex.normSq (OQ7Prescribed.slabAbsorberAmplitude k A W θ σ) *
+                OQ7.absorptanceLeft (OQ7Prescribed.dielectricSlabReflection k A.p A.q A.width)
+                  (OQ7Prescribed.dielectricSlabTransmission k A.p A.q A.width) +
+              k * W.q *
+                ∫ (z : ℝ) in A.width..A.width + W.width,
+                  Complex.normSq ((OQ7Prescribed.slabCoupledPlate k A W θ σ hpW).electric z)
+@OQ7Prescribed.slabIntegralAbsorption_loss_angle_continuous : ∀ {X : Type u_1} [inst : TopologicalSpace X] (k : ℝ),
+  0 < k →
+    ∀ (A : OQ7.HomogeneousLayer) (hpA : 1 ≤ A.p),
+      0 ≤ A.q →
+        0 ≤ A.width →
+          ∀ (p d : ℝ) (hp : 1 ≤ p),
+            0 ≤ d →
+              ∀ (q : X → OQ7Prescribed.NonnegativeSlabLoss) (θ : X → ℝ),
+                Continuous q →
+                  Continuous θ →
+                    ∀ (σ : OQ7Prescribed.Direction),
+                      Continuous fun x =>
+                        OQ7Prescribed.slabIntegralAbsorption k A (OQ7Prescribed.dielectricSlab p (↑(q x)) d) (θ x) σ hpA
+                          hp
 OQ7Prescribed.slabLiftPolarization_current_ae : ∀ (w : ℂ → ℂ) (hw : MeasureTheory.MemLp w 2 MeasureTheory.volume)
   (A M : ℝ) (hAM : 0 ≤ A + M) (hA : tsupport w ⊆ Metric.closedBall 0 A) (u : ℂ)
   (q : ↥(OQ7Prescribed.HeightSupportedL2 M)),
@@ -5222,6 +5563,21 @@ OQ7Prescribed.slabPlanarMap_coe : ∀ (k : ℝ) (hk : 0 < k) (w : ℂ → ℂ) (
   ↑↑((OQ7Prescribed.slabPlanarMap k hk w hw M r L hM hL u v) q) =ᵐ[MeasureTheory.volume]
     (OQ7Prescribed.slabObservationRegion r L).indicator fun x =>
       OQ7Prescribed.planarSlabTransverse k w (↑↑↑q) (OQ7Prescribed.slabHorizontalCoordinate x) (x.ofLp 2) u v
+@OQ7Prescribed.slabPlateLeftAmplitude_loss_angle_continuous : ∀ {X : Type u_1} [inst : TopologicalSpace X] (k : ℝ),
+  0 < k →
+    ∀ (A : OQ7.HomogeneousLayer),
+      1 ≤ A.p →
+        0 ≤ A.q →
+          0 ≤ A.width →
+            ∀ (p d : ℝ),
+              1 ≤ p →
+                0 ≤ d →
+                  ∀ (q : X → OQ7Prescribed.NonnegativeSlabLoss) (θ : X → ℝ),
+                    Continuous q →
+                      Continuous θ →
+                        ∀ (σ : OQ7Prescribed.Direction),
+                          Continuous fun x =>
+                            OQ7Prescribed.slabPlateLeftAmplitude k A (OQ7Prescribed.dielectricSlab p (↑(q x)) d) (θ x) σ
 OQ7Prescribed.slabPlusAmplitudes_feedback : ∀ (k : ℝ) (A W : OQ7.HomogeneousLayer) (θ : ℝ),
   OQ7Prescribed.slabFeedback k A W θ ≠ 0 →
     OQ7Prescribed.slabPlusPlateAmplitude k A W θ =

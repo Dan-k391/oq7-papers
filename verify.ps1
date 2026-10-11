@@ -421,6 +421,16 @@ run_cmd do
         'OQ7Prescribed.exists_plateDesign_within_cap',
         'OQ7Prescribed.slabCoupledCurrent_material_equation',
         'OQ7Prescribed.slabCoupledCurrent_eq_planarNormalizedResponse',
+        'OQ7Prescribed.dielectricSlabReflection_loss_continuous',
+        'OQ7Prescribed.losslessPlateDesign_actual_coefficients',
+        'OQ7Prescribed.planarNormalizedAbsorption_eq_slabIntegral',
+        'OQ7Prescribed.planarNormalizedExtinction_plus_eq_slabFormula',
+        'OQ7Prescribed.slabIntegralAbsorption_loss_angle_continuous',
+        'OQ7Prescribed.losslessPlateDesign_coupled_power_values',
+        'OQ7Prescribed.slabDesignAsymmetry_joint_continuousAt_zero',
+        'OQ7Prescribed.exists_planar_design_near_unit_asymmetry',
+        'OQ7Prescribed.physicalRankOne_exists_extinction_bracket',
+        'OQ7Prescribed.physicalRankOne_prescribedExtinctionOfPlanarDesign',
         'OQ7Prescribed.dielectricSlabLeft_absorptance_integral',
         'OQ7Prescribed.dielectricSlabRight_absorptance_integral',
         'OQ7Prescribed.dielectricSlabLeftAt_Green_interior',
@@ -569,6 +579,11 @@ run_cmd do
         physicalPlanarPassiveSlabFeedbackDenominatorNonzeroVerified = $true
         physicalPlanarExplicitCoupledSlabCurrentEqualsMaterialResponseVerified = $true
         physicalPlanarAbsorberBothIncidenceExactLossIntegralVerified = $true
+        physicalPlanarExactCoupledPowerFormulasAndJointDesignLimitVerified = $true
+        physicalPlanarPositiveLossDesignWithinMaterialCapsVerified = $true
+        physicalRankOneFirstExactExtinctionBracketVerified = $true
+        physicalRankOnePrescribedExtinctionAndOriginalAsymmetryVerified = $true
+        physicalPrescribedExtinctionConstructionScope = 'Actual rank-one finite-body fields, common exact original extinction, original near-unit asymmetry; strict positive isotropic loss and final admissibility still require proof'
         physicalAbsorberTransferAndActualPlanarGreenEquationVerified = $true
         physicalPlanarLayerRepresentationScope = 'Exact homogeneous-layer Maxwell derivatives, weighted moments, actual supported L2 currents, matched two-layer scalar Green operator and both original plane-wave incoming equations'
         planarGreenPositiveImaginaryWorkIdentityVerified = $true
@@ -652,9 +667,6 @@ run_cmd do
         )
         unverifiedDependencies = @('Uniqueness of arbitrary physical outgoing Maxwell states',
             'Converse outgoing volume representation',
-            'Physical exact extinction brackets',
-            'Planar construction and normalized zero-angle / zero-plate-loss limits',
-            'First exact-extinction bracket and physical continuity',
             'Positive-loss perturbation of solutions and second exact-extinction bracket',
             'Order of limits, constant dependencies, strict nonattainment and final assembly')
     } | ConvertTo-Json -Depth 12 | Set-Content -LiteralPath 'verification/report.json' -Encoding utf8

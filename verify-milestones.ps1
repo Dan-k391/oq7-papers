@@ -80,7 +80,8 @@ try {
         @{ name = 'planar-absorber-design'; module = 'PrescribedExtinction.PlanarSlabGreenField' },
         @{ name = 'physical-uniform-aperture-asymmetry'; module = 'PrescribedExtinction.UniformPhysicalAsymmetry' },
         @{ name = 'planar-coupled-green'; module = 'PrescribedExtinction.PlanarCoupledGreen' },
-        @{ name = 'planar-slab-response-identification'; module = 'PrescribedExtinction.PlanarSlabResponseIdentification' }
+        @{ name = 'planar-slab-response-identification'; module = 'PrescribedExtinction.PlanarSlabResponseIdentification' },
+        @{ name = 'physical-planar-design-extinction-bracket'; module = 'PrescribedExtinction.PhysicalRankOneExtinctionBracket' }
     )
     if ($Only) {
         foreach ($oq7Name in $Only) {

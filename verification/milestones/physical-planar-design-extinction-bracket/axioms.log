@@ -1,0 +1,92 @@
+OQ7Prescribed.planarNormalizedAbsorption_eq_slabIntegral (k : ℝ) (hk : 0 < k) (A W : OQ7.HomogeneousLayer) (θ : ℝ)
+  (σ : OQ7Prescribed.Direction) (hpA : 1 ≤ A.p) (hpW : 1 ≤ W.p) (hqA : 0 < A.q) (hqW : 0 < W.q) (hdA : 0 ≤ A.width)
+  (hdW : 0 ≤ W.width) :
+  OQ7Prescribed.planarNormalizedAbsorption k hk σ (A.width + W.width) ⋯ A.width θ (OQ7.relativePermittivity A - 1)
+      (OQ7.relativePermittivity W - 1) ⋯ ⋯ =
+    OQ7Prescribed.slabIntegralAbsorption k A W θ σ hpA hpW
+OQ7Prescribed.planarNormalizedExtinction_plus_eq_slabFormula (k : ℝ) (hk : 0 < k) (A W : OQ7.HomogeneousLayer) (θ : ℝ)
+  (hpA : 1 ≤ A.p) (hpW : 1 ≤ W.p) (hqA : 0 < A.q) (hqW : 0 < W.q) (hdA : 0 ≤ A.width) (hdW : 0 ≤ W.width) :
+  OQ7Prescribed.planarNormalizedExtinction k hk OQ7Prescribed.Direction.plus (A.width + W.width) ⋯ A.width θ
+      (OQ7.relativePermittivity A - 1) (OQ7.relativePermittivity W - 1) ⋯ ⋯ =
+    OQ7Prescribed.slabFormulaExtinction k A W θ
+OQ7Prescribed.losslessPlateDesign_actual_coefficients (k : ℝ) (hk : 0 < k) (j : ℕ) (hj : 1 ≤ j) :
+  OQ7Prescribed.dielectricSlabReflection k (OQ7Prescribed.plateDesignPermittivity j) 0
+        (OQ7Prescribed.plateDesignThickness k j) =
+      0 ∧
+    OQ7Prescribed.dielectricSlabTransmission k (OQ7Prescribed.plateDesignPermittivity j) 0
+        (OQ7Prescribed.plateDesignThickness k j) =
+      1
+OQ7Prescribed.losslessPlateDesign_coupled_power_values (k : ℝ) (hk : 0 < k) (A : OQ7.HomogeneousLayer) (hpA : 1 ≤ A.p)
+  (hqA : 0 ≤ A.q) (hdA : 0 ≤ A.width) (j : ℕ) (hj : 1 ≤ j) :
+  let W :=
+    OQ7Prescribed.dielectricSlab (OQ7Prescribed.plateDesignPermittivity j) 0 (OQ7Prescribed.plateDesignThickness k j);
+  have hpW := ⋯;
+  OQ7Prescribed.slabIntegralAbsorption k A W 0 OQ7Prescribed.Direction.plus hpA hpW = 0 ∧
+    OQ7Prescribed.slabIntegralAbsorption k A W 0 OQ7Prescribed.Direction.minus hpA hpW =
+        4 *
+          OQ7.absorptanceLeft (OQ7Prescribed.dielectricSlabReflection k A.p A.q A.width)
+            (OQ7Prescribed.dielectricSlabTransmission k A.p A.q A.width) ∧
+      OQ7Prescribed.slabFormulaExtinction k A W 0 = 4
+OQ7Prescribed.slabDesignAsymmetry_joint_continuousAt_zero (k : ℝ) (hk : 0 < k) (A : OQ7.HomogeneousLayer)
+  (hpA : 1 ≤ A.p) (hqA : 0 ≤ A.q) (hdA : 0 ≤ A.width) (j : ℕ) (hj : 1 ≤ j) :
+  ContinuousAt
+    (fun x =>
+      OQ7Prescribed.slabFormulaAsymmetry k A
+        (OQ7Prescribed.dielectricSlab (OQ7Prescribed.plateDesignPermittivity j) (↑x.1)
+          (OQ7Prescribed.plateDesignThickness k j))
+        x.2 hpA ⋯)
+    (⟨0, ⋯⟩, 0)
+OQ7Prescribed.exists_planar_design_near_unit_asymmetry (k : ℝ) (hk : 0 < k) (P Q ε : ℝ) (hP : 1 < P) (hQ : 0 < Q)
+  (hε : 0 < ε) :
+  ∃ A W,
+    ∃ (_ : 1 ≤ A.p) (_ : 1 ≤ W.p) (hqA : 0 < A.q) (hqW : 0 < W.q) (hdA : 0 < A.width) (hdW : 0 < W.width),
+      A.p ≤ P ∧
+        W.p ≤ P ∧
+          A.q < Q / 3 ∧
+            W.q < Q / 3 ∧
+              1 - ε <
+                OQ7Prescribed.planarNormalizedAsymmetry k hk (A.width + W.width) ⋯ A.width 0
+                  (OQ7.relativePermittivity A - 1) (OQ7.relativePermittivity W - 1) ⋯ ⋯
+OQ7Prescribed.physicalRankOne_exists_extinction_bracket (k : ℝ) (hk : 0 < k) (h d : ℝ) (hh : 0 < h) (hd : 0 < d)
+  (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im) (target m : ℝ) (htarget : 0 < target)
+  (hm : m < OQ7Prescribed.planarNormalizedAsymmetry k hk (h + d) ⋯ h 0 α β hα hβ) :
+  ∃ B a b,
+    B.absorberThickness = h ∧
+      B.plateThickness = d ∧
+        0 < a ∧
+          a < b ∧
+            b < Real.pi ∧
+              OQ7Prescribed.rankOneRotationExtinction k hk B OQ7Prescribed.Direction.plus a α β hα hβ < target ∧
+                target < OQ7Prescribed.rankOneRotationExtinction k hk B OQ7Prescribed.Direction.plus b α β hα hβ ∧
+                  ∀ θ ∈ Set.Icc a b, m < OQ7Prescribed.normalizedRotationAsymmetry k hk B θ α β hα hβ
+OQ7Prescribed.physicalRankOne_prescribedExtinctionOfPlanarDesign (k : ℝ) (hk : 0 < k) (h d : ℝ) (hh : 0 < h)
+  (hd : 0 < d) (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im) (target m : ℝ) (htarget : 0 < target)
+  (hm : m < OQ7Prescribed.planarNormalizedAsymmetry k hk (h + d) ⋯ h 0 α β hα hβ) :
+  ∃ B θ,
+    B.absorberThickness = h ∧
+      B.plateThickness = d ∧
+        θ ∈ Set.Ioo 0 Real.pi ∧
+          OQ7Prescribed.rankOneRotationExtinction k hk B OQ7Prescribed.Direction.plus θ α β hα hβ = target ∧
+            OQ7Prescribed.rankOneRotationExtinction k hk B OQ7Prescribed.Direction.minus θ α β hα hβ = target ∧
+              m <
+                  OQ7Prescribed.normalizedAsymmetry k
+                    (OQ7Prescribed.rankOneBody B (OQ7Prescribed.basisR 0) (OQ7Prescribed.rotatedAxis θ) α β)
+                    (OQ7Prescribed.rankOnePhysicalElectric k hk B OQ7Prescribed.Direction.plus θ α β hα hβ)
+                    (OQ7Prescribed.rankOnePhysicalElectric k hk B OQ7Prescribed.Direction.minus θ α β hα hβ) ∧
+                OQ7Prescribed.normalizedAsymmetry k
+                    (OQ7Prescribed.rankOneBody B (OQ7Prescribed.basisR 0) (OQ7Prescribed.rotatedAxis θ) α β)
+                    (OQ7Prescribed.rankOnePhysicalElectric k hk B OQ7Prescribed.Direction.plus θ α β hα hβ)
+                    (OQ7Prescribed.rankOnePhysicalElectric k hk B OQ7Prescribed.Direction.minus θ α β hα hβ) <
+                  1
+'OQ7Prescribed.planarNormalizedAbsorption_eq_slabIntegral' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.planarNormalizedExtinction_plus_eq_slabFormula' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OQ7Prescribed.losslessPlateDesign_actual_coefficients' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.losslessPlateDesign_coupled_power_values' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.slabDesignAsymmetry_joint_continuousAt_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.exists_planar_design_near_unit_asymmetry' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.physicalRankOne_exists_extinction_bracket' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.physicalRankOne_prescribedExtinctionOfPlanarDesign' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
