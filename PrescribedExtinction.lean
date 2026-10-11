@@ -68,3 +68,4 @@ import PrescribedExtinction.ExteriorKernelTests
 import PrescribedExtinction.ExteriorCurrentIdentification
 import PrescribedExtinction.OutgoingSourceFields
 import PrescribedExtinction.IncidentMaxwell
+import PrescribedExtinction.PhysicalPolarization

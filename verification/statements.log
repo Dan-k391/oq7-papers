@@ -25,6 +25,7 @@ OQ7Prescribed.bilinear_complexify_self : ∀ (x : OQ7Prescribed.Position),
   OQ7Prescribed.bilinear (OQ7Prescribed.complexify x) (OQ7Prescribed.complexify x) = ↑(‖x‖ ^ 2)
 OQ7Prescribed.bilinear_radial_smul_norm_le : ∀ (x : OQ7Prescribed.Position) (v : OQ7Prescribed.Vector),
   ‖OQ7Prescribed.bilinear (OQ7Prescribed.complexify x) v • OQ7Prescribed.complexify x‖ ≤ ‖x‖ ^ 2 * ‖v‖
+OQ7Prescribed.bodyDomain_isOpen : ∀ (B : OQ7Prescribed.TwoLayerBody), IsOpen B.domain
 OQ7Prescribed.classicalDyadic_coordinate : ∀ (k : ℝ) (x : OQ7Prescribed.Position),
   x ≠ 0 →
     ∀ (i j : Fin 3),
@@ -1408,6 +1409,16 @@ OQ7Prescribed.pairing_self : ∀ (v : OQ7Prescribed.Vector), OQ7Prescribed.pairi
 OQ7Prescribed.permittivity_one_outside : ∀ (B : OQ7Prescribed.TwoLayerBody), ∀ x ∉ B.domain, B.permittivity x = 1
 OQ7Prescribed.permittivity_reciprocal : ∀ (B : OQ7Prescribed.TwoLayerBody) (P Q : ℝ),
   B.admissible P Q → ∀ (x : OQ7Prescribed.Position), Matrix.transpose (B.permittivity x) = B.permittivity x
+OQ7Prescribed.physicalPolarization_indicator : ∀ (B : OQ7Prescribed.TwoLayerBody) (E : OQ7Prescribed.Field),
+  OQ7Prescribed.polarization B E =
+    B.domain.indicator fun x =>
+      if x.ofLp 2 < B.absorberThickness then (OQ7Prescribed.tensorMap (B.absorberPermittivity - 1)) (E x)
+      else (OQ7Prescribed.tensorMap (B.platePermittivity - 1)) (E x)
+OQ7Prescribed.physicalPolarization_memLp : ∀ (B : OQ7Prescribed.TwoLayerBody) (E : OQ7Prescribed.Field),
+  OQ7Prescribed.LocallySquareIntegrable E → MeasureTheory.MemLp (OQ7Prescribed.polarization B E) 2 MeasureTheory.volume
+OQ7Prescribed.physicalPolarization_vanish : ∀ (B : OQ7Prescribed.TwoLayerBody) (E : OQ7Prescribed.Field)
+  (x : OQ7Prescribed.Position),
+  B.aperture + B.absorberThickness + B.plateThickness < ‖x‖ → OQ7Prescribed.polarization B E x = 0
 OQ7Prescribed.physicalSourceFields_first_curl : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization),
   OQ7Prescribed.distributionCurl (OQ7Prescribed.fieldComponentDistribution (OQ7Prescribed.electricVolumeField k p)) =
     (Complex.I * ↑k) • OQ7Prescribed.fieldComponentDistribution (OQ7Prescribed.magneticVolumeField k p)
@@ -1923,6 +1934,8 @@ OQ7Prescribed.susceptibility_zero_outside : ∀ (B : OQ7Prescribed.TwoLayerBody)
 OQ7Prescribed.tensorApply_one : ∀ (v : OQ7Prescribed.Vector), OQ7Prescribed.tensorApply 1 v = v
 OQ7Prescribed.tensorApply_rankOne : ∀ (u : OQ7Prescribed.Position) (v : OQ7Prescribed.Vector),
   OQ7Prescribed.tensorApply (OQ7Prescribed.rankOne u) v = OQ7Prescribed.axisCoupling u v • OQ7Prescribed.complexify u
+OQ7Prescribed.tensorMap_apply : ∀ (T : OQ7Prescribed.Tensor) (v : OQ7Prescribed.Vector),
+  (OQ7Prescribed.tensorMap T) v = OQ7Prescribed.tensorApply T v
 OQ7Prescribed.testComponent_fderiv : ∀ (φ : OQ7Prescribed.Field),
   ContDiff ℝ (↑⊤) φ →
     ∀ (i j : Fin 3) (x : OQ7Prescribed.Position),

@@ -1,0 +1,7 @@
+import PrescribedExtinction.PhysicalPolarization
+#check @OQ7Prescribed.physicalPolarization_memLp
+#print axioms OQ7Prescribed.physicalPolarization_memLp
+#check @OQ7Prescribed.physicalPolarization_vanish
+#print axioms OQ7Prescribed.physicalPolarization_vanish
+#check @OQ7Prescribed.physicalCompactPolarization
+#print axioms OQ7Prescribed.physicalCompactPolarization

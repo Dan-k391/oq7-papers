@@ -259,7 +259,9 @@ run_cmd do
         'OQ7Prescribed.incidentElectric_first_weakCurl',
         'OQ7Prescribed.incidentMagnetic_second_weakCurl',
         'OQ7Prescribed.incidentElectric_locallySquareIntegrable',
-        'OQ7Prescribed.incidentMagnetic_locallySquareIntegrable')) {
+        'OQ7Prescribed.incidentMagnetic_locallySquareIntegrable',
+        'OQ7Prescribed.physicalPolarization_memLp',
+        'OQ7Prescribed.physicalPolarization_vanish')) {
         if ($oq7Required -notin $oq7NewKernelTheorems) { throw "Missing outgoing operator obligation: $oq7Required" }
     }
     if ($oq7PdfHash -ne '3D9775D849234E828370D7C96D8BDCDD574BEB6831A7906EA6B7706579868710') { throw 'Manuscript hash differs.' }
@@ -322,6 +324,7 @@ run_cmd do
         physicalExteriorMagneticPointwiseIdentificationVerified = $true
         physicalIncidentPlaneWaveWeakMaxwellVerified = $true
         classicalSmoothCurlToPhysicalWeakCurlVerified = $true
+        physicalFiniteBodyPolarizationCompactL2Verified = $true
         physicalDyadicDistributionExteriorTestIdentificationVerified = $true
         outgoingWeakMaxwellRepresentationVerified = $false
         scatteringStateExistenceVerified = $false

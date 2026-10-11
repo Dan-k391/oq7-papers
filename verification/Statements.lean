@@ -8,6 +8,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.bilinear_complexify_eq_inner
 #check @OQ7Prescribed.bilinear_complexify_self
 #check @OQ7Prescribed.bilinear_radial_smul_norm_le
+#check @OQ7Prescribed.bodyDomain_isOpen
 #check @OQ7Prescribed.classicalDyadic_coordinate
 #check @OQ7Prescribed.classicalDyadic_measurable
 #check @OQ7Prescribed.classicalDyadic_norm_le_far
@@ -420,6 +421,9 @@ import PrescribedExtinction
 #check @OQ7Prescribed.pairing_self
 #check @OQ7Prescribed.permittivity_one_outside
 #check @OQ7Prescribed.permittivity_reciprocal
+#check @OQ7Prescribed.physicalPolarization_indicator
+#check @OQ7Prescribed.physicalPolarization_memLp
+#check @OQ7Prescribed.physicalPolarization_vanish
 #check @OQ7Prescribed.physicalSourceFields_first_curl
 #check @OQ7Prescribed.physicalSourceFields_first_weakCurl
 #check @OQ7Prescribed.physicalSourceFields_second_curl
@@ -568,6 +572,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.susceptibility_zero_outside
 #check @OQ7Prescribed.tensorApply_one
 #check @OQ7Prescribed.tensorApply_rankOne
+#check @OQ7Prescribed.tensorMap_apply
 #check @OQ7Prescribed.testComponent_fderiv
 #check @OQ7Prescribed.testLaplacian_apply
 #check @OQ7Prescribed.testPartial_commute
