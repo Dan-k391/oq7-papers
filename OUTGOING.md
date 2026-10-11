@@ -1,5 +1,18 @@
 # Physical outgoing volume operator
 
+`RankOneScattering.lean` also supplies actual physical scattering states for
+the manuscript's intermediate tensors `I + alpha u u^T` and `I + beta v v^T`,
+with positive imaginary parts of the two scalar coefficients. The explicit
+scalar-current embedding and projection are proved adjoints and are isometric
+for unit material axes. The compressed operator's inverse norm is bounded by
+`1 / min (alpha.im / normSq alpha) (beta.im / normSq beta)`, independently of
+aperture and axes. The resulting current is proved to solve the original
+physical material volume equation; all three Maxwell field components and
+the full uniform radiation condition are retained. These intermediate tensors
+have null loss directions and are not advertised as final admissible bodies.
+The positive isotropic-loss restoration and exact target construction remain
+unproved. Evidence: `verification/milestones/rank-one-physical-scattering/`.
+
 `ScatteringExistence.lean` now proves `materialVolumeEquation_exists` and
 `physicalScatteringState_exists` for every original admissible finite body,
 positive frequency, and either incident direction. The closed Hilbert space

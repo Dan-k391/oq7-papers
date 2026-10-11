@@ -3,10 +3,28 @@ import PrescribedExtinction
 #print OQ7Prescribed.Theorem11Statement
 #print axioms OQ7Prescribed.Theorem11Statement
 
+#check @OQ7Prescribed.activeInjection_coe
+#check @OQ7Prescribed.activeInjection_inner
+#check @OQ7Prescribed.activeInjection_norm
+#check @OQ7Prescribed.activeInverseMaterial_coe
+#check @OQ7Prescribed.activeInverseMaterial_negative_imaginary_bound
+#check @OQ7Prescribed.activeMaterialCoercivity_pos
+#check @OQ7Prescribed.activeMaterialEquiv_apply
+#check @OQ7Prescribed.activeMaterialEquiv_inverse_norm_le
+#check @OQ7Prescribed.activeMaterialOperator_imaginary_coercive
+#check @OQ7Prescribed.activePhysicalSolution_equation
+#check @OQ7Prescribed.activePhysicalSolution_physicalVolumeEquation
+#check @OQ7Prescribed.activeProjectedOutgoing_im_nonneg
+#check @OQ7Prescribed.activeProjection_coe
+#check @OQ7Prescribed.activeProjection_injection
+#check @OQ7Prescribed.activeScalarLoss_pos
 #check @OQ7Prescribed.admissible_susceptibility_bounded_inverse
 #check @OQ7Prescribed.admissible_susceptibility_imaginary_coercive
 #check @OQ7Prescribed.axisCoupling_bound
 #check @OQ7Prescribed.axisCoupling_eq_inner
+#check @OQ7Prescribed.axisEmbedding_adjoint_apply
+#check @OQ7Prescribed.axisEmbedding_adjoint_embedding
+#check @OQ7Prescribed.axisEmbedding_apply
 #check @OQ7Prescribed.bilinear_add_left
 #check @OQ7Prescribed.bilinear_add_right
 #check @OQ7Prescribed.bilinear_complex_smul_right
@@ -541,6 +559,8 @@ import PrescribedExtinction
 #check @OQ7Prescribed.radialNorm_hasFDerivAt
 #check @OQ7Prescribed.rankOne_complexify_continuous
 #check @OQ7Prescribed.rankOne_transpose
+#check @OQ7Prescribed.rankOneBody_polarization
+#check @OQ7Prescribed.rankOnePhysicalScatteringState_exists
 #check @OQ7Prescribed.real_inner_basis
 #check @OQ7Prescribed.reflectedCurrentComponent_fourier_neg
 #check @OQ7Prescribed.reflectedCurrentComponent_hasCompactSupport
@@ -571,6 +591,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.removable_point_complex_test_ibp
 #check @OQ7Prescribed.removable_point_test_ibp
 #check @OQ7Prescribed.rotatedAxis_unit
+#check @OQ7Prescribed.scalarInverse_negative_imaginary
 #check @OQ7Prescribed.scalarTest_global_lipschitz
 #check @OQ7Prescribed.scalarTest_support_radius
 #check @OQ7Prescribed.scalarTestSchwartz_apply
@@ -670,6 +691,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.staticSymbolWithOrigin_memLp
 #check @OQ7Prescribed.staticSymbolWithOrigin_zero
 #check @OQ7Prescribed.supportedConstCLM_coe
+#check @OQ7Prescribed.supportedConstMap_coe
 #check @OQ7Prescribed.supportedPolarization_add_current_ae
 #check @OQ7Prescribed.supportedPolarization_current_ae
 #check @OQ7Prescribed.supportedPolarization_current_eLpNorm
@@ -684,6 +706,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.tensorApply_one
 #check @OQ7Prescribed.tensorApply_rankOne
 #check @OQ7Prescribed.tensorMap_apply
+#check @OQ7Prescribed.tensorMap_smul_apply
 #check @OQ7Prescribed.testComponent_fderiv
 #check @OQ7Prescribed.testLaplacian_apply
 #check @OQ7Prescribed.testPartial_commute
@@ -699,6 +722,8 @@ import PrescribedExtinction
 #check @OQ7Prescribed.transitionDerivative_integral
 #check @OQ7Prescribed.transitionDerivative_zero_of_nonpos
 #check @OQ7Prescribed.transitionDerivative_zero_of_one_le
+#check @OQ7Prescribed.twoPieceSupportedMap_adjoint_inner
+#check @OQ7Prescribed.twoPieceSupportedMap_coe
 #check @OQ7Prescribed.twoPieceSupportedOperator_coe
 #check @OQ7Prescribed.twoPieceSupportedOperator_negative_imaginary_bound
 #check @OQ7Prescribed.unitSphere_norm

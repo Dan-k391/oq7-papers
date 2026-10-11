@@ -57,7 +57,8 @@ try {
         @{ name = 'physical-cutoff-poynting'; module = 'PrescribedExtinction.PoyntingCutoff' },
         @{ name = 'physical-outgoing-dissipativity'; module = 'PrescribedExtinction.OutgoingDissipativity' },
         @{ name = 'physical-scattering-existence'; module = 'PrescribedExtinction.ScatteringExistence' },
-        @{ name = 'material-volume-uniqueness'; module = 'PrescribedExtinction.MaterialVolumeUniqueness' }
+        @{ name = 'material-volume-uniqueness'; module = 'PrescribedExtinction.MaterialVolumeUniqueness' },
+        @{ name = 'rank-one-physical-scattering'; module = 'PrescribedExtinction.RankOneScattering' }
     )
     if ($Only) {
         foreach ($oq7Name in $Only) {

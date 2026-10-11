@@ -1,0 +1,39 @@
+OQ7Prescribed.activeInjection_inner : ∀ (B : OQ7Prescribed.TwoLayerBody) (u v : OQ7Prescribed.Position)
+  (q : ↥(OQ7Prescribed.ScalarBodyCurrentL2 B)) (p : ↥(OQ7Prescribed.BodyCurrentL2 B)),
+  inner ℂ ((OQ7Prescribed.activeInjection B u v) q) p = inner ℂ q ((OQ7Prescribed.activeProjection B u v) p)
+'OQ7Prescribed.activeInjection_inner' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.activeInjection_norm : ∀ (B : OQ7Prescribed.TwoLayerBody) (u v : OQ7Prescribed.Position),
+  ‖u‖ ^ 2 = 1 →
+    ‖v‖ ^ 2 = 1 → ∀ (q : ↥(OQ7Prescribed.ScalarBodyCurrentL2 B)), ‖(OQ7Prescribed.activeInjection B u v) q‖ = ‖q‖
+'OQ7Prescribed.activeInjection_norm' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.activeProjectedOutgoing_im_nonneg : ∀ (k : ℝ),
+  0 < k →
+    ∀ (B : OQ7Prescribed.TwoLayerBody) (u v : OQ7Prescribed.Position) (q : ↥(OQ7Prescribed.ScalarBodyCurrentL2 B)),
+      0 ≤
+        (inner ℂ q
+            ((OQ7Prescribed.activeProjection B u v)
+              ((OQ7Prescribed.bodyOutgoingOperator k B) ((OQ7Prescribed.activeInjection B u v) q)))).im
+'OQ7Prescribed.activeProjectedOutgoing_im_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.activeMaterialOperator_imaginary_coercive : ∀ (k : ℝ),
+  0 < k →
+    ∀ (B : OQ7Prescribed.TwoLayerBody) (u v : OQ7Prescribed.Position) (α β : ℂ)
+      (q : ↥(OQ7Prescribed.ScalarBodyCurrentL2 B)),
+      OQ7Prescribed.activeMaterialCoercivity α β * ‖q‖ ^ 2 ≤
+        (inner ℂ q ((OQ7Prescribed.activeMaterialOperator k B u v α β) q)).im
+'OQ7Prescribed.activeMaterialOperator_imaginary_coercive' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.activeMaterialEquiv_inverse_norm_le : ∀ (k : ℝ) (hk : 0 < k) (B : OQ7Prescribed.TwoLayerBody)
+  (u v : OQ7Prescribed.Position) (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im),
+  ‖↑(OQ7Prescribed.activeMaterialEquiv k hk B u v α β hα hβ).symm‖ ≤
+    1 / min (α.im / Complex.normSq α) (β.im / Complex.normSq β)
+'OQ7Prescribed.activeMaterialEquiv_inverse_norm_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.activePhysicalSolution_physicalVolumeEquation : ∀ (k : ℝ) (hk : 0 < k) (B : OQ7Prescribed.TwoLayerBody)
+  (σ : OQ7Prescribed.Direction) (u v : OQ7Prescribed.Position) (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im),
+  OQ7Prescribed.MaterialVolumeEquation k (OQ7Prescribed.rankOneBody B u v α β) σ
+    (OQ7Prescribed.bodyCurrentPolarization B
+      ((OQ7Prescribed.activeInjection B u v) (OQ7Prescribed.activePhysicalSolution k hk B σ u v α β hα hβ)))
+'OQ7Prescribed.activePhysicalSolution_physicalVolumeEquation' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.rankOnePhysicalScatteringState_exists : ∀ (k : ℝ),
+  0 < k →
+    ∀ (B : OQ7Prescribed.TwoLayerBody) (σ : OQ7Prescribed.Direction) (u v : OQ7Prescribed.Position) (α β : ℂ),
+      0 < α.im → 0 < β.im → Nonempty (OQ7Prescribed.ScatteringState k (OQ7Prescribed.rankOneBody B u v α β) σ)
+'OQ7Prescribed.rankOnePhysicalScatteringState_exists' depends on axioms: [propext, Classical.choice, Quot.sound]

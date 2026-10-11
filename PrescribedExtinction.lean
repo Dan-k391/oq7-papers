@@ -85,3 +85,7 @@ import PrescribedExtinction.BodyCurrentSpace
 import PrescribedExtinction.MaterialBodyInverse
 import PrescribedExtinction.ScatteringExistence
 import PrescribedExtinction.MaterialVolumeUniqueness
+import PrescribedExtinction.SupportedL2Maps
+import PrescribedExtinction.ActiveCurrentSpace
+import PrescribedExtinction.ActiveMaterialInverse
+import PrescribedExtinction.RankOneScattering

@@ -1,0 +1,15 @@
+import PrescribedExtinction.RankOneScattering
+#check @OQ7Prescribed.activeInjection_inner
+#print axioms OQ7Prescribed.activeInjection_inner
+#check @OQ7Prescribed.activeInjection_norm
+#print axioms OQ7Prescribed.activeInjection_norm
+#check @OQ7Prescribed.activeProjectedOutgoing_im_nonneg
+#print axioms OQ7Prescribed.activeProjectedOutgoing_im_nonneg
+#check @OQ7Prescribed.activeMaterialOperator_imaginary_coercive
+#print axioms OQ7Prescribed.activeMaterialOperator_imaginary_coercive
+#check @OQ7Prescribed.activeMaterialEquiv_inverse_norm_le
+#print axioms OQ7Prescribed.activeMaterialEquiv_inverse_norm_le
+#check @OQ7Prescribed.activePhysicalSolution_physicalVolumeEquation
+#print axioms OQ7Prescribed.activePhysicalSolution_physicalVolumeEquation
+#check @OQ7Prescribed.rankOnePhysicalScatteringState_exists
+#print axioms OQ7Prescribed.rankOnePhysicalScatteringState_exists

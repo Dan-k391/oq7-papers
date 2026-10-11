@@ -289,7 +289,13 @@ run_cmd do
         'OQ7Prescribed.materialVolumeEquation_exists',
         'OQ7Prescribed.physicalScatteringState_exists',
         'OQ7Prescribed.materialVolumeCurrent_operator_equation',
-        'OQ7Prescribed.materialVolumeEquation_unique_current')) {
+        'OQ7Prescribed.materialVolumeEquation_unique_current',
+        'OQ7Prescribed.activeInjection_inner',
+        'OQ7Prescribed.activeInjection_norm',
+        'OQ7Prescribed.activeMaterialOperator_imaginary_coercive',
+        'OQ7Prescribed.activeMaterialEquiv_inverse_norm_le',
+        'OQ7Prescribed.activePhysicalSolution_physicalVolumeEquation',
+        'OQ7Prescribed.rankOnePhysicalScatteringState_exists')) {
         if ($oq7Required -notin $oq7NewKernelTheorems) { throw "Missing outgoing operator obligation: $oq7Required" }
     }
     if ('OQ7Prescribed.scatteringStateOfVolumeEquation' -notin $oq7Constants) {
@@ -361,6 +367,9 @@ run_cmd do
         materialVolumeEquationUniqueCurrentVerified = $true
         actualBodyDomainOutgoingCompressionVerified = $true
         materialBodyInverseBoundDependsOnlyOnTensorLossData = $true
+        physicalRankOneActiveCurrentEmbeddingVerified = $true
+        rankOneInverseBoundIndependentOfApertureAndAxesVerified = $true
+        intermediateRankOnePhysicalScatteringExistenceVerified = $true
         complexHilbertImaginaryCoerciveInverseVerified = $true
         physicalAdmissibleConstitutiveSusceptibilityInverseVerified = $true
         compactL2CurrentFixedSupportSmoothDensityVerified = $true
