@@ -1,0 +1,36 @@
+warning: mathlib: repository 'C:/Users/Daniel/Documents/Codex/2026-10-09/set-up-a-local-ai-mathematical/outputs/math-research-lab/lean/.lake/packages\mathlib' has local changes
+warning: plausible: repository 'C:/Users/Daniel/Documents/Codex/2026-10-09/set-up-a-local-ai-mathematical/outputs/math-research-lab/lean/.lake/packages\plausible' has local changes
+warning: LeanSearchClient: repository 'C:/Users/Daniel/Documents/Codex/2026-10-09/set-up-a-local-ai-mathematical/outputs/math-research-lab/lean/.lake/packages\LeanSearchClient' has local changes
+warning: importGraph: repository 'C:/Users/Daniel/Documents/Codex/2026-10-09/set-up-a-local-ai-mathematical/outputs/math-research-lab/lean/.lake/packages\importGraph' has local changes
+warning: proofwidgets: repository 'C:/Users/Daniel/Documents/Codex/2026-10-09/set-up-a-local-ai-mathematical/outputs/math-research-lab/lean/.lake/packages\proofwidgets' has local changes
+warning: aesop: repository 'C:/Users/Daniel/Documents/Codex/2026-10-09/set-up-a-local-ai-mathematical/outputs/math-research-lab/lean/.lake/packages\aesop' has local changes
+warning: Qq: repository 'C:/Users/Daniel/Documents/Codex/2026-10-09/set-up-a-local-ai-mathematical/outputs/math-research-lab/lean/.lake/packages\Qq' has local changes
+warning: batteries: repository 'C:/Users/Daniel/Documents/Codex/2026-10-09/set-up-a-local-ai-mathematical/outputs/math-research-lab/lean/.lake/packages\batteries' has local changes
+warning: Cli: repository 'C:/Users/Daniel/Documents/Codex/2026-10-09/set-up-a-local-ai-mathematical/outputs/math-research-lab/lean/.lake/packages\Cli' has local changes
+OQ7Prescribed.exterior_current_test_joint_integrable : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization)
+  (φ : OQ7Prescribed.ScalarTest),
+  (∀ (x : OQ7Prescribed.Position), ‖x‖ ≤ p.radius + 1 → φ x = 0) →
+    ∀ (i j : Fin 3),
+      MeasureTheory.Integrable
+        (fun q =>
+          ↑(φ q.1) * ((OQ7Prescribed.classicalDyadic k (q.1 - q.2)) (OQ7Prescribed.basisC j)).ofLp i *
+            (p.current q.2).ofLp j)
+        (MeasureTheory.volume.prod MeasureTheory.volume)
+'OQ7Prescribed.exterior_current_test_joint_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.exteriorElectric_test_pairing : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization)
+  (φ : OQ7Prescribed.ScalarTest),
+  (∀ (x : OQ7Prescribed.Position), ‖x‖ ≤ p.radius + 1 → φ x = 0) →
+    ∀ (i : Fin 3),
+      ∫ (x : OQ7Prescribed.Position), ↑(φ x) * (OQ7Prescribed.exteriorElectric k p x).ofLp i =
+        (OQ7Prescribed.outgoingVolumeDistribution k p i) φ
+'OQ7Prescribed.exteriorElectric_test_pairing' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.electricExterior_component_distribution : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization) (i : Fin 3),
+  Distribution.ofFun (OQ7Prescribed.currentExterior p) (fun x => (OQ7Prescribed.exteriorElectric k p x).ofLp i)
+      MeasureTheory.volume ⊤ =
+    Distribution.ofFun (OQ7Prescribed.currentExterior p) (fun x => (OQ7Prescribed.electricVolumeField k p x).ofLp i)
+      MeasureTheory.volume ⊤
+'OQ7Prescribed.electricExterior_component_distribution' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.electricExterior_eq_ae : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization),
+  OQ7Prescribed.exteriorElectric k p =ᵐ[MeasureTheory.volume.restrict ↑(OQ7Prescribed.currentExterior p)]
+    OQ7Prescribed.electricVolumeField k p
+'OQ7Prescribed.electricExterior_eq_ae' depends on axioms: [propext, Classical.choice, Quot.sound]

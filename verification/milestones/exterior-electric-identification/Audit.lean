@@ -1,0 +1,9 @@
+import PrescribedExtinction.ExteriorCurrentIdentification
+#check @OQ7Prescribed.exterior_current_test_joint_integrable
+#print axioms OQ7Prescribed.exterior_current_test_joint_integrable
+#check @OQ7Prescribed.exteriorElectric_test_pairing
+#print axioms OQ7Prescribed.exteriorElectric_test_pairing
+#check @OQ7Prescribed.electricExterior_component_distribution
+#print axioms OQ7Prescribed.electricExterior_component_distribution
+#check @OQ7Prescribed.electricExterior_eq_ae
+#print axioms OQ7Prescribed.electricExterior_eq_ae

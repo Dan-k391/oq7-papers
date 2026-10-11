@@ -84,3 +84,5 @@ especially the electric representative, is still required before assembling
 a single global outgoing weak-Maxwell pair.
 
 ExteriorKernelTests.lean identifies the full dyadic distribution on actual current correlations from exterior tests. Absolute integrability is proved and the contact term vanishes by the proved zero correlation at the pole. Connecting this test identity to the pointwise exterior electric convolution is the next obligation.
+
+ExteriorCurrentIdentification.lean proves both Fubini steps, actual exterior electric test pairing, local integrability on the exterior open set, and electricExterior_eq_ae. The classical outgoing electric convolution is thereby identified with the global L2 source representative on that exterior domain.

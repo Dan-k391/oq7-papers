@@ -1728,6 +1728,8 @@ import PrescribedExtinction
 #print axioms OQ7Prescribed.currentDyadicTestPairing_exterior_integrable
 #print axioms OQ7Prescribed.currentDyadicTestPairing_exterior_integral
 #print axioms OQ7Prescribed.currentDyadicTestPairing.eq_1
+#print axioms OQ7Prescribed.currentExterior
+#print axioms OQ7Prescribed.currentExterior._proof_1
 #print axioms OQ7Prescribed.currentFarField
 #print axioms OQ7Prescribed.currentFarField._proof_1
 #print axioms OQ7Prescribed.currentTestCorrelationVector
@@ -1891,7 +1893,10 @@ import PrescribedExtinction
 #print axioms OQ7Prescribed.dynamicScalarRemainder_norm_le._simp_1_9
 #print axioms OQ7Prescribed.dynamicScalarRemainder_test_ibp
 #print axioms OQ7Prescribed.dynamicScalarRemainder.eq_1
+#print axioms OQ7Prescribed.electricExterior_component_distribution
+#print axioms OQ7Prescribed.electricExterior_eq_ae
 #print axioms OQ7Prescribed.electricVolumeField
+#print axioms OQ7Prescribed.electricVolumeField_component_locallyIntegrableOn
 #print axioms OQ7Prescribed.electricVolumeField_distribution
 #print axioms OQ7Prescribed.electricVolumeField_locallySquareIntegrable
 #print axioms OQ7Prescribed.electricVolumeField._proof_1
@@ -1903,6 +1908,9 @@ import PrescribedExtinction
 #print axioms OQ7Prescribed.electricVolumeField._proof_7
 #print axioms OQ7Prescribed.electricVolumeField.eq_1
 #print axioms OQ7Prescribed.exp_remainder_two_norm
+#print axioms OQ7Prescribed.exterior_current_component_pairing
+#print axioms OQ7Prescribed.exterior_current_correlation_joint_integrable
+#print axioms OQ7Prescribed.exterior_current_test_joint_integrable
 #print axioms OQ7Prescribed.exterior_radiation_integral_norm_le
 #print axioms OQ7Prescribed.exteriorCurrentFields_outgoing
 #print axioms OQ7Prescribed.exteriorCurrentFields_outgoing._simp_1_1
@@ -1935,7 +1943,14 @@ import PrescribedExtinction
 #print axioms OQ7Prescribed.exteriorCutoffPartial_zero_outer
 #print axioms OQ7Prescribed.exteriorCutoffPartial.eq_1
 #print axioms OQ7Prescribed.exteriorElectric
+#print axioms OQ7Prescribed.exteriorElectric_aestronglyMeasurable
+#print axioms OQ7Prescribed.exteriorElectric_component_locallyIntegrableOn
 #print axioms OQ7Prescribed.exteriorElectric_integrable_far
+#print axioms OQ7Prescribed.exteriorElectric_locallyIntegrableOn
+#print axioms OQ7Prescribed.exteriorElectric_norm_le
+#print axioms OQ7Prescribed.exteriorElectric_test_integrable
+#print axioms OQ7Prescribed.exteriorElectric_test_pairing
+#print axioms OQ7Prescribed.exteriorElectric_test_pointwise
 #print axioms OQ7Prescribed.exteriorElectric._proof_1
 #print axioms OQ7Prescribed.exteriorElectric._proof_2
 #print axioms OQ7Prescribed.exteriorKernelBound
@@ -2849,7 +2864,7 @@ import PrescribedExtinction
 #print axioms OQ7Prescribed.supportedPolarization._simp_1
 #print axioms OQ7Prescribed.supportedPolarization._simp_2
 #print axioms OQ7Prescribed.supportedPolarization.congr_simp
-#print axioms OQ7Prescribed.supportedVectorL2
+#print axioms OQ7Prescribed.SupportedVectorL2
 #print axioms OQ7Prescribed.supportedVectorL2_completeSpace
 #print axioms OQ7Prescribed.supportedVectorL2_current_ae
 #print axioms OQ7Prescribed.supportedVectorL2_isClosed
