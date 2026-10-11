@@ -1,0 +1,22 @@
+import PrescribedExtinction.NewtonFrequencyHeat
+
+#check @OQ7Prescribed.newtonFrequencyHeatKernel
+#print axioms OQ7Prescribed.newtonFrequencyHeatKernel
+#check @OQ7Prescribed.newtonFrequencyHeatKernel_eq_real
+#print axioms OQ7Prescribed.newtonFrequencyHeatKernel_eq_real
+#check @OQ7Prescribed.newton_frequency_heat_scalar_integrable
+#print axioms OQ7Prescribed.newton_frequency_heat_scalar_integrable
+#check @OQ7Prescribed.newton_frequency_heat_scalar_integral
+#print axioms OQ7Prescribed.newton_frequency_heat_scalar_integral
+#check @OQ7Prescribed.newtonFrequencyHeatKernel_joint_measurable
+#print axioms OQ7Prescribed.newtonFrequencyHeatKernel_joint_measurable
+#check @OQ7Prescribed.newton_frequency_heat_time_integrable
+#print axioms OQ7Prescribed.newton_frequency_heat_time_integrable
+#check @OQ7Prescribed.newton_frequency_heat_time_norm
+#print axioms OQ7Prescribed.newton_frequency_heat_time_norm
+#check @OQ7Prescribed.newton_frequency_heat_joint_integrable
+#print axioms OQ7Prescribed.newton_frequency_heat_joint_integrable
+#check @OQ7Prescribed.newton_frequency_heat_time_integral
+#print axioms OQ7Prescribed.newton_frequency_heat_time_integral
+#check @OQ7Prescribed.newtonFrequencyTempered_heat_pairing
+#print axioms OQ7Prescribed.newtonFrequencyTempered_heat_pairing

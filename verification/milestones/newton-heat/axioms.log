@@ -1,0 +1,22 @@
+OQ7Prescribed.newton_heat_scalar_integral : ∀ (a : ℝ),
+  0 < a → ∫ (t : ℝ) in Set.Ioi 0, t ^ (-(3 / 2)) * Real.exp (-a / t) = (1 / a) ^ (1 / 2) * √Real.pi
+'OQ7Prescribed.newton_heat_scalar_integral' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.newton_heat_scalar_integrable : ∀ (a : ℝ),
+  0 < a → MeasureTheory.IntegrableOn (fun t => t ^ (-(3 / 2)) * Real.exp (-a / t)) (Set.Ioi 0) MeasureTheory.volume
+'OQ7Prescribed.newton_heat_scalar_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.newtonHeatKernel : ℝ → OQ7Prescribed.Position → ℝ
+'OQ7Prescribed.newtonHeatKernel' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.newtonHeatKernel_factor : ∀ (t : ℝ),
+  0 < t →
+    ∀ (x : OQ7Prescribed.Position),
+      OQ7Prescribed.newtonHeatKernel t x = (4 * Real.pi) ^ (-(3 / 2)) * (t ^ (-(3 / 2)) * Real.exp (-(‖x‖ ^ 2 / 4) / t))
+'OQ7Prescribed.newtonHeatKernel_factor' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.newtonHeatKernel_integrable : ∀ (x : OQ7Prescribed.Position),
+  x ≠ 0 → MeasureTheory.IntegrableOn (fun t => OQ7Prescribed.newtonHeatKernel t x) (Set.Ioi 0) MeasureTheory.volume
+'OQ7Prescribed.newtonHeatKernel_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.newton_heat_representation : ∀ (x : OQ7Prescribed.Position),
+  x ≠ 0 → ∫ (t : ℝ) in Set.Ioi 0, OQ7Prescribed.newtonHeatKernel t x = OQ7Prescribed.newtonReal x
+'OQ7Prescribed.newton_heat_representation' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.newtonHeatKernel_not_integrable_at_origin : ¬MeasureTheory.IntegrableOn
+    (fun t => OQ7Prescribed.newtonHeatKernel t 0) (Set.Ioi 0) MeasureTheory.volume
+'OQ7Prescribed.newtonHeatKernel_not_integrable_at_origin' depends on axioms: [propext, Classical.choice, Quot.sound]

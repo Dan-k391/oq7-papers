@@ -1,0 +1,10 @@
+OQ7Prescribed.newtonTempered_fourier_apply : ∀ (φ : SchwartzMap OQ7Prescribed.Position ℂ),
+  (FourierTransform.fourier OQ7Prescribed.newtonTempered) φ =
+    ∫ (x : OQ7Prescribed.Position), (FourierTransform.fourier φ) x * OQ7Prescribed.outgoingGreen 0 x
+'OQ7Prescribed.newtonTempered_fourier_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.newtonTemperedHessian_fourier : ∀ (i j : Fin 3),
+  FourierTransform.fourier (OQ7Prescribed.newtonTemperedHessian i j) =
+    -(2 * ↑Real.pi) ^ 2 •
+      (TemperedDistribution.smulLeftCLM ℂ fun ξ => ↑(ξ.ofLp i) * ↑(ξ.ofLp j))
+        (FourierTransform.fourier OQ7Prescribed.newtonTempered)
+'OQ7Prescribed.newtonTemperedHessian_fourier' depends on axioms: [propext, Classical.choice, Quot.sound]

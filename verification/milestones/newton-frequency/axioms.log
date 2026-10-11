@@ -1,0 +1,38 @@
+OQ7Prescribed.newtonFrequencyKernel : OQ7Prescribed.Position → ℂ
+'OQ7Prescribed.newtonFrequencyKernel' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.newtonFrequencyKernel_zero : OQ7Prescribed.newtonFrequencyKernel 0 = 0
+'OQ7Prescribed.newtonFrequencyKernel_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.newtonFrequencyKernel_norm : ∀ (ξ : OQ7Prescribed.Position),
+  ‖OQ7Prescribed.newtonFrequencyKernel ξ‖ = (4 * Real.pi ^ 2 * ‖ξ‖ ^ 2)⁻¹
+'OQ7Prescribed.newtonFrequencyKernel_norm' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.newtonFrequencyKernel_measurable : Measurable OQ7Prescribed.newtonFrequencyKernel
+'OQ7Prescribed.newtonFrequencyKernel_measurable' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.newtonFrequencyKernel_locallyIntegrable : MeasureTheory.LocallyIntegrable
+  OQ7Prescribed.newtonFrequencyKernel MeasureTheory.volume
+'OQ7Prescribed.newtonFrequencyKernel_locallyIntegrable' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.newtonFrequencyLocal : OQ7Prescribed.Position → ℂ
+'OQ7Prescribed.newtonFrequencyLocal' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.newtonFrequencyExterior : OQ7Prescribed.Position → ℂ
+'OQ7Prescribed.newtonFrequencyExterior' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.newtonFrequencyLocal_memLp : MeasureTheory.MemLp OQ7Prescribed.newtonFrequencyLocal 1 MeasureTheory.volume
+'OQ7Prescribed.newtonFrequencyLocal_memLp' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.newtonFrequencyExterior_memLp : MeasureTheory.MemLp OQ7Prescribed.newtonFrequencyExterior ⊤
+  MeasureTheory.volume
+'OQ7Prescribed.newtonFrequencyExterior_memLp' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.newtonFrequencyKernel_split : ∀ (ξ : OQ7Prescribed.Position),
+  OQ7Prescribed.newtonFrequencyLocal ξ + OQ7Prescribed.newtonFrequencyExterior ξ = OQ7Prescribed.newtonFrequencyKernel ξ
+'OQ7Prescribed.newtonFrequencyKernel_split' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.newtonFrequencyTempered : TemperedDistribution OQ7Prescribed.Position ℂ
+'OQ7Prescribed.newtonFrequencyTempered' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.newtonFrequency_local_schwartz_integrable : ∀ (φ : SchwartzMap OQ7Prescribed.Position ℂ),
+  MeasureTheory.Integrable (fun ξ => φ ξ * OQ7Prescribed.newtonFrequencyLocal ξ) MeasureTheory.volume
+'OQ7Prescribed.newtonFrequency_local_schwartz_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.newtonFrequency_exterior_schwartz_integrable : ∀ (φ : SchwartzMap OQ7Prescribed.Position ℂ),
+  MeasureTheory.Integrable (fun ξ => φ ξ * OQ7Prescribed.newtonFrequencyExterior ξ) MeasureTheory.volume
+'OQ7Prescribed.newtonFrequency_exterior_schwartz_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.newtonFrequency_schwartz_integrable : ∀ (φ : SchwartzMap OQ7Prescribed.Position ℂ),
+  MeasureTheory.Integrable (fun ξ => φ ξ * OQ7Prescribed.newtonFrequencyKernel ξ) MeasureTheory.volume
+'OQ7Prescribed.newtonFrequency_schwartz_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.newtonFrequencyTempered_apply : ∀ (φ : SchwartzMap OQ7Prescribed.Position ℂ),
+  OQ7Prescribed.newtonFrequencyTempered φ = ∫ (ξ : OQ7Prescribed.Position), φ ξ * OQ7Prescribed.newtonFrequencyKernel ξ
+'OQ7Prescribed.newtonFrequencyTempered_apply' depends on axioms: [propext, Classical.choice, Quot.sound]

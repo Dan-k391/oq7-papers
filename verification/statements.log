@@ -264,11 +264,64 @@ OQ7Prescribed.newton_cutoff_double_ibp : ∀ (r t : ℝ),
             ∫ (x : OQ7Prescribed.Position),
               OQ7Prescribed.exteriorCutoffPartial r t j x * OQ7Prescribed.newtonReal x *
                 ((OQ7Prescribed.testPartial i) φ) x
+OQ7Prescribed.newton_frequency_heat_joint_integrable : ∀ (φ : SchwartzMap OQ7Prescribed.Position ℂ),
+  MeasureTheory.Integrable (fun p => φ p.1 * OQ7Prescribed.newtonFrequencyHeatKernel p.2 p.1)
+    (MeasureTheory.volume.prod (MeasureTheory.volume.restrict (Set.Ioi 0)))
+OQ7Prescribed.newton_frequency_heat_scalar_integrable : ∀ (ξ : OQ7Prescribed.Position),
+  ξ ≠ 0 →
+    MeasureTheory.IntegrableOn (fun t => Real.exp (-(4 * Real.pi ^ 2 * t * ‖ξ‖ ^ 2))) (Set.Ioi 0) MeasureTheory.volume
+OQ7Prescribed.newton_frequency_heat_scalar_integral : ∀ (ξ : OQ7Prescribed.Position),
+  ξ ≠ 0 → ∫ (t : ℝ) in Set.Ioi 0, Real.exp (-(4 * Real.pi ^ 2 * t * ‖ξ‖ ^ 2)) = (4 * Real.pi ^ 2 * ‖ξ‖ ^ 2)⁻¹
+OQ7Prescribed.newton_frequency_heat_time_integrable : ∀ (φ : SchwartzMap OQ7Prescribed.Position ℂ)
+  (ξ : OQ7Prescribed.Position),
+  ξ ≠ 0 →
+    MeasureTheory.IntegrableOn (fun t => φ ξ * OQ7Prescribed.newtonFrequencyHeatKernel t ξ) (Set.Ioi 0)
+      MeasureTheory.volume
+OQ7Prescribed.newton_frequency_heat_time_integral : ∀ (φ : SchwartzMap OQ7Prescribed.Position ℂ)
+  (ξ : OQ7Prescribed.Position),
+  ξ ≠ 0 →
+    ∫ (t : ℝ) in Set.Ioi 0, φ ξ * OQ7Prescribed.newtonFrequencyHeatKernel t ξ =
+      φ ξ * OQ7Prescribed.newtonFrequencyKernel ξ
+OQ7Prescribed.newton_frequency_heat_time_norm : ∀ (φ : SchwartzMap OQ7Prescribed.Position ℂ)
+  (ξ : OQ7Prescribed.Position),
+  ξ ≠ 0 →
+    ∫ (t : ℝ) in Set.Ioi 0, ‖φ ξ * OQ7Prescribed.newtonFrequencyHeatKernel t ξ‖ =
+      ‖φ ξ * OQ7Prescribed.newtonFrequencyKernel ξ‖
+OQ7Prescribed.newton_heat_fourier_pairing : ∀ (φ : SchwartzMap OQ7Prescribed.Position ℂ) (t : ℝ),
+  0 < t →
+    ∫ (x : OQ7Prescribed.Position), (FourierTransform.fourier φ) x * ↑(OQ7Prescribed.newtonHeatKernel t x) =
+      ∫ (ξ : OQ7Prescribed.Position), φ ξ * OQ7Prescribed.newtonFrequencyHeatKernel t ξ
+OQ7Prescribed.newton_heat_pairing_joint_integrable : ∀ (φ : SchwartzMap OQ7Prescribed.Position ℂ),
+  MeasureTheory.Integrable (fun p => φ p.1 * ↑(OQ7Prescribed.newtonHeatKernel p.2 p.1))
+    (MeasureTheory.volume.prod (MeasureTheory.volume.restrict (Set.Ioi 0)))
+OQ7Prescribed.newton_heat_pairing_time_integrable : ∀ (φ : SchwartzMap OQ7Prescribed.Position ℂ)
+  (x : OQ7Prescribed.Position),
+  x ≠ 0 →
+    MeasureTheory.IntegrableOn (fun t => φ x * ↑(OQ7Prescribed.newtonHeatKernel t x)) (Set.Ioi 0) MeasureTheory.volume
+OQ7Prescribed.newton_heat_pairing_time_integral : ∀ (φ : SchwartzMap OQ7Prescribed.Position ℂ)
+  (x : OQ7Prescribed.Position),
+  x ≠ 0 → ∫ (t : ℝ) in Set.Ioi 0, φ x * ↑(OQ7Prescribed.newtonHeatKernel t x) = φ x * OQ7Prescribed.outgoingGreen 0 x
+OQ7Prescribed.newton_heat_pairing_time_norm : ∀ (φ : SchwartzMap OQ7Prescribed.Position ℂ) (x : OQ7Prescribed.Position),
+  x ≠ 0 →
+    ∫ (t : ℝ) in Set.Ioi 0, ‖φ x * ↑(OQ7Prescribed.newtonHeatKernel t x)‖ = ‖φ x * OQ7Prescribed.outgoingGreen 0 x‖
+OQ7Prescribed.newton_heat_pairing_time_space_integrable : ∀ (φ : SchwartzMap OQ7Prescribed.Position ℂ),
+  MeasureTheory.Integrable (fun p => φ p.2 * ↑(OQ7Prescribed.newtonHeatKernel p.1 p.2))
+    ((MeasureTheory.volume.restrict (Set.Ioi 0)).prod MeasureTheory.volume)
+OQ7Prescribed.newton_heat_representation : ∀ (x : OQ7Prescribed.Position),
+  x ≠ 0 → ∫ (t : ℝ) in Set.Ioi 0, OQ7Prescribed.newtonHeatKernel t x = OQ7Prescribed.newtonReal x
+OQ7Prescribed.newton_heat_scalar_integrable : ∀ (a : ℝ),
+  0 < a → MeasureTheory.IntegrableOn (fun t => t ^ (-(3 / 2)) * Real.exp (-a / t)) (Set.Ioi 0) MeasureTheory.volume
+OQ7Prescribed.newton_heat_scalar_integral : ∀ (a : ℝ),
+  0 < a → ∫ (t : ℝ) in Set.Ioi 0, t ^ (-(3 / 2)) * Real.exp (-a / t) = (1 / a) ^ (1 / 2) * √Real.pi
+OQ7Prescribed.newton_heat_schwartz_pairing : ∀ (φ : SchwartzMap OQ7Prescribed.Position ℂ),
+  ∫ (x : OQ7Prescribed.Position), φ x * OQ7Prescribed.outgoingGreen 0 x =
+    ∫ (t : ℝ) in Set.Ioi 0, ∫ (x : OQ7Prescribed.Position), φ x * ↑(OQ7Prescribed.newtonHeatKernel t x)
 OQ7Prescribed.newton_hessian_contact_apply : ∀ (φ : OQ7Prescribed.ScalarTest) (i j : Fin 3),
   (OQ7Prescribed.greenHessian 0 i j) φ = ↑(OQ7Prescribed.newtonPVValue φ i j - (if i = j then 1 else 0) / 3 * φ 0)
 OQ7Prescribed.newton_hessian_contact_distribution : ∀ (i j : Fin 3),
   OQ7Prescribed.greenHessian 0 i j =
     OQ7Prescribed.newtonPVDistribution i j - ((if i = j then 1 else 0) / 3) • OQ7Prescribed.newtonDirac
+OQ7Prescribed.newton_hessian_trace_distribution : ∑ i, OQ7Prescribed.greenHessian 0 i i = -OQ7Prescribed.newtonDirac
 OQ7Prescribed.newton_inner_contact_normal : ∀ (r : ℝ),
   0 < r →
     ∀ (φ : OQ7Prescribed.ScalarTest) (i j : Fin 3) (n : ↑OQ7Prescribed.UnitSphere),
@@ -279,6 +332,10 @@ OQ7Prescribed.newton_inner_derivative_normal : ∀ (r : ℝ),
     ∀ (φ : OQ7Prescribed.ScalarTest) (i j : Fin 3) (n : ↑OQ7Prescribed.UnitSphere),
       r ^ 2 * OQ7Prescribed.newtonReal (r • ↑n) * ((OQ7Prescribed.testPartial i) φ) (r • ↑n) * -(↑n).ofLp j =
         -r / (4 * Real.pi) * ((↑n).ofLp j * ((OQ7Prescribed.testPartial i) φ) (r • ↑n))
+OQ7Prescribed.newton_kernel_split : ∀ (x : OQ7Prescribed.Position),
+  OQ7Prescribed.cutoffGreen 0 1 x + OQ7Prescribed.newtonExterior x = OQ7Prescribed.outgoingGreen 0 x
+OQ7Prescribed.newton_laplacian_test_integral : ∀ (φ : OQ7Prescribed.ScalarTest),
+  ∫ (x : OQ7Prescribed.Position), OQ7Prescribed.newtonReal x * (OQ7Prescribed.testLaplacian φ) x = -φ 0
 OQ7Prescribed.newton_outer_boundary_vanishes : ∀ (φ : OQ7Prescribed.ScalarTest) (i j : Fin 3),
   ∃ R,
     0 < R ∧
@@ -291,6 +348,12 @@ OQ7Prescribed.newton_punctured_double_ibp : ∀ (r : ℝ),
           OQ7Prescribed.newtonReal x * ((OQ7Prescribed.testPartial j) ((OQ7Prescribed.testPartial i) φ)) x =
         OQ7Prescribed.newtonPVTruncated φ i j r + OQ7Prescribed.newtonContactBoundary φ i j r +
           OQ7Prescribed.newtonDerivativeBoundary φ i j r
+OQ7Prescribed.newton_schwartz_exterior_integrable : ∀ (φ : SchwartzMap OQ7Prescribed.Position ℂ),
+  MeasureTheory.Integrable (fun x => φ x * OQ7Prescribed.newtonExterior x) MeasureTheory.volume
+OQ7Prescribed.newton_schwartz_integrable : ∀ (φ : SchwartzMap OQ7Prescribed.Position ℂ),
+  MeasureTheory.Integrable (fun x => φ x * OQ7Prescribed.outgoingGreen 0 x) MeasureTheory.volume
+OQ7Prescribed.newton_schwartz_local_integrable : ∀ (φ : SchwartzMap OQ7Prescribed.Position ℂ),
+  MeasureTheory.Integrable (fun x => φ x * OQ7Prescribed.cutoffGreen 0 1 x) MeasureTheory.volume
 OQ7Prescribed.newton_test_puncture_removal : ∀ (φ : OQ7Prescribed.ScalarTest),
   Filter.Tendsto (fun r => ∫ (x : OQ7Prescribed.Position) in {x | r < ‖x‖}, OQ7Prescribed.newtonReal x * φ x) (nhds 0)
     (nhds (∫ (x : OQ7Prescribed.Position), OQ7Prescribed.newtonReal x * φ x))
@@ -305,19 +368,85 @@ OQ7Prescribed.newtonCompensated_integrable : ∀ (φ : OQ7Prescribed.ScalarTest)
   MeasureTheory.Integrable (OQ7Prescribed.newtonCompensated φ i j) MeasureTheory.volume
 OQ7Prescribed.newtonCompensated_measurable : ∀ (φ : OQ7Prescribed.ScalarTest) (i j : Fin 3),
   Measurable (OQ7Prescribed.newtonCompensated φ i j)
+OQ7Prescribed.newtonCompensated_trace : ∀ (φ : OQ7Prescribed.ScalarTest) (x : OQ7Prescribed.Position),
+  ∑ i, OQ7Prescribed.newtonCompensated φ i i x = 0
 OQ7Prescribed.newtonContactBoundary_tendsto : ∀ (φ : OQ7Prescribed.ScalarTest) (i j : Fin 3),
   Filter.Tendsto (OQ7Prescribed.newtonContactBoundary φ i j) (nhds 0) (nhds (-((if i = j then 1 else 0) / 3) * φ 0))
 OQ7Prescribed.newtonDerivativeBoundary_tendsto : ∀ (φ : OQ7Prescribed.ScalarTest) (i j : Fin 3),
   Filter.Tendsto (OQ7Prescribed.newtonDerivativeBoundary φ i j) (nhds 0) (nhds 0)
 OQ7Prescribed.newtonDirac_apply : ∀ (φ : OQ7Prescribed.ScalarTest), OQ7Prescribed.newtonDirac φ = ↑(φ 0)
+OQ7Prescribed.newtonExterior_memLp : MeasureTheory.MemLp OQ7Prescribed.newtonExterior ⊤ MeasureTheory.volume
+OQ7Prescribed.newtonFrequency_exterior_schwartz_integrable : ∀ (φ : SchwartzMap OQ7Prescribed.Position ℂ),
+  MeasureTheory.Integrable (fun ξ => φ ξ * OQ7Prescribed.newtonFrequencyExterior ξ) MeasureTheory.volume
+OQ7Prescribed.newtonFrequency_local_schwartz_integrable : ∀ (φ : SchwartzMap OQ7Prescribed.Position ℂ),
+  MeasureTheory.Integrable (fun ξ => φ ξ * OQ7Prescribed.newtonFrequencyLocal ξ) MeasureTheory.volume
+OQ7Prescribed.newtonFrequency_schwartz_integrable : ∀ (φ : SchwartzMap OQ7Prescribed.Position ℂ),
+  MeasureTheory.Integrable (fun ξ => φ ξ * OQ7Prescribed.newtonFrequencyKernel ξ) MeasureTheory.volume
+OQ7Prescribed.newtonFrequencyExterior_memLp : MeasureTheory.MemLp OQ7Prescribed.newtonFrequencyExterior ⊤
+  MeasureTheory.volume
+OQ7Prescribed.newtonFrequencyHeatKernel_eq_real : ∀ (t : ℝ) (ξ : OQ7Prescribed.Position),
+  OQ7Prescribed.newtonFrequencyHeatKernel t ξ = ↑(Real.exp (-(4 * Real.pi ^ 2 * t * ‖ξ‖ ^ 2)))
+OQ7Prescribed.newtonFrequencyHeatKernel_joint_measurable : Measurable fun p =>
+  OQ7Prescribed.newtonFrequencyHeatKernel p.2 p.1
+OQ7Prescribed.newtonFrequencyKernel_locallyIntegrable : MeasureTheory.LocallyIntegrable
+  OQ7Prescribed.newtonFrequencyKernel MeasureTheory.volume
+OQ7Prescribed.newtonFrequencyKernel_measurable : Measurable OQ7Prescribed.newtonFrequencyKernel
+OQ7Prescribed.newtonFrequencyKernel_norm : ∀ (ξ : OQ7Prescribed.Position),
+  ‖OQ7Prescribed.newtonFrequencyKernel ξ‖ = (4 * Real.pi ^ 2 * ‖ξ‖ ^ 2)⁻¹
+OQ7Prescribed.newtonFrequencyKernel_split : ∀ (ξ : OQ7Prescribed.Position),
+  OQ7Prescribed.newtonFrequencyLocal ξ + OQ7Prescribed.newtonFrequencyExterior ξ = OQ7Prescribed.newtonFrequencyKernel ξ
+OQ7Prescribed.newtonFrequencyKernel_zero : OQ7Prescribed.newtonFrequencyKernel 0 = 0
+OQ7Prescribed.newtonFrequencyLocal_memLp : MeasureTheory.MemLp OQ7Prescribed.newtonFrequencyLocal 1 MeasureTheory.volume
+OQ7Prescribed.newtonFrequencyTempered_apply : ∀ (φ : SchwartzMap OQ7Prescribed.Position ℂ),
+  OQ7Prescribed.newtonFrequencyTempered φ = ∫ (ξ : OQ7Prescribed.Position), φ ξ * OQ7Prescribed.newtonFrequencyKernel ξ
+OQ7Prescribed.newtonFrequencyTempered_heat_pairing : ∀ (φ : SchwartzMap OQ7Prescribed.Position ℂ),
+  OQ7Prescribed.newtonFrequencyTempered φ =
+    ∫ (t : ℝ) in Set.Ioi 0, ∫ (ξ : OQ7Prescribed.Position), φ ξ * OQ7Prescribed.newtonFrequencyHeatKernel t ξ
 OQ7Prescribed.newtonGradient_contDiffAt : ∀ (j : Fin 3) (x : OQ7Prescribed.Position),
   x ≠ 0 → ContDiffAt ℝ 1 (OQ7Prescribed.newtonGradient j) x
 OQ7Prescribed.newtonGradient_hasLineDerivAt : ∀ (i j : Fin 3) (x : OQ7Prescribed.Position),
   x ≠ 0 →
     HasLineDerivAt ℝ (OQ7Prescribed.newtonGradient j) (OQ7Prescribed.newtonHessianKernel i j x) x
       (OQ7Prescribed.basisR i)
+OQ7Prescribed.newtonHeatKernel_complex_gaussian : ∀ (t : ℝ) (x : OQ7Prescribed.Position),
+  ↑(OQ7Prescribed.newtonHeatKernel t x) = ↑((4 * Real.pi * t) ^ (-(3 / 2))) * Complex.exp (-↑(4 * t)⁻¹ * ↑‖x‖ ^ 2)
+OQ7Prescribed.newtonHeatKernel_factor : ∀ (t : ℝ),
+  0 < t →
+    ∀ (x : OQ7Prescribed.Position),
+      OQ7Prescribed.newtonHeatKernel t x = (4 * Real.pi) ^ (-(3 / 2)) * (t ^ (-(3 / 2)) * Real.exp (-(‖x‖ ^ 2 / 4) / t))
+OQ7Prescribed.newtonHeatKernel_fourier : ∀ (t : ℝ),
+  0 < t →
+    ∀ (ξ : OQ7Prescribed.Position),
+      FourierTransform.fourier (fun x => ↑(OQ7Prescribed.newtonHeatKernel t x)) ξ =
+        Complex.exp ↑(-4 * Real.pi ^ 2 * t * ‖ξ‖ ^ 2)
+OQ7Prescribed.newtonHeatKernel_integrable : ∀ (x : OQ7Prescribed.Position),
+  x ≠ 0 → MeasureTheory.IntegrableOn (fun t => OQ7Prescribed.newtonHeatKernel t x) (Set.Ioi 0) MeasureTheory.volume
+OQ7Prescribed.newtonHeatKernel_integral_one : ∀ (t : ℝ),
+  0 < t → ∫ (x : OQ7Prescribed.Position), OQ7Prescribed.newtonHeatKernel t x = 1
+OQ7Prescribed.newtonHeatKernel_joint_measurable : Measurable fun p => OQ7Prescribed.newtonHeatKernel p.2 p.1
+OQ7Prescribed.newtonHeatKernel_nonneg : ∀ (t : ℝ),
+  0 < t → ∀ (x : OQ7Prescribed.Position), 0 ≤ OQ7Prescribed.newtonHeatKernel t x
+OQ7Prescribed.newtonHeatKernel_not_integrable_at_origin : ¬MeasureTheory.IntegrableOn
+    (fun t => OQ7Prescribed.newtonHeatKernel t 0) (Set.Ioi 0) MeasureTheory.volume
+OQ7Prescribed.newtonHeatKernel_space_integrable : ∀ (t : ℝ),
+  0 < t → MeasureTheory.Integrable (OQ7Prescribed.newtonHeatKernel t) MeasureTheory.volume
+OQ7Prescribed.newtonHeatKernel_space_integrable_complex : ∀ (t : ℝ),
+  0 < t → MeasureTheory.Integrable (fun x => ↑(OQ7Prescribed.newtonHeatKernel t x)) MeasureTheory.volume
 OQ7Prescribed.newtonHessian_radial_integral_zero : ∀ (i j : Fin 3) (w : ℝ → ℝ),
   ∫ (x : OQ7Prescribed.Position), w ‖x‖ * OQ7Prescribed.newtonHessianKernel i j x = 0
+OQ7Prescribed.newtonHessianFrequency_measurable : ∀ (i j : Fin 3), Measurable (OQ7Prescribed.newtonHessianFrequency i j)
+OQ7Prescribed.newtonHessianFrequency_memLp : ∀ (i j : Fin 3),
+  MeasureTheory.MemLp (OQ7Prescribed.newtonHessianFrequency i j) ⊤ MeasureTheory.volume
+OQ7Prescribed.newtonHessianFrequency_norm_le : ∀ (i j : Fin 3) (ξ : OQ7Prescribed.Position),
+  ‖OQ7Prescribed.newtonHessianFrequency i j ξ‖ ≤ 1
+OQ7Prescribed.newtonHessianFrequency_schwartz_integrable : ∀ (φ : SchwartzMap OQ7Prescribed.Position ℂ) (i j : Fin 3),
+  MeasureTheory.Integrable (fun ξ => φ ξ * OQ7Prescribed.newtonHessianFrequency i j ξ) MeasureTheory.volume
+OQ7Prescribed.newtonHessianFrequency_staticSymbol : ∀ (i j : Fin 3) (ξ : OQ7Prescribed.Position),
+  OQ7Prescribed.newtonHessianFrequency i j ξ = ((OQ7Prescribed.staticSymbol ξ) (OQ7Prescribed.basisC j)).ofLp i
+OQ7Prescribed.newtonHessianFrequency_zero : ∀ (i j : Fin 3), OQ7Prescribed.newtonHessianFrequency i j 0 = 0
+OQ7Prescribed.newtonHessianFrequencyTempered_apply : ∀ (φ : SchwartzMap OQ7Prescribed.Position ℂ) (i j : Fin 3),
+  (OQ7Prescribed.newtonHessianFrequencyTempered i j) φ =
+    ∫ (ξ : OQ7Prescribed.Position), φ ξ * OQ7Prescribed.newtonHessianFrequency i j ξ
 OQ7Prescribed.newtonHessianKernel_classical : ∀ (i j : Fin 3) (x : OQ7Prescribed.Position),
   x ≠ 0 →
     ↑(OQ7Prescribed.newtonHessianKernel i j x) =
@@ -332,6 +461,8 @@ OQ7Prescribed.newtonHessianKernel_smul : ∀ (i j : Fin 3) (n : ↑OQ7Prescribed
   0 < r →
     OQ7Prescribed.newtonHessianKernel i j (r • ↑n) =
       (3 * (↑n).ofLp i * (↑n).ofLp j - if i = j then 1 else 0) / (4 * Real.pi * r ^ 3)
+OQ7Prescribed.newtonHessianKernel_trace : ∀ (x : OQ7Prescribed.Position),
+  ∑ i, OQ7Prescribed.newtonHessianKernel i i x = 0
 OQ7Prescribed.newtonPrincipalValue_tendsto : ∀ (φ : OQ7Prescribed.ScalarTest) (i j : Fin 3),
   Filter.Tendsto (OQ7Prescribed.newtonPVTruncated φ i j) (nhdsWithin 0 (Set.Ioi 0))
     (nhds (OQ7Prescribed.newtonPVValue φ i j))
@@ -352,6 +483,7 @@ OQ7Prescribed.newtonPVTruncated_integrable : ∀ (φ : OQ7Prescribed.ScalarTest)
     MeasureTheory.IntegrableOn (fun x => OQ7Prescribed.newtonHessianKernel i j x * φ x) {x | r < ‖x‖}
       MeasureTheory.volume
 OQ7Prescribed.newtonPVValue_continuous : ∀ (i j : Fin 3), Continuous fun φ => OQ7Prescribed.newtonPVValue φ i j
+OQ7Prescribed.newtonPVValue_trace : ∀ (φ : OQ7Prescribed.ScalarTest), ∑ i, OQ7Prescribed.newtonPVValue φ i i = 0
 OQ7Prescribed.newtonRadial_hasDerivAt : ∀ (r : ℝ),
   r ≠ 0 → HasDerivAt OQ7Prescribed.newtonRadial (OQ7Prescribed.newtonRadialFirst r) r
 OQ7Prescribed.newtonRadialFirst_hasDerivAt : ∀ (r : ℝ),
@@ -365,6 +497,40 @@ OQ7Prescribed.newtonReal_locallyIntegrable : MeasureTheory.LocallyIntegrable OQ7
   MeasureTheory.volume
 OQ7Prescribed.newtonReal_test_integrable : ∀ (φ : OQ7Prescribed.ScalarTest),
   MeasureTheory.Integrable (fun x => OQ7Prescribed.newtonReal x * φ x) MeasureTheory.volume
+OQ7Prescribed.newtonTempered_apply : ∀ (φ : SchwartzMap OQ7Prescribed.Position ℂ),
+  OQ7Prescribed.newtonTempered φ = ∫ (x : OQ7Prescribed.Position), φ x * OQ7Prescribed.outgoingGreen 0 x
+OQ7Prescribed.newtonTempered_fourier_apply : ∀ (φ : SchwartzMap OQ7Prescribed.Position ℂ),
+  (FourierTransform.fourier OQ7Prescribed.newtonTempered) φ =
+    ∫ (x : OQ7Prescribed.Position), (FourierTransform.fourier φ) x * OQ7Prescribed.outgoingGreen 0 x
+OQ7Prescribed.newtonTempered_fourier_eq : FourierTransform.fourier OQ7Prescribed.newtonTempered =
+  OQ7Prescribed.newtonFrequencyTempered
+OQ7Prescribed.newtonTempered_fourier_integral : ∀ (φ : SchwartzMap OQ7Prescribed.Position ℂ),
+  (FourierTransform.fourier OQ7Prescribed.newtonTempered) φ =
+    ∫ (ξ : OQ7Prescribed.Position), φ ξ * OQ7Prescribed.newtonFrequencyKernel ξ
+OQ7Prescribed.newtonTempered_heat_pairing : ∀ (φ : SchwartzMap OQ7Prescribed.Position ℂ),
+  OQ7Prescribed.newtonTempered φ =
+    ∫ (t : ℝ) in Set.Ioi 0, ∫ (x : OQ7Prescribed.Position), φ x * ↑(OQ7Prescribed.newtonHeatKernel t x)
+OQ7Prescribed.newtonTempered_scalarTest : ∀ (φ : OQ7Prescribed.ScalarTest),
+  OQ7Prescribed.newtonTempered (OQ7Prescribed.scalarTestSchwartz φ) = (OQ7Prescribed.outgoingGreenDistribution 0) φ
+OQ7Prescribed.newtonTemperedHessian_apply : ∀ (φ : SchwartzMap OQ7Prescribed.Position ℂ) (i j : Fin 3),
+  (OQ7Prescribed.newtonTemperedHessian i j) φ =
+    OQ7Prescribed.newtonTempered
+      (LineDeriv.lineDerivOp (OQ7Prescribed.basisR j) (LineDeriv.lineDerivOp (OQ7Prescribed.basisR i) φ))
+OQ7Prescribed.newtonTemperedHessian_contact_apply : ∀ (φ : OQ7Prescribed.ScalarTest) (i j : Fin 3),
+  (OQ7Prescribed.newtonTemperedHessian i j) (OQ7Prescribed.scalarTestSchwartz φ) =
+    ↑(OQ7Prescribed.newtonPVValue φ i j - (if i = j then 1 else 0) / 3 * φ 0)
+OQ7Prescribed.newtonTemperedHessian_fourier : ∀ (i j : Fin 3),
+  FourierTransform.fourier (OQ7Prescribed.newtonTemperedHessian i j) =
+    -(2 * ↑Real.pi) ^ 2 •
+      (TemperedDistribution.smulLeftCLM ℂ fun ξ => ↑(ξ.ofLp i) * ↑(ξ.ofLp j))
+        (FourierTransform.fourier OQ7Prescribed.newtonTempered)
+OQ7Prescribed.newtonTemperedHessian_fourier_eq : ∀ (i j : Fin 3),
+  FourierTransform.fourier (OQ7Prescribed.newtonTemperedHessian i j) = OQ7Prescribed.newtonHessianFrequencyTempered i j
+OQ7Prescribed.newtonTemperedHessian_fourier_integral : ∀ (φ : SchwartzMap OQ7Prescribed.Position ℂ) (i j : Fin 3),
+  (FourierTransform.fourier (OQ7Prescribed.newtonTemperedHessian i j)) φ =
+    ∫ (ξ : OQ7Prescribed.Position), φ ξ * ↑(-(ξ.ofLp i * ξ.ofLp j) / ‖ξ‖ ^ 2)
+OQ7Prescribed.newtonTemperedHessian_scalarTest : ∀ (φ : OQ7Prescribed.ScalarTest) (i j : Fin 3),
+  (OQ7Prescribed.newtonTemperedHessian i j) (OQ7Prescribed.scalarTestSchwartz φ) = (OQ7Prescribed.greenHessian 0 i j) φ
 OQ7Prescribed.orthogonalSphere_cone_preimage : ∀ (e : OQ7Prescribed.Position ≃ₗᵢ[ℝ] OQ7Prescribed.Position)
   (s : Set ↑OQ7Prescribed.UnitSphere),
   Set.Ioo 0 1 • Subtype.val '' ⇑(OQ7Prescribed.orthogonalSphere e) ⁻¹' s = ⇑e ⁻¹' (Set.Ioo 0 1 • Subtype.val '' s)
@@ -443,6 +609,8 @@ OQ7Prescribed.planePhase_norm : ∀ (k : ℝ) (σ : OQ7Prescribed.Direction) (x 
   ‖OQ7Prescribed.planePhase k σ x‖ = 1
 OQ7Prescribed.polarization_zero_outside : ∀ (B : OQ7Prescribed.TwoLayerBody) (E : OQ7Prescribed.Field),
   ∀ x ∉ B.domain, OQ7Prescribed.polarization B E x = 0
+OQ7Prescribed.position_ae_ne_zero : ∀ᵐ (ξ : OQ7Prescribed.Position), ξ ≠ 0
+OQ7Prescribed.position_zero_volume : MeasureTheory.volume {0} = 0
 OQ7Prescribed.potentialBound_lt_top : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization) (S : ℝ),
   OQ7Prescribed.potentialBound k p S < ⊤
 OQ7Prescribed.potentialComponentDistribution_apply : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization) (i : Fin 3)
@@ -522,6 +690,11 @@ OQ7Prescribed.remainderPotentialBound_lt_top : ∀ (k : ℝ) (p : OQ7Prescribed.
   OQ7Prescribed.remainderPotentialBound k p S < ⊤
 OQ7Prescribed.rotatedAxis_unit : ∀ (θ : ℝ), ‖OQ7Prescribed.rotatedAxis θ‖ ^ 2 = 1
 OQ7Prescribed.scalarTest_global_lipschitz : ∀ (φ : OQ7Prescribed.ScalarTest), ∃ L, LipschitzWith L ⇑φ
+OQ7Prescribed.scalarTestSchwartz_apply : ∀ (φ : OQ7Prescribed.ScalarTest) (x : OQ7Prescribed.Position),
+  (OQ7Prescribed.scalarTestSchwartz φ) x = ↑(φ x)
+OQ7Prescribed.scalarTestSchwartz_partial : ∀ (φ : OQ7Prescribed.ScalarTest) (i : Fin 3),
+  LineDeriv.lineDerivOp (OQ7Prescribed.basisR i) (OQ7Prescribed.scalarTestSchwartz φ) =
+    OQ7Prescribed.scalarTestSchwartz ((OQ7Prescribed.testPartial i) φ)
 OQ7Prescribed.sphere_coordinate_cross_zero : ∀ (i j : Fin 3),
   i ≠ j → ∫ (n : ↑OQ7Prescribed.UnitSphere), (↑n).ofLp i * (↑n).ofLp j ∂OQ7Prescribed.sphereArea = 0
 OQ7Prescribed.sphere_coordinate_mul_integrable : ∀ (i j : Fin 3),
@@ -571,10 +744,14 @@ OQ7Prescribed.staticMultiplierLp_quadratic_im : ∀ (f : ↥OQ7Prescribed.Vector
   (inner ℂ f (OQ7Prescribed.staticMultiplierLp f)).im = 0
 OQ7Prescribed.staticMultiplierLp_smul : ∀ (z : ℂ) (f : ↥OQ7Prescribed.VectorL2),
   OQ7Prescribed.staticMultiplierLp (z • f) = z • OQ7Prescribed.staticMultiplierLp f
+OQ7Prescribed.staticMultiplierWithOriginLp_eq : ∀ (A : OQ7Prescribed.Vector →L[ℂ] OQ7Prescribed.Vector)
+  (f : ↥OQ7Prescribed.VectorL2), OQ7Prescribed.staticMultiplierWithOriginLp A f = OQ7Prescribed.staticMultiplierLp f
 OQ7Prescribed.staticSymbol_apply : ∀ (ξ : OQ7Prescribed.Position) (v : OQ7Prescribed.Vector),
   (OQ7Prescribed.staticSymbol ξ) v = -↑(‖ξ‖ ^ 2)⁻¹ • OQ7Prescribed.tensorApply (OQ7Prescribed.rankOne ξ) v
 OQ7Prescribed.staticSymbol_apply_norm_le : ∀ (ξ : OQ7Prescribed.Position) (v : OQ7Prescribed.Vector),
   ‖(OQ7Prescribed.staticSymbol ξ) v‖ ≤ ‖v‖
+OQ7Prescribed.staticSymbol_coordinate : ∀ (ξ : OQ7Prescribed.Position) (v : OQ7Prescribed.Vector) (i : Fin 3),
+  ((OQ7Prescribed.staticSymbol ξ) v).ofLp i = ∑ j, ↑(-(ξ.ofLp i * ξ.ofLp j) / ‖ξ‖ ^ 2) * v.ofLp j
 OQ7Prescribed.staticSymbol_memLp : ∀ (f : ↥OQ7Prescribed.VectorL2),
   MeasureTheory.MemLp (fun ξ => (OQ7Prescribed.staticSymbol ξ) (↑↑f ξ)) 2 MeasureTheory.volume
 OQ7Prescribed.staticSymbol_norm_le : ∀ (ξ : OQ7Prescribed.Position), ‖OQ7Prescribed.staticSymbol ξ‖ ≤ 1
@@ -582,10 +759,25 @@ OQ7Prescribed.staticSymbol_quadratic : ∀ (ξ : OQ7Prescribed.Position) (v : OQ
   inner ℂ v ((OQ7Prescribed.staticSymbol ξ) v) = -↑(‖ξ‖ ^ 2)⁻¹ * ↑(Complex.normSq (OQ7Prescribed.axisCoupling ξ v))
 OQ7Prescribed.staticSymbol_quadratic_im : ∀ (ξ : OQ7Prescribed.Position) (v : OQ7Prescribed.Vector),
   (inner ℂ v ((OQ7Prescribed.staticSymbol ξ) v)).im = 0
+OQ7Prescribed.staticSymbol_zero : OQ7Prescribed.staticSymbol 0 = 0
+OQ7Prescribed.staticSymbol_zero_apply : ∀ (v : OQ7Prescribed.Vector), (OQ7Prescribed.staticSymbol 0) v = 0
+OQ7Prescribed.staticSymbolWithOrigin_ae_eq : ∀ (A : OQ7Prescribed.Vector →L[ℂ] OQ7Prescribed.Vector),
+  OQ7Prescribed.staticSymbolWithOrigin A =ᵐ[MeasureTheory.volume] OQ7Prescribed.staticSymbol
+OQ7Prescribed.staticSymbolWithOrigin_apply_ae_eq : ∀ (A : OQ7Prescribed.Vector →L[ℂ] OQ7Prescribed.Vector)
+  (f : ↥OQ7Prescribed.VectorL2),
+  (fun ξ => (OQ7Prescribed.staticSymbolWithOrigin A ξ) (↑↑f ξ)) =ᵐ[MeasureTheory.volume] fun ξ =>
+    (OQ7Prescribed.staticSymbol ξ) (↑↑f ξ)
+OQ7Prescribed.staticSymbolWithOrigin_memLp : ∀ (A : OQ7Prescribed.Vector →L[ℂ] OQ7Prescribed.Vector)
+  (f : ↥OQ7Prescribed.VectorL2),
+  MeasureTheory.MemLp (fun ξ => (OQ7Prescribed.staticSymbolWithOrigin A ξ) (↑↑f ξ)) 2 MeasureTheory.volume
+OQ7Prescribed.staticSymbolWithOrigin_zero : ∀ (A : OQ7Prescribed.Vector →L[ℂ] OQ7Prescribed.Vector),
+  OQ7Prescribed.staticSymbolWithOrigin A 0 = A
 OQ7Prescribed.susceptibility_zero_outside : ∀ (B : OQ7Prescribed.TwoLayerBody), ∀ x ∉ B.domain, B.susceptibility x = 0
 OQ7Prescribed.tensorApply_one : ∀ (v : OQ7Prescribed.Vector), OQ7Prescribed.tensorApply 1 v = v
 OQ7Prescribed.tensorApply_rankOne : ∀ (u : OQ7Prescribed.Position) (v : OQ7Prescribed.Vector),
   OQ7Prescribed.tensorApply (OQ7Prescribed.rankOne u) v = OQ7Prescribed.axisCoupling u v • OQ7Prescribed.complexify u
+OQ7Prescribed.testLaplacian_apply : ∀ (φ : OQ7Prescribed.ScalarTest),
+  OQ7Prescribed.testLaplacian φ = ∑ i, (OQ7Prescribed.testPartial i) ((OQ7Prescribed.testPartial i) φ)
 OQ7Prescribed.testPartial_hasLineDerivAt : ∀ (φ : OQ7Prescribed.ScalarTest) (i : Fin 3) (x : OQ7Prescribed.Position),
   HasLineDerivAt ℝ (⇑φ) (((OQ7Prescribed.testPartial i) φ) x) x (OQ7Prescribed.basisR i)
 OQ7Prescribed.transition_average_tendsto : ∀ (r : ℝ) (A : ℝ → ℝ),

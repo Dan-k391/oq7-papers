@@ -1,0 +1,41 @@
+OQ7Prescribed.newtonFrequencyHeatKernel : ℝ → OQ7Prescribed.Position → ℂ
+'OQ7Prescribed.newtonFrequencyHeatKernel' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.newtonFrequencyHeatKernel_eq_real : ∀ (t : ℝ) (ξ : OQ7Prescribed.Position),
+  OQ7Prescribed.newtonFrequencyHeatKernel t ξ = ↑(Real.exp (-(4 * Real.pi ^ 2 * t * ‖ξ‖ ^ 2)))
+'OQ7Prescribed.newtonFrequencyHeatKernel_eq_real' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.newton_frequency_heat_scalar_integrable : ∀ (ξ : OQ7Prescribed.Position),
+  ξ ≠ 0 →
+    MeasureTheory.IntegrableOn (fun t => Real.exp (-(4 * Real.pi ^ 2 * t * ‖ξ‖ ^ 2))) (Set.Ioi 0) MeasureTheory.volume
+'OQ7Prescribed.newton_frequency_heat_scalar_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.newton_frequency_heat_scalar_integral : ∀ (ξ : OQ7Prescribed.Position),
+  ξ ≠ 0 → ∫ (t : ℝ) in Set.Ioi 0, Real.exp (-(4 * Real.pi ^ 2 * t * ‖ξ‖ ^ 2)) = (4 * Real.pi ^ 2 * ‖ξ‖ ^ 2)⁻¹
+'OQ7Prescribed.newton_frequency_heat_scalar_integral' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.newtonFrequencyHeatKernel_joint_measurable : Measurable fun p =>
+  OQ7Prescribed.newtonFrequencyHeatKernel p.2 p.1
+'OQ7Prescribed.newtonFrequencyHeatKernel_joint_measurable' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.newton_frequency_heat_time_integrable : ∀ (φ : SchwartzMap OQ7Prescribed.Position ℂ)
+  (ξ : OQ7Prescribed.Position),
+  ξ ≠ 0 →
+    MeasureTheory.IntegrableOn (fun t => φ ξ * OQ7Prescribed.newtonFrequencyHeatKernel t ξ) (Set.Ioi 0)
+      MeasureTheory.volume
+'OQ7Prescribed.newton_frequency_heat_time_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.newton_frequency_heat_time_norm : ∀ (φ : SchwartzMap OQ7Prescribed.Position ℂ)
+  (ξ : OQ7Prescribed.Position),
+  ξ ≠ 0 →
+    ∫ (t : ℝ) in Set.Ioi 0, ‖φ ξ * OQ7Prescribed.newtonFrequencyHeatKernel t ξ‖ =
+      ‖φ ξ * OQ7Prescribed.newtonFrequencyKernel ξ‖
+'OQ7Prescribed.newton_frequency_heat_time_norm' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.newton_frequency_heat_joint_integrable : ∀ (φ : SchwartzMap OQ7Prescribed.Position ℂ),
+  MeasureTheory.Integrable (fun p => φ p.1 * OQ7Prescribed.newtonFrequencyHeatKernel p.2 p.1)
+    (MeasureTheory.volume.prod (MeasureTheory.volume.restrict (Set.Ioi 0)))
+'OQ7Prescribed.newton_frequency_heat_joint_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.newton_frequency_heat_time_integral : ∀ (φ : SchwartzMap OQ7Prescribed.Position ℂ)
+  (ξ : OQ7Prescribed.Position),
+  ξ ≠ 0 →
+    ∫ (t : ℝ) in Set.Ioi 0, φ ξ * OQ7Prescribed.newtonFrequencyHeatKernel t ξ =
+      φ ξ * OQ7Prescribed.newtonFrequencyKernel ξ
+'OQ7Prescribed.newton_frequency_heat_time_integral' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.newtonFrequencyTempered_heat_pairing : ∀ (φ : SchwartzMap OQ7Prescribed.Position ℂ),
+  OQ7Prescribed.newtonFrequencyTempered φ =
+    ∫ (t : ℝ) in Set.Ioi 0, ∫ (ξ : OQ7Prescribed.Position), φ ξ * OQ7Prescribed.newtonFrequencyHeatKernel t ξ
+'OQ7Prescribed.newtonFrequencyTempered_heat_pairing' depends on axioms: [propext, Classical.choice, Quot.sound]

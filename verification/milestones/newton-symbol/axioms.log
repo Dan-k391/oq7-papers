@@ -1,0 +1,24 @@
+OQ7Prescribed.newtonHessianFrequency : Fin 3 → Fin 3 → OQ7Prescribed.Position → ℂ
+'OQ7Prescribed.newtonHessianFrequency' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.newtonHessianFrequency_staticSymbol : ∀ (i j : Fin 3) (ξ : OQ7Prescribed.Position),
+  OQ7Prescribed.newtonHessianFrequency i j ξ = ((OQ7Prescribed.staticSymbol ξ) (OQ7Prescribed.basisC j)).ofLp i
+'OQ7Prescribed.newtonHessianFrequency_staticSymbol' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.newtonHessianFrequency_norm_le : ∀ (i j : Fin 3) (ξ : OQ7Prescribed.Position),
+  ‖OQ7Prescribed.newtonHessianFrequency i j ξ‖ ≤ 1
+'OQ7Prescribed.newtonHessianFrequency_norm_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.newtonHessianFrequency_zero : ∀ (i j : Fin 3), OQ7Prescribed.newtonHessianFrequency i j 0 = 0
+'OQ7Prescribed.newtonHessianFrequency_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.newtonHessianFrequency_measurable : ∀ (i j : Fin 3), Measurable (OQ7Prescribed.newtonHessianFrequency i j)
+'OQ7Prescribed.newtonHessianFrequency_measurable' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.newtonHessianFrequency_memLp : ∀ (i j : Fin 3),
+  MeasureTheory.MemLp (OQ7Prescribed.newtonHessianFrequency i j) ⊤ MeasureTheory.volume
+'OQ7Prescribed.newtonHessianFrequency_memLp' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.newtonHessianFrequencyTempered : Fin 3 → Fin 3 → TemperedDistribution OQ7Prescribed.Position ℂ
+'OQ7Prescribed.newtonHessianFrequencyTempered' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.newtonHessianFrequency_schwartz_integrable : ∀ (φ : SchwartzMap OQ7Prescribed.Position ℂ) (i j : Fin 3),
+  MeasureTheory.Integrable (fun ξ => φ ξ * OQ7Prescribed.newtonHessianFrequency i j ξ) MeasureTheory.volume
+'OQ7Prescribed.newtonHessianFrequency_schwartz_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.newtonHessianFrequencyTempered_apply : ∀ (φ : SchwartzMap OQ7Prescribed.Position ℂ) (i j : Fin 3),
+  (OQ7Prescribed.newtonHessianFrequencyTempered i j) φ =
+    ∫ (ξ : OQ7Prescribed.Position), φ ξ * OQ7Prescribed.newtonHessianFrequency i j ξ
+'OQ7Prescribed.newtonHessianFrequencyTempered_apply' depends on axioms: [propext, Classical.choice, Quot.sound]

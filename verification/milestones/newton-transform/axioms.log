@@ -1,0 +1,19 @@
+OQ7Prescribed.newton_heat_fourier_pairing : ∀ (φ : SchwartzMap OQ7Prescribed.Position ℂ) (t : ℝ),
+  0 < t →
+    ∫ (x : OQ7Prescribed.Position), (FourierTransform.fourier φ) x * ↑(OQ7Prescribed.newtonHeatKernel t x) =
+      ∫ (ξ : OQ7Prescribed.Position), φ ξ * OQ7Prescribed.newtonFrequencyHeatKernel t ξ
+'OQ7Prescribed.newton_heat_fourier_pairing' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.newtonTempered_fourier_eq : FourierTransform.fourier OQ7Prescribed.newtonTempered =
+  OQ7Prescribed.newtonFrequencyTempered
+'OQ7Prescribed.newtonTempered_fourier_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.newtonTempered_fourier_integral : ∀ (φ : SchwartzMap OQ7Prescribed.Position ℂ),
+  (FourierTransform.fourier OQ7Prescribed.newtonTempered) φ =
+    ∫ (ξ : OQ7Prescribed.Position), φ ξ * OQ7Prescribed.newtonFrequencyKernel ξ
+'OQ7Prescribed.newtonTempered_fourier_integral' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.newtonTemperedHessian_fourier_integral : ∀ (φ : SchwartzMap OQ7Prescribed.Position ℂ) (i j : Fin 3),
+  (FourierTransform.fourier (OQ7Prescribed.newtonTemperedHessian i j)) φ =
+    ∫ (ξ : OQ7Prescribed.Position), φ ξ * ↑(-(ξ.ofLp i * ξ.ofLp j) / ‖ξ‖ ^ 2)
+'OQ7Prescribed.newtonTemperedHessian_fourier_integral' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.newtonTemperedHessian_fourier_eq : ∀ (i j : Fin 3),
+  FourierTransform.fourier (OQ7Prescribed.newtonTemperedHessian i j) = OQ7Prescribed.newtonHessianFrequencyTempered i j
+'OQ7Prescribed.newtonTemperedHessian_fourier_eq' depends on axioms: [propext, Classical.choice, Quot.sound]

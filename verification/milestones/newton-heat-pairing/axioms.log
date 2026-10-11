@@ -1,0 +1,34 @@
+OQ7Prescribed.newtonHeatKernel_nonneg : ∀ (t : ℝ),
+  0 < t → ∀ (x : OQ7Prescribed.Position), 0 ≤ OQ7Prescribed.newtonHeatKernel t x
+'OQ7Prescribed.newtonHeatKernel_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.newtonHeatKernel_joint_measurable : Measurable fun p => OQ7Prescribed.newtonHeatKernel p.2 p.1
+'OQ7Prescribed.newtonHeatKernel_joint_measurable' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.newton_heat_pairing_time_integrable : ∀ (φ : SchwartzMap OQ7Prescribed.Position ℂ)
+  (x : OQ7Prescribed.Position),
+  x ≠ 0 →
+    MeasureTheory.IntegrableOn (fun t => φ x * ↑(OQ7Prescribed.newtonHeatKernel t x)) (Set.Ioi 0) MeasureTheory.volume
+'OQ7Prescribed.newton_heat_pairing_time_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.newton_heat_pairing_time_norm : ∀ (φ : SchwartzMap OQ7Prescribed.Position ℂ) (x : OQ7Prescribed.Position),
+  x ≠ 0 →
+    ∫ (t : ℝ) in Set.Ioi 0, ‖φ x * ↑(OQ7Prescribed.newtonHeatKernel t x)‖ = ‖φ x * OQ7Prescribed.outgoingGreen 0 x‖
+'OQ7Prescribed.newton_heat_pairing_time_norm' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.newton_heat_pairing_joint_integrable : ∀ (φ : SchwartzMap OQ7Prescribed.Position ℂ),
+  MeasureTheory.Integrable (fun p => φ p.1 * ↑(OQ7Prescribed.newtonHeatKernel p.2 p.1))
+    (MeasureTheory.volume.prod (MeasureTheory.volume.restrict (Set.Ioi 0)))
+'OQ7Prescribed.newton_heat_pairing_joint_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.newton_heat_pairing_time_integral : ∀ (φ : SchwartzMap OQ7Prescribed.Position ℂ)
+  (x : OQ7Prescribed.Position),
+  x ≠ 0 → ∫ (t : ℝ) in Set.Ioi 0, φ x * ↑(OQ7Prescribed.newtonHeatKernel t x) = φ x * OQ7Prescribed.outgoingGreen 0 x
+'OQ7Prescribed.newton_heat_pairing_time_integral' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.newton_heat_pairing_time_space_integrable : ∀ (φ : SchwartzMap OQ7Prescribed.Position ℂ),
+  MeasureTheory.Integrable (fun p => φ p.2 * ↑(OQ7Prescribed.newtonHeatKernel p.1 p.2))
+    ((MeasureTheory.volume.restrict (Set.Ioi 0)).prod MeasureTheory.volume)
+'OQ7Prescribed.newton_heat_pairing_time_space_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.newton_heat_schwartz_pairing : ∀ (φ : SchwartzMap OQ7Prescribed.Position ℂ),
+  ∫ (x : OQ7Prescribed.Position), φ x * OQ7Prescribed.outgoingGreen 0 x =
+    ∫ (t : ℝ) in Set.Ioi 0, ∫ (x : OQ7Prescribed.Position), φ x * ↑(OQ7Prescribed.newtonHeatKernel t x)
+'OQ7Prescribed.newton_heat_schwartz_pairing' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.newtonTempered_heat_pairing : ∀ (φ : SchwartzMap OQ7Prescribed.Position ℂ),
+  OQ7Prescribed.newtonTempered φ =
+    ∫ (t : ℝ) in Set.Ioi 0, ∫ (x : OQ7Prescribed.Position), φ x * ↑(OQ7Prescribed.newtonHeatKernel t x)
+'OQ7Prescribed.newtonTempered_heat_pairing' depends on axioms: [propext, Classical.choice, Quot.sound]

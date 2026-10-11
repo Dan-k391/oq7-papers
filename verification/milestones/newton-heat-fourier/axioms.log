@@ -1,0 +1,18 @@
+OQ7Prescribed.newtonHeatKernel_complex_gaussian : ∀ (t : ℝ) (x : OQ7Prescribed.Position),
+  ↑(OQ7Prescribed.newtonHeatKernel t x) = ↑((4 * Real.pi * t) ^ (-(3 / 2))) * Complex.exp (-↑(4 * t)⁻¹ * ↑‖x‖ ^ 2)
+'OQ7Prescribed.newtonHeatKernel_complex_gaussian' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.newtonHeatKernel_space_integrable_complex : ∀ (t : ℝ),
+  0 < t → MeasureTheory.Integrable (fun x => ↑(OQ7Prescribed.newtonHeatKernel t x)) MeasureTheory.volume
+'OQ7Prescribed.newtonHeatKernel_space_integrable_complex' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.newtonHeatKernel_space_integrable : ∀ (t : ℝ),
+  0 < t → MeasureTheory.Integrable (OQ7Prescribed.newtonHeatKernel t) MeasureTheory.volume
+'OQ7Prescribed.newtonHeatKernel_space_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.newtonHeatKernel_fourier : ∀ (t : ℝ),
+  0 < t →
+    ∀ (ξ : OQ7Prescribed.Position),
+      FourierTransform.fourier (fun x => ↑(OQ7Prescribed.newtonHeatKernel t x)) ξ =
+        Complex.exp ↑(-4 * Real.pi ^ 2 * t * ‖ξ‖ ^ 2)
+'OQ7Prescribed.newtonHeatKernel_fourier' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.newtonHeatKernel_integral_one : ∀ (t : ℝ),
+  0 < t → ∫ (x : OQ7Prescribed.Position), OQ7Prescribed.newtonHeatKernel t x = 1
+'OQ7Prescribed.newtonHeatKernel_integral_one' depends on axioms: [propext, Classical.choice, Quot.sound]

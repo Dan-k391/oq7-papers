@@ -23,3 +23,15 @@ import PrescribedExtinction.NewtonCutoffLimit
 import PrescribedExtinction.NewtonShell
 import PrescribedExtinction.NewtonPunctured
 import PrescribedExtinction.NewtonContact
+import PrescribedExtinction.NewtonFundamental
+import PrescribedExtinction.NewtonTempered
+import PrescribedExtinction.StaticSymbolCoordinates
+import PrescribedExtinction.NewtonSchwartz
+import PrescribedExtinction.NewtonHeat
+import PrescribedExtinction.NewtonFourier
+import PrescribedExtinction.NewtonFrequency
+import PrescribedExtinction.NewtonHeatPairing
+import PrescribedExtinction.NewtonHeatFourier
+import PrescribedExtinction.NewtonFrequencyHeat
+import PrescribedExtinction.NewtonTransform
+import PrescribedExtinction.NewtonSymbol

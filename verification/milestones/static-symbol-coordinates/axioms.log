@@ -1,0 +1,35 @@
+OQ7Prescribed.staticSymbol_coordinate : ∀ (ξ : OQ7Prescribed.Position) (v : OQ7Prescribed.Vector) (i : Fin 3),
+  ((OQ7Prescribed.staticSymbol ξ) v).ofLp i = ∑ j, ↑(-(ξ.ofLp i * ξ.ofLp j) / ‖ξ‖ ^ 2) * v.ofLp j
+'OQ7Prescribed.staticSymbol_coordinate' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.staticSymbol_zero : OQ7Prescribed.staticSymbol 0 = 0
+'OQ7Prescribed.staticSymbol_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.staticSymbol_zero_apply : ∀ (v : OQ7Prescribed.Vector), (OQ7Prescribed.staticSymbol 0) v = 0
+'OQ7Prescribed.staticSymbol_zero_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.position_zero_volume : MeasureTheory.volume {0} = 0
+'OQ7Prescribed.position_zero_volume' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.position_ae_ne_zero : ∀ᵐ (ξ : OQ7Prescribed.Position), ξ ≠ 0
+'OQ7Prescribed.position_ae_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.staticSymbolWithOrigin : (OQ7Prescribed.Vector →L[ℂ] OQ7Prescribed.Vector) →
+  OQ7Prescribed.Position → OQ7Prescribed.Vector →L[ℂ] OQ7Prescribed.Vector
+'OQ7Prescribed.staticSymbolWithOrigin' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.staticSymbolWithOrigin_zero : ∀ (A : OQ7Prescribed.Vector →L[ℂ] OQ7Prescribed.Vector),
+  OQ7Prescribed.staticSymbolWithOrigin A 0 = A
+'OQ7Prescribed.staticSymbolWithOrigin_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.staticSymbolWithOrigin_ae_eq : ∀ (A : OQ7Prescribed.Vector →L[ℂ] OQ7Prescribed.Vector),
+  OQ7Prescribed.staticSymbolWithOrigin A =ᵐ[MeasureTheory.volume] OQ7Prescribed.staticSymbol
+'OQ7Prescribed.staticSymbolWithOrigin_ae_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.staticSymbolWithOrigin_apply_ae_eq : ∀ (A : OQ7Prescribed.Vector →L[ℂ] OQ7Prescribed.Vector)
+  (f : ↥OQ7Prescribed.VectorL2),
+  (fun ξ => (OQ7Prescribed.staticSymbolWithOrigin A ξ) (↑↑f ξ)) =ᵐ[MeasureTheory.volume] fun ξ =>
+    (OQ7Prescribed.staticSymbol ξ) (↑↑f ξ)
+'OQ7Prescribed.staticSymbolWithOrigin_apply_ae_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.staticSymbolWithOrigin_memLp : ∀ (A : OQ7Prescribed.Vector →L[ℂ] OQ7Prescribed.Vector)
+  (f : ↥OQ7Prescribed.VectorL2),
+  MeasureTheory.MemLp (fun ξ => (OQ7Prescribed.staticSymbolWithOrigin A ξ) (↑↑f ξ)) 2 MeasureTheory.volume
+'OQ7Prescribed.staticSymbolWithOrigin_memLp' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.staticMultiplierWithOriginLp : (OQ7Prescribed.Vector →L[ℂ] OQ7Prescribed.Vector) →
+  ↥OQ7Prescribed.VectorL2 → ↥OQ7Prescribed.VectorL2
+'OQ7Prescribed.staticMultiplierWithOriginLp' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.staticMultiplierWithOriginLp_eq : ∀ (A : OQ7Prescribed.Vector →L[ℂ] OQ7Prescribed.Vector)
+  (f : ↥OQ7Prescribed.VectorL2), OQ7Prescribed.staticMultiplierWithOriginLp A f = OQ7Prescribed.staticMultiplierLp f
+'OQ7Prescribed.staticMultiplierWithOriginLp_eq' depends on axioms: [propext, Classical.choice, Quot.sound]

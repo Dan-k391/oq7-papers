@@ -1,0 +1,18 @@
+OQ7Prescribed.newtonHessianKernel_trace : ∀ (x : OQ7Prescribed.Position),
+  ∑ i, OQ7Prescribed.newtonHessianKernel i i x = 0
+'OQ7Prescribed.newtonHessianKernel_trace' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.newtonCompensated_trace : ∀ (φ : OQ7Prescribed.ScalarTest) (x : OQ7Prescribed.Position),
+  ∑ i, OQ7Prescribed.newtonCompensated φ i i x = 0
+'OQ7Prescribed.newtonCompensated_trace' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.newtonPVValue_trace : ∀ (φ : OQ7Prescribed.ScalarTest), ∑ i, OQ7Prescribed.newtonPVValue φ i i = 0
+'OQ7Prescribed.newtonPVValue_trace' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.testLaplacian : OQ7Prescribed.ScalarTest →L[ℝ] OQ7Prescribed.ScalarTest
+'OQ7Prescribed.testLaplacian' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.testLaplacian_apply : ∀ (φ : OQ7Prescribed.ScalarTest),
+  OQ7Prescribed.testLaplacian φ = ∑ i, (OQ7Prescribed.testPartial i) ((OQ7Prescribed.testPartial i) φ)
+'OQ7Prescribed.testLaplacian_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.newton_laplacian_test_integral : ∀ (φ : OQ7Prescribed.ScalarTest),
+  ∫ (x : OQ7Prescribed.Position), OQ7Prescribed.newtonReal x * (OQ7Prescribed.testLaplacian φ) x = -φ 0
+'OQ7Prescribed.newton_laplacian_test_integral' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.newton_hessian_trace_distribution : ∑ i, OQ7Prescribed.greenHessian 0 i i = -OQ7Prescribed.newtonDirac
+'OQ7Prescribed.newton_hessian_trace_distribution' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,26 @@
+OQ7Prescribed.scalarTestSchwartz : OQ7Prescribed.ScalarTest → SchwartzMap OQ7Prescribed.Position ℂ
+'OQ7Prescribed.scalarTestSchwartz' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.scalarTestSchwartz_apply : ∀ (φ : OQ7Prescribed.ScalarTest) (x : OQ7Prescribed.Position),
+  (OQ7Prescribed.scalarTestSchwartz φ) x = ↑(φ x)
+'OQ7Prescribed.scalarTestSchwartz_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.scalarTestSchwartz_partial : ∀ (φ : OQ7Prescribed.ScalarTest) (i : Fin 3),
+  LineDeriv.lineDerivOp (OQ7Prescribed.basisR i) (OQ7Prescribed.scalarTestSchwartz φ) =
+    OQ7Prescribed.scalarTestSchwartz ((OQ7Prescribed.testPartial i) φ)
+'OQ7Prescribed.scalarTestSchwartz_partial' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.newtonTempered_scalarTest : ∀ (φ : OQ7Prescribed.ScalarTest),
+  OQ7Prescribed.newtonTempered (OQ7Prescribed.scalarTestSchwartz φ) = (OQ7Prescribed.outgoingGreenDistribution 0) φ
+'OQ7Prescribed.newtonTempered_scalarTest' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.newtonTemperedHessian : Fin 3 → Fin 3 → TemperedDistribution OQ7Prescribed.Position ℂ
+'OQ7Prescribed.newtonTemperedHessian' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.newtonTemperedHessian_apply : ∀ (φ : SchwartzMap OQ7Prescribed.Position ℂ) (i j : Fin 3),
+  (OQ7Prescribed.newtonTemperedHessian i j) φ =
+    OQ7Prescribed.newtonTempered
+      (LineDeriv.lineDerivOp (OQ7Prescribed.basisR j) (LineDeriv.lineDerivOp (OQ7Prescribed.basisR i) φ))
+'OQ7Prescribed.newtonTemperedHessian_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.newtonTemperedHessian_scalarTest : ∀ (φ : OQ7Prescribed.ScalarTest) (i j : Fin 3),
+  (OQ7Prescribed.newtonTemperedHessian i j) (OQ7Prescribed.scalarTestSchwartz φ) = (OQ7Prescribed.greenHessian 0 i j) φ
+'OQ7Prescribed.newtonTemperedHessian_scalarTest' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.newtonTemperedHessian_contact_apply : ∀ (φ : OQ7Prescribed.ScalarTest) (i j : Fin 3),
+  (OQ7Prescribed.newtonTemperedHessian i j) (OQ7Prescribed.scalarTestSchwartz φ) =
+    ↑(OQ7Prescribed.newtonPVValue φ i j - (if i = j then 1 else 0) / 3 * φ 0)
+'OQ7Prescribed.newtonTemperedHessian_contact_apply' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -14,7 +14,19 @@ try {
         @{ name = 'newton-principal-value'; module = 'PrescribedExtinction.NewtonPrincipalValue' },
         @{ name = 'newton-cutoff'; module = 'PrescribedExtinction.NewtonCutoffIBP' },
         @{ name = 'newton-shell'; module = 'PrescribedExtinction.NewtonShell' },
-        @{ name = 'newton-contact'; module = 'PrescribedExtinction.NewtonContact' }
+        @{ name = 'newton-contact'; module = 'PrescribedExtinction.NewtonContact' },
+        @{ name = 'newton-fundamental'; module = 'PrescribedExtinction.NewtonFundamental' },
+        @{ name = 'newton-tempered'; module = 'PrescribedExtinction.NewtonTempered' },
+        @{ name = 'static-symbol-coordinates'; module = 'PrescribedExtinction.StaticSymbolCoordinates' },
+        @{ name = 'newton-schwartz'; module = 'PrescribedExtinction.NewtonSchwartz' },
+        @{ name = 'newton-heat'; module = 'PrescribedExtinction.NewtonHeat' },
+        @{ name = 'newton-fourier-normalization'; module = 'PrescribedExtinction.NewtonFourier' },
+        @{ name = 'newton-frequency'; module = 'PrescribedExtinction.NewtonFrequency' },
+        @{ name = 'newton-heat-pairing'; module = 'PrescribedExtinction.NewtonHeatPairing' },
+        @{ name = 'newton-heat-fourier'; module = 'PrescribedExtinction.NewtonHeatFourier' },
+        @{ name = 'newton-frequency-heat'; module = 'PrescribedExtinction.NewtonFrequencyHeat' },
+        @{ name = 'newton-transform'; module = 'PrescribedExtinction.NewtonTransform' },
+        @{ name = 'newton-symbol'; module = 'PrescribedExtinction.NewtonSymbol' }
     )
     foreach ($oq7Milestone in $oq7Milestones) {
         $oq7Directory = Join-Path 'verification/milestones' $oq7Milestone.name

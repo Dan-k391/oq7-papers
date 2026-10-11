@@ -10,6 +10,13 @@
   "dyadicGreenMilestoneComplete": false,
   "allPreContactLeanModulesUnchanged": true,
   "allPrePuncturedLeanModulesUnchanged": true,
+  "allLeanModulesFromCommit6874b49Unchanged": true,
+  "baselineCommit": "6874b492e8d49d2303bb25aa12248b489c9ad13a",
+  "newtonScalarTemperedFourierVerified": true,
+  "newtonHessianTemperedFourierVerified": true,
+  "zeroFrequencySymbolNullSetVerified": true,
+  "staticPhysicalVolumeOperatorOnSmoothCurrentsVerified": false,
+  "staticPhysicalVolumeOperatorOnCompactL2CurrentsVerified": false,
   "newtonPuncturedDoubleIntegrationByPartsVerified": true,
   "newtonInnerNormalSignsVerified": true,
   "newtonOuterBoundaryVanishesVerified": true,
@@ -21,10 +28,11 @@
   "newtonPrincipalValueIsBundledDistribution": true,
   "staticNewtonIdentificationVerified": false,
   "targetSourceSHA256": "071C04ED9417A1D9AC842D61B545183627E6F997C7C1899F908871608859ABF6",
-  "verifiedAtUTC": "2026-10-11T05:58:05.9985973Z",
+  "verifiedAtUTC": "2026-10-11T06:27:30.4613880Z",
   "lean": "Lean (version 4.34.1, x86_64-w64-windows-gnu, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)",
   "lakeBuildPassed": true,
   "cleanProjectBuild": true,
+  "cleanProjectBuildRequestedThisRun": false,
   "savedCleanBuildHasIdenticalLeanSources": true,
   "cleanBuildLog": "verification/clean-build.log",
   "allowedFoundationAxioms": [
@@ -32,9 +40,10 @@
     "Classical.choice",
     "Quot.sound"
   ],
-  "allProjectConstantsAudited": 2217,
-  "newTheoremCount": 198,
-  "newKernelTheoremConstantCount": 524,
+  "allProjectConstantsAudited": 2388,
+  "privateProjectConstantsAudited": 17,
+  "newTheoremCount": 280,
+  "newKernelTheoremConstantCount": 663,
   "newTheorems": [
     "OQ7Prescribed.axisCoupling_bound",
     "OQ7Prescribed.axisCoupling_eq_inner",
@@ -99,12 +108,34 @@
     "OQ7Prescribed.newton_cutoff_derivative_shell",
     "OQ7Prescribed.newton_cutoff_derivative_shell_tendsto",
     "OQ7Prescribed.newton_cutoff_double_ibp",
+    "OQ7Prescribed.newton_frequency_heat_joint_integrable",
+    "OQ7Prescribed.newton_frequency_heat_scalar_integrable",
+    "OQ7Prescribed.newton_frequency_heat_scalar_integral",
+    "OQ7Prescribed.newton_frequency_heat_time_integrable",
+    "OQ7Prescribed.newton_frequency_heat_time_integral",
+    "OQ7Prescribed.newton_frequency_heat_time_norm",
+    "OQ7Prescribed.newton_heat_fourier_pairing",
+    "OQ7Prescribed.newton_heat_pairing_joint_integrable",
+    "OQ7Prescribed.newton_heat_pairing_time_integrable",
+    "OQ7Prescribed.newton_heat_pairing_time_integral",
+    "OQ7Prescribed.newton_heat_pairing_time_norm",
+    "OQ7Prescribed.newton_heat_pairing_time_space_integrable",
+    "OQ7Prescribed.newton_heat_representation",
+    "OQ7Prescribed.newton_heat_scalar_integrable",
+    "OQ7Prescribed.newton_heat_scalar_integral",
+    "OQ7Prescribed.newton_heat_schwartz_pairing",
     "OQ7Prescribed.newton_hessian_contact_apply",
     "OQ7Prescribed.newton_hessian_contact_distribution",
+    "OQ7Prescribed.newton_hessian_trace_distribution",
     "OQ7Prescribed.newton_inner_contact_normal",
     "OQ7Prescribed.newton_inner_derivative_normal",
+    "OQ7Prescribed.newton_kernel_split",
+    "OQ7Prescribed.newton_laplacian_test_integral",
     "OQ7Prescribed.newton_outer_boundary_vanishes",
     "OQ7Prescribed.newton_punctured_double_ibp",
+    "OQ7Prescribed.newton_schwartz_exterior_integrable",
+    "OQ7Prescribed.newton_schwartz_integrable",
+    "OQ7Prescribed.newton_schwartz_local_integrable",
     "OQ7Prescribed.newton_test_puncture_removal",
     "OQ7Prescribed.newtonAnnulus_integrable",
     "OQ7Prescribed.newtonAnnulus_integral_zero",
@@ -112,17 +143,51 @@
     "OQ7Prescribed.newtonCompensated_bound",
     "OQ7Prescribed.newtonCompensated_integrable",
     "OQ7Prescribed.newtonCompensated_measurable",
+    "OQ7Prescribed.newtonCompensated_trace",
     "OQ7Prescribed.newtonContactBoundary_tendsto",
     "OQ7Prescribed.newtonDerivativeBoundary_tendsto",
     "OQ7Prescribed.newtonDirac_apply",
+    "OQ7Prescribed.newtonExterior_memLp",
+    "OQ7Prescribed.newtonFrequency_exterior_schwartz_integrable",
+    "OQ7Prescribed.newtonFrequency_local_schwartz_integrable",
+    "OQ7Prescribed.newtonFrequency_schwartz_integrable",
+    "OQ7Prescribed.newtonFrequencyExterior_memLp",
+    "OQ7Prescribed.newtonFrequencyHeatKernel_eq_real",
+    "OQ7Prescribed.newtonFrequencyHeatKernel_joint_measurable",
+    "OQ7Prescribed.newtonFrequencyKernel_locallyIntegrable",
+    "OQ7Prescribed.newtonFrequencyKernel_measurable",
+    "OQ7Prescribed.newtonFrequencyKernel_norm",
+    "OQ7Prescribed.newtonFrequencyKernel_split",
+    "OQ7Prescribed.newtonFrequencyKernel_zero",
+    "OQ7Prescribed.newtonFrequencyLocal_memLp",
+    "OQ7Prescribed.newtonFrequencyTempered_apply",
+    "OQ7Prescribed.newtonFrequencyTempered_heat_pairing",
     "OQ7Prescribed.newtonGradient_contDiffAt",
     "OQ7Prescribed.newtonGradient_hasLineDerivAt",
+    "OQ7Prescribed.newtonHeatKernel_complex_gaussian",
+    "OQ7Prescribed.newtonHeatKernel_factor",
+    "OQ7Prescribed.newtonHeatKernel_fourier",
+    "OQ7Prescribed.newtonHeatKernel_integrable",
+    "OQ7Prescribed.newtonHeatKernel_integral_one",
+    "OQ7Prescribed.newtonHeatKernel_joint_measurable",
+    "OQ7Prescribed.newtonHeatKernel_nonneg",
+    "OQ7Prescribed.newtonHeatKernel_not_integrable_at_origin",
+    "OQ7Prescribed.newtonHeatKernel_space_integrable",
+    "OQ7Prescribed.newtonHeatKernel_space_integrable_complex",
     "OQ7Prescribed.newtonHessian_radial_integral_zero",
+    "OQ7Prescribed.newtonHessianFrequency_measurable",
+    "OQ7Prescribed.newtonHessianFrequency_memLp",
+    "OQ7Prescribed.newtonHessianFrequency_norm_le",
+    "OQ7Prescribed.newtonHessianFrequency_schwartz_integrable",
+    "OQ7Prescribed.newtonHessianFrequency_staticSymbol",
+    "OQ7Prescribed.newtonHessianFrequency_zero",
+    "OQ7Prescribed.newtonHessianFrequencyTempered_apply",
     "OQ7Prescribed.newtonHessianKernel_classical",
     "OQ7Prescribed.newtonHessianKernel_contDiffAt",
     "OQ7Prescribed.newtonHessianKernel_measurable",
     "OQ7Prescribed.newtonHessianKernel_norm_le",
     "OQ7Prescribed.newtonHessianKernel_smul",
+    "OQ7Prescribed.newtonHessianKernel_trace",
     "OQ7Prescribed.newtonPrincipalValue_tendsto",
     "OQ7Prescribed.newtonPV_indicator_decomposition",
     "OQ7Prescribed.newtonPVDistribution_apply",
@@ -130,6 +195,7 @@
     "OQ7Prescribed.newtonPVTruncated_eq_compensated",
     "OQ7Prescribed.newtonPVTruncated_integrable",
     "OQ7Prescribed.newtonPVValue_continuous",
+    "OQ7Prescribed.newtonPVValue_trace",
     "OQ7Prescribed.newtonRadial_hasDerivAt",
     "OQ7Prescribed.newtonRadialFirst_hasDerivAt",
     "OQ7Prescribed.newtonReal_contDiffAt",
@@ -137,6 +203,18 @@
     "OQ7Prescribed.newtonReal_hasLineDerivAt",
     "OQ7Prescribed.newtonReal_locallyIntegrable",
     "OQ7Prescribed.newtonReal_test_integrable",
+    "OQ7Prescribed.newtonTempered_apply",
+    "OQ7Prescribed.newtonTempered_fourier_apply",
+    "OQ7Prescribed.newtonTempered_fourier_eq",
+    "OQ7Prescribed.newtonTempered_fourier_integral",
+    "OQ7Prescribed.newtonTempered_heat_pairing",
+    "OQ7Prescribed.newtonTempered_scalarTest",
+    "OQ7Prescribed.newtonTemperedHessian_apply",
+    "OQ7Prescribed.newtonTemperedHessian_contact_apply",
+    "OQ7Prescribed.newtonTemperedHessian_fourier",
+    "OQ7Prescribed.newtonTemperedHessian_fourier_eq",
+    "OQ7Prescribed.newtonTemperedHessian_fourier_integral",
+    "OQ7Prescribed.newtonTemperedHessian_scalarTest",
     "OQ7Prescribed.orthogonalSphere_cone_preimage",
     "OQ7Prescribed.orthogonalSphere_measurePreserving",
     "OQ7Prescribed.outgoing_classical_hessian",
@@ -165,6 +243,8 @@
     "OQ7Prescribed.permittivity_reciprocal",
     "OQ7Prescribed.planePhase_norm",
     "OQ7Prescribed.polarization_zero_outside",
+    "OQ7Prescribed.position_ae_ne_zero",
+    "OQ7Prescribed.position_zero_volume",
     "OQ7Prescribed.potentialBound_lt_top",
     "OQ7Prescribed.potentialComponentDistribution_apply",
     "OQ7Prescribed.potentialDistribution_add",
@@ -190,6 +270,8 @@
     "OQ7Prescribed.remainderPotentialBound_lt_top",
     "OQ7Prescribed.rotatedAxis_unit",
     "OQ7Prescribed.scalarTest_global_lipschitz",
+    "OQ7Prescribed.scalarTestSchwartz_apply",
+    "OQ7Prescribed.scalarTestSchwartz_partial",
     "OQ7Prescribed.sphere_coordinate_cross_zero",
     "OQ7Prescribed.sphere_coordinate_mul_integrable",
     "OQ7Prescribed.sphere_coordinate_sq_equal",
@@ -214,15 +296,24 @@
     "OQ7Prescribed.staticMultiplierLp_norm_le",
     "OQ7Prescribed.staticMultiplierLp_quadratic_im",
     "OQ7Prescribed.staticMultiplierLp_smul",
+    "OQ7Prescribed.staticMultiplierWithOriginLp_eq",
     "OQ7Prescribed.staticSymbol_apply",
     "OQ7Prescribed.staticSymbol_apply_norm_le",
+    "OQ7Prescribed.staticSymbol_coordinate",
     "OQ7Prescribed.staticSymbol_memLp",
     "OQ7Prescribed.staticSymbol_norm_le",
     "OQ7Prescribed.staticSymbol_quadratic",
     "OQ7Prescribed.staticSymbol_quadratic_im",
+    "OQ7Prescribed.staticSymbol_zero",
+    "OQ7Prescribed.staticSymbol_zero_apply",
+    "OQ7Prescribed.staticSymbolWithOrigin_ae_eq",
+    "OQ7Prescribed.staticSymbolWithOrigin_apply_ae_eq",
+    "OQ7Prescribed.staticSymbolWithOrigin_memLp",
+    "OQ7Prescribed.staticSymbolWithOrigin_zero",
     "OQ7Prescribed.susceptibility_zero_outside",
     "OQ7Prescribed.tensorApply_one",
     "OQ7Prescribed.tensorApply_rankOne",
+    "OQ7Prescribed.testLaplacian_apply",
     "OQ7Prescribed.testPartial_hasLineDerivAt",
     "OQ7Prescribed.transition_average_tendsto",
     "OQ7Prescribed.transition_radial_integral",
@@ -647,6 +738,34 @@
       "sha256": "12D535691BB12E2CE383FFBBF9F5274E46DF55325E18AC5F668AABAEDEE47B97"
     },
     {
+      "file": "PrescribedExtinction\\NewtonFourier.lean",
+      "sha256": "F13FCD0D70AB48F7EADCF4309388EC42768355E987119B0B27DD986420E2E872"
+    },
+    {
+      "file": "PrescribedExtinction\\NewtonFrequency.lean",
+      "sha256": "2477696F808B3A5F6B5EA3516741CB25143925CDC9B197FC6B4659E1E3CAA0A2"
+    },
+    {
+      "file": "PrescribedExtinction\\NewtonFrequencyHeat.lean",
+      "sha256": "070A90D685C43312389900F8A630E31C4E8889A6996CA5F0043C661D337B718A"
+    },
+    {
+      "file": "PrescribedExtinction\\NewtonFundamental.lean",
+      "sha256": "301C1CF98293B4783DFFF2EAFF68560CAAA8F49EB073304E9B78AC9A0AC8362E"
+    },
+    {
+      "file": "PrescribedExtinction\\NewtonHeat.lean",
+      "sha256": "43294481702E7ADC3329CD655A5467304E38774AA533D8DC525269859F8D0189"
+    },
+    {
+      "file": "PrescribedExtinction\\NewtonHeatFourier.lean",
+      "sha256": "2BB4FB1FD6F0CCB6DB4985791E8EB609EECD93B3695E22CB704E573CBC2ECDB2"
+    },
+    {
+      "file": "PrescribedExtinction\\NewtonHeatPairing.lean",
+      "sha256": "3D431472C379FF57196009A4E380901733B59D2A4B612538EC4B32B6B6F6E8BD"
+    },
+    {
       "file": "PrescribedExtinction\\NewtonKernel.lean",
       "sha256": "A86012EAD7511D0F67CE931B3AB653CD3D738D735A847A99B3C08388E6B95E6F"
     },
@@ -663,8 +782,24 @@
       "sha256": "1FB2370B4C80D31B9B8B2032DA9C201986905F20CAE6729FDFEA369E6E83558D"
     },
     {
+      "file": "PrescribedExtinction\\NewtonSchwartz.lean",
+      "sha256": "01DCD60AECE07933C05CC556E89C29559E56A43B3976E9697C5E0E830BC0E1A7"
+    },
+    {
       "file": "PrescribedExtinction\\NewtonShell.lean",
       "sha256": "27E18D2200CA955F3511B6D6DF697DFF8B8006750CB5C8909B45E9A11E9FC2D0"
+    },
+    {
+      "file": "PrescribedExtinction\\NewtonSymbol.lean",
+      "sha256": "906D98A5A54BB1D40F006CABCD43BDE0EA0C263FD136779EC2E372D8779B2E22"
+    },
+    {
+      "file": "PrescribedExtinction\\NewtonTempered.lean",
+      "sha256": "1A2F75F44AF14B236A8E9B27EFCEF86C15CF42E9BF54AADF510F8EB840B4DCF6"
+    },
+    {
+      "file": "PrescribedExtinction\\NewtonTransform.lean",
+      "sha256": "4D84043B57394A1245EA57256462100E0AD4EDBBFE0CC437B0E491AB1C022A55"
     },
     {
       "file": "PrescribedExtinction\\OutgoingRadial.lean",
@@ -691,6 +826,10 @@
       "sha256": "16ECC1C08E33A8CDDE982108ACF09E25C025DB1B8A28FFA8DBCA755525D51CB9"
     },
     {
+      "file": "PrescribedExtinction\\StaticSymbolCoordinates.lean",
+      "sha256": "34B6AFF125774FE750F182A01EA68C3D7BB09A38E69648A54A2F8D73076D70C0"
+    },
+    {
       "file": "PrescribedExtinction\\VolumePotential.lean",
       "sha256": "2B1D2E99F9A52D07B36D9A4721B9AC840F0F41045D179C5363B4FB29714353C9"
     },
@@ -700,74 +839,80 @@
     },
     {
       "file": "PrescribedExtinction.lean",
-      "sha256": "C4149B4F3C76682758AA9D8192B79852FA6231DFF71A142C1205958EAABD5A01"
+      "sha256": "BA3BB2001FEAB08ED2F5FA091531DCD91B4B03A75CAF390BE429B8CB7E9A359B"
     }
   ],
   "foundationalMilestones": [
     {
-      "scope": "Actual scalar kernel local L1/L2 integrability and distributional dyadic test formula; Newton contact identified in NewtonContact",
       "module": "PrescribedExtinction.GreenKernel",
+      "physicalContactCoefficientVerified": true,
       "positiveFrequencyOutgoingContactIdentityVerified": false,
-      "physicalContactCoefficientVerified": true
+      "scope": "Actual scalar kernel local L1/L2 integrability and distributional dyadic test formula; Newton contact identified in NewtonContact"
     },
     {
-      "scope": "Actual convolution exists for every compact vector L2 current; finite local bound; locally integrable potential; distributional volume formula and additivity",
       "module": "PrescribedExtinction.VolumePotential",
-      "boundedDyadicL2OperatorVerified": false
+      "boundedDyadicL2OperatorVerified": false,
+      "scope": "Actual convolution exists for every compact vector L2 current; finite local bound; locally integrable potential; distributional volume formula and additivity"
     },
     {
-      "scope": "Explicit static Fourier multiplier is an L2 contraction and has zero imaginary quadratic form",
       "module": "PrescribedExtinction.StaticFourier",
-      "identificationWithNewtonVolumePotentialVerified": false
+      "identificationWithNewtonVolumePotentialVerified": false,
+      "scope": "Explicit static Fourier multiplier is an L2 contraction and has zero imaginary quadratic form"
     },
     {
-      "scope": "Actual Newton and outgoing radial derivatives and classical Hessian away from origin; Newton distributional contact identified in NewtonContact",
       "module": "PrescribedExtinction.OutgoingRadial",
+      "physicalContactCoefficientVerified": true,
       "positiveFrequencyOutgoingContactIdentityVerified": false,
-      "physicalContactCoefficientVerified": true
+      "scope": "Actual Newton and outgoing radial derivatives and classical Hessian away from origin; Newton distributional contact identified in NewtonContact"
     },
     {
-      "scope": "Actual classical dyadic dynamic-minus-static cancellation; explicit inverse-distance norm estimate; cutoff L2 kernel; actual convolution, compact-domain L2 bound, ae invariance and complex linearity",
       "module": "PrescribedExtinction.RemainderConvolution",
       "fullPhysicalDyadicOperatorVerified": false,
-      "identificationWithDistributionalDifferenceVerified": false
+      "identificationWithDistributionalDifferenceVerified": false,
+      "scope": "Actual classical dyadic dynamic-minus-static cancellation; explicit inverse-distance norm estimate; cutoff L2 kernel; actual convolution, compact-domain L2 bound, ae invariance and complex linearity"
     },
     {
-      "scope": "Actual polar angular measure, orthogonal invariance, area 4pi and exact second moments",
       "module": "PrescribedExtinction.SphereMoments",
-      "actualSphereMomentsVerified": true
+      "actualSphereMomentsVerified": true,
+      "scope": "Actual polar angular measure, orthogonal invariance, area 4pi and exact second moments"
     },
     {
-      "scope": "Actual angular contact boundary tends to minus delta_ij phi(0)/3; derivative boundary tends to zero; connected to punctured integral in NewtonPunctured",
       "module": "PrescribedExtinction.NewtonBoundary",
-      "puncturedIntegrationByPartsVerified": true
+      "puncturedIntegrationByPartsVerified": true,
+      "scope": "Actual angular contact boundary tends to minus delta_ij phi(0)/3; derivative boundary tends to zero; connected to punctured integral in NewtonPunctured"
     },
     {
-      "scope": "Actual spherical principal value converges for every original test function; compensated integral and every positive-radius truncated integral are proved integrable; bundled in NewtonContact",
       "module": "PrescribedExtinction.NewtonPrincipalValue",
-      "fullDistributionalHessianIdentityVerified": true
+      "fullDistributionalHessianIdentityVerified": true,
+      "scope": "Actual spherical principal value converges for every original test function; compensated integral and every positive-radius truncated integral are proved integrable; bundled in NewtonContact"
     },
     {
-      "scope": "Actual smooth radial cutoff, exact derivative mass and whole-space Newton/gradient integration by parts for original test functions",
       "module": "PrescribedExtinction.NewtonCutoffIBP",
-      "cutoffIntegrationByPartsVerified": true
+      "cutoffIntegrationByPartsVerified": true,
+      "scope": "Actual smooth radial cutoff, exact derivative mass and whole-space Newton/gradient integration by parts for original test functions"
     },
     {
-      "scope": "Actual exterior cutoff convergence, integrable polar conversion, radial shell rescaling and normalized shell limit",
       "module": "PrescribedExtinction.NewtonShell",
-      "radialShellLimitVerified": true
+      "radialShellLimitVerified": true,
+      "scope": "Actual exterior cutoff convergence, integrable polar conversion, radial shell rescaling and normalized shell limit"
     },
     {
-      "scope": "Exact finite-radius punctured double integration by parts, inward-normal signs and vanishing outer boundaries; full Newton Hessian principal-value/contact identity; actual integral-valued principal value is a continuous distribution",
       "module": "PrescribedExtinction.NewtonContact",
       "staticFourierIdentificationVerified": false,
-      "fullDistributionalHessianIdentityVerified": true
+      "fullDistributionalHessianIdentityVerified": true,
+      "scope": "Exact finite-radius punctured double integration by parts, inward-normal signs and vanishing outer boundaries; full Newton Hessian principal-value/contact identity; actual integral-valued principal value is a continuous distribution"
+    },
+    {
+      "module": "PrescribedExtinction.NewtonTransform",
+      "kernelFourierCorrespondenceVerified": true,
+      "compactCurrentConvolutionIdentificationVerified": false,
+      "scope": "Actual scalar Newton and full contact Hessian Fourier correspondence on all Schwartz tests; both heat interchanges absolutely integrable; zero-frequency handled globally"
     }
   ],
   "unverifiedDependencies": [
     "3D outgoing Maxwell existence and uniqueness",
     "Scalar distributional Helmholtz fundamental-solution identity",
-    "Identification of the static Fourier operator with the distributional Newton volume operator",
+    "Compact-current convolution/test Fubini, correlation differentiation, L1-L2 Fourier compatibility, and identification of the static Fourier operator with the actual Newton volume operator (kernel Fourier correspondence proved)",
     "Distributional dynamic-minus-static identification and bounded L2 realization/restriction of the full dyadic operator (classical remainder estimate and convolution bound proved)",
     "Volume representation equivalence to weak Maxwell, regularity and Silver-Muller radiation",
     "Full radiation identity, optical theorem, reciprocity and power balance",

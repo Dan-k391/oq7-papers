@@ -27,7 +27,7 @@ try {
     }
     & lake build 2>&1 | Set-Content -LiteralPath 'verification/build.log' -Encoding utf8
     if ($LASTEXITCODE -ne 0) { throw 'Build failed; see verification/build.log.' }
-    & lake env lean verification/Inventory.lean 2>&1 | Set-Content -LiteralPath 'verification/inventory.log' -Encoding utf8
+    & lake env lean verification/FourierInventory.lean 2>&1 | Set-Content -LiteralPath 'verification/inventory.log' -Encoding utf8
     if ($LASTEXITCODE -ne 0) { throw 'Kernel inventory failed.' }
     $oq7Inventory = Get-Content -LiteralPath 'verification/inventory.log' -Raw
     if ($oq7Inventory -match 'AUDIT-CUSTOM-AXIOM') { throw 'Custom axiom in project namespace.' }
@@ -45,7 +45,23 @@ try {
     }
     if ($oq7NewTheorems.Count -eq 0) { throw 'Missing new theorem inventory.' }
     if ('OQ7Prescribed.theorem11' -in $oq7Constants) { throw 'Update verification status before adding a final theorem.' }
-    $oq7Audit = @('import OQ7', 'import PrescribedExtinction', '') + @($oq7Constants | ForEach-Object { '#print axioms ' + $_ })
+    $oq7PublicConstants = @($oq7Constants | Where-Object { -not $_.StartsWith('_private.') })
+    $oq7Audit = @('import OQ7', 'import PrescribedExtinction', '') + @($oq7PublicConstants | ForEach-Object { '#print axioms ' + $_ })
+    # Private canonical names contain numeric Name components and are not Lean identifiers.
+    # Use the identical transitive collector invoked by Lean's #print axioms command.
+    $oq7Audit += @'
+
+run_cmd do
+  let env ← Lean.getEnv
+  for (name, _) in env.constants.toList do
+    let s := name.toString
+    if s.startsWith "_private.OQ7." || s.startsWith "_private.PrescribedExtinction." then
+      let axioms ← Lean.collectAxioms name
+      if axioms.isEmpty then
+        Lean.logInfo m!"'{s}' does not depend on any axioms"
+      else
+        Lean.logInfo m!"'{s}' depends on axioms: {axioms.qsort Lean.Name.lt |>.map Lean.MessageData.ofConstName |>.toList}"
+'@
     $oq7Audit | Set-Content -LiteralPath 'verification/Audit.lean' -Encoding utf8
     & lake env lean verification/Audit.lean 2>&1 | Set-Content -LiteralPath 'verification/axioms.log' -Encoding utf8
     if ($LASTEXITCODE -ne 0) { throw 'Axiom export failed.' }
@@ -132,6 +148,31 @@ try {
     for ($oq7ByteIndex = 0; $oq7ByteIndex -lt $oq7PuncturedRoot.Length; $oq7ByteIndex++) {
         if ($oq7CurrentRoot[$oq7ByteIndex] -ne $oq7PuncturedRoot[$oq7ByteIndex]) { throw 'Contact-progress imports changed.' }
     }
+    $oq7FourierBaseline = Get-Content 'sources/pre-fourier-source-hashes.json' -Raw | ConvertFrom-Json
+    foreach ($oq7Saved in $oq7FourierBaseline) {
+        if ((Get-FileHash $oq7Saved.file -Algorithm SHA256).Hash -ne $oq7Saved.sha256) {
+            throw "Preserved module from commit 6874b49 differs: $($oq7Saved.file)"
+        }
+    }
+    $oq7FourierReport = Get-Content 'verification/milestones/pre-fourier/report.json' -Raw | ConvertFrom-Json
+    $oq7FourierRootHash = @($oq7FourierReport.sourceHashes | Where-Object { $_.file -eq 'PrescribedExtinction.lean' })[0].sha256
+    if ((Get-FileHash 'sources/pre-fourier-PrescribedExtinction.lean' -Algorithm SHA256).Hash -ne $oq7FourierRootHash) {
+        throw 'Contact-identity aggregate snapshot differs.'
+    }
+    $oq7FourierRoot = [IO.File]::ReadAllBytes((Join-Path $PSScriptRoot 'sources/pre-fourier-PrescribedExtinction.lean'))
+    if ($oq7CurrentRoot.Length -lt $oq7FourierRoot.Length) { throw 'Aggregate source was truncated.' }
+    for ($oq7ByteIndex = 0; $oq7ByteIndex -lt $oq7FourierRoot.Length; $oq7ByteIndex++) {
+        if ($oq7CurrentRoot[$oq7ByteIndex] -ne $oq7FourierRoot[$oq7ByteIndex]) { throw 'Contact-identity imports changed.' }
+    }
+    foreach ($oq7RequiredFourier in @('OQ7Prescribed.newton_hessian_trace_distribution',
+        'OQ7Prescribed.newtonTemperedHessian_scalarTest', 'OQ7Prescribed.newtonTemperedHessian_contact_apply',
+        'OQ7Prescribed.newton_heat_representation', 'OQ7Prescribed.newtonHeatKernel_not_integrable_at_origin',
+        'OQ7Prescribed.newton_heat_pairing_joint_integrable', 'OQ7Prescribed.newtonHeatKernel_fourier',
+        'OQ7Prescribed.newton_frequency_heat_joint_integrable', 'OQ7Prescribed.newtonTempered_fourier_eq',
+        'OQ7Prescribed.newtonTemperedHessian_fourier_integral',
+        'OQ7Prescribed.staticMultiplierWithOriginLp_eq', 'OQ7Prescribed.newtonTemperedHessian_fourier_eq')) {
+        if ($oq7RequiredFourier -notin $oq7NewKernelTheorems) { throw "Missing completed Fourier dependency: $oq7RequiredFourier" }
+    }
     foreach ($oq7Required in @('OQ7Prescribed.newton_punctured_double_ibp',
         'OQ7Prescribed.newton_inner_contact_normal', 'OQ7Prescribed.newton_inner_derivative_normal',
         'OQ7Prescribed.newton_outer_boundary_vanishes', 'OQ7Prescribed.newton_contact_identity_real',
@@ -174,6 +215,13 @@ try {
         dyadicGreenMilestoneComplete = $false
         allPreContactLeanModulesUnchanged = $true
         allPrePuncturedLeanModulesUnchanged = $true
+        allLeanModulesFromCommit6874b49Unchanged = $true
+        baselineCommit = '6874b492e8d49d2303bb25aa12248b489c9ad13a'
+        newtonScalarTemperedFourierVerified = $true
+        newtonHessianTemperedFourierVerified = $true
+        zeroFrequencySymbolNullSetVerified = $true
+        staticPhysicalVolumeOperatorOnSmoothCurrentsVerified = $false
+        staticPhysicalVolumeOperatorOnCompactL2CurrentsVerified = $false
         newtonPuncturedDoubleIntegrationByPartsVerified = $true
         newtonInnerNormalSignsVerified = $true
         newtonOuterBoundaryVanishesVerified = $true
@@ -188,11 +236,13 @@ try {
         verifiedAtUTC = [DateTime]::UtcNow.ToString('o')
         lean = $oq7Version
         lakeBuildPassed = $true
-        cleanProjectBuild = [bool]$Clean
+        cleanProjectBuild = $oq7SameCleanSources
+        cleanProjectBuildRequestedThisRun = [bool]$Clean
         savedCleanBuildHasIdenticalLeanSources = $oq7SameCleanSources
         cleanBuildLog = 'verification/clean-build.log'
         allowedFoundationAxioms = $oq7Allowed
         allProjectConstantsAudited = $oq7Constants.Count
+        privateProjectConstantsAudited = @($oq7Constants | Where-Object { $_.StartsWith('_private.') }).Count
         newTheoremCount = $oq7NewTheorems.Count
         newKernelTheoremConstantCount = $oq7NewKernelTheorems.Count
         newTheorems = $oq7NewTheorems
@@ -212,11 +262,12 @@ try {
             @{ module = 'PrescribedExtinction.NewtonPrincipalValue'; scope = 'Actual spherical principal value converges for every original test function; compensated integral and every positive-radius truncated integral are proved integrable; bundled in NewtonContact'; fullDistributionalHessianIdentityVerified = $true },
             @{ module = 'PrescribedExtinction.NewtonCutoffIBP'; scope = 'Actual smooth radial cutoff, exact derivative mass and whole-space Newton/gradient integration by parts for original test functions'; cutoffIntegrationByPartsVerified = $true },
             @{ module = 'PrescribedExtinction.NewtonShell'; scope = 'Actual exterior cutoff convergence, integrable polar conversion, radial shell rescaling and normalized shell limit'; radialShellLimitVerified = $true },
-            @{ module = 'PrescribedExtinction.NewtonContact'; scope = 'Exact finite-radius punctured double integration by parts, inward-normal signs and vanishing outer boundaries; full Newton Hessian principal-value/contact identity; actual integral-valued principal value is a continuous distribution'; fullDistributionalHessianIdentityVerified = $true; staticFourierIdentificationVerified = $false }
+            @{ module = 'PrescribedExtinction.NewtonContact'; scope = 'Exact finite-radius punctured double integration by parts, inward-normal signs and vanishing outer boundaries; full Newton Hessian principal-value/contact identity; actual integral-valued principal value is a continuous distribution'; fullDistributionalHessianIdentityVerified = $true; staticFourierIdentificationVerified = $false },
+            @{ module = 'PrescribedExtinction.NewtonTransform'; scope = 'Actual scalar Newton and full contact Hessian Fourier correspondence on all Schwartz tests; both heat interchanges absolutely integrable; zero-frequency handled globally'; kernelFourierCorrespondenceVerified = $true; compactCurrentConvolutionIdentificationVerified = $false }
         )
         unverifiedDependencies = @('3D outgoing Maxwell existence and uniqueness',
             'Scalar distributional Helmholtz fundamental-solution identity',
-            'Identification of the static Fourier operator with the distributional Newton volume operator',
+            'Compact-current convolution/test Fubini, correlation differentiation, L1-L2 Fourier compatibility, and identification of the static Fourier operator with the actual Newton volume operator (kernel Fourier correspondence proved)',
             'Distributional dynamic-minus-static identification and bounded L2 realization/restriction of the full dyadic operator (classical remainder estimate and convolution bound proved)',
             'Volume representation equivalence to weak Maxwell, regularity and Silver-Muller radiation',
             'Full radiation identity, optical theorem, reciprocity and power balance',
