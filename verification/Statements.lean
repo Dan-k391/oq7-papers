@@ -34,12 +34,20 @@ import PrescribedExtinction
 #check @OQ7Prescribed.axisEmbedding_apply
 #check @OQ7Prescribed.bilinear_add_left
 #check @OQ7Prescribed.bilinear_add_right
+#check @OQ7Prescribed.bilinear_comm
+#check @OQ7Prescribed.bilinear_complex_smul_left
 #check @OQ7Prescribed.bilinear_complex_smul_right
 #check @OQ7Prescribed.bilinear_complexify_eq_inner
 #check @OQ7Prescribed.bilinear_complexify_self
+#check @OQ7Prescribed.bilinear_continuous
 #check @OQ7Prescribed.bilinear_cross_conjugate
+#check @OQ7Prescribed.bilinear_cross_cyclic
+#check @OQ7Prescribed.bilinear_eq_conjugate_inner
+#check @OQ7Prescribed.bilinear_norm_le
 #check @OQ7Prescribed.bilinear_radial_smul_norm_le
 #check @OQ7Prescribed.bilinear_real_smul_right
+#check @OQ7Prescribed.bilinear_sub_left
+#check @OQ7Prescribed.bilinear_sub_right
 #check @OQ7Prescribed.bilinear_vectorConjugate_right
 #check @OQ7Prescribed.bodyAbsorberSlice_measurable
 #check @OQ7Prescribed.bodyCurrent_incident_work
@@ -75,6 +83,8 @@ import PrescribedExtinction
 #check @OQ7Prescribed.compactCurrentFarField_integral
 #check @OQ7Prescribed.compactCurrentFarField_norm_le
 #check @OQ7Prescribed.compactCurrentFarField_scale
+#check @OQ7Prescribed.compactCurrents_bilinear_volume_integrable
+#check @OQ7Prescribed.compactCurrents_outgoingOperator_bilinear
 #check @OQ7Prescribed.compactField_bilinear_integrable
 #check @OQ7Prescribed.compactField_curl_hasCompactSupport
 #check @OQ7Prescribed.compactOutgoingOperator_apply_norm_le
@@ -210,6 +220,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.dynamicScalarRemainder_norm_le_on_ball
 #check @OQ7Prescribed.dynamicScalarRemainder_test_ibp
 #check @OQ7Prescribed.electric_add_polarization
+#check @OQ7Prescribed.electricDecayConstant_nonneg
 #check @OQ7Prescribed.electricExterior_component_distribution
 #check @OQ7Prescribed.electricExterior_eq_ae
 #check @OQ7Prescribed.electricVolumeField_component_locallyIntegrableOn
@@ -220,6 +231,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.exterior_current_component_pairing
 #check @OQ7Prescribed.exterior_current_correlation_joint_integrable
 #check @OQ7Prescribed.exterior_current_test_joint_integrable
+#check @OQ7Prescribed.exterior_Lorentz_flux_norm_bound
 #check @OQ7Prescribed.exterior_poynting_farField_error
 #check @OQ7Prescribed.exterior_poynting_flux_lower_bound
 #check @OQ7Prescribed.exterior_radiation_integral_norm_le
@@ -246,6 +258,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.exteriorElectric_component_locallyIntegrableOn
 #check @OQ7Prescribed.exteriorElectric_integrable_far
 #check @OQ7Prescribed.exteriorElectric_locallyIntegrableOn
+#check @OQ7Prescribed.exteriorElectric_norm_decay
 #check @OQ7Prescribed.exteriorElectric_norm_le
 #check @OQ7Prescribed.exteriorElectric_test_integrable
 #check @OQ7Prescribed.exteriorElectric_test_pairing
@@ -308,6 +321,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.indicatorL2_supported
 #check @OQ7Prescribed.integrable_polar_actual
 #check @OQ7Prescribed.integral_compact_ball_abs_bound
+#check @OQ7Prescribed.integral_compact_ball_complex_bound
 #check @OQ7Prescribed.integral_compact_ball_lower_bound
 #check @OQ7Prescribed.integral_polar_actual
 #check @OQ7Prescribed.integral_polar_iterated_actual
@@ -323,6 +337,8 @@ import PrescribedExtinction
 #check @OQ7Prescribed.layerPermittivity_admissible
 #check @OQ7Prescribed.layerPermittivity_reciprocal
 #check @OQ7Prescribed.locallySquareIntegrable_locallyIntegrable
+#check @OQ7Prescribed.Lorentz_flux_norm_bound
+#check @OQ7Prescribed.LorentzDecayConstant_nonneg
 #check @OQ7Prescribed.magneticExterior_eq_pointwise_far
 #check @OQ7Prescribed.magneticVolumeField_distribution
 #check @OQ7Prescribed.magneticVolumeField_locallySquareIntegrable
@@ -554,6 +570,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.physicalAbsorption_sine_squared_factorization
 #check @OQ7Prescribed.physicalExtinction_sine_squared_factorization
 #check @OQ7Prescribed.physicalOutgoingVolume_farField_work
+#check @OQ7Prescribed.physicalOutgoingVolume_reciprocity
 #check @OQ7Prescribed.physicalOutgoingVolume_work_nonneg
 #check @OQ7Prescribed.physicalPolarization_indicator
 #check @OQ7Prescribed.physicalPolarization_memLp
@@ -670,8 +687,11 @@ import PrescribedExtinction
 #check @OQ7Prescribed.shrinkingCutoffPartial_support
 #check @OQ7Prescribed.shrinkingCutoffPoleError_norm_le
 #check @OQ7Prescribed.shrinkingCutoffPoleError_tendsto
+#check @OQ7Prescribed.smooth_cutoff_bilinear_flux_integrable
 #check @OQ7Prescribed.smooth_cutoff_flux_integrable
+#check @OQ7Prescribed.smooth_pair_cutoff_curl
 #check @OQ7Prescribed.smooth_source_cutoff_energy
+#check @OQ7Prescribed.smooth_sources_cutoff_Lorentz
 #check @OQ7Prescribed.smoothElectricSource_contDiff
 #check @OQ7Prescribed.smoothElectricSource_curl
 #check @OQ7Prescribed.smoothElectricSource_distribution
@@ -695,7 +715,13 @@ import PrescribedExtinction
 #check @OQ7Prescribed.smoothPhysicalSource_weighted_farField_error
 #check @OQ7Prescribed.smoothPhysicalSource_work_lower_bound
 #check @OQ7Prescribed.smoothPhysicalSource_work_nonneg
+#check @OQ7Prescribed.smoothPhysicalSources_Lorentz_boundary_error
+#check @OQ7Prescribed.smoothPhysicalSources_radial_flux_bound_ae
+#check @OQ7Prescribed.smoothPhysicalSources_radial_flux_integrable
+#check @OQ7Prescribed.smoothPhysicalSources_radial_Lorentz
+#check @OQ7Prescribed.smoothPhysicalSources_reciprocity
 #check @OQ7Prescribed.smoothScalar_distributionPartial
+#check @OQ7Prescribed.sourceEnergyCutoff_bilinear_work
 #check @OQ7Prescribed.sourceEnergyCutoff_contDiff
 #check @OQ7Prescribed.sourceEnergyCutoff_current_work
 #check @OQ7Prescribed.sourceEnergyCutoff_gradient
@@ -786,6 +812,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.supportedPolarization_smul_current_ae
 #check @OQ7Prescribed.supportedPolarization_toLp
 #check @OQ7Prescribed.supportedSliceCLM_coe
+#check @OQ7Prescribed.supportedVectorConjugate_coe
 #check @OQ7Prescribed.supportedVectorL2_current_ae
 #check @OQ7Prescribed.supportedVectorL2_isClosed
 #check @OQ7Prescribed.susceptibility_quadratic_im
@@ -828,7 +855,9 @@ import PrescribedExtinction
 #check @OQ7Prescribed.vectorConjugate_apply
 #check @OQ7Prescribed.vectorConjugate_component_fderiv
 #check @OQ7Prescribed.vectorConjugate_contDiff
+#check @OQ7Prescribed.vectorConjugate_norm
 #check @OQ7Prescribed.vectorConjugate_smul
+#check @OQ7Prescribed.vectorConjugateCLM_norm_le
 #check @OQ7Prescribed.vectorL2_locallyIntegrable
 #check @OQ7Prescribed.vectorL2ComponentDistribution_apply
 #check @OQ7Prescribed.vectorL2Distribution_apply

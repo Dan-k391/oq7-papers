@@ -329,6 +329,14 @@ run_cmd do
         'OQ7Prescribed.physicalVolume_scattering_eq_Haar',
         'OQ7Prescribed.physicalVolume_energy_balance',
         'OQ7Prescribed.physicalVolume_scattering_nonneg',
+        'OQ7Prescribed.smooth_sources_cutoff_Lorentz',
+        'OQ7Prescribed.smoothPhysicalSources_radial_Lorentz',
+        'OQ7Prescribed.exteriorElectric_norm_decay',
+        'OQ7Prescribed.exterior_Lorentz_flux_norm_bound',
+        'OQ7Prescribed.smoothPhysicalSources_Lorentz_boundary_error',
+        'OQ7Prescribed.smoothPhysicalSources_reciprocity',
+        'OQ7Prescribed.compactCurrents_bilinear_volume_integrable',
+        'OQ7Prescribed.physicalOutgoingVolume_reciprocity',
         'OQ7Prescribed.normalizedActiveResponse_residual_bound',
         'OQ7Prescribed.normalizedActiveResponse_angle_difference_bound')) {
         if ($oq7Required -notin $oq7NewKernelTheorems) { throw "Missing outgoing operator obligation: $oq7Required" }
@@ -415,6 +423,7 @@ run_cmd do
         physicalHaarRadiationEnergyBalanceVerified = $true
         originalThetaPhiSurfaceMeasureConversionVerified = $true
         originalPhysicalOpticalWorkIdentityVerified = $true
+        actualPhysicalOutgoingVolumeReciprocityVerified = $true
         physicalVolumeWorkBalanceVerified = $true
         originalPhysicalAbsorptionSineSquaredFactorizationVerified = $true
         normalizedPhysicalResponseUniformResidualBoundVerified = $true

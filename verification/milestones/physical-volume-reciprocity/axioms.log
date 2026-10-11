@@ -1,0 +1,63 @@
+OQ7Prescribed.smooth_sources_cutoff_Lorentz (k : ℝ) (E₁ H₁ p₁ E₂ H₂ p₂ : OQ7Prescribed.Field) (hE₁ : ContDiff ℝ (↑⊤) E₁)
+  (hH₁ : ContDiff ℝ (↑⊤) H₁) (hp₁ : Continuous p₁) (hE₂ : ContDiff ℝ (↑⊤) E₂) (hH₂ : ContDiff ℝ (↑⊤) H₂)
+  (hp₂ : Continuous p₂) (he₁ : OQ7Prescribed.curl E₁ = fun x => (Complex.I * ↑k) • H₁ x)
+  (hh₁ : OQ7Prescribed.curl H₁ = fun x => (-Complex.I * ↑k) • (E₁ x + p₁ x))
+  (he₂ : OQ7Prescribed.curl E₂ = fun x => (Complex.I * ↑k) • H₂ x)
+  (hh₂ : OQ7Prescribed.curl H₂ = fun x => (-Complex.I * ↑k) • (E₂ x + p₂ x)) (ψ : OQ7Prescribed.Position → ℝ)
+  (hψ : ContDiff ℝ (↑⊤) ψ) (hs : HasCompactSupport ψ) :
+  ∫ (x : OQ7Prescribed.Position),
+      OQ7Prescribed.bilinear (E₂ x)
+          (OQ7Prescribed.cross (H₁ x) (OQ7Prescribed.complexify (OQ7Prescribed.scalarGradient ψ x))) -
+        OQ7Prescribed.bilinear (E₁ x)
+          (OQ7Prescribed.cross (H₂ x) (OQ7Prescribed.complexify (OQ7Prescribed.scalarGradient ψ x))) =
+    -Complex.I * ↑k *
+      ∫ (x : OQ7Prescribed.Position),
+        ↑(ψ x) * (OQ7Prescribed.bilinear (p₁ x) (E₂ x) - OQ7Prescribed.bilinear (p₂ x) (E₁ x))
+OQ7Prescribed.smoothPhysicalSources_radial_Lorentz (k : ℝ) (p q : OQ7Prescribed.CompactPolarization)
+  (hp : ContDiff ℝ (↑⊤) p.current) (hq : ContDiff ℝ (↑⊤) q.current) (r : ℝ) (hr : 0 < r) (hpr : p.radius ≤ r)
+  (hqr : q.radius ≤ r) :
+  ∫ (x : OQ7Prescribed.Position), OQ7Prescribed.smoothLorentzRadialFlux k p q r x =
+    -Complex.I * ↑k *
+      ∫ (x : OQ7Prescribed.Position),
+        OQ7Prescribed.bilinear (p.current x) (OQ7Prescribed.smoothElectricSource k q x) -
+          OQ7Prescribed.bilinear (q.current x) (OQ7Prescribed.smoothElectricSource k p x)
+OQ7Prescribed.exteriorElectric_norm_decay (k : ℝ) (p : OQ7Prescribed.CompactPolarization) (x : OQ7Prescribed.Position)
+  (hx : 2 * p.radius + 2 ≤ ‖x‖) :
+  ‖OQ7Prescribed.exteriorElectric k p x‖ ≤
+    OQ7Prescribed.electricDecayConstant k p.radius / ‖x‖ * ∫ (y : OQ7Prescribed.Position), ‖p.current y‖
+OQ7Prescribed.exterior_Lorentz_flux_norm_bound (k : ℝ) (p q : OQ7Prescribed.CompactPolarization)
+  (x : OQ7Prescribed.Position) (hp : 2 * p.radius + 2 ≤ ‖x‖) (hq : 2 * q.radius + 2 ≤ ‖x‖) :
+  ‖OQ7Prescribed.bilinear (OQ7Prescribed.exteriorElectric k p x)
+          (OQ7Prescribed.cross (OQ7Prescribed.exteriorMagnetic k q x)
+            (OQ7Prescribed.complexify (OQ7Prescribed.radialDirection x))) -
+        OQ7Prescribed.bilinear (OQ7Prescribed.exteriorElectric k q x)
+          (OQ7Prescribed.cross (OQ7Prescribed.exteriorMagnetic k p x)
+            (OQ7Prescribed.complexify (OQ7Prescribed.radialDirection x)))‖ ≤
+    OQ7Prescribed.LorentzDecayConstant k p q / ‖x‖ ^ 3
+OQ7Prescribed.smoothPhysicalSources_Lorentz_boundary_error (k : ℝ) (p q : OQ7Prescribed.CompactPolarization)
+  (hp : ContDiff ℝ (↑⊤) p.current) (hq : ContDiff ℝ (↑⊤) q.current) (M : ℝ) (hM : 0 ≤ M)
+  (hMb : ∀ (s : ℝ), OQ7Prescribed.transitionDerivative s ≤ M) (r : ℝ) (hr : 0 < r) (hpr : 2 * p.radius + 2 ≤ r)
+  (hqr : 2 * q.radius + 2 ≤ r) :
+  ‖-Complex.I * ↑k *
+        ∫ (x : OQ7Prescribed.Position),
+          OQ7Prescribed.bilinear (p.current x) (OQ7Prescribed.smoothElectricSource k q x) -
+            OQ7Prescribed.bilinear (q.current x) (OQ7Prescribed.smoothElectricSource k p x)‖ ≤
+    64 * Real.pi / 3 * (M * OQ7Prescribed.LorentzDecayConstant k p q) / r
+OQ7Prescribed.smoothPhysicalSources_reciprocity (k : ℝ) (hk : 0 < k) (p q : OQ7Prescribed.CompactPolarization)
+  (hp : ContDiff ℝ (↑⊤) p.current) (hq : ContDiff ℝ (↑⊤) q.current) :
+  ∫ (x : OQ7Prescribed.Position), OQ7Prescribed.bilinear (p.current x) (OQ7Prescribed.electricVolumeField k q x) =
+    ∫ (x : OQ7Prescribed.Position), OQ7Prescribed.bilinear (q.current x) (OQ7Prescribed.electricVolumeField k p x)
+OQ7Prescribed.compactCurrents_bilinear_volume_integrable (k : ℝ) (p q : OQ7Prescribed.CompactPolarization) :
+  MeasureTheory.Integrable (fun x => OQ7Prescribed.bilinear (p.current x) (OQ7Prescribed.electricVolumeField k q x))
+    MeasureTheory.volume
+OQ7Prescribed.physicalOutgoingVolume_reciprocity (k : ℝ) (hk : 0 < k) (p q : OQ7Prescribed.CompactPolarization) :
+  ∫ (x : OQ7Prescribed.Position), OQ7Prescribed.bilinear (p.current x) (OQ7Prescribed.electricVolumeField k q x) =
+    ∫ (x : OQ7Prescribed.Position), OQ7Prescribed.bilinear (q.current x) (OQ7Prescribed.electricVolumeField k p x)
+'OQ7Prescribed.smooth_sources_cutoff_Lorentz' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.smoothPhysicalSources_radial_Lorentz' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.exteriorElectric_norm_decay' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.exterior_Lorentz_flux_norm_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.smoothPhysicalSources_Lorentz_boundary_error' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.smoothPhysicalSources_reciprocity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.compactCurrents_bilinear_volume_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.physicalOutgoingVolume_reciprocity' depends on axioms: [propext, Classical.choice, Quot.sound]

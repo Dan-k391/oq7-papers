@@ -1,0 +1,18 @@
+import PrescribedExtinction.ReciprocityL2
+
+#check OQ7Prescribed.smooth_sources_cutoff_Lorentz
+#check OQ7Prescribed.smoothPhysicalSources_radial_Lorentz
+#check OQ7Prescribed.exteriorElectric_norm_decay
+#check OQ7Prescribed.exterior_Lorentz_flux_norm_bound
+#check OQ7Prescribed.smoothPhysicalSources_Lorentz_boundary_error
+#check OQ7Prescribed.smoothPhysicalSources_reciprocity
+#check OQ7Prescribed.compactCurrents_bilinear_volume_integrable
+#check OQ7Prescribed.physicalOutgoingVolume_reciprocity
+#print axioms OQ7Prescribed.smooth_sources_cutoff_Lorentz
+#print axioms OQ7Prescribed.smoothPhysicalSources_radial_Lorentz
+#print axioms OQ7Prescribed.exteriorElectric_norm_decay
+#print axioms OQ7Prescribed.exterior_Lorentz_flux_norm_bound
+#print axioms OQ7Prescribed.smoothPhysicalSources_Lorentz_boundary_error
+#print axioms OQ7Prescribed.smoothPhysicalSources_reciprocity
+#print axioms OQ7Prescribed.compactCurrents_bilinear_volume_integrable
+#print axioms OQ7Prescribed.physicalOutgoingVolume_reciprocity

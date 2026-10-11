@@ -143,19 +143,33 @@ OQ7Prescribed.bilinear_add_left : ∀ (u v w : OQ7Prescribed.Vector),
   OQ7Prescribed.bilinear (u + v) w = OQ7Prescribed.bilinear u w + OQ7Prescribed.bilinear v w
 OQ7Prescribed.bilinear_add_right : ∀ (u v w : OQ7Prescribed.Vector),
   OQ7Prescribed.bilinear u (v + w) = OQ7Prescribed.bilinear u v + OQ7Prescribed.bilinear u w
+OQ7Prescribed.bilinear_comm : ∀ (u v : OQ7Prescribed.Vector), OQ7Prescribed.bilinear u v = OQ7Prescribed.bilinear v u
+OQ7Prescribed.bilinear_complex_smul_left : ∀ (u v : OQ7Prescribed.Vector) (z : ℂ),
+  OQ7Prescribed.bilinear (z • u) v = z * OQ7Prescribed.bilinear u v
 OQ7Prescribed.bilinear_complex_smul_right : ∀ (u v : OQ7Prescribed.Vector) (z : ℂ),
   OQ7Prescribed.bilinear u (z • v) = z * OQ7Prescribed.bilinear u v
 OQ7Prescribed.bilinear_complexify_eq_inner : ∀ (x : OQ7Prescribed.Position) (v : OQ7Prescribed.Vector),
   OQ7Prescribed.bilinear (OQ7Prescribed.complexify x) v = inner ℂ (OQ7Prescribed.complexify x) v
 OQ7Prescribed.bilinear_complexify_self : ∀ (x : OQ7Prescribed.Position),
   OQ7Prescribed.bilinear (OQ7Prescribed.complexify x) (OQ7Prescribed.complexify x) = ↑(‖x‖ ^ 2)
+OQ7Prescribed.bilinear_continuous : ∀ (F G : OQ7Prescribed.Field),
+  Continuous F → Continuous G → Continuous fun x => OQ7Prescribed.bilinear (F x) (G x)
 OQ7Prescribed.bilinear_cross_conjugate : ∀ (H E : OQ7Prescribed.Vector) (v : OQ7Prescribed.Position),
   OQ7Prescribed.bilinear H (OQ7Prescribed.cross (OQ7Prescribed.complexify v) (OQ7Prescribed.vectorConjugate E)) =
     OQ7Prescribed.pairing E (OQ7Prescribed.cross H (OQ7Prescribed.complexify v))
+OQ7Prescribed.bilinear_cross_cyclic : ∀ (u v w : OQ7Prescribed.Vector),
+  OQ7Prescribed.bilinear u (OQ7Prescribed.cross v w) = OQ7Prescribed.bilinear w (OQ7Prescribed.cross u v)
+OQ7Prescribed.bilinear_eq_conjugate_inner : ∀ (u v : OQ7Prescribed.Vector),
+  OQ7Prescribed.bilinear u v = inner ℂ (OQ7Prescribed.vectorConjugate u) v
+OQ7Prescribed.bilinear_norm_le : ∀ (u v : OQ7Prescribed.Vector), ‖OQ7Prescribed.bilinear u v‖ ≤ ‖u‖ * ‖v‖
 OQ7Prescribed.bilinear_radial_smul_norm_le : ∀ (x : OQ7Prescribed.Position) (v : OQ7Prescribed.Vector),
   ‖OQ7Prescribed.bilinear (OQ7Prescribed.complexify x) v • OQ7Prescribed.complexify x‖ ≤ ‖x‖ ^ 2 * ‖v‖
 OQ7Prescribed.bilinear_real_smul_right : ∀ (u v : OQ7Prescribed.Vector) (r : ℝ),
   OQ7Prescribed.bilinear u (r • v) = ↑r * OQ7Prescribed.bilinear u v
+OQ7Prescribed.bilinear_sub_left : ∀ (u v w : OQ7Prescribed.Vector),
+  OQ7Prescribed.bilinear (u - v) w = OQ7Prescribed.bilinear u w - OQ7Prescribed.bilinear v w
+OQ7Prescribed.bilinear_sub_right : ∀ (u v w : OQ7Prescribed.Vector),
+  OQ7Prescribed.bilinear u (v - w) = OQ7Prescribed.bilinear u v - OQ7Prescribed.bilinear u w
 OQ7Prescribed.bilinear_vectorConjugate_right : ∀ (u v : OQ7Prescribed.Vector),
   OQ7Prescribed.bilinear u (OQ7Prescribed.vectorConjugate v) = OQ7Prescribed.pairing v u
 OQ7Prescribed.bodyAbsorberSlice_measurable : ∀ (B : OQ7Prescribed.TwoLayerBody),
@@ -290,6 +304,14 @@ OQ7Prescribed.compactCurrentFarField_norm_le : ∀ (k : ℝ) (p : OQ7Prescribed.
 OQ7Prescribed.compactCurrentFarField_scale : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization) (z : ℂ),
   OQ7Prescribed.compactCurrentFarField k (OQ7Prescribed.CompactPolarization.scale z p) =
     z • OQ7Prescribed.compactCurrentFarField k p
+OQ7Prescribed.compactCurrents_bilinear_volume_integrable : ∀ (k : ℝ) (p q : OQ7Prescribed.CompactPolarization),
+  MeasureTheory.Integrable (fun x => OQ7Prescribed.bilinear (p.current x) (OQ7Prescribed.electricVolumeField k q x))
+    MeasureTheory.volume
+OQ7Prescribed.compactCurrents_outgoingOperator_bilinear : ∀ (k R : ℝ) (hR : 0 ≤ R)
+  (p q : OQ7Prescribed.CompactPolarization) (hpR : p.radius ≤ R) (hqR : q.radius ≤ R),
+  inner ℂ ((OQ7Prescribed.supportedVectorConjugate R) (p.toSupportedLp R hpR))
+      ((OQ7Prescribed.compactOutgoingOperator k R hR) (q.toSupportedLp R hqR)) =
+    ∫ (x : OQ7Prescribed.Position), OQ7Prescribed.bilinear (p.current x) (OQ7Prescribed.electricVolumeField k q x)
 OQ7Prescribed.compactField_bilinear_integrable : ∀ (F : OQ7Prescribed.Field),
   MeasureTheory.LocallyIntegrable F MeasureTheory.volume →
     ∀ (ψ : OQ7Prescribed.Field),
@@ -748,6 +770,7 @@ OQ7Prescribed.dynamicScalarRemainder_test_ibp : ∀ (k : ℝ) (j : Fin 3) (φ : 
 OQ7Prescribed.electric_add_polarization : ∀ (B : OQ7Prescribed.TwoLayerBody) (E : OQ7Prescribed.Field)
   (x : OQ7Prescribed.Position),
   E x + OQ7Prescribed.polarization B E x = OQ7Prescribed.tensorApply (B.permittivity x) (E x)
+OQ7Prescribed.electricDecayConstant_nonneg : ∀ (k R : ℝ), 0 ≤ R → 0 ≤ OQ7Prescribed.electricDecayConstant k R
 OQ7Prescribed.electricExterior_component_distribution : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization) (i : Fin 3),
   Distribution.ofFun (OQ7Prescribed.currentExterior p) (fun x => (OQ7Prescribed.exteriorElectric k p x).ofLp i)
       MeasureTheory.volume ⊤ =
@@ -796,6 +819,17 @@ OQ7Prescribed.exterior_current_test_joint_integrable : ∀ (k : ℝ) (p : OQ7Pre
           ↑(φ q.1) * ((OQ7Prescribed.classicalDyadic k (q.1 - q.2)) (OQ7Prescribed.basisC j)).ofLp i *
             (p.current q.2).ofLp j)
         (MeasureTheory.volume.prod MeasureTheory.volume)
+OQ7Prescribed.exterior_Lorentz_flux_norm_bound : ∀ (k : ℝ) (p q : OQ7Prescribed.CompactPolarization)
+  (x : OQ7Prescribed.Position),
+  2 * p.radius + 2 ≤ ‖x‖ →
+    2 * q.radius + 2 ≤ ‖x‖ →
+      ‖OQ7Prescribed.bilinear (OQ7Prescribed.exteriorElectric k p x)
+              (OQ7Prescribed.cross (OQ7Prescribed.exteriorMagnetic k q x)
+                (OQ7Prescribed.complexify (OQ7Prescribed.radialDirection x))) -
+            OQ7Prescribed.bilinear (OQ7Prescribed.exteriorElectric k q x)
+              (OQ7Prescribed.cross (OQ7Prescribed.exteriorMagnetic k p x)
+                (OQ7Prescribed.complexify (OQ7Prescribed.radialDirection x)))‖ ≤
+        OQ7Prescribed.LorentzDecayConstant k p q / ‖x‖ ^ 3
 OQ7Prescribed.exterior_poynting_farField_error : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization)
   (x : OQ7Prescribed.Position),
   2 * p.radius + 2 ≤ ‖x‖ →
@@ -915,6 +949,11 @@ OQ7Prescribed.exteriorElectric_integrable_far : ∀ (k : ℝ) (p : OQ7Prescribed
 OQ7Prescribed.exteriorElectric_locallyIntegrableOn : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization),
   MeasureTheory.LocallyIntegrableOn (OQ7Prescribed.exteriorElectric k p) (↑(OQ7Prescribed.currentExterior p))
     MeasureTheory.volume
+OQ7Prescribed.exteriorElectric_norm_decay : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization)
+  (x : OQ7Prescribed.Position),
+  2 * p.radius + 2 ≤ ‖x‖ →
+    ‖OQ7Prescribed.exteriorElectric k p x‖ ≤
+      OQ7Prescribed.electricDecayConstant k p.radius / ‖x‖ * ∫ (y : OQ7Prescribed.Position), ‖p.current y‖
 OQ7Prescribed.exteriorElectric_norm_le : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization) (x : OQ7Prescribed.Position),
   p.radius + 1 ≤ ‖x‖ →
     ‖OQ7Prescribed.exteriorElectric k p x‖ ≤
@@ -1154,6 +1193,13 @@ OQ7Prescribed.integral_compact_ball_abs_bound : ∀ (f : OQ7Prescribed.Position 
         (∀ (x : OQ7Prescribed.Position), 2 * r < ‖x‖ → f x = 0) →
           (∀ᵐ (x : OQ7Prescribed.Position), |f x| ≤ C / r ^ 4) →
             |∫ (x : OQ7Prescribed.Position), f x| ≤ 32 * Real.pi / 3 * C / r
+OQ7Prescribed.integral_compact_ball_complex_bound : ∀ (f : OQ7Prescribed.Position → ℂ),
+  MeasureTheory.Integrable f MeasureTheory.volume →
+    ∀ (r C : ℝ),
+      0 < r →
+        (∀ (x : OQ7Prescribed.Position), 2 * r < ‖x‖ → f x = 0) →
+          (∀ᵐ (x : OQ7Prescribed.Position), ‖f x‖ ≤ C / r ^ 4) →
+            ‖∫ (x : OQ7Prescribed.Position), f x‖ ≤ 64 * Real.pi / 3 * C / r
 OQ7Prescribed.integral_compact_ball_lower_bound : ∀ (f : OQ7Prescribed.Position → ℝ),
   MeasureTheory.Integrable f MeasureTheory.volume →
     ∀ (r C : ℝ),
@@ -1230,6 +1276,11 @@ OQ7Prescribed.layerPermittivity_reciprocal : ∀ (a b ν : ℝ) (u : OQ7Prescrib
   Matrix.transpose (OQ7Prescribed.layerPermittivity a b ν u) = OQ7Prescribed.layerPermittivity a b ν u
 OQ7Prescribed.locallySquareIntegrable_locallyIntegrable : ∀ (F : OQ7Prescribed.Field),
   OQ7Prescribed.LocallySquareIntegrable F → MeasureTheory.LocallyIntegrable F MeasureTheory.volume
+OQ7Prescribed.Lorentz_flux_norm_bound : ∀ (E₁ H₁ E₂ H₂ n : OQ7Prescribed.Vector),
+  ‖OQ7Prescribed.bilinear E₁ (OQ7Prescribed.cross H₂ n) - OQ7Prescribed.bilinear E₂ (OQ7Prescribed.cross H₁ n)‖ ≤
+    ‖E₁‖ * ‖OQ7Prescribed.cross H₂ n - E₂‖ + ‖E₂‖ * ‖OQ7Prescribed.cross H₁ n - E₁‖
+OQ7Prescribed.LorentzDecayConstant_nonneg : ∀ (k : ℝ) (p q : OQ7Prescribed.CompactPolarization),
+  0 ≤ OQ7Prescribed.LorentzDecayConstant k p q
 OQ7Prescribed.magneticExterior_eq_pointwise_far : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization)
   (x : OQ7Prescribed.Position),
   p.radius + 1 ≤ ‖x‖ → OQ7Prescribed.exteriorMagnetic k p x = OQ7Prescribed.magneticVolumeField k p x
@@ -2000,6 +2051,11 @@ OQ7Prescribed.physicalOutgoingVolume_farField_work : ∀ (k : ℝ) (p : OQ7Presc
       (∫ (x : OQ7Prescribed.Position),
           OQ7Prescribed.pairing (p.current x) (OQ7Prescribed.electricVolumeField k p x)).im =
     ∫ (n : ↑OQ7Prescribed.UnitSphere), ‖OQ7Prescribed.compactCurrentFarField k p ↑n‖ ^ 2 ∂OQ7Prescribed.sphereArea
+OQ7Prescribed.physicalOutgoingVolume_reciprocity : ∀ (k : ℝ),
+  0 < k →
+    ∀ (p q : OQ7Prescribed.CompactPolarization),
+      ∫ (x : OQ7Prescribed.Position), OQ7Prescribed.bilinear (p.current x) (OQ7Prescribed.electricVolumeField k q x) =
+        ∫ (x : OQ7Prescribed.Position), OQ7Prescribed.bilinear (q.current x) (OQ7Prescribed.electricVolumeField k p x)
 OQ7Prescribed.physicalOutgoingVolume_work_nonneg : ∀ (k : ℝ),
   0 < k →
     ∀ (p : OQ7Prescribed.CompactPolarization),
@@ -2484,6 +2540,19 @@ OQ7Prescribed.shrinkingCutoffPoleError_tendsto : ∀ (F : OQ7Prescribed.Position
     ∀ (φ : OQ7Prescribed.ScalarTest) (i : Fin 3),
       Filter.Tendsto (fun ε => ∫ (x : OQ7Prescribed.Position), OQ7Prescribed.exteriorCutoffPartial ε ε i x * F x * φ x)
         (nhdsWithin 0 (Set.Ioi 0)) (nhds 0)
+OQ7Prescribed.smooth_cutoff_bilinear_flux_integrable : ∀ (k : ℝ) (E H G : OQ7Prescribed.Field),
+  ContDiff ℝ (↑⊤) E →
+    ContDiff ℝ (↑⊤) H →
+      Continuous G →
+        (OQ7Prescribed.curl E = fun x => (Complex.I * ↑k) • G x) →
+          ∀ (ψ : OQ7Prescribed.Position → ℝ),
+            ContDiff ℝ (↑⊤) ψ →
+              HasCompactSupport ψ →
+                MeasureTheory.Integrable
+                  (fun x =>
+                    OQ7Prescribed.bilinear (E x)
+                      (OQ7Prescribed.cross (H x) (OQ7Prescribed.complexify (OQ7Prescribed.scalarGradient ψ x))))
+                  MeasureTheory.volume
 OQ7Prescribed.smooth_cutoff_flux_integrable : ∀ (k : ℝ) (E H : OQ7Prescribed.Field),
   ContDiff ℝ (↑⊤) E →
     ContDiff ℝ (↑⊤) H →
@@ -2496,6 +2565,25 @@ OQ7Prescribed.smooth_cutoff_flux_integrable : ∀ (k : ℝ) (E H : OQ7Prescribed
                   (OQ7Prescribed.pairing (E x)
                       (OQ7Prescribed.cross (H x) (OQ7Prescribed.complexify (OQ7Prescribed.scalarGradient ψ x)))).re)
                 MeasureTheory.volume
+OQ7Prescribed.smooth_pair_cutoff_curl : ∀ (k : ℝ) (E₁ H₁ p₁ E₂ H₂ : OQ7Prescribed.Field),
+  ContDiff ℝ (↑⊤) H₁ →
+    ContDiff ℝ (↑⊤) E₂ →
+      Continuous E₁ →
+        Continuous H₂ →
+          Continuous p₁ →
+            (OQ7Prescribed.curl E₂ = fun x => (Complex.I * ↑k) • H₂ x) →
+              (OQ7Prescribed.curl H₁ = fun x => (-Complex.I * ↑k) • (E₁ x + p₁ x)) →
+                ∀ (ψ : OQ7Prescribed.Position → ℝ),
+                  ContDiff ℝ (↑⊤) ψ →
+                    HasCompactSupport ψ →
+                      (∫ (x : OQ7Prescribed.Position),
+                            OQ7Prescribed.bilinear (E₂ x)
+                              (OQ7Prescribed.cross (H₁ x)
+                                (OQ7Prescribed.complexify (OQ7Prescribed.scalarGradient ψ x)))) +
+                          Complex.I * ↑k *
+                            ∫ (x : OQ7Prescribed.Position), ↑(ψ x) * OQ7Prescribed.bilinear (H₁ x) (H₂ x) =
+                        -Complex.I * ↑k *
+                          ∫ (x : OQ7Prescribed.Position), ↑(ψ x) * OQ7Prescribed.bilinear (E₁ x + p₁ x) (E₂ x)
 OQ7Prescribed.smooth_source_cutoff_energy : ∀ (k : ℝ) (E H p : OQ7Prescribed.Field),
   ContDiff ℝ (↑⊤) E →
     ContDiff ℝ (↑⊤) H →
@@ -2510,6 +2598,30 @@ OQ7Prescribed.smooth_source_cutoff_energy : ∀ (k : ℝ) (E H p : OQ7Prescribed
                         (OQ7Prescribed.pairing (E x)
                             (OQ7Prescribed.cross (H x)
                               (OQ7Prescribed.complexify (OQ7Prescribed.scalarGradient ψ x)))).re
+OQ7Prescribed.smooth_sources_cutoff_Lorentz : ∀ (k : ℝ) (E₁ H₁ p₁ E₂ H₂ p₂ : OQ7Prescribed.Field),
+  ContDiff ℝ (↑⊤) E₁ →
+    ContDiff ℝ (↑⊤) H₁ →
+      Continuous p₁ →
+        ContDiff ℝ (↑⊤) E₂ →
+          ContDiff ℝ (↑⊤) H₂ →
+            Continuous p₂ →
+              (OQ7Prescribed.curl E₁ = fun x => (Complex.I * ↑k) • H₁ x) →
+                (OQ7Prescribed.curl H₁ = fun x => (-Complex.I * ↑k) • (E₁ x + p₁ x)) →
+                  (OQ7Prescribed.curl E₂ = fun x => (Complex.I * ↑k) • H₂ x) →
+                    (OQ7Prescribed.curl H₂ = fun x => (-Complex.I * ↑k) • (E₂ x + p₂ x)) →
+                      ∀ (ψ : OQ7Prescribed.Position → ℝ),
+                        ContDiff ℝ (↑⊤) ψ →
+                          HasCompactSupport ψ →
+                            ∫ (x : OQ7Prescribed.Position),
+                                OQ7Prescribed.bilinear (E₂ x)
+                                    (OQ7Prescribed.cross (H₁ x)
+                                      (OQ7Prescribed.complexify (OQ7Prescribed.scalarGradient ψ x))) -
+                                  OQ7Prescribed.bilinear (E₁ x)
+                                    (OQ7Prescribed.cross (H₂ x)
+                                      (OQ7Prescribed.complexify (OQ7Prescribed.scalarGradient ψ x))) =
+                              -Complex.I * ↑k *
+                                ∫ (x : OQ7Prescribed.Position),
+                                  ↑(ψ x) * (OQ7Prescribed.bilinear (p₁ x) (E₂ x) - OQ7Prescribed.bilinear (p₂ x) (E₁ x))
 OQ7Prescribed.smoothElectricSource_contDiff : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization),
   ContDiff ℝ (↑⊤) p.current → ContDiff ℝ (↑⊤) (OQ7Prescribed.smoothElectricSource k p)
 OQ7Prescribed.smoothElectricSource_curl : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization),
@@ -2654,11 +2766,70 @@ OQ7Prescribed.smoothPhysicalSource_work_nonneg : ∀ (k : ℝ),
         0 ≤
           (∫ (x : OQ7Prescribed.Position),
               OQ7Prescribed.pairing (p.current x) (OQ7Prescribed.smoothElectricSource k p x)).im
+OQ7Prescribed.smoothPhysicalSources_Lorentz_boundary_error : ∀ (k : ℝ) (p q : OQ7Prescribed.CompactPolarization),
+  ContDiff ℝ (↑⊤) p.current →
+    ContDiff ℝ (↑⊤) q.current →
+      ∀ (M : ℝ),
+        0 ≤ M →
+          (∀ (s : ℝ), OQ7Prescribed.transitionDerivative s ≤ M) →
+            ∀ (r : ℝ),
+              0 < r →
+                2 * p.radius + 2 ≤ r →
+                  2 * q.radius + 2 ≤ r →
+                    ‖-Complex.I * ↑k *
+                          ∫ (x : OQ7Prescribed.Position),
+                            OQ7Prescribed.bilinear (p.current x) (OQ7Prescribed.smoothElectricSource k q x) -
+                              OQ7Prescribed.bilinear (q.current x) (OQ7Prescribed.smoothElectricSource k p x)‖ ≤
+                      64 * Real.pi / 3 * (M * OQ7Prescribed.LorentzDecayConstant k p q) / r
+OQ7Prescribed.smoothPhysicalSources_radial_flux_bound_ae : ∀ (k : ℝ) (p q : OQ7Prescribed.CompactPolarization),
+  ContDiff ℝ (↑⊤) p.current →
+    ContDiff ℝ (↑⊤) q.current →
+      ∀ (M : ℝ),
+        0 ≤ M →
+          (∀ (s : ℝ), OQ7Prescribed.transitionDerivative s ≤ M) →
+            ∀ (r : ℝ),
+              0 < r →
+                2 * p.radius + 2 ≤ r →
+                  2 * q.radius + 2 ≤ r →
+                    ∀ᵐ (x : OQ7Prescribed.Position),
+                      ‖OQ7Prescribed.smoothLorentzRadialFlux k p q r x‖ ≤
+                        M * OQ7Prescribed.LorentzDecayConstant k p q / r ^ 4
+OQ7Prescribed.smoothPhysicalSources_radial_flux_integrable : ∀ (k : ℝ) (p q : OQ7Prescribed.CompactPolarization),
+  ContDiff ℝ (↑⊤) p.current →
+    ContDiff ℝ (↑⊤) q.current →
+      ∀ (r : ℝ), 0 < r → MeasureTheory.Integrable (OQ7Prescribed.smoothLorentzRadialFlux k p q r) MeasureTheory.volume
+OQ7Prescribed.smoothPhysicalSources_radial_Lorentz : ∀ (k : ℝ) (p q : OQ7Prescribed.CompactPolarization),
+  ContDiff ℝ (↑⊤) p.current →
+    ContDiff ℝ (↑⊤) q.current →
+      ∀ (r : ℝ),
+        0 < r →
+          p.radius ≤ r →
+            q.radius ≤ r →
+              ∫ (x : OQ7Prescribed.Position), OQ7Prescribed.smoothLorentzRadialFlux k p q r x =
+                -Complex.I * ↑k *
+                  ∫ (x : OQ7Prescribed.Position),
+                    OQ7Prescribed.bilinear (p.current x) (OQ7Prescribed.smoothElectricSource k q x) -
+                      OQ7Prescribed.bilinear (q.current x) (OQ7Prescribed.smoothElectricSource k p x)
+OQ7Prescribed.smoothPhysicalSources_reciprocity : ∀ (k : ℝ),
+  0 < k →
+    ∀ (p q : OQ7Prescribed.CompactPolarization),
+      ContDiff ℝ (↑⊤) p.current →
+        ContDiff ℝ (↑⊤) q.current →
+          ∫ (x : OQ7Prescribed.Position),
+              OQ7Prescribed.bilinear (p.current x) (OQ7Prescribed.electricVolumeField k q x) =
+            ∫ (x : OQ7Prescribed.Position),
+              OQ7Prescribed.bilinear (q.current x) (OQ7Prescribed.electricVolumeField k p x)
 OQ7Prescribed.smoothScalar_distributionPartial : ∀ (f : OQ7Prescribed.Position → ℂ),
   ContDiff ℝ (↑⊤) f →
     ∀ (j : Fin 3),
       (OQ7Prescribed.distributionPartial j) (Distribution.ofFun ⊤ f MeasureTheory.volume ⊤) =
         Distribution.ofFun ⊤ (fun x => (fderiv ℝ f x) (OQ7Prescribed.basisR j)) MeasureTheory.volume ⊤
+OQ7Prescribed.sourceEnergyCutoff_bilinear_work : ∀ (p : OQ7Prescribed.CompactPolarization) (E : OQ7Prescribed.Field)
+  (r : ℝ),
+  0 < r →
+    p.radius ≤ r →
+      (fun x => ↑(OQ7Prescribed.sourceEnergyCutoff r x) * OQ7Prescribed.bilinear (p.current x) (E x)) = fun x =>
+        OQ7Prescribed.bilinear (p.current x) (E x)
 OQ7Prescribed.sourceEnergyCutoff_contDiff : ∀ (r : ℝ), 0 < r → ContDiff ℝ (↑⊤) (OQ7Prescribed.sourceEnergyCutoff r)
 OQ7Prescribed.sourceEnergyCutoff_current_work : ∀ (p : OQ7Prescribed.CompactPolarization) (E : OQ7Prescribed.Field)
   (r : ℝ),
@@ -2899,6 +3070,9 @@ OQ7Prescribed.supportedPolarization_toLp : ∀ (R : ℝ) (hR : 0 ≤ R) (f : ↥
   [inst_1 : NormedAddCommGroup E] [inst_2 : InnerProductSpace ℂ E] [inst_3 : CompleteSpace E]
   (μ : MeasureTheory.Measure α) (s t : Set α) (ht : MeasurableSet t) (f : ↥(OQ7Prescribed.SetSupportedL2 μ s)),
   ↑↑↑((OQ7Prescribed.supportedSliceCLM μ s t ht) f) =ᵐ[μ] t.indicator fun x => ↑↑↑f x
+OQ7Prescribed.supportedVectorConjugate_coe : ∀ (R : ℝ) (f : ↥(OQ7Prescribed.SupportedVectorL2 R)),
+  ↑↑↑((OQ7Prescribed.supportedVectorConjugate R) f) =ᵐ[MeasureTheory.volume] fun x =>
+    OQ7Prescribed.vectorConjugate (↑↑↑f x)
 OQ7Prescribed.supportedVectorL2_current_ae : ∀ (R : ℝ) (f : ↥(OQ7Prescribed.SupportedVectorL2 R)),
   ((Metric.closedBall 0 R).indicator fun x => ↑↑↑f x) =ᵐ[MeasureTheory.volume] fun x => ↑↑↑f x
 OQ7Prescribed.supportedVectorL2_isClosed : ∀ (R : ℝ), IsClosed ↑(OQ7Prescribed.supportedVectorL2 R)
@@ -3013,8 +3187,10 @@ OQ7Prescribed.vectorConjugate_component_fderiv : ∀ (F : OQ7Prescribed.Field),
         star (((fderiv ℝ F x) (OQ7Prescribed.basisR j)).ofLp i)
 OQ7Prescribed.vectorConjugate_contDiff : ∀ (F : OQ7Prescribed.Field),
   ContDiff ℝ (↑⊤) F → ContDiff ℝ ↑⊤ fun x => OQ7Prescribed.vectorConjugate (F x)
+OQ7Prescribed.vectorConjugate_norm : ∀ (v : OQ7Prescribed.Vector), ‖OQ7Prescribed.vectorConjugate v‖ = ‖v‖
 OQ7Prescribed.vectorConjugate_smul : ∀ (z : ℂ) (v : OQ7Prescribed.Vector),
   OQ7Prescribed.vectorConjugate (z • v) = star z • OQ7Prescribed.vectorConjugate v
+OQ7Prescribed.vectorConjugateCLM_norm_le : ‖OQ7Prescribed.vectorConjugateCLM‖ ≤ 1
 OQ7Prescribed.vectorL2_locallyIntegrable : ∀ (f : ↥OQ7Prescribed.VectorL2),
   MeasureTheory.LocallyIntegrable (fun x => ↑↑f x) MeasureTheory.volume
 OQ7Prescribed.vectorL2ComponentDistribution_apply : ∀ (f : ↥OQ7Prescribed.VectorL2) (i : Fin 3)

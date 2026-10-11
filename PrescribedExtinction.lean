@@ -111,3 +111,8 @@ import PrescribedExtinction.SphericalVolume
 import PrescribedExtinction.SphericalProduct
 import PrescribedExtinction.SphericalAngular
 import PrescribedExtinction.PhysicalOpticalBalance
+import PrescribedExtinction.LorentzCutoff
+import PrescribedExtinction.LorentzIdentity
+import PrescribedExtinction.LorentzBounds
+import PrescribedExtinction.SmoothReciprocity
+import PrescribedExtinction.ReciprocityL2
