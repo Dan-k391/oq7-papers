@@ -39,7 +39,8 @@ try {
         @{ name = 'outgoing-fundamental'; module = 'PrescribedExtinction.OutgoingFundamental' },
         @{ name = 'volume-fundamental'; module = 'PrescribedExtinction.VolumeFundamental' },
         @{ name = 'dyadic-maxwell-source'; module = 'PrescribedExtinction.DyadicMaxwellSource' },
-        @{ name = 'young-convolution'; module = 'PrescribedExtinction.YoungConvolution' }
+        @{ name = 'young-convolution'; module = 'PrescribedExtinction.YoungConvolution' },
+        @{ name = 'green-gradient-current'; module = 'PrescribedExtinction.GradientCurrentPairing' }
     )
     if ($Only) {
         foreach ($oq7Name in $Only) {

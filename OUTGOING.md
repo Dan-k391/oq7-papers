@@ -26,6 +26,15 @@ with magnetic distribution `-ik curl(g_k*p)`. The current is still any original
 compact L² current. This identifies the correct source equations; it does not
 yet supply magnetic-field regularity or the pointwise radiation condition.
 
+`YoungConvolution.lean` supplies the missing L¹-kernel/L²-current bound, with
+actual convolution existence almost everywhere. `PolePointIBP.lean` proves
+the shrinking inverse-distance-pole error is O(ε). `GreenFirstDerivative.lean`
+uses this to identify the actual first Green derivative without a contact
+term. `GreenGradient.lean` and `GradientCurrentPairing.lean` prove the actual
+gradient/current convolution is locally L² and equals the distributional
+first derivative of the original scalar volume potential. No current
+smoothness or electromagnetic identity is assumed.
+
 The proof chain includes shrinking smooth cutoffs, removable-point integration
 by parts, actual outgoing/current Fubini pairings, dynamic remainder pairings,
 the previously verified Newton operator, and commutation of distributional

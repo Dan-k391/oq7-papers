@@ -1,0 +1,12 @@
+import PrescribedExtinction.GradientCurrentPairing
+
+#check @OQ7Prescribed.shrinkingCutoffPoleError_tendsto
+#print axioms OQ7Prescribed.shrinkingCutoffPoleError_tendsto
+#check @OQ7Prescribed.outgoingGreen_first_distribution
+#print axioms OQ7Prescribed.outgoingGreen_first_distribution
+#check @OQ7Prescribed.gradientPotential_ae_integrable_on_compact
+#print axioms OQ7Prescribed.gradientPotential_ae_integrable_on_compact
+#check @OQ7Prescribed.gradientPotential_memLp_on_compact
+#print axioms OQ7Prescribed.gradientPotential_memLp_on_compact
+#check @OQ7Prescribed.potentialComponent_first_distribution
+#print axioms OQ7Prescribed.potentialComponent_first_distribution

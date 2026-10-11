@@ -55,3 +55,7 @@ import PrescribedExtinction.DistributionVectorCalculus
 import PrescribedExtinction.VolumeFundamental
 import PrescribedExtinction.DyadicMaxwellSource
 import PrescribedExtinction.YoungConvolution
+import PrescribedExtinction.PolePointIBP
+import PrescribedExtinction.GreenGradient
+import PrescribedExtinction.GreenFirstDerivative
+import PrescribedExtinction.GradientCurrentPairing
