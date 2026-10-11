@@ -200,6 +200,9 @@ OQ7Prescribed.apertureMeanSlopeDeriv_norm_le : ∀ (w : ℂ → ℂ),
     HasCompactSupport w →
       ∀ (x : ℂ) (r C : ℝ),
         0 ≤ r → (∀ (y : ℂ), ‖iteratedFDeriv ℝ 4 w y‖ ≤ C) → ‖OQ7Prescribed.apertureMeanSlopeDeriv w x r‖ ≤ C * r / 3
+OQ7Prescribed.apertureOscillation_add : ∀ (k a b : ℝ),
+  OQ7Prescribed.apertureOscillation k (a + b) =
+    OQ7Prescribed.apertureOscillation k a * OQ7Prescribed.apertureOscillation k b
 OQ7Prescribed.apertureOscillation_boundary_phase : ∀ (k L z : ℝ),
   OQ7Prescribed.apertureOscillation k (L - z) * OQ7Prescribed.apertureOscillation (-k) L =
     OQ7Prescribed.apertureOscillation (-k) z
@@ -1085,6 +1088,59 @@ OQ7Prescribed.dielectricSlabIndex_ne_zero : ∀ (p q : ℝ), 0 < p → OQ7Prescr
 OQ7Prescribed.dielectricSlabIndex_one_add_ne_zero : ∀ (p q : ℝ), 0 < p → 1 + OQ7Prescribed.dielectricSlabIndex p q ≠ 0
 OQ7Prescribed.dielectricSlabIndex_re_pos : ∀ (p q : ℝ), 0 < p → 0 < (OQ7Prescribed.dielectricSlabIndex p q).re
 OQ7Prescribed.dielectricSlabIndex_sq : ∀ (p q : ℝ), OQ7Prescribed.dielectricSlabIndex p q ^ 2 = ↑p + Complex.I * ↑q
+OQ7Prescribed.dielectricSlabLeftAt_boundary : ∀ (k : ℝ),
+  0 < k →
+    ∀ (p q a b : ℝ) (hp : 1 ≤ p),
+      0 ≤ q →
+        a ≤ b →
+          (OQ7Prescribed.dielectricSlabLeftAt k p q a b hp).electric a =
+              1 + OQ7Prescribed.dielectricSlabReflection k p q (b - a) ∧
+            (OQ7Prescribed.dielectricSlabLeftAt k p q a b hp).magnetic a =
+                1 - OQ7Prescribed.dielectricSlabReflection k p q (b - a) ∧
+              (OQ7Prescribed.dielectricSlabLeftAt k p q a b hp).electric b =
+                  OQ7Prescribed.dielectricSlabTransmission k p q (b - a) ∧
+                (OQ7Prescribed.dielectricSlabLeftAt k p q a b hp).magnetic b =
+                  OQ7Prescribed.dielectricSlabTransmission k p q (b - a)
+OQ7Prescribed.dielectricSlabLeftAt_constitutive : ∀ (k p q a b : ℝ) (hp : 1 ≤ p) (z : ℝ),
+  (OQ7Prescribed.dielectricSlabLeftAt k p q a b hp).current z =
+    (↑p + Complex.I * ↑q - 1) * (OQ7Prescribed.dielectricSlabLeftAt k p q a b hp).electric z
+OQ7Prescribed.dielectricSlabLeftAt_Green_exterior_left : ∀ (k : ℝ),
+  0 < k →
+    ∀ (p q a b L : ℝ) (hp : 1 ≤ p),
+      0 ≤ q →
+        ∀ (ha : 0 ≤ a) (hab : a ≤ b) (hb : b ≤ L),
+          ∀ z ≤ a,
+            k ^ 2 •
+                OQ7Prescribed.scalarPlanarPotential k
+                  (↑↑↑(OQ7Prescribed.planarLayerL2Current k a b L ha hab hb
+                          (OQ7Prescribed.dielectricSlabLeftAt k p q a b hp)))
+                  z =
+              OQ7Prescribed.dielectricSlabReflection k p q (b - a) * OQ7Prescribed.apertureOscillation k (a - z)
+OQ7Prescribed.dielectricSlabLeftAt_Green_exterior_right : ∀ (k : ℝ),
+  0 < k →
+    ∀ (p q a b L : ℝ) (hp : 1 ≤ p),
+      0 ≤ q →
+        ∀ (ha : 0 ≤ a) (hab : a ≤ b) (hb : b ≤ L) (z : ℝ),
+          b ≤ z →
+            k ^ 2 •
+                OQ7Prescribed.scalarPlanarPotential k
+                  (↑↑↑(OQ7Prescribed.planarLayerL2Current k a b L ha hab hb
+                          (OQ7Prescribed.dielectricSlabLeftAt k p q a b hp)))
+                  z =
+              (OQ7Prescribed.dielectricSlabTransmission k p q (b - a) - OQ7Prescribed.apertureOscillation k (b - a)) *
+                OQ7Prescribed.apertureOscillation k (z - b)
+OQ7Prescribed.dielectricSlabLeftAt_Green_interior : ∀ (k : ℝ),
+  0 < k →
+    ∀ (p q a b L : ℝ) (hp : 1 ≤ p),
+      0 ≤ q →
+        ∀ (ha : 0 ≤ a) (hab : a ≤ b) (hb : b ≤ L),
+          ∀ z ∈ Set.Icc a b,
+            k ^ 2 •
+                OQ7Prescribed.scalarPlanarPotential k
+                  (↑↑↑(OQ7Prescribed.planarLayerL2Current k a b L ha hab hb
+                          (OQ7Prescribed.dielectricSlabLeftAt k p q a b hp)))
+                  z =
+              (OQ7Prescribed.dielectricSlabLeftAt k p q a b hp).electric z - OQ7Prescribed.apertureOscillation k (z - a)
 OQ7Prescribed.dielectricSlabLeftCurrent_constitutive_coe : ∀ (k p q d : ℝ) (hp : 1 ≤ p) (hd : 0 ≤ d),
   ↑↑↑(OQ7Prescribed.dielectricSlabLeftCurrent k p q d hp hd) =ᵐ[MeasureTheory.volume]
     (Set.Ioc 0 d).indicator fun z =>
@@ -1115,8 +1171,77 @@ OQ7Prescribed.dielectricSlabLeftLayer_boundary_matching : ∀ (k : ℝ),
 OQ7Prescribed.dielectricSlabReflection_both_sides : ∀ (k p q d : ℝ),
   OQ7.transferReflectionRight (OQ7.waveTransfer (OQ7.layerTransfer k (OQ7Prescribed.dielectricSlab p q d))) =
     OQ7Prescribed.dielectricSlabReflection k p q d
+OQ7Prescribed.dielectricSlabReflection_norm_lt_one : ∀ (k : ℝ),
+  0 < k → ∀ (p q d : ℝ), 1 ≤ p → 0 ≤ q → 0 ≤ d → ‖OQ7Prescribed.dielectricSlabReflection k p q d‖ < 1
 OQ7Prescribed.dielectricSlabReflection_normSq_lt_one : ∀ (k : ℝ),
   0 < k → ∀ (p q d : ℝ), 1 ≤ p → 0 ≤ q → 0 ≤ d → Complex.normSq (OQ7Prescribed.dielectricSlabReflection k p q d) < 1
+OQ7Prescribed.dielectricSlabRightAt_boundary : ∀ (k : ℝ),
+  0 < k →
+    ∀ (p q a b : ℝ) (hp : 1 ≤ p),
+      0 ≤ q →
+        a ≤ b →
+          (OQ7Prescribed.dielectricSlabRightAt k p q a b hp).electric a =
+              OQ7Prescribed.dielectricSlabTransmission k p q (b - a) ∧
+            (OQ7Prescribed.dielectricSlabRightAt k p q a b hp).magnetic a =
+                -OQ7Prescribed.dielectricSlabTransmission k p q (b - a) ∧
+              (OQ7Prescribed.dielectricSlabRightAt k p q a b hp).electric b =
+                  1 + OQ7Prescribed.dielectricSlabReflection k p q (b - a) ∧
+                (OQ7Prescribed.dielectricSlabRightAt k p q a b hp).magnetic b =
+                  OQ7Prescribed.dielectricSlabReflection k p q (b - a) - 1
+OQ7Prescribed.dielectricSlabRightAt_constitutive : ∀ (k p q a b : ℝ) (hp : 1 ≤ p) (z : ℝ),
+  (OQ7Prescribed.dielectricSlabRightAt k p q a b hp).current z =
+    (↑p + Complex.I * ↑q - 1) * (OQ7Prescribed.dielectricSlabRightAt k p q a b hp).electric z
+OQ7Prescribed.dielectricSlabRightAt_Green_exterior_left : ∀ (k : ℝ),
+  0 < k →
+    ∀ (p q a b L : ℝ) (hp : 1 ≤ p),
+      0 ≤ q →
+        ∀ (ha : 0 ≤ a) (hab : a ≤ b) (hb : b ≤ L),
+          ∀ z ≤ a,
+            k ^ 2 •
+                OQ7Prescribed.scalarPlanarPotential k
+                  (↑↑↑(OQ7Prescribed.planarLayerL2Current k a b L ha hab hb
+                          (OQ7Prescribed.dielectricSlabRightAt k p q a b hp)))
+                  z =
+              (OQ7Prescribed.dielectricSlabTransmission k p q (b - a) - OQ7Prescribed.apertureOscillation k (b - a)) *
+                OQ7Prescribed.apertureOscillation k (a - z)
+OQ7Prescribed.dielectricSlabRightAt_Green_exterior_right : ∀ (k : ℝ),
+  0 < k →
+    ∀ (p q a b L : ℝ) (hp : 1 ≤ p),
+      0 ≤ q →
+        ∀ (ha : 0 ≤ a) (hab : a ≤ b) (hb : b ≤ L) (z : ℝ),
+          b ≤ z →
+            k ^ 2 •
+                OQ7Prescribed.scalarPlanarPotential k
+                  (↑↑↑(OQ7Prescribed.planarLayerL2Current k a b L ha hab hb
+                          (OQ7Prescribed.dielectricSlabRightAt k p q a b hp)))
+                  z =
+              OQ7Prescribed.dielectricSlabReflection k p q (b - a) * OQ7Prescribed.apertureOscillation k (z - b)
+OQ7Prescribed.dielectricSlabRightAt_Green_interior : ∀ (k : ℝ),
+  0 < k →
+    ∀ (p q a b L : ℝ) (hp : 1 ≤ p),
+      0 ≤ q →
+        ∀ (ha : 0 ≤ a) (hab : a ≤ b) (hb : b ≤ L),
+          ∀ z ∈ Set.Icc a b,
+            k ^ 2 •
+                OQ7Prescribed.scalarPlanarPotential k
+                  (↑↑↑(OQ7Prescribed.planarLayerL2Current k a b L ha hab hb
+                          (OQ7Prescribed.dielectricSlabRightAt k p q a b hp)))
+                  z =
+              (OQ7Prescribed.dielectricSlabRightAt k p q a b hp).electric z -
+                OQ7Prescribed.apertureOscillation k (b - z)
+OQ7Prescribed.dielectricSlabRightLayer_boundary : ∀ (k : ℝ),
+  0 < k →
+    ∀ (p q d : ℝ) (hp : 1 ≤ p),
+      0 ≤ q →
+        0 ≤ d →
+          (OQ7Prescribed.dielectricSlabRightLayer k p q d hp).electric 0 =
+              OQ7Prescribed.dielectricSlabTransmission k p q d ∧
+            (OQ7Prescribed.dielectricSlabRightLayer k p q d hp).magnetic 0 =
+                -OQ7Prescribed.dielectricSlabTransmission k p q d ∧
+              (OQ7Prescribed.dielectricSlabRightLayer k p q d hp).electric d =
+                  1 + OQ7Prescribed.dielectricSlabReflection k p q d ∧
+                (OQ7Prescribed.dielectricSlabRightLayer k p q d hp).magnetic d =
+                  OQ7Prescribed.dielectricSlabReflection k p q d - 1
 OQ7Prescribed.dielectricSlabTransmission_ne_zero : ∀ (k : ℝ),
   0 < k → ∀ (p q d : ℝ), 1 ≤ p → 0 ≤ q → 0 ≤ d → OQ7Prescribed.dielectricSlabTransmission k p q d ≠ 0
 OQ7Prescribed.directedFlux_incident_reflected : ∀ (r : ℂ), OQ7.directedFlux (1 + r) (1 - r) = 1 - Complex.normSq r
@@ -3644,6 +3769,29 @@ OQ7Prescribed.planarActiveOutgoing_im_nonneg : ∀ (k : ℝ) (hk : 0 < k) (L : �
   (q : ↥(OQ7Prescribed.PlanarCurrentL2 L)), 0 ≤ (inner ℂ q ((OQ7Prescribed.planarActiveOutgoing k hk L hL h θ) q)).im
 OQ7Prescribed.planarActiveOutgoing_rotation_continuous : ∀ (k : ℝ) (hk : 0 < k) (L : ℝ) (hL : 0 ≤ L) (h : ℝ),
   Continuous fun θ => OQ7Prescribed.planarActiveOutgoing k hk L hL h θ
+OQ7Prescribed.planarActiveOutgoing_two_layer_current_coe : ∀ (k : ℝ) (hk : 0 < k) (h L : ℝ) (hh : 0 ≤ h) (hL : h ≤ L)
+  (θ : ℝ) (F : OQ7Prescribed.PlanarLayerField k 0 h) (G : OQ7Prescribed.PlanarLayerField k h L),
+  ↑↑↑((OQ7Prescribed.planarActiveOutgoing k hk L ⋯ h θ)
+            (OQ7Prescribed.planarLayerL2Current k 0 h L ⋯ hh hL F +
+              OQ7Prescribed.planarLayerL2Current k h L L hh hL ⋯ G)) =ᵐ[MeasureTheory.volume]
+    (Set.Icc 0 L).indicator fun z =>
+      if z < h then
+        k ^ 2 • OQ7Prescribed.scalarPlanarPotential k (↑↑↑(OQ7Prescribed.planarLayerL2Current k 0 h L ⋯ hh hL F)) z +
+          ↑(Real.cos θ) *
+            k ^ 2 • OQ7Prescribed.scalarPlanarPotential k (↑↑↑(OQ7Prescribed.planarLayerL2Current k h L L hh hL ⋯ G)) z
+      else
+        ↑(Real.cos θ) *
+            k ^ 2 •
+              OQ7Prescribed.scalarPlanarPotential k (↑↑↑(OQ7Prescribed.planarLayerL2Current k 0 h L ⋯ hh hL F)) z +
+          k ^ 2 • OQ7Prescribed.scalarPlanarPotential k (↑↑↑(OQ7Prescribed.planarLayerL2Current k h L L hh hL ⋯ G)) z
+OQ7Prescribed.planarActiveOutgoing_two_layer_current_eq : ∀ (k : ℝ) (hk : 0 < k) (h L : ℝ) (hh : 0 ≤ h) (hL : h ≤ L)
+  (θ : ℝ) (F : OQ7Prescribed.PlanarLayerField k 0 h) (G : OQ7Prescribed.PlanarLayerField k h L),
+  (OQ7Prescribed.planarActiveOutgoing k hk L ⋯ h θ)
+      (OQ7Prescribed.planarLayerL2Current k 0 h L ⋯ hh hL F + OQ7Prescribed.planarLayerL2Current k h L L hh hL ⋯ G) =
+    (OQ7Prescribed.planarLayerAxisMap L h 1 (Real.cos θ))
+        ((OQ7Prescribed.planarScalarOutgoing k hk L ⋯) (OQ7Prescribed.planarLayerL2Current k 0 h L ⋯ hh hL F)) +
+      (OQ7Prescribed.planarLayerAxisMap L h (Real.cos θ) 1)
+        ((OQ7Prescribed.planarScalarOutgoing k hk L ⋯) (OQ7Prescribed.planarLayerL2Current k h L L hh hL ⋯ G))
 OQ7Prescribed.planarGreen_indicator_integrable : ∀ (k a b z : ℝ) (q : ℝ → ℂ),
   ContinuousOn q (Set.Icc a b) →
     MeasureTheory.Integrable (fun t => OQ7Prescribed.planarScalarGreen k (z - t) * (Set.Ioc a b).indicator q t)
@@ -3756,10 +3904,33 @@ OQ7Prescribed.planarLayerAxisMap_adjoint : ∀ (L h a b : ℝ),
 OQ7Prescribed.planarLayerAxisMap_coe : ∀ (L h a b : ℝ) (q : ↥(OQ7Prescribed.PlanarCurrentL2 L)),
   ↑↑↑((OQ7Prescribed.planarLayerAxisMap L h a b) q) =ᵐ[MeasureTheory.volume] fun z =>
     if z < h then ↑a * ↑↑↑q z else ↑b * ↑↑↑q z
+OQ7Prescribed.planarLayerAxisMap_cos_sin_combination : ∀ (L h θ : ℝ) (q : ↥(OQ7Prescribed.PlanarCurrentL2 L)),
+  (OQ7Prescribed.planarLayerAxisMap L h (Real.cos θ) 1) q =
+    ↑(Real.cos θ) • (OQ7Prescribed.planarLayerAxisMap L h 1 (Real.cos θ)) q +
+      ↑(Real.sin θ) • (OQ7Prescribed.planarLayerAxisMap L h 0 (Real.sin θ)) q
+OQ7Prescribed.planarLayerAxisMap_first_current : ∀ (k h L : ℝ) (hh : 0 ≤ h) (hL : h ≤ L)
+  (F : OQ7Prescribed.PlanarLayerField k 0 h) (a b : ℝ),
+  (OQ7Prescribed.planarLayerAxisMap L h a b) (OQ7Prescribed.planarLayerL2Current k 0 h L ⋯ hh hL F) =
+    ↑a • OQ7Prescribed.planarLayerL2Current k 0 h L ⋯ hh hL F
 OQ7Prescribed.planarLayerAxisMap_norm_le : ∀ (L h a b : ℝ),
   |a| ≤ 1 → |b| ≤ 1 → ∀ (q : ↥(OQ7Prescribed.PlanarCurrentL2 L)), ‖(OQ7Prescribed.planarLayerAxisMap L h a b) q‖ ≤ ‖q‖
 OQ7Prescribed.planarLayerAxisMap_parameter_continuous : ∀ (L h : ℝ),
   Continuous fun p => OQ7Prescribed.planarLayerAxisMap L h p.1 p.2
+OQ7Prescribed.planarLayerAxisMap_second_current : ∀ (k h L : ℝ) (hh : 0 ≤ h) (hL : h ≤ L)
+  (F : OQ7Prescribed.PlanarLayerField k h L) (a b : ℝ),
+  (OQ7Prescribed.planarLayerAxisMap L h a b) (OQ7Prescribed.planarLayerL2Current k h L L hh hL ⋯ F) =
+    ↑b • OQ7Prescribed.planarLayerL2Current k h L L hh hL ⋯ F
+OQ7Prescribed.planarLayerL2Current_add : ∀ (k a b L : ℝ) (ha : 0 ≤ a) (hab : a ≤ b) (hb : b ≤ L)
+  (F G : OQ7Prescribed.PlanarLayerField k a b),
+  OQ7Prescribed.planarLayerL2Current k a b L ha hab hb (F.add G) =
+    OQ7Prescribed.planarLayerL2Current k a b L ha hab hb F + OQ7Prescribed.planarLayerL2Current k a b L ha hab hb G
+OQ7Prescribed.planarLayerL2Current_coe : ∀ (k a b L : ℝ) (ha : 0 ≤ a) (hab : a ≤ b) (hb : b ≤ L)
+  (F : OQ7Prescribed.PlanarLayerField k a b),
+  ↑↑↑(OQ7Prescribed.planarLayerL2Current k a b L ha hab hb F) =ᵐ[MeasureTheory.volume] (Set.Ioc a b).indicator F.current
+OQ7Prescribed.planarLayerL2Current_const_mul : ∀ (k a b L : ℝ) (ha : 0 ≤ a) (hab : a ≤ b) (hb : b ≤ L)
+  (F : OQ7Prescribed.PlanarLayerField k a b) (c : ℂ),
+  OQ7Prescribed.planarLayerL2Current k a b L ha hab hb (OQ7Prescribed.PlanarLayerField.const_mul c F) =
+    c • OQ7Prescribed.planarLayerL2Current k a b L ha hab hb F
 OQ7Prescribed.planarNormalizedAbsorption_continuous : ∀ (k : ℝ) (hk : 0 < k) (σ : OQ7Prescribed.Direction) (L : ℝ)
   (hL : 0 ≤ L) (h : ℝ) (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im),
   Continuous fun θ => OQ7Prescribed.planarNormalizedAbsorption k hk σ L hL h θ α β hα hβ
@@ -4484,6 +4655,31 @@ OQ7Prescribed.scalarPlanarPotential_integrand_integrable : ∀ (k : ℝ),
       MeasureTheory.Integrable q MeasureTheory.volume →
         ∀ (z : ℝ),
           MeasureTheory.Integrable (fun t => OQ7Prescribed.planarScalarGreen k (z - t) * q t) MeasureTheory.volume
+OQ7Prescribed.scalarPlanarPotential_layer_current : ∀ (k a b L : ℝ) (ha : 0 ≤ a) (hab : a ≤ b) (hb : b ≤ L)
+  (F : OQ7Prescribed.PlanarLayerField k a b) (z : ℝ),
+  OQ7Prescribed.scalarPlanarPotential k (↑↑↑(OQ7Prescribed.planarLayerL2Current k a b L ha hab hb F)) z =
+    ∫ (t : ℝ) in a..b, OQ7Prescribed.planarScalarGreen k (z - t) * F.current t
+OQ7Prescribed.scalarPlanarPotential_layer_exterior_left : ∀ (k a b L : ℝ),
+  k ≠ 0 →
+    ∀ (ha : 0 ≤ a) (hab : a ≤ b) (hb : b ≤ L) (F : OQ7Prescribed.PlanarLayerField k a b),
+      ∀ z ≤ a,
+        k ^ 2 • OQ7Prescribed.scalarPlanarPotential k (↑↑↑(OQ7Prescribed.planarLayerL2Current k a b L ha hab hb F)) z =
+          1 / 2 * OQ7Prescribed.apertureOscillation k (b - z) * (F.magnetic b - F.electric b) -
+            1 / 2 * OQ7Prescribed.apertureOscillation k (a - z) * (F.magnetic a - F.electric a)
+OQ7Prescribed.scalarPlanarPotential_layer_exterior_right : ∀ (k a b L : ℝ),
+  k ≠ 0 →
+    ∀ (ha : 0 ≤ a) (hab : a ≤ b) (hb : b ≤ L) (F : OQ7Prescribed.PlanarLayerField k a b) (z : ℝ),
+      b ≤ z →
+        k ^ 2 • OQ7Prescribed.scalarPlanarPotential k (↑↑↑(OQ7Prescribed.planarLayerL2Current k a b L ha hab hb F)) z =
+          1 / 2 * OQ7Prescribed.apertureOscillation k (z - b) * (F.magnetic b + F.electric b) -
+            1 / 2 * OQ7Prescribed.apertureOscillation k (z - a) * (F.magnetic a + F.electric a)
+OQ7Prescribed.scalarPlanarPotential_layer_interior : ∀ (k a b L : ℝ),
+  k ≠ 0 →
+    ∀ (ha : 0 ≤ a) (hab : a ≤ b) (hb : b ≤ L) (F : OQ7Prescribed.PlanarLayerField k a b),
+      ∀ z ∈ Set.Icc a b,
+        k ^ 2 • OQ7Prescribed.scalarPlanarPotential k (↑↑↑(OQ7Prescribed.planarLayerL2Current k a b L ha hab hb F)) z =
+          F.electric z - 1 / 2 * OQ7Prescribed.apertureOscillation k (z - a) * (F.magnetic a + F.electric a) +
+            1 / 2 * OQ7Prescribed.apertureOscillation k (b - z) * (F.magnetic b - F.electric b)
 OQ7Prescribed.scalarPlanarPotential_norm_bound : ∀ (k : ℝ),
   0 < k →
     ∀ (q : ℝ → ℂ),
@@ -4491,6 +4687,18 @@ OQ7Prescribed.scalarPlanarPotential_norm_bound : ∀ (k : ℝ),
         ∀ (z : ℝ), ‖OQ7Prescribed.scalarPlanarPotential k q z‖ ≤ 1 / (2 * k) * ∫ (t : ℝ), ‖q t‖
 OQ7Prescribed.scalarPlanarPotential_smul : ∀ (k : ℝ) (q : ℝ → ℂ) (a : ℂ),
   (OQ7Prescribed.scalarPlanarPotential k fun t => a * q t) = fun z => a * OQ7Prescribed.scalarPlanarPotential k q z
+OQ7Prescribed.scalarPlanarPotential_supported_add : ∀ (k : ℝ),
+  0 < k →
+    ∀ (L : ℝ),
+      0 ≤ L →
+        ∀ (q r : ↥(OQ7Prescribed.PlanarCurrentL2 L)) (z : ℝ),
+          k ^ 2 • OQ7Prescribed.scalarPlanarPotential k (↑↑↑(q + r)) z =
+            k ^ 2 • OQ7Prescribed.scalarPlanarPotential k (↑↑↑q) z +
+              k ^ 2 • OQ7Prescribed.scalarPlanarPotential k (↑↑↑r) z
+OQ7Prescribed.scalarPlanarPotential_supported_smul : ∀ (k L : ℝ) (q : ↥(OQ7Prescribed.PlanarCurrentL2 L)) (c : ℂ)
+  (z : ℝ),
+  k ^ 2 • OQ7Prescribed.scalarPlanarPotential k (↑↑↑(c • q)) z =
+    c * k ^ 2 • OQ7Prescribed.scalarPlanarPotential k (↑↑↑q) z
 OQ7Prescribed.scalarPlanarPotential_twoLayer_representation : ∀ (k h L z : ℝ),
   k ≠ 0 →
     ∀ (hh : 0 ≤ h) (hL : h ≤ L),
@@ -4753,6 +4961,11 @@ OQ7Prescribed.slabCoordinateEquiv_measurePreserving : MeasureTheory.MeasurePrese
   (⇑OQ7Prescribed.slabCoordinateEquiv) MeasureTheory.volume MeasureTheory.volume
 OQ7Prescribed.slabCoordinateEquiv_symm_apply : ∀ (x : OQ7Prescribed.Position),
   OQ7Prescribed.slabCoordinateEquiv.symm x = (OQ7Prescribed.slabHorizontalCoordinate x, x.ofLp 2)
+OQ7Prescribed.slabFeedback_ne_zero : ∀ (k : ℝ),
+  0 < k →
+    ∀ (A W : OQ7.HomogeneousLayer),
+      1 ≤ A.p →
+        0 ≤ A.q → 0 ≤ A.width → 1 ≤ W.p → 0 ≤ W.q → 0 ≤ W.width → ∀ (θ : ℝ), OQ7Prescribed.slabFeedback k A W θ ≠ 0
 OQ7Prescribed.slabGreen_locallyIntegrable : ∀ (k z : ℝ),
   MeasureTheory.LocallyIntegrable (OQ7Prescribed.slabGreen k z) MeasureTheory.volume
 OQ7Prescribed.slabGreen_measurable : ∀ (k z : ℝ), Measurable (OQ7Prescribed.slabGreen k z)
@@ -4794,6 +5007,13 @@ OQ7Prescribed.slabLiftPolarization_smooth_current : ∀ (w : ℂ → ℂ) (hw : 
   (OQ7Prescribed.slabLiftPolarization w hw A M hAM hA u
         (OQ7Prescribed.heightSmoothElement M f hf hc hs)).current =ᵐ[MeasureTheory.volume]
     fun x => OQ7Prescribed.slabSeparatedFunction w f x • OQ7Prescribed.complexify (OQ7Prescribed.slabPosition u 0)
+OQ7Prescribed.slabMinusAmplitudes_feedback : ∀ (k : ℝ) (A W : OQ7.HomogeneousLayer) (θ : ℝ),
+  OQ7Prescribed.slabFeedback k A W θ ≠ 0 →
+    OQ7Prescribed.slabMinusAbsorberAmplitude k A W θ =
+      ↑(Real.cos θ) *
+        ((OQ7Prescribed.dielectricSlabTransmission k W.p W.q W.width - OQ7Prescribed.apertureOscillation k W.width) *
+            OQ7Prescribed.slabMinusRightAmplitude k A W +
+          OQ7Prescribed.dielectricSlabReflection k W.p W.q W.width * OQ7Prescribed.slabMinusPlateLeftAmplitude k A W θ)
 OQ7Prescribed.slabObservationRegion_compact : ∀ (r L : ℝ), IsCompact (OQ7Prescribed.slabObservationRegion r L)
 OQ7Prescribed.slabObservationRegion_measurable : ∀ (r L : ℝ), MeasurableSet (OQ7Prescribed.slabObservationRegion r L)
 OQ7Prescribed.slabObservationRegion_mem_iff : ∀ (r L : ℝ) (x : OQ7Prescribed.Position),
@@ -4829,6 +5049,12 @@ OQ7Prescribed.slabPlanarMap_coe : ∀ (k : ℝ) (hk : 0 < k) (w : ℂ → ℂ) (
   ↑↑((OQ7Prescribed.slabPlanarMap k hk w hw M r L hM hL u v) q) =ᵐ[MeasureTheory.volume]
     (OQ7Prescribed.slabObservationRegion r L).indicator fun x =>
       OQ7Prescribed.planarSlabTransverse k w (↑↑↑q) (OQ7Prescribed.slabHorizontalCoordinate x) (x.ofLp 2) u v
+OQ7Prescribed.slabPlusAmplitudes_feedback : ∀ (k : ℝ) (A W : OQ7.HomogeneousLayer) (θ : ℝ),
+  OQ7Prescribed.slabFeedback k A W θ ≠ 0 →
+    OQ7Prescribed.slabPlusPlateAmplitude k A W θ =
+      OQ7Prescribed.apertureOscillation k A.width +
+        ↑(Real.cos θ) * OQ7Prescribed.dielectricSlabReflection k A.p A.q A.width *
+          OQ7Prescribed.slabPlusAbsorberAmplitude k A W θ
 OQ7Prescribed.slabPolar_integrable : ∀ (f : ℂ → ℂ),
   Measurable f →
     MeasureTheory.Integrable f MeasureTheory.volume →

@@ -78,7 +78,8 @@ try {
         @{ name = 'planar-matched-layer-green'; module = 'PrescribedExtinction.PlanarLayerIncoming' },
         @{ name = 'planar-lossless-plate'; module = 'PrescribedExtinction.PlanarPlateJones' },
         @{ name = 'planar-absorber-design'; module = 'PrescribedExtinction.PlanarSlabGreenField' },
-        @{ name = 'physical-uniform-aperture-asymmetry'; module = 'PrescribedExtinction.UniformPhysicalAsymmetry' }
+        @{ name = 'physical-uniform-aperture-asymmetry'; module = 'PrescribedExtinction.UniformPhysicalAsymmetry' },
+        @{ name = 'planar-coupled-green'; module = 'PrescribedExtinction.PlanarCoupledGreen' }
     )
     if ($Only) {
         foreach ($oq7Name in $Only) {

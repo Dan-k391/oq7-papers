@@ -1,0 +1,69 @@
+OQ7Prescribed.dielectricSlabLeftAt_Green_interior (k : ℝ) (hk : 0 < k) (p q a b L : ℝ) (hp : 1 ≤ p) (hq : 0 ≤ q)
+  (ha : 0 ≤ a) (hab : a ≤ b) (hb : b ≤ L) (z : ℝ) (hz : z ∈ Set.Icc a b) :
+  k ^ 2 •
+      OQ7Prescribed.scalarPlanarPotential k
+        (↑↑↑(OQ7Prescribed.planarLayerL2Current k a b L ha hab hb (OQ7Prescribed.dielectricSlabLeftAt k p q a b hp)))
+        z =
+    (OQ7Prescribed.dielectricSlabLeftAt k p q a b hp).electric z - OQ7Prescribed.apertureOscillation k (z - a)
+OQ7Prescribed.dielectricSlabRightAt_Green_interior (k : ℝ) (hk : 0 < k) (p q a b L : ℝ) (hp : 1 ≤ p) (hq : 0 ≤ q)
+  (ha : 0 ≤ a) (hab : a ≤ b) (hb : b ≤ L) (z : ℝ) (hz : z ∈ Set.Icc a b) :
+  k ^ 2 •
+      OQ7Prescribed.scalarPlanarPotential k
+        (↑↑↑(OQ7Prescribed.planarLayerL2Current k a b L ha hab hb (OQ7Prescribed.dielectricSlabRightAt k p q a b hp)))
+        z =
+    (OQ7Prescribed.dielectricSlabRightAt k p q a b hp).electric z - OQ7Prescribed.apertureOscillation k (b - z)
+OQ7Prescribed.dielectricSlabLeftAt_Green_exterior_right (k : ℝ) (hk : 0 < k) (p q a b L : ℝ) (hp : 1 ≤ p) (hq : 0 ≤ q)
+  (ha : 0 ≤ a) (hab : a ≤ b) (hb : b ≤ L) (z : ℝ) (hz : b ≤ z) :
+  k ^ 2 •
+      OQ7Prescribed.scalarPlanarPotential k
+        (↑↑↑(OQ7Prescribed.planarLayerL2Current k a b L ha hab hb (OQ7Prescribed.dielectricSlabLeftAt k p q a b hp)))
+        z =
+    (OQ7Prescribed.dielectricSlabTransmission k p q (b - a) - OQ7Prescribed.apertureOscillation k (b - a)) *
+      OQ7Prescribed.apertureOscillation k (z - b)
+OQ7Prescribed.dielectricSlabRightAt_Green_exterior_left (k : ℝ) (hk : 0 < k) (p q a b L : ℝ) (hp : 1 ≤ p) (hq : 0 ≤ q)
+  (ha : 0 ≤ a) (hab : a ≤ b) (hb : b ≤ L) (z : ℝ) (hz : z ≤ a) :
+  k ^ 2 •
+      OQ7Prescribed.scalarPlanarPotential k
+        (↑↑↑(OQ7Prescribed.planarLayerL2Current k a b L ha hab hb (OQ7Prescribed.dielectricSlabRightAt k p q a b hp)))
+        z =
+    (OQ7Prescribed.dielectricSlabTransmission k p q (b - a) - OQ7Prescribed.apertureOscillation k (b - a)) *
+      OQ7Prescribed.apertureOscillation k (a - z)
+OQ7Prescribed.planarActiveOutgoing_two_layer_current_coe (k : ℝ) (hk : 0 < k) (h L : ℝ) (hh : 0 ≤ h) (hL : h ≤ L)
+  (θ : ℝ) (F : OQ7Prescribed.PlanarLayerField k 0 h) (G : OQ7Prescribed.PlanarLayerField k h L) :
+  ↑↑↑((OQ7Prescribed.planarActiveOutgoing k hk L ⋯ h θ)
+            (OQ7Prescribed.planarLayerL2Current k 0 h L ⋯ hh hL F +
+              OQ7Prescribed.planarLayerL2Current k h L L hh hL ⋯ G)) =ᵐ[MeasureTheory.volume]
+    (Set.Icc 0 L).indicator fun z =>
+      if z < h then
+        k ^ 2 • OQ7Prescribed.scalarPlanarPotential k (↑↑↑(OQ7Prescribed.planarLayerL2Current k 0 h L ⋯ hh hL F)) z +
+          ↑(Real.cos θ) *
+            k ^ 2 • OQ7Prescribed.scalarPlanarPotential k (↑↑↑(OQ7Prescribed.planarLayerL2Current k h L L hh hL ⋯ G)) z
+      else
+        ↑(Real.cos θ) *
+            k ^ 2 •
+              OQ7Prescribed.scalarPlanarPotential k (↑↑↑(OQ7Prescribed.planarLayerL2Current k 0 h L ⋯ hh hL F)) z +
+          k ^ 2 • OQ7Prescribed.scalarPlanarPotential k (↑↑↑(OQ7Prescribed.planarLayerL2Current k h L L hh hL ⋯ G)) z
+OQ7Prescribed.slabFeedback_ne_zero (k : ℝ) (hk : 0 < k) (A W : OQ7.HomogeneousLayer) (hpA : 1 ≤ A.p) (hqA : 0 ≤ A.q)
+  (hdA : 0 ≤ A.width) (hpW : 1 ≤ W.p) (hqW : 0 ≤ W.q) (hdW : 0 ≤ W.width) (θ : ℝ) :
+  OQ7Prescribed.slabFeedback k A W θ ≠ 0
+OQ7Prescribed.slabPlusAmplitudes_feedback (k : ℝ) (A W : OQ7.HomogeneousLayer) (θ : ℝ)
+  (hD : OQ7Prescribed.slabFeedback k A W θ ≠ 0) :
+  OQ7Prescribed.slabPlusPlateAmplitude k A W θ =
+    OQ7Prescribed.apertureOscillation k A.width +
+      ↑(Real.cos θ) * OQ7Prescribed.dielectricSlabReflection k A.p A.q A.width *
+        OQ7Prescribed.slabPlusAbsorberAmplitude k A W θ
+OQ7Prescribed.slabMinusAmplitudes_feedback (k : ℝ) (A W : OQ7.HomogeneousLayer) (θ : ℝ)
+  (hD : OQ7Prescribed.slabFeedback k A W θ ≠ 0) :
+  OQ7Prescribed.slabMinusAbsorberAmplitude k A W θ =
+    ↑(Real.cos θ) *
+      ((OQ7Prescribed.dielectricSlabTransmission k W.p W.q W.width - OQ7Prescribed.apertureOscillation k W.width) *
+          OQ7Prescribed.slabMinusRightAmplitude k A W +
+        OQ7Prescribed.dielectricSlabReflection k W.p W.q W.width * OQ7Prescribed.slabMinusPlateLeftAmplitude k A W θ)
+'OQ7Prescribed.dielectricSlabLeftAt_Green_interior' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.dielectricSlabRightAt_Green_interior' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.dielectricSlabLeftAt_Green_exterior_right' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.dielectricSlabRightAt_Green_exterior_left' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.planarActiveOutgoing_two_layer_current_coe' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.slabFeedback_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.slabPlusAmplitudes_feedback' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.slabMinusAmplitudes_feedback' depends on axioms: [propext, Classical.choice, Quot.sound]

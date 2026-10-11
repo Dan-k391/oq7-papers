@@ -419,6 +419,14 @@ run_cmd do
         'OQ7Prescribed.planarNormalizedDrive_norm',
         'OQ7Prescribed.physicalBody_normalized_response_uniform_aperture_localization',
         'OQ7Prescribed.exists_plateDesign_within_cap',
+        'OQ7Prescribed.dielectricSlabLeftAt_Green_interior',
+        'OQ7Prescribed.dielectricSlabRightAt_Green_interior',
+        'OQ7Prescribed.dielectricSlabLeftAt_Green_exterior_right',
+        'OQ7Prescribed.dielectricSlabRightAt_Green_exterior_left',
+        'OQ7Prescribed.planarActiveOutgoing_two_layer_current_coe',
+        'OQ7Prescribed.slabFeedback_ne_zero',
+        'OQ7Prescribed.slabPlusAmplitudes_feedback',
+        'OQ7Prescribed.slabMinusAmplitudes_feedback',
         'OQ7Prescribed.planarNormalizedExtinction_reciprocity',
         'OQ7Prescribed.planarNormalizedAsymmetry_continuous',
         'OQ7Prescribed.planarNormalizedAsymmetry_lt_one',
@@ -552,6 +560,9 @@ run_cmd do
         physicalFiniteAbsorberWithinLossCapArbitrarilyNearPerfectVerified = $true
         physicalOriginalAsymmetryUniformApertureLocalizationOnCompactAnglesVerified = $true
         physicalPlanarCommonNormalizedExtinctionAndStrictAsymmetryVerified = $true
+        physicalPlanarSlabBothIncidenceGreenChannelsVerified = $true
+        physicalPlanarActualRotatingAxisCrossLayerGreenCouplingVerified = $true
+        physicalPlanarPassiveSlabFeedbackDenominatorNonzeroVerified = $true
         physicalAbsorberTransferAndActualPlanarGreenEquationVerified = $true
         physicalPlanarLayerRepresentationScope = 'Exact homogeneous-layer Maxwell derivatives, weighted moments, actual supported L2 currents, matched two-layer scalar Green operator and both original plane-wave incoming equations'
         planarGreenPositiveImaginaryWorkIdentityVerified = $true
