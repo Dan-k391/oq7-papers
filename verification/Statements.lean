@@ -688,8 +688,10 @@ import PrescribedExtinction
 #check @OQ7Prescribed.normalizedIncidentDrive_norm
 #check @OQ7Prescribed.normalizedIncidentDrive_separated
 #check @OQ7Prescribed.normalizedIncidentDrive_window_mismatch_norm
+#check @OQ7Prescribed.normalizedPowerRatio_error_bound
 #check @OQ7Prescribed.normalizedRotationAsymmetry_continuous
 #check @OQ7Prescribed.normalizedRotationAsymmetry_lt_one
+#check @OQ7Prescribed.normalizedRotationAsymmetry_scaled
 #check @OQ7Prescribed.orthogonalSphere_cone_preimage
 #check @OQ7Prescribed.orthogonalSphere_measurePreserving
 #check @OQ7Prescribed.outgoing_classical_hessian
@@ -770,6 +772,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.physicalAbsorption_current_inner
 #check @OQ7Prescribed.physicalAbsorption_sine_squared_factorization
 #check @OQ7Prescribed.physicalAsymmetry_normalized_factorization
+#check @OQ7Prescribed.physicalBody_normalized_asymmetry_uniform_aperture_localization
 #check @OQ7Prescribed.physicalBody_normalized_powers_uniform_aperture_localization
 #check @OQ7Prescribed.physicalBody_normalized_response_uniform_aperture_localization
 #check @OQ7Prescribed.physicalBody_normalized_vector_current_uniform_aperture_localization
@@ -783,6 +786,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.physicalPolarization_indicator
 #check @OQ7Prescribed.physicalPolarization_memLp
 #check @OQ7Prescribed.physicalPolarization_vanish
+#check @OQ7Prescribed.physicalRankOne_original_asymmetry_uniform_aperture_localization
 #check @OQ7Prescribed.physicalRankOne_original_powers_uniform_aperture_localization
 #check @OQ7Prescribed.physicalScattering_sine_squared_factorization
 #check @OQ7Prescribed.physicalScatteringState_exists
@@ -829,7 +833,11 @@ import PrescribedExtinction
 #check @OQ7Prescribed.planarLayerAxisMap_coe
 #check @OQ7Prescribed.planarLayerAxisMap_norm_le
 #check @OQ7Prescribed.planarLayerAxisMap_parameter_continuous
+#check @OQ7Prescribed.planarNormalizedAbsorption_continuous
+#check @OQ7Prescribed.planarNormalizedAbsorption_le_extinction
 #check @OQ7Prescribed.planarNormalizedAbsorption_pos
+#check @OQ7Prescribed.planarNormalizedAsymmetry_continuous
+#check @OQ7Prescribed.planarNormalizedAsymmetry_lt_one
 #check @OQ7Prescribed.planarNormalizedDrive_coe
 #check @OQ7Prescribed.planarNormalizedDrive_ne_zero
 #check @OQ7Prescribed.planarNormalizedDrive_norm
@@ -837,6 +845,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.planarNormalizedExtinction_compact_lower_bound
 #check @OQ7Prescribed.planarNormalizedExtinction_continuous
 #check @OQ7Prescribed.planarNormalizedExtinction_pos
+#check @OQ7Prescribed.planarNormalizedExtinction_reciprocity
 #check @OQ7Prescribed.planarNormalizedExtinction_work_balance
 #check @OQ7Prescribed.planarNormalizedResponse_continuous
 #check @OQ7Prescribed.planarNormalizedResponse_equation
@@ -998,6 +1007,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.scaledApertureWindow_support_square
 #check @OQ7Prescribed.scaledOutgoingPhase_plane_error
 #check @OQ7Prescribed.scaledOutgoingRadial
+#check @OQ7Prescribed.scaledPower_error_bound
 #check @OQ7Prescribed.scaledSlabApertureDifference_coe
 #check @OQ7Prescribed.scaledSlabApertureDifference_smooth_bound
 #check @OQ7Prescribed.scaledSlabPolarization_current_ae

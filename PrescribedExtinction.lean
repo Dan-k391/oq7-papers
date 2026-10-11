@@ -228,3 +228,6 @@ import PrescribedExtinction.PlanarSlabThickLimit
 import PrescribedExtinction.PlanarDielectricIndex
 import PrescribedExtinction.PlanarAbsorberDesign
 import PrescribedExtinction.PlanarSlabGreenField
+import PrescribedExtinction.PlanarRotationPowers
+import PrescribedExtinction.PowerRatioEstimate
+import PrescribedExtinction.UniformPhysicalAsymmetry

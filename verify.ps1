@@ -419,6 +419,11 @@ run_cmd do
         'OQ7Prescribed.planarNormalizedDrive_norm',
         'OQ7Prescribed.physicalBody_normalized_response_uniform_aperture_localization',
         'OQ7Prescribed.exists_plateDesign_within_cap',
+        'OQ7Prescribed.planarNormalizedExtinction_reciprocity',
+        'OQ7Prescribed.planarNormalizedAsymmetry_continuous',
+        'OQ7Prescribed.planarNormalizedAsymmetry_lt_one',
+        'OQ7Prescribed.physicalBody_normalized_asymmetry_uniform_aperture_localization',
+        'OQ7Prescribed.physicalRankOne_original_asymmetry_uniform_aperture_localization',
         'OQ7Prescribed.exists_nearlyPerfect_absorber_with_loss_cap',
         'OQ7Prescribed.dielectricSlab_absorptance_strict_bounds',
         'OQ7Prescribed.dielectricSlabLeftCurrent_Green_equation',
@@ -545,6 +550,8 @@ run_cmd do
         physicalPlanarMatchedLayerGreenRepresentationVerified = $true
         physicalLosslessPlateCapAndExactCartesianBoundaryTransformationVerified = $true
         physicalFiniteAbsorberWithinLossCapArbitrarilyNearPerfectVerified = $true
+        physicalOriginalAsymmetryUniformApertureLocalizationOnCompactAnglesVerified = $true
+        physicalPlanarCommonNormalizedExtinctionAndStrictAsymmetryVerified = $true
         physicalAbsorberTransferAndActualPlanarGreenEquationVerified = $true
         physicalPlanarLayerRepresentationScope = 'Exact homogeneous-layer Maxwell derivatives, weighted moments, actual supported L2 currents, matched two-layer scalar Green operator and both original plane-wave incoming equations'
         planarGreenPositiveImaginaryWorkIdentityVerified = $true
@@ -628,7 +635,7 @@ run_cmd do
         )
         unverifiedDependencies = @('Uniqueness of arbitrary physical outgoing Maxwell states',
             'Converse outgoing volume representation',
-            'Transfer of normalized power localization to physical asymmetry and exact extinction brackets',
+            'Physical exact extinction brackets',
             'Planar construction and normalized zero-angle / zero-plate-loss limits',
             'First exact-extinction bracket and physical continuity',
             'Positive-loss perturbation of solutions and second exact-extinction bracket',

@@ -1,0 +1,54 @@
+OQ7Prescribed.planarNormalizedExtinction_reciprocity (k : ℝ) (hk : 0 < k) (h d : ℝ) (hh : 0 < h) (hd : 0 < d) (θ : ℝ)
+  (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im) :
+  OQ7Prescribed.planarNormalizedExtinction k hk OQ7Prescribed.Direction.plus (h + d) ⋯ h θ α β hα hβ =
+    OQ7Prescribed.planarNormalizedExtinction k hk OQ7Prescribed.Direction.minus (h + d) ⋯ h θ α β hα hβ
+OQ7Prescribed.planarNormalizedAbsorption_continuous (k : ℝ) (hk : 0 < k) (σ : OQ7Prescribed.Direction) (L : ℝ)
+  (hL : 0 ≤ L) (h : ℝ) (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im) :
+  Continuous fun θ => OQ7Prescribed.planarNormalizedAbsorption k hk σ L hL h θ α β hα hβ
+OQ7Prescribed.planarNormalizedAsymmetry_continuous (k : ℝ) (hk : 0 < k) (L : ℝ) (hL : 0 ≤ L) (h : ℝ) (hh : 0 ≤ h)
+  (hplate : h < L) (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im) :
+  Continuous fun θ => OQ7Prescribed.planarNormalizedAsymmetry k hk L hL h θ α β hα hβ
+OQ7Prescribed.planarNormalizedAsymmetry_lt_one (k : ℝ) (hk : 0 < k) (h d : ℝ) (hh : 0 < h) (hd : 0 < d) (θ : ℝ)
+  (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im) : OQ7Prescribed.planarNormalizedAsymmetry k hk (h + d) ⋯ h θ α β hα hβ < 1
+OQ7Prescribed.physicalBody_normalized_asymmetry_uniform_aperture_localization (k : ℝ) (hk : 0 < k) (h d : ℝ)
+  (hh : 0 < h) (hd : 0 < d) (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im) (s : Set ℝ) (hs : IsCompact s) (ε : ℝ)
+  (hε : 0 < ε) :
+  ∃ R0,
+    1 ≤ R0 ∧
+      ∀ (B : OQ7Prescribed.TwoLayerBody),
+        B.absorberThickness = h →
+          B.plateThickness = d →
+            R0 ≤ B.aperture →
+              ∀ θ ∈ s,
+                |OQ7Prescribed.normalizedRotationAsymmetry k hk B θ α β hα hβ -
+                      OQ7Prescribed.planarNormalizedAsymmetry k hk (B.absorberThickness + B.plateThickness) ⋯
+                        B.absorberThickness θ α β hα hβ| ≤
+                  ε
+OQ7Prescribed.physicalRankOne_original_asymmetry_uniform_aperture_localization (k : ℝ) (hk : 0 < k) (h d : ℝ)
+  (hh : 0 < h) (hd : 0 < d) (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im) (s : Set ℝ) (hs : IsCompact s) (ε : ℝ)
+  (hε : 0 < ε) :
+  ∃ R0,
+    1 ≤ R0 ∧
+      ∀ (B : OQ7Prescribed.TwoLayerBody),
+        B.absorberThickness = h →
+          B.plateThickness = d →
+            R0 ≤ B.aperture →
+              ∀ θ ∈ s,
+                Real.sin θ ≠ 0 →
+                  |OQ7Prescribed.normalizedAsymmetry k
+                          (OQ7Prescribed.rankOneBody B (OQ7Prescribed.basisR 0) (OQ7Prescribed.rotatedAxis θ) α β)
+                          (OQ7Prescribed.rankOnePhysicalElectric k hk B OQ7Prescribed.Direction.plus θ α β hα hβ)
+                          (OQ7Prescribed.rankOnePhysicalElectric k hk B OQ7Prescribed.Direction.minus θ α β hα hβ) -
+                        OQ7Prescribed.planarNormalizedAsymmetry k hk (B.absorberThickness + B.plateThickness) ⋯
+                          B.absorberThickness θ α β hα hβ| ≤
+                    ε
+'OQ7Prescribed.planarNormalizedExtinction_reciprocity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.planarNormalizedAbsorption_continuous' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.planarNormalizedAsymmetry_continuous' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.planarNormalizedAsymmetry_lt_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.physicalBody_normalized_asymmetry_uniform_aperture_localization' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OQ7Prescribed.physicalRankOne_original_asymmetry_uniform_aperture_localization' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
