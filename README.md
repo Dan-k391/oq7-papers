@@ -2,17 +2,19 @@
 
 **Theorem 1.1 has not been kernel-verified. No final proof declaration exists.**
 
-The latest working continuation closes the **physical outgoing contact identity,
-actual compact-current volume operator identification and bounded compact-domain
-L² realization**, and the **scalar and compact-current Helmholtz equations**.
-See [OUTGOING.md](OUTGOING.md). This supersedes the outgoing-kernel gaps described
-in the historical paragraphs and correspondence table below. Magnetic-field
-regularity, physical scattering, localization and the prescribed-extinction
-construction remain unverified.
+The continuation proves the **physical static and outgoing volume operator
+identifications**, the **full contact identity**, and **actual global locally-L²
+source fields satisfying both physical weak curls and the full uniform
+Silver–Müller radiation condition** for every compact L² polarization.
+The exterior convolutions are rigorously identified with the global source
+representatives. See [OUTGOING.md](OUTGOING.md) for declarations and evidence.
+Material scattering solvability and uniqueness, radiation power identities,
+uniform aperture localization, and the prescribed-extinction construction
+remain unverified. These are required before Theorem 1.1 can be proved.
 
-The latest continuation kernel-verifies the **physical Newton volume operator identity with `staticFourierOperator` for every compactly supported vector L² current**, retaining the full contact Hessian and providing a bounded physical L² realization. See [STATIC.md](STATIC.md) for exact declarations and evidence. The earlier kernel Fourier milestone is recorded in [FOURIER.md](FOURIER.md); its former current-operator gaps are now closed. Apart from the documented smooth-test annotation correction in Maxwell.lean, every Lean module from commits `6874b492e8d49d2303bb25aa12248b489c9ad13a` and `8301dda82eaf84611a4a40982f77dc2787b16861` is preserved byte for byte. The full outgoing dyadic operator and physical Theorem 1.1 remain PARTIAL.
+The physical Newton volume operator equals `staticFourierOperator` for every compactly supported vector L² current, retaining the full contact Hessian. See [STATIC.md](STATIC.md) and [FOURIER.md](FOURIER.md). Apart from the documented smooth-test annotation correction in Maxwell.lean, every Lean module from commits `6874b492e8d49d2303bb25aa12248b489c9ad13a` and `8301dda82eaf84611a4a40982f77dc2787b16861` is preserved byte for byte.
 
-The existing library and theorem quantifiers are preserved; the smooth-test annotation correction is documented below. Earlier milestones include actual outgoing/Newton classical Hessians, a dynamic-minus-static kernel estimate and actual remainder convolution bounds on compact domains, scalar distributions, convolution and static Fourier results. **The full physical dyadic operator and the positive-frequency outgoing contact identity remain unverified.** [CONTACT_IDENTITY.md](CONTACT_IDENTITY.md), [CONTACT.md](CONTACT.md), [DYADIC.md](DYADIC.md) and [FOUNDATIONS.md](FOUNDATIONS.md) preserve historical milestones; their former Newton-contact and kernel-Fourier gaps are closed by the latest source. No conditional substitute is advertised as Theorem 1.1.
+The existing library and theorem quantifiers are preserved; the smooth-test annotation correction is documented below. [CONTACT_IDENTITY.md](CONTACT_IDENTITY.md), [CONTACT.md](CONTACT.md), [DYADIC.md](DYADIC.md), [FOUNDATIONS.md](FOUNDATIONS.md), and the correspondence table below preserve historical milestones; their former contact and outgoing-source gaps are closed by the latest source. No conditional substitute is advertised as Theorem 1.1.
 
 `OQ7Prescribed.Theorem11Statement : Prop` is a **definition of an unproved proposition**, not a theorem. Its `#print axioms` output audits the definition's dependencies. It does not certify that the proposition is true.
 

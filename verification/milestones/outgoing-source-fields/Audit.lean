@@ -1,0 +1,7 @@
+import PrescribedExtinction.OutgoingSourceFields
+#check @OQ7Prescribed.magneticExterior_eq_pointwise_far
+#print axioms OQ7Prescribed.magneticExterior_eq_pointwise_far
+#check @OQ7Prescribed.outgoingElectricField_eq_ae
+#print axioms OQ7Prescribed.outgoingElectricField_eq_ae
+#check @OQ7Prescribed.outgoingPhysicalSourceFields
+#print axioms OQ7Prescribed.outgoingPhysicalSourceFields

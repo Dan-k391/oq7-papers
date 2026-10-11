@@ -169,7 +169,9 @@ import PrescribedExtinction
 #check @OQ7Prescribed.gradient_current_pairing_integrand_cutoff
 #check @OQ7Prescribed.gradient_current_test_joint_integrable
 #check @OQ7Prescribed.gradientPotential_ae_integrable_on_compact
+#check @OQ7Prescribed.gradientPotential_component_integral_far
 #check @OQ7Prescribed.gradientPotential_eq_cutoff
+#check @OQ7Prescribed.gradientPotential_integrable_far
 #check @OQ7Prescribed.gradientPotential_integrand_cutoff
 #check @OQ7Prescribed.gradientPotential_locallyIntegrable
 #check @OQ7Prescribed.gradientPotential_memLp_on_compact
@@ -182,6 +184,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.greenCancellationEnvelope_nonneg
 #check @OQ7Prescribed.greenHessian_apply
 #check @OQ7Prescribed.greenHessian_eq_static_add_dynamic
+#check @OQ7Prescribed.HasWeakCurl.congr_ae
 #check @OQ7Prescribed.HasWeakCurl.implies_analyticTestWeakCurl
 #check @OQ7Prescribed.incident_absorber_coupling
 #check @OQ7Prescribed.incident_plate_coupling
@@ -201,6 +204,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.layerPermittivity_admissible
 #check @OQ7Prescribed.layerPermittivity_reciprocal
 #check @OQ7Prescribed.locallySquareIntegrable_locallyIntegrable
+#check @OQ7Prescribed.magneticExterior_eq_pointwise_far
 #check @OQ7Prescribed.magneticVolumeField_distribution
 #check @OQ7Prescribed.magneticVolumeField_locallySquareIntegrable
 #check @OQ7Prescribed.newton_classical_hessian
@@ -345,10 +349,13 @@ import PrescribedExtinction
 #check @OQ7Prescribed.outgoing_dyadic_contact_identity
 #check @OQ7Prescribed.outgoing_helmholtz_fundamental_apply
 #check @OQ7Prescribed.outgoing_helmholtz_fundamental_distribution
+#check @OQ7Prescribed.outgoingElectricField_eq_ae
+#check @OQ7Prescribed.outgoingElectricField_locallySquareIntegrable
 #check @OQ7Prescribed.outgoingGradient_eq_static_add_dynamic
 #check @OQ7Prescribed.outgoingGradient_hasLineDerivAt
 #check @OQ7Prescribed.outgoingGradient_locallyIntegrable
 #check @OQ7Prescribed.outgoingGradient_measurable
+#check @OQ7Prescribed.outgoingGradient_norm_le_far
 #check @OQ7Prescribed.outgoingGradient_zero_locallyIntegrable
 #check @OQ7Prescribed.outgoingGradient_zero_norm_le
 #check @OQ7Prescribed.outgoingGreen_contDiffAt
@@ -364,6 +371,8 @@ import PrescribedExtinction
 #check @OQ7Prescribed.outgoingGreen_zero_eq_newton
 #check @OQ7Prescribed.outgoingGreenDistribution_apply
 #check @OQ7Prescribed.outgoingMagneticDistribution_second_curl
+#check @OQ7Prescribed.outgoingMagneticField_locallySquareIntegrable
+#check @OQ7Prescribed.outgoingPhysicalSourceFields
 #check @OQ7Prescribed.outgoingPotential_add
 #check @OQ7Prescribed.outgoingPotential_aestronglyMeasurable
 #check @OQ7Prescribed.outgoingPotential_component_integral
@@ -382,6 +391,9 @@ import PrescribedExtinction
 #check @OQ7Prescribed.outgoingRadialFirst_hasDerivAt
 #check @OQ7Prescribed.outgoingRadialFirst_sub_static
 #check @OQ7Prescribed.outgoingRadialFirst_sub_static_norm_le
+#check @OQ7Prescribed.outgoingSourceFields_first_weakCurl
+#check @OQ7Prescribed.outgoingSourceFields_outgoing
+#check @OQ7Prescribed.outgoingSourceFields_second_weakCurl
 #check @OQ7Prescribed.outgoingVolumeDistribution_add
 #check @OQ7Prescribed.outgoingVolumeDistribution_apply
 #check @OQ7Prescribed.outgoingVolumeDistribution_curl

@@ -66,3 +66,4 @@ import PrescribedExtinction.RadiationKernel
 import PrescribedExtinction.ExteriorOutgoing
 import PrescribedExtinction.ExteriorKernelTests
 import PrescribedExtinction.ExteriorCurrentIdentification
+import PrescribedExtinction.OutgoingSourceFields
