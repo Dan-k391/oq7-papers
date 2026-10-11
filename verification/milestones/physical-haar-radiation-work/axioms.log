@@ -1,0 +1,46 @@
+OQ7Prescribed.exterior_poynting_farField_error (k : ℝ) (p : OQ7Prescribed.CompactPolarization)
+  (x : OQ7Prescribed.Position) (hx : 2 * p.radius + 2 ≤ ‖x‖) :
+  |‖x‖ ^ 2 *
+          (OQ7Prescribed.pairing (OQ7Prescribed.exteriorElectric k p x)
+              (OQ7Prescribed.cross (OQ7Prescribed.exteriorMagnetic k p x)
+                (OQ7Prescribed.complexify (OQ7Prescribed.radialDirection x)))).re -
+        ‖OQ7Prescribed.compactCurrentFarField k p (OQ7Prescribed.radialDirection x)‖ ^ 2| ≤
+    OQ7Prescribed.farFieldFluxConstant k p.radius / ‖x‖ * (∫ (y : OQ7Prescribed.Position), ‖p.current y‖) ^ 2
+OQ7Prescribed.sourceEnergyWeight_direction_integral (r : ℝ) (hr : 0 < r) (A : OQ7Prescribed.Position → ℝ) :
+  ∫ (x : OQ7Prescribed.Position), OQ7Prescribed.sourceEnergyWeight r x / ‖x‖ ^ 2 * A (OQ7Prescribed.radialDirection x) =
+    ∫ (n : ↑OQ7Prescribed.UnitSphere), A ↑n ∂OQ7Prescribed.sphereArea
+OQ7Prescribed.smoothPhysicalSource_farField_work (k : ℝ) (p : OQ7Prescribed.CompactPolarization)
+  (hp : ContDiff ℝ (↑⊤) p.current) :
+  k *
+      (∫ (x : OQ7Prescribed.Position),
+          OQ7Prescribed.pairing (p.current x) (OQ7Prescribed.electricVolumeField k p x)).im =
+    ∫ (n : ↑OQ7Prescribed.UnitSphere), ‖OQ7Prescribed.compactCurrentFarField k p ↑n‖ ^ 2 ∂OQ7Prescribed.sphereArea
+OQ7Prescribed.supportedFarFieldPower_continuous (k R : ℝ) (hR : 0 ≤ R) :
+  Continuous (OQ7Prescribed.supportedFarFieldPower k R hR)
+OQ7Prescribed.physicalOutgoingVolume_farField_work (k : ℝ) (p : OQ7Prescribed.CompactPolarization) :
+  k *
+      (∫ (x : OQ7Prescribed.Position),
+          OQ7Prescribed.pairing (p.current x) (OQ7Prescribed.electricVolumeField k p x)).im =
+    ∫ (n : ↑OQ7Prescribed.UnitSphere), ‖OQ7Prescribed.compactCurrentFarField k p ↑n‖ ^ 2 ∂OQ7Prescribed.sphereArea
+OQ7Prescribed.bodyOutgoingOperator_farField_work (k : ℝ) (B : OQ7Prescribed.TwoLayerBody)
+  (f : ↥(OQ7Prescribed.BodyCurrentL2 B)) :
+  k * (inner ℂ f ((OQ7Prescribed.bodyOutgoingOperator k B) f)).im =
+    ∫ (n : ↑OQ7Prescribed.UnitSphere),
+      ‖OQ7Prescribed.compactCurrentFarField k (OQ7Prescribed.bodyCurrentPolarization B f) ↑n‖ ^
+        2 ∂OQ7Prescribed.sphereArea
+OQ7Prescribed.physicalVolume_Haar_energy_balance (k : ℝ) (B : OQ7Prescribed.TwoLayerBody) (σ : OQ7Prescribed.Direction)
+  (f : ↥(OQ7Prescribed.BodyCurrentL2 B))
+  (hp : OQ7Prescribed.MaterialVolumeEquation k B σ (OQ7Prescribed.bodyCurrentPolarization B f)) :
+  OQ7Prescribed.extinction k B σ (OQ7Prescribed.volumeTotalElectric k σ (OQ7Prescribed.bodyCurrentPolarization B f)) =
+    OQ7Prescribed.absorption k B (OQ7Prescribed.volumeTotalElectric k σ (OQ7Prescribed.bodyCurrentPolarization B f)) +
+      ∫ (n : ↑OQ7Prescribed.UnitSphere),
+        ‖OQ7Prescribed.currentFarField k B
+              (OQ7Prescribed.volumeTotalElectric k σ (OQ7Prescribed.bodyCurrentPolarization B f)) ↑n‖ ^
+          2 ∂OQ7Prescribed.sphereArea
+'OQ7Prescribed.exterior_poynting_farField_error' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.sourceEnergyWeight_direction_integral' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.smoothPhysicalSource_farField_work' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.supportedFarFieldPower_continuous' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.physicalOutgoingVolume_farField_work' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.bodyOutgoingOperator_farField_work' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.physicalVolume_Haar_energy_balance' depends on axioms: [propext, Classical.choice, Quot.sound]

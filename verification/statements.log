@@ -194,6 +194,12 @@ OQ7Prescribed.bodyOutgoingOperator_coe : ∀ (k : ℝ) (B : OQ7Prescribed.TwoLay
   (f : ↥(OQ7Prescribed.BodyCurrentL2 B)),
   ↑↑↑((OQ7Prescribed.bodyOutgoingOperator k B) f) =ᵐ[MeasureTheory.volume]
     B.domain.indicator (OQ7Prescribed.electricVolumeField k (OQ7Prescribed.bodyCurrentPolarization B f))
+OQ7Prescribed.bodyOutgoingOperator_farField_work : ∀ (k : ℝ) (B : OQ7Prescribed.TwoLayerBody)
+  (f : ↥(OQ7Prescribed.BodyCurrentL2 B)),
+  k * (inner ℂ f ((OQ7Prescribed.bodyOutgoingOperator k B) f)).im =
+    ∫ (n : ↑OQ7Prescribed.UnitSphere),
+      ‖OQ7Prescribed.compactCurrentFarField k (OQ7Prescribed.bodyCurrentPolarization B f) ↑n‖ ^
+        2 ∂OQ7Prescribed.sphereArea
 OQ7Prescribed.bodyOutgoingOperator_im_nonneg : ∀ (k : ℝ),
   0 < k →
     ∀ (B : OQ7Prescribed.TwoLayerBody) (f : ↥(OQ7Prescribed.BodyCurrentL2 B)),
@@ -263,6 +269,12 @@ OQ7Prescribed.compactCurrent_outgoingOperator_inner : ∀ (k R : ℝ) (hR : 0 �
 OQ7Prescribed.compactCurrent_phase_integrable : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization)
   (n : OQ7Prescribed.Position),
   MeasureTheory.Integrable (fun y => OQ7Prescribed.currentPlanePhase k n y • p.current y) MeasureTheory.volume
+OQ7Prescribed.compactCurrentFarField_add : ∀ (k : ℝ) (p q : OQ7Prescribed.CompactPolarization),
+  OQ7Prescribed.compactCurrentFarField k (p.add q) =
+    OQ7Prescribed.compactCurrentFarField k p + OQ7Prescribed.compactCurrentFarField k q
+OQ7Prescribed.compactCurrentFarField_congr_current : ∀ (k : ℝ) (p q : OQ7Prescribed.CompactPolarization),
+  p.current =ᵐ[MeasureTheory.volume] q.current →
+    OQ7Prescribed.compactCurrentFarField k p = OQ7Prescribed.compactCurrentFarField k q
 OQ7Prescribed.compactCurrentFarField_continuous : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization),
   Continuous (OQ7Prescribed.compactCurrentFarField k p)
 OQ7Prescribed.compactCurrentFarField_integral : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization)
@@ -275,6 +287,9 @@ OQ7Prescribed.compactCurrentFarField_norm_le : ∀ (k : ℝ) (p : OQ7Prescribed.
   (n : OQ7Prescribed.Position),
   ‖n‖ = 1 →
     ‖OQ7Prescribed.compactCurrentFarField k p n‖ ≤ k ^ 2 / (4 * Real.pi) * ∫ (y : OQ7Prescribed.Position), ‖p.current y‖
+OQ7Prescribed.compactCurrentFarField_scale : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization) (z : ℂ),
+  OQ7Prescribed.compactCurrentFarField k (OQ7Prescribed.CompactPolarization.scale z p) =
+    z • OQ7Prescribed.compactCurrentFarField k p
 OQ7Prescribed.compactField_bilinear_integrable : ∀ (F : OQ7Prescribed.Field),
   MeasureTheory.LocallyIntegrable F MeasureTheory.volume →
     ∀ (ψ : OQ7Prescribed.Field),
@@ -781,6 +796,15 @@ OQ7Prescribed.exterior_current_test_joint_integrable : ∀ (k : ℝ) (p : OQ7Pre
           ↑(φ q.1) * ((OQ7Prescribed.classicalDyadic k (q.1 - q.2)) (OQ7Prescribed.basisC j)).ofLp i *
             (p.current q.2).ofLp j)
         (MeasureTheory.volume.prod MeasureTheory.volume)
+OQ7Prescribed.exterior_poynting_farField_error : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization)
+  (x : OQ7Prescribed.Position),
+  2 * p.radius + 2 ≤ ‖x‖ →
+    |‖x‖ ^ 2 *
+            (OQ7Prescribed.pairing (OQ7Prescribed.exteriorElectric k p x)
+                (OQ7Prescribed.cross (OQ7Prescribed.exteriorMagnetic k p x)
+                  (OQ7Prescribed.complexify (OQ7Prescribed.radialDirection x)))).re -
+          ‖OQ7Prescribed.compactCurrentFarField k p (OQ7Prescribed.radialDirection x)‖ ^ 2| ≤
+      OQ7Prescribed.farFieldFluxConstant k p.radius / ‖x‖ * (∫ (y : OQ7Prescribed.Position), ‖p.current y‖) ^ 2
 OQ7Prescribed.exterior_poynting_flux_lower_bound : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization)
   (x : OQ7Prescribed.Position),
   2 * p.radius + 2 ≤ ‖x‖ →
@@ -1123,6 +1147,13 @@ OQ7Prescribed.integrable_polar_actual : ∀ (f : OQ7Prescribed.Position → ℝ)
   MeasureTheory.Integrable f MeasureTheory.volume →
     MeasureTheory.Integrable (fun p => f (↑p.2 • ↑p.1))
       (OQ7Prescribed.sphereArea.prod (MeasureTheory.Measure.volumeIoiPow 2))
+OQ7Prescribed.integral_compact_ball_abs_bound : ∀ (f : OQ7Prescribed.Position → ℝ),
+  MeasureTheory.Integrable f MeasureTheory.volume →
+    ∀ (r C : ℝ),
+      0 < r →
+        (∀ (x : OQ7Prescribed.Position), 2 * r < ‖x‖ → f x = 0) →
+          (∀ᵐ (x : OQ7Prescribed.Position), |f x| ≤ C / r ^ 4) →
+            |∫ (x : OQ7Prescribed.Position), f x| ≤ 32 * Real.pi / 3 * C / r
 OQ7Prescribed.integral_compact_ball_lower_bound : ∀ (f : OQ7Prescribed.Position → ℝ),
   MeasureTheory.Integrable f MeasureTheory.volume →
     ∀ (r C : ℝ),
@@ -1960,6 +1991,11 @@ OQ7Prescribed.physicalExtinction_sine_squared_factorization : ∀ (k : ℝ) (hk 
             (OQ7Prescribed.activePhysicalSolution k hk B σ (OQ7Prescribed.basisR 0) (OQ7Prescribed.rotatedAxis θ) α β hα
               hβ)))) =
     Real.sin θ ^ 2 * OQ7Prescribed.normalizedExtinction k hk B σ θ α β hα hβ
+OQ7Prescribed.physicalOutgoingVolume_farField_work : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization),
+  k *
+      (∫ (x : OQ7Prescribed.Position),
+          OQ7Prescribed.pairing (p.current x) (OQ7Prescribed.electricVolumeField k p x)).im =
+    ∫ (n : ↑OQ7Prescribed.UnitSphere), ‖OQ7Prescribed.compactCurrentFarField k p ↑n‖ ^ 2 ∂OQ7Prescribed.sphereArea
 OQ7Prescribed.physicalOutgoingVolume_work_nonneg : ∀ (k : ℝ),
   0 < k →
     ∀ (p : OQ7Prescribed.CompactPolarization),
@@ -2002,6 +2038,15 @@ OQ7Prescribed.physicalVolume_absorption_le_extinction : ∀ (k : ℝ),
             (OQ7Prescribed.volumeTotalElectric k σ (OQ7Prescribed.bodyCurrentPolarization B f)) ≤
           OQ7Prescribed.extinction k B σ
             (OQ7Prescribed.volumeTotalElectric k σ (OQ7Prescribed.bodyCurrentPolarization B f))
+OQ7Prescribed.physicalVolume_Haar_energy_balance : ∀ (k : ℝ) (B : OQ7Prescribed.TwoLayerBody)
+  (σ : OQ7Prescribed.Direction) (f : ↥(OQ7Prescribed.BodyCurrentL2 B)),
+  OQ7Prescribed.MaterialVolumeEquation k B σ (OQ7Prescribed.bodyCurrentPolarization B f) →
+    OQ7Prescribed.extinction k B σ (OQ7Prescribed.volumeTotalElectric k σ (OQ7Prescribed.bodyCurrentPolarization B f)) =
+      OQ7Prescribed.absorption k B (OQ7Prescribed.volumeTotalElectric k σ (OQ7Prescribed.bodyCurrentPolarization B f)) +
+        ∫ (n : ↑OQ7Prescribed.UnitSphere),
+          ‖OQ7Prescribed.currentFarField k B
+                (OQ7Prescribed.volumeTotalElectric k σ (OQ7Prescribed.bodyCurrentPolarization B f)) ↑n‖ ^
+            2 ∂OQ7Prescribed.sphereArea
 OQ7Prescribed.physicalVolume_work_balance : ∀ (k : ℝ) (B : OQ7Prescribed.TwoLayerBody) (σ : OQ7Prescribed.Direction)
   (f : ↥(OQ7Prescribed.BodyCurrentL2 B)),
   OQ7Prescribed.MaterialVolumeEquation k B σ (OQ7Prescribed.bodyCurrentPolarization B f) →
@@ -2143,6 +2188,8 @@ OQ7Prescribed.radial_second_lineDeriv : ∀ (F F₁ F₂ : ℝ → ℂ),
               (x.ofLp i * x.ofLp j / ‖x‖ ^ 2) • F₂ ‖x‖ +
                 ((if i = j then 1 else 0) / ‖x‖ - x.ofLp i * x.ofLp j / ‖x‖ ^ 3) • F₁ ‖x‖
 OQ7Prescribed.radialDirection_norm : ∀ (x : OQ7Prescribed.Position), x ≠ 0 → ‖OQ7Prescribed.radialDirection x‖ = 1
+OQ7Prescribed.radialDirection_positive_smul : ∀ (s : ℝ),
+  0 < s → ∀ (n : ↑OQ7Prescribed.UnitSphere), OQ7Prescribed.radialDirection (s • ↑n) = ↑n
 OQ7Prescribed.radialDirection_sub_norm_le : ∀ (x y : OQ7Prescribed.Position),
   ‖y‖ < ‖x‖ → ‖OQ7Prescribed.radialDirection (x - y) - OQ7Prescribed.radialDirection x‖ ≤ 2 * ‖y‖ / (‖x‖ - ‖y‖)
 OQ7Prescribed.radialDirection_sub_norm_le_distance : ∀ (x y : OQ7Prescribed.Position),
@@ -2169,6 +2216,8 @@ OQ7Prescribed.rankOnePhysicalScatteringState_exists : ∀ (k : ℝ),
       0 < α.im → 0 < β.im → Nonempty (OQ7Prescribed.ScatteringState k (OQ7Prescribed.rankOneBody B u v α β) σ)
 OQ7Prescribed.real_inner_basis : ∀ (x : OQ7Prescribed.Position) (j : Fin 3),
   inner ℝ x (OQ7Prescribed.basisR j) = x.ofLp j
+OQ7Prescribed.real_inner_norm_square_error : ∀ (u v f : OQ7Prescribed.Vector),
+  |(inner ℂ u v).re - ‖f‖ ^ 2| ≤ ‖u‖ * ‖v - u‖ + (‖u‖ + ‖f‖) * ‖u - f‖
 OQ7Prescribed.realDot_eq_inner : ∀ (n y : OQ7Prescribed.Position), OQ7Prescribed.realDot n y = inner ℝ n y
 OQ7Prescribed.reflectedCurrentComponent_fourier_neg : ∀ (p : OQ7Prescribed.CompactPolarization) (j : Fin 3)
   (ξ : OQ7Prescribed.Position),
@@ -2319,6 +2368,8 @@ OQ7Prescribed.scalarVectorConvolution_memLp_two : ∀ (K : OQ7Prescribed.Positio
         MeasureTheory.MemLp (OQ7Prescribed.scalarVectorConvolution K f) 2 MeasureTheory.volume ∧
           ∫ (x : OQ7Prescribed.Position), ‖OQ7Prescribed.scalarVectorConvolution K f x‖ ^ 2 ≤
             (∫ (y : OQ7Prescribed.Position), ‖K y‖) ^ 2 * ∫ (x : OQ7Prescribed.Position), ‖f x‖ ^ 2
+OQ7Prescribed.scaled_pairing_real : ∀ (a : ℂ) (E C : OQ7Prescribed.Vector),
+  (OQ7Prescribed.pairing (a • E) (a • C)).re = ‖a‖ ^ 2 * (OQ7Prescribed.pairing E C).re
 OQ7Prescribed.scaledOutgoingPhase_plane_error : ∀ (k R : ℝ),
   0 ≤ R →
     ∀ (x y : OQ7Prescribed.Position),
@@ -2492,6 +2543,26 @@ OQ7Prescribed.smoothPhysicalSource_cutoff_energy : ∀ (k : ℝ) (p : OQ7Prescri
                 (OQ7Prescribed.pairing (OQ7Prescribed.smoothElectricSource k p x)
                     (OQ7Prescribed.cross (OQ7Prescribed.smoothMagneticSource k p x)
                       (OQ7Prescribed.complexify (OQ7Prescribed.scalarGradient ψ x)))).re
+OQ7Prescribed.smoothPhysicalSource_farField_work : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization),
+  ContDiff ℝ (↑⊤) p.current →
+    k *
+        (∫ (x : OQ7Prescribed.Position),
+            OQ7Prescribed.pairing (p.current x) (OQ7Prescribed.electricVolumeField k p x)).im =
+      ∫ (n : ↑OQ7Prescribed.UnitSphere), ‖OQ7Prescribed.compactCurrentFarField k p ↑n‖ ^ 2 ∂OQ7Prescribed.sphereArea
+OQ7Prescribed.smoothPhysicalSource_farField_work_error : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization),
+  ContDiff ℝ (↑⊤) p.current →
+    ∀ (M : ℝ),
+      0 ≤ M →
+        (∀ (s : ℝ), OQ7Prescribed.transitionDerivative s ≤ M) →
+          ∀ (r : ℝ),
+            0 < r →
+              2 * p.radius + 2 ≤ r →
+                |k *
+                        (∫ (x : OQ7Prescribed.Position),
+                            OQ7Prescribed.pairing (p.current x) (OQ7Prescribed.smoothElectricSource k p x)).im -
+                      ∫ (n : ↑OQ7Prescribed.UnitSphere),
+                        ‖OQ7Prescribed.compactCurrentFarField k p ↑n‖ ^ 2 ∂OQ7Prescribed.sphereArea| ≤
+                  32 * Real.pi / 3 * OQ7Prescribed.farFieldWorkErrorConstant k p M / r
 OQ7Prescribed.smoothPhysicalSource_flux_lower_bound_ae : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization),
   ContDiff ℝ (↑⊤) p.current →
     ∀ᵐ (x : OQ7Prescribed.Position),
@@ -2526,6 +2597,22 @@ OQ7Prescribed.smoothPhysicalSource_radial_flux_integrable : ∀ (k : ℝ) (p : O
                   (OQ7Prescribed.cross (OQ7Prescribed.smoothMagneticSource k p x)
                     (OQ7Prescribed.complexify (OQ7Prescribed.radialDirection x)))).re)
           MeasureTheory.volume
+OQ7Prescribed.smoothPhysicalSource_weighted_farField_error : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization),
+  ContDiff ℝ (↑⊤) p.current →
+    ∀ (M : ℝ),
+      0 ≤ M →
+        (∀ (s : ℝ), OQ7Prescribed.transitionDerivative s ≤ M) →
+          ∀ (r : ℝ),
+            0 < r →
+              2 * p.radius + 2 ≤ r →
+                ∀ᵐ (x : OQ7Prescribed.Position),
+                  |OQ7Prescribed.sourceEnergyWeight r x *
+                          (OQ7Prescribed.pairing (OQ7Prescribed.smoothElectricSource k p x)
+                              (OQ7Prescribed.cross (OQ7Prescribed.smoothMagneticSource k p x)
+                                (OQ7Prescribed.complexify (OQ7Prescribed.radialDirection x)))).re -
+                        OQ7Prescribed.sourceEnergyWeight r x / ‖x‖ ^ 2 *
+                          ‖OQ7Prescribed.compactCurrentFarField k p (OQ7Prescribed.radialDirection x)‖ ^ 2| ≤
+                    OQ7Prescribed.farFieldWorkErrorConstant k p M / r ^ 4
 OQ7Prescribed.smoothPhysicalSource_work_lower_bound : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization),
   ContDiff ℝ (↑⊤) p.current →
     ∀ (M : ℝ),
@@ -2567,6 +2654,24 @@ OQ7Prescribed.sourceEnergyCutoff_hasCompactSupport : ∀ (r : ℝ),
 OQ7Prescribed.sourceEnergyErrorConstant_nonneg : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization) (M : ℝ),
   0 ≤ M → 0 ≤ OQ7Prescribed.sourceEnergyErrorConstant k p M
 OQ7Prescribed.sourceEnergyWeight_continuous : ∀ (r : ℝ), Continuous (OQ7Prescribed.sourceEnergyWeight r)
+OQ7Prescribed.sourceEnergyWeight_direction_continuous : ∀ (r : ℝ),
+  0 < r →
+    ∀ (A : OQ7Prescribed.Position → ℝ),
+      Continuous A →
+        Continuous fun x => OQ7Prescribed.sourceEnergyWeight r x / ‖x‖ ^ 2 * A (OQ7Prescribed.radialDirection x)
+OQ7Prescribed.sourceEnergyWeight_direction_integrable : ∀ (r : ℝ),
+  0 < r →
+    ∀ (A : OQ7Prescribed.Position → ℝ),
+      Continuous A →
+        MeasureTheory.Integrable
+          (fun x => OQ7Prescribed.sourceEnergyWeight r x / ‖x‖ ^ 2 * A (OQ7Prescribed.radialDirection x))
+          MeasureTheory.volume
+OQ7Prescribed.sourceEnergyWeight_direction_integral : ∀ (r : ℝ),
+  0 < r →
+    ∀ (A : OQ7Prescribed.Position → ℝ),
+      ∫ (x : OQ7Prescribed.Position),
+          OQ7Prescribed.sourceEnergyWeight r x / ‖x‖ ^ 2 * A (OQ7Prescribed.radialDirection x) =
+        ∫ (n : ↑OQ7Prescribed.UnitSphere), A ↑n ∂OQ7Prescribed.sphereArea
 OQ7Prescribed.sourceEnergyWeight_hasCompactSupport : ∀ (r : ℝ),
   0 < r → HasCompactSupport (OQ7Prescribed.sourceEnergyWeight r)
 OQ7Prescribed.sourceEnergyWeight_le : ∀ (r M : ℝ),
@@ -2689,6 +2794,20 @@ OQ7Prescribed.staticSymbolWithOrigin_zero : ∀ (A : OQ7Prescribed.Vector →L[�
   [inst_1 : NormedAddCommGroup E] [inst_2 : InnerProductSpace ℂ E] [CompleteSpace E] [inst_4 : NormedAddCommGroup F]
   [inst_5 : InnerProductSpace ℂ F] [CompleteSpace F] (μ : MeasureTheory.Measure α) (s : Set α) (A : E →L[ℂ] F)
   (f : ↥(OQ7Prescribed.SetSupportedL2 μ s)), ↑↑↑((OQ7Prescribed.supportedConstMap μ s A) f) =ᵐ[μ] fun x => A (↑↑↑f x)
+OQ7Prescribed.supportedCurrent_integral_norm_le : ∀ (R : ℝ) (hR : 0 ≤ R) (f : ↥(OQ7Prescribed.SupportedVectorL2 R)),
+  ∫ (y : OQ7Prescribed.Position), ‖(OQ7Prescribed.supportedPolarization R hR f).current y‖ ≤
+    OQ7Prescribed.supportedCurrentL1Bound R * ‖f‖
+OQ7Prescribed.supportedCurrentFarField_eq : ∀ (k R : ℝ) (hR : 0 ≤ R) (p : OQ7Prescribed.CompactPolarization)
+  (hpR : p.radius ≤ R),
+  OQ7Prescribed.compactCurrentFarField k (OQ7Prescribed.supportedPolarization R hR (p.toSupportedLp R hpR)) =
+    OQ7Prescribed.compactCurrentFarField k p
+OQ7Prescribed.supportedFarFieldLinear_bound : ∀ (k R : ℝ) (hR : 0 ≤ R) (n : OQ7Prescribed.Position),
+  ‖n‖ = 1 →
+    ∀ (f : ↥(OQ7Prescribed.SupportedVectorL2 R)),
+      ‖(OQ7Prescribed.supportedFarFieldLinear k R hR n) f‖ ≤
+        k ^ 2 / (4 * Real.pi) * OQ7Prescribed.supportedCurrentL1Bound R * ‖f‖
+OQ7Prescribed.supportedFarFieldPower_continuous : ∀ (k R : ℝ) (hR : 0 ≤ R),
+  Continuous (OQ7Prescribed.supportedFarFieldPower k R hR)
 OQ7Prescribed.supportedPolarization_add_current_ae : ∀ (R : ℝ) (hR : 0 ≤ R)
   (f g : ↥(OQ7Prescribed.SupportedVectorL2 R)),
   (OQ7Prescribed.supportedPolarization R hR (f + g)).current =ᵐ[MeasureTheory.volume]

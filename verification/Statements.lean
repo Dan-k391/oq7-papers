@@ -52,6 +52,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.bodyInverseSusceptibility_coe
 #check @OQ7Prescribed.bodyInverseSusceptibility_negative_imaginary_bound
 #check @OQ7Prescribed.bodyOutgoingOperator_coe
+#check @OQ7Prescribed.bodyOutgoingOperator_farField_work
 #check @OQ7Prescribed.bodyOutgoingOperator_im_nonneg
 #check @OQ7Prescribed.bodyOutgoingOperator_inner
 #check @OQ7Prescribed.bodySupportRadius_nonneg
@@ -68,9 +69,12 @@ import PrescribedExtinction
 #check @OQ7Prescribed.compactCurrent_outgoingOperator_im_nonneg_of_smooth
 #check @OQ7Prescribed.compactCurrent_outgoingOperator_inner
 #check @OQ7Prescribed.compactCurrent_phase_integrable
+#check @OQ7Prescribed.compactCurrentFarField_add
+#check @OQ7Prescribed.compactCurrentFarField_congr_current
 #check @OQ7Prescribed.compactCurrentFarField_continuous
 #check @OQ7Prescribed.compactCurrentFarField_integral
 #check @OQ7Prescribed.compactCurrentFarField_norm_le
+#check @OQ7Prescribed.compactCurrentFarField_scale
 #check @OQ7Prescribed.compactField_bilinear_integrable
 #check @OQ7Prescribed.compactField_curl_hasCompactSupport
 #check @OQ7Prescribed.compactOutgoingOperator_apply_norm_le
@@ -216,6 +220,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.exterior_current_component_pairing
 #check @OQ7Prescribed.exterior_current_correlation_joint_integrable
 #check @OQ7Prescribed.exterior_current_test_joint_integrable
+#check @OQ7Prescribed.exterior_poynting_farField_error
 #check @OQ7Prescribed.exterior_poynting_flux_lower_bound
 #check @OQ7Prescribed.exterior_radiation_integral_norm_le
 #check @OQ7Prescribed.exteriorCurrentFields_outgoing
@@ -302,6 +307,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.indicatorL2_smul
 #check @OQ7Prescribed.indicatorL2_supported
 #check @OQ7Prescribed.integrable_polar_actual
+#check @OQ7Prescribed.integral_compact_ball_abs_bound
 #check @OQ7Prescribed.integral_compact_ball_lower_bound
 #check @OQ7Prescribed.integral_polar_actual
 #check @OQ7Prescribed.integral_polar_iterated_actual
@@ -546,6 +552,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.physicalAbsorption_current_inner
 #check @OQ7Prescribed.physicalAbsorption_sine_squared_factorization
 #check @OQ7Prescribed.physicalExtinction_sine_squared_factorization
+#check @OQ7Prescribed.physicalOutgoingVolume_farField_work
 #check @OQ7Prescribed.physicalOutgoingVolume_work_nonneg
 #check @OQ7Prescribed.physicalPolarization_indicator
 #check @OQ7Prescribed.physicalPolarization_memLp
@@ -556,6 +563,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.physicalSourceFields_second_curl
 #check @OQ7Prescribed.physicalSourceFields_second_weakCurl
 #check @OQ7Prescribed.physicalVolume_absorption_le_extinction
+#check @OQ7Prescribed.physicalVolume_Haar_energy_balance
 #check @OQ7Prescribed.physicalVolume_work_balance
 #check @OQ7Prescribed.planePhase_contDiff
 #check @OQ7Prescribed.planePhase_hasFDerivAt
@@ -592,6 +600,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.radial_lineDeriv
 #check @OQ7Prescribed.radial_second_lineDeriv
 #check @OQ7Prescribed.radialDirection_norm
+#check @OQ7Prescribed.radialDirection_positive_smul
 #check @OQ7Prescribed.radialDirection_sub_norm_le
 #check @OQ7Prescribed.radialDirection_sub_norm_le_distance
 #check @OQ7Prescribed.radialHessian_trace
@@ -601,6 +610,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.rankOneBody_polarization
 #check @OQ7Prescribed.rankOnePhysicalScatteringState_exists
 #check @OQ7Prescribed.real_inner_basis
+#check @OQ7Prescribed.real_inner_norm_square_error
 #check @OQ7Prescribed.realDot_eq_inner
 #check @OQ7Prescribed.reflectedCurrentComponent_fourier_neg
 #check @OQ7Prescribed.reflectedCurrentComponent_hasCompactSupport
@@ -640,6 +650,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.scalarTestSchwartz_partial
 #check @OQ7Prescribed.scalarVectorConvolution_ae_integrable
 #check @OQ7Prescribed.scalarVectorConvolution_memLp_two
+#check @OQ7Prescribed.scaled_pairing_real
 #check @OQ7Prescribed.scaledOutgoingPhase_plane_error
 #check @OQ7Prescribed.scaledOutgoingRadial
 #check @OQ7Prescribed.setRestrictionCLM_inner
@@ -672,9 +683,12 @@ import PrescribedExtinction
 #check @OQ7Prescribed.smoothMagneticSource_distribution
 #check @OQ7Prescribed.smoothMagneticSource_eq_ae
 #check @OQ7Prescribed.smoothPhysicalSource_cutoff_energy
+#check @OQ7Prescribed.smoothPhysicalSource_farField_work
+#check @OQ7Prescribed.smoothPhysicalSource_farField_work_error
 #check @OQ7Prescribed.smoothPhysicalSource_flux_lower_bound_ae
 #check @OQ7Prescribed.smoothPhysicalSource_radial_energy
 #check @OQ7Prescribed.smoothPhysicalSource_radial_flux_integrable
+#check @OQ7Prescribed.smoothPhysicalSource_weighted_farField_error
 #check @OQ7Prescribed.smoothPhysicalSource_work_lower_bound
 #check @OQ7Prescribed.smoothPhysicalSource_work_nonneg
 #check @OQ7Prescribed.smoothScalar_distributionPartial
@@ -684,6 +698,9 @@ import PrescribedExtinction
 #check @OQ7Prescribed.sourceEnergyCutoff_hasCompactSupport
 #check @OQ7Prescribed.sourceEnergyErrorConstant_nonneg
 #check @OQ7Prescribed.sourceEnergyWeight_continuous
+#check @OQ7Prescribed.sourceEnergyWeight_direction_continuous
+#check @OQ7Prescribed.sourceEnergyWeight_direction_integrable
+#check @OQ7Prescribed.sourceEnergyWeight_direction_integral
 #check @OQ7Prescribed.sourceEnergyWeight_hasCompactSupport
 #check @OQ7Prescribed.sourceEnergyWeight_le
 #check @OQ7Prescribed.sourceEnergyWeight_nonneg
@@ -734,6 +751,10 @@ import PrescribedExtinction
 #check @OQ7Prescribed.staticSymbolWithOrigin_zero
 #check @OQ7Prescribed.supportedConstCLM_coe
 #check @OQ7Prescribed.supportedConstMap_coe
+#check @OQ7Prescribed.supportedCurrent_integral_norm_le
+#check @OQ7Prescribed.supportedCurrentFarField_eq
+#check @OQ7Prescribed.supportedFarFieldLinear_bound
+#check @OQ7Prescribed.supportedFarFieldPower_continuous
 #check @OQ7Prescribed.supportedPolarization_add_current_ae
 #check @OQ7Prescribed.supportedPolarization_current_ae
 #check @OQ7Prescribed.supportedPolarization_current_eLpNorm

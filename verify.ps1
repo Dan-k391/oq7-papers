@@ -312,6 +312,13 @@ run_cmd do
         'OQ7Prescribed.compactCurrentFarField_continuous',
         'OQ7Prescribed.volumePhysicalFarField_eq',
         'OQ7Prescribed.outgoingElectric_uniform_physical_farField_error',
+        'OQ7Prescribed.exterior_poynting_farField_error',
+        'OQ7Prescribed.sourceEnergyWeight_direction_integral',
+        'OQ7Prescribed.smoothPhysicalSource_farField_work',
+        'OQ7Prescribed.supportedFarFieldPower_continuous',
+        'OQ7Prescribed.physicalOutgoingVolume_farField_work',
+        'OQ7Prescribed.bodyOutgoingOperator_farField_work',
+        'OQ7Prescribed.physicalVolume_Haar_energy_balance',
         'OQ7Prescribed.normalizedActiveResponse_residual_bound',
         'OQ7Prescribed.normalizedActiveResponse_angle_difference_bound')) {
         if ($oq7Required -notin $oq7NewKernelTheorems) { throw "Missing outgoing operator obligation: $oq7Required" }
@@ -394,6 +401,9 @@ run_cmd do
         physicalAbsorptionEqualsCurrentWorkVerified = $true
         actualElectricUniformFullVectorFarFieldVerified = $true
         originalPhysicalFarFieldIdentificationVerified = $true
+        actualFullVectorHaarRadiationWorkIdentityVerified = $true
+        physicalHaarRadiationEnergyBalanceVerified = $true
+        originalThetaPhiSurfaceMeasureConversionVerified = $false
         physicalVolumeWorkBalanceVerified = $true
         originalPhysicalAbsorptionSineSquaredFactorizationVerified = $true
         normalizedPhysicalResponseUniformResidualBoundVerified = $true

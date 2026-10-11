@@ -1,5 +1,15 @@
 # Physical outgoing volume operator
 
+`FarFieldWorkL2.lean` proves outgoing-volume work equals the full vector
+radiation integral with the actual Haar surface measure, for every original
+compact L² current. The proof derives the scaled Poynting-flux error, computes
+the radial cutoff's unit mass, passes the error to zero, and extends through
+fixed-support smooth density using proved continuity. It also proves the
+physical energy balance with that radiation integral. The conversion from
+Haar surface measure to the original theta/phi formula is still unproved;
+the original `scattering` identity is not yet claimed. Evidence:
+`verification/milestones/physical-haar-radiation-work/`.
+
 `FarFieldCurrent.lean` identifies the actual electric Green-current field's
 leading amplitude with the original full vector physical far-field expression.
 `FarFieldKernel.lean` derives its uniform displaced-source kernel error,

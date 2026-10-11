@@ -100,3 +100,8 @@ import PrescribedExtinction.FarFieldGeometry
 import PrescribedExtinction.FarFieldPhase
 import PrescribedExtinction.FarFieldKernel
 import PrescribedExtinction.FarFieldCurrent
+import PrescribedExtinction.FarFieldFlux
+import PrescribedExtinction.FarFieldRadial
+import PrescribedExtinction.FarFieldWork
+import PrescribedExtinction.FarFieldL2
+import PrescribedExtinction.FarFieldWorkL2

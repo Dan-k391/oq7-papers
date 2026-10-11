@@ -1,0 +1,16 @@
+import PrescribedExtinction.FarFieldWorkL2
+
+#check OQ7Prescribed.exterior_poynting_farField_error
+#check OQ7Prescribed.sourceEnergyWeight_direction_integral
+#check OQ7Prescribed.smoothPhysicalSource_farField_work
+#check OQ7Prescribed.supportedFarFieldPower_continuous
+#check OQ7Prescribed.physicalOutgoingVolume_farField_work
+#check OQ7Prescribed.bodyOutgoingOperator_farField_work
+#check OQ7Prescribed.physicalVolume_Haar_energy_balance
+#print axioms OQ7Prescribed.exterior_poynting_farField_error
+#print axioms OQ7Prescribed.sourceEnergyWeight_direction_integral
+#print axioms OQ7Prescribed.smoothPhysicalSource_farField_work
+#print axioms OQ7Prescribed.supportedFarFieldPower_continuous
+#print axioms OQ7Prescribed.physicalOutgoingVolume_farField_work
+#print axioms OQ7Prescribed.bodyOutgoingOperator_farField_work
+#print axioms OQ7Prescribed.physicalVolume_Haar_energy_balance

@@ -61,7 +61,8 @@ try {
         @{ name = 'rank-one-physical-scattering'; module = 'PrescribedExtinction.RankOneScattering' },
         @{ name = 'physical-rotation-extinction'; module = 'PrescribedExtinction.RotationExtinction' },
         @{ name = 'physical-rotation-absorption'; module = 'PrescribedExtinction.RankOneAbsorption' },
-        @{ name = 'physical-full-far-field'; module = 'PrescribedExtinction.FarFieldCurrent' }
+        @{ name = 'physical-full-far-field'; module = 'PrescribedExtinction.FarFieldCurrent' },
+        @{ name = 'physical-haar-radiation-work'; module = 'PrescribedExtinction.FarFieldWorkL2' }
     )
     if ($Only) {
         foreach ($oq7Name in $Only) {
