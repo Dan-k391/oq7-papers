@@ -1,0 +1,22 @@
+import PrescribedExtinction.SlabL2PhysicalError
+
+#check OQ7Prescribed.slabScalarLiftRaw_norm
+#check OQ7Prescribed.planarHeightRaw_norm_le
+#check OQ7Prescribed.slabPhysicalMap_coe
+#check OQ7Prescribed.slabPlanarMap_coe
+#check OQ7Prescribed.heightSupported_fixed_smooth_approximation
+#check OQ7Prescribed.slabApertureDifference_smooth_norm_sq
+#check OQ7Prescribed.physicalSlab_uniform_L2_aperture_residual
+#check OQ7Prescribed.scaledSlabPolarization_current_ae
+#check OQ7Prescribed.scaledSlabApertureDifference_coe
+#check OQ7Prescribed.electricVolumeField_L2_slab_uniform_error
+#print axioms OQ7Prescribed.slabScalarLiftRaw_norm
+#print axioms OQ7Prescribed.planarHeightRaw_norm_le
+#print axioms OQ7Prescribed.slabPhysicalMap_coe
+#print axioms OQ7Prescribed.slabPlanarMap_coe
+#print axioms OQ7Prescribed.heightSupported_fixed_smooth_approximation
+#print axioms OQ7Prescribed.slabApertureDifference_smooth_norm_sq
+#print axioms OQ7Prescribed.physicalSlab_uniform_L2_aperture_residual
+#print axioms OQ7Prescribed.scaledSlabPolarization_current_ae
+#print axioms OQ7Prescribed.scaledSlabApertureDifference_coe
+#print axioms OQ7Prescribed.electricVolumeField_L2_slab_uniform_error

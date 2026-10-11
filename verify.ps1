@@ -381,6 +381,16 @@ run_cmd do
         'OQ7Prescribed.electricVolumeField_smooth_slab_uniform_L2_residual',
         'OQ7Prescribed.electricVolumeField_centered_slab_uniform_error',
         'OQ7Prescribed.electricVolumeField_smooth_slab_residual_norm_sq',
+        'OQ7Prescribed.slabScalarLiftRaw_norm',
+        'OQ7Prescribed.planarHeightRaw_norm_le',
+        'OQ7Prescribed.slabPhysicalMap_coe',
+        'OQ7Prescribed.slabPlanarMap_coe',
+        'OQ7Prescribed.heightSupported_fixed_smooth_approximation',
+        'OQ7Prescribed.slabApertureDifference_smooth_norm_sq',
+        'OQ7Prescribed.physicalSlab_uniform_L2_aperture_residual',
+        'OQ7Prescribed.scaledSlabPolarization_current_ae',
+        'OQ7Prescribed.scaledSlabApertureDifference_coe',
+        'OQ7Prescribed.electricVolumeField_L2_slab_uniform_error',
         'OQ7Prescribed.normalizedActiveResponse_residual_bound',
         'OQ7Prescribed.normalizedActiveResponse_angle_difference_bound')) {
         if ($oq7Required -notin $oq7NewKernelTheorems) { throw "Missing outgoing operator obligation: $oq7Required" }
@@ -483,7 +493,7 @@ run_cmd do
         physicalSmoothSlabL2ResidualIndependentOfApertureVerified = $true
         actualSeparatedThreeDimensionalL2ProfileNormVerified = $true
         heightL2FixedSupportSmoothDensityVerified = $true
-        physicalSlabApertureErrorForAllL2HeightProfilesVerified = $false
+        physicalSlabApertureErrorForAllL2HeightProfilesVerified = $true
         physicalVectorUniformApertureLocalizationVerified = $false
         physicalVolumeWorkBalanceVerified = $true
         originalPhysicalAbsorptionSineSquaredFactorizationVerified = $true
