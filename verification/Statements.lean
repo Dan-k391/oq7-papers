@@ -8,15 +8,21 @@ import PrescribedExtinction
 #check @OQ7Prescribed.axisCoupling_bound
 #check @OQ7Prescribed.axisCoupling_eq_inner
 #check @OQ7Prescribed.bilinear_add_left
+#check @OQ7Prescribed.bilinear_add_right
+#check @OQ7Prescribed.bilinear_complex_smul_right
 #check @OQ7Prescribed.bilinear_complexify_eq_inner
 #check @OQ7Prescribed.bilinear_complexify_self
+#check @OQ7Prescribed.bilinear_cross_conjugate
 #check @OQ7Prescribed.bilinear_radial_smul_norm_le
+#check @OQ7Prescribed.bilinear_real_smul_right
+#check @OQ7Prescribed.bilinear_vectorConjugate_right
 #check @OQ7Prescribed.bodyDomain_isOpen
 #check @OQ7Prescribed.classicalDyadic_coordinate
 #check @OQ7Prescribed.classicalDyadic_measurable
 #check @OQ7Prescribed.classicalDyadic_norm_le_far
 #check @OQ7Prescribed.classicalDyadic_test_integrable_of_zero
 #check @OQ7Prescribed.classicalDyadic_zero_coordinate
+#check @OQ7Prescribed.compact_scalar_weight_integrable
 #check @OQ7Prescribed.compactField_bilinear_integrable
 #check @OQ7Prescribed.compactField_curl_hasCompactSupport
 #check @OQ7Prescribed.compactOutgoingOperator_apply_norm_le
@@ -67,6 +73,8 @@ import PrescribedExtinction
 #check @OQ7Prescribed.cross_squareNorm_identity
 #check @OQ7Prescribed.cross_sub_right
 #check @OQ7Prescribed.crossRightMap_apply
+#check @OQ7Prescribed.curl_real_smul
+#check @OQ7Prescribed.curl_vectorConjugate
 #check @OQ7Prescribed.current_component_fourier
 #check @OQ7Prescribed.current_component_integrable
 #check @OQ7Prescribed.currentCorrelation_green_distribution_pairing
@@ -83,6 +91,8 @@ import PrescribedExtinction
 #check @OQ7Prescribed.currentDyadicTestPairing_exterior_integral
 #check @OQ7Prescribed.currentTestCorrelationVector_coordinate
 #check @OQ7Prescribed.currentTestCorrelationVector_integrable
+#check @OQ7Prescribed.cutoff_curl_pairing_real
+#check @OQ7Prescribed.cutoff_source_pairing_real
 #check @OQ7Prescribed.cutoffDyadicRemainder_eLpNorm_le
 #check @OQ7Prescribed.cutoffDyadicRemainder_integrable
 #check @OQ7Prescribed.cutoffDyadicRemainder_memLp
@@ -534,6 +544,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.shrinkingCutoffPartial_support
 #check @OQ7Prescribed.shrinkingCutoffPoleError_norm_le
 #check @OQ7Prescribed.shrinkingCutoffPoleError_tendsto
+#check @OQ7Prescribed.smooth_source_cutoff_energy
 #check @OQ7Prescribed.smoothElectricSource_contDiff
 #check @OQ7Prescribed.smoothElectricSource_curl
 #check @OQ7Prescribed.smoothElectricSource_distribution
@@ -548,6 +559,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.smoothMagneticSource_curl
 #check @OQ7Prescribed.smoothMagneticSource_distribution
 #check @OQ7Prescribed.smoothMagneticSource_eq_ae
+#check @OQ7Prescribed.smoothPhysicalSource_cutoff_energy
 #check @OQ7Prescribed.smoothScalar_distributionPartial
 #check @OQ7Prescribed.sphere_coordinate_cross_zero
 #check @OQ7Prescribed.sphere_coordinate_mul_integrable
@@ -626,6 +638,10 @@ import PrescribedExtinction
 #check @OQ7Prescribed.vector_clm_coordinate_expansion
 #check @OQ7Prescribed.vector_inner_real_smul
 #check @OQ7Prescribed.vector_strict_imaginary_coercive
+#check @OQ7Prescribed.vectorConjugate_apply
+#check @OQ7Prescribed.vectorConjugate_component_fderiv
+#check @OQ7Prescribed.vectorConjugate_contDiff
+#check @OQ7Prescribed.vectorConjugate_smul
 #check @OQ7Prescribed.vectorL2_locallyIntegrable
 #check @OQ7Prescribed.vectorL2ComponentDistribution_apply
 #check @OQ7Prescribed.vectorL2Distribution_apply

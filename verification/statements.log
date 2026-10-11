@@ -33,12 +33,23 @@ OQ7Prescribed.axisCoupling_eq_inner : ∀ (u : OQ7Prescribed.Position) (v : OQ7P
   OQ7Prescribed.axisCoupling u v = inner ℂ (OQ7Prescribed.complexify u) v
 OQ7Prescribed.bilinear_add_left : ∀ (u v w : OQ7Prescribed.Vector),
   OQ7Prescribed.bilinear (u + v) w = OQ7Prescribed.bilinear u w + OQ7Prescribed.bilinear v w
+OQ7Prescribed.bilinear_add_right : ∀ (u v w : OQ7Prescribed.Vector),
+  OQ7Prescribed.bilinear u (v + w) = OQ7Prescribed.bilinear u v + OQ7Prescribed.bilinear u w
+OQ7Prescribed.bilinear_complex_smul_right : ∀ (u v : OQ7Prescribed.Vector) (z : ℂ),
+  OQ7Prescribed.bilinear u (z • v) = z * OQ7Prescribed.bilinear u v
 OQ7Prescribed.bilinear_complexify_eq_inner : ∀ (x : OQ7Prescribed.Position) (v : OQ7Prescribed.Vector),
   OQ7Prescribed.bilinear (OQ7Prescribed.complexify x) v = inner ℂ (OQ7Prescribed.complexify x) v
 OQ7Prescribed.bilinear_complexify_self : ∀ (x : OQ7Prescribed.Position),
   OQ7Prescribed.bilinear (OQ7Prescribed.complexify x) (OQ7Prescribed.complexify x) = ↑(‖x‖ ^ 2)
+OQ7Prescribed.bilinear_cross_conjugate : ∀ (H E : OQ7Prescribed.Vector) (v : OQ7Prescribed.Position),
+  OQ7Prescribed.bilinear H (OQ7Prescribed.cross (OQ7Prescribed.complexify v) (OQ7Prescribed.vectorConjugate E)) =
+    OQ7Prescribed.pairing E (OQ7Prescribed.cross H (OQ7Prescribed.complexify v))
 OQ7Prescribed.bilinear_radial_smul_norm_le : ∀ (x : OQ7Prescribed.Position) (v : OQ7Prescribed.Vector),
   ‖OQ7Prescribed.bilinear (OQ7Prescribed.complexify x) v • OQ7Prescribed.complexify x‖ ≤ ‖x‖ ^ 2 * ‖v‖
+OQ7Prescribed.bilinear_real_smul_right : ∀ (u v : OQ7Prescribed.Vector) (r : ℝ),
+  OQ7Prescribed.bilinear u (r • v) = ↑r * OQ7Prescribed.bilinear u v
+OQ7Prescribed.bilinear_vectorConjugate_right : ∀ (u v : OQ7Prescribed.Vector),
+  OQ7Prescribed.bilinear u (OQ7Prescribed.vectorConjugate v) = OQ7Prescribed.pairing v u
 OQ7Prescribed.bodyDomain_isOpen : ∀ (B : OQ7Prescribed.TwoLayerBody), IsOpen B.domain
 OQ7Prescribed.classicalDyadic_coordinate : ∀ (k : ℝ) (x : OQ7Prescribed.Position),
   x ≠ 0 →
@@ -58,6 +69,11 @@ OQ7Prescribed.classicalDyadic_test_integrable_of_zero : ∀ (k : ℝ) (φ : OQ7P
         MeasureTheory.volume
 OQ7Prescribed.classicalDyadic_zero_coordinate : ∀ (x : OQ7Prescribed.Position) (i j : Fin 3),
   ((OQ7Prescribed.classicalDyadic 0 x) (OQ7Prescribed.basisC j)).ofLp i = ↑(OQ7Prescribed.newtonHessianKernel i j x)
+OQ7Prescribed.compact_scalar_weight_integrable : ∀ (ψ : OQ7Prescribed.Position → ℝ),
+  Continuous ψ →
+    HasCompactSupport ψ →
+      ∀ (f : OQ7Prescribed.Position → ℂ),
+        Continuous f → MeasureTheory.Integrable (fun x => ↑(ψ x) * f x) MeasureTheory.volume
 OQ7Prescribed.compactField_bilinear_integrable : ∀ (F : OQ7Prescribed.Field),
   MeasureTheory.LocallyIntegrable F MeasureTheory.volume →
     ∀ (ψ : OQ7Prescribed.Field),
@@ -203,6 +219,17 @@ OQ7Prescribed.cross_sub_right : ∀ (u v w : OQ7Prescribed.Vector),
   OQ7Prescribed.cross u (v - w) = OQ7Prescribed.cross u v - OQ7Prescribed.cross u w
 OQ7Prescribed.crossRightMap_apply : ∀ (n v : OQ7Prescribed.Vector),
   (OQ7Prescribed.crossRightMap n) v = OQ7Prescribed.cross v n
+OQ7Prescribed.curl_real_smul : ∀ (ψ : OQ7Prescribed.Position → ℝ) (F : OQ7Prescribed.Field),
+  ContDiff ℝ (↑⊤) ψ →
+    ContDiff ℝ (↑⊤) F →
+      ∀ (x : OQ7Prescribed.Position),
+        OQ7Prescribed.curl (fun y => ψ y • F y) x =
+          OQ7Prescribed.cross (OQ7Prescribed.complexify (OQ7Prescribed.scalarGradient ψ x)) (F x) +
+            ψ x • OQ7Prescribed.curl F x
+OQ7Prescribed.curl_vectorConjugate : ∀ (F : OQ7Prescribed.Field),
+  ContDiff ℝ (↑⊤) F →
+    (OQ7Prescribed.curl fun x => OQ7Prescribed.vectorConjugate (F x)) = fun x =>
+      OQ7Prescribed.vectorConjugate (OQ7Prescribed.curl F x)
 OQ7Prescribed.current_component_fourier : ∀ (p : OQ7Prescribed.CompactPolarization) (j : Fin 3)
   (ξ : OQ7Prescribed.Position),
   FourierTransform.fourier (fun y => (p.current y).ofLp j) ξ = (FourierTransform.fourier p.current ξ).ofLp j
@@ -280,6 +307,20 @@ OQ7Prescribed.currentTestCorrelationVector_coordinate : ∀ (p : OQ7Prescribed.C
 OQ7Prescribed.currentTestCorrelationVector_integrable : ∀ (p : OQ7Prescribed.CompactPolarization)
   (φ : OQ7Prescribed.ScalarTest) (z : OQ7Prescribed.Position),
   MeasureTheory.Integrable (fun y => ↑(φ (z + y)) • p.current y) MeasureTheory.volume
+OQ7Prescribed.cutoff_curl_pairing_real : ∀ (ψ : OQ7Prescribed.Position → ℝ) (E H : OQ7Prescribed.Field) (k : ℝ),
+  ContDiff ℝ (↑⊤) ψ →
+    ContDiff ℝ (↑⊤) E →
+      (OQ7Prescribed.curl E = fun x => (Complex.I * ↑k) • H x) →
+        ∀ (x : OQ7Prescribed.Position),
+          (OQ7Prescribed.bilinear (H x)
+                (OQ7Prescribed.curl (fun y => ψ y • OQ7Prescribed.vectorConjugate (E y)) x)).re =
+            (OQ7Prescribed.pairing (E x)
+                (OQ7Prescribed.cross (H x) (OQ7Prescribed.complexify (OQ7Prescribed.scalarGradient ψ x)))).re
+OQ7Prescribed.cutoff_source_pairing_real : ∀ (ψ : OQ7Prescribed.Position → ℝ) (E H p : OQ7Prescribed.Field) (k : ℝ),
+  (OQ7Prescribed.curl H = fun x => (-Complex.I * ↑k) • (E x + p x)) →
+    ∀ (x : OQ7Prescribed.Position),
+      (OQ7Prescribed.bilinear (OQ7Prescribed.curl H x) (ψ x • OQ7Prescribed.vectorConjugate (E x))).re =
+        -k * (↑(ψ x) * OQ7Prescribed.pairing (p x) (E x)).im
 OQ7Prescribed.cutoffDyadicRemainder_eLpNorm_le : ∀ (k T : ℝ),
   MeasureTheory.eLpNorm (OQ7Prescribed.cutoffDyadicRemainder k T) 2 MeasureTheory.volume ≤
     ENNReal.ofReal (OQ7Prescribed.dyadicRemainderCutoffConstant k T) *
@@ -1875,6 +1916,20 @@ OQ7Prescribed.shrinkingCutoffPoleError_tendsto : ∀ (F : OQ7Prescribed.Position
     ∀ (φ : OQ7Prescribed.ScalarTest) (i : Fin 3),
       Filter.Tendsto (fun ε => ∫ (x : OQ7Prescribed.Position), OQ7Prescribed.exteriorCutoffPartial ε ε i x * F x * φ x)
         (nhdsWithin 0 (Set.Ioi 0)) (nhds 0)
+OQ7Prescribed.smooth_source_cutoff_energy : ∀ (k : ℝ) (E H p : OQ7Prescribed.Field),
+  ContDiff ℝ (↑⊤) E →
+    ContDiff ℝ (↑⊤) H →
+      Continuous p →
+        (OQ7Prescribed.curl E = fun x => (Complex.I * ↑k) • H x) →
+          (OQ7Prescribed.curl H = fun x => (-Complex.I * ↑k) • (E x + p x)) →
+            ∀ (ψ : OQ7Prescribed.Position → ℝ),
+              ContDiff ℝ (↑⊤) ψ →
+                HasCompactSupport ψ →
+                  k * (∫ (x : OQ7Prescribed.Position), ↑(ψ x) * OQ7Prescribed.pairing (p x) (E x)).im =
+                    -∫ (x : OQ7Prescribed.Position),
+                        (OQ7Prescribed.pairing (E x)
+                            (OQ7Prescribed.cross (H x)
+                              (OQ7Prescribed.complexify (OQ7Prescribed.scalarGradient ψ x)))).re
 OQ7Prescribed.smoothElectricSource_contDiff : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization),
   ContDiff ℝ (↑⊤) p.current → ContDiff ℝ (↑⊤) (OQ7Prescribed.smoothElectricSource k p)
 OQ7Prescribed.smoothElectricSource_curl : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization),
@@ -1918,6 +1973,18 @@ OQ7Prescribed.smoothMagneticSource_distribution : ∀ (k : ℝ) (p : OQ7Prescrib
 OQ7Prescribed.smoothMagneticSource_eq_ae : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization),
   ContDiff ℝ (↑⊤) p.current →
     OQ7Prescribed.smoothMagneticSource k p =ᵐ[MeasureTheory.volume] OQ7Prescribed.magneticVolumeField k p
+OQ7Prescribed.smoothPhysicalSource_cutoff_energy : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization),
+  ContDiff ℝ (↑⊤) p.current →
+    ∀ (ψ : OQ7Prescribed.Position → ℝ),
+      ContDiff ℝ (↑⊤) ψ →
+        HasCompactSupport ψ →
+          k *
+              (∫ (x : OQ7Prescribed.Position),
+                  ↑(ψ x) * OQ7Prescribed.pairing (p.current x) (OQ7Prescribed.smoothElectricSource k p x)).im =
+            -∫ (x : OQ7Prescribed.Position),
+                (OQ7Prescribed.pairing (OQ7Prescribed.smoothElectricSource k p x)
+                    (OQ7Prescribed.cross (OQ7Prescribed.smoothMagneticSource k p x)
+                      (OQ7Prescribed.complexify (OQ7Prescribed.scalarGradient ψ x)))).re
 OQ7Prescribed.smoothScalar_distributionPartial : ∀ (f : OQ7Prescribed.Position → ℂ),
   ContDiff ℝ (↑⊤) f →
     ∀ (j : Fin 3),
@@ -2100,6 +2167,17 @@ OQ7Prescribed.vector_inner_real_smul : ∀ (A : OQ7Prescribed.Vector →L[ℂ] O
 OQ7Prescribed.vector_strict_imaginary_coercive : ∀ (A : OQ7Prescribed.Vector →L[ℂ] OQ7Prescribed.Vector),
   (∀ (v : OQ7Prescribed.Vector), v ≠ 0 → 0 < (inner ℂ v (A v)).im) →
     ∃ c, 0 < c ∧ ∀ (v : OQ7Prescribed.Vector), c * ‖v‖ ^ 2 ≤ (inner ℂ v (A v)).im
+OQ7Prescribed.vectorConjugate_apply : ∀ (v : OQ7Prescribed.Vector) (i : Fin 3),
+  (OQ7Prescribed.vectorConjugate v).ofLp i = star (v.ofLp i)
+OQ7Prescribed.vectorConjugate_component_fderiv : ∀ (F : OQ7Prescribed.Field),
+  ContDiff ℝ (↑⊤) F →
+    ∀ (i j : Fin 3) (x : OQ7Prescribed.Position),
+      ((fderiv ℝ (fun y => OQ7Prescribed.vectorConjugate (F y)) x) (OQ7Prescribed.basisR j)).ofLp i =
+        star (((fderiv ℝ F x) (OQ7Prescribed.basisR j)).ofLp i)
+OQ7Prescribed.vectorConjugate_contDiff : ∀ (F : OQ7Prescribed.Field),
+  ContDiff ℝ (↑⊤) F → ContDiff ℝ ↑⊤ fun x => OQ7Prescribed.vectorConjugate (F x)
+OQ7Prescribed.vectorConjugate_smul : ∀ (z : ℂ) (v : OQ7Prescribed.Vector),
+  OQ7Prescribed.vectorConjugate (z • v) = star z • OQ7Prescribed.vectorConjugate v
 OQ7Prescribed.vectorL2_locallyIntegrable : ∀ (f : ↥OQ7Prescribed.VectorL2),
   MeasureTheory.LocallyIntegrable (fun x => ↑↑f x) MeasureTheory.volume
 OQ7Prescribed.vectorL2ComponentDistribution_apply : ∀ (f : ↥OQ7Prescribed.VectorL2) (i : Fin 3)

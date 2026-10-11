@@ -1,0 +1,28 @@
+OQ7Prescribed.smooth_source_cutoff_energy : ∀ (k : ℝ) (E H p : OQ7Prescribed.Field),
+  ContDiff ℝ (↑⊤) E →
+    ContDiff ℝ (↑⊤) H →
+      Continuous p →
+        (OQ7Prescribed.curl E = fun x => (Complex.I * ↑k) • H x) →
+          (OQ7Prescribed.curl H = fun x => (-Complex.I * ↑k) • (E x + p x)) →
+            ∀ (ψ : OQ7Prescribed.Position → ℝ),
+              ContDiff ℝ (↑⊤) ψ →
+                HasCompactSupport ψ →
+                  k * (∫ (x : OQ7Prescribed.Position), ↑(ψ x) * OQ7Prescribed.pairing (p x) (E x)).im =
+                    -∫ (x : OQ7Prescribed.Position),
+                        (OQ7Prescribed.pairing (E x)
+                            (OQ7Prescribed.cross (H x)
+                              (OQ7Prescribed.complexify (OQ7Prescribed.scalarGradient ψ x)))).re
+'OQ7Prescribed.smooth_source_cutoff_energy' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.smoothPhysicalSource_cutoff_energy : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization),
+  ContDiff ℝ (↑⊤) p.current →
+    ∀ (ψ : OQ7Prescribed.Position → ℝ),
+      ContDiff ℝ (↑⊤) ψ →
+        HasCompactSupport ψ →
+          k *
+              (∫ (x : OQ7Prescribed.Position),
+                  ↑(ψ x) * OQ7Prescribed.pairing (p.current x) (OQ7Prescribed.smoothElectricSource k p x)).im =
+            -∫ (x : OQ7Prescribed.Position),
+                (OQ7Prescribed.pairing (OQ7Prescribed.smoothElectricSource k p x)
+                    (OQ7Prescribed.cross (OQ7Prescribed.smoothMagneticSource k p x)
+                      (OQ7Prescribed.complexify (OQ7Prescribed.scalarGradient ψ x)))).re
+'OQ7Prescribed.smoothPhysicalSource_cutoff_energy' depends on axioms: [propext, Classical.choice, Quot.sound]

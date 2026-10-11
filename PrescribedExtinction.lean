@@ -74,3 +74,4 @@ import PrescribedExtinction.ComplexCoerciveInverse
 import PrescribedExtinction.TensorLossCoercivity
 import PrescribedExtinction.CompactCurrentDensity
 import PrescribedExtinction.SmoothOutgoingFields
+import PrescribedExtinction.PoyntingCutoff

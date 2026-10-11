@@ -1540,10 +1540,15 @@ import PrescribedExtinction
 #print axioms OQ7Prescribed.basisR.eq_1
 #print axioms OQ7Prescribed.bilinear
 #print axioms OQ7Prescribed.bilinear_add_left
+#print axioms OQ7Prescribed.bilinear_add_right
+#print axioms OQ7Prescribed.bilinear_complex_smul_right
 #print axioms OQ7Prescribed.bilinear_complexify_eq_inner
 #print axioms OQ7Prescribed.bilinear_complexify_self
+#print axioms OQ7Prescribed.bilinear_cross_conjugate
 #print axioms OQ7Prescribed.bilinear_radial_smul_norm_le
 #print axioms OQ7Prescribed.bilinear_radial_smul_norm_le._simp_1_1
+#print axioms OQ7Prescribed.bilinear_real_smul_right
+#print axioms OQ7Prescribed.bilinear_vectorConjugate_right
 #print axioms OQ7Prescribed.bilinear.eq_1
 #print axioms OQ7Prescribed.bodyDomain
 #print axioms OQ7Prescribed.bodyDomain_isOpen
@@ -1576,6 +1581,7 @@ import PrescribedExtinction
 #print axioms OQ7Prescribed.classicalDyadic._proof_8
 #print axioms OQ7Prescribed.classicalDyadic._proof_9
 #print axioms OQ7Prescribed.classicalDyadic.eq_1
+#print axioms OQ7Prescribed.compact_scalar_weight_integrable
 #print axioms OQ7Prescribed.compactField_bilinear_integrable
 #print axioms OQ7Prescribed.compactField_curl_hasCompactSupport
 #print axioms OQ7Prescribed.compactOutgoing_evaluationNormedAddCommGroup
@@ -1728,6 +1734,8 @@ import PrescribedExtinction
 #print axioms OQ7Prescribed.crossRightMap_apply
 #print axioms OQ7Prescribed.crossRightMap._proof_1
 #print axioms OQ7Prescribed.curl
+#print axioms OQ7Prescribed.curl_real_smul
+#print axioms OQ7Prescribed.curl_vectorConjugate
 #print axioms OQ7Prescribed.curl.eq_1
 #print axioms OQ7Prescribed.current_component_fourier
 #print axioms OQ7Prescribed.current_component_integrable
@@ -1759,6 +1767,8 @@ import PrescribedExtinction
 #print axioms OQ7Prescribed.currentTestCorrelationVector_integrable
 #print axioms OQ7Prescribed.currentTestCorrelationVector._proof_1
 #print axioms OQ7Prescribed.currentTestCorrelationVector._proof_2
+#print axioms OQ7Prescribed.cutoff_curl_pairing_real
+#print axioms OQ7Prescribed.cutoff_source_pairing_real
 #print axioms OQ7Prescribed.cutoffDyadicRemainder
 #print axioms OQ7Prescribed.cutoffDyadicRemainder_eLpNorm_le
 #print axioms OQ7Prescribed.cutoffDyadicRemainder_integrable
@@ -2766,6 +2776,8 @@ import PrescribedExtinction
 #print axioms OQ7Prescribed.rotatedAxis_unit
 #print axioms OQ7Prescribed.rotatedAxis.eq_1
 #print axioms OQ7Prescribed.ScalarDistribution
+#print axioms OQ7Prescribed.scalarGradient
+#print axioms OQ7Prescribed.scalarGradient.eq_1
 #print axioms OQ7Prescribed.ScalarTest
 #print axioms OQ7Prescribed.scalarTest_global_lipschitz
 #print axioms OQ7Prescribed.scalarTest_support_radius
@@ -2839,6 +2851,7 @@ import PrescribedExtinction
 #print axioms OQ7Prescribed.shrinkingCutoffPoleError_norm_le._simp_1_7
 #print axioms OQ7Prescribed.shrinkingCutoffPoleError_norm_le._simp_1_8
 #print axioms OQ7Prescribed.shrinkingCutoffPoleError_tendsto
+#print axioms OQ7Prescribed.smooth_source_cutoff_energy
 #print axioms OQ7Prescribed.smoothElectricSource
 #print axioms OQ7Prescribed.smoothElectricSource_contDiff
 #print axioms OQ7Prescribed.smoothElectricSource_curl
@@ -2857,6 +2870,7 @@ import PrescribedExtinction
 #print axioms OQ7Prescribed.smoothMagneticSource_curl
 #print axioms OQ7Prescribed.smoothMagneticSource_distribution
 #print axioms OQ7Prescribed.smoothMagneticSource_eq_ae
+#print axioms OQ7Prescribed.smoothPhysicalSource_cutoff_energy
 #print axioms OQ7Prescribed.smoothScalar_distributionPartial
 #print axioms OQ7Prescribed.sphere_coordinate_cross_zero
 #print axioms OQ7Prescribed.sphere_coordinate_mul_integrable
@@ -3061,6 +3075,13 @@ import PrescribedExtinction
 #print axioms OQ7Prescribed.vector_inner_real_smul
 #print axioms OQ7Prescribed.vector_strict_imaginary_coercive
 #print axioms OQ7Prescribed.vector_strict_imaginary_coercive._simp_1_1
+#print axioms OQ7Prescribed.vectorConjugate
+#print axioms OQ7Prescribed.vectorConjugate_apply
+#print axioms OQ7Prescribed.vectorConjugate_component_fderiv
+#print axioms OQ7Prescribed.vectorConjugate_contDiff
+#print axioms OQ7Prescribed.vectorConjugate_smul
+#print axioms OQ7Prescribed.vectorConjugate._proof_1
+#print axioms OQ7Prescribed.vectorConjugate.eq_1
 #print axioms OQ7Prescribed.vectorCoordinate
 #print axioms OQ7Prescribed.vectorCoordinate.eq_1
 #print axioms OQ7Prescribed.VectorDistribution

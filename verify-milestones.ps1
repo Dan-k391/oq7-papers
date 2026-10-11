@@ -53,7 +53,8 @@ try {
         @{ name = 'physical-polarization'; module = 'PrescribedExtinction.PhysicalPolarization' },
         @{ name = 'material-volume-bridge'; module = 'PrescribedExtinction.VolumeScatteringBridge' },
         @{ name = 'constitutive-coercive-inverse'; module = 'PrescribedExtinction.TensorLossCoercivity' },
-        @{ name = 'smooth-current-physical-fields'; module = 'PrescribedExtinction.SmoothOutgoingFields' }
+        @{ name = 'smooth-current-physical-fields'; module = 'PrescribedExtinction.SmoothOutgoingFields' },
+        @{ name = 'physical-cutoff-poynting'; module = 'PrescribedExtinction.PoyntingCutoff' }
     )
     if ($Only) {
         foreach ($oq7Name in $Only) {

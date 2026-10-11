@@ -272,7 +272,8 @@ run_cmd do
         'OQ7Prescribed.smoothElectricSource_eq_ae',
         'OQ7Prescribed.smoothMagneticSource_eq_ae',
         'OQ7Prescribed.smoothElectricSource_curl',
-        'OQ7Prescribed.smoothMagneticSource_curl')) {
+        'OQ7Prescribed.smoothMagneticSource_curl',
+        'OQ7Prescribed.smoothPhysicalSource_cutoff_energy')) {
         if ($oq7Required -notin $oq7NewKernelTheorems) { throw "Missing outgoing operator obligation: $oq7Required" }
     }
     if ('OQ7Prescribed.scatteringStateOfVolumeEquation' -notin $oq7Constants) {
@@ -345,6 +346,7 @@ run_cmd do
         physicalAdmissibleConstitutiveSusceptibilityInverseVerified = $true
         compactL2CurrentFixedSupportSmoothDensityVerified = $true
         smoothCurrentClassicalPhysicalSourceFieldsVerified = $true
+        physicalSmoothSourceCutoffPoyntingIdentityVerified = $true
         actualOutgoingVolumeDissipativityVerified = $false
         physicalDyadicDistributionExteriorTestIdentificationVerified = $true
         outgoingWeakMaxwellRepresentationVerified = $false

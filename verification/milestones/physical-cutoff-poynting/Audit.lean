@@ -1,0 +1,5 @@
+import PrescribedExtinction.PoyntingCutoff
+#check @OQ7Prescribed.smooth_source_cutoff_energy
+#print axioms OQ7Prescribed.smooth_source_cutoff_energy
+#check @OQ7Prescribed.smoothPhysicalSource_cutoff_energy
+#print axioms OQ7Prescribed.smoothPhysicalSource_cutoff_energy
