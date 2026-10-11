@@ -44,7 +44,8 @@ try {
         @{ name = 'physical-source-fields'; module = 'PrescribedExtinction.PhysicalSourceFields' },
         @{ name = 'smooth-test-correction'; module = 'PrescribedExtinction.TestRegularity' },
         @{ name = 'physical-weak-curls'; module = 'PrescribedExtinction.WeakCurlBridge' },
-        @{ name = 'radiation-kernel'; module = 'PrescribedExtinction.RadiationKernel' }
+        @{ name = 'radiation-kernel'; module = 'PrescribedExtinction.RadiationKernel' },
+        @{ name = 'exterior-current-radiation'; module = 'PrescribedExtinction.ExteriorOutgoing' }
     )
     if ($Only) {
         foreach ($oq7Name in $Only) {

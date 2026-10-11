@@ -63,3 +63,4 @@ import PrescribedExtinction.PhysicalSourceFields
 import PrescribedExtinction.TestRegularity
 import PrescribedExtinction.WeakCurlBridge
 import PrescribedExtinction.RadiationKernel
+import PrescribedExtinction.ExteriorOutgoing

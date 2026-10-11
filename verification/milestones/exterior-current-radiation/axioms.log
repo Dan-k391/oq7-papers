@@ -1,0 +1,29 @@
+def OQ7Prescribed.Outgoing : OQ7Prescribed.Field → OQ7Prescribed.Field → Prop :=
+fun Es Hs =>
+  ∀ (ε : ℝ),
+    0 < ε →
+      ∃ ρ,
+        0 < ρ ∧
+          ∀ (x : OQ7Prescribed.Position),
+            ρ ≤ ‖x‖ → ‖x‖ * ‖OQ7Prescribed.cross (Hs x) (OQ7Prescribed.complexify (‖x‖⁻¹ • x)) - Es x‖ < ε
+OQ7Prescribed.exteriorElectric_integrable_far : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization)
+  (x : OQ7Prescribed.Position),
+  p.radius + 1 ≤ ‖x‖ →
+    MeasureTheory.Integrable (fun y => (OQ7Prescribed.classicalDyadic k (x - y)) (p.current y)) MeasureTheory.volume
+'OQ7Prescribed.exteriorElectric_integrable_far' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.exteriorMagnetic_integrable_far : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization)
+  (x : OQ7Prescribed.Position),
+  p.radius + 1 ≤ ‖x‖ →
+    MeasureTheory.Integrable (fun y => OQ7Prescribed.kernelMagnetic k (x - y) (p.current y)) MeasureTheory.volume
+'OQ7Prescribed.exteriorMagnetic_integrable_far' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.exterior_radiation_integral_norm_le : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization)
+  (x : OQ7Prescribed.Position),
+  2 * p.radius + 2 ≤ ‖x‖ →
+    ‖OQ7Prescribed.cross (OQ7Prescribed.exteriorMagnetic k p x)
+            (OQ7Prescribed.complexify (OQ7Prescribed.radialDirection x)) -
+          OQ7Prescribed.exteriorElectric k p x‖ ≤
+      OQ7Prescribed.radiationKernelConstant k p.radius / ‖x‖ ^ 2 * ∫ (y : OQ7Prescribed.Position), ‖p.current y‖
+'OQ7Prescribed.exterior_radiation_integral_norm_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.exteriorCurrentFields_outgoing : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization),
+  OQ7Prescribed.Outgoing (OQ7Prescribed.exteriorElectric k p) (OQ7Prescribed.exteriorMagnetic k p)
+'OQ7Prescribed.exteriorCurrentFields_outgoing' depends on axioms: [propext, Classical.choice, Quot.sound]

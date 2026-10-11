@@ -75,3 +75,10 @@ the uniform displaced-source bound for every source in a radius-R ball and
 every observation direction, with explicit k/R dependence. The magnetic kernel
 is identified with the actual outgoing gradient. These kernel estimates must
 still be integrated and connected to the original L² field representatives.
+
+ExteriorOutgoing.lean now integrates these bounds against every original
+compact L² current. Both far-zone convolutions are proved integrable, and
+exteriorCurrentFields_outgoing proves exactly the full-sphere uniform
+Silver–Müller condition. Equality with the global L² weak-source fields,
+especially the electric representative, is still required before assembling
+a single global outgoing weak-Maxwell pair.
