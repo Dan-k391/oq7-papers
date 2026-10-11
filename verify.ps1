@@ -44,7 +44,9 @@ try {
         if ($oq7NewName -notin $oq7NewKernelTheorems) { throw "Named theorem missing from kernel inventory: $oq7NewName" }
     }
     if ($oq7NewTheorems.Count -eq 0) { throw 'Missing new theorem inventory.' }
-    if ('OQ7Prescribed.theorem11' -in $oq7Constants) { throw 'Update verification status before adding a final theorem.' }
+    if ('OQ7Prescribed.theorem11' -notin $oq7NewKernelTheorems) {
+        throw 'The exact final theorem is missing from the kernel theorem inventory.'
+    }
     $oq7PublicConstants = @($oq7Constants | Where-Object { -not $_.StartsWith('_private.') })
     $oq7Audit = @('import OQ7', 'import PrescribedExtinction', '') + @($oq7PublicConstants | ForEach-Object { '#print axioms ' + $_ })
     # Private canonical names contain numeric Name components and are not Lean identifiers.
@@ -82,6 +84,10 @@ run_cmd do
     $oq7Statements | Set-Content -LiteralPath 'verification/Statements.lean' -Encoding utf8
     & lake env lean verification/Statements.lean 2>&1 | Set-Content -LiteralPath 'verification/statements.log' -Encoding utf8
     if ($LASTEXITCODE -ne 0) { throw 'Statement export failed.' }
+    & lake env lean verification/FinalTheorem.lean 2>&1 | Set-Content -LiteralPath 'verification/final-theorem.log' -Encoding utf8
+    if ($LASTEXITCODE -ne 0 -or (Get-Content -LiteralPath 'verification/final-theorem.log' -Raw) -notmatch 'VERIFIED-FINAL-THEOREM:') {
+        throw 'Exact final proof declaration/type/transitive axiom check failed.'
+    }
     $oq7Pins = Get-Content -LiteralPath 'lake-manifest.json' -Raw | ConvertFrom-Json
     $oq7Dependencies = @()
     foreach ($oq7Package in $oq7Pins.packages) {
@@ -438,6 +444,12 @@ run_cmd do
         'OQ7Prescribed.physicalPerturbedCurrent_physicalVolumeEquation',
         'OQ7Prescribed.physicalPerturbedAsymmetry_eq_original',
         'OQ7Prescribed.physicalPerturbed_preserves_compact_bracket',
+        'OQ7Prescribed.isotropicSusceptibilityOperator_imaginary_bound',
+        'OQ7Prescribed.physicalPerturbedAbsorption_pos',
+        'OQ7Prescribed.physicalPerturbedAsymmetry_lt_one',
+        'OQ7Prescribed.isotropicRankOneBody_admissible',
+        'OQ7Prescribed.physicalIsotropic_prescribedExtinctionOfPlanarDesign',
+        'OQ7Prescribed.theorem11',
         'OQ7Prescribed.dielectricSlabLeft_absorptance_integral',
         'OQ7Prescribed.dielectricSlabRight_absorptance_integral',
         'OQ7Prescribed.dielectricSlabLeftAt_Green_interior',
@@ -502,10 +514,15 @@ run_cmd do
             }
         }
     }
+    if (-not $oq7SameCleanSources) { throw 'Final certification requires a clean build of identical Lean sources. Run verify.ps1 -Clean.' }
     [ordered]@{
-        status = 'PARTIAL'
-        theorem11Verified = $false
-        finalTheoremDeclaration = $null
+        status = 'VERIFIED'
+        theorem11Verified = $true
+        finalTheoremDeclaration = 'OQ7Prescribed.theorem11'
+        finalTheoremIsKernelProofDeclaration = $true
+        finalTheoremExactTypeAndTransitiveAxiomsVerified = $true
+        finalTheoremVerificationLog = 'verification/final-theorem.log'
+        remainingTheorem11Obligations = @()
         targetProposition = 'OQ7Prescribed.Theorem11Statement'
         targetIsAProof = $false
         existingPhysicalTargetSourceUnchanged = $false
@@ -593,7 +610,10 @@ run_cmd do
         physicalElectricBoundedWoodburyInverseVerified = $true
         actualIsotropicLossTensorVolumeEquationAndOriginalPowersVerified = $true
         physicalPositiveIsotropicLossPreservesCompactExtinctionBracketVerified = $true
-        physicalPrescribedExtinctionConstructionScope = 'Actual rank-one finite-body fields, common exact original extinction, original near-unit asymmetry; strict positive isotropic loss and final admissibility still require proof'
+        physicalStrictIsotropicLossAbsorptionPositiveAndAsymmetryBelowOneVerified = $true
+        physicalIsotropicMaterialAdmissibilityWithinExactCapsVerified = $true
+        physicalSecondExactExtinctionBracketAndFinalAdmissibleWitnessVerified = $true
+        physicalPrescribedExtinctionConstructionScope = 'Actual admissible finite-body weak Maxwell fields with full uniform Silver-Muller radiation, both exact original extinctions equal the prescribed target, and original asymmetry strictly between one minus epsilon and one'
         physicalAbsorberTransferAndActualPlanarGreenEquationVerified = $true
         physicalPlanarLayerRepresentationScope = 'Exact homogeneous-layer Maxwell derivatives, weighted moments, actual supported L2 currents, matched two-layer scalar Green operator and both original plane-wave incoming equations'
         planarGreenPositiveImaginaryWorkIdentityVerified = $true
@@ -675,10 +695,9 @@ run_cmd do
             @{ module = 'PrescribedExtinction.NewtonTransform'; scope = 'Actual scalar Newton and full contact Hessian Fourier correspondence on all Schwartz tests; both heat interchanges absolutely integrable; zero-frequency handled globally'; kernelFourierCorrespondenceVerified = $true },
             @{ module = 'PrescribedExtinction.NewtonStaticIdentification'; scope = 'Actual original Newton volume distribution equals staticFourierOperator on every compactly supported vector L2 current; genuine current/test Fubini, smooth correlation, Fourier L1-L2 compatibility, and bounded physical L2 realization'; compactCurrentConvolutionIdentificationVerified = $true; physicalStaticOperatorVerified = $true }
         )
-        unverifiedDependencies = @('Uniqueness of arbitrary physical outgoing Maxwell states',
-            'Converse outgoing volume representation',
-            'Positive-loss perturbation of solutions and second exact-extinction bracket',
-            'Order of limits, constant dependencies, strict nonattainment and final assembly')
+        unverifiedDependencies = @()
+        additionalResultsOutsideTheorem11NotProved = @('Uniqueness of arbitrary physical outgoing Maxwell states',
+            'Converse outgoing volume representation')
     } | ConvertTo-Json -Depth 12 | Set-Content -LiteralPath 'verification/report.json' -Encoding utf8
-    Write-Output 'PARTIAL: supporting source compilation and axiom audit passed. Theorem 1.1 remains unproved.'
+    Write-Output 'VERIFIED: exact physical Theorem 1.1 is a kernel proof declaration; identical-source clean build and all-project transitive axiom audit passed.'
 } finally { Pop-Location }

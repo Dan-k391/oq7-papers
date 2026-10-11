@@ -489,6 +489,8 @@ OQ7Prescribed.bodyIncident_memLp : ∀ (k : ℝ) (B : OQ7Prescribed.TwoLayerBody
 OQ7Prescribed.bodyIncidentCurrent_coe : ∀ (k : ℝ) (B : OQ7Prescribed.TwoLayerBody) (σ : OQ7Prescribed.Direction),
   ↑↑↑(OQ7Prescribed.bodyIncidentCurrent k B σ) =ᵐ[MeasureTheory.volume]
     B.domain.indicator (OQ7Prescribed.incidentElectric k σ)
+OQ7Prescribed.bodyIncidentCurrent_ne_zero : ∀ (k : ℝ) (B : OQ7Prescribed.TwoLayerBody) (σ : OQ7Prescribed.Direction),
+  OQ7Prescribed.bodyIncidentCurrent k B σ ≠ 0
 OQ7Prescribed.bodyInverseSusceptibility_coe : ∀ (B : OQ7Prescribed.TwoLayerBody)
   (a : OQ7Prescribed.SusceptibilityInverseData B.absorberPermittivity)
   (b : OQ7Prescribed.SusceptibilityInverseData B.platePermittivity) (f : ↥(OQ7Prescribed.BodyCurrentL2 B)),
@@ -2497,12 +2499,25 @@ OQ7Prescribed.integral_three_sub : ∀ (a b c d e f : OQ7Prescribed.Position →
   IsOpen U → ∀ (f : X → ℝ), (∀ x ∈ U, ContinuousAt f x) → ∀ (m : ℝ), IsOpen {x | x ∈ U ∧ m < f x}
 OQ7Prescribed.isotropicLayer_susceptibility : ∀ (α : ℂ) (ν : ℝ) (u : OQ7Prescribed.Position),
   OQ7Prescribed.layerPermittivity α.re α.im ν u - 1 = α • OQ7Prescribed.rankOne u + (Complex.I * ↑ν) • 1
+OQ7Prescribed.isotropicRankOneBody_admissible : ∀ (B : OQ7Prescribed.TwoLayerBody) (ν θ P Q : ℝ) (α β : ℂ),
+  0 < ν →
+    0 ≤ α.re →
+      0 ≤ β.re →
+        1 + α.re ≤ P →
+          1 + β.re ≤ P →
+            0 ≤ α.im →
+              0 ≤ β.im → α.im + ν ≤ Q → β.im + ν ≤ Q → (OQ7Prescribed.isotropicRankOneBody B ν θ α β).admissible P Q
 OQ7Prescribed.isotropicSusceptibilityOperator_coe : ∀ (B : OQ7Prescribed.TwoLayerBody) (ν θ : ℝ) (α β : ℂ)
   (f : ↥(OQ7Prescribed.BodyCurrentL2 B)),
   ↑↑↑((OQ7Prescribed.isotropicSusceptibilityOperator B ν θ α β) f) =ᵐ[MeasureTheory.volume] fun x =>
     if x.ofLp 2 < B.absorberThickness then
       (OQ7Prescribed.tensorMap ((OQ7Prescribed.isotropicRankOneBody B ν θ α β).absorberPermittivity - 1)) (↑↑↑f x)
     else (OQ7Prescribed.tensorMap ((OQ7Prescribed.isotropicRankOneBody B ν θ α β).platePermittivity - 1)) (↑↑↑f x)
+OQ7Prescribed.isotropicSusceptibilityOperator_imaginary_bound : ∀ (B : OQ7Prescribed.TwoLayerBody) (ν θ : ℝ) (α β : ℂ),
+  0 ≤ α.im →
+    0 ≤ β.im →
+      ∀ (f : ↥(OQ7Prescribed.BodyCurrentL2 B)),
+        ν * ‖f‖ ^ 2 ≤ (inner ℂ f ((OQ7Prescribed.isotropicSusceptibilityOperator B ν θ α β) f)).im
 OQ7Prescribed.isotropicSusceptibilityOperator_joint_continuous : ∀ (B : OQ7Prescribed.TwoLayerBody) (α β : ℂ),
   Continuous fun x => OQ7Prescribed.isotropicSusceptibilityOperator B x.1 x.2 α β
 OQ7Prescribed.kernel_radiation_defect : ∀ (k : ℝ) (x : OQ7Prescribed.Position),
@@ -3747,6 +3762,22 @@ OQ7Prescribed.physicalExtinction_sine_squared_factorization : ∀ (k : ℝ) (hk 
             (OQ7Prescribed.activePhysicalSolution k hk B σ (OQ7Prescribed.basisR 0) (OQ7Prescribed.rotatedAxis θ) α β hα
               hβ)))) =
     Real.sin θ ^ 2 * OQ7Prescribed.normalizedExtinction k hk B σ θ α β hα hβ
+OQ7Prescribed.physicalIsotropic_prescribedExtinctionOfPlanarDesign : ∀ (k : ℝ) (hk : 0 < k) (h d : ℝ) (hh : 0 < h)
+  (hd : 0 < d) (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im) (target m cap : ℝ),
+  0 < target →
+    0 < cap →
+      m < OQ7Prescribed.planarNormalizedAsymmetry k hk (h + d) ⋯ h 0 α β hα hβ →
+        ∃ B ν θ,
+          B.absorberThickness = h ∧
+            B.plateThickness = d ∧
+              0 < ν ∧
+                ν < cap ∧
+                  θ ∈ Set.Ioo 0 Real.pi ∧
+                    IsUnit (OQ7Prescribed.physicalElectricOperator k B ν θ α β) ∧
+                      OQ7Prescribed.physicalPerturbedExtinction k B OQ7Prescribed.Direction.plus ν θ α β = target ∧
+                        OQ7Prescribed.physicalPerturbedExtinction k B OQ7Prescribed.Direction.minus ν θ α β = target ∧
+                          m < OQ7Prescribed.physicalPerturbedAsymmetry k B ν θ α β ∧
+                            OQ7Prescribed.physicalPerturbedAsymmetry k B ν θ α β < 1
 OQ7Prescribed.physicalOutgoingVolume_farField_work : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization),
   k *
       (∫ (x : OQ7Prescribed.Position),
@@ -3799,6 +3830,21 @@ OQ7Prescribed.physicalPerturbedAbsorption_joint_continuousAt : ∀ (k : ℝ) (B 
   (σ : OQ7Prescribed.Direction) (α β : ℂ) (x : ℝ × ℝ),
   IsUnit (OQ7Prescribed.physicalElectricOperator k B x.1 x.2 α β) →
     ContinuousAt (fun y => OQ7Prescribed.physicalPerturbedAbsorption k B σ y.1 y.2 α β) x
+OQ7Prescribed.physicalPerturbedAbsorption_le_extinction : ∀ (k : ℝ),
+  0 < k →
+    ∀ (B : OQ7Prescribed.TwoLayerBody) (σ : OQ7Prescribed.Direction) (ν θ : ℝ) (α β : ℂ),
+      IsUnit (OQ7Prescribed.physicalElectricOperator k B ν θ α β) →
+        OQ7Prescribed.physicalPerturbedAbsorption k B σ ν θ α β ≤
+          OQ7Prescribed.physicalPerturbedExtinction k B σ ν θ α β
+OQ7Prescribed.physicalPerturbedAbsorption_pos : ∀ (k : ℝ),
+  0 < k →
+    ∀ (B : OQ7Prescribed.TwoLayerBody) (σ : OQ7Prescribed.Direction) (ν θ : ℝ),
+      0 < ν →
+        ∀ (α β : ℂ),
+          0 ≤ α.im →
+            0 ≤ β.im →
+              IsUnit (OQ7Prescribed.physicalElectricOperator k B ν θ α β) →
+                0 < OQ7Prescribed.physicalPerturbedAbsorption k B σ ν θ α β
 OQ7Prescribed.physicalPerturbedAbsorption_zero_eq_original : ∀ (k : ℝ) (hk : 0 < k) (B : OQ7Prescribed.TwoLayerBody)
   (σ : OQ7Prescribed.Direction) (θ : ℝ) (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im),
   OQ7Prescribed.physicalPerturbedAbsorption k B σ 0 θ α β =
@@ -3819,6 +3865,16 @@ OQ7Prescribed.physicalPerturbedAsymmetry_joint_continuousAt : ∀ (k : ℝ) (B :
   IsUnit (OQ7Prescribed.physicalElectricOperator k B x.1 x.2 α β) →
     OQ7Prescribed.physicalPerturbedExtinction k B OQ7Prescribed.Direction.plus x.1 x.2 α β ≠ 0 →
       ContinuousAt (fun y => OQ7Prescribed.physicalPerturbedAsymmetry k B y.1 y.2 α β) x
+OQ7Prescribed.physicalPerturbedAsymmetry_lt_one : ∀ (k : ℝ),
+  0 < k →
+    ∀ (B : OQ7Prescribed.TwoLayerBody) (ν θ : ℝ),
+      0 < ν →
+        ∀ (α β : ℂ),
+          0 ≤ α.im →
+            0 ≤ β.im →
+              IsUnit (OQ7Prescribed.physicalElectricOperator k B ν θ α β) →
+                0 < OQ7Prescribed.physicalPerturbedExtinction k B OQ7Prescribed.Direction.plus ν θ α β →
+                  OQ7Prescribed.physicalPerturbedAsymmetry k B ν θ α β < 1
 OQ7Prescribed.physicalPerturbedAsymmetry_zero_eq_original : ∀ (k : ℝ) (hk : 0 < k) (B : OQ7Prescribed.TwoLayerBody)
   (θ : ℝ) (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im),
   OQ7Prescribed.physicalPerturbedAsymmetry k B 0 θ α β =
@@ -3851,6 +3907,12 @@ OQ7Prescribed.physicalPerturbedExtinction_joint_continuousAt : ∀ (k : ℝ) (B 
   (σ : OQ7Prescribed.Direction) (α β : ℂ) (x : ℝ × ℝ),
   IsUnit (OQ7Prescribed.physicalElectricOperator k B x.1 x.2 α β) →
     ContinuousAt (fun y => OQ7Prescribed.physicalPerturbedExtinction k B σ y.1 y.2 α β) x
+OQ7Prescribed.physicalPerturbedExtinction_reciprocity : ∀ (k : ℝ),
+  0 < k →
+    ∀ (B : OQ7Prescribed.TwoLayerBody) (ν θ : ℝ) (α β : ℂ),
+      IsUnit (OQ7Prescribed.physicalElectricOperator k B ν θ α β) →
+        OQ7Prescribed.physicalPerturbedExtinction k B OQ7Prescribed.Direction.plus ν θ α β =
+          OQ7Prescribed.physicalPerturbedExtinction k B OQ7Prescribed.Direction.minus ν θ α β
 OQ7Prescribed.physicalPerturbedExtinction_zero_eq_original : ∀ (k : ℝ) (hk : 0 < k) (B : OQ7Prescribed.TwoLayerBody)
   (σ : OQ7Prescribed.Direction) (θ : ℝ) (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im),
   OQ7Prescribed.physicalPerturbedExtinction k B σ 0 θ α β = OQ7Prescribed.rankOneRotationExtinction k hk B σ θ α β hα hβ
@@ -6527,6 +6589,7 @@ OQ7Prescribed.testPartial_second_eq_fderiv : ∀ (φ : OQ7Prescribed.ScalarTest)
   (x : OQ7Prescribed.Position),
   ((OQ7Prescribed.testPartial j) ((OQ7Prescribed.testPartial i) φ)) x =
     ((fderiv ℝ (fderiv ℝ ⇑φ) x) (OQ7Prescribed.basisR j)) (OQ7Prescribed.basisR i)
+OQ7Prescribed.theorem11 : OQ7Prescribed.Theorem11Statement
 OQ7Prescribed.transition_average_tendsto : ∀ (r : ℝ) (A : ℝ → ℝ),
   Continuous A →
     Filter.Tendsto (fun t => ∫ (u : ℝ) in 0..1, OQ7Prescribed.transitionDerivative u * A (r + t * u)) (nhds 0)

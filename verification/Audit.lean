@@ -1827,6 +1827,7 @@ import PrescribedExtinction
 #print axioms OQ7Prescribed.bodyIncident_memLp
 #print axioms OQ7Prescribed.bodyIncidentCurrent
 #print axioms OQ7Prescribed.bodyIncidentCurrent_coe
+#print axioms OQ7Prescribed.bodyIncidentCurrent_ne_zero
 #print axioms OQ7Prescribed.bodyIncidentCurrent._proof_1
 #print axioms OQ7Prescribed.bodyIncidentCurrent._proof_2
 #print axioms OQ7Prescribed.bodyIncidentCurrent._proof_3
@@ -2864,9 +2865,12 @@ import PrescribedExtinction
 #print axioms OQ7Prescribed.isotropicLayer_susceptibility
 #print axioms OQ7Prescribed.isotropicLayer_susceptibility._abel_1_1
 #print axioms OQ7Prescribed.isotropicRankOneBody
+#print axioms OQ7Prescribed.isotropicRankOneBody_admissible
 #print axioms OQ7Prescribed.isotropicRankOneBody._proof_1
+#print axioms OQ7Prescribed.isotropicRankOneBody.eq_1
 #print axioms OQ7Prescribed.isotropicSusceptibilityOperator
 #print axioms OQ7Prescribed.isotropicSusceptibilityOperator_coe
+#print axioms OQ7Prescribed.isotropicSusceptibilityOperator_imaginary_bound
 #print axioms OQ7Prescribed.isotropicSusceptibilityOperator_joint_continuous
 #print axioms OQ7Prescribed.isotropicSusceptibilityOperator._proof_1
 #print axioms OQ7Prescribed.isotropicSusceptibilityOperator._proof_2
@@ -3587,6 +3591,7 @@ import PrescribedExtinction
 #print axioms OQ7Prescribed.physicalElectricOperator._proof_1
 #print axioms OQ7Prescribed.physicalElectricOperator.eq_1
 #print axioms OQ7Prescribed.physicalExtinction_sine_squared_factorization
+#print axioms OQ7Prescribed.physicalIsotropic_prescribedExtinctionOfPlanarDesign
 #print axioms OQ7Prescribed.physicalOutgoingVolume_farField_work
 #print axioms OQ7Prescribed.physicalOutgoingVolume_reciprocity
 #print axioms OQ7Prescribed.physicalOutgoingVolume_work_nonneg
@@ -3594,10 +3599,13 @@ import PrescribedExtinction
 #print axioms OQ7Prescribed.physicalPerturbedAbsorption
 #print axioms OQ7Prescribed.physicalPerturbedAbsorption_eq_original
 #print axioms OQ7Prescribed.physicalPerturbedAbsorption_joint_continuousAt
+#print axioms OQ7Prescribed.physicalPerturbedAbsorption_le_extinction
+#print axioms OQ7Prescribed.physicalPerturbedAbsorption_pos
 #print axioms OQ7Prescribed.physicalPerturbedAbsorption_zero_eq_original
 #print axioms OQ7Prescribed.physicalPerturbedAsymmetry
 #print axioms OQ7Prescribed.physicalPerturbedAsymmetry_eq_original
 #print axioms OQ7Prescribed.physicalPerturbedAsymmetry_joint_continuousAt
+#print axioms OQ7Prescribed.physicalPerturbedAsymmetry_lt_one
 #print axioms OQ7Prescribed.physicalPerturbedAsymmetry_zero_eq_original
 #print axioms OQ7Prescribed.physicalPerturbedCurrent
 #print axioms OQ7Prescribed.physicalPerturbedCurrent_joint_continuousAt
@@ -3606,6 +3614,7 @@ import PrescribedExtinction
 #print axioms OQ7Prescribed.physicalPerturbedExtinction
 #print axioms OQ7Prescribed.physicalPerturbedExtinction_eq_original
 #print axioms OQ7Prescribed.physicalPerturbedExtinction_joint_continuousAt
+#print axioms OQ7Prescribed.physicalPerturbedExtinction_reciprocity
 #print axioms OQ7Prescribed.physicalPerturbedExtinction_zero_eq_original
 #print axioms OQ7Prescribed.physicalPolarization_indicator
 #print axioms OQ7Prescribed.physicalPolarization_memLp
@@ -4329,7 +4338,7 @@ import PrescribedExtinction
 #print axioms OQ7Prescribed.setRestrictionLinear._proof_2
 #print axioms OQ7Prescribed.setRestrictionLinear._proof_3
 #print axioms OQ7Prescribed.setRestrictionLinear._proof_4
-#print axioms OQ7Prescribed.setSupportedL2
+#print axioms OQ7Prescribed.SetSupportedL2
 #print axioms OQ7Prescribed.setSupportedL2_isClosed
 #print axioms OQ7Prescribed.setSupportedL2._proof_1
 #print axioms OQ7Prescribed.setSupportedL2._proof_2
@@ -5165,6 +5174,7 @@ import PrescribedExtinction
 #print axioms OQ7Prescribed.testPartial_second_eq_fderiv
 #print axioms OQ7Prescribed.testPartial._proof_1
 #print axioms OQ7Prescribed.testPartial.eq_1
+#print axioms OQ7Prescribed.theorem11
 #print axioms OQ7Prescribed.Theorem11Statement
 #print axioms OQ7Prescribed.transition_average_tendsto
 #print axioms OQ7Prescribed.transition_radial_integral

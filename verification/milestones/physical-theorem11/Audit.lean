@@ -1,0 +1,11 @@
+import PrescribedExtinction.Theorem11
+
+example : OQ7Prescribed.Theorem11Statement := OQ7Prescribed.theorem11
+#check OQ7Prescribed.physicalIsotropic_prescribedExtinctionOfPlanarDesign
+#check OQ7Prescribed.isotropicRankOneBody_admissible
+#check OQ7Prescribed.physicalPerturbedAsymmetry_lt_one
+#check OQ7Prescribed.theorem11
+#print axioms OQ7Prescribed.physicalIsotropic_prescribedExtinctionOfPlanarDesign
+#print axioms OQ7Prescribed.isotropicRankOneBody_admissible
+#print axioms OQ7Prescribed.physicalPerturbedAsymmetry_lt_one
+#print axioms OQ7Prescribed.theorem11

@@ -82,7 +82,8 @@ try {
         @{ name = 'planar-coupled-green'; module = 'PrescribedExtinction.PlanarCoupledGreen' },
         @{ name = 'planar-slab-response-identification'; module = 'PrescribedExtinction.PlanarSlabResponseIdentification' },
         @{ name = 'physical-planar-design-extinction-bracket'; module = 'PrescribedExtinction.PhysicalRankOneExtinctionBracket' },
-        @{ name = 'physical-isotropic-loss-stability'; module = 'PrescribedExtinction.PhysicalCompactLossBracket' }
+        @{ name = 'physical-isotropic-loss-stability'; module = 'PrescribedExtinction.PhysicalCompactLossBracket' },
+        @{ name = 'physical-theorem11'; module = 'PrescribedExtinction.Theorem11' }
     )
     if ($Only) {
         foreach ($oq7Name in $Only) {
@@ -97,6 +98,6 @@ try {
         & lake env lean (Join-Path $oq7Directory 'Audit.lean') 2>&1 |
             Set-Content -LiteralPath (Join-Path $oq7Directory 'axioms.log') -Encoding utf8
         if ($LASTEXITCODE -ne 0) { throw "Milestone axiom export failed: $($oq7Milestone.name)" }
-        Write-Output "Checked stated supporting milestone: $($oq7Milestone.name). Final theorem remains PARTIAL."
+        Write-Output "Checked stated milestone: $($oq7Milestone.name). See verify.ps1 and verification/report.json for full final certification."
     }
 } finally { Pop-Location }

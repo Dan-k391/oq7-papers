@@ -1,0 +1,29 @@
+OQ7Prescribed.physicalIsotropic_prescribedExtinctionOfPlanarDesign (k : ℝ) (hk : 0 < k) (h d : ℝ) (hh : 0 < h)
+  (hd : 0 < d) (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im) (target m cap : ℝ) (htarget : 0 < target) (hcap : 0 < cap)
+  (hm : m < OQ7Prescribed.planarNormalizedAsymmetry k hk (h + d) ⋯ h 0 α β hα hβ) :
+  ∃ B ν θ,
+    B.absorberThickness = h ∧
+      B.plateThickness = d ∧
+        0 < ν ∧
+          ν < cap ∧
+            θ ∈ Set.Ioo 0 Real.pi ∧
+              IsUnit (OQ7Prescribed.physicalElectricOperator k B ν θ α β) ∧
+                OQ7Prescribed.physicalPerturbedExtinction k B OQ7Prescribed.Direction.plus ν θ α β = target ∧
+                  OQ7Prescribed.physicalPerturbedExtinction k B OQ7Prescribed.Direction.minus ν θ α β = target ∧
+                    m < OQ7Prescribed.physicalPerturbedAsymmetry k B ν θ α β ∧
+                      OQ7Prescribed.physicalPerturbedAsymmetry k B ν θ α β < 1
+OQ7Prescribed.isotropicRankOneBody_admissible (B : OQ7Prescribed.TwoLayerBody) (ν θ P Q : ℝ) (α β : ℂ) (hν : 0 < ν)
+  (ha : 0 ≤ α.re) (hb : 0 ≤ β.re) (haP : 1 + α.re ≤ P) (hbP : 1 + β.re ≤ P) (hα : 0 ≤ α.im) (hβ : 0 ≤ β.im)
+  (hαQ : α.im + ν ≤ Q) (hβQ : β.im + ν ≤ Q) : (OQ7Prescribed.isotropicRankOneBody B ν θ α β).admissible P Q
+OQ7Prescribed.physicalPerturbedAsymmetry_lt_one (k : ℝ) (hk : 0 < k) (B : OQ7Prescribed.TwoLayerBody) (ν θ : ℝ)
+  (hν : 0 < ν) (α β : ℂ) (hα : 0 ≤ α.im) (hβ : 0 ≤ β.im)
+  (hL : IsUnit (OQ7Prescribed.physicalElectricOperator k B ν θ α β))
+  (hX : 0 < OQ7Prescribed.physicalPerturbedExtinction k B OQ7Prescribed.Direction.plus ν θ α β) :
+  OQ7Prescribed.physicalPerturbedAsymmetry k B ν θ α β < 1
+OQ7Prescribed.theorem11 : OQ7Prescribed.Theorem11Statement
+'OQ7Prescribed.physicalIsotropic_prescribedExtinctionOfPlanarDesign' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OQ7Prescribed.isotropicRankOneBody_admissible' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.physicalPerturbedAsymmetry_lt_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.theorem11' depends on axioms: [propext, Classical.choice, Quot.sound]
