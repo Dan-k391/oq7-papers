@@ -418,6 +418,11 @@ run_cmd do
         'OQ7Prescribed.normalizedIncidentDrive_eq_sharpLift',
         'OQ7Prescribed.planarNormalizedDrive_norm',
         'OQ7Prescribed.physicalBody_normalized_response_uniform_aperture_localization',
+        'OQ7Prescribed.exists_plateDesign_within_cap',
+        'OQ7Prescribed.losslessPlateDesign_active_transfer',
+        'OQ7Prescribed.losslessPlateDesign_vacuum_transfer',
+        'OQ7Prescribed.losslessPlateCartesian_boundary',
+        'OQ7Prescribed.losslessPlateCartesian_current_rankOne',
         'OQ7Prescribed.planarTwoLayerGreen_interior_representation',
         'OQ7Prescribed.scalarPlanarPotential_twoLayer_representation',
         'OQ7Prescribed.planarScalarOutgoing_twoLayer_representation',
@@ -531,6 +536,7 @@ run_cmd do
         physicalSlabApertureErrorForAllL2HeightProfilesVerified = $true
         actualFiniteIntervalPlanarGreenOperatorVerified = $true
         physicalPlanarMatchedLayerGreenRepresentationVerified = $true
+        physicalLosslessPlateCapAndExactCartesianBoundaryTransformationVerified = $true
         physicalPlanarLayerRepresentationScope = 'Exact homogeneous-layer Maxwell derivatives, weighted moments, actual supported L2 currents, matched two-layer scalar Green operator and both original plane-wave incoming equations'
         planarGreenPositiveImaginaryWorkIdentityVerified = $true
         planarTwoLayerMaterialInverseUniformInRotationVerified = $true

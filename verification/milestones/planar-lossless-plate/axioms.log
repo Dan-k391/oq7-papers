@@ -1,0 +1,59 @@
+OQ7Prescribed.plateDesignPermittivity_pos_susceptibility (j : ℕ) (hj : 1 ≤ j) :
+  0 < OQ7Prescribed.plateDesignPermittivity j - 1
+OQ7Prescribed.plateDesignThickness_pos (k : ℝ) (hk : 0 < k) (j : ℕ) (hj : 1 ≤ j) :
+  0 < OQ7Prescribed.plateDesignThickness k j
+OQ7Prescribed.plateDesign_phases (k : ℝ) (hk : k ≠ 0) (j : ℕ) (hj : 1 ≤ j) :
+  k * OQ7Prescribed.plateDesignThickness k j = ↑j * (2 * Real.pi) - Real.pi ∧
+    k * OQ7Prescribed.plateDesignIndex j * OQ7Prescribed.plateDesignThickness k j = ↑j * (2 * Real.pi)
+OQ7Prescribed.exists_plateDesign_within_cap (P : ℝ) (hP : 1 < P) :
+  ∃ j, 1 ≤ j ∧ OQ7Prescribed.plateDesignPermittivity j ≤ P
+OQ7Prescribed.losslessPlateDesign_active_transfer (k : ℝ) (hk : 0 < k) (j : ℕ) (hj : 1 ≤ j) :
+  OQ7.homogeneousTransfer k (↑(OQ7Prescribed.plateDesignIndex j)) (OQ7Prescribed.plateDesignThickness k j) = 1
+OQ7Prescribed.losslessPlateDesign_vacuum_transfer (k : ℝ) (hk : 0 < k) (j : ℕ) (hj : 1 ≤ j) :
+  OQ7.homogeneousTransfer k 1 (OQ7Prescribed.plateDesignThickness k j) = -1
+OQ7Prescribed.losslessPlateDesign_active_field_boundary (k : ℝ) (hk : 0 < k) (j : ℕ) (hj : 1 ≤ j) (E H : ℂ) :
+  OQ7.electricField k (↑(OQ7Prescribed.plateDesignIndex j)) E H (OQ7Prescribed.plateDesignThickness k j) = E ∧
+    OQ7.magneticField k (↑(OQ7Prescribed.plateDesignIndex j)) E H (OQ7Prescribed.plateDesignThickness k j) = H
+OQ7Prescribed.losslessPlateDesign_vacuum_field_boundary (k : ℝ) (hk : 0 < k) (j : ℕ) (hj : 1 ≤ j) (E H : ℂ) :
+  OQ7.electricField k 1 E H (OQ7Prescribed.plateDesignThickness k j) = -E ∧
+    OQ7.magneticField k 1 E H (OQ7Prescribed.plateDesignThickness k j) = -H
+OQ7Prescribed.losslessPlateCartesian_initial (k h : ℝ) (j : ℕ) (hj : 1 ≤ j) (θ : ℝ) (Ex Ey Hx Hy : ℂ) :
+  (OQ7Prescribed.losslessPlateXLayer k h j hj θ Ex Ey Hx Hy).electric h = Ex ∧
+    (OQ7Prescribed.losslessPlateYLayer k h j hj θ Ex Ey Hx Hy).electric h = Ey ∧
+      (OQ7Prescribed.losslessPlateXLayer k h j hj θ Ex Ey Hx Hy).magnetic h = Hx ∧
+        (OQ7Prescribed.losslessPlateYLayer k h j hj θ Ex Ey Hx Hy).magnetic h = Hy
+OQ7Prescribed.losslessPlateCartesian_boundary (k : ℝ) (hk : 0 < k) (h : ℝ) (j : ℕ) (hj : 1 ≤ j) (θ : ℝ)
+  (Ex Ey Hx Hy : ℂ) :
+  (OQ7Prescribed.losslessPlateXLayer k h j hj θ Ex Ey Hx Hy).electric (h + OQ7Prescribed.plateDesignThickness k j) =
+      (↑(Real.cos θ) ^ 2 - ↑(Real.sin θ) ^ 2) * Ex + 2 * ↑(Real.cos θ) * ↑(Real.sin θ) * Ey ∧
+    (OQ7Prescribed.losslessPlateYLayer k h j hj θ Ex Ey Hx Hy).electric (h + OQ7Prescribed.plateDesignThickness k j) =
+        2 * ↑(Real.cos θ) * ↑(Real.sin θ) * Ex - (↑(Real.cos θ) ^ 2 - ↑(Real.sin θ) ^ 2) * Ey ∧
+      (OQ7Prescribed.losslessPlateXLayer k h j hj θ Ex Ey Hx Hy).magnetic (h + OQ7Prescribed.plateDesignThickness k j) =
+          (↑(Real.cos θ) ^ 2 - ↑(Real.sin θ) ^ 2) * Hx + 2 * ↑(Real.cos θ) * ↑(Real.sin θ) * Hy ∧
+        (OQ7Prescribed.losslessPlateYLayer k h j hj θ Ex Ey Hx Hy).magnetic
+            (h + OQ7Prescribed.plateDesignThickness k j) =
+          2 * ↑(Real.cos θ) * ↑(Real.sin θ) * Hx - (↑(Real.cos θ) ^ 2 - ↑(Real.sin θ) ^ 2) * Hy
+OQ7Prescribed.losslessPlateCartesian_current_rankOne (k h : ℝ) (j : ℕ) (hj : 1 ≤ j) (θ : ℝ) (Ex Ey Hx Hy : ℂ) (z : ℝ) :
+  (OQ7Prescribed.losslessPlateXLayer k h j hj θ Ex Ey Hx Hy).current z =
+      ↑(Real.cos θ) * ↑(OQ7Prescribed.plateDesignPermittivity j - 1) *
+        (OQ7Prescribed.losslessPlateActiveLayer k h j hj θ Ex Ey Hx Hy).electric z ∧
+    (OQ7Prescribed.losslessPlateYLayer k h j hj θ Ex Ey Hx Hy).current z =
+      ↑(Real.sin θ) * ↑(OQ7Prescribed.plateDesignPermittivity j - 1) *
+        (OQ7Prescribed.losslessPlateActiveLayer k h j hj θ Ex Ey Hx Hy).electric z
+OQ7Prescribed.losslessPlateCartesian_active_projection (k h : ℝ) (j : ℕ) (hj : 1 ≤ j) (θ : ℝ) (Ex Ey Hx Hy : ℂ)
+  (z : ℝ) :
+  ↑(Real.cos θ) * (OQ7Prescribed.losslessPlateXLayer k h j hj θ Ex Ey Hx Hy).electric z +
+      ↑(Real.sin θ) * (OQ7Prescribed.losslessPlateYLayer k h j hj θ Ex Ey Hx Hy).electric z =
+    (OQ7Prescribed.losslessPlateActiveLayer k h j hj θ Ex Ey Hx Hy).electric z
+'OQ7Prescribed.plateDesignPermittivity_pos_susceptibility' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.plateDesignThickness_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.plateDesign_phases' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.exists_plateDesign_within_cap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.losslessPlateDesign_active_transfer' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.losslessPlateDesign_vacuum_transfer' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.losslessPlateDesign_active_field_boundary' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.losslessPlateDesign_vacuum_field_boundary' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.losslessPlateCartesian_initial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.losslessPlateCartesian_boundary' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.losslessPlateCartesian_current_rankOne' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.losslessPlateCartesian_active_projection' depends on axioms: [propext, Classical.choice, Quot.sound]

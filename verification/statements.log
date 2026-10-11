@@ -1384,6 +1384,8 @@ OQ7Prescribed.electricVolumeField_smooth_slab_uniform_L2_residual : ∀ (k : ℝ
                                                       (OQ7Prescribed.scaledApertureWindow w R) q u v y‖ ^
                                                   2 ≤
                                               C ^ 2 * (∫ (t : ℝ), ‖q t‖) ^ 2 * X ^ 2 * Real.pi * L
+OQ7Prescribed.exists_plateDesign_within_cap : ∀ (P : ℝ),
+  1 < P → ∃ j, 1 ≤ j ∧ OQ7Prescribed.plateDesignPermittivity j ≤ P
 OQ7Prescribed.exp_remainder_two_norm : ∀ (z : ℂ), ‖Complex.exp z - 1 - z‖ ≤ ‖z‖ ^ 2 * Real.exp ‖z‖
 OQ7Prescribed.exterior_current_component_pairing : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization)
   (φ : OQ7Prescribed.ScalarTest),
@@ -2158,6 +2160,59 @@ OQ7Prescribed.Lorentz_flux_norm_bound : ∀ (E₁ H₁ E₂ H₂ n : OQ7Prescrib
     ‖E₁‖ * ‖OQ7Prescribed.cross H₂ n - E₂‖ + ‖E₂‖ * ‖OQ7Prescribed.cross H₁ n - E₁‖
 OQ7Prescribed.LorentzDecayConstant_nonneg : ∀ (k : ℝ) (p q : OQ7Prescribed.CompactPolarization),
   0 ≤ OQ7Prescribed.LorentzDecayConstant k p q
+OQ7Prescribed.losslessPlateCartesian_active_projection : ∀ (k h : ℝ) (j : ℕ) (hj : 1 ≤ j) (θ : ℝ) (Ex Ey Hx Hy : ℂ)
+  (z : ℝ),
+  ↑(Real.cos θ) * (OQ7Prescribed.losslessPlateXLayer k h j hj θ Ex Ey Hx Hy).electric z +
+      ↑(Real.sin θ) * (OQ7Prescribed.losslessPlateYLayer k h j hj θ Ex Ey Hx Hy).electric z =
+    (OQ7Prescribed.losslessPlateActiveLayer k h j hj θ Ex Ey Hx Hy).electric z
+OQ7Prescribed.losslessPlateCartesian_boundary : ∀ (k : ℝ),
+  0 < k →
+    ∀ (h : ℝ) (j : ℕ) (hj : 1 ≤ j) (θ : ℝ) (Ex Ey Hx Hy : ℂ),
+      (OQ7Prescribed.losslessPlateXLayer k h j hj θ Ex Ey Hx Hy).electric (h + OQ7Prescribed.plateDesignThickness k j) =
+          (↑(Real.cos θ) ^ 2 - ↑(Real.sin θ) ^ 2) * Ex + 2 * ↑(Real.cos θ) * ↑(Real.sin θ) * Ey ∧
+        (OQ7Prescribed.losslessPlateYLayer k h j hj θ Ex Ey Hx Hy).electric
+              (h + OQ7Prescribed.plateDesignThickness k j) =
+            2 * ↑(Real.cos θ) * ↑(Real.sin θ) * Ex - (↑(Real.cos θ) ^ 2 - ↑(Real.sin θ) ^ 2) * Ey ∧
+          (OQ7Prescribed.losslessPlateXLayer k h j hj θ Ex Ey Hx Hy).magnetic
+                (h + OQ7Prescribed.plateDesignThickness k j) =
+              (↑(Real.cos θ) ^ 2 - ↑(Real.sin θ) ^ 2) * Hx + 2 * ↑(Real.cos θ) * ↑(Real.sin θ) * Hy ∧
+            (OQ7Prescribed.losslessPlateYLayer k h j hj θ Ex Ey Hx Hy).magnetic
+                (h + OQ7Prescribed.plateDesignThickness k j) =
+              2 * ↑(Real.cos θ) * ↑(Real.sin θ) * Hx - (↑(Real.cos θ) ^ 2 - ↑(Real.sin θ) ^ 2) * Hy
+OQ7Prescribed.losslessPlateCartesian_current_rankOne : ∀ (k h : ℝ) (j : ℕ) (hj : 1 ≤ j) (θ : ℝ) (Ex Ey Hx Hy : ℂ)
+  (z : ℝ),
+  (OQ7Prescribed.losslessPlateXLayer k h j hj θ Ex Ey Hx Hy).current z =
+      ↑(Real.cos θ) * ↑(OQ7Prescribed.plateDesignPermittivity j - 1) *
+        (OQ7Prescribed.losslessPlateActiveLayer k h j hj θ Ex Ey Hx Hy).electric z ∧
+    (OQ7Prescribed.losslessPlateYLayer k h j hj θ Ex Ey Hx Hy).current z =
+      ↑(Real.sin θ) * ↑(OQ7Prescribed.plateDesignPermittivity j - 1) *
+        (OQ7Prescribed.losslessPlateActiveLayer k h j hj θ Ex Ey Hx Hy).electric z
+OQ7Prescribed.losslessPlateCartesian_initial : ∀ (k h : ℝ) (j : ℕ) (hj : 1 ≤ j) (θ : ℝ) (Ex Ey Hx Hy : ℂ),
+  (OQ7Prescribed.losslessPlateXLayer k h j hj θ Ex Ey Hx Hy).electric h = Ex ∧
+    (OQ7Prescribed.losslessPlateYLayer k h j hj θ Ex Ey Hx Hy).electric h = Ey ∧
+      (OQ7Prescribed.losslessPlateXLayer k h j hj θ Ex Ey Hx Hy).magnetic h = Hx ∧
+        (OQ7Prescribed.losslessPlateYLayer k h j hj θ Ex Ey Hx Hy).magnetic h = Hy
+OQ7Prescribed.losslessPlateDesign_active_field_boundary : ∀ (k : ℝ),
+  0 < k →
+    ∀ (j : ℕ),
+      1 ≤ j →
+        ∀ (E H : ℂ),
+          OQ7.electricField k (↑(OQ7Prescribed.plateDesignIndex j)) E H (OQ7Prescribed.plateDesignThickness k j) = E ∧
+            OQ7.magneticField k (↑(OQ7Prescribed.plateDesignIndex j)) E H (OQ7Prescribed.plateDesignThickness k j) = H
+OQ7Prescribed.losslessPlateDesign_active_transfer : ∀ (k : ℝ),
+  0 < k →
+    ∀ (j : ℕ),
+      1 ≤ j →
+        OQ7.homogeneousTransfer k (↑(OQ7Prescribed.plateDesignIndex j)) (OQ7Prescribed.plateDesignThickness k j) = 1
+OQ7Prescribed.losslessPlateDesign_vacuum_field_boundary : ∀ (k : ℝ),
+  0 < k →
+    ∀ (j : ℕ),
+      1 ≤ j →
+        ∀ (E H : ℂ),
+          OQ7.electricField k 1 E H (OQ7Prescribed.plateDesignThickness k j) = -E ∧
+            OQ7.magneticField k 1 E H (OQ7Prescribed.plateDesignThickness k j) = -H
+OQ7Prescribed.losslessPlateDesign_vacuum_transfer : ∀ (k : ℝ),
+  0 < k → ∀ (j : ℕ), 1 ≤ j → OQ7.homogeneousTransfer k 1 (OQ7Prescribed.plateDesignThickness k j) = -1
 OQ7Prescribed.lp_norm_sq_eq_restricted_integral : ∀ (D : ↥OQ7Prescribed.ScalarVolumeL2)
   (s : Set OQ7Prescribed.Position),
   MeasurableSet s →
@@ -3687,6 +3742,17 @@ OQ7Prescribed.planePhase_hasFDerivAt : ∀ (k : ℝ) (σ : OQ7Prescribed.Directi
     ((Complex.I * ↑(σ.sign * k) * OQ7Prescribed.planePhase k σ x) • Complex.ofRealCLM ∘SL PiLp.proj 2 (fun x => ℝ) 2) x
 OQ7Prescribed.planePhase_norm : ∀ (k : ℝ) (σ : OQ7Prescribed.Direction) (x : OQ7Prescribed.Position),
   ‖OQ7Prescribed.planePhase k σ x‖ = 1
+OQ7Prescribed.plateDesign_phases : ∀ (k : ℝ),
+  k ≠ 0 →
+    ∀ (j : ℕ),
+      1 ≤ j →
+        k * OQ7Prescribed.plateDesignThickness k j = ↑j * (2 * Real.pi) - Real.pi ∧
+          k * OQ7Prescribed.plateDesignIndex j * OQ7Prescribed.plateDesignThickness k j = ↑j * (2 * Real.pi)
+OQ7Prescribed.plateDesignIndex_gt_one : ∀ (j : ℕ), 1 ≤ j → 1 < OQ7Prescribed.plateDesignIndex j
+OQ7Prescribed.plateDesignPermittivity_pos_susceptibility : ∀ (j : ℕ),
+  1 ≤ j → 0 < OQ7Prescribed.plateDesignPermittivity j - 1
+OQ7Prescribed.plateDesignThickness_pos : ∀ (k : ℝ),
+  0 < k → ∀ (j : ℕ), 1 ≤ j → 0 < OQ7Prescribed.plateDesignThickness k j
 OQ7Prescribed.polarization_zero_outside : ∀ (B : OQ7Prescribed.TwoLayerBody) (E : OQ7Prescribed.Field),
   ∀ x ∉ B.domain, OQ7Prescribed.polarization B E x = 0
 OQ7Prescribed.polarizationCurrentComponentDistribution_apply : ∀ (p : OQ7Prescribed.CompactPolarization) (i : Fin 3)

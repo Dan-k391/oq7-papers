@@ -218,3 +218,6 @@ import PrescribedExtinction.PlanarLayerField
 import PrescribedExtinction.PlanarTwoLayerGreen
 import PrescribedExtinction.PlanarLayerCurrent
 import PrescribedExtinction.PlanarLayerIncoming
+import PrescribedExtinction.PlanarLosslessPlate
+import PrescribedExtinction.PlanarPlateChannels
+import PrescribedExtinction.PlanarPlateJones

@@ -324,6 +324,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.electricVolumeField_slab_uniform_aperture_error
 #check @OQ7Prescribed.electricVolumeField_smooth_slab_residual_norm_sq
 #check @OQ7Prescribed.electricVolumeField_smooth_slab_uniform_L2_residual
+#check @OQ7Prescribed.exists_plateDesign_within_cap
 #check @OQ7Prescribed.exp_remainder_two_norm
 #check @OQ7Prescribed.exterior_current_component_pairing
 #check @OQ7Prescribed.exterior_current_correlation_joint_integrable
@@ -476,6 +477,14 @@ import PrescribedExtinction
 #check @OQ7Prescribed.locallySquareIntegrable_locallyIntegrable
 #check @OQ7Prescribed.Lorentz_flux_norm_bound
 #check @OQ7Prescribed.LorentzDecayConstant_nonneg
+#check @OQ7Prescribed.losslessPlateCartesian_active_projection
+#check @OQ7Prescribed.losslessPlateCartesian_boundary
+#check @OQ7Prescribed.losslessPlateCartesian_current_rankOne
+#check @OQ7Prescribed.losslessPlateCartesian_initial
+#check @OQ7Prescribed.losslessPlateDesign_active_field_boundary
+#check @OQ7Prescribed.losslessPlateDesign_active_transfer
+#check @OQ7Prescribed.losslessPlateDesign_vacuum_field_boundary
+#check @OQ7Prescribed.losslessPlateDesign_vacuum_transfer
 #check @OQ7Prescribed.lp_norm_sq_eq_restricted_integral
 #check @OQ7Prescribed.magneticExterior_eq_pointwise_far
 #check @OQ7Prescribed.magneticVolumeField_distribution
@@ -828,6 +837,10 @@ import PrescribedExtinction
 #check @OQ7Prescribed.planePhase_contDiff
 #check @OQ7Prescribed.planePhase_hasFDerivAt
 #check @OQ7Prescribed.planePhase_norm
+#check @OQ7Prescribed.plateDesign_phases
+#check @OQ7Prescribed.plateDesignIndex_gt_one
+#check @OQ7Prescribed.plateDesignPermittivity_pos_susceptibility
+#check @OQ7Prescribed.plateDesignThickness_pos
 #check @OQ7Prescribed.polarization_zero_outside
 #check @OQ7Prescribed.polarizationCurrentComponentDistribution_apply
 #check @OQ7Prescribed.polarizationCurrentComponentDistribution_eq_vectorL2
