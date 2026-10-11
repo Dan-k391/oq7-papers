@@ -75,6 +75,8 @@
   "planarGreenPositiveImaginaryWorkIdentityVerified": true,
   "planarTwoLayerMaterialInverseUniformInRotationVerified": true,
   "planarNormalizedResponseContinuousAtZeroAndExtinctionPositiveVerified": true,
+  "physicalOriginalSquareBodyPlanarOperatorResidualUniformInApertureAndRotationVerified": true,
+  "physicalPlanarTrialResponseEstimateWithExplicitDriveMismatchVerified": true,
   "physicalVectorUniformApertureLocalizationVerified": false,
   "physicalVolumeWorkBalanceVerified": true,
   "originalPhysicalAbsorptionSineSquaredFactorizationVerified": true,
@@ -111,7 +113,7 @@
   "newtonPrincipalValueIsBundledDistribution": true,
   "staticNewtonIdentificationVerified": true,
   "targetSourceSHA256": "A9950F0F1C9EA4A20FF2C480A71CC4FABDC4AB84F8173851C37A4BD56E0D231B",
-  "verifiedAtUTC": "2026-10-11T17:41:55.3580723Z",
+  "verifiedAtUTC": "2026-10-11T18:11:14.8964570Z",
   "lean": "Lean (version 4.34.1, x86_64-w64-windows-gnu, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)",
   "lakeBuildPassed": true,
   "cleanProjectBuild": false,
@@ -123,10 +125,10 @@
     "Classical.choice",
     "Quot.sound"
   ],
-  "allProjectConstantsAudited": 4622,
+  "allProjectConstantsAudited": 4773,
   "privateProjectConstantsAudited": 43,
-  "newTheoremCount": 1157,
-  "newKernelTheoremConstantCount": 2628,
+  "newTheoremCount": 1192,
+  "newKernelTheoremConstantCount": 2766,
   "newTheorems": [
     "OQ7Prescribed.activeInjection_coe",
     "OQ7Prescribed.activeInjection_inner",
@@ -203,9 +205,11 @@
     "OQ7Prescribed.apertureWindowSecond_hasCompactSupport",
     "OQ7Prescribed.apertureWindowSecond_jet_norm_le",
     "OQ7Prescribed.apertureWindowSecond_support",
+    "OQ7Prescribed.axisCoupling_add",
     "OQ7Prescribed.axisCoupling_bound",
     "OQ7Prescribed.axisCoupling_complexify_inner",
     "OQ7Prescribed.axisCoupling_eq_inner",
+    "OQ7Prescribed.axisCoupling_rotatedAxis",
     "OQ7Prescribed.axisCoupling_smul_scalar",
     "OQ7Prescribed.axisEmbedding_adjoint_apply",
     "OQ7Prescribed.axisEmbedding_adjoint_embedding",
@@ -229,21 +233,36 @@
     "OQ7Prescribed.bilinear_sub_right",
     "OQ7Prescribed.bilinear_vectorConjugate_right",
     "OQ7Prescribed.bodyAbsorberSlice_measurable",
+    "OQ7Prescribed.bodyCompressed_aperture_error_identity",
+    "OQ7Prescribed.bodyCompressedOutgoing_coe",
+    "OQ7Prescribed.bodyCompressFourErrors_coe",
+    "OQ7Prescribed.bodyCompressFourErrors_norm_le",
     "OQ7Prescribed.bodyCurrent_incident_work",
     "OQ7Prescribed.bodyCurrentPolarization_current_ae",
     "OQ7Prescribed.bodyDomain_isOpen",
+    "OQ7Prescribed.bodyDomain_subset_slabObservation",
     "OQ7Prescribed.bodyField_memLp",
     "OQ7Prescribed.bodyFieldCurrent_coe",
+    "OQ7Prescribed.bodyHeight_pos",
     "OQ7Prescribed.bodyIncident_memLp",
     "OQ7Prescribed.bodyIncidentCurrent_coe",
     "OQ7Prescribed.bodyInverseSusceptibility_coe",
     "OQ7Prescribed.bodyInverseSusceptibility_negative_imaginary_bound",
+    "OQ7Prescribed.bodyLayerSeparatedPolarization_current_ae",
     "OQ7Prescribed.bodyOutgoingOperator_coe",
     "OQ7Prescribed.bodyOutgoingOperator_farField_work",
     "OQ7Prescribed.bodyOutgoingOperator_im_nonneg",
     "OQ7Prescribed.bodyOutgoingOperator_inner",
     "OQ7Prescribed.bodyPlateInterior_nonempty",
     "OQ7Prescribed.bodyPlateInterior_volume_pos",
+    "OQ7Prescribed.bodyScaledLayerField_decomposition",
+    "OQ7Prescribed.bodyScaledScalarLift_inverse_material",
+    "OQ7Prescribed.bodyScaledScalarLift_material_residual_identity",
+    "OQ7Prescribed.bodyScaledScalarLift_norm",
+    "OQ7Prescribed.bodySeparatedScalarLift_coe",
+    "OQ7Prescribed.bodySeparatedScalarLift_norm",
+    "OQ7Prescribed.bodySlabError_coe",
+    "OQ7Prescribed.bodySlabError_uniform_bound",
     "OQ7Prescribed.bodySupportRadius_nonneg",
     "OQ7Prescribed.bodySusceptibility_reciprocal",
     "OQ7Prescribed.bodyVolumeTotalElectricCurrent_eq",
@@ -407,6 +426,7 @@
     "OQ7Prescribed.electricDecayConstant_nonneg",
     "OQ7Prescribed.electricExterior_component_distribution",
     "OQ7Prescribed.electricExterior_eq_ae",
+    "OQ7Prescribed.electricVolumeField_add_ae",
     "OQ7Prescribed.electricVolumeField_centered_slab_uniform_error",
     "OQ7Prescribed.electricVolumeField_centered_smooth_slab_uniform_L2_residual",
     "OQ7Prescribed.electricVolumeField_component_locallyIntegrableOn",
@@ -509,6 +529,12 @@
     "OQ7Prescribed.horizontalSlabPotential_source_form",
     "OQ7Prescribed.horizontalSlabPotential_uniform_aperture_error",
     "OQ7Prescribed.horizontalSlabTransverseKernel_uniform_error",
+    "OQ7Prescribed.horizontalSquareAperture_isOpen",
+    "OQ7Prescribed.horizontalSquareAperture_norm_le",
+    "OQ7Prescribed.horizontalSquareAperture_physical",
+    "OQ7Prescribed.horizontalSquareAperture_scaled_iff",
+    "OQ7Prescribed.horizontalSquareAperture_subset_ball",
+    "OQ7Prescribed.horizontalSquareAperture_volume",
     "OQ7Prescribed.incident_absorber_coupling",
     "OQ7Prescribed.incident_plate_coupling",
     "OQ7Prescribed.incident_plate_rankOne",
@@ -541,6 +567,7 @@
     "OQ7Prescribed.integral_slabObservationRegion",
     "OQ7Prescribed.integral_spherical_actual",
     "OQ7Prescribed.integral_three_sub",
+    "OQ7Prescribed.inverse_trial_residual_estimate",
     "OQ7Prescribed.kernel_radiation_defect",
     "OQ7Prescribed.kernel_radiation_defect_norm_le",
     "OQ7Prescribed.kernelMagnetic_gradient",
@@ -808,6 +835,8 @@
     "OQ7Prescribed.physicalAbsorption_current_inner",
     "OQ7Prescribed.physicalAbsorption_sine_squared_factorization",
     "OQ7Prescribed.physicalAsymmetry_normalized_factorization",
+    "OQ7Prescribed.physicalBody_uniform_planar_operator_residual",
+    "OQ7Prescribed.physicalBody_uniform_planar_response_estimate",
     "OQ7Prescribed.physicalExtinction_sine_squared_factorization",
     "OQ7Prescribed.physicalOutgoingVolume_farField_work",
     "OQ7Prescribed.physicalOutgoingVolume_reciprocity",
@@ -844,6 +873,7 @@
     "OQ7Prescribed.planarIncidentPhase_norm",
     "OQ7Prescribed.planarIncidentPhase_physical",
     "OQ7Prescribed.planarIncidentProfile_coe",
+    "OQ7Prescribed.planarInverseMaterial_coe",
     "OQ7Prescribed.planarInverseMaterial_negative_imaginary_bound",
     "OQ7Prescribed.planarLayerAxisMap_adjoint",
     "OQ7Prescribed.planarLayerAxisMap_coe",
@@ -966,6 +996,8 @@
     "OQ7Prescribed.scalarOutgoingSlabTransverse_height_integrable",
     "OQ7Prescribed.scalarOutgoingSlabTransverse_separation",
     "OQ7Prescribed.scalarOutgoingSlabTransverse_uniform_aperture_error",
+    "OQ7Prescribed.scalarPiecewiseL2_coe",
+    "OQ7Prescribed.scalarPiecewiseL2_norm_le",
     "OQ7Prescribed.scalarPlanarPotential_add",
     "OQ7Prescribed.scalarPlanarPotential_congr_ae",
     "OQ7Prescribed.scalarPlanarPotential_contDiff",
@@ -994,6 +1026,7 @@
     "OQ7Prescribed.scaledApertureWindow_second_jetBound",
     "OQ7Prescribed.scaledApertureWindow_support",
     "OQ7Prescribed.scaledApertureWindow_support_enlarged",
+    "OQ7Prescribed.scaledApertureWindow_support_square",
     "OQ7Prescribed.scaledOutgoingPhase_plane_error",
     "OQ7Prescribed.scaledOutgoingRadial",
     "OQ7Prescribed.scaledSlabApertureDifference_coe",
@@ -1055,10 +1088,12 @@
     "OQ7Prescribed.slabPolar_integrable",
     "OQ7Prescribed.slabPolar_symm",
     "OQ7Prescribed.slabPosition_horizontal_height",
+    "OQ7Prescribed.slabPosition_I",
     "OQ7Prescribed.slabPosition_norm",
     "OQ7Prescribed.slabPosition_norm_ge",
     "OQ7Prescribed.slabPosition_norm_le_sum",
     "OQ7Prescribed.slabPosition_norm_sq",
+    "OQ7Prescribed.slabPosition_one",
     "OQ7Prescribed.slabPosition_sub",
     "OQ7Prescribed.slabProduct_uniform_error_integral_sq",
     "OQ7Prescribed.slabProductFunction_hasCompactSupport",
@@ -1176,6 +1211,8 @@
     "OQ7Prescribed.sphericalTripleEquiv_domain",
     "OQ7Prescribed.sphericalTripleEquiv_measurePreserving",
     "OQ7Prescribed.sphericalTripleEquiv_symm_apply",
+    "OQ7Prescribed.squareApertureWindow_memLp",
+    "OQ7Prescribed.squareApertureWindow_scaled",
     "OQ7Prescribed.squareNorm_eq_norm_sq",
     "OQ7Prescribed.squareNorm_nonneg",
     "OQ7Prescribed.squareNorm_pos",
@@ -1694,8 +1731,48 @@
       "file": "PrescribedExtinction\\Basic.lean"
     },
     {
+      "sha256": "0AA2380D73A7BAF5D88E089C125C87FD0C3FEAB21F30EF4D82F6EDF2B6209035",
+      "file": "PrescribedExtinction\\BodyApertureResidual.lean"
+    },
+    {
+      "sha256": "6FDEFD6229161D2786C43D30ED5BC594DDE5A393BAFD38607B3D39CC7D91DA35",
+      "file": "PrescribedExtinction\\BodyApertureWindow.lean"
+    },
+    {
+      "sha256": "50DF1FF144D23BBAA25294843FB8F019B7B50C37147021FBEBD1AC54F29A0524",
+      "file": "PrescribedExtinction\\BodyCompressedError.lean"
+    },
+    {
       "sha256": "B662A768AE2D5D9F6BC706FA0D04A1E19212DD8D309B0A00986A7A14F78AC3B8",
       "file": "PrescribedExtinction\\BodyCurrentSpace.lean"
+    },
+    {
+      "sha256": "FFFDE9C4C4F2E564183CF50227B2476D008CC9013C52C4EFF3BE8FB4F93303CC",
+      "file": "PrescribedExtinction\\BodyLayerSeparatedCurrent.lean"
+    },
+    {
+      "sha256": "C587FCEAFB2E9310EAEE0D247072F3173C8721901027F081F2B511827C8CBC39",
+      "file": "PrescribedExtinction\\BodyMaterialLift.lean"
+    },
+    {
+      "sha256": "5DEFED7DBD23DB50C1C1D74E178876E4088D966ECBF05596F2FC0D5098CE8607",
+      "file": "PrescribedExtinction\\BodyResponseResidual.lean"
+    },
+    {
+      "sha256": "66699E85890D9880F02FD35A1346EE79444206E8382DC04FEBD06F6055229858",
+      "file": "PrescribedExtinction\\BodyScaledLift.lean"
+    },
+    {
+      "sha256": "B541E09105CF7B962051BDEBFE6ED7E0A2FCB65C02FBFC1E5153B44CC3AAA4DE",
+      "file": "PrescribedExtinction\\BodySeparatedLift.lean"
+    },
+    {
+      "sha256": "A20EC62B8246D0558E2A52CCA1CC7B321B2A24A3EEBE771AB312AC97DE7F267B",
+      "file": "PrescribedExtinction\\BodySlabError.lean"
+    },
+    {
+      "sha256": "FBCF90DD0A2826A9CC721A2430CE87BB9E82717F5664B365207D06D57F070099",
+      "file": "PrescribedExtinction\\BodySlabGeometry.lean"
     },
     {
       "sha256": "8C9428F95C1F71A305C69D1AACBE742014A52C4B8AB396968CDDE0C67FD7F56E",
@@ -1844,6 +1921,10 @@
     {
       "sha256": "A6C7EB307E758F64B1F287516941BC3FCC55C96E574B4E2631275D300DE522FA",
       "file": "PrescribedExtinction\\InverseStability.lean"
+    },
+    {
+      "sha256": "157438F50A5315D90C16FDFD649722AD88DBDCF3212C7B53616F0A2FE939D821",
+      "file": "PrescribedExtinction\\InverseTrialEstimate.lean"
     },
     {
       "sha256": "F887FF10433B031E353985B2E8528C714C04964E03D1281D6CCDCCEFC8EE8520",
@@ -2162,6 +2243,10 @@
       "file": "PrescribedExtinction\\ScalarCompactConvolution.lean"
     },
     {
+      "sha256": "C75871346D5227DC12B8B8C49906314D8FEA57D032D3D755E340643F79B9E58B",
+      "file": "PrescribedExtinction\\ScalarPiecewiseL2.lean"
+    },
+    {
       "sha256": "D4F27E0B65B4CE72DF53151F9D75C56B0AA3CA064E6D3AF4A37E50C4B5ACF122",
       "file": "PrescribedExtinction\\ScatteringExistence.lean"
     },
@@ -2342,6 +2427,10 @@
       "file": "PrescribedExtinction\\SphericalVolume.lean"
     },
     {
+      "sha256": "BCF4FF64AC8C8372292D7DE4578A7D87D3E89E197925D31088E1D45B02B62238",
+      "file": "PrescribedExtinction\\SquareApertureWindow.lean"
+    },
+    {
       "sha256": "16ECC1C08E33A8CDDE982108ACF09E25C025DB1B8A28FFA8DBCA755525D51CB9",
       "file": "PrescribedExtinction\\StaticFourier.lean"
     },
@@ -2394,7 +2483,7 @@
       "file": "OQ7.lean"
     },
     {
-      "sha256": "B4D6005DCD0196DBD5C2CE7E81FF614FFCBE04D717A8DFF739BCBD5A0168ED82",
+      "sha256": "D40A62BB7A30C1805D5CDA2275923586910B91468A266D1417E099247E37CBCC",
       "file": "PrescribedExtinction.lean"
     }
   ],
@@ -2412,8 +2501,8 @@
     },
     {
       "module": "PrescribedExtinction.StaticFourier",
-      "scope": "Explicit static Fourier multiplier is an L2 contraction and has zero imaginary quadratic form; physical identity proved in NewtonStaticIdentification",
-      "identificationWithNewtonVolumePotentialVerified": true
+      "identificationWithNewtonVolumePotentialVerified": true,
+      "scope": "Explicit static Fourier multiplier is an L2 contraction and has zero imaginary quadratic form; physical identity proved in NewtonStaticIdentification"
     },
     {
       "module": "PrescribedExtinction.OutgoingRadial",
@@ -2423,14 +2512,14 @@
     },
     {
       "module": "PrescribedExtinction.RemainderConvolution",
-      "fullPhysicalDyadicOperatorVerified": true,
       "identificationWithDistributionalDifferenceVerified": true,
-      "scope": "Actual classical dyadic dynamic-minus-static cancellation; explicit inverse-distance norm estimate; cutoff L2 kernel; actual convolution, compact-domain L2 bound, ae invariance and complex linearity"
+      "scope": "Actual classical dyadic dynamic-minus-static cancellation; explicit inverse-distance norm estimate; cutoff L2 kernel; actual convolution, compact-domain L2 bound, ae invariance and complex linearity",
+      "fullPhysicalDyadicOperatorVerified": true
     },
     {
       "module": "PrescribedExtinction.SphereMoments",
-      "actualSphereMomentsVerified": true,
-      "scope": "Actual polar angular measure, orthogonal invariance, area 4pi and exact second moments"
+      "scope": "Actual polar angular measure, orthogonal invariance, area 4pi and exact second moments",
+      "actualSphereMomentsVerified": true
     },
     {
       "module": "PrescribedExtinction.NewtonBoundary",
@@ -2439,29 +2528,29 @@
     },
     {
       "module": "PrescribedExtinction.NewtonPrincipalValue",
-      "scope": "Actual spherical principal value converges for every original test function; compensated integral and every positive-radius truncated integral are proved integrable; bundled in NewtonContact",
-      "fullDistributionalHessianIdentityVerified": true
+      "fullDistributionalHessianIdentityVerified": true,
+      "scope": "Actual spherical principal value converges for every original test function; compensated integral and every positive-radius truncated integral are proved integrable; bundled in NewtonContact"
     },
     {
       "module": "PrescribedExtinction.NewtonCutoffIBP",
-      "cutoffIntegrationByPartsVerified": true,
-      "scope": "Actual smooth radial cutoff, exact derivative mass and whole-space Newton/gradient integration by parts for original test functions"
+      "scope": "Actual smooth radial cutoff, exact derivative mass and whole-space Newton/gradient integration by parts for original test functions",
+      "cutoffIntegrationByPartsVerified": true
     },
     {
       "module": "PrescribedExtinction.NewtonShell",
-      "scope": "Actual exterior cutoff convergence, integrable polar conversion, radial shell rescaling and normalized shell limit",
-      "radialShellLimitVerified": true
+      "radialShellLimitVerified": true,
+      "scope": "Actual exterior cutoff convergence, integrable polar conversion, radial shell rescaling and normalized shell limit"
     },
     {
       "module": "PrescribedExtinction.NewtonContact",
+      "fullDistributionalHessianIdentityVerified": true,
       "staticFourierIdentificationVerified": true,
-      "scope": "Exact finite-radius punctured double integration by parts, inward-normal signs and vanishing outer boundaries; full Newton Hessian principal-value/contact identity; actual integral-valued principal value is a continuous distribution",
-      "fullDistributionalHessianIdentityVerified": true
+      "scope": "Exact finite-radius punctured double integration by parts, inward-normal signs and vanishing outer boundaries; full Newton Hessian principal-value/contact identity; actual integral-valued principal value is a continuous distribution"
     },
     {
       "module": "PrescribedExtinction.NewtonTransform",
-      "kernelFourierCorrespondenceVerified": true,
-      "scope": "Actual scalar Newton and full contact Hessian Fourier correspondence on all Schwartz tests; both heat interchanges absolutely integrable; zero-frequency handled globally"
+      "scope": "Actual scalar Newton and full contact Hessian Fourier correspondence on all Schwartz tests; both heat interchanges absolutely integrable; zero-frequency handled globally",
+      "kernelFourierCorrespondenceVerified": true
     },
     {
       "module": "PrescribedExtinction.NewtonStaticIdentification",

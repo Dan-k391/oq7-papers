@@ -1,0 +1,136 @@
+OQ7Prescribed.bodySeparatedScalarLift_coe (B : OQ7Prescribed.TwoLayerBody) (w : ℂ → ℂ)
+  (hw : MeasureTheory.MemLp w 2 MeasureTheory.volume)
+  (hs : tsupport w ⊆ OQ7Prescribed.horizontalSquareAperture B.aperture)
+  (q : ↥(OQ7Prescribed.PlanarCurrentL2 (B.absorberThickness + B.plateThickness))) :
+  ↑↑↑((OQ7Prescribed.bodySeparatedScalarLift B w hw hs) q) =ᵐ[MeasureTheory.volume]
+    OQ7Prescribed.slabSeparatedFunction w ↑↑↑q
+OQ7Prescribed.bodyScaledScalarLift_norm (B : OQ7Prescribed.TwoLayerBody) (w : ℂ → ℂ) (hw : ContDiff ℝ (↑⊤) w)
+  (hwc : HasCompactSupport w) (hs : tsupport w ⊆ OQ7Prescribed.horizontalSquareAperture 1)
+  (q : ↥(OQ7Prescribed.PlanarCurrentL2 (B.absorberThickness + B.plateThickness))) :
+  ‖(OQ7Prescribed.bodyScaledScalarLift B w hw hwc hs) q‖ = B.aperture * ‖MeasureTheory.MemLp.toLp w ⋯‖ * ‖q‖
+OQ7Prescribed.bodyScaledLayerField_decomposition (k : ℝ) (B : OQ7Prescribed.TwoLayerBody) (hR : 1 ≤ B.aperture)
+  (w : ℂ → ℂ) (hw : ContDiff ℝ (↑⊤) w) (hwc : HasCompactSupport w)
+  (hs : tsupport w ⊆ OQ7Prescribed.horizontalSquareAperture 1) (θ : ℝ)
+  (q : ↥(OQ7Prescribed.PlanarCurrentL2 (B.absorberThickness + B.plateThickness))) :
+  OQ7Prescribed.electricVolumeField k
+      (OQ7Prescribed.bodyCurrentPolarization B
+        ((OQ7Prescribed.activeInjection B (OQ7Prescribed.basisR 0) (OQ7Prescribed.rotatedAxis θ))
+          ((OQ7Prescribed.bodyScaledScalarLift B w hw hwc hs) q))) =ᵐ[MeasureTheory.volume]
+    fun x =>
+    OQ7Prescribed.electricVolumeField k
+        (OQ7Prescribed.bodySlabComponent B hR w hw hwc hs 1
+          ((OQ7Prescribed.planarLayerAxisMap (B.absorberThickness + B.plateThickness) B.absorberThickness 1
+              (Real.cos θ))
+            q))
+        x +
+      OQ7Prescribed.electricVolumeField k
+        (OQ7Prescribed.bodySlabComponent B hR w hw hwc hs Complex.I
+          ((OQ7Prescribed.planarLayerAxisMap (B.absorberThickness + B.plateThickness) B.absorberThickness 0
+              (Real.sin θ))
+            q))
+        x
+OQ7Prescribed.bodyCompressed_aperture_error_identity (k : ℝ) (hk : 0 < k) (B : OQ7Prescribed.TwoLayerBody)
+  (hR : 1 ≤ B.aperture) (w : ℂ → ℂ) (hw : ContDiff ℝ (↑⊤) w) (hwc : HasCompactSupport w)
+  (hs : tsupport w ⊆ OQ7Prescribed.horizontalSquareAperture 1) (θ : ℝ)
+  (q : ↥(OQ7Prescribed.PlanarCurrentL2 (B.absorberThickness + B.plateThickness))) :
+  (OQ7Prescribed.activeProjection B (OQ7Prescribed.basisR 0) (OQ7Prescribed.rotatedAxis θ))
+        ((OQ7Prescribed.bodyOutgoingOperator k B)
+          ((OQ7Prescribed.activeInjection B (OQ7Prescribed.basisR 0) (OQ7Prescribed.rotatedAxis θ))
+            ((OQ7Prescribed.bodyScaledScalarLift B w hw hwc hs) q))) -
+      (OQ7Prescribed.bodyScaledScalarLift B w hw hwc hs)
+        ((OQ7Prescribed.planarActiveOutgoing k hk (B.absorberThickness + B.plateThickness) ⋯ B.absorberThickness θ) q) =
+    OQ7Prescribed.bodyCompressFourErrors B θ
+      (OQ7Prescribed.bodySlabError k hk B hR w hw hwc hs 1 1
+        ((OQ7Prescribed.planarLayerAxisMap (B.absorberThickness + B.plateThickness) B.absorberThickness 1 (Real.cos θ))
+          q))
+      (OQ7Prescribed.bodySlabError k hk B hR w hw hwc hs Complex.I 1
+        ((OQ7Prescribed.planarLayerAxisMap (B.absorberThickness + B.plateThickness) B.absorberThickness 0 (Real.sin θ))
+          q))
+      (OQ7Prescribed.bodySlabError k hk B hR w hw hwc hs 1 Complex.I
+        ((OQ7Prescribed.planarLayerAxisMap (B.absorberThickness + B.plateThickness) B.absorberThickness 1 (Real.cos θ))
+          q))
+      (OQ7Prescribed.bodySlabError k hk B hR w hw hwc hs Complex.I Complex.I
+        ((OQ7Prescribed.planarLayerAxisMap (B.absorberThickness + B.plateThickness) B.absorberThickness 0 (Real.sin θ))
+          q))
+OQ7Prescribed.physicalBody_uniform_planar_operator_residual (k : ℝ) (hk : 0 < k) (h d : ℝ) (hH : 0 ≤ h + d) (w : ℂ → ℂ)
+  (hw : ContDiff ℝ (↑⊤) w) (hwc : HasCompactSupport w) (hs : tsupport w ⊆ OQ7Prescribed.horizontalSquareAperture 1) :
+  ∃ K,
+    0 < K ∧
+      ∀ (B : OQ7Prescribed.TwoLayerBody),
+        B.absorberThickness = h →
+          B.plateThickness = d →
+            1 ≤ B.aperture →
+              ∀ (θ : ℝ) (q : ↥(OQ7Prescribed.PlanarCurrentL2 (B.absorberThickness + B.plateThickness))),
+                ‖(OQ7Prescribed.activeProjection B (OQ7Prescribed.basisR 0) (OQ7Prescribed.rotatedAxis θ))
+                        ((OQ7Prescribed.bodyOutgoingOperator k B)
+                          ((OQ7Prescribed.activeInjection B (OQ7Prescribed.basisR 0) (OQ7Prescribed.rotatedAxis θ))
+                            ((OQ7Prescribed.bodyScaledScalarLift B w hw hwc hs) q))) -
+                      (OQ7Prescribed.bodyScaledScalarLift B w hw hwc hs)
+                        ((OQ7Prescribed.planarActiveOutgoing k hk (B.absorberThickness + B.plateThickness) ⋯
+                            B.absorberThickness θ)
+                          q)‖ ≤
+                  K * ‖q‖
+OQ7Prescribed.bodyScaledScalarLift_inverse_material (B : OQ7Prescribed.TwoLayerBody) (w : ℂ → ℂ)
+  (hw : ContDiff ℝ (↑⊤) w) (hwc : HasCompactSupport w) (hs : tsupport w ⊆ OQ7Prescribed.horizontalSquareAperture 1)
+  (α β : ℂ) (q : ↥(OQ7Prescribed.PlanarCurrentL2 (B.absorberThickness + B.plateThickness))) :
+  (OQ7Prescribed.activeInverseMaterial B α β) ((OQ7Prescribed.bodyScaledScalarLift B w hw hwc hs) q) =
+    (OQ7Prescribed.bodyScaledScalarLift B w hw hwc hs)
+      ((OQ7Prescribed.planarInverseMaterial (B.absorberThickness + B.plateThickness) B.absorberThickness α β) q)
+OQ7Prescribed.bodyScaledScalarLift_material_residual_identity (k : ℝ) (hk : 0 < k) (B : OQ7Prescribed.TwoLayerBody)
+  (w : ℂ → ℂ) (hw : ContDiff ℝ (↑⊤) w) (hwc : HasCompactSupport w)
+  (hs : tsupport w ⊆ OQ7Prescribed.horizontalSquareAperture 1) (θ : ℝ) (α β : ℂ)
+  (q : ↥(OQ7Prescribed.PlanarCurrentL2 (B.absorberThickness + B.plateThickness))) :
+  (OQ7Prescribed.activeMaterialOperator k B (OQ7Prescribed.basisR 0) (OQ7Prescribed.rotatedAxis θ) α β)
+        ((OQ7Prescribed.bodyScaledScalarLift B w hw hwc hs) q) -
+      (OQ7Prescribed.bodyScaledScalarLift B w hw hwc hs)
+        ((OQ7Prescribed.planarActiveMaterialOperator k hk (B.absorberThickness + B.plateThickness) ⋯ B.absorberThickness
+            θ α β)
+          q) =
+    (OQ7Prescribed.activeProjection B (OQ7Prescribed.basisR 0) (OQ7Prescribed.rotatedAxis θ))
+        ((OQ7Prescribed.bodyOutgoingOperator k B)
+          ((OQ7Prescribed.activeInjection B (OQ7Prescribed.basisR 0) (OQ7Prescribed.rotatedAxis θ))
+            ((OQ7Prescribed.bodyScaledScalarLift B w hw hwc hs) q))) -
+      (OQ7Prescribed.bodyScaledScalarLift B w hw hwc hs)
+        ((OQ7Prescribed.planarActiveOutgoing k hk (B.absorberThickness + B.plateThickness) ⋯ B.absorberThickness θ) q)
+OQ7Prescribed.inverse_trial_residual_estimate.{u_1, u_2, u_3} {𝕜 : Type u_1} {E : Type u_2} {F : Type u_3}
+  [NontriviallyNormedField 𝕜] [NormedAddCommGroup E] [NormedSpace 𝕜 E] [NormedAddCommGroup F] [NormedSpace 𝕜 F]
+  (e : E ≃L[𝕜] E) (A : F →L[𝕜] F) (J : F →L[𝕜] E) (g : E) (f q : F) (hq : A q = -f) (M C : ℝ) (hM : 0 ≤ M)
+  (he : ‖↑e.symm‖ ≤ M) (hres : ‖e (J q) - J (A q)‖ ≤ C * ‖q‖) : ‖e.symm (-g) - J q‖ ≤ M * (‖g - J f‖ + C * ‖q‖)
+OQ7Prescribed.physicalBody_uniform_planar_response_estimate (k : ℝ) (hk : 0 < k) (h d : ℝ) (hH : 0 ≤ h + d) (w : ℂ → ℂ)
+  (hw : ContDiff ℝ (↑⊤) w) (hwc : HasCompactSupport w) (hs : tsupport w ⊆ OQ7Prescribed.horizontalSquareAperture 1) :
+  ∃ K,
+    0 < K ∧
+      ∀ (B : OQ7Prescribed.TwoLayerBody),
+        B.absorberThickness = h →
+          B.plateThickness = d →
+            1 ≤ B.aperture →
+              ∀ (σ : OQ7Prescribed.Direction) (θ : ℝ) (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im),
+                ‖OQ7Prescribed.normalizedActiveResponse k hk B σ θ α β hα hβ -
+                      (OQ7Prescribed.bodyScaledScalarLift B w hw hwc hs)
+                        (OQ7Prescribed.planarNormalizedResponse k hk σ (B.absorberThickness + B.plateThickness) ⋯
+                          B.absorberThickness θ α β hα hβ)‖ ≤
+                  1 / OQ7Prescribed.activeMaterialCoercivity α β *
+                    (‖OQ7Prescribed.normalizedIncidentDrive k B σ -
+                          (OQ7Prescribed.bodyScaledScalarLift B w hw hwc hs)
+                            (OQ7Prescribed.planarNormalizedDrive k σ (B.absorberThickness + B.plateThickness)
+                              B.absorberThickness)‖ +
+                      K * (1 / OQ7Prescribed.activeMaterialCoercivity α β) *
+                        ‖OQ7Prescribed.planarNormalizedDrive k σ (B.absorberThickness + B.plateThickness)
+                            B.absorberThickness‖)
+OQ7Prescribed.horizontalSquareAperture_volume (R : ℝ) (hR : 0 ≤ R) :
+  MeasureTheory.volume (OQ7Prescribed.horizontalSquareAperture R) = ENNReal.ofReal (R ^ 2)
+OQ7Prescribed.squareApertureWindow_scaled (R : ℝ) (hR : 0 < R) :
+  OQ7Prescribed.squareApertureWindow R = OQ7Prescribed.scaledApertureWindow (OQ7Prescribed.squareApertureWindow 1) R
+'OQ7Prescribed.bodySeparatedScalarLift_coe' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.bodyScaledScalarLift_norm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.bodyScaledLayerField_decomposition' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.bodyCompressed_aperture_error_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.physicalBody_uniform_planar_operator_residual' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.bodyScaledScalarLift_inverse_material' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.bodyScaledScalarLift_material_residual_identity' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OQ7Prescribed.inverse_trial_residual_estimate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.physicalBody_uniform_planar_response_estimate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.horizontalSquareAperture_volume' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.squareApertureWindow_scaled' depends on axioms: [propext, Classical.choice, Quot.sound]
