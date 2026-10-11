@@ -319,6 +319,16 @@ run_cmd do
         'OQ7Prescribed.physicalOutgoingVolume_farField_work',
         'OQ7Prescribed.bodyOutgoingOperator_farField_work',
         'OQ7Prescribed.physicalVolume_Haar_energy_balance',
+        'OQ7Prescribed.sphericalPoint_hasFDerivAt',
+        'OQ7Prescribed.sphericalDerivative_det',
+        'OQ7Prescribed.sphericalPoint_injOn',
+        'OQ7Prescribed.sphericalPoint_image_ae_eq_univ',
+        'OQ7Prescribed.integral_spherical_actual',
+        'OQ7Prescribed.sphericalTripleEquiv_measurePreserving',
+        'OQ7Prescribed.sphereArea_integral_original_angles',
+        'OQ7Prescribed.physicalVolume_scattering_eq_Haar',
+        'OQ7Prescribed.physicalVolume_energy_balance',
+        'OQ7Prescribed.physicalVolume_scattering_nonneg',
         'OQ7Prescribed.normalizedActiveResponse_residual_bound',
         'OQ7Prescribed.normalizedActiveResponse_angle_difference_bound')) {
         if ($oq7Required -notin $oq7NewKernelTheorems) { throw "Missing outgoing operator obligation: $oq7Required" }
@@ -403,7 +413,8 @@ run_cmd do
         originalPhysicalFarFieldIdentificationVerified = $true
         actualFullVectorHaarRadiationWorkIdentityVerified = $true
         physicalHaarRadiationEnergyBalanceVerified = $true
-        originalThetaPhiSurfaceMeasureConversionVerified = $false
+        originalThetaPhiSurfaceMeasureConversionVerified = $true
+        originalPhysicalOpticalWorkIdentityVerified = $true
         physicalVolumeWorkBalanceVerified = $true
         originalPhysicalAbsorptionSineSquaredFactorizationVerified = $true
         normalizedPhysicalResponseUniformResidualBoundVerified = $true

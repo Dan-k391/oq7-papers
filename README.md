@@ -17,7 +17,11 @@ actual body-domain material operator and physical scattering states for every
 admissible finite body and positive frequency, with both weak Maxwell curls
 and the original full uniform radiation condition. The inverse norm bound
 depends only on the two tensors' inverse-loss constants, with no aperture factor.
-Uniqueness of arbitrary outgoing states, radiation power identities,
+The actual radiation/work identity now holds for every compact L² current;
+the three-dimensional spherical Jacobian identifies the Haar surface integral
+with the original theta/phi scattering cross section. Actual material-volume
+solutions satisfy the original extinction = absorption + scattering identity.
+Uniqueness of arbitrary outgoing states, reciprocity of extinction,
 uniform aperture localization, and the prescribed-extinction construction
 remain unverified. These are required before Theorem 1.1 can be proved.
 

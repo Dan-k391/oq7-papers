@@ -1169,6 +1169,10 @@ OQ7Prescribed.integral_polar_iterated_actual : ∀ (f : OQ7Prescribed.Position �
   MeasureTheory.Integrable f MeasureTheory.volume →
     ∫ (x : OQ7Prescribed.Position), f x =
       ∫ (s : ℝ) in Set.Ioi 0, s ^ 2 * ∫ (n : ↑OQ7Prescribed.UnitSphere), f (s • ↑n) ∂OQ7Prescribed.sphereArea
+OQ7Prescribed.integral_spherical_actual : ∀ (f : OQ7Prescribed.Position → ℝ),
+  ∫ (x : OQ7Prescribed.Position), f x =
+    ∫ (p : Fin 3 → ℝ) in OQ7Prescribed.sphericalDomain,
+      p 0 ^ 2 * Real.sin (p 1) * f (WithLp.toLp 2 (OQ7Prescribed.sphericalPoint p))
 OQ7Prescribed.integral_three_sub : ∀ (a b c d e f : OQ7Prescribed.Position → ℂ),
   MeasureTheory.Integrable a MeasureTheory.volume →
     MeasureTheory.Integrable b MeasureTheory.volume →
@@ -2038,6 +2042,12 @@ OQ7Prescribed.physicalVolume_absorption_le_extinction : ∀ (k : ℝ),
             (OQ7Prescribed.volumeTotalElectric k σ (OQ7Prescribed.bodyCurrentPolarization B f)) ≤
           OQ7Prescribed.extinction k B σ
             (OQ7Prescribed.volumeTotalElectric k σ (OQ7Prescribed.bodyCurrentPolarization B f))
+OQ7Prescribed.physicalVolume_energy_balance : ∀ (k : ℝ) (B : OQ7Prescribed.TwoLayerBody) (σ : OQ7Prescribed.Direction)
+  (f : ↥(OQ7Prescribed.BodyCurrentL2 B)),
+  OQ7Prescribed.MaterialVolumeEquation k B σ (OQ7Prescribed.bodyCurrentPolarization B f) →
+    OQ7Prescribed.extinction k B σ (OQ7Prescribed.volumeTotalElectric k σ (OQ7Prescribed.bodyCurrentPolarization B f)) =
+      OQ7Prescribed.absorption k B (OQ7Prescribed.volumeTotalElectric k σ (OQ7Prescribed.bodyCurrentPolarization B f)) +
+        OQ7Prescribed.scattering k B (OQ7Prescribed.volumeTotalElectric k σ (OQ7Prescribed.bodyCurrentPolarization B f))
 OQ7Prescribed.physicalVolume_Haar_energy_balance : ∀ (k : ℝ) (B : OQ7Prescribed.TwoLayerBody)
   (σ : OQ7Prescribed.Direction) (f : ↥(OQ7Prescribed.BodyCurrentL2 B)),
   OQ7Prescribed.MaterialVolumeEquation k B σ (OQ7Prescribed.bodyCurrentPolarization B f) →
@@ -2047,6 +2057,18 @@ OQ7Prescribed.physicalVolume_Haar_energy_balance : ∀ (k : ℝ) (B : OQ7Prescri
           ‖OQ7Prescribed.currentFarField k B
                 (OQ7Prescribed.volumeTotalElectric k σ (OQ7Prescribed.bodyCurrentPolarization B f)) ↑n‖ ^
             2 ∂OQ7Prescribed.sphereArea
+OQ7Prescribed.physicalVolume_scattering_eq_Haar : ∀ (k : ℝ) (B : OQ7Prescribed.TwoLayerBody)
+  (σ : OQ7Prescribed.Direction) (f : ↥(OQ7Prescribed.BodyCurrentL2 B)),
+  OQ7Prescribed.MaterialVolumeEquation k B σ (OQ7Prescribed.bodyCurrentPolarization B f) →
+    OQ7Prescribed.scattering k B (OQ7Prescribed.volumeTotalElectric k σ (OQ7Prescribed.bodyCurrentPolarization B f)) =
+      ∫ (n : ↑OQ7Prescribed.UnitSphere),
+        ‖OQ7Prescribed.currentFarField k B
+              (OQ7Prescribed.volumeTotalElectric k σ (OQ7Prescribed.bodyCurrentPolarization B f)) ↑n‖ ^
+          2 ∂OQ7Prescribed.sphereArea
+OQ7Prescribed.physicalVolume_scattering_nonneg : ∀ (k : ℝ) (B : OQ7Prescribed.TwoLayerBody)
+  (σ : OQ7Prescribed.Direction) (f : ↥(OQ7Prescribed.BodyCurrentL2 B)),
+  OQ7Prescribed.MaterialVolumeEquation k B σ (OQ7Prescribed.bodyCurrentPolarization B f) →
+    0 ≤ OQ7Prescribed.scattering k B (OQ7Prescribed.volumeTotalElectric k σ (OQ7Prescribed.bodyCurrentPolarization B f))
 OQ7Prescribed.physicalVolume_work_balance : ∀ (k : ℝ) (B : OQ7Prescribed.TwoLayerBody) (σ : OQ7Prescribed.Direction)
   (f : ↥(OQ7Prescribed.BodyCurrentL2 B)),
   OQ7Prescribed.MaterialVolumeEquation k B σ (OQ7Prescribed.bodyCurrentPolarization B f) →
@@ -2713,8 +2735,59 @@ OQ7Prescribed.sphere_test_moment_continuous : ∀ (φ : OQ7Prescribed.ScalarTest
 OQ7Prescribed.sphere_test_moment_zero : ∀ (φ : OQ7Prescribed.ScalarTest) (i j : Fin 3),
   ∫ (n : ↑OQ7Prescribed.UnitSphere), (↑n).ofLp i * (↑n).ofLp j * φ (0 • ↑n) ∂OQ7Prescribed.sphereArea =
     (if i = j then 4 * Real.pi / 3 else 0) * φ 0
+OQ7Prescribed.sphereArea_integral_angular_centered : ∀ (A : OQ7Prescribed.Position → ℝ),
+  Continuous A →
+    ∫ (n : ↑OQ7Prescribed.UnitSphere), A ↑n ∂OQ7Prescribed.sphereArea =
+      ∫ (θ : ℝ) in 0..Real.pi, ∫ (φ : ℝ) in -Real.pi..Real.pi, Real.sin θ * A (OQ7Prescribed.sphereDirection θ φ)
+OQ7Prescribed.sphereArea_integral_angular_product : ∀ (A : OQ7Prescribed.Position → ℝ),
+  ∫ (n : ↑OQ7Prescribed.UnitSphere), A ↑n ∂OQ7Prescribed.sphereArea =
+    ∫ (p : ℝ × ℝ) in Set.Ioo 0 Real.pi ×ˢ Set.Ioo (-Real.pi) Real.pi,
+      Real.sin p.1 * A (OQ7Prescribed.sphereDirection p.1 p.2)
+OQ7Prescribed.sphereArea_integral_original_angles : ∀ (A : OQ7Prescribed.Position → ℝ),
+  Continuous A →
+    ∫ (n : ↑OQ7Prescribed.UnitSphere), A ↑n ∂OQ7Prescribed.sphereArea =
+      ∫ (θ : ℝ) in 0..Real.pi, ∫ (φ : ℝ) in 0..2 * Real.pi, A (OQ7Prescribed.sphereDirection θ φ) * Real.sin θ
 OQ7Prescribed.sphereArea_real_univ : OQ7Prescribed.sphereArea.real Set.univ = 4 * Real.pi
+OQ7Prescribed.sphereDirection_continuous : Continuous fun p => OQ7Prescribed.sphereDirection p.1 p.2
+OQ7Prescribed.sphereDirection_norm : ∀ (θ φ : ℝ), ‖OQ7Prescribed.sphereDirection θ φ‖ = 1
+OQ7Prescribed.sphereDirection_periodic : ∀ (θ : ℝ), Function.Periodic (OQ7Prescribed.sphereDirection θ) (2 * Real.pi)
 OQ7Prescribed.sphereDirection_unit : ∀ (θ φ : ℝ), ‖OQ7Prescribed.sphereDirection θ φ‖ ^ 2 = 1
+OQ7Prescribed.sphericalDerivative_det : ∀ (p : Fin 3 → ℝ),
+  (OQ7Prescribed.sphericalDerivative p).det = p 0 ^ 2 * Real.sin (p 1)
+OQ7Prescribed.sphericalDomain_measurableSet : MeasurableSet OQ7Prescribed.sphericalDomain
+OQ7Prescribed.sphericalDomain_product_integral : ∀ (f : ℝ × ℝ × ℝ → ℝ),
+  ∫ (p : Fin 3 → ℝ) in OQ7Prescribed.sphericalDomain, f (p 0, p 1, p 2) =
+    ∫ (p : ℝ × ℝ × ℝ) in Set.Ioi 0 ×ˢ Set.Ioo 0 Real.pi ×ˢ Set.Ioo (-Real.pi) Real.pi, f p
+OQ7Prescribed.sphericalPoint_hasFDerivAt : ∀ (p : Fin 3 → ℝ),
+  HasFDerivAt OQ7Prescribed.sphericalPoint (OQ7Prescribed.sphericalDerivative p) p
+OQ7Prescribed.sphericalPoint_image_ae_eq_univ : OQ7Prescribed.sphericalPoint ''
+    OQ7Prescribed.sphericalDomain =ᵐ[MeasureTheory.volume]
+  Set.univ
+OQ7Prescribed.sphericalPoint_image_of_second_ne_zero : ∀ (x : Fin 3 → ℝ),
+  x 1 ≠ 0 → x ∈ OQ7Prescribed.sphericalPoint '' OQ7Prescribed.sphericalDomain
+OQ7Prescribed.sphericalPoint_injOn : Set.InjOn OQ7Prescribed.sphericalPoint OQ7Prescribed.sphericalDomain
+OQ7Prescribed.sphericalPoint_norm : ∀ (p : Fin 3 → ℝ), ‖WithLp.toLp 2 (OQ7Prescribed.sphericalPoint p)‖ = |p 0|
+OQ7Prescribed.sphericalPoint_radialDirection : ∀ (p : Fin 3 → ℝ),
+  0 < p 0 →
+    OQ7Prescribed.radialDirection (WithLp.toLp 2 (OQ7Prescribed.sphericalPoint p)) =
+      OQ7Prescribed.sphereDirection (p 1) (p 2)
+OQ7Prescribed.sphericalPoint_toLp : ∀ (p : Fin 3 → ℝ),
+  WithLp.toLp 2 (OQ7Prescribed.sphericalPoint p) = p 0 • OQ7Prescribed.sphereDirection (p 1) (p 2)
+OQ7Prescribed.sphericalPoint_weighted_jacobian : ∀ p ∈ OQ7Prescribed.sphericalDomain,
+  ∀ (A : OQ7Prescribed.Position → ℝ),
+    p 0 ^ 2 * Real.sin (p 1) *
+        (OQ7Prescribed.sourceEnergyWeight 1 (WithLp.toLp 2 (OQ7Prescribed.sphericalPoint p)) /
+            ‖WithLp.toLp 2 (OQ7Prescribed.sphericalPoint p)‖ ^ 2 *
+          A (OQ7Prescribed.radialDirection (WithLp.toLp 2 (OQ7Prescribed.sphericalPoint p)))) =
+      OQ7Prescribed.transitionDerivative (p 0 - 1) * (Real.sin (p 1) * A (OQ7Prescribed.sphereDirection (p 1) (p 2)))
+OQ7Prescribed.sphericalTripleEquiv_apply : ∀ (p : Fin 3 → ℝ), OQ7Prescribed.sphericalTripleEquiv p = (p 0, p 1, p 2)
+OQ7Prescribed.sphericalTripleEquiv_domain : ⇑OQ7Prescribed.sphericalTripleEquiv ⁻¹'
+    Set.Ioi 0 ×ˢ Set.Ioo 0 Real.pi ×ˢ Set.Ioo (-Real.pi) Real.pi =
+  OQ7Prescribed.sphericalDomain
+OQ7Prescribed.sphericalTripleEquiv_measurePreserving : MeasureTheory.MeasurePreserving
+  (⇑OQ7Prescribed.sphericalTripleEquiv) MeasureTheory.volume MeasureTheory.volume
+OQ7Prescribed.sphericalTripleEquiv_symm_apply : ∀ (p : ℝ × ℝ × ℝ),
+  OQ7Prescribed.sphericalTripleEquiv.symm p = ![p.1, p.2.1, p.2.2]
 OQ7Prescribed.squareNorm_eq_norm_sq : ∀ (v : OQ7Prescribed.Vector), OQ7Prescribed.squareNorm v = ‖v‖ ^ 2
 OQ7Prescribed.squareNorm_nonneg : ∀ (v : OQ7Prescribed.Vector), 0 ≤ OQ7Prescribed.squareNorm v
 @OQ7Prescribed.squareNorm_pos : ∀ {v : OQ7Prescribed.Vector}, v ≠ 0 → 0 < OQ7Prescribed.squareNorm v
@@ -2877,6 +2950,9 @@ OQ7Prescribed.transitionDerivative_continuous : Continuous OQ7Prescribed.transit
 OQ7Prescribed.transitionDerivative_global_bound : ∃ M, 0 ≤ M ∧ ∀ (s : ℝ), ‖OQ7Prescribed.transitionDerivative s‖ ≤ M
 OQ7Prescribed.transitionDerivative_hasCompactSupport : HasCompactSupport OQ7Prescribed.transitionDerivative
 OQ7Prescribed.transitionDerivative_integral : ∫ (s : ℝ) in 0..1, OQ7Prescribed.transitionDerivative s = 1
+OQ7Prescribed.transitionDerivative_radial_unit_mass : ∫ (r : ℝ) in Set.Ioi 0,
+    OQ7Prescribed.transitionDerivative (r - 1) =
+  1
 @OQ7Prescribed.transitionDerivative_zero_of_nonpos : ∀ {s : ℝ}, s ≤ 0 → OQ7Prescribed.transitionDerivative s = 0
 @OQ7Prescribed.transitionDerivative_zero_of_one_le : ∀ {s : ℝ}, 1 ≤ s → OQ7Prescribed.transitionDerivative s = 0
 OQ7Prescribed.transverseProjection_cross : ∀ (n : OQ7Prescribed.Position),

@@ -105,3 +105,9 @@ import PrescribedExtinction.FarFieldRadial
 import PrescribedExtinction.FarFieldWork
 import PrescribedExtinction.FarFieldL2
 import PrescribedExtinction.FarFieldWorkL2
+import PrescribedExtinction.SphericalCoordinates
+import PrescribedExtinction.SphericalDomain
+import PrescribedExtinction.SphericalVolume
+import PrescribedExtinction.SphericalProduct
+import PrescribedExtinction.SphericalAngular
+import PrescribedExtinction.PhysicalOpticalBalance

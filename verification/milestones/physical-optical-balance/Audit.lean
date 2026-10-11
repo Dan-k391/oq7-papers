@@ -1,0 +1,22 @@
+import PrescribedExtinction.PhysicalOpticalBalance
+
+#check OQ7Prescribed.sphericalPoint_hasFDerivAt
+#check OQ7Prescribed.sphericalDerivative_det
+#check OQ7Prescribed.sphericalPoint_injOn
+#check OQ7Prescribed.sphericalPoint_image_ae_eq_univ
+#check OQ7Prescribed.integral_spherical_actual
+#check OQ7Prescribed.sphericalTripleEquiv_measurePreserving
+#check OQ7Prescribed.sphereArea_integral_original_angles
+#check OQ7Prescribed.physicalVolume_scattering_eq_Haar
+#check OQ7Prescribed.physicalVolume_energy_balance
+#check OQ7Prescribed.physicalVolume_scattering_nonneg
+#print axioms OQ7Prescribed.sphericalPoint_hasFDerivAt
+#print axioms OQ7Prescribed.sphericalDerivative_det
+#print axioms OQ7Prescribed.sphericalPoint_injOn
+#print axioms OQ7Prescribed.sphericalPoint_image_ae_eq_univ
+#print axioms OQ7Prescribed.integral_spherical_actual
+#print axioms OQ7Prescribed.sphericalTripleEquiv_measurePreserving
+#print axioms OQ7Prescribed.sphereArea_integral_original_angles
+#print axioms OQ7Prescribed.physicalVolume_scattering_eq_Haar
+#print axioms OQ7Prescribed.physicalVolume_energy_balance
+#print axioms OQ7Prescribed.physicalVolume_scattering_nonneg

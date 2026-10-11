@@ -1,0 +1,44 @@
+OQ7Prescribed.sphericalPoint_hasFDerivAt (p : Fin 3 → ℝ) :
+  HasFDerivAt OQ7Prescribed.sphericalPoint (OQ7Prescribed.sphericalDerivative p) p
+OQ7Prescribed.sphericalDerivative_det (p : Fin 3 → ℝ) :
+  (OQ7Prescribed.sphericalDerivative p).det = p 0 ^ 2 * Real.sin (p 1)
+OQ7Prescribed.sphericalPoint_injOn : Set.InjOn OQ7Prescribed.sphericalPoint OQ7Prescribed.sphericalDomain
+OQ7Prescribed.sphericalPoint_image_ae_eq_univ :
+  OQ7Prescribed.sphericalPoint '' OQ7Prescribed.sphericalDomain =ᵐ[MeasureTheory.volume] Set.univ
+OQ7Prescribed.integral_spherical_actual (f : OQ7Prescribed.Position → ℝ) :
+  ∫ (x : OQ7Prescribed.Position), f x =
+    ∫ (p : Fin 3 → ℝ) in OQ7Prescribed.sphericalDomain,
+      p 0 ^ 2 * Real.sin (p 1) * f (WithLp.toLp 2 (OQ7Prescribed.sphericalPoint p))
+OQ7Prescribed.sphericalTripleEquiv_measurePreserving :
+  MeasureTheory.MeasurePreserving (⇑OQ7Prescribed.sphericalTripleEquiv) MeasureTheory.volume MeasureTheory.volume
+OQ7Prescribed.sphereArea_integral_original_angles (A : OQ7Prescribed.Position → ℝ) (hA : Continuous A) :
+  ∫ (n : ↑OQ7Prescribed.UnitSphere), A ↑n ∂OQ7Prescribed.sphereArea =
+    ∫ (θ : ℝ) in 0..Real.pi, ∫ (φ : ℝ) in 0..2 * Real.pi, A (OQ7Prescribed.sphereDirection θ φ) * Real.sin θ
+OQ7Prescribed.physicalVolume_scattering_eq_Haar (k : ℝ) (B : OQ7Prescribed.TwoLayerBody) (σ : OQ7Prescribed.Direction)
+  (f : ↥(OQ7Prescribed.BodyCurrentL2 B))
+  (hp : OQ7Prescribed.MaterialVolumeEquation k B σ (OQ7Prescribed.bodyCurrentPolarization B f)) :
+  OQ7Prescribed.scattering k B (OQ7Prescribed.volumeTotalElectric k σ (OQ7Prescribed.bodyCurrentPolarization B f)) =
+    ∫ (n : ↑OQ7Prescribed.UnitSphere),
+      ‖OQ7Prescribed.currentFarField k B
+            (OQ7Prescribed.volumeTotalElectric k σ (OQ7Prescribed.bodyCurrentPolarization B f)) ↑n‖ ^
+        2 ∂OQ7Prescribed.sphereArea
+OQ7Prescribed.physicalVolume_energy_balance (k : ℝ) (B : OQ7Prescribed.TwoLayerBody) (σ : OQ7Prescribed.Direction)
+  (f : ↥(OQ7Prescribed.BodyCurrentL2 B))
+  (hp : OQ7Prescribed.MaterialVolumeEquation k B σ (OQ7Prescribed.bodyCurrentPolarization B f)) :
+  OQ7Prescribed.extinction k B σ (OQ7Prescribed.volumeTotalElectric k σ (OQ7Prescribed.bodyCurrentPolarization B f)) =
+    OQ7Prescribed.absorption k B (OQ7Prescribed.volumeTotalElectric k σ (OQ7Prescribed.bodyCurrentPolarization B f)) +
+      OQ7Prescribed.scattering k B (OQ7Prescribed.volumeTotalElectric k σ (OQ7Prescribed.bodyCurrentPolarization B f))
+OQ7Prescribed.physicalVolume_scattering_nonneg (k : ℝ) (B : OQ7Prescribed.TwoLayerBody) (σ : OQ7Prescribed.Direction)
+  (f : ↥(OQ7Prescribed.BodyCurrentL2 B))
+  (hp : OQ7Prescribed.MaterialVolumeEquation k B σ (OQ7Prescribed.bodyCurrentPolarization B f)) :
+  0 ≤ OQ7Prescribed.scattering k B (OQ7Prescribed.volumeTotalElectric k σ (OQ7Prescribed.bodyCurrentPolarization B f))
+'OQ7Prescribed.sphericalPoint_hasFDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.sphericalDerivative_det' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.sphericalPoint_injOn' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.sphericalPoint_image_ae_eq_univ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.integral_spherical_actual' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.sphericalTripleEquiv_measurePreserving' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.sphereArea_integral_original_angles' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.physicalVolume_scattering_eq_Haar' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.physicalVolume_energy_balance' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.physicalVolume_scattering_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]

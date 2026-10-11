@@ -62,7 +62,8 @@ try {
         @{ name = 'physical-rotation-extinction'; module = 'PrescribedExtinction.RotationExtinction' },
         @{ name = 'physical-rotation-absorption'; module = 'PrescribedExtinction.RankOneAbsorption' },
         @{ name = 'physical-full-far-field'; module = 'PrescribedExtinction.FarFieldCurrent' },
-        @{ name = 'physical-haar-radiation-work'; module = 'PrescribedExtinction.FarFieldWorkL2' }
+        @{ name = 'physical-haar-radiation-work'; module = 'PrescribedExtinction.FarFieldWorkL2' },
+        @{ name = 'physical-optical-balance'; module = 'PrescribedExtinction.PhysicalOpticalBalance' }
     )
     if ($Only) {
         foreach ($oq7Name in $Only) {
