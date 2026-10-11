@@ -1,0 +1,34 @@
+@OQ7Prescribed.radialNorm_hasFDerivAt : ∀ {E : Type u_1} [inst : NormedAddCommGroup E] [inst_1 : InnerProductSpace ℝ E]
+  (x : E), x ≠ 0 → HasFDerivAt (fun y => ‖y‖) (‖x‖⁻¹ • (innerSL ℝ) x) x
+OQ7Prescribed.radial_second_lineDeriv : ∀ (F F₁ F₂ : ℝ → ℂ),
+  (∀ (r : ℝ), 0 < r → HasDerivAt F (F₁ r) r) →
+    (∀ (r : ℝ), 0 < r → HasDerivAt F₁ (F₂ r) r) →
+      ∀ (x : OQ7Prescribed.Position),
+        x ≠ 0 →
+          ∀ (i j : Fin 3),
+            lineDeriv ℝ (fun y => lineDeriv ℝ (fun z => F ‖z‖) y (OQ7Prescribed.basisR j)) x (OQ7Prescribed.basisR i) =
+              (x.ofLp i * x.ofLp j / ‖x‖ ^ 2) • F₂ ‖x‖ +
+                ((if i = j then 1 else 0) / ‖x‖ - x.ofLp i * x.ofLp j / ‖x‖ ^ 3) • F₁ ‖x‖
+OQ7Prescribed.newton_classical_hessian : ∀ (x : OQ7Prescribed.Position),
+  x ≠ 0 →
+    ∀ (i j : Fin 3),
+      lineDeriv ℝ (fun y => lineDeriv ℝ (OQ7Prescribed.outgoingGreen 0) y (OQ7Prescribed.basisR j)) x
+          (OQ7Prescribed.basisR i) =
+        ↑((3 * x.ofLp i * x.ofLp j - ‖x‖ ^ 2 * if i = j then 1 else 0) / (4 * Real.pi * ‖x‖ ^ 5))
+OQ7Prescribed.outgoingRadial_hasDerivAt : ∀ (k r : ℝ),
+  r ≠ 0 → HasDerivAt (OQ7Prescribed.outgoingRadial k) (OQ7Prescribed.outgoingRadialFirst k r) r
+OQ7Prescribed.outgoingRadialFirst_hasDerivAt : ∀ (k r : ℝ),
+  r ≠ 0 → HasDerivAt (OQ7Prescribed.outgoingRadialFirst k) (OQ7Prescribed.outgoingRadialSecond k r) r
+OQ7Prescribed.outgoing_classical_hessian : ∀ (k : ℝ) (x : OQ7Prescribed.Position),
+  x ≠ 0 →
+    ∀ (i j : Fin 3),
+      lineDeriv ℝ (fun y => lineDeriv ℝ (OQ7Prescribed.outgoingGreen k) y (OQ7Prescribed.basisR j)) x
+          (OQ7Prescribed.basisR i) =
+        (x.ofLp i * x.ofLp j / ‖x‖ ^ 2) • OQ7Prescribed.outgoingRadialSecond k ‖x‖ +
+          ((if i = j then 1 else 0) / ‖x‖ - x.ofLp i * x.ofLp j / ‖x‖ ^ 3) • OQ7Prescribed.outgoingRadialFirst k ‖x‖
+'OQ7Prescribed.radialNorm_hasFDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.radial_second_lineDeriv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.newton_classical_hessian' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.outgoingRadial_hasDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.outgoingRadialFirst_hasDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.outgoing_classical_hessian' depends on axioms: [propext, Classical.choice, Quot.sound]

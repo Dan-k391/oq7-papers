@@ -1,0 +1,57 @@
+OQ7Prescribed.classicalDyadic_coordinate : ∀ (k : ℝ) (x : OQ7Prescribed.Position),
+  x ≠ 0 →
+    ∀ (i j : Fin 3),
+      ((OQ7Prescribed.classicalDyadic k x) (OQ7Prescribed.basisC j)).ofLp i =
+        (if i = j then ↑(k ^ 2) * OQ7Prescribed.outgoingGreen k x else 0) +
+          lineDeriv ℝ (fun y => lineDeriv ℝ (OQ7Prescribed.outgoingGreen k) y (OQ7Prescribed.basisR j)) x
+            (OQ7Prescribed.basisR i)
+OQ7Prescribed.dyadicRemainder_cancel : ∀ (k : ℝ) (x : OQ7Prescribed.Position),
+  OQ7Prescribed.dyadicRemainder k x =
+    (↑(k ^ 2) * Complex.exp (Complex.I * ↑k * ↑‖x‖) / (↑(4 * Real.pi) * ↑‖x‖) +
+          (Complex.exp (Complex.I * ↑k * ↑‖x‖) * (Complex.I * ↑k * ↑‖x‖ - 1) + 1) / (↑(4 * Real.pi) * ↑‖x‖ ^ 3)) •
+        ContinuousLinearMap.id ℂ OQ7Prescribed.Vector +
+      ((Complex.exp (Complex.I * ↑k * ↑‖x‖) * ((Complex.I * ↑k * ↑‖x‖) ^ 2 - 3 * (Complex.I * ↑k * ↑‖x‖) + 3) - 3) /
+          (↑(4 * Real.pi) * ↑‖x‖ ^ 5)) •
+        ((InnerProductSpace.rankOne ℂ) (OQ7Prescribed.complexify x)) (OQ7Prescribed.complexify x)
+OQ7Prescribed.dyadicRemainder_norm_le : ∀ (k : ℝ) (x : OQ7Prescribed.Position),
+  ‖OQ7Prescribed.dyadicRemainder k x‖ ≤
+    k ^ 2 / (4 * Real.pi) * OQ7Prescribed.greenCancellationEnvelope (|k| * ‖x‖) * ‖x‖⁻¹
+OQ7Prescribed.cutoffDyadicRemainder_memLp : ∀ (k T : ℝ),
+  MeasureTheory.MemLp (OQ7Prescribed.cutoffDyadicRemainder k T) 2 MeasureTheory.volume
+OQ7Prescribed.cutoffDyadicRemainder_eLpNorm_le : ∀ (k T : ℝ),
+  MeasureTheory.eLpNorm (OQ7Prescribed.cutoffDyadicRemainder k T) 2 MeasureTheory.volume ≤
+    ENNReal.ofReal (OQ7Prescribed.dyadicRemainderCutoffConstant k T) *
+      MeasureTheory.eLpNorm (OQ7Prescribed.cutoffGreen 0 T) 2 MeasureTheory.volume
+OQ7Prescribed.remainderPotential_integrable : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization)
+  (x : OQ7Prescribed.Position),
+  MeasureTheory.Integrable (fun y => (OQ7Prescribed.dyadicRemainder k (x - y)) (p.current y)) MeasureTheory.volume
+OQ7Prescribed.remainderPotential_memLp_on_compact : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization)
+  (K : Set OQ7Prescribed.Position),
+  IsCompact K → MeasureTheory.MemLp (OQ7Prescribed.remainderPotential k p) 2 (MeasureTheory.volume.restrict K)
+OQ7Prescribed.remainderPotential_eLpNorm_le : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization)
+  (K : Set OQ7Prescribed.Position),
+  MeasurableSet K →
+    ∀ (S : ℝ),
+      (∀ x ∈ K, ‖x‖ ≤ S) →
+        MeasureTheory.eLpNorm (OQ7Prescribed.remainderPotential k p) 2 (MeasureTheory.volume.restrict K) ≤
+          OQ7Prescribed.remainderPotentialBound k p S * MeasureTheory.volume K ^ (1 / 2)
+OQ7Prescribed.remainderPotential_congr_current : ∀ (k : ℝ) (p q : OQ7Prescribed.CompactPolarization),
+  p.current =ᵐ[MeasureTheory.volume] q.current →
+    OQ7Prescribed.remainderPotential k p = OQ7Prescribed.remainderPotential k q
+OQ7Prescribed.remainderPotential_add : ∀ (k : ℝ) (p q : OQ7Prescribed.CompactPolarization),
+  OQ7Prescribed.remainderPotential k (p.add q) =
+    OQ7Prescribed.remainderPotential k p + OQ7Prescribed.remainderPotential k q
+OQ7Prescribed.remainderPotential_smul : ∀ (k : ℝ) (z : ℂ) (p : OQ7Prescribed.CompactPolarization),
+  OQ7Prescribed.remainderPotential k (OQ7Prescribed.CompactPolarization.scale z p) =
+    z • OQ7Prescribed.remainderPotential k p
+'OQ7Prescribed.classicalDyadic_coordinate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.dyadicRemainder_cancel' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.dyadicRemainder_norm_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.cutoffDyadicRemainder_memLp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.cutoffDyadicRemainder_eLpNorm_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.remainderPotential_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.remainderPotential_memLp_on_compact' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.remainderPotential_eLpNorm_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.remainderPotential_congr_current' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.remainderPotential_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.remainderPotential_smul' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -2,7 +2,7 @@
 
 **Theorem 1.1 has not been kernel-verified. No final proof declaration exists.**
 
-The existing library and its exact target are preserved. This continuation adds the actual outgoing scalar Green distribution, convolution for compactly supported vector L² currents, the distributional volume potential, and a bounded explicit static Fourier operator. It does not replace the requested claim with a theorem about arbitrary power data or an assumed scattering operator. The substantial analytic dependencies listed below remain unverified; no conditional substitute is advertised as Theorem 1.1.
+The existing library and its exact target are preserved. The continuation now includes actual outgoing/Newton classical Hessians, a proved dynamic-minus-static kernel estimate, and actual remainder convolution bounds on compact domains, in addition to the earlier scalar distributions, convolution and static Fourier results. **The explicit distributional contact coefficient and the full physical dyadic operator are still unverified.** See [DYADIC.md](DYADIC.md) for this continuation's exact formulas, missing infrastructure and proof obligations. No conditional substitute is advertised as Theorem 1.1.
 
 `OQ7Prescribed.Theorem11Statement : Prop` is a **definition of an unproved proposition**, not a theorem. Its `#print axioms` output audits the definition's dependencies. It does not certify that the proposition is true.
 
@@ -27,7 +27,7 @@ The existing library and its exact target are preserved. This continuation adds 
 | `PrescribedExtinction/VolumePotential.lean` | The actual convolution exists at every point for compact vector L² currents; finite bounds on bounded regions; local integrability; full distributional volume formula and additivity | The differentiated potential is not yet realized as a bounded L² operator or identified with physical scattered fields |
 | `PrescribedExtinction/StaticFourier.lean` | The explicit symbol `-ξξᵀ/|ξ|²` gives an L² contraction by Mathlib's unitary Fourier transform; its imaginary quadratic form vanishes | Its identification with the distributional Newton volume operator remains unproved; this is not passivity of the outgoing operator |
 
-See [FOUNDATIONS.md](FOUNDATIONS.md) for the exact scope, formulas and next proof gates. Each of the three new modules has its own build and `#print axioms` export under `verification/milestones/`. The original PARTIAL verification evidence is preserved under `verification/milestones/initial-partial/`. The physical target's existing source file is checked byte-for-byte by `verify.ps1`.
+See [FOUNDATIONS.md](FOUNDATIONS.md) for the preceding foundation scope and [DYADIC.md](DYADIC.md) for the latest progress. Independent builds and `#print axioms` exports are under `verification/milestones/`. Earlier evidence is preserved under `initial-partial/` and `pre-dyadic/`. All previous Lean modules and the physical target are checked byte-for-byte by `verify.ps1`; the aggregate import file only gains appended imports.
 
 There are no `sorry`, `admit`, custom mathematical axioms, or native proof shortcuts in the project sources. The verification script checks source gates and exports transitive `#print axioms` reports for every imported declaration in both project namespaces, including definitions and generated constants. Permitted foundational axioms are Lean/Mathlib's `propext`, `Classical.choice`, and `Quot.sound`.
 
@@ -49,7 +49,7 @@ The following are **UNVERIFIED in Lean**, irrespective of the preceding informal
 
 | Manuscript obligation | Remaining formal work |
 | --- | --- |
-| §2, equations (5)–(8), PDF p.4 | The full distributional expression and actual scalar convolution are now defined with integrability proved. Still prove the fundamental-solution identity, explicit contact term, identification with the checked static Fourier operator, the dynamic remainder bound, bounded L² realization/restriction, and equivalence to outgoing weak Maxwell solutions. |
+| §2, equations (5)–(8), PDF p.4 | The full distributional expression and actual scalar convolution are defined with integrability proved. The classical dynamic remainder estimate and its actual convolution L² bound are now proved. Still prove the fundamental-solution identity, explicit contact term, static Fourier and distributional remainder identifications, bounded full L² realization/restriction, and equivalence to outgoing weak Maxwell solutions. |
 | §2, equations (6)–(7), and §1 equation (2), pp.3–4 | Prove far-field asymptotics, all-channel radiation identity, forward optical theorem, positivity, integrability and power balance. No electromagnetic identity is a structure assumption. |
 | §1 and §2, pp.3–5 | Prove Lorentz reciprocity for these rough coefficients and outgoing states, including exact equal extinction for the two plane waves. Matrix transpose symmetry alone is insufficient. |
 | Lemma 2.1 and §2.1, pp.4–5 | Prove the complex coercive inverse, uniform aperture/angle bound, continuity and physical rank-one response factorization. Only the finite-dimensional material action and projected drive have been proved. |

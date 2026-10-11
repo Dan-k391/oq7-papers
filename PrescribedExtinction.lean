@@ -6,3 +6,9 @@ import PrescribedExtinction.Drive
 import PrescribedExtinction.GreenKernel
 import PrescribedExtinction.VolumePotential
 import PrescribedExtinction.StaticFourier
+import PrescribedExtinction.RadialCalculus
+import PrescribedExtinction.NewtonKernel
+import PrescribedExtinction.OutgoingRadial
+import PrescribedExtinction.GreenCancellation
+import PrescribedExtinction.DyadicRemainder
+import PrescribedExtinction.RemainderConvolution

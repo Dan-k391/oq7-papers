@@ -1,0 +1,14 @@
+import PrescribedExtinction.OutgoingRadial
+
+#check @OQ7Prescribed.radialNorm_hasFDerivAt
+#check @OQ7Prescribed.radial_second_lineDeriv
+#check @OQ7Prescribed.newton_classical_hessian
+#check @OQ7Prescribed.outgoingRadial_hasDerivAt
+#check @OQ7Prescribed.outgoingRadialFirst_hasDerivAt
+#check @OQ7Prescribed.outgoing_classical_hessian
+#print axioms OQ7Prescribed.radialNorm_hasFDerivAt
+#print axioms OQ7Prescribed.radial_second_lineDeriv
+#print axioms OQ7Prescribed.newton_classical_hessian
+#print axioms OQ7Prescribed.outgoingRadial_hasDerivAt
+#print axioms OQ7Prescribed.outgoingRadialFirst_hasDerivAt
+#print axioms OQ7Prescribed.outgoing_classical_hessian

@@ -83,6 +83,23 @@ try {
         }
     }
     $oq7PdfHash = (Get-FileHash -LiteralPath 'sources/OQ7_prescribed_extinction_2026-10-11.pdf' -Algorithm SHA256).Hash
+    $oq7PreDyadicHashes = Get-Content -LiteralPath 'sources/pre-dyadic-source-hashes.json' -Raw | ConvertFrom-Json
+    foreach ($oq7Saved in $oq7PreDyadicHashes) {
+        if ((Get-FileHash -LiteralPath $oq7Saved.file -Algorithm SHA256).Hash -ne $oq7Saved.sha256) {
+            throw "Preserved pre-dyadic source differs: $($oq7Saved.file)"
+        }
+    }
+    $oq7PreviousReport = Get-Content 'verification/milestones/pre-dyadic/report.json' -Raw | ConvertFrom-Json
+    $oq7PreviousRootHash = @($oq7PreviousReport.sourceHashes | Where-Object { $_.file -eq 'PrescribedExtinction.lean' })[0].sha256
+    if ((Get-FileHash 'sources/pre-dyadic-PrescribedExtinction.lean' -Algorithm SHA256).Hash -ne $oq7PreviousRootHash) {
+        throw 'Previous aggregate source snapshot differs.'
+    }
+    $oq7PreviousRoot = [IO.File]::ReadAllBytes((Join-Path $PSScriptRoot 'sources/pre-dyadic-PrescribedExtinction.lean'))
+    $oq7CurrentRoot = [IO.File]::ReadAllBytes((Join-Path $PSScriptRoot 'PrescribedExtinction.lean'))
+    if ($oq7CurrentRoot.Length -lt $oq7PreviousRoot.Length) { throw 'Aggregate source was truncated.' }
+    for ($oq7ByteIndex = 0; $oq7ByteIndex -lt $oq7PreviousRoot.Length; $oq7ByteIndex++) {
+        if ($oq7CurrentRoot[$oq7ByteIndex] -ne $oq7PreviousRoot[$oq7ByteIndex]) { throw 'Previous aggregate imports changed.' }
+    }
     if ($oq7PdfHash -ne '3D9775D849234E828370D7C96D8BDCDD574BEB6831A7906EA6B7706579868710') { throw 'Manuscript hash differs.' }
     $oq7TargetHash = (Get-FileHash -LiteralPath 'PrescribedExtinction/Maxwell.lean' -Algorithm SHA256).Hash
     if ($oq7TargetHash -ne '071C04ED9417A1D9AC842D61B545183627E6F997C7C1899F908871608859ABF6') {
@@ -113,6 +130,9 @@ try {
         targetProposition = 'OQ7Prescribed.Theorem11Statement'
         targetIsAProof = $false
         existingPhysicalTargetSourceUnchanged = $true
+        allPreDyadicLeanModulesUnchanged = $true
+        existingAggregateImportPrefixUnchanged = $true
+        dyadicGreenMilestoneComplete = $false
         targetSourceSHA256 = $oq7TargetHash
         verifiedAtUTC = [DateTime]::UtcNow.ToString('o')
         lean = $oq7Version
@@ -133,12 +153,14 @@ try {
         foundationalMilestones = @(
             @{ module = 'PrescribedExtinction.GreenKernel'; scope = 'Actual scalar kernel local L1/L2 integrability and distributional dyadic test formula'; physicalContactCoefficientVerified = $false },
             @{ module = 'PrescribedExtinction.VolumePotential'; scope = 'Actual convolution exists for every compact vector L2 current; finite local bound; locally integrable potential; distributional volume formula and additivity'; boundedDyadicL2OperatorVerified = $false },
-            @{ module = 'PrescribedExtinction.StaticFourier'; scope = 'Explicit static Fourier multiplier is an L2 contraction and has zero imaginary quadratic form'; identificationWithNewtonVolumePotentialVerified = $false }
+            @{ module = 'PrescribedExtinction.StaticFourier'; scope = 'Explicit static Fourier multiplier is an L2 contraction and has zero imaginary quadratic form'; identificationWithNewtonVolumePotentialVerified = $false },
+            @{ module = 'PrescribedExtinction.OutgoingRadial'; scope = 'Actual Newton and outgoing radial derivatives and classical Hessian away from origin'; physicalContactCoefficientVerified = $false },
+            @{ module = 'PrescribedExtinction.RemainderConvolution'; scope = 'Actual classical dyadic dynamic-minus-static cancellation; explicit inverse-distance norm estimate; cutoff L2 kernel; actual convolution, compact-domain L2 bound, ae invariance and complex linearity'; identificationWithDistributionalDifferenceVerified = $false; fullPhysicalDyadicOperatorVerified = $false }
         )
         unverifiedDependencies = @('3D outgoing Maxwell existence and uniqueness',
             'Scalar distributional Helmholtz fundamental-solution identity and explicit Hessian principal-value/contact formula',
             'Identification of the static Fourier operator with the distributional Newton volume operator',
-            'Dynamic remainder kernel, Schur bound and bounded L2 realization/restriction of the full dyadic operator',
+            'Distributional dynamic-minus-static identification and bounded L2 realization/restriction of the full dyadic operator (classical remainder estimate and convolution bound proved)',
             'Volume representation equivalence to weak Maxwell, regularity and Silver-Muller radiation',
             'Full radiation identity, optical theorem, reciprocity and power balance',
             'Uniform inverse and sin-squared response factorization',

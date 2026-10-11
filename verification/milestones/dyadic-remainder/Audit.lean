@@ -1,0 +1,24 @@
+import PrescribedExtinction.RemainderConvolution
+
+#check @OQ7Prescribed.classicalDyadic_coordinate
+#check @OQ7Prescribed.dyadicRemainder_cancel
+#check @OQ7Prescribed.dyadicRemainder_norm_le
+#check @OQ7Prescribed.cutoffDyadicRemainder_memLp
+#check @OQ7Prescribed.cutoffDyadicRemainder_eLpNorm_le
+#check @OQ7Prescribed.remainderPotential_integrable
+#check @OQ7Prescribed.remainderPotential_memLp_on_compact
+#check @OQ7Prescribed.remainderPotential_eLpNorm_le
+#check @OQ7Prescribed.remainderPotential_congr_current
+#check @OQ7Prescribed.remainderPotential_add
+#check @OQ7Prescribed.remainderPotential_smul
+#print axioms OQ7Prescribed.classicalDyadic_coordinate
+#print axioms OQ7Prescribed.dyadicRemainder_cancel
+#print axioms OQ7Prescribed.dyadicRemainder_norm_le
+#print axioms OQ7Prescribed.cutoffDyadicRemainder_memLp
+#print axioms OQ7Prescribed.cutoffDyadicRemainder_eLpNorm_le
+#print axioms OQ7Prescribed.remainderPotential_integrable
+#print axioms OQ7Prescribed.remainderPotential_memLp_on_compact
+#print axioms OQ7Prescribed.remainderPotential_eLpNorm_le
+#print axioms OQ7Prescribed.remainderPotential_congr_current
+#print axioms OQ7Prescribed.remainderPotential_add
+#print axioms OQ7Prescribed.remainderPotential_smul

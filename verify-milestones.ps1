@@ -6,7 +6,9 @@ try {
     $oq7Milestones = @(
         @{ name = 'green-kernel'; module = 'PrescribedExtinction.GreenKernel' },
         @{ name = 'volume-potential'; module = 'PrescribedExtinction.VolumePotential' },
-        @{ name = 'static-fourier'; module = 'PrescribedExtinction.StaticFourier' }
+        @{ name = 'static-fourier'; module = 'PrescribedExtinction.StaticFourier' },
+        @{ name = 'radial-hessian'; module = 'PrescribedExtinction.OutgoingRadial' },
+        @{ name = 'dyadic-remainder'; module = 'PrescribedExtinction.RemainderConvolution' }
     )
     foreach ($oq7Milestone in $oq7Milestones) {
         $oq7Directory = Join-Path 'verification/milestones' $oq7Milestone.name
