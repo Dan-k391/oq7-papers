@@ -11,6 +11,8 @@ import PrescribedExtinction
 #check @OQ7Prescribed.classicalDyadic_coordinate
 #check @OQ7Prescribed.classicalDyadic_measurable
 #check @OQ7Prescribed.classicalDyadic_norm_le_far
+#check @OQ7Prescribed.classicalDyadic_test_integrable_of_zero
+#check @OQ7Prescribed.classicalDyadic_zero_coordinate
 #check @OQ7Prescribed.compactOutgoingOperator_apply_norm_le
 #check @OQ7Prescribed.compactOutgoingOperator_coe
 #check @OQ7Prescribed.compactOutgoingOperator_norm_le
@@ -54,12 +56,18 @@ import PrescribedExtinction
 #check @OQ7Prescribed.crossRightMap_apply
 #check @OQ7Prescribed.current_component_fourier
 #check @OQ7Prescribed.current_component_integrable
+#check @OQ7Prescribed.currentCorrelation_green_distribution_pairing
 #check @OQ7Prescribed.currentCorrelation_green_first_ibp
+#check @OQ7Prescribed.currentCorrelation_greenHessian_distribution_pairing
 #check @OQ7Prescribed.currentCorrelation_kernel_integrable
 #check @OQ7Prescribed.currentCorrelation_pairing_re_im
 #check @OQ7Prescribed.currentCorrelation_zero_eq_current_test_integral
+#check @OQ7Prescribed.currentCorrelation_zero_of_exterior_test
 #check @OQ7Prescribed.currentCorrelationRealTest_apply
 #check @OQ7Prescribed.currentCorrelationRealTest_partial
+#check @OQ7Prescribed.currentDyadicTestPairing_eq
+#check @OQ7Prescribed.currentDyadicTestPairing_exterior_integrable
+#check @OQ7Prescribed.currentDyadicTestPairing_exterior_integral
 #check @OQ7Prescribed.currentTestCorrelationVector_coordinate
 #check @OQ7Prescribed.currentTestCorrelationVector_integrable
 #check @OQ7Prescribed.cutoffDyadicRemainder_eLpNorm_le
@@ -81,6 +89,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.domain_compact_closure
 #check @OQ7Prescribed.domain_subset_closedBall
 #check @OQ7Prescribed.dyadicGreenDistribution_apply
+#check @OQ7Prescribed.dyadicGreenDistribution_apply_of_zero
 #check @OQ7Prescribed.dyadicGreenDistribution_eq_static_add_remainder
 #check @OQ7Prescribed.dyadicRemainder_cancel
 #check @OQ7Prescribed.dyadicRemainder_current_entry_pairing
@@ -271,6 +280,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.newtonHeatKernel_space_integrable_complex
 #check @OQ7Prescribed.newtonHessian_current_fourier_pairing
 #check @OQ7Prescribed.newtonHessian_radial_integral_zero
+#check @OQ7Prescribed.newtonHessian_test_integrable_of_zero
 #check @OQ7Prescribed.newtonHessianFrequency_measurable
 #check @OQ7Prescribed.newtonHessianFrequency_memLp
 #check @OQ7Prescribed.newtonHessianFrequency_norm_le
@@ -291,6 +301,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.newtonPVTruncated_eq_compensated
 #check @OQ7Prescribed.newtonPVTruncated_integrable
 #check @OQ7Prescribed.newtonPVValue_continuous
+#check @OQ7Prescribed.newtonPVValue_eq_integral_of_zero
 #check @OQ7Prescribed.newtonPVValue_trace
 #check @OQ7Prescribed.newtonRadial_hasDerivAt
 #check @OQ7Prescribed.newtonRadialFirst_hasDerivAt
@@ -361,6 +372,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.outgoingVolumeDistribution_add
 #check @OQ7Prescribed.outgoingVolumeDistribution_apply
 #check @OQ7Prescribed.outgoingVolumeDistribution_curl
+#check @OQ7Prescribed.outgoingVolumeDistribution_current_dyadic_pairing
 #check @OQ7Prescribed.outgoingVolumeDistribution_eq_gradient
 #check @OQ7Prescribed.outgoingVolumeDistribution_eq_staticFourier_add_remainder
 #check @OQ7Prescribed.outgoingVolumeDistribution_eq_zero_add_remainder

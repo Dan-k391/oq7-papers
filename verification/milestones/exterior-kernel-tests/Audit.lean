@@ -1,0 +1,11 @@
+import PrescribedExtinction.ExteriorKernelTests
+#check @OQ7Prescribed.dyadicGreenDistribution_apply_of_zero
+#print axioms OQ7Prescribed.dyadicGreenDistribution_apply_of_zero
+#check @OQ7Prescribed.classicalDyadic_test_integrable_of_zero
+#print axioms OQ7Prescribed.classicalDyadic_test_integrable_of_zero
+#check @OQ7Prescribed.outgoingVolumeDistribution_current_dyadic_pairing
+#print axioms OQ7Prescribed.outgoingVolumeDistribution_current_dyadic_pairing
+#check @OQ7Prescribed.currentDyadicTestPairing_exterior_integrable
+#print axioms OQ7Prescribed.currentDyadicTestPairing_exterior_integrable
+#check @OQ7Prescribed.currentDyadicTestPairing_exterior_integral
+#print axioms OQ7Prescribed.currentDyadicTestPairing_exterior_integral

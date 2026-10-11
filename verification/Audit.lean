@@ -1555,6 +1555,8 @@ import PrescribedExtinction
 #print axioms OQ7Prescribed.classicalDyadic_coordinate._simp_1_8
 #print axioms OQ7Prescribed.classicalDyadic_measurable
 #print axioms OQ7Prescribed.classicalDyadic_norm_le_far
+#print axioms OQ7Prescribed.classicalDyadic_test_integrable_of_zero
+#print axioms OQ7Prescribed.classicalDyadic_zero_coordinate
 #print axioms OQ7Prescribed.classicalDyadic._proof_1
 #print axioms OQ7Prescribed.classicalDyadic._proof_10
 #print axioms OQ7Prescribed.classicalDyadic._proof_11
@@ -1707,10 +1709,13 @@ import PrescribedExtinction
 #print axioms OQ7Prescribed.curl.eq_1
 #print axioms OQ7Prescribed.current_component_fourier
 #print axioms OQ7Prescribed.current_component_integrable
+#print axioms OQ7Prescribed.currentCorrelation_green_distribution_pairing
 #print axioms OQ7Prescribed.currentCorrelation_green_first_ibp
+#print axioms OQ7Prescribed.currentCorrelation_greenHessian_distribution_pairing
 #print axioms OQ7Prescribed.currentCorrelation_kernel_integrable
 #print axioms OQ7Prescribed.currentCorrelation_pairing_re_im
 #print axioms OQ7Prescribed.currentCorrelation_zero_eq_current_test_integral
+#print axioms OQ7Prescribed.currentCorrelation_zero_of_exterior_test
 #print axioms OQ7Prescribed.currentCorrelationRealTest
 #print axioms OQ7Prescribed.currentCorrelationRealTest_apply
 #print axioms OQ7Prescribed.currentCorrelationRealTest_partial
@@ -1718,6 +1723,11 @@ import PrescribedExtinction
 #print axioms OQ7Prescribed.currentCorrelationRealTest._proof_1
 #print axioms OQ7Prescribed.currentCorrelationRealTest._proof_2
 #print axioms OQ7Prescribed.currentCorrelationRealTest._proof_3
+#print axioms OQ7Prescribed.currentDyadicTestPairing
+#print axioms OQ7Prescribed.currentDyadicTestPairing_eq
+#print axioms OQ7Prescribed.currentDyadicTestPairing_exterior_integrable
+#print axioms OQ7Prescribed.currentDyadicTestPairing_exterior_integral
+#print axioms OQ7Prescribed.currentDyadicTestPairing.eq_1
 #print axioms OQ7Prescribed.currentFarField
 #print axioms OQ7Prescribed.currentFarField._proof_1
 #print axioms OQ7Prescribed.currentTestCorrelationVector
@@ -1800,6 +1810,7 @@ import PrescribedExtinction
 #print axioms OQ7Prescribed.domain_subset_closedBall._simp_1_1
 #print axioms OQ7Prescribed.dyadicGreenDistribution
 #print axioms OQ7Prescribed.dyadicGreenDistribution_apply
+#print axioms OQ7Prescribed.dyadicGreenDistribution_apply_of_zero
 #print axioms OQ7Prescribed.dyadicGreenDistribution_eq_static_add_remainder
 #print axioms OQ7Prescribed.dyadicGreenDistribution_eq_static_add_remainder._abel_1_2
 #print axioms OQ7Prescribed.dyadicGreenDistribution._proof_1
@@ -2268,6 +2279,7 @@ import PrescribedExtinction
 #print axioms OQ7Prescribed.newtonHeatKernel.eq_1
 #print axioms OQ7Prescribed.newtonHessian_current_fourier_pairing
 #print axioms OQ7Prescribed.newtonHessian_radial_integral_zero
+#print axioms OQ7Prescribed.newtonHessian_test_integrable_of_zero
 #print axioms OQ7Prescribed.newtonHessianFrequency
 #print axioms OQ7Prescribed.newtonHessianFrequency_measurable
 #print axioms OQ7Prescribed.newtonHessianFrequency_memLp
@@ -2321,6 +2333,7 @@ import PrescribedExtinction
 #print axioms OQ7Prescribed.newtonPVTruncated.eq_1
 #print axioms OQ7Prescribed.newtonPVValue
 #print axioms OQ7Prescribed.newtonPVValue_continuous
+#print axioms OQ7Prescribed.newtonPVValue_eq_integral_of_zero
 #print axioms OQ7Prescribed.newtonPVValue_trace
 #print axioms OQ7Prescribed.newtonPVValue.eq_1
 #print axioms OQ7Prescribed.newtonRadial
@@ -2504,6 +2517,7 @@ import PrescribedExtinction
 #print axioms OQ7Prescribed.outgoingVolumeDistribution_add
 #print axioms OQ7Prescribed.outgoingVolumeDistribution_apply
 #print axioms OQ7Prescribed.outgoingVolumeDistribution_curl
+#print axioms OQ7Prescribed.outgoingVolumeDistribution_current_dyadic_pairing
 #print axioms OQ7Prescribed.outgoingVolumeDistribution_eq_gradient
 #print axioms OQ7Prescribed.outgoingVolumeDistribution_eq_staticFourier_add_remainder
 #print axioms OQ7Prescribed.outgoingVolumeDistribution_eq_zero_add_remainder

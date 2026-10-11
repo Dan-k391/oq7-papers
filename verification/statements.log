@@ -36,6 +36,13 @@ OQ7Prescribed.classicalDyadic_measurable : ∀ (k : ℝ), Measurable (OQ7Prescri
 OQ7Prescribed.classicalDyadic_norm_le_far : ∀ (k : ℝ) (x : OQ7Prescribed.Position),
   1 ≤ ‖x‖ →
     ∀ (v : OQ7Prescribed.Vector), ‖(OQ7Prescribed.classicalDyadic k x) v‖ ≤ OQ7Prescribed.exteriorKernelBound k * ‖v‖
+OQ7Prescribed.classicalDyadic_test_integrable_of_zero : ∀ (k : ℝ) (φ : OQ7Prescribed.ScalarTest),
+  φ 0 = 0 →
+    ∀ (i j : Fin 3),
+      MeasureTheory.Integrable (fun x => ↑(φ x) * ((OQ7Prescribed.classicalDyadic k x) (OQ7Prescribed.basisC j)).ofLp i)
+        MeasureTheory.volume
+OQ7Prescribed.classicalDyadic_zero_coordinate : ∀ (x : OQ7Prescribed.Position) (i j : Fin 3),
+  ((OQ7Prescribed.classicalDyadic 0 x) (OQ7Prescribed.basisC j)).ofLp i = ↑(OQ7Prescribed.newtonHessianKernel i j x)
 OQ7Prescribed.compactOutgoingOperator_apply_norm_le : ∀ (k R : ℝ) (hR : 0 ≤ R)
   (f : ↥(OQ7Prescribed.SupportedVectorL2 R)),
   ‖(OQ7Prescribed.compactOutgoingOperator k R hR) f‖ ≤ (1 + OQ7Prescribed.compactRemainderConstant k R) * ‖f‖
@@ -148,12 +155,24 @@ OQ7Prescribed.current_component_fourier : ∀ (p : OQ7Prescribed.CompactPolariza
   FourierTransform.fourier (fun y => (p.current y).ofLp j) ξ = (FourierTransform.fourier p.current ξ).ofLp j
 OQ7Prescribed.current_component_integrable : ∀ (p : OQ7Prescribed.CompactPolarization) (i : Fin 3),
   MeasureTheory.Integrable (fun y => (p.current y).ofLp i) MeasureTheory.volume
+OQ7Prescribed.currentCorrelation_green_distribution_pairing : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization)
+  (φ : OQ7Prescribed.ScalarTest) (j : Fin 3),
+  (OQ7Prescribed.outgoingGreenDistribution k) (OQ7Prescribed.currentCorrelationRealTest Complex.reCLM p φ j) +
+      Complex.I *
+        (OQ7Prescribed.outgoingGreenDistribution k) (OQ7Prescribed.currentCorrelationRealTest Complex.imCLM p φ j) =
+    (OQ7Prescribed.potentialComponentDistribution k p j) φ
 OQ7Prescribed.currentCorrelation_green_first_ibp : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization)
   (φ : OQ7Prescribed.ScalarTest) (i j : Fin 3),
   ∫ (z : OQ7Prescribed.Position),
       OQ7Prescribed.newtonCurrentCorrelation p ((OQ7Prescribed.testPartial j) φ) i z * OQ7Prescribed.outgoingGreen k z =
     -∫ (z : OQ7Prescribed.Position),
         OQ7Prescribed.newtonCurrentCorrelation p φ i z * OQ7Prescribed.outgoingGradient k j z
+OQ7Prescribed.currentCorrelation_greenHessian_distribution_pairing : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization)
+  (φ : OQ7Prescribed.ScalarTest) (i j : Fin 3),
+  (OQ7Prescribed.greenHessian k i j) (OQ7Prescribed.currentCorrelationRealTest Complex.reCLM p φ j) +
+      Complex.I * (OQ7Prescribed.greenHessian k i j) (OQ7Prescribed.currentCorrelationRealTest Complex.imCLM p φ j) =
+    (OQ7Prescribed.potentialComponentDistribution k p j)
+      ((OQ7Prescribed.testPartial j) ((OQ7Prescribed.testPartial i) φ))
 OQ7Prescribed.currentCorrelation_kernel_integrable : ∀ (p : OQ7Prescribed.CompactPolarization)
   (φ : OQ7Prescribed.ScalarTest) (j : Fin 3) {f : OQ7Prescribed.Position → ℂ},
   MeasureTheory.LocallyIntegrable f MeasureTheory.volume →
@@ -168,6 +187,10 @@ OQ7Prescribed.currentCorrelation_pairing_re_im : ∀ (p : OQ7Prescribed.CompactP
 OQ7Prescribed.currentCorrelation_zero_eq_current_test_integral : ∀ (p : OQ7Prescribed.CompactPolarization)
   (φ : OQ7Prescribed.ScalarTest) (i : Fin 3),
   OQ7Prescribed.newtonCurrentCorrelation p φ i 0 = ∫ (x : OQ7Prescribed.Position), φ x • (p.current x).ofLp i
+OQ7Prescribed.currentCorrelation_zero_of_exterior_test : ∀ (p : OQ7Prescribed.CompactPolarization)
+  (φ : OQ7Prescribed.ScalarTest),
+  (∀ (x : OQ7Prescribed.Position), ‖x‖ ≤ p.radius → φ x = 0) →
+    ∀ (i : Fin 3), OQ7Prescribed.newtonCurrentCorrelation p φ i 0 = 0
 OQ7Prescribed.currentCorrelationRealTest_apply : ∀ (L : ℂ →L[ℝ] ℝ) (p : OQ7Prescribed.CompactPolarization)
   (φ : OQ7Prescribed.ScalarTest) (j : Fin 3) (z : OQ7Prescribed.Position),
   (OQ7Prescribed.currentCorrelationRealTest L p φ j) z = L (OQ7Prescribed.newtonCurrentCorrelation p φ j z)
@@ -175,6 +198,29 @@ OQ7Prescribed.currentCorrelationRealTest_partial : ∀ (L : ℂ →L[ℝ] ℝ) (
   (φ : OQ7Prescribed.ScalarTest) (j i : Fin 3),
   (OQ7Prescribed.testPartial i) (OQ7Prescribed.currentCorrelationRealTest L p φ j) =
     OQ7Prescribed.currentCorrelationRealTest L p ((OQ7Prescribed.testPartial i) φ) j
+OQ7Prescribed.currentDyadicTestPairing_eq : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization)
+  (φ : OQ7Prescribed.ScalarTest) (i j : Fin 3),
+  OQ7Prescribed.currentDyadicTestPairing k p φ i j =
+    (if i = j then k ^ 2 • (OQ7Prescribed.potentialComponentDistribution k p j) φ else 0) +
+      (OQ7Prescribed.potentialComponentDistribution k p j)
+        ((OQ7Prescribed.testPartial j) ((OQ7Prescribed.testPartial i) φ))
+OQ7Prescribed.currentDyadicTestPairing_exterior_integrable : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization)
+  (φ : OQ7Prescribed.ScalarTest),
+  (∀ (x : OQ7Prescribed.Position), ‖x‖ ≤ p.radius → φ x = 0) →
+    ∀ (i j : Fin 3),
+      MeasureTheory.Integrable
+        (fun z =>
+          OQ7Prescribed.newtonCurrentCorrelation p φ j z *
+            ((OQ7Prescribed.classicalDyadic k z) (OQ7Prescribed.basisC j)).ofLp i)
+        MeasureTheory.volume
+OQ7Prescribed.currentDyadicTestPairing_exterior_integral : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization)
+  (φ : OQ7Prescribed.ScalarTest),
+  (∀ (x : OQ7Prescribed.Position), ‖x‖ ≤ p.radius → φ x = 0) →
+    ∀ (i j : Fin 3),
+      OQ7Prescribed.currentDyadicTestPairing k p φ i j =
+        ∫ (z : OQ7Prescribed.Position),
+          OQ7Prescribed.newtonCurrentCorrelation p φ j z *
+            ((OQ7Prescribed.classicalDyadic k z) (OQ7Prescribed.basisC j)).ofLp i
 OQ7Prescribed.currentTestCorrelationVector_coordinate : ∀ (p : OQ7Prescribed.CompactPolarization)
   (φ : OQ7Prescribed.ScalarTest) (z : OQ7Prescribed.Position) (i : Fin 3),
   (OQ7Prescribed.currentTestCorrelationVector p φ z).ofLp i = OQ7Prescribed.newtonCurrentCorrelation p φ i z
@@ -239,6 +285,11 @@ OQ7Prescribed.dyadicGreenDistribution_apply : ∀ (k : ℝ) (i j : Fin 3) (φ : 
     (if i = j then k ^ 2 • ∫ (x : OQ7Prescribed.Position), φ x • OQ7Prescribed.outgoingGreen k x else 0) +
       ∫ (x : OQ7Prescribed.Position),
         ((OQ7Prescribed.testPartial j) ((OQ7Prescribed.testPartial i) φ)) x • OQ7Prescribed.outgoingGreen k x
+OQ7Prescribed.dyadicGreenDistribution_apply_of_zero : ∀ (k : ℝ) (φ : OQ7Prescribed.ScalarTest),
+  φ 0 = 0 →
+    ∀ (i j : Fin 3),
+      (OQ7Prescribed.dyadicGreenDistribution k i j) φ =
+        ∫ (x : OQ7Prescribed.Position), ↑(φ x) * ((OQ7Prescribed.classicalDyadic k x) (OQ7Prescribed.basisC j)).ofLp i
 OQ7Prescribed.dyadicGreenDistribution_eq_static_add_remainder : ∀ (k : ℝ) (i j : Fin 3),
   OQ7Prescribed.dyadicGreenDistribution k i j =
     OQ7Prescribed.greenHessian 0 i j +
@@ -914,6 +965,10 @@ OQ7Prescribed.newtonHessian_current_fourier_pairing : ∀ (p : OQ7Prescribed.Com
         (FourierTransform.fourier p.current ξ).ofLp j
 OQ7Prescribed.newtonHessian_radial_integral_zero : ∀ (i j : Fin 3) (w : ℝ → ℝ),
   ∫ (x : OQ7Prescribed.Position), w ‖x‖ * OQ7Prescribed.newtonHessianKernel i j x = 0
+OQ7Prescribed.newtonHessian_test_integrable_of_zero : ∀ (φ : OQ7Prescribed.ScalarTest),
+  φ 0 = 0 →
+    ∀ (i j : Fin 3),
+      MeasureTheory.Integrable (fun x => OQ7Prescribed.newtonHessianKernel i j x * φ x) MeasureTheory.volume
 OQ7Prescribed.newtonHessianFrequency_measurable : ∀ (i j : Fin 3), Measurable (OQ7Prescribed.newtonHessianFrequency i j)
 OQ7Prescribed.newtonHessianFrequency_memLp : ∀ (i j : Fin 3),
   MeasureTheory.MemLp (OQ7Prescribed.newtonHessianFrequency i j) ⊤ MeasureTheory.volume
@@ -963,6 +1018,10 @@ OQ7Prescribed.newtonPVTruncated_integrable : ∀ (φ : OQ7Prescribed.ScalarTest)
     MeasureTheory.IntegrableOn (fun x => OQ7Prescribed.newtonHessianKernel i j x * φ x) {x | r < ‖x‖}
       MeasureTheory.volume
 OQ7Prescribed.newtonPVValue_continuous : ∀ (i j : Fin 3), Continuous fun φ => OQ7Prescribed.newtonPVValue φ i j
+OQ7Prescribed.newtonPVValue_eq_integral_of_zero : ∀ (φ : OQ7Prescribed.ScalarTest),
+  φ 0 = 0 →
+    ∀ (i j : Fin 3),
+      OQ7Prescribed.newtonPVValue φ i j = ∫ (x : OQ7Prescribed.Position), OQ7Prescribed.newtonHessianKernel i j x * φ x
 OQ7Prescribed.newtonPVValue_trace : ∀ (φ : OQ7Prescribed.ScalarTest), ∑ i, OQ7Prescribed.newtonPVValue φ i i = 0
 OQ7Prescribed.newtonRadial_hasDerivAt : ∀ (r : ℝ),
   r ≠ 0 → HasDerivAt OQ7Prescribed.newtonRadial (OQ7Prescribed.newtonRadialFirst r) r
@@ -1164,6 +1223,9 @@ OQ7Prescribed.outgoingVolumeDistribution_apply : ∀ (k : ℝ) (p : OQ7Prescribe
 OQ7Prescribed.outgoingVolumeDistribution_curl : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization),
   OQ7Prescribed.distributionCurl (OQ7Prescribed.outgoingVolumeDistribution k p) =
     k ^ 2 • OQ7Prescribed.distributionCurl (OQ7Prescribed.potentialComponentDistribution k p)
+OQ7Prescribed.outgoingVolumeDistribution_current_dyadic_pairing : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization)
+  (φ : OQ7Prescribed.ScalarTest) (i : Fin 3),
+  (OQ7Prescribed.outgoingVolumeDistribution k p i) φ = ∑ j, OQ7Prescribed.currentDyadicTestPairing k p φ i j
 OQ7Prescribed.outgoingVolumeDistribution_eq_gradient : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization),
   OQ7Prescribed.outgoingVolumeDistribution k p =
     k ^ 2 • OQ7Prescribed.potentialComponentDistribution k p + fun i =>

@@ -82,3 +82,5 @@ exteriorCurrentFields_outgoing proves exactly the full-sphere uniform
 Silver–Müller condition. Equality with the global L² weak-source fields,
 especially the electric representative, is still required before assembling
 a single global outgoing weak-Maxwell pair.
+
+ExteriorKernelTests.lean identifies the full dyadic distribution on actual current correlations from exterior tests. Absolute integrability is proved and the contact term vanishes by the proved zero correlation at the pole. Connecting this test identity to the pointwise exterior electric convolution is the next obligation.

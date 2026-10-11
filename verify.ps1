@@ -245,7 +245,11 @@ run_cmd do
         'OQ7Prescribed.exteriorElectric_integrable_far',
         'OQ7Prescribed.exteriorMagnetic_integrable_far',
         'OQ7Prescribed.exterior_radiation_integral_norm_le',
-        'OQ7Prescribed.exteriorCurrentFields_outgoing')) {
+        'OQ7Prescribed.exteriorCurrentFields_outgoing',
+        'OQ7Prescribed.dyadicGreenDistribution_apply_of_zero',
+        'OQ7Prescribed.outgoingVolumeDistribution_current_dyadic_pairing',
+        'OQ7Prescribed.currentDyadicTestPairing_exterior_integrable',
+        'OQ7Prescribed.currentDyadicTestPairing_exterior_integral')) {
         if ($oq7Required -notin $oq7NewKernelTheorems) { throw "Missing outgoing operator obligation: $oq7Required" }
     }
     if ($oq7PdfHash -ne '3D9775D849234E828370D7C96D8BDCDD574BEB6831A7906EA6B7706579868710') { throw 'Manuscript hash differs.' }
@@ -303,6 +307,7 @@ run_cmd do
         allDirectionDisplacedSourceRadiationBoundVerified = $true
         actualExteriorGreenCurrentUniformSilverMullerVerified = $true
         exteriorFieldFarZoneIntegrabilityVerified = $true
+        physicalDyadicDistributionExteriorTestIdentificationVerified = $true
         outgoingWeakMaxwellRepresentationVerified = $false
         scatteringStateExistenceVerified = $false
         allPreContactLeanModulesUnchanged = $false
