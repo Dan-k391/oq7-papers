@@ -1,0 +1,117 @@
+OQ7Prescribed.scalarOutgoingPotential_partial (k : ℝ) (f : OQ7Prescribed.Position → ℂ) (hf : ContDiff ℝ (↑⊤) f)
+  (hc : HasCompactSupport f) (x a : OQ7Prescribed.Position) :
+  (fderiv ℝ (OQ7Prescribed.scalarOutgoingPotential k f) x) a =
+    OQ7Prescribed.scalarOutgoingPotential k (fun y => (fderiv ℝ f y) a) x
+OQ7Prescribed.horizontalSlabPotential_second_partial (k s : ℝ) (w : ℂ → ℂ) (hw : ContDiff ℝ (↑⊤) w)
+  (hc : HasCompactSupport w) (x u v : ℂ) :
+  (fderiv ℝ (fun y => (fderiv ℝ (OQ7Prescribed.horizontalSlabPotential k s w) y) u) x) v =
+    OQ7Prescribed.horizontalSlabPotential k s
+      (OQ7Prescribed.apertureWindowPartial (OQ7Prescribed.apertureWindowPartial w u) v) x
+OQ7Prescribed.horizontalSlabPotential_hessian_scaled_bound (k : ℝ) (hk : 0 < k) (w : ℂ → ℂ) (hw : ContDiff ℝ (↑⊤) w)
+  (hc : HasCompactSupport w) (A X L C₂ C₄ C₆ : ℝ) (hA0 : 0 ≤ A) (hX : 0 ≤ X) (hL : 0 ≤ L)
+  (hA : tsupport w ⊆ Metric.closedBall 0 A) (h₂ : ∀ (y : ℂ), ‖iteratedFDeriv ℝ 2 w y‖ ≤ C₂)
+  (h₄ : ∀ (y : ℂ), ‖iteratedFDeriv ℝ 4 w y‖ ≤ C₄) (h₆ : ∀ (y : ℂ), ‖iteratedFDeriv ℝ 6 w y‖ ≤ C₆) (R s : ℝ) (x u v : ℂ)
+  (hR : 1 ≤ R) (hs : |s| ≤ L) (hx : ‖x‖ ≤ X * R) (hu : ‖u‖ ≤ 1) (hv : ‖v‖ ≤ 1) :
+  ‖(fderiv ℝ
+          (fun y => (fderiv ℝ (OQ7Prescribed.horizontalSlabPotential k s (OQ7Prescribed.scaledApertureWindow w R)) y) u)
+          x)
+        v‖ ≤
+    (C₂ / (2 * k) + (L * C₄ + (A + X + 1 + L) * (C₄ + (A + X + 1 + L) ^ 2 * C₆ / 3)) / (2 * k ^ 2)) / R ^ 2
+OQ7Prescribed.horizontalSlabTransverseKernel_uniform_error (k : ℝ) (hk : 0 < k) (w : ℂ → ℂ) (hw : ContDiff ℝ (↑⊤) w)
+  (hc : HasCompactSupport w) (A X L : ℝ) (hA0 : 0 ≤ A) (hX : 0 ≤ X) (hL : 0 ≤ L)
+  (hA : tsupport w ⊆ Metric.closedBall 0 A) :
+  ∃ C,
+    0 < C ∧
+      ∀ (R s : ℝ) (x u v : ℂ),
+        1 ≤ R →
+          |s| ≤ L →
+            ‖x‖ ≤ X * R →
+              ‖u‖ ≤ 1 →
+                ‖v‖ ≤ 1 →
+                  ‖OQ7Prescribed.horizontalSlabTransverseKernel k s (OQ7Prescribed.scaledApertureWindow w R) x u v -
+                        (k ^ 2 * inner ℝ u v) •
+                          (OQ7Prescribed.planarScalarGreen k s * OQ7Prescribed.scaledApertureWindow w R x)‖ ≤
+                    C / R
+OQ7Prescribed.slabCoordinateEquiv_measurePreserving :
+  MeasureTheory.MeasurePreserving (⇑OQ7Prescribed.slabCoordinateEquiv) MeasureTheory.volume MeasureTheory.volume
+OQ7Prescribed.scalarOutgoingPotential_slab_separation (k : ℝ) (w : ℂ → ℂ) (q : ℝ → ℂ) (hw : ContDiff ℝ (↑⊤) w)
+  (hq : ContDiff ℝ (↑⊤) q) (hwc : HasCompactSupport w) (hqc : HasCompactSupport q) (x : ℂ) (z : ℝ) :
+  OQ7Prescribed.scalarOutgoingPotential k (OQ7Prescribed.slabSeparatedFunction w q) (OQ7Prescribed.slabPosition x z) =
+    ∫ (t : ℝ), OQ7Prescribed.horizontalSlabPotential k (z - t) w x * q t
+OQ7Prescribed.scalarOutgoingSlabTransverse_separation (k : ℝ) (w : ℂ → ℂ) (q : ℝ → ℂ) (hw : ContDiff ℝ (↑⊤) w)
+  (hq : ContDiff ℝ (↑⊤) q) (hwc : HasCompactSupport w) (hqc : HasCompactSupport q) (x u v : ℂ) (z : ℝ) :
+  OQ7Prescribed.scalarOutgoingSlabTransverse k w q x z u v =
+    ∫ (t : ℝ), OQ7Prescribed.horizontalSlabTransverseKernel k (z - t) w x u v * q t
+OQ7Prescribed.scalarOutgoingSlabTransverse_uniform_aperture_error (k : ℝ) (hk : 0 < k) (w : ℂ → ℂ)
+  (hw : ContDiff ℝ (↑⊤) w) (hwc : HasCompactSupport w) (A X L : ℝ) (hA0 : 0 ≤ A) (hX : 0 ≤ X) (hL : 0 ≤ L)
+  (hA : tsupport w ⊆ Metric.closedBall 0 A) :
+  ∃ C,
+    0 < C ∧
+      ∀ (q : ℝ → ℂ),
+        ContDiff ℝ (↑⊤) q →
+          HasCompactSupport q →
+            tsupport q ⊆ Set.Icc 0 L →
+              ∀ (R z : ℝ) (x u v : ℂ),
+                1 ≤ R →
+                  z ∈ Set.Icc 0 L →
+                    ‖x‖ ≤ X * R →
+                      ‖u‖ ≤ 1 →
+                        ‖v‖ ≤ 1 →
+                          ‖OQ7Prescribed.scalarOutgoingSlabTransverse k (OQ7Prescribed.scaledApertureWindow w R) q x z u
+                                  v -
+                                OQ7Prescribed.planarSlabTransverse k (OQ7Prescribed.scaledApertureWindow w R) q x z u
+                                  v‖ ≤
+                            C / R * ∫ (t : ℝ), ‖q t‖
+OQ7Prescribed.smoothDyadicField_eq_electricVolumeField (k : ℝ) (p : OQ7Prescribed.CompactPolarization)
+  (hp : ContDiff ℝ (↑⊤) p.current) :
+  OQ7Prescribed.smoothDyadicField k p =ᵐ[MeasureTheory.volume] OQ7Prescribed.electricVolumeField k p
+OQ7Prescribed.smoothDyadicField_axis_source_projection (k : ℝ) (p : OQ7Prescribed.CompactPolarization)
+  (f : OQ7Prescribed.Position → ℂ) (hf : ContDiff ℝ (↑⊤) f) (hfc : HasCompactSupport f) (a b : OQ7Prescribed.Position)
+  (hp : p.current = fun x => f x • OQ7Prescribed.complexify a) (x : OQ7Prescribed.Position) :
+  OQ7Prescribed.axisCoupling b (OQ7Prescribed.smoothDyadicField k p x) =
+    (k ^ 2 * inner ℝ b a) • OQ7Prescribed.scalarOutgoingPotential k f x +
+      (fderiv ℝ (fun y => (fderiv ℝ (OQ7Prescribed.scalarOutgoingPotential k f) y) a) x) b
+OQ7Prescribed.scalarAxisPolarization_current (f : OQ7Prescribed.Position → ℂ) (hf : Continuous f)
+  (hc : HasCompactSupport f) (a : OQ7Prescribed.Position) :
+  (OQ7Prescribed.scalarAxisPolarization f hf hc a).current = fun x => f x • OQ7Prescribed.complexify a
+OQ7Prescribed.electricVolumeField_slab_uniform_aperture_error (k : ℝ) (hk : 0 < k) (w : ℂ → ℂ) (hw : ContDiff ℝ (↑⊤) w)
+  (hwc : HasCompactSupport w) (A X L : ℝ) (hA0 : 0 ≤ A) (hX : 0 ≤ X) (hL : 0 ≤ L)
+  (hA : tsupport w ⊆ Metric.closedBall 0 A) :
+  ∃ C,
+    0 < C ∧
+      ∀ (q : ℝ → ℂ),
+        ContDiff ℝ (↑⊤) q →
+          HasCompactSupport q →
+            tsupport q ⊆ Set.Icc 0 L →
+              ∀ (R : ℝ) (u v : ℂ),
+                1 ≤ R →
+                  ‖u‖ ≤ 1 →
+                    ‖v‖ ≤ 1 →
+                      ∀ (p : OQ7Prescribed.CompactPolarization),
+                        (p.current = fun y =>
+                            OQ7Prescribed.slabSeparatedFunction (OQ7Prescribed.scaledApertureWindow w R) q y •
+                              OQ7Prescribed.complexify (OQ7Prescribed.slabPosition u 0)) →
+                          ∀ᵐ (y : OQ7Prescribed.Position),
+                            ‖OQ7Prescribed.slabHorizontalCoordinate y‖ ≤ X * R →
+                              y.ofLp 2 ∈ Set.Icc 0 L →
+                                ‖OQ7Prescribed.axisCoupling (OQ7Prescribed.slabPosition v 0)
+                                        (OQ7Prescribed.electricVolumeField k p y) -
+                                      OQ7Prescribed.planarSlabTransverse k (OQ7Prescribed.scaledApertureWindow w R) q
+                                        (OQ7Prescribed.slabHorizontalCoordinate y) (y.ofLp 2) u v‖ ≤
+                                  C / R * ∫ (t : ℝ), ‖q t‖
+'OQ7Prescribed.scalarOutgoingPotential_partial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.horizontalSlabPotential_second_partial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.horizontalSlabPotential_hessian_scaled_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.horizontalSlabTransverseKernel_uniform_error' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.slabCoordinateEquiv_measurePreserving' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.scalarOutgoingPotential_slab_separation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.scalarOutgoingSlabTransverse_separation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.scalarOutgoingSlabTransverse_uniform_aperture_error' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OQ7Prescribed.smoothDyadicField_eq_electricVolumeField' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.smoothDyadicField_axis_source_projection' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.scalarAxisPolarization_current' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.electricVolumeField_slab_uniform_aperture_error' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

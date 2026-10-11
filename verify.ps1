@@ -363,6 +363,16 @@ run_cmd do
         'OQ7Prescribed.scaledApertureWindow_iteratedFDeriv',
         'OQ7Prescribed.horizontalSlabPotential_scaled_error',
         'OQ7Prescribed.horizontalSlabPotential_uniform_aperture_error',
+        'OQ7Prescribed.scalarOutgoingPotential_partial',
+        'OQ7Prescribed.horizontalSlabPotential_second_partial',
+        'OQ7Prescribed.horizontalSlabTransverseKernel_uniform_error',
+        'OQ7Prescribed.slabCoordinateEquiv_measurePreserving',
+        'OQ7Prescribed.scalarOutgoingPotential_slab_separation',
+        'OQ7Prescribed.scalarOutgoingSlabTransverse_separation',
+        'OQ7Prescribed.scalarOutgoingSlabTransverse_uniform_aperture_error',
+        'OQ7Prescribed.smoothDyadicField_eq_electricVolumeField',
+        'OQ7Prescribed.smoothDyadicField_axis_source_projection',
+        'OQ7Prescribed.electricVolumeField_slab_uniform_aperture_error',
         'OQ7Prescribed.normalizedActiveResponse_residual_bound',
         'OQ7Prescribed.normalizedActiveResponse_angle_difference_bound')) {
         if ($oq7Required -notin $oq7NewKernelTheorems) { throw "Missing outgoing operator obligation: $oq7Required" }
@@ -459,6 +469,10 @@ run_cmd do
         actualOutgoingScalarHorizontalConvolutionVerified = $true
         actualScalarGreenUniformApertureErrorVerified = $true
         scalarApertureErrorIncludesCoincidentHeightsVerified = $true
+        smoothDyadicRepresentativeOfActualElectricVolumeFieldVerified = $true
+        actualThreeDimensionalSeparatedSourceConvolutionVerified = $true
+        physicalSmoothSlabTransverseApertureErrorUniformInAxesVerified = $true
+        physicalSlabApertureErrorForAllL2HeightProfilesVerified = $false
         physicalVectorUniformApertureLocalizationVerified = $false
         physicalVolumeWorkBalanceVerified = $true
         originalPhysicalAbsorptionSineSquaredFactorizationVerified = $true
