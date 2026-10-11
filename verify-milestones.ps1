@@ -50,7 +50,8 @@ try {
         @{ name = 'exterior-electric-identification'; module = 'PrescribedExtinction.ExteriorCurrentIdentification' },
         @{ name = 'outgoing-source-fields'; module = 'PrescribedExtinction.OutgoingSourceFields' },
         @{ name = 'incident-maxwell'; module = 'PrescribedExtinction.IncidentMaxwell' },
-        @{ name = 'physical-polarization'; module = 'PrescribedExtinction.PhysicalPolarization' }
+        @{ name = 'physical-polarization'; module = 'PrescribedExtinction.PhysicalPolarization' },
+        @{ name = 'material-volume-bridge'; module = 'PrescribedExtinction.VolumeScatteringBridge' }
     )
     if ($Only) {
         foreach ($oq7Name in $Only) {

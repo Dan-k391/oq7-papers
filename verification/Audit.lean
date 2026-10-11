@@ -1537,6 +1537,7 @@ import PrescribedExtinction
 #print axioms OQ7Prescribed.basisR
 #print axioms OQ7Prescribed.basisR.eq_1
 #print axioms OQ7Prescribed.bilinear
+#print axioms OQ7Prescribed.bilinear_add_left
 #print axioms OQ7Prescribed.bilinear_complexify_eq_inner
 #print axioms OQ7Prescribed.bilinear_complexify_self
 #print axioms OQ7Prescribed.bilinear_radial_smul_norm_le
@@ -1573,6 +1574,8 @@ import PrescribedExtinction
 #print axioms OQ7Prescribed.classicalDyadic._proof_8
 #print axioms OQ7Prescribed.classicalDyadic._proof_9
 #print axioms OQ7Prescribed.classicalDyadic.eq_1
+#print axioms OQ7Prescribed.compactField_bilinear_integrable
+#print axioms OQ7Prescribed.compactField_curl_hasCompactSupport
 #print axioms OQ7Prescribed.compactOutgoing_evaluationNormedAddCommGroup
 #print axioms OQ7Prescribed.compactOutgoing_evaluationNormedAddCommGroup._proof_1
 #print axioms OQ7Prescribed.compactOutgoing_evaluationNormedAddCommGroup._proof_2
@@ -1895,6 +1898,7 @@ import PrescribedExtinction
 #print axioms OQ7Prescribed.dynamicScalarRemainder_norm_le._simp_1_9
 #print axioms OQ7Prescribed.dynamicScalarRemainder_test_ibp
 #print axioms OQ7Prescribed.dynamicScalarRemainder.eq_1
+#print axioms OQ7Prescribed.electric_add_polarization
 #print axioms OQ7Prescribed.electricExterior_component_distribution
 #print axioms OQ7Prescribed.electricExterior_eq_ae
 #print axioms OQ7Prescribed.electricVolumeField
@@ -2014,6 +2018,7 @@ import PrescribedExtinction
 #print axioms OQ7Prescribed.HasWeakCurl
 #print axioms OQ7Prescribed.HasWeakCurl._proof_1
 #print axioms OQ7Prescribed.HasWeakCurl._proof_2
+#print axioms OQ7Prescribed.HasWeakCurl.add_fields
 #print axioms OQ7Prescribed.HasWeakCurl.congr_ae
 #print axioms OQ7Prescribed.HasWeakCurl.implies_analyticTestWeakCurl
 #print axioms OQ7Prescribed.incident_absorber_coupling
@@ -2110,6 +2115,10 @@ import PrescribedExtinction
 #print axioms OQ7Prescribed.magneticVolumeField_locallySquareIntegrable
 #print axioms OQ7Prescribed.magneticVolumeField.eq_1
 #print axioms OQ7Prescribed.MaterialAdmissible
+#print axioms OQ7Prescribed.MaterialVolumeEquation
+#print axioms OQ7Prescribed.MaterialVolumeEquation._proof_1
+#print axioms OQ7Prescribed.MaterialVolumeEquation._proof_2
+#print axioms OQ7Prescribed.MaterialVolumeEquation._proof_3
 #print axioms OQ7Prescribed.newton_classical_hessian
 #print axioms OQ7Prescribed.newton_classical_hessian._simp_1_3
 #print axioms OQ7Prescribed.newton_classical_hessian._simp_1_4
@@ -2775,6 +2784,10 @@ import PrescribedExtinction
 #print axioms OQ7Prescribed.ScatteringState.outgoing
 #print axioms OQ7Prescribed.ScatteringState.rec
 #print axioms OQ7Prescribed.ScatteringState.recOn
+#print axioms OQ7Prescribed.scatteringStateOfVolumeEquation
+#print axioms OQ7Prescribed.scatteringStateOfVolumeEquation._proof_1
+#print axioms OQ7Prescribed.scatteringStateOfVolumeEquation._proof_2
+#print axioms OQ7Prescribed.scatteringStateOfVolumeEquation._proof_3
 #print axioms OQ7Prescribed.shrinking_cutoff_integral_tendsto
 #print axioms OQ7Prescribed.shrinking_cutoff_tendsto
 #print axioms OQ7Prescribed.shrinkingCutoffError_integrable
@@ -3038,6 +3051,13 @@ import PrescribedExtinction
 #print axioms OQ7Prescribed.vectorScalarMul._proof_1
 #print axioms OQ7Prescribed.vectorScalarMul._proof_2
 #print axioms OQ7Prescribed.vectorScalarMul._proof_3
+#print axioms OQ7Prescribed.volumeTotalElectric
+#print axioms OQ7Prescribed.volumeTotalElectric_locallySquareIntegrable
+#print axioms OQ7Prescribed.volumeTotalElectric.eq_1
+#print axioms OQ7Prescribed.volumeTotalFields_weakMaxwell
+#print axioms OQ7Prescribed.volumeTotalMagnetic
+#print axioms OQ7Prescribed.volumeTotalMagnetic_locallySquareIntegrable
+#print axioms OQ7Prescribed.volumeTotalMagnetic.eq_1
 #print axioms OQ7Prescribed.weakCurlTest_all_finite_orders
 #print axioms OQ7Prescribed.WeakMaxwell
 #print axioms OQ7Prescribed.weighted_integral_cauchy_sq

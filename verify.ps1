@@ -261,8 +261,12 @@ run_cmd do
         'OQ7Prescribed.incidentElectric_locallySquareIntegrable',
         'OQ7Prescribed.incidentMagnetic_locallySquareIntegrable',
         'OQ7Prescribed.physicalPolarization_memLp',
-        'OQ7Prescribed.physicalPolarization_vanish')) {
+        'OQ7Prescribed.physicalPolarization_vanish',
+        'OQ7Prescribed.volumeTotalFields_weakMaxwell')) {
         if ($oq7Required -notin $oq7NewKernelTheorems) { throw "Missing outgoing operator obligation: $oq7Required" }
+    }
+    if ('OQ7Prescribed.scatteringStateOfVolumeEquation' -notin $oq7Constants) {
+        throw 'Missing proved physical volume-equation scattering-state constructor.'
     }
     if ($oq7PdfHash -ne '3D9775D849234E828370D7C96D8BDCDD574BEB6831A7906EA6B7706579868710') { throw 'Manuscript hash differs.' }
     $oq7TargetHash = (Get-FileHash -LiteralPath 'PrescribedExtinction/Maxwell.lean' -Algorithm SHA256).Hash
@@ -325,6 +329,8 @@ run_cmd do
         physicalIncidentPlaneWaveWeakMaxwellVerified = $true
         classicalSmoothCurlToPhysicalWeakCurlVerified = $true
         physicalFiniteBodyPolarizationCompactL2Verified = $true
+        materialVolumeEquationToOriginalScatteringStateVerified = $true
+        materialVolumeEquationSolvabilityVerified = $false
         physicalDyadicDistributionExteriorTestIdentificationVerified = $true
         outgoingWeakMaxwellRepresentationVerified = $false
         scatteringStateExistenceVerified = $false

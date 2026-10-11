@@ -69,3 +69,4 @@ import PrescribedExtinction.ExteriorCurrentIdentification
 import PrescribedExtinction.OutgoingSourceFields
 import PrescribedExtinction.IncidentMaxwell
 import PrescribedExtinction.PhysicalPolarization
+import PrescribedExtinction.VolumeScatteringBridge

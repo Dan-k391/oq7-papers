@@ -1,0 +1,7 @@
+import PrescribedExtinction.VolumeScatteringBridge
+#check @OQ7Prescribed.MaterialVolumeEquation
+#print axioms OQ7Prescribed.MaterialVolumeEquation
+#check @OQ7Prescribed.volumeTotalFields_weakMaxwell
+#print axioms OQ7Prescribed.volumeTotalFields_weakMaxwell
+#check @OQ7Prescribed.scatteringStateOfVolumeEquation
+#print axioms OQ7Prescribed.scatteringStateOfVolumeEquation

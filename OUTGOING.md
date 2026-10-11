@@ -92,3 +92,5 @@ OutgoingSourceFields.lean proves pointwise exterior magnetic identification, sel
 IncidentMaxwell.lean proves the exact incident plane-wave curl equations in both directions and all local L2 bounds. A reusable integration-by-parts bridge proves that any smooth classical curl gives the original physical weak curl, with compact-test integrability established.
 
 PhysicalPolarization.lean proves the actual constitutive polarization of every locally L2 electric field on a finite TwoLayerBody is globally L2 and vanishes outside the proved support ball. physicalCompactPolarization packages this input without assuming a scattering state.
+
+VolumeScatteringBridge.lean proves scatteringStateOfVolumeEquation from the explicit genuine current equation p = chi times (Einc plus T_k p). Maxwell equations, pointwise radiation, and compact-current L2 membership are established by the constructor. The hypothesis is not claimed solved: material-volume solvability, uniqueness, and optical identities remain open.

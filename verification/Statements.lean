@@ -5,6 +5,7 @@ import PrescribedExtinction
 
 #check @OQ7Prescribed.axisCoupling_bound
 #check @OQ7Prescribed.axisCoupling_eq_inner
+#check @OQ7Prescribed.bilinear_add_left
 #check @OQ7Prescribed.bilinear_complexify_eq_inner
 #check @OQ7Prescribed.bilinear_complexify_self
 #check @OQ7Prescribed.bilinear_radial_smul_norm_le
@@ -14,6 +15,8 @@ import PrescribedExtinction
 #check @OQ7Prescribed.classicalDyadic_norm_le_far
 #check @OQ7Prescribed.classicalDyadic_test_integrable_of_zero
 #check @OQ7Prescribed.classicalDyadic_zero_coordinate
+#check @OQ7Prescribed.compactField_bilinear_integrable
+#check @OQ7Prescribed.compactField_curl_hasCompactSupport
 #check @OQ7Prescribed.compactOutgoingOperator_apply_norm_le
 #check @OQ7Prescribed.compactOutgoingOperator_coe
 #check @OQ7Prescribed.compactOutgoingOperator_norm_le
@@ -122,6 +125,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.dynamicScalarRemainder_norm_le
 #check @OQ7Prescribed.dynamicScalarRemainder_norm_le_on_ball
 #check @OQ7Prescribed.dynamicScalarRemainder_test_ibp
+#check @OQ7Prescribed.electric_add_polarization
 #check @OQ7Prescribed.electricExterior_component_distribution
 #check @OQ7Prescribed.electricExterior_eq_ae
 #check @OQ7Prescribed.electricVolumeField_component_locallyIntegrableOn
@@ -185,6 +189,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.greenCancellationEnvelope_nonneg
 #check @OQ7Prescribed.greenHessian_apply
 #check @OQ7Prescribed.greenHessian_eq_static_add_dynamic
+#check @OQ7Prescribed.HasWeakCurl.add_fields
 #check @OQ7Prescribed.HasWeakCurl.congr_ae
 #check @OQ7Prescribed.HasWeakCurl.implies_analyticTestWeakCurl
 #check @OQ7Prescribed.incident_absorber_coupling
@@ -597,5 +602,8 @@ import PrescribedExtinction
 #check @OQ7Prescribed.vectorL2Distribution_apply
 #check @OQ7Prescribed.vectorL2Distribution_tempered
 #check @OQ7Prescribed.vectorScalarMul_apply
+#check @OQ7Prescribed.volumeTotalElectric_locallySquareIntegrable
+#check @OQ7Prescribed.volumeTotalFields_weakMaxwell
+#check @OQ7Prescribed.volumeTotalMagnetic_locallySquareIntegrable
 #check @OQ7Prescribed.weakCurlTest_all_finite_orders
 #check @OQ7Prescribed.weighted_integral_cauchy_sq

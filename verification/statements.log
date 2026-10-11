@@ -19,6 +19,8 @@ OQ7Prescribed.axisCoupling_bound : ∀ (u : OQ7Prescribed.Position) (v : OQ7Pres
   ‖u‖ ^ 2 = 1 → Complex.normSq (OQ7Prescribed.axisCoupling u v) ≤ OQ7Prescribed.squareNorm v
 OQ7Prescribed.axisCoupling_eq_inner : ∀ (u : OQ7Prescribed.Position) (v : OQ7Prescribed.Vector),
   OQ7Prescribed.axisCoupling u v = inner ℂ (OQ7Prescribed.complexify u) v
+OQ7Prescribed.bilinear_add_left : ∀ (u v w : OQ7Prescribed.Vector),
+  OQ7Prescribed.bilinear (u + v) w = OQ7Prescribed.bilinear u w + OQ7Prescribed.bilinear v w
 OQ7Prescribed.bilinear_complexify_eq_inner : ∀ (x : OQ7Prescribed.Position) (v : OQ7Prescribed.Vector),
   OQ7Prescribed.bilinear (OQ7Prescribed.complexify x) v = inner ℂ (OQ7Prescribed.complexify x) v
 OQ7Prescribed.bilinear_complexify_self : ∀ (x : OQ7Prescribed.Position),
@@ -44,6 +46,14 @@ OQ7Prescribed.classicalDyadic_test_integrable_of_zero : ∀ (k : ℝ) (φ : OQ7P
         MeasureTheory.volume
 OQ7Prescribed.classicalDyadic_zero_coordinate : ∀ (x : OQ7Prescribed.Position) (i j : Fin 3),
   ((OQ7Prescribed.classicalDyadic 0 x) (OQ7Prescribed.basisC j)).ofLp i = ↑(OQ7Prescribed.newtonHessianKernel i j x)
+OQ7Prescribed.compactField_bilinear_integrable : ∀ (F : OQ7Prescribed.Field),
+  MeasureTheory.LocallyIntegrable F MeasureTheory.volume →
+    ∀ (ψ : OQ7Prescribed.Field),
+      Continuous ψ →
+        HasCompactSupport ψ →
+          MeasureTheory.Integrable (fun x => OQ7Prescribed.bilinear (F x) (ψ x)) MeasureTheory.volume
+OQ7Prescribed.compactField_curl_hasCompactSupport : ∀ (φ : OQ7Prescribed.Field),
+  HasCompactSupport φ → HasCompactSupport (OQ7Prescribed.curl φ)
 OQ7Prescribed.compactOutgoingOperator_apply_norm_le : ∀ (k R : ℝ) (hR : 0 ≤ R)
   (f : ↥(OQ7Prescribed.SupportedVectorL2 R)),
   ‖(OQ7Prescribed.compactOutgoingOperator k R hR) f‖ ≤ (1 + OQ7Prescribed.compactRemainderConstant k R) * ‖f‖
@@ -388,6 +398,9 @@ OQ7Prescribed.dynamicScalarRemainder_norm_le_on_ball : ∀ (k R : ℝ) (x : OQ7P
 OQ7Prescribed.dynamicScalarRemainder_test_ibp : ∀ (k : ℝ) (j : Fin 3) (φ : OQ7Prescribed.ScalarTest),
   ∫ (x : OQ7Prescribed.Position), ((OQ7Prescribed.testPartial j) φ) x • OQ7Prescribed.dynamicScalarRemainder k x =
     -∫ (x : OQ7Prescribed.Position), φ x • OQ7Prescribed.dynamicGradientRemainder k j x
+OQ7Prescribed.electric_add_polarization : ∀ (B : OQ7Prescribed.TwoLayerBody) (E : OQ7Prescribed.Field)
+  (x : OQ7Prescribed.Position),
+  E x + OQ7Prescribed.polarization B E x = OQ7Prescribed.tensorApply (B.permittivity x) (E x)
 OQ7Prescribed.electricExterior_component_distribution : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization) (i : Fin 3),
   Distribution.ofFun (OQ7Prescribed.currentExterior p) (fun x => (OQ7Prescribed.exteriorElectric k p x).ofLp i)
       MeasureTheory.volume ⊤ =
@@ -662,6 +675,14 @@ OQ7Prescribed.greenHessian_eq_static_add_dynamic : ∀ (k : ℝ) (i j : Fin 3),
   OQ7Prescribed.greenHessian k i j =
     OQ7Prescribed.greenHessian 0 i j +
       Distribution.ofFun ⊤ (OQ7Prescribed.dynamicHessianRemainder k i j) MeasureTheory.volume ⊤
+@OQ7Prescribed.HasWeakCurl.add_fields : ∀ {F1 F2 G1 G2 : OQ7Prescribed.Field},
+  OQ7Prescribed.HasWeakCurl F1 G1 →
+    OQ7Prescribed.HasWeakCurl F2 G2 →
+      MeasureTheory.LocallyIntegrable F1 MeasureTheory.volume →
+        MeasureTheory.LocallyIntegrable F2 MeasureTheory.volume →
+          MeasureTheory.LocallyIntegrable G1 MeasureTheory.volume →
+            MeasureTheory.LocallyIntegrable G2 MeasureTheory.volume →
+              OQ7Prescribed.HasWeakCurl (fun x => F1 x + F2 x) fun x => G1 x + G2 x
 @OQ7Prescribed.HasWeakCurl.congr_ae : ∀ {F G F' G' : OQ7Prescribed.Field},
   OQ7Prescribed.HasWeakCurl F G →
     F =ᵐ[MeasureTheory.volume] F' → G =ᵐ[MeasureTheory.volume] G' → OQ7Prescribed.HasWeakCurl F' G'
@@ -1990,6 +2011,16 @@ OQ7Prescribed.vectorL2Distribution_tempered : ∀ (f : ↥OQ7Prescribed.VectorL2
   (OQ7Prescribed.vectorL2Distribution f) φ =
     (MeasureTheory.Lp.toTemperedDistribution f) (OQ7Prescribed.scalarTestSchwartz φ)
 OQ7Prescribed.vectorScalarMul_apply : ∀ (v : OQ7Prescribed.Vector) (z : ℂ), (OQ7Prescribed.vectorScalarMul v) z = z • v
+OQ7Prescribed.volumeTotalElectric_locallySquareIntegrable : ∀ (k : ℝ) (σ : OQ7Prescribed.Direction)
+  (p : OQ7Prescribed.CompactPolarization),
+  OQ7Prescribed.LocallySquareIntegrable (OQ7Prescribed.volumeTotalElectric k σ p)
+OQ7Prescribed.volumeTotalFields_weakMaxwell : ∀ (k : ℝ) (B : OQ7Prescribed.TwoLayerBody) (σ : OQ7Prescribed.Direction)
+  (p : OQ7Prescribed.CompactPolarization),
+  OQ7Prescribed.MaterialVolumeEquation k B σ p →
+    OQ7Prescribed.WeakMaxwell k B (OQ7Prescribed.volumeTotalElectric k σ p) (OQ7Prescribed.volumeTotalMagnetic k σ p)
+OQ7Prescribed.volumeTotalMagnetic_locallySquareIntegrable : ∀ (k : ℝ) (σ : OQ7Prescribed.Direction)
+  (p : OQ7Prescribed.CompactPolarization),
+  OQ7Prescribed.LocallySquareIntegrable (OQ7Prescribed.volumeTotalMagnetic k σ p)
 OQ7Prescribed.weakCurlTest_all_finite_orders : ∀ (φ : OQ7Prescribed.Field),
   ContDiff ℝ (↑⊤) φ → ∀ (n : ℕ), ContDiff ℝ (↑n) φ
 OQ7Prescribed.weighted_integral_cauchy_sq : ∀ (w g : OQ7Prescribed.Position → ℝ),
