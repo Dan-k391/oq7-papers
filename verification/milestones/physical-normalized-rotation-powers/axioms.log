@@ -1,0 +1,84 @@
+OQ7Prescribed.activeInjection_rotation_continuous (B : OQ7Prescribed.TwoLayerBody) :
+  Continuous fun θ => OQ7Prescribed.activeInjection B (OQ7Prescribed.basisR 0) (OQ7Prescribed.rotatedAxis θ)
+OQ7Prescribed.activeProjection_rotation_continuous (B : OQ7Prescribed.TwoLayerBody) :
+  Continuous fun θ => OQ7Prescribed.activeProjection B (OQ7Prescribed.basisR 0) (OQ7Prescribed.rotatedAxis θ)
+OQ7Prescribed.normalizedActiveResponse_continuous (k : ℝ) (hk : 0 < k) (B : OQ7Prescribed.TwoLayerBody)
+  (σ : OQ7Prescribed.Direction) (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im) :
+  Continuous fun θ => OQ7Prescribed.normalizedActiveResponse k hk B σ θ α β hα hβ
+OQ7Prescribed.normalizedExtinction_continuous (k : ℝ) (hk : 0 < k) (B : OQ7Prescribed.TwoLayerBody)
+  (σ : OQ7Prescribed.Direction) (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im) :
+  Continuous fun θ => OQ7Prescribed.normalizedExtinction k hk B σ θ α β hα hβ
+OQ7Prescribed.normalizedAbsorption_continuous (k : ℝ) (hk : 0 < k) (B : OQ7Prescribed.TwoLayerBody)
+  (σ : OQ7Prescribed.Direction) (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im) :
+  Continuous fun θ => OQ7Prescribed.normalizedAbsorption k hk B σ θ α β hα hβ
+OQ7Prescribed.normalizedExtinction_reciprocity (k : ℝ) (hk : 0 < k) (B : OQ7Prescribed.TwoLayerBody) (θ : ℝ) (α β : ℂ)
+  (hα : 0 < α.im) (hβ : 0 < β.im) :
+  OQ7Prescribed.normalizedExtinction k hk B OQ7Prescribed.Direction.plus θ α β hα hβ =
+    OQ7Prescribed.normalizedExtinction k hk B OQ7Prescribed.Direction.minus θ α β hα hβ
+OQ7Prescribed.normalizedIncidentDrive_ne_zero (k : ℝ) (B : OQ7Prescribed.TwoLayerBody) (σ : OQ7Prescribed.Direction) :
+  OQ7Prescribed.normalizedIncidentDrive k B σ ≠ 0
+OQ7Prescribed.normalizedAbsorption_pos (k : ℝ) (hk : 0 < k) (B : OQ7Prescribed.TwoLayerBody)
+  (σ : OQ7Prescribed.Direction) (θ : ℝ) (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im) :
+  0 < OQ7Prescribed.normalizedAbsorption k hk B σ θ α β hα hβ
+OQ7Prescribed.normalizedExtinction_work_balance (k : ℝ) (hk : 0 < k) (B : OQ7Prescribed.TwoLayerBody)
+  (σ : OQ7Prescribed.Direction) (θ : ℝ) (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im) :
+  OQ7Prescribed.normalizedExtinction k hk B σ θ α β hα hβ =
+    OQ7Prescribed.normalizedAbsorption k hk B σ θ α β hα hβ +
+      k *
+        (inner ℂ
+            ((OQ7Prescribed.activeInjection B (OQ7Prescribed.basisR 0) (OQ7Prescribed.rotatedAxis θ))
+              (OQ7Prescribed.normalizedActiveResponse k hk B σ θ α β hα hβ))
+            ((OQ7Prescribed.bodyOutgoingOperator k B)
+              ((OQ7Prescribed.activeInjection B (OQ7Prescribed.basisR 0) (OQ7Prescribed.rotatedAxis θ))
+                (OQ7Prescribed.normalizedActiveResponse k hk B σ θ α β hα hβ)))).im
+OQ7Prescribed.normalizedExtinction_pos (k : ℝ) (hk : 0 < k) (B : OQ7Prescribed.TwoLayerBody)
+  (σ : OQ7Prescribed.Direction) (θ : ℝ) (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im) :
+  0 < OQ7Prescribed.normalizedExtinction k hk B σ θ α β hα hβ
+OQ7Prescribed.physicalScattering_sine_squared_factorization (k : ℝ) (hk : 0 < k) (B : OQ7Prescribed.TwoLayerBody)
+  (σ : OQ7Prescribed.Direction) (θ : ℝ) (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im) :
+  OQ7Prescribed.scattering k (OQ7Prescribed.rankOneBody B (OQ7Prescribed.basisR 0) (OQ7Prescribed.rotatedAxis θ) α β)
+      (OQ7Prescribed.volumeTotalElectric k σ
+        (OQ7Prescribed.bodyCurrentPolarization B
+          ((OQ7Prescribed.activeInjection B (OQ7Prescribed.basisR 0) (OQ7Prescribed.rotatedAxis θ))
+            (OQ7Prescribed.activePhysicalSolution k hk B σ (OQ7Prescribed.basisR 0) (OQ7Prescribed.rotatedAxis θ) α β hα
+              hβ)))) =
+    Real.sin θ ^ 2 *
+      (OQ7Prescribed.normalizedExtinction k hk B σ θ α β hα hβ -
+        OQ7Prescribed.normalizedAbsorption k hk B σ θ α β hα hβ)
+OQ7Prescribed.normalizedExtinction_compact_lower_bound (k : ℝ) (hk : 0 < k) (B : OQ7Prescribed.TwoLayerBody)
+  (σ : OQ7Prescribed.Direction) (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im) (s : Set ℝ) (hs : IsCompact s) :
+  ∃ c, 0 < c ∧ ∀ θ ∈ s, c ≤ OQ7Prescribed.normalizedExtinction k hk B σ θ α β hα hβ
+OQ7Prescribed.normalizedRotationAsymmetry_continuous (k : ℝ) (hk : 0 < k) (B : OQ7Prescribed.TwoLayerBody) (α β : ℂ)
+  (hα : 0 < α.im) (hβ : 0 < β.im) : Continuous fun θ => OQ7Prescribed.normalizedRotationAsymmetry k hk B θ α β hα hβ
+OQ7Prescribed.normalizedRotationAsymmetry_lt_one (k : ℝ) (hk : 0 < k) (B : OQ7Prescribed.TwoLayerBody) (θ : ℝ) (α β : ℂ)
+  (hα : 0 < α.im) (hβ : 0 < β.im) : OQ7Prescribed.normalizedRotationAsymmetry k hk B θ α β hα hβ < 1
+OQ7Prescribed.physicalAsymmetry_normalized_factorization (k : ℝ) (hk : 0 < k) (B : OQ7Prescribed.TwoLayerBody) (θ : ℝ)
+  (hθ : Real.sin θ ≠ 0) (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im) :
+  OQ7Prescribed.normalizedAsymmetry k
+      (OQ7Prescribed.rankOneBody B (OQ7Prescribed.basisR 0) (OQ7Prescribed.rotatedAxis θ) α β)
+      (OQ7Prescribed.volumeTotalElectric k OQ7Prescribed.Direction.plus
+        (OQ7Prescribed.bodyCurrentPolarization B
+          ((OQ7Prescribed.activeInjection B (OQ7Prescribed.basisR 0) (OQ7Prescribed.rotatedAxis θ))
+            (OQ7Prescribed.activePhysicalSolution k hk B OQ7Prescribed.Direction.plus (OQ7Prescribed.basisR 0)
+              (OQ7Prescribed.rotatedAxis θ) α β hα hβ))))
+      (OQ7Prescribed.volumeTotalElectric k OQ7Prescribed.Direction.minus
+        (OQ7Prescribed.bodyCurrentPolarization B
+          ((OQ7Prescribed.activeInjection B (OQ7Prescribed.basisR 0) (OQ7Prescribed.rotatedAxis θ))
+            (OQ7Prescribed.activePhysicalSolution k hk B OQ7Prescribed.Direction.minus (OQ7Prescribed.basisR 0)
+              (OQ7Prescribed.rotatedAxis θ) α β hα hβ)))) =
+    OQ7Prescribed.normalizedRotationAsymmetry k hk B θ α β hα hβ
+'OQ7Prescribed.activeInjection_rotation_continuous' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.activeProjection_rotation_continuous' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.normalizedActiveResponse_continuous' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.normalizedExtinction_continuous' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.normalizedAbsorption_continuous' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.normalizedExtinction_reciprocity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.normalizedIncidentDrive_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.normalizedAbsorption_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.normalizedExtinction_work_balance' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.normalizedExtinction_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.physicalScattering_sine_squared_factorization' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.normalizedExtinction_compact_lower_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.normalizedRotationAsymmetry_continuous' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.normalizedRotationAsymmetry_lt_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.physicalAsymmetry_normalized_factorization' depends on axioms: [propext, Classical.choice, Quot.sound]

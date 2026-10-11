@@ -117,3 +117,7 @@ import PrescribedExtinction.LorentzBounds
 import PrescribedExtinction.SmoothReciprocity
 import PrescribedExtinction.ReciprocityL2
 import PrescribedExtinction.ExtinctionReciprocity
+import PrescribedExtinction.RotationContinuity
+import PrescribedExtinction.NormalizedReciprocity
+import PrescribedExtinction.NormalizedWork
+import PrescribedExtinction.NormalizedRotationPowers

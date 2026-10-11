@@ -6,6 +6,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.activeInjection_coe
 #check @OQ7Prescribed.activeInjection_inner
 #check @OQ7Prescribed.activeInjection_norm
+#check @OQ7Prescribed.activeInjection_rotation_continuous
 #check @OQ7Prescribed.activeInverseMaterial_coe
 #check @OQ7Prescribed.activeInverseMaterial_loss_integral
 #check @OQ7Prescribed.activeInverseMaterial_negative_imaginary_bound
@@ -13,6 +14,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.activeMaterialEquiv_apply
 #check @OQ7Prescribed.activeMaterialEquiv_inverse_norm_le
 #check @OQ7Prescribed.activeMaterialOperator_imaginary_coercive
+#check @OQ7Prescribed.activeMaterialOperator_rotation_continuous
 #check @OQ7Prescribed.activePhysicalAbsorption_work
 #check @OQ7Prescribed.activePhysicalExtinction_work
 #check @OQ7Prescribed.activePhysicalSolution_equation
@@ -24,6 +26,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.activeProjection_coe
 #check @OQ7Prescribed.activeProjection_injection
 #check @OQ7Prescribed.activeProjection_inner
+#check @OQ7Prescribed.activeProjection_rotation_continuous
 #check @OQ7Prescribed.activeScalarLoss_pos
 #check @OQ7Prescribed.admissible_susceptibility_bounded_inverse
 #check @OQ7Prescribed.admissible_susceptibility_imaginary_coercive
@@ -32,6 +35,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.axisEmbedding_adjoint_apply
 #check @OQ7Prescribed.axisEmbedding_adjoint_embedding
 #check @OQ7Prescribed.axisEmbedding_apply
+#check @OQ7Prescribed.axisEmbedding_continuous
 #check @OQ7Prescribed.bilinear_add_left
 #check @OQ7Prescribed.bilinear_add_right
 #check @OQ7Prescribed.bilinear_comm
@@ -63,6 +67,8 @@ import PrescribedExtinction
 #check @OQ7Prescribed.bodyOutgoingOperator_farField_work
 #check @OQ7Prescribed.bodyOutgoingOperator_im_nonneg
 #check @OQ7Prescribed.bodyOutgoingOperator_inner
+#check @OQ7Prescribed.bodyPlateInterior_nonempty
+#check @OQ7Prescribed.bodyPlateInterior_volume_pos
 #check @OQ7Prescribed.bodySupportRadius_nonneg
 #check @OQ7Prescribed.bodySusceptibility_reciprocal
 #check @OQ7Prescribed.bodyVolumeTotalElectricCurrent_eq
@@ -489,10 +495,25 @@ import PrescribedExtinction
 #check @OQ7Prescribed.newtonTemperedHessian_fourier_eq
 #check @OQ7Prescribed.newtonTemperedHessian_fourier_integral
 #check @OQ7Prescribed.newtonTemperedHessian_scalarTest
+#check @OQ7Prescribed.normalizedAbsorption_continuous
+#check @OQ7Prescribed.normalizedAbsorption_le_extinction
+#check @OQ7Prescribed.normalizedAbsorption_pos
 #check @OQ7Prescribed.normalizedActiveResponse_angle_difference_bound
+#check @OQ7Prescribed.normalizedActiveResponse_continuous
+#check @OQ7Prescribed.normalizedActiveResponse_equation
+#check @OQ7Prescribed.normalizedActiveResponse_ne_zero
 #check @OQ7Prescribed.normalizedActiveResponse_norm_le
 #check @OQ7Prescribed.normalizedActiveResponse_residual_bound
+#check @OQ7Prescribed.normalizedExtinction_compact_lower_bound
+#check @OQ7Prescribed.normalizedExtinction_continuous
+#check @OQ7Prescribed.normalizedExtinction_pos
+#check @OQ7Prescribed.normalizedExtinction_reciprocity
+#check @OQ7Prescribed.normalizedExtinction_reciprocity_of_sine_ne_zero
+#check @OQ7Prescribed.normalizedExtinction_work_balance
 #check @OQ7Prescribed.normalizedIncidentDrive_coe
+#check @OQ7Prescribed.normalizedIncidentDrive_ne_zero
+#check @OQ7Prescribed.normalizedRotationAsymmetry_continuous
+#check @OQ7Prescribed.normalizedRotationAsymmetry_lt_one
 #check @OQ7Prescribed.orthogonalSphere_cone_preimage
 #check @OQ7Prescribed.orthogonalSphere_measurePreserving
 #check @OQ7Prescribed.outgoing_classical_hessian
@@ -571,6 +592,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.permittivity_reciprocal
 #check @OQ7Prescribed.physicalAbsorption_current_inner
 #check @OQ7Prescribed.physicalAbsorption_sine_squared_factorization
+#check @OQ7Prescribed.physicalAsymmetry_normalized_factorization
 #check @OQ7Prescribed.physicalExtinction_sine_squared_factorization
 #check @OQ7Prescribed.physicalOutgoingVolume_farField_work
 #check @OQ7Prescribed.physicalOutgoingVolume_reciprocity
@@ -578,6 +600,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.physicalPolarization_indicator
 #check @OQ7Prescribed.physicalPolarization_memLp
 #check @OQ7Prescribed.physicalPolarization_vanish
+#check @OQ7Prescribed.physicalScattering_sine_squared_factorization
 #check @OQ7Prescribed.physicalScatteringState_exists
 #check @OQ7Prescribed.physicalSourceFields_first_curl
 #check @OQ7Prescribed.physicalSourceFields_first_weakCurl
@@ -633,6 +656,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.rankOne_complexify_continuous
 #check @OQ7Prescribed.rankOne_transpose
 #check @OQ7Prescribed.rankOneBody_polarization
+#check @OQ7Prescribed.rankOnePhysical_extinction_reciprocity
 #check @OQ7Prescribed.rankOnePhysicalScatteringState_exists
 #check @OQ7Prescribed.real_inner_basis
 #check @OQ7Prescribed.real_inner_norm_square_error
@@ -666,6 +690,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.remainderPotentialDistribution_pairing
 #check @OQ7Prescribed.removable_point_complex_test_ibp
 #check @OQ7Prescribed.removable_point_test_ibp
+#check @OQ7Prescribed.rotatedAxis_continuous
 #check @OQ7Prescribed.rotatedAxis_unit
 #check @OQ7Prescribed.scalarInverse_negative_imaginary
 #check @OQ7Prescribed.scalarTest_global_lipschitz
@@ -692,6 +717,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.shrinkingCutoffPartial_support
 #check @OQ7Prescribed.shrinkingCutoffPoleError_norm_le
 #check @OQ7Prescribed.shrinkingCutoffPoleError_tendsto
+#check @OQ7Prescribed.sine_ne_zero_dense
 #check @OQ7Prescribed.smooth_cutoff_bilinear_flux_integrable
 #check @OQ7Prescribed.smooth_cutoff_flux_integrable
 #check @OQ7Prescribed.smooth_pair_cutoff_curl
@@ -807,6 +833,9 @@ import PrescribedExtinction
 #check @OQ7Prescribed.staticSymbolWithOrigin_zero
 #check @OQ7Prescribed.supportedConstCLM_coe
 #check @OQ7Prescribed.supportedConstMap_coe
+#check @OQ7Prescribed.supportedConstMap_continuous
+#check @OQ7Prescribed.supportedConstMap_lipschitz
+#check @OQ7Prescribed.supportedConstMap_norm_le
 #check @OQ7Prescribed.supportedCurrent_integral_norm_le
 #check @OQ7Prescribed.supportedCurrentFarField_eq
 #check @OQ7Prescribed.supportedFarFieldLinear_bound
@@ -850,6 +879,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.transverseProjectionMap_apply
 #check @OQ7Prescribed.twoPieceSupportedMap_adjoint_inner
 #check @OQ7Prescribed.twoPieceSupportedMap_coe
+#check @OQ7Prescribed.twoPieceSupportedMap_continuous
 #check @OQ7Prescribed.twoPieceSupportedOperator_coe
 #check @OQ7Prescribed.twoPieceSupportedOperator_negative_imaginary_bound
 #check @OQ7Prescribed.unitSphere_norm

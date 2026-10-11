@@ -25,6 +25,8 @@ OQ7Prescribed.activeInjection_inner : ∀ (B : OQ7Prescribed.TwoLayerBody) (u v 
 OQ7Prescribed.activeInjection_norm : ∀ (B : OQ7Prescribed.TwoLayerBody) (u v : OQ7Prescribed.Position),
   ‖u‖ ^ 2 = 1 →
     ‖v‖ ^ 2 = 1 → ∀ (q : ↥(OQ7Prescribed.ScalarBodyCurrentL2 B)), ‖(OQ7Prescribed.activeInjection B u v) q‖ = ‖q‖
+OQ7Prescribed.activeInjection_rotation_continuous : ∀ (B : OQ7Prescribed.TwoLayerBody),
+  Continuous fun θ => OQ7Prescribed.activeInjection B (OQ7Prescribed.basisR 0) (OQ7Prescribed.rotatedAxis θ)
 OQ7Prescribed.activeInverseMaterial_coe : ∀ (B : OQ7Prescribed.TwoLayerBody) (α β : ℂ)
   (q : ↥(OQ7Prescribed.ScalarBodyCurrentL2 B)),
   ↑↑↑((OQ7Prescribed.activeInverseMaterial B α β) q) =ᵐ[MeasureTheory.volume] fun x =>
@@ -51,6 +53,9 @@ OQ7Prescribed.activeMaterialOperator_imaginary_coercive : ∀ (k : ℝ),
       (q : ↥(OQ7Prescribed.ScalarBodyCurrentL2 B)),
       OQ7Prescribed.activeMaterialCoercivity α β * ‖q‖ ^ 2 ≤
         (inner ℂ q ((OQ7Prescribed.activeMaterialOperator k B u v α β) q)).im
+OQ7Prescribed.activeMaterialOperator_rotation_continuous : ∀ (k : ℝ) (B : OQ7Prescribed.TwoLayerBody) (α β : ℂ),
+  Continuous fun θ =>
+    OQ7Prescribed.activeMaterialOperator k B (OQ7Prescribed.basisR 0) (OQ7Prescribed.rotatedAxis θ) α β
 OQ7Prescribed.activePhysicalAbsorption_work : ∀ (k : ℝ) (hk : 0 < k) (B : OQ7Prescribed.TwoLayerBody)
   (σ : OQ7Prescribed.Direction) (u v : OQ7Prescribed.Position) (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im),
   OQ7Prescribed.absorption k (OQ7Prescribed.rankOneBody B u v α β)
@@ -115,6 +120,8 @@ OQ7Prescribed.activeProjection_injection : ∀ (B : OQ7Prescribed.TwoLayerBody) 
 OQ7Prescribed.activeProjection_inner : ∀ (B : OQ7Prescribed.TwoLayerBody) (u v : OQ7Prescribed.Position)
   (f : ↥(OQ7Prescribed.BodyCurrentL2 B)) (q : ↥(OQ7Prescribed.ScalarBodyCurrentL2 B)),
   inner ℂ f ((OQ7Prescribed.activeInjection B u v) q) = inner ℂ ((OQ7Prescribed.activeProjection B u v) f) q
+OQ7Prescribed.activeProjection_rotation_continuous : ∀ (B : OQ7Prescribed.TwoLayerBody),
+  Continuous fun θ => OQ7Prescribed.activeProjection B (OQ7Prescribed.basisR 0) (OQ7Prescribed.rotatedAxis θ)
 OQ7Prescribed.activeScalarLoss_pos : ∀ (α : ℂ), 0 < α.im → 0 < OQ7Prescribed.activeScalarLoss α
 OQ7Prescribed.admissible_susceptibility_bounded_inverse : ∀ (P Q : ℝ) (T : OQ7Prescribed.Tensor),
   OQ7Prescribed.MaterialAdmissible P Q T →
@@ -139,6 +146,7 @@ OQ7Prescribed.axisEmbedding_adjoint_embedding : ∀ (u : OQ7Prescribed.Position)
     ∀ (z : ℂ), (ContinuousLinearMap.adjoint (OQ7Prescribed.axisEmbedding u)) ((OQ7Prescribed.axisEmbedding u) z) = z
 OQ7Prescribed.axisEmbedding_apply : ∀ (u : OQ7Prescribed.Position) (z : ℂ),
   (OQ7Prescribed.axisEmbedding u) z = z • OQ7Prescribed.complexify u
+OQ7Prescribed.axisEmbedding_continuous : Continuous OQ7Prescribed.axisEmbedding
 OQ7Prescribed.bilinear_add_left : ∀ (u v w : OQ7Prescribed.Vector),
   OQ7Prescribed.bilinear (u + v) w = OQ7Prescribed.bilinear u w + OQ7Prescribed.bilinear v w
 OQ7Prescribed.bilinear_add_right : ∀ (u v w : OQ7Prescribed.Vector),
@@ -224,6 +232,10 @@ OQ7Prescribed.bodyOutgoingOperator_inner : ∀ (k : ℝ) (B : OQ7Prescribed.TwoL
     inner ℂ ((OQ7Prescribed.bodyCurrentInclusion B) f)
       ((OQ7Prescribed.compactOutgoingOperator k (OQ7Prescribed.bodySupportRadius B) ⋯)
         ((OQ7Prescribed.bodyCurrentInclusion B) f))
+OQ7Prescribed.bodyPlateInterior_nonempty : ∀ (B : OQ7Prescribed.TwoLayerBody),
+  (B.domain ∩ {x | B.absorberThickness < x.ofLp 2}).Nonempty
+OQ7Prescribed.bodyPlateInterior_volume_pos : ∀ (B : OQ7Prescribed.TwoLayerBody),
+  0 < MeasureTheory.volume (B.domain ∩ {x | B.absorberThickness < x.ofLp 2})
 OQ7Prescribed.bodySupportRadius_nonneg : ∀ (B : OQ7Prescribed.TwoLayerBody), 0 ≤ OQ7Prescribed.bodySupportRadius B
 OQ7Prescribed.bodySusceptibility_reciprocal : ∀ (B : OQ7Prescribed.TwoLayerBody),
   Matrix.transpose B.absorberPermittivity = B.absorberPermittivity →
@@ -1763,6 +1775,15 @@ OQ7Prescribed.newtonTemperedHessian_fourier_integral : ∀ (φ : SchwartzMap OQ7
     ∫ (ξ : OQ7Prescribed.Position), φ ξ * ↑(-(ξ.ofLp i * ξ.ofLp j) / ‖ξ‖ ^ 2)
 OQ7Prescribed.newtonTemperedHessian_scalarTest : ∀ (φ : OQ7Prescribed.ScalarTest) (i j : Fin 3),
   (OQ7Prescribed.newtonTemperedHessian i j) (OQ7Prescribed.scalarTestSchwartz φ) = (OQ7Prescribed.greenHessian 0 i j) φ
+OQ7Prescribed.normalizedAbsorption_continuous : ∀ (k : ℝ) (hk : 0 < k) (B : OQ7Prescribed.TwoLayerBody)
+  (σ : OQ7Prescribed.Direction) (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im),
+  Continuous fun θ => OQ7Prescribed.normalizedAbsorption k hk B σ θ α β hα hβ
+OQ7Prescribed.normalizedAbsorption_le_extinction : ∀ (k : ℝ) (hk : 0 < k) (B : OQ7Prescribed.TwoLayerBody)
+  (σ : OQ7Prescribed.Direction) (θ : ℝ) (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im),
+  OQ7Prescribed.normalizedAbsorption k hk B σ θ α β hα hβ ≤ OQ7Prescribed.normalizedExtinction k hk B σ θ α β hα hβ
+OQ7Prescribed.normalizedAbsorption_pos : ∀ (k : ℝ) (hk : 0 < k) (B : OQ7Prescribed.TwoLayerBody)
+  (σ : OQ7Prescribed.Direction) (θ : ℝ) (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im),
+  0 < OQ7Prescribed.normalizedAbsorption k hk B σ θ α β hα hβ
 OQ7Prescribed.normalizedActiveResponse_angle_difference_bound : ∀ (k : ℝ) (hk : 0 < k) (B : OQ7Prescribed.TwoLayerBody)
   (σ : OQ7Prescribed.Direction) (θ φ : ℝ) (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im),
   ‖OQ7Prescribed.normalizedActiveResponse k hk B σ θ α β hα hβ -
@@ -1771,6 +1792,17 @@ OQ7Prescribed.normalizedActiveResponse_angle_difference_bound : ∀ (k : ℝ) (h
       (‖OQ7Prescribed.activeMaterialOperator k B (OQ7Prescribed.basisR 0) (OQ7Prescribed.rotatedAxis θ) α β -
             OQ7Prescribed.activeMaterialOperator k B (OQ7Prescribed.basisR 0) (OQ7Prescribed.rotatedAxis φ) α β‖ *
         ‖OQ7Prescribed.normalizedActiveResponse k hk B σ φ α β hα hβ‖)
+OQ7Prescribed.normalizedActiveResponse_continuous : ∀ (k : ℝ) (hk : 0 < k) (B : OQ7Prescribed.TwoLayerBody)
+  (σ : OQ7Prescribed.Direction) (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im),
+  Continuous fun θ => OQ7Prescribed.normalizedActiveResponse k hk B σ θ α β hα hβ
+OQ7Prescribed.normalizedActiveResponse_equation : ∀ (k : ℝ) (hk : 0 < k) (B : OQ7Prescribed.TwoLayerBody)
+  (σ : OQ7Prescribed.Direction) (θ : ℝ) (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im),
+  (OQ7Prescribed.activeMaterialOperator k B (OQ7Prescribed.basisR 0) (OQ7Prescribed.rotatedAxis θ) α β)
+      (OQ7Prescribed.normalizedActiveResponse k hk B σ θ α β hα hβ) =
+    -OQ7Prescribed.normalizedIncidentDrive k B σ
+OQ7Prescribed.normalizedActiveResponse_ne_zero : ∀ (k : ℝ) (hk : 0 < k) (B : OQ7Prescribed.TwoLayerBody)
+  (σ : OQ7Prescribed.Direction) (θ : ℝ) (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im),
+  OQ7Prescribed.normalizedActiveResponse k hk B σ θ α β hα hβ ≠ 0
 OQ7Prescribed.normalizedActiveResponse_norm_le : ∀ (k : ℝ) (hk : 0 < k) (B : OQ7Prescribed.TwoLayerBody)
   (σ : OQ7Prescribed.Direction) (θ : ℝ) (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im),
   ‖OQ7Prescribed.normalizedActiveResponse k hk B σ θ α β hα hβ‖ ≤
@@ -1782,9 +1814,45 @@ OQ7Prescribed.normalizedActiveResponse_residual_bound : ∀ (k : ℝ) (hk : 0 < 
     1 / min (α.im / Complex.normSq α) (β.im / Complex.normSq β) *
       ‖-OQ7Prescribed.normalizedIncidentDrive k B σ -
           (OQ7Prescribed.activeMaterialOperator k B (OQ7Prescribed.basisR 0) (OQ7Prescribed.rotatedAxis θ) α β) q‖
+OQ7Prescribed.normalizedExtinction_compact_lower_bound : ∀ (k : ℝ) (hk : 0 < k) (B : OQ7Prescribed.TwoLayerBody)
+  (σ : OQ7Prescribed.Direction) (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im) (s : Set ℝ),
+  IsCompact s → ∃ c, 0 < c ∧ ∀ θ ∈ s, c ≤ OQ7Prescribed.normalizedExtinction k hk B σ θ α β hα hβ
+OQ7Prescribed.normalizedExtinction_continuous : ∀ (k : ℝ) (hk : 0 < k) (B : OQ7Prescribed.TwoLayerBody)
+  (σ : OQ7Prescribed.Direction) (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im),
+  Continuous fun θ => OQ7Prescribed.normalizedExtinction k hk B σ θ α β hα hβ
+OQ7Prescribed.normalizedExtinction_pos : ∀ (k : ℝ) (hk : 0 < k) (B : OQ7Prescribed.TwoLayerBody)
+  (σ : OQ7Prescribed.Direction) (θ : ℝ) (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im),
+  0 < OQ7Prescribed.normalizedExtinction k hk B σ θ α β hα hβ
+OQ7Prescribed.normalizedExtinction_reciprocity : ∀ (k : ℝ) (hk : 0 < k) (B : OQ7Prescribed.TwoLayerBody) (θ : ℝ)
+  (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im),
+  OQ7Prescribed.normalizedExtinction k hk B OQ7Prescribed.Direction.plus θ α β hα hβ =
+    OQ7Prescribed.normalizedExtinction k hk B OQ7Prescribed.Direction.minus θ α β hα hβ
+OQ7Prescribed.normalizedExtinction_reciprocity_of_sine_ne_zero : ∀ (k : ℝ) (hk : 0 < k) (B : OQ7Prescribed.TwoLayerBody)
+  (θ : ℝ),
+  Real.sin θ ≠ 0 →
+    ∀ (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im),
+      OQ7Prescribed.normalizedExtinction k hk B OQ7Prescribed.Direction.plus θ α β hα hβ =
+        OQ7Prescribed.normalizedExtinction k hk B OQ7Prescribed.Direction.minus θ α β hα hβ
+OQ7Prescribed.normalizedExtinction_work_balance : ∀ (k : ℝ) (hk : 0 < k) (B : OQ7Prescribed.TwoLayerBody)
+  (σ : OQ7Prescribed.Direction) (θ : ℝ) (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im),
+  OQ7Prescribed.normalizedExtinction k hk B σ θ α β hα hβ =
+    OQ7Prescribed.normalizedAbsorption k hk B σ θ α β hα hβ +
+      k *
+        (inner ℂ
+            ((OQ7Prescribed.activeInjection B (OQ7Prescribed.basisR 0) (OQ7Prescribed.rotatedAxis θ))
+              (OQ7Prescribed.normalizedActiveResponse k hk B σ θ α β hα hβ))
+            ((OQ7Prescribed.bodyOutgoingOperator k B)
+              ((OQ7Prescribed.activeInjection B (OQ7Prescribed.basisR 0) (OQ7Prescribed.rotatedAxis θ))
+                (OQ7Prescribed.normalizedActiveResponse k hk B σ θ α β hα hβ)))).im
 OQ7Prescribed.normalizedIncidentDrive_coe : ∀ (k : ℝ) (B : OQ7Prescribed.TwoLayerBody) (σ : OQ7Prescribed.Direction),
   ↑↑↑(OQ7Prescribed.normalizedIncidentDrive k B σ) =ᵐ[MeasureTheory.volume]
     B.domain.indicator fun x => if x.ofLp 2 < B.absorberThickness then 0 else OQ7Prescribed.planePhase k σ x
+OQ7Prescribed.normalizedIncidentDrive_ne_zero : ∀ (k : ℝ) (B : OQ7Prescribed.TwoLayerBody)
+  (σ : OQ7Prescribed.Direction), OQ7Prescribed.normalizedIncidentDrive k B σ ≠ 0
+OQ7Prescribed.normalizedRotationAsymmetry_continuous : ∀ (k : ℝ) (hk : 0 < k) (B : OQ7Prescribed.TwoLayerBody) (α β : ℂ)
+  (hα : 0 < α.im) (hβ : 0 < β.im), Continuous fun θ => OQ7Prescribed.normalizedRotationAsymmetry k hk B θ α β hα hβ
+OQ7Prescribed.normalizedRotationAsymmetry_lt_one : ∀ (k : ℝ) (hk : 0 < k) (B : OQ7Prescribed.TwoLayerBody) (θ : ℝ)
+  (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im), OQ7Prescribed.normalizedRotationAsymmetry k hk B θ α β hα hβ < 1
 OQ7Prescribed.orthogonalSphere_cone_preimage : ∀ (e : OQ7Prescribed.Position ≃ₗᵢ[ℝ] OQ7Prescribed.Position)
   (s : Set ↑OQ7Prescribed.UnitSphere),
   Set.Ioo 0 1 • Subtype.val '' ⇑(OQ7Prescribed.orthogonalSphere e) ⁻¹' s = ⇑e ⁻¹' (Set.Ioo 0 1 • Subtype.val '' s)
@@ -2047,6 +2115,23 @@ OQ7Prescribed.physicalAbsorption_sine_squared_factorization : ∀ (k : ℝ) (hk 
             (OQ7Prescribed.activePhysicalSolution k hk B σ (OQ7Prescribed.basisR 0) (OQ7Prescribed.rotatedAxis θ) α β hα
               hβ)))) =
     Real.sin θ ^ 2 * OQ7Prescribed.normalizedAbsorption k hk B σ θ α β hα hβ
+OQ7Prescribed.physicalAsymmetry_normalized_factorization : ∀ (k : ℝ) (hk : 0 < k) (B : OQ7Prescribed.TwoLayerBody)
+  (θ : ℝ),
+  Real.sin θ ≠ 0 →
+    ∀ (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im),
+      OQ7Prescribed.normalizedAsymmetry k
+          (OQ7Prescribed.rankOneBody B (OQ7Prescribed.basisR 0) (OQ7Prescribed.rotatedAxis θ) α β)
+          (OQ7Prescribed.volumeTotalElectric k OQ7Prescribed.Direction.plus
+            (OQ7Prescribed.bodyCurrentPolarization B
+              ((OQ7Prescribed.activeInjection B (OQ7Prescribed.basisR 0) (OQ7Prescribed.rotatedAxis θ))
+                (OQ7Prescribed.activePhysicalSolution k hk B OQ7Prescribed.Direction.plus (OQ7Prescribed.basisR 0)
+                  (OQ7Prescribed.rotatedAxis θ) α β hα hβ))))
+          (OQ7Prescribed.volumeTotalElectric k OQ7Prescribed.Direction.minus
+            (OQ7Prescribed.bodyCurrentPolarization B
+              ((OQ7Prescribed.activeInjection B (OQ7Prescribed.basisR 0) (OQ7Prescribed.rotatedAxis θ))
+                (OQ7Prescribed.activePhysicalSolution k hk B OQ7Prescribed.Direction.minus (OQ7Prescribed.basisR 0)
+                  (OQ7Prescribed.rotatedAxis θ) α β hα hβ)))) =
+        OQ7Prescribed.normalizedRotationAsymmetry k hk B θ α β hα hβ
 OQ7Prescribed.physicalExtinction_sine_squared_factorization : ∀ (k : ℝ) (hk : 0 < k) (B : OQ7Prescribed.TwoLayerBody)
   (σ : OQ7Prescribed.Direction) (θ : ℝ) (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im),
   OQ7Prescribed.extinction k (OQ7Prescribed.rankOneBody B (OQ7Prescribed.basisR 0) (OQ7Prescribed.rotatedAxis θ) α β) σ
@@ -2082,6 +2167,17 @@ OQ7Prescribed.physicalPolarization_memLp : ∀ (B : OQ7Prescribed.TwoLayerBody) 
 OQ7Prescribed.physicalPolarization_vanish : ∀ (B : OQ7Prescribed.TwoLayerBody) (E : OQ7Prescribed.Field)
   (x : OQ7Prescribed.Position),
   B.aperture + B.absorberThickness + B.plateThickness < ‖x‖ → OQ7Prescribed.polarization B E x = 0
+OQ7Prescribed.physicalScattering_sine_squared_factorization : ∀ (k : ℝ) (hk : 0 < k) (B : OQ7Prescribed.TwoLayerBody)
+  (σ : OQ7Prescribed.Direction) (θ : ℝ) (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im),
+  OQ7Prescribed.scattering k (OQ7Prescribed.rankOneBody B (OQ7Prescribed.basisR 0) (OQ7Prescribed.rotatedAxis θ) α β)
+      (OQ7Prescribed.volumeTotalElectric k σ
+        (OQ7Prescribed.bodyCurrentPolarization B
+          ((OQ7Prescribed.activeInjection B (OQ7Prescribed.basisR 0) (OQ7Prescribed.rotatedAxis θ))
+            (OQ7Prescribed.activePhysicalSolution k hk B σ (OQ7Prescribed.basisR 0) (OQ7Prescribed.rotatedAxis θ) α β hα
+              hβ)))) =
+    Real.sin θ ^ 2 *
+      (OQ7Prescribed.normalizedExtinction k hk B σ θ α β hα hβ -
+        OQ7Prescribed.normalizedAbsorption k hk B σ θ α β hα hβ)
 OQ7Prescribed.physicalScatteringState_exists : ∀ (k : ℝ),
   0 < k →
     ∀ (P Q : ℝ) (B : OQ7Prescribed.TwoLayerBody),
@@ -2310,6 +2406,18 @@ OQ7Prescribed.rankOneBody_polarization : ∀ (B : OQ7Prescribed.TwoLayerBody) (u
     B.domain.indicator fun x =>
       if x.ofLp 2 < B.absorberThickness then (α * OQ7Prescribed.axisCoupling u (E x)) • OQ7Prescribed.complexify u
       else (β * OQ7Prescribed.axisCoupling v (E x)) • OQ7Prescribed.complexify v
+OQ7Prescribed.rankOnePhysical_extinction_reciprocity : ∀ (k : ℝ) (hk : 0 < k) (B : OQ7Prescribed.TwoLayerBody)
+  (u v : OQ7Prescribed.Position) (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im),
+  OQ7Prescribed.extinction k (OQ7Prescribed.rankOneBody B u v α β) OQ7Prescribed.Direction.plus
+      (OQ7Prescribed.volumeTotalElectric k OQ7Prescribed.Direction.plus
+        (OQ7Prescribed.bodyCurrentPolarization B
+          ((OQ7Prescribed.activeInjection B u v)
+            (OQ7Prescribed.activePhysicalSolution k hk B OQ7Prescribed.Direction.plus u v α β hα hβ)))) =
+    OQ7Prescribed.extinction k (OQ7Prescribed.rankOneBody B u v α β) OQ7Prescribed.Direction.minus
+      (OQ7Prescribed.volumeTotalElectric k OQ7Prescribed.Direction.minus
+        (OQ7Prescribed.bodyCurrentPolarization B
+          ((OQ7Prescribed.activeInjection B u v)
+            (OQ7Prescribed.activePhysicalSolution k hk B OQ7Prescribed.Direction.minus u v α β hα hβ))))
 OQ7Prescribed.rankOnePhysicalScatteringState_exists : ∀ (k : ℝ),
   0 < k →
     ∀ (B : OQ7Prescribed.TwoLayerBody) (σ : OQ7Prescribed.Direction) (u v : OQ7Prescribed.Position) (α β : ℂ),
@@ -2455,6 +2563,7 @@ OQ7Prescribed.removable_point_test_ibp : ∀ (F D : OQ7Prescribed.Position → �
             ∀ (φ : OQ7Prescribed.ScalarTest),
               ∫ (x : OQ7Prescribed.Position), F x * ((OQ7Prescribed.testPartial i) φ) x =
                 -∫ (x : OQ7Prescribed.Position), D x * φ x
+OQ7Prescribed.rotatedAxis_continuous : Continuous OQ7Prescribed.rotatedAxis
 OQ7Prescribed.rotatedAxis_unit : ∀ (θ : ℝ), ‖OQ7Prescribed.rotatedAxis θ‖ ^ 2 = 1
 OQ7Prescribed.scalarInverse_negative_imaginary : ∀ (α z : ℂ),
   -(inner ℂ z (α⁻¹ • z)).im = OQ7Prescribed.activeScalarLoss α * ‖z‖ ^ 2
@@ -2576,6 +2685,7 @@ OQ7Prescribed.shrinkingCutoffPoleError_tendsto : ∀ (F : OQ7Prescribed.Position
     ∀ (φ : OQ7Prescribed.ScalarTest) (i : Fin 3),
       Filter.Tendsto (fun ε => ∫ (x : OQ7Prescribed.Position), OQ7Prescribed.exteriorCutoffPartial ε ε i x * F x * φ x)
         (nhdsWithin 0 (Set.Ioi 0)) (nhds 0)
+OQ7Prescribed.sine_ne_zero_dense : Dense {θ | Real.sin θ ≠ 0}
 OQ7Prescribed.smooth_cutoff_bilinear_flux_integrable : ∀ (k : ℝ) (E H G : OQ7Prescribed.Field),
   ContDiff ℝ (↑⊤) E →
     ContDiff ℝ (↑⊤) H →
@@ -3074,6 +3184,18 @@ OQ7Prescribed.staticSymbolWithOrigin_zero : ∀ (A : OQ7Prescribed.Vector →L[�
   [inst_1 : NormedAddCommGroup E] [inst_2 : InnerProductSpace ℂ E] [CompleteSpace E] [inst_4 : NormedAddCommGroup F]
   [inst_5 : InnerProductSpace ℂ F] [CompleteSpace F] (μ : MeasureTheory.Measure α) (s : Set α) (A : E →L[ℂ] F)
   (f : ↥(OQ7Prescribed.SetSupportedL2 μ s)), ↑↑↑((OQ7Prescribed.supportedConstMap μ s A) f) =ᵐ[μ] fun x => A (↑↑↑f x)
+@OQ7Prescribed.supportedConstMap_continuous : ∀ {α : Type u_1} {E : Type u_2} {F : Type u_3} [inst : MeasurableSpace α]
+  [inst_1 : NormedAddCommGroup E] [inst_2 : InnerProductSpace ℂ E] [CompleteSpace E] [inst_4 : NormedAddCommGroup F]
+  [inst_5 : InnerProductSpace ℂ F] [CompleteSpace F] (μ : MeasureTheory.Measure α) (s : Set α),
+  Continuous (OQ7Prescribed.supportedConstMap μ s)
+@OQ7Prescribed.supportedConstMap_lipschitz : ∀ {α : Type u_1} {E : Type u_2} {F : Type u_3} [inst : MeasurableSpace α]
+  [inst_1 : NormedAddCommGroup E] [inst_2 : InnerProductSpace ℂ E] [CompleteSpace E] [inst_4 : NormedAddCommGroup F]
+  [inst_5 : InnerProductSpace ℂ F] [CompleteSpace F] (μ : MeasureTheory.Measure α) (s : Set α),
+  LipschitzWith 1 (OQ7Prescribed.supportedConstMap μ s)
+@OQ7Prescribed.supportedConstMap_norm_le : ∀ {α : Type u_1} {E : Type u_2} {F : Type u_3} [inst : MeasurableSpace α]
+  [inst_1 : NormedAddCommGroup E] [inst_2 : InnerProductSpace ℂ E] [CompleteSpace E] [inst_4 : NormedAddCommGroup F]
+  [inst_5 : InnerProductSpace ℂ F] [CompleteSpace F] (μ : MeasureTheory.Measure α) (s : Set α) (A : E →L[ℂ] F),
+  ‖OQ7Prescribed.supportedConstMap μ s A‖ ≤ ‖A‖
 OQ7Prescribed.supportedCurrent_integral_norm_le : ∀ (R : ℝ) (hR : 0 ≤ R) (f : ↥(OQ7Prescribed.SupportedVectorL2 R)),
   ∫ (y : OQ7Prescribed.Position), ‖(OQ7Prescribed.supportedPolarization R hR f).current y‖ ≤
     OQ7Prescribed.supportedCurrentL1Bound R * ‖f‖
@@ -3197,6 +3319,10 @@ OQ7Prescribed.transverseProjectionMap_apply : ∀ (n : OQ7Prescribed.Position) (
   [inst_4 : NormedAddCommGroup F] [inst_5 : InnerProductSpace ℂ F] [CompleteSpace F] (μ : MeasureTheory.Measure α)
   (s t : Set α) (ht : MeasurableSet t) (A B : E →L[ℂ] F) (f : ↥(OQ7Prescribed.SetSupportedL2 μ s)),
   ↑↑↑((OQ7Prescribed.twoPieceSupportedMap μ s t ht A B) f) =ᵐ[μ] fun x => if x ∈ t then A (↑↑↑f x) else B (↑↑↑f x)
+@OQ7Prescribed.twoPieceSupportedMap_continuous : ∀ {α : Type u_1} {E : Type u_2} {F : Type u_3}
+  [inst : MeasurableSpace α] [inst_1 : NormedAddCommGroup E] [inst_2 : InnerProductSpace ℂ E] [inst_3 : CompleteSpace E]
+  [inst_4 : NormedAddCommGroup F] [inst_5 : InnerProductSpace ℂ F] [CompleteSpace F] (μ : MeasureTheory.Measure α)
+  (s t : Set α) (ht : MeasurableSet t), Continuous fun p => OQ7Prescribed.twoPieceSupportedMap μ s t ht p.1 p.2
 @OQ7Prescribed.twoPieceSupportedOperator_coe : ∀ {α : Type u_1} {E : Type u_2} [inst : MeasurableSpace α]
   [inst_1 : NormedAddCommGroup E] [inst_2 : InnerProductSpace ℂ E] [inst_3 : CompleteSpace E]
   (μ : MeasureTheory.Measure α) (s t : Set α) (ht : MeasurableSet t) (A B : E →L[ℂ] E)

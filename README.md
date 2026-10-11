@@ -21,7 +21,8 @@ The actual radiation/work identity now holds for every compact L² current;
 the three-dimensional spherical Jacobian identifies the Haar surface integral
 with the original theta/phi scattering cross section. Actual material-volume
 solutions satisfy the original extinction = absorption + scattering identity.
-Uniqueness of arbitrary outgoing states, reciprocity of extinction,
+Both directional extinction powers are proved equal from physical Lorentz
+reciprocity. Uniqueness of arbitrary outgoing states,
 uniform aperture localization, and the prescribed-extinction construction
 remain unverified. These are required before Theorem 1.1 can be proved.
 
@@ -33,7 +34,11 @@ factor as `sin(theta)^2` times their normalized work and loss integrals. The
 actual volume solutions satisfy the physical work balance and absorption is
 at most extinction. A uniform residual bound controls normalized response
 errors. The auxiliary response is defined
-at zero rotation without division by a vanishing sine. Uniform aperture
+at zero rotation without division by a vanishing sine. The normalized current,
+absorption, common extinction, and asymmetry are continuous through zero angle.
+Normalized extinction is strictly positive, with a positive lower bound on
+every compact angle set. The original full-angular scattering power has the
+same exact sine-squared factorization through the optical balance. Uniform aperture
 localization and the exact prescribed-extinction witness are still unproved.
 
 The physical Newton volume operator equals `staticFourierOperator` for every compactly supported vector L² current, retaining the full contact Hessian. See [STATIC.md](STATIC.md) and [FOURIER.md](FOURIER.md). Apart from the documented smooth-test annotation correction in Maxwell.lean, every Lean module from commits `6874b492e8d49d2303bb25aa12248b489c9ad13a` and `8301dda82eaf84611a4a40982f77dc2787b16861` is preserved byte for byte.

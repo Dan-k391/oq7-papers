@@ -341,6 +341,18 @@ run_cmd do
         'OQ7Prescribed.bodySusceptibility_reciprocal',
         'OQ7Prescribed.reciprocalMaterialVolume_incident_work',
         'OQ7Prescribed.physicalVolume_extinction_reciprocity',
+        'OQ7Prescribed.normalizedActiveResponse_continuous',
+        'OQ7Prescribed.normalizedAbsorption_continuous',
+        'OQ7Prescribed.normalizedExtinction_continuous',
+        'OQ7Prescribed.normalizedExtinction_reciprocity',
+        'OQ7Prescribed.normalizedAbsorption_pos',
+        'OQ7Prescribed.normalizedExtinction_work_balance',
+        'OQ7Prescribed.normalizedExtinction_pos',
+        'OQ7Prescribed.physicalScattering_sine_squared_factorization',
+        'OQ7Prescribed.normalizedExtinction_compact_lower_bound',
+        'OQ7Prescribed.normalizedRotationAsymmetry_continuous',
+        'OQ7Prescribed.normalizedRotationAsymmetry_lt_one',
+        'OQ7Prescribed.physicalAsymmetry_normalized_factorization',
         'OQ7Prescribed.normalizedActiveResponse_residual_bound',
         'OQ7Prescribed.normalizedActiveResponse_angle_difference_bound')) {
         if ($oq7Required -notin $oq7NewKernelTheorems) { throw "Missing outgoing operator obligation: $oq7Required" }
@@ -429,6 +441,11 @@ run_cmd do
         originalPhysicalOpticalWorkIdentityVerified = $true
         actualPhysicalOutgoingVolumeReciprocityVerified = $true
         originalPhysicalExtinctionReciprocityVerified = $true
+        normalizedRotationResponseAndPowersContinuousAtZeroVerified = $true
+        normalizedAllAngleCommonExtinctionVerified = $true
+        normalizedPhysicalExtinctionStrictlyPositiveVerified = $true
+        physicalFullAngularScatteringSineSquaredFactorizationVerified = $true
+        normalizedPhysicalAsymmetryContinuousAndStrictlyBelowOneVerified = $true
         physicalVolumeWorkBalanceVerified = $true
         originalPhysicalAbsorptionSineSquaredFactorizationVerified = $true
         normalizedPhysicalResponseUniformResidualBoundVerified = $true
@@ -499,8 +516,6 @@ run_cmd do
         )
         unverifiedDependencies = @('Uniqueness of arbitrary physical outgoing Maxwell states',
             'Converse outgoing volume representation',
-            'Full radiation identity, optical theorem, reciprocity and power balance',
-            'Physical full-angular scattering sin-squared response factorization',
             'Uniform aperture localization including grazing singularities and all angular channels',
             'Planar construction and normalized zero-angle / zero-plate-loss limits',
             'First exact-extinction bracket and physical continuity',
