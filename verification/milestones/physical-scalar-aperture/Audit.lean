@@ -1,0 +1,22 @@
+import PrescribedExtinction.SlabScaledEstimate
+
+#check OQ7Prescribed.slabGreen_locallyIntegrable
+#check OQ7Prescribed.apertureOscillation_two_ibp
+#check OQ7Prescribed.apertureCircleJet_hasDerivAt
+#check OQ7Prescribed.apertureRadialLiftSecond_norm_le
+#check OQ7Prescribed.slabRadial_change_variables
+#check OQ7Prescribed.horizontalSlabPotential_radialWindow
+#check OQ7Prescribed.horizontalSlabPotential_error
+#check OQ7Prescribed.scaledApertureWindow_iteratedFDeriv
+#check OQ7Prescribed.horizontalSlabPotential_scaled_error
+#check OQ7Prescribed.horizontalSlabPotential_uniform_aperture_error
+#print axioms OQ7Prescribed.slabGreen_locallyIntegrable
+#print axioms OQ7Prescribed.apertureOscillation_two_ibp
+#print axioms OQ7Prescribed.apertureCircleJet_hasDerivAt
+#print axioms OQ7Prescribed.apertureRadialLiftSecond_norm_le
+#print axioms OQ7Prescribed.slabRadial_change_variables
+#print axioms OQ7Prescribed.horizontalSlabPotential_radialWindow
+#print axioms OQ7Prescribed.horizontalSlabPotential_error
+#print axioms OQ7Prescribed.scaledApertureWindow_iteratedFDeriv
+#print axioms OQ7Prescribed.horizontalSlabPotential_scaled_error
+#print axioms OQ7Prescribed.horizontalSlabPotential_uniform_aperture_error

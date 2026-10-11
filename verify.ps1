@@ -353,6 +353,16 @@ run_cmd do
         'OQ7Prescribed.normalizedRotationAsymmetry_continuous',
         'OQ7Prescribed.normalizedRotationAsymmetry_lt_one',
         'OQ7Prescribed.physicalAsymmetry_normalized_factorization',
+        'OQ7Prescribed.slabGreen_locallyIntegrable',
+        'OQ7Prescribed.apertureOscillation_two_ibp',
+        'OQ7Prescribed.apertureCircleJet_hasDerivAt',
+        'OQ7Prescribed.apertureRadialLiftSecond_norm_le',
+        'OQ7Prescribed.slabRadial_change_variables',
+        'OQ7Prescribed.horizontalSlabPotential_radialWindow',
+        'OQ7Prescribed.horizontalSlabPotential_error',
+        'OQ7Prescribed.scaledApertureWindow_iteratedFDeriv',
+        'OQ7Prescribed.horizontalSlabPotential_scaled_error',
+        'OQ7Prescribed.horizontalSlabPotential_uniform_aperture_error',
         'OQ7Prescribed.normalizedActiveResponse_residual_bound',
         'OQ7Prescribed.normalizedActiveResponse_angle_difference_bound')) {
         if ($oq7Required -notin $oq7NewKernelTheorems) { throw "Missing outgoing operator obligation: $oq7Required" }
@@ -446,6 +456,10 @@ run_cmd do
         normalizedPhysicalExtinctionStrictlyPositiveVerified = $true
         physicalFullAngularScatteringSineSquaredFactorizationVerified = $true
         normalizedPhysicalAsymmetryContinuousAndStrictlyBelowOneVerified = $true
+        actualOutgoingScalarHorizontalConvolutionVerified = $true
+        actualScalarGreenUniformApertureErrorVerified = $true
+        scalarApertureErrorIncludesCoincidentHeightsVerified = $true
+        physicalVectorUniformApertureLocalizationVerified = $false
         physicalVolumeWorkBalanceVerified = $true
         originalPhysicalAbsorptionSineSquaredFactorizationVerified = $true
         normalizedPhysicalResponseUniformResidualBoundVerified = $true

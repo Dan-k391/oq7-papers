@@ -1,0 +1,66 @@
+OQ7Prescribed.slabGreen_locallyIntegrable (k z : ℝ) :
+  MeasureTheory.LocallyIntegrable (OQ7Prescribed.slabGreen k z) MeasureTheory.volume
+OQ7Prescribed.apertureOscillation_two_ibp (k a b : ℝ) (hk : k ≠ 0) (u du ddu : ℝ → ℂ)
+  (hu : ContinuousOn u (Set.uIcc a b)) (hdu : ContinuousOn du (Set.uIcc a b))
+  (hd : ∀ t ∈ Set.Ioo (min a b) (max a b), HasDerivAt u (du t) t)
+  (hdd : ∀ t ∈ Set.Ioo (min a b) (max a b), HasDerivAt du (ddu t) t)
+  (hddi : IntervalIntegrable ddu MeasureTheory.volume a b) (hb : u b = 0) (hdb : du b = 0) :
+  (Complex.I * ↑k) ^ 2 *
+      ((∫ (t : ℝ) in a..b, u t * OQ7Prescribed.apertureOscillation k t) +
+        (Complex.I * ↑k)⁻¹ * u a * OQ7Prescribed.apertureOscillation k a) =
+    du a * OQ7Prescribed.apertureOscillation k a + ∫ (t : ℝ) in a..b, ddu t * OQ7Prescribed.apertureOscillation k t
+OQ7Prescribed.apertureCircleJet_hasDerivAt (n : ℕ) (w : ℂ → ℂ) (hw : ContDiff ℝ (↑⊤) w) (hc : HasCompactSupport w)
+  (x : ℂ) (r : ℝ) : HasDerivAt (OQ7Prescribed.apertureCircleJet n w x) (OQ7Prescribed.apertureCircleJet (n + 1) w x r) r
+OQ7Prescribed.apertureRadialLiftSecond_norm_le (w : ℂ → ℂ) (hw : ContDiff ℝ (↑⊤) w) (hc : HasCompactSupport w) (x : ℂ)
+  (s t C₂ C₄ : ℝ) (ht : |s| < t) (h₂ : ∀ (y : ℂ), ‖iteratedFDeriv ℝ 2 w y‖ ≤ C₂)
+  (h₄ : ∀ (y : ℂ), ‖iteratedFDeriv ℝ 4 w y‖ ≤ C₄) :
+  ‖OQ7Prescribed.apertureRadialLiftSecond w x s t‖ ≤ C₂ + t ^ 2 * C₄ / 3
+OQ7Prescribed.slabRadial_change_variables (w : ℂ → ℂ) (hw : ContDiff ℝ (↑⊤) w) (x : ℂ) (k s U : ℝ) (hU : 0 < U) :
+  ∫ (r : ℝ) in 0..U,
+      OQ7Prescribed.slabHeightRadiusDeriv s r •
+        (OQ7Prescribed.apertureOscillation k (OQ7Prescribed.slabHeightRadius s r) *
+          OQ7Prescribed.apertureCircleJet 0 w x r) =
+    ∫ (t : ℝ) in |s|..OQ7Prescribed.slabHeightRadius s U,
+      OQ7Prescribed.apertureOscillation k t * OQ7Prescribed.apertureRadialLift w x s t
+OQ7Prescribed.horizontalSlabPotential_radialWindow (k s : ℝ) (w : ℂ → ℂ) (hw : Continuous w) (hc : HasCompactSupport w)
+  (x : ℂ) (U A : ℝ) (hU : 0 < U) (hA : tsupport w ⊆ Metric.closedBall 0 A) (hUA : A + ‖x‖ < U) :
+  OQ7Prescribed.horizontalSlabPotential k s w x = OQ7Prescribed.slabRadialWindow k s w x U
+OQ7Prescribed.horizontalSlabPotential_error (k : ℝ) (hk : 0 < k) (s : ℝ) (w : ℂ → ℂ) (hw : ContDiff ℝ (↑⊤) w)
+  (hc : HasCompactSupport w) (x : ℂ) (U A C₂ C₄ : ℝ) (hU : 0 < U) (hA : tsupport w ⊆ Metric.closedBall 0 A)
+  (hUA : A + ‖x‖ < U) (h₂ : ∀ (y : ℂ), ‖iteratedFDeriv ℝ 2 w y‖ ≤ C₂) (h₄ : ∀ (y : ℂ), ‖iteratedFDeriv ℝ 4 w y‖ ≤ C₄) :
+  ‖OQ7Prescribed.horizontalSlabPotential k s w x - OQ7Prescribed.planarScalarGreen k s * w x‖ ≤
+    (|s| * C₂ + (C₂ + OQ7Prescribed.slabHeightRadius s U ^ 2 * C₄ / 3) * (OQ7Prescribed.slabHeightRadius s U - |s|)) /
+      (2 * k ^ 2)
+OQ7Prescribed.scaledApertureWindow_iteratedFDeriv (n : ℕ) (w : ℂ → ℂ) (hw : ContDiff ℝ (↑⊤) w) (R : ℝ) (x : ℂ) :
+  iteratedFDeriv ℝ n (OQ7Prescribed.scaledApertureWindow w R) x = R⁻¹ ^ n • iteratedFDeriv ℝ n w (R⁻¹ • x)
+OQ7Prescribed.horizontalSlabPotential_scaled_error (k : ℝ) (hk : 0 < k) (w : ℂ → ℂ) (hw : ContDiff ℝ (↑⊤) w)
+  (hc : HasCompactSupport w) (A X L C₂ C₄ : ℝ) (hA0 : 0 ≤ A) (hX : 0 ≤ X) (hL : 0 ≤ L)
+  (hA : tsupport w ⊆ Metric.closedBall 0 A) (h₂ : ∀ (y : ℂ), ‖iteratedFDeriv ℝ 2 w y‖ ≤ C₂)
+  (h₄ : ∀ (y : ℂ), ‖iteratedFDeriv ℝ 4 w y‖ ≤ C₄) (R s : ℝ) (x : ℂ) (hR : 1 ≤ R) (hs : |s| ≤ L) (hx : ‖x‖ ≤ X * R) :
+  ‖OQ7Prescribed.horizontalSlabPotential k s (OQ7Prescribed.scaledApertureWindow w R) x -
+        OQ7Prescribed.planarScalarGreen k s * OQ7Prescribed.scaledApertureWindow w R x‖ ≤
+    (L * C₂ + (A + X + 1 + L) * (C₂ + (A + X + 1 + L) ^ 2 * C₄ / 3)) / (2 * k ^ 2 * R)
+OQ7Prescribed.horizontalSlabPotential_uniform_aperture_error (k : ℝ) (hk : 0 < k) (w : ℂ → ℂ) (hw : ContDiff ℝ (↑⊤) w)
+  (hc : HasCompactSupport w) (A X L : ℝ) (hA0 : 0 ≤ A) (hX : 0 ≤ X) (hL : 0 ≤ L)
+  (hA : tsupport w ⊆ Metric.closedBall 0 A) :
+  ∃ C,
+    0 < C ∧
+      ∀ (R s : ℝ) (x : ℂ),
+        1 ≤ R →
+          |s| ≤ L →
+            ‖x‖ ≤ X * R →
+              ‖OQ7Prescribed.horizontalSlabPotential k s (OQ7Prescribed.scaledApertureWindow w R) x -
+                    OQ7Prescribed.planarScalarGreen k s * OQ7Prescribed.scaledApertureWindow w R x‖ ≤
+                C / R
+'OQ7Prescribed.slabGreen_locallyIntegrable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.apertureOscillation_two_ibp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.apertureCircleJet_hasDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.apertureRadialLiftSecond_norm_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.slabRadial_change_variables' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.horizontalSlabPotential_radialWindow' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.horizontalSlabPotential_error' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.scaledApertureWindow_iteratedFDeriv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.horizontalSlabPotential_scaled_error' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.horizontalSlabPotential_uniform_aperture_error' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

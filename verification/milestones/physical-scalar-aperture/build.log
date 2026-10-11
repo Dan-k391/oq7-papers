@@ -1,0 +1,49 @@
+⚠ [3133/3155] Replayed PrescribedExtinction.ApertureOscillation
+warning: PrescribedExtinction/ApertureOscillation.lean:17:86: This simp argument is unused:
+  mul_left_comm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [apertureOscillation, Complex.ofReal_mul, mul_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PrescribedExtinction/ApertureOscillation.lean:19:49: This simp argument is unused:
+  mul_comm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [apertureOscillation, Complex.ofReal_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [3147/3155] Replayed PrescribedExtinction.ApertureRadialSupport
+warning: PrescribedExtinction/ApertureRadialSupport.lean:36:19: `ContinuousMultilinearMap.zero_apply` has been deprecated: Use `zero_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.zero_apply` to `zero_apply x`).
+⚠ [3150/3155] Replayed PrescribedExtinction.SlabRadialWindow
+warning: PrescribedExtinction/SlabRadialWindow.lean:35:6: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: PrescribedExtinction/SlabRadialWindow.lean:71:4: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [3154/3155] Replayed PrescribedExtinction.ApertureWindowScale
+warning: PrescribedExtinction/ApertureWindowScale.lean:25:13: This simp argument is unused:
+  mem_preimage
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Metric.mem_closedBall, dist_zero_right, norm_smul, Real.norm_eq_abs,
+    abs_of_pos (inv_pos.mpr hR)] at hm ⊢
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [3155/3155] Replayed PrescribedExtinction.SlabScaledEstimate
+warning: PrescribedExtinction/SlabScaledEstimate.lean:22:44: Variable name `hB` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hB
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: PrescribedExtinction/SlabScaledEstimate.lean:37:10: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PrescribedExtinction/SlabScaledEstimate.lean:37:10: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Build completed successfully (3155 jobs).
