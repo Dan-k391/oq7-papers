@@ -1035,10 +1035,36 @@ OQ7Prescribed.materialBodySolution_physicalVolumeEquation : ∀ (k : ℝ) (hk : 
   (b : OQ7Prescribed.SusceptibilityInverseData B.platePermittivity),
   OQ7Prescribed.MaterialVolumeEquation k B σ
     (OQ7Prescribed.bodyCurrentPolarization B (OQ7Prescribed.materialBodySolution k hk B σ a b))
+OQ7Prescribed.materialVolumeCurrent_coe : ∀ (k : ℝ) (B : OQ7Prescribed.TwoLayerBody) (σ : OQ7Prescribed.Direction)
+  (p : OQ7Prescribed.CompactPolarization) (hp : OQ7Prescribed.MaterialVolumeEquation k B σ p),
+  ↑↑↑(OQ7Prescribed.materialVolumeCurrent k B σ p hp) =ᵐ[MeasureTheory.volume] p.current
+OQ7Prescribed.materialVolumeCurrent_eq_solution : ∀ (k : ℝ) (hk : 0 < k) (B : OQ7Prescribed.TwoLayerBody)
+  (σ : OQ7Prescribed.Direction) (p : OQ7Prescribed.CompactPolarization)
+  (hp : OQ7Prescribed.MaterialVolumeEquation k B σ p)
+  (a : OQ7Prescribed.SusceptibilityInverseData B.absorberPermittivity)
+  (b : OQ7Prescribed.SusceptibilityInverseData B.platePermittivity),
+  OQ7Prescribed.materialVolumeCurrent k B σ p hp = OQ7Prescribed.materialBodySolution k hk B σ a b
+OQ7Prescribed.materialVolumeCurrent_operator_equation : ∀ (k : ℝ) (B : OQ7Prescribed.TwoLayerBody)
+  (σ : OQ7Prescribed.Direction) (p : OQ7Prescribed.CompactPolarization)
+  (hp : OQ7Prescribed.MaterialVolumeEquation k B σ p)
+  (a : OQ7Prescribed.SusceptibilityInverseData B.absorberPermittivity)
+  (b : OQ7Prescribed.SusceptibilityInverseData B.platePermittivity),
+  (OQ7Prescribed.materialBodyOperator k B a b) (OQ7Prescribed.materialVolumeCurrent k B σ p hp) =
+    -OQ7Prescribed.bodyIncidentCurrent k B σ
+OQ7Prescribed.materialVolumeCurrent_supported : ∀ (k : ℝ) (B : OQ7Prescribed.TwoLayerBody) (σ : OQ7Prescribed.Direction)
+  (p : OQ7Prescribed.CompactPolarization),
+  OQ7Prescribed.MaterialVolumeEquation k B σ p → ∀ᵐ (x : OQ7Prescribed.Position), x ∉ B.domain → p.current x = 0
 OQ7Prescribed.materialVolumeEquation_exists : ∀ (k : ℝ),
   0 < k →
     ∀ (P Q : ℝ) (B : OQ7Prescribed.TwoLayerBody),
       B.admissible P Q → ∀ (σ : OQ7Prescribed.Direction), ∃ p, OQ7Prescribed.MaterialVolumeEquation k B σ p
+OQ7Prescribed.materialVolumeEquation_unique_current : ∀ (k : ℝ),
+  0 < k →
+    ∀ (P Q : ℝ) (B : OQ7Prescribed.TwoLayerBody),
+      B.admissible P Q →
+        ∀ (σ : OQ7Prescribed.Direction) (p q : OQ7Prescribed.CompactPolarization),
+          OQ7Prescribed.MaterialVolumeEquation k B σ p →
+            OQ7Prescribed.MaterialVolumeEquation k B σ q → p.current =ᵐ[MeasureTheory.volume] q.current
 OQ7Prescribed.newton_classical_hessian : ∀ (x : OQ7Prescribed.Position),
   x ≠ 0 →
     ∀ (i j : Fin 3),

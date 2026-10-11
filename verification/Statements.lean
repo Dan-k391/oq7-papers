@@ -279,7 +279,12 @@ import PrescribedExtinction
 #check @OQ7Prescribed.materialBodyOperator_imaginary_coercive
 #check @OQ7Prescribed.materialBodySolution_equation
 #check @OQ7Prescribed.materialBodySolution_physicalVolumeEquation
+#check @OQ7Prescribed.materialVolumeCurrent_coe
+#check @OQ7Prescribed.materialVolumeCurrent_eq_solution
+#check @OQ7Prescribed.materialVolumeCurrent_operator_equation
+#check @OQ7Prescribed.materialVolumeCurrent_supported
 #check @OQ7Prescribed.materialVolumeEquation_exists
+#check @OQ7Prescribed.materialVolumeEquation_unique_current
 #check @OQ7Prescribed.newton_classical_hessian
 #check @OQ7Prescribed.newton_compensated_cutoff_tendsto
 #check @OQ7Prescribed.newton_contact_identity_real

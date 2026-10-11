@@ -56,7 +56,8 @@ try {
         @{ name = 'smooth-current-physical-fields'; module = 'PrescribedExtinction.SmoothOutgoingFields' },
         @{ name = 'physical-cutoff-poynting'; module = 'PrescribedExtinction.PoyntingCutoff' },
         @{ name = 'physical-outgoing-dissipativity'; module = 'PrescribedExtinction.OutgoingDissipativity' },
-        @{ name = 'physical-scattering-existence'; module = 'PrescribedExtinction.ScatteringExistence' }
+        @{ name = 'physical-scattering-existence'; module = 'PrescribedExtinction.ScatteringExistence' },
+        @{ name = 'material-volume-uniqueness'; module = 'PrescribedExtinction.MaterialVolumeUniqueness' }
     )
     if ($Only) {
         foreach ($oq7Name in $Only) {

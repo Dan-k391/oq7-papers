@@ -1,0 +1,9 @@
+import PrescribedExtinction.MaterialVolumeUniqueness
+#check @OQ7Prescribed.materialVolumeCurrent_supported
+#print axioms OQ7Prescribed.materialVolumeCurrent_supported
+#check @OQ7Prescribed.materialVolumeCurrent_operator_equation
+#print axioms OQ7Prescribed.materialVolumeCurrent_operator_equation
+#check @OQ7Prescribed.materialVolumeCurrent_eq_solution
+#print axioms OQ7Prescribed.materialVolumeCurrent_eq_solution
+#check @OQ7Prescribed.materialVolumeEquation_unique_current
+#print axioms OQ7Prescribed.materialVolumeEquation_unique_current

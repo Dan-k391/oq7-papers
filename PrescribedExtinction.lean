@@ -84,3 +84,4 @@ import PrescribedExtinction.TwoPieceL2
 import PrescribedExtinction.BodyCurrentSpace
 import PrescribedExtinction.MaterialBodyInverse
 import PrescribedExtinction.ScatteringExistence
+import PrescribedExtinction.MaterialVolumeUniqueness

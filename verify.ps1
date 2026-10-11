@@ -287,7 +287,9 @@ run_cmd do
         'OQ7Prescribed.materialBodyEquiv_inverse_norm_le',
         'OQ7Prescribed.materialBodySolution_physicalVolumeEquation',
         'OQ7Prescribed.materialVolumeEquation_exists',
-        'OQ7Prescribed.physicalScatteringState_exists')) {
+        'OQ7Prescribed.physicalScatteringState_exists',
+        'OQ7Prescribed.materialVolumeCurrent_operator_equation',
+        'OQ7Prescribed.materialVolumeEquation_unique_current')) {
         if ($oq7Required -notin $oq7NewKernelTheorems) { throw "Missing outgoing operator obligation: $oq7Required" }
     }
     if ('OQ7Prescribed.scatteringStateOfVolumeEquation' -notin $oq7Constants) {
@@ -356,6 +358,7 @@ run_cmd do
         physicalFiniteBodyPolarizationCompactL2Verified = $true
         materialVolumeEquationToOriginalScatteringStateVerified = $true
         materialVolumeEquationSolvabilityVerified = $true
+        materialVolumeEquationUniqueCurrentVerified = $true
         actualBodyDomainOutgoingCompressionVerified = $true
         materialBodyInverseBoundDependsOnlyOnTensorLossData = $true
         complexHilbertImaginaryCoerciveInverseVerified = $true

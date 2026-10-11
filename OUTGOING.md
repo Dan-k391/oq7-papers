@@ -14,6 +14,13 @@ condition. No Maxwell solvability or volume equation is assumed in these
 existence declarations. Exact statements and axiom exports are under
 `verification/milestones/physical-scattering-existence/`.
 
+`MaterialVolumeUniqueness.lean` proves that every compact L² solution of the
+actual physical material volume equation satisfies the same invertible
+body-domain equation. `materialVolumeEquation_unique_current` therefore gives
+equality almost everywhere of any two such currents. This does not assert a
+converse volume representation for arbitrary weak outgoing Maxwell states.
+That stronger representation and uniqueness statement remains unproved.
+
 Theorem 1.1 remains unproved. This milestone closes the outgoing kernel and
 compact-current operator identification following the verified static operator.
 
