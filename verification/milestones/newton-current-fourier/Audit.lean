@@ -1,0 +1,10 @@
+import PrescribedExtinction.NewtonCurrentFourier
+
+#check @OQ7Prescribed.current_component_fourier
+#print axioms OQ7Prescribed.current_component_fourier
+#check @OQ7Prescribed.reflectedCurrentComponent_fourier_neg
+#print axioms OQ7Prescribed.reflectedCurrentComponent_fourier_neg
+#check @OQ7Prescribed.newtonCurrentCorrelation_complex_convolution
+#print axioms OQ7Prescribed.newtonCurrentCorrelation_complex_convolution
+#check @OQ7Prescribed.newtonCurrentCorrelationSchwartz_fourierInv
+#print axioms OQ7Prescribed.newtonCurrentCorrelationSchwartz_fourierInv

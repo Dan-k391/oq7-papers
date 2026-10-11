@@ -1,4 +1,4 @@
-param([string]$LeanBin)
+param([string]$LeanBin, [string[]]$Only)
 $ErrorActionPreference = 'Stop'
 if ($LeanBin) { $env:PATH = (Resolve-Path -LiteralPath $LeanBin).Path + ';' + $env:PATH }
 Push-Location $PSScriptRoot
@@ -26,8 +26,20 @@ try {
         @{ name = 'newton-heat-fourier'; module = 'PrescribedExtinction.NewtonHeatFourier' },
         @{ name = 'newton-frequency-heat'; module = 'PrescribedExtinction.NewtonFrequencyHeat' },
         @{ name = 'newton-transform'; module = 'PrescribedExtinction.NewtonTransform' },
-        @{ name = 'newton-symbol'; module = 'PrescribedExtinction.NewtonSymbol' }
+        @{ name = 'newton-symbol'; module = 'PrescribedExtinction.NewtonSymbol' },
+        @{ name = 'newton-current-pairing'; module = 'PrescribedExtinction.NewtonCurrentPairing' },
+        @{ name = 'newton-current-correlation'; module = 'PrescribedExtinction.NewtonCurrentCorrelation' },
+        @{ name = 'fourier-l1-l2'; module = 'PrescribedExtinction.FourierL1L2' },
+        @{ name = 'static-operator-distribution'; module = 'PrescribedExtinction.StaticOperatorDistribution' },
+        @{ name = 'newton-current-fourier'; module = 'PrescribedExtinction.NewtonCurrentFourier' },
+        @{ name = 'newton-static-identification'; module = 'PrescribedExtinction.NewtonStaticIdentification' }
     )
+    if ($Only) {
+        foreach ($oq7Name in $Only) {
+            if ($oq7Name -notin $oq7Milestones.name) { throw "Unknown milestone: $oq7Name" }
+        }
+        $oq7Milestones = @($oq7Milestones | Where-Object { $_.name -in $Only })
+    }
     foreach ($oq7Milestone in $oq7Milestones) {
         $oq7Directory = Join-Path 'verification/milestones' $oq7Milestone.name
         & lake build $oq7Milestone.module 2>&1 | Set-Content -LiteralPath (Join-Path $oq7Directory 'build.log') -Encoding utf8

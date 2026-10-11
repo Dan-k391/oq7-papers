@@ -1,0 +1,57 @@
+OQ7Prescribed.compactPolarization_current_hasCompactSupport : ∀ (p : OQ7Prescribed.CompactPolarization),
+  HasCompactSupport p.current
+'OQ7Prescribed.compactPolarization_current_hasCompactSupport' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.compactPolarization_current_integrable : ∀ (p : OQ7Prescribed.CompactPolarization),
+  MeasureTheory.Integrable p.current MeasureTheory.volume
+'OQ7Prescribed.compactPolarization_current_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.current_component_integrable : ∀ (p : OQ7Prescribed.CompactPolarization) (i : Fin 3),
+  MeasureTheory.Integrable (fun y => (p.current y).ofLp i) MeasureTheory.volume
+'OQ7Prescribed.current_component_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.cutoffGreen_integrable : ∀ (k T : ℝ),
+  MeasureTheory.Integrable (OQ7Prescribed.cutoffGreen k T) MeasureTheory.volume
+'OQ7Prescribed.cutoffGreen_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.newtonCurrentCorrelation : OQ7Prescribed.CompactPolarization →
+  OQ7Prescribed.ScalarTest → Fin 3 → OQ7Prescribed.Position → ℂ
+'OQ7Prescribed.newtonCurrentCorrelation' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.scalarTest_support_radius : ∀ (φ : OQ7Prescribed.ScalarTest),
+  ∃ S, 0 < S ∧ ∀ (x : OQ7Prescribed.Position), φ x ≠ 0 → ‖x‖ ≤ S
+'OQ7Prescribed.scalarTest_support_radius' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.newton_current_pairing_integrand_cutoff : ∀ (p : OQ7Prescribed.CompactPolarization)
+  (φ : OQ7Prescribed.ScalarTest) (i : Fin 3) (S : ℝ),
+  (∀ (x : OQ7Prescribed.Position), φ x ≠ 0 → ‖x‖ ≤ S) →
+    ∀ (x y : OQ7Prescribed.Position),
+      ↑(φ x) * OQ7Prescribed.outgoingGreen 0 (x - y) * (p.current y).ofLp i =
+        ↑(φ x) * OQ7Prescribed.cutoffGreen 0 (S + p.radius) (x - y) * (p.current y).ofLp i
+'OQ7Prescribed.newton_current_pairing_integrand_cutoff' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.newton_current_test_joint_integrable : ∀ (p : OQ7Prescribed.CompactPolarization)
+  (φ : OQ7Prescribed.ScalarTest) (i : Fin 3),
+  MeasureTheory.Integrable (fun q => ↑(φ q.1) * OQ7Prescribed.outgoingGreen 0 (q.1 - q.2) * (p.current q.2).ofLp i)
+    (MeasureTheory.volume.prod MeasureTheory.volume)
+'OQ7Prescribed.newton_current_test_joint_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.newton_current_correlation_joint_integrable : ∀ (p : OQ7Prescribed.CompactPolarization)
+  (φ : OQ7Prescribed.ScalarTest) (i : Fin 3),
+  MeasureTheory.Integrable (fun q => ↑(φ (q.1 + q.2)) * OQ7Prescribed.outgoingGreen 0 q.1 * (p.current q.2).ofLp i)
+    (MeasureTheory.volume.prod MeasureTheory.volume)
+'OQ7Prescribed.newton_current_correlation_joint_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.outgoingPotential_zero_component_integral : ∀ (p : OQ7Prescribed.CompactPolarization) (i : Fin 3)
+  (x : OQ7Prescribed.Position),
+  (OQ7Prescribed.outgoingPotential 0 p x).ofLp i =
+    ∫ (y : OQ7Prescribed.Position), OQ7Prescribed.outgoingGreen 0 (x - y) * (p.current y).ofLp i
+'OQ7Prescribed.outgoingPotential_zero_component_integral' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.potentialComponentDistribution_zero_apply_integral : ∀ (p : OQ7Prescribed.CompactPolarization) (i : Fin 3)
+  (φ : OQ7Prescribed.ScalarTest),
+  (OQ7Prescribed.potentialComponentDistribution 0 p i) φ =
+    ∫ (x : OQ7Prescribed.Position), ↑(φ x) * (OQ7Prescribed.outgoingPotential 0 p x).ofLp i
+'OQ7Prescribed.potentialComponentDistribution_zero_apply_integral' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+OQ7Prescribed.newton_current_correlation_pairing_integrable : ∀ (p : OQ7Prescribed.CompactPolarization)
+  (φ : OQ7Prescribed.ScalarTest) (i : Fin 3),
+  MeasureTheory.Integrable (fun z => OQ7Prescribed.outgoingGreen 0 z * OQ7Prescribed.newtonCurrentCorrelation p φ i z)
+    MeasureTheory.volume
+'OQ7Prescribed.newton_current_correlation_pairing_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.potentialComponentDistribution_newton_pairing : ∀ (p : OQ7Prescribed.CompactPolarization)
+  (φ : OQ7Prescribed.ScalarTest) (i : Fin 3),
+  (OQ7Prescribed.potentialComponentDistribution 0 p i) φ =
+    ∫ (z : OQ7Prescribed.Position), OQ7Prescribed.outgoingGreen 0 z * OQ7Prescribed.newtonCurrentCorrelation p φ i z
+'OQ7Prescribed.potentialComponentDistribution_newton_pairing' depends on axioms: [propext, Classical.choice, Quot.sound]

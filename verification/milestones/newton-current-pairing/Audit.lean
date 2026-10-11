@@ -1,0 +1,28 @@
+import PrescribedExtinction.NewtonCurrentPairing
+
+#check @OQ7Prescribed.compactPolarization_current_hasCompactSupport
+#print axioms OQ7Prescribed.compactPolarization_current_hasCompactSupport
+#check @OQ7Prescribed.compactPolarization_current_integrable
+#print axioms OQ7Prescribed.compactPolarization_current_integrable
+#check @OQ7Prescribed.current_component_integrable
+#print axioms OQ7Prescribed.current_component_integrable
+#check @OQ7Prescribed.cutoffGreen_integrable
+#print axioms OQ7Prescribed.cutoffGreen_integrable
+#check @OQ7Prescribed.newtonCurrentCorrelation
+#print axioms OQ7Prescribed.newtonCurrentCorrelation
+#check @OQ7Prescribed.scalarTest_support_radius
+#print axioms OQ7Prescribed.scalarTest_support_radius
+#check @OQ7Prescribed.newton_current_pairing_integrand_cutoff
+#print axioms OQ7Prescribed.newton_current_pairing_integrand_cutoff
+#check @OQ7Prescribed.newton_current_test_joint_integrable
+#print axioms OQ7Prescribed.newton_current_test_joint_integrable
+#check @OQ7Prescribed.newton_current_correlation_joint_integrable
+#print axioms OQ7Prescribed.newton_current_correlation_joint_integrable
+#check @OQ7Prescribed.outgoingPotential_zero_component_integral
+#print axioms OQ7Prescribed.outgoingPotential_zero_component_integral
+#check @OQ7Prescribed.potentialComponentDistribution_zero_apply_integral
+#print axioms OQ7Prescribed.potentialComponentDistribution_zero_apply_integral
+#check @OQ7Prescribed.newton_current_correlation_pairing_integrable
+#print axioms OQ7Prescribed.newton_current_correlation_pairing_integrable
+#check @OQ7Prescribed.potentialComponentDistribution_newton_pairing
+#print axioms OQ7Prescribed.potentialComponentDistribution_newton_pairing

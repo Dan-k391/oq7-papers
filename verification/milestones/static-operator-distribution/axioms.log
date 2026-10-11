@@ -1,0 +1,52 @@
+OQ7Prescribed.vectorL2_locallyIntegrable : ∀ (f : ↥OQ7Prescribed.VectorL2),
+  MeasureTheory.LocallyIntegrable (fun x => ↑↑f x) MeasureTheory.volume
+'OQ7Prescribed.vectorL2_locallyIntegrable' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.vectorL2Distribution : ↥OQ7Prescribed.VectorL2 → OQ7Prescribed.VectorDistribution
+'OQ7Prescribed.vectorL2Distribution' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.vectorL2Distribution_apply : ∀ (f : ↥OQ7Prescribed.VectorL2) (φ : OQ7Prescribed.ScalarTest),
+  (OQ7Prescribed.vectorL2Distribution f) φ = ∫ (x : OQ7Prescribed.Position), φ x • ↑↑f x
+'OQ7Prescribed.vectorL2Distribution_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.vectorL2Distribution_tempered : ∀ (f : ↥OQ7Prescribed.VectorL2) (φ : OQ7Prescribed.ScalarTest),
+  (OQ7Prescribed.vectorL2Distribution f) φ =
+    (MeasureTheory.Lp.toTemperedDistribution f) (OQ7Prescribed.scalarTestSchwartz φ)
+'OQ7Prescribed.vectorL2Distribution_tempered' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.vectorL2ComponentDistribution : ↥OQ7Prescribed.VectorL2 → Fin 3 → OQ7Prescribed.ScalarDistribution
+'OQ7Prescribed.vectorL2ComponentDistribution' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.vectorL2ComponentDistribution_apply : ∀ (f : ↥OQ7Prescribed.VectorL2) (i : Fin 3)
+  (φ : OQ7Prescribed.ScalarTest),
+  (OQ7Prescribed.vectorL2ComponentDistribution f i) φ = (∫ (x : OQ7Prescribed.Position), φ x • ↑↑f x).ofLp i
+'OQ7Prescribed.vectorL2ComponentDistribution_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.staticFourierOperator_tempered_apply : ∀ (f : ↥OQ7Prescribed.VectorL2)
+  (φ : SchwartzMap OQ7Prescribed.Position ℂ),
+  (MeasureTheory.Lp.toTemperedDistribution (OQ7Prescribed.staticFourierOperator f)) φ =
+    ∫ (ξ : OQ7Prescribed.Position),
+      (FourierTransformInv.fourierInv φ) ξ • (OQ7Prescribed.staticSymbol ξ) (↑↑(FourierTransform.fourier f) ξ)
+'OQ7Prescribed.staticFourierOperator_tempered_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.staticFourierOperator_distribution_apply : ∀ (f : ↥OQ7Prescribed.VectorL2) (φ : OQ7Prescribed.ScalarTest),
+  (OQ7Prescribed.vectorL2Distribution (OQ7Prescribed.staticFourierOperator f)) φ =
+    ∫ (ξ : OQ7Prescribed.Position),
+      (FourierTransformInv.fourierInv (OQ7Prescribed.scalarTestSchwartz φ)) ξ •
+        (OQ7Prescribed.staticSymbol ξ) (↑↑(FourierTransform.fourier f) ξ)
+'OQ7Prescribed.staticFourierOperator_distribution_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.staticFourierOperator_pairing_integrable : ∀ (f : ↥OQ7Prescribed.VectorL2)
+  (φ : SchwartzMap OQ7Prescribed.Position ℂ),
+  MeasureTheory.Integrable (fun ξ => φ ξ • (OQ7Prescribed.staticSymbol ξ) (↑↑f ξ)) MeasureTheory.volume
+'OQ7Prescribed.staticFourierOperator_pairing_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.staticFourierOperator_entry_pairing_integrable : ∀ (f : ↥OQ7Prescribed.VectorL2)
+  (φ : SchwartzMap OQ7Prescribed.Position ℂ) (i j : Fin 3),
+  MeasureTheory.Integrable (fun ξ => φ ξ * OQ7Prescribed.newtonHessianFrequency i j ξ * (↑↑f ξ).ofLp j)
+    MeasureTheory.volume
+'OQ7Prescribed.staticFourierOperator_entry_pairing_integrable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+OQ7Prescribed.staticFourierOperator_component_distribution_apply : ∀ (f : ↥OQ7Prescribed.VectorL2) (i : Fin 3)
+  (φ : OQ7Prescribed.ScalarTest),
+  (OQ7Prescribed.vectorL2ComponentDistribution (OQ7Prescribed.staticFourierOperator f) i) φ =
+    ∑ j,
+      ∫ (ξ : OQ7Prescribed.Position),
+        (FourierTransformInv.fourierInv (OQ7Prescribed.scalarTestSchwartz φ)) ξ *
+            OQ7Prescribed.newtonHessianFrequency i j ξ *
+          (↑↑(FourierTransform.fourier f) ξ).ofLp j
+'OQ7Prescribed.staticFourierOperator_component_distribution_apply' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

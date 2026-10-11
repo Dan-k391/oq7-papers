@@ -1,0 +1,30 @@
+import PrescribedExtinction.NewtonCurrentCorrelation
+
+#check @OQ7Prescribed.reflectedCurrentComponent
+#print axioms OQ7Prescribed.reflectedCurrentComponent
+#check @OQ7Prescribed.reflectedCurrentComponent_integrable
+#print axioms OQ7Prescribed.reflectedCurrentComponent_integrable
+#check @OQ7Prescribed.reflectedCurrentComponent_hasCompactSupport
+#print axioms OQ7Prescribed.reflectedCurrentComponent_hasCompactSupport
+#check @OQ7Prescribed.scalarTestSchwartz_hasCompactSupport
+#print axioms OQ7Prescribed.scalarTestSchwartz_hasCompactSupport
+#check @OQ7Prescribed.newtonCurrentCorrelation_eq_convolution
+#print axioms OQ7Prescribed.newtonCurrentCorrelation_eq_convolution
+#check @OQ7Prescribed.newtonCurrentCorrelation_hasCompactSupport
+#print axioms OQ7Prescribed.newtonCurrentCorrelation_hasCompactSupport
+#check @OQ7Prescribed.newtonCurrentCorrelation_contDiff
+#print axioms OQ7Prescribed.newtonCurrentCorrelation_contDiff
+#check @OQ7Prescribed.scalarTestSchwartz_fderiv_basis
+#print axioms OQ7Prescribed.scalarTestSchwartz_fderiv_basis
+#check @OQ7Prescribed.newtonCurrentCorrelation_hasLineDerivAt
+#print axioms OQ7Prescribed.newtonCurrentCorrelation_hasLineDerivAt
+#check @OQ7Prescribed.newtonCurrentCorrelation_lineDeriv
+#print axioms OQ7Prescribed.newtonCurrentCorrelation_lineDeriv
+#check @OQ7Prescribed.newtonCurrentCorrelationSchwartz
+#print axioms OQ7Prescribed.newtonCurrentCorrelationSchwartz
+#check @OQ7Prescribed.newtonCurrentCorrelationSchwartz_apply
+#print axioms OQ7Prescribed.newtonCurrentCorrelationSchwartz_apply
+#check @OQ7Prescribed.newtonCurrentCorrelationSchwartz_partial
+#print axioms OQ7Prescribed.newtonCurrentCorrelationSchwartz_partial
+#check @OQ7Prescribed.newtonCurrentCorrelationSchwartz_secondPartial
+#print axioms OQ7Prescribed.newtonCurrentCorrelationSchwartz_secondPartial

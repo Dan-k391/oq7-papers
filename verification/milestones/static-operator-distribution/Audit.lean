@@ -1,0 +1,24 @@
+import PrescribedExtinction.StaticOperatorDistribution
+
+#check @OQ7Prescribed.vectorL2_locallyIntegrable
+#print axioms OQ7Prescribed.vectorL2_locallyIntegrable
+#check @OQ7Prescribed.vectorL2Distribution
+#print axioms OQ7Prescribed.vectorL2Distribution
+#check @OQ7Prescribed.vectorL2Distribution_apply
+#print axioms OQ7Prescribed.vectorL2Distribution_apply
+#check @OQ7Prescribed.vectorL2Distribution_tempered
+#print axioms OQ7Prescribed.vectorL2Distribution_tempered
+#check @OQ7Prescribed.vectorL2ComponentDistribution
+#print axioms OQ7Prescribed.vectorL2ComponentDistribution
+#check @OQ7Prescribed.vectorL2ComponentDistribution_apply
+#print axioms OQ7Prescribed.vectorL2ComponentDistribution_apply
+#check @OQ7Prescribed.staticFourierOperator_tempered_apply
+#print axioms OQ7Prescribed.staticFourierOperator_tempered_apply
+#check @OQ7Prescribed.staticFourierOperator_distribution_apply
+#print axioms OQ7Prescribed.staticFourierOperator_distribution_apply
+#check @OQ7Prescribed.staticFourierOperator_pairing_integrable
+#print axioms OQ7Prescribed.staticFourierOperator_pairing_integrable
+#check @OQ7Prescribed.staticFourierOperator_entry_pairing_integrable
+#print axioms OQ7Prescribed.staticFourierOperator_entry_pairing_integrable
+#check @OQ7Prescribed.staticFourierOperator_component_distribution_apply
+#print axioms OQ7Prescribed.staticFourierOperator_component_distribution_apply

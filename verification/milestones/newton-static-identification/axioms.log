@@ -1,0 +1,34 @@
+OQ7Prescribed.potentialComponentDistribution_newtonTempered : ∀ (p : OQ7Prescribed.CompactPolarization)
+  (φ : OQ7Prescribed.ScalarTest) (j : Fin 3),
+  (OQ7Prescribed.potentialComponentDistribution 0 p j) φ =
+    OQ7Prescribed.newtonTempered (OQ7Prescribed.newtonCurrentCorrelationSchwartz p φ j)
+'OQ7Prescribed.potentialComponentDistribution_newtonTempered' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.outgoingVolumeDistribution_zero_hessian_pairing : ∀ (p : OQ7Prescribed.CompactPolarization) (i : Fin 3)
+  (φ : OQ7Prescribed.ScalarTest),
+  (OQ7Prescribed.outgoingVolumeDistribution 0 p i) φ =
+    ∑ j, (OQ7Prescribed.newtonTemperedHessian i j) (OQ7Prescribed.newtonCurrentCorrelationSchwartz p φ j)
+'OQ7Prescribed.outgoingVolumeDistribution_zero_hessian_pairing' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+OQ7Prescribed.newtonHessian_current_fourier_pairing : ∀ (p : OQ7Prescribed.CompactPolarization) (i j : Fin 3)
+  (φ : OQ7Prescribed.ScalarTest),
+  (OQ7Prescribed.newtonTemperedHessian i j) (OQ7Prescribed.newtonCurrentCorrelationSchwartz p φ j) =
+    ∫ (ξ : OQ7Prescribed.Position),
+      (FourierTransformInv.fourierInv (OQ7Prescribed.scalarTestSchwartz φ)) ξ *
+          OQ7Prescribed.newtonHessianFrequency i j ξ *
+        (FourierTransform.fourier p.current ξ).ofLp j
+'OQ7Prescribed.newtonHessian_current_fourier_pairing' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.outgoingVolumeDistribution_zero_eq_staticFourier : ∀ (p : OQ7Prescribed.CompactPolarization) (i : Fin 3),
+  OQ7Prescribed.outgoingVolumeDistribution 0 p i =
+    OQ7Prescribed.vectorL2ComponentDistribution
+      (OQ7Prescribed.staticFourierOperator (MeasureTheory.MemLp.toLp p.current ⋯)) i
+'OQ7Prescribed.outgoingVolumeDistribution_zero_eq_staticFourier' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+OQ7Prescribed.outgoingVolumeDistribution_zero_bounded_L2_realization : ∀ (p : OQ7Prescribed.CompactPolarization),
+  ∃ u,
+    (∀ (i : Fin 3), OQ7Prescribed.outgoingVolumeDistribution 0 p i = OQ7Prescribed.vectorL2ComponentDistribution u i) ∧
+      ‖u‖ ≤ ‖MeasureTheory.MemLp.toLp p.current ⋯‖
+'OQ7Prescribed.outgoingVolumeDistribution_zero_bounded_L2_realization' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

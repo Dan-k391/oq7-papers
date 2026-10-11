@@ -180,6 +180,21 @@ run_cmd do
         'OQ7Prescribed.newtonPVValue_continuous', 'OQ7Prescribed.newton_hessian_contact_distribution')) {
         if ($oq7Required -notin $oq7NewKernelTheorems) { throw "Missing completed contact obligation: $oq7Required" }
     }
+    foreach ($oq7Saved in (Get-Content 'sources/pre-static-source-hashes.json' -Raw | ConvertFrom-Json)) {
+        if ((Get-FileHash -LiteralPath $oq7Saved.file -Algorithm SHA256).Hash -ne $oq7Saved.sha256) {
+            throw "Preserved Fourier milestone source differs: $($oq7Saved.file)"
+        }
+    }
+    $oq7StaticRoot = [IO.File]::ReadAllBytes((Join-Path $PSScriptRoot 'sources/pre-static-PrescribedExtinction.lean'))
+    if ($oq7CurrentRoot.Length -lt $oq7StaticRoot.Length) { throw 'Fourier aggregate source truncated.' }
+    for ($oq7ByteIndex = 0; $oq7ByteIndex -lt $oq7StaticRoot.Length; $oq7ByteIndex++) {
+        if ($oq7CurrentRoot[$oq7ByteIndex] -ne $oq7StaticRoot[$oq7ByteIndex]) { throw 'Fourier aggregate imports changed.' }
+    }
+    foreach ($oq7Required in @('OQ7Prescribed.outgoingVolumeDistribution_zero_eq_staticFourier',
+        'OQ7Prescribed.outgoingVolumeDistribution_zero_bounded_L2_realization',
+        'OQ7Prescribed.fourierIntegral_L1L2_ae')) {
+        if ($oq7Required -notin $oq7NewKernelTheorems) { throw "Missing physical static obligation: $oq7Required" }
+    }
     if ($oq7PdfHash -ne '3D9775D849234E828370D7C96D8BDCDD574BEB6831A7906EA6B7706579868710') { throw 'Manuscript hash differs.' }
     $oq7TargetHash = (Get-FileHash -LiteralPath 'PrescribedExtinction/Maxwell.lean' -Algorithm SHA256).Hash
     if ($oq7TargetHash -ne '071C04ED9417A1D9AC842D61B545183627E6F997C7C1899F908871608859ABF6') {
@@ -217,11 +232,13 @@ run_cmd do
         allPrePuncturedLeanModulesUnchanged = $true
         allLeanModulesFromCommit6874b49Unchanged = $true
         baselineCommit = '6874b492e8d49d2303bb25aa12248b489c9ad13a'
+        allLeanModulesFromCommit8301ddaUnchanged = $true
+        staticContinuationBaselineCommit = '8301dda82eaf84611a4a40982f77dc2787b16861'
         newtonScalarTemperedFourierVerified = $true
         newtonHessianTemperedFourierVerified = $true
         zeroFrequencySymbolNullSetVerified = $true
-        staticPhysicalVolumeOperatorOnSmoothCurrentsVerified = $false
-        staticPhysicalVolumeOperatorOnCompactL2CurrentsVerified = $false
+        staticPhysicalVolumeOperatorOnSmoothCurrentsVerified = $true
+        staticPhysicalVolumeOperatorOnCompactL2CurrentsVerified = $true
         newtonPuncturedDoubleIntegrationByPartsVerified = $true
         newtonInnerNormalSignsVerified = $true
         newtonOuterBoundaryVanishesVerified = $true
@@ -231,7 +248,7 @@ run_cmd do
         newtonAngularBoundaryLimitsVerified = $true
         newtonPrincipalValueConvergenceVerified = $true
         newtonPrincipalValueIsBundledDistribution = $true
-        staticNewtonIdentificationVerified = $false
+        staticNewtonIdentificationVerified = $true
         targetSourceSHA256 = $oq7TargetHash
         verifiedAtUTC = [DateTime]::UtcNow.ToString('o')
         lean = $oq7Version
@@ -254,7 +271,7 @@ run_cmd do
         foundationalMilestones = @(
             @{ module = 'PrescribedExtinction.GreenKernel'; scope = 'Actual scalar kernel local L1/L2 integrability and distributional dyadic test formula; Newton contact identified in NewtonContact'; physicalContactCoefficientVerified = $true; positiveFrequencyOutgoingContactIdentityVerified = $false },
             @{ module = 'PrescribedExtinction.VolumePotential'; scope = 'Actual convolution exists for every compact vector L2 current; finite local bound; locally integrable potential; distributional volume formula and additivity'; boundedDyadicL2OperatorVerified = $false },
-            @{ module = 'PrescribedExtinction.StaticFourier'; scope = 'Explicit static Fourier multiplier is an L2 contraction and has zero imaginary quadratic form'; identificationWithNewtonVolumePotentialVerified = $false },
+            @{ module = 'PrescribedExtinction.StaticFourier'; scope = 'Explicit static Fourier multiplier is an L2 contraction and has zero imaginary quadratic form; physical identity proved in NewtonStaticIdentification'; identificationWithNewtonVolumePotentialVerified = $true },
             @{ module = 'PrescribedExtinction.OutgoingRadial'; scope = 'Actual Newton and outgoing radial derivatives and classical Hessian away from origin; Newton distributional contact identified in NewtonContact'; physicalContactCoefficientVerified = $true; positiveFrequencyOutgoingContactIdentityVerified = $false },
             @{ module = 'PrescribedExtinction.RemainderConvolution'; scope = 'Actual classical dyadic dynamic-minus-static cancellation; explicit inverse-distance norm estimate; cutoff L2 kernel; actual convolution, compact-domain L2 bound, ae invariance and complex linearity'; identificationWithDistributionalDifferenceVerified = $false; fullPhysicalDyadicOperatorVerified = $false },
             @{ module = 'PrescribedExtinction.SphereMoments'; scope = 'Actual polar angular measure, orthogonal invariance, area 4pi and exact second moments'; actualSphereMomentsVerified = $true },
@@ -263,11 +280,11 @@ run_cmd do
             @{ module = 'PrescribedExtinction.NewtonCutoffIBP'; scope = 'Actual smooth radial cutoff, exact derivative mass and whole-space Newton/gradient integration by parts for original test functions'; cutoffIntegrationByPartsVerified = $true },
             @{ module = 'PrescribedExtinction.NewtonShell'; scope = 'Actual exterior cutoff convergence, integrable polar conversion, radial shell rescaling and normalized shell limit'; radialShellLimitVerified = $true },
             @{ module = 'PrescribedExtinction.NewtonContact'; scope = 'Exact finite-radius punctured double integration by parts, inward-normal signs and vanishing outer boundaries; full Newton Hessian principal-value/contact identity; actual integral-valued principal value is a continuous distribution'; fullDistributionalHessianIdentityVerified = $true; staticFourierIdentificationVerified = $false },
-            @{ module = 'PrescribedExtinction.NewtonTransform'; scope = 'Actual scalar Newton and full contact Hessian Fourier correspondence on all Schwartz tests; both heat interchanges absolutely integrable; zero-frequency handled globally'; kernelFourierCorrespondenceVerified = $true; compactCurrentConvolutionIdentificationVerified = $false }
+            @{ module = 'PrescribedExtinction.NewtonTransform'; scope = 'Actual scalar Newton and full contact Hessian Fourier correspondence on all Schwartz tests; both heat interchanges absolutely integrable; zero-frequency handled globally'; kernelFourierCorrespondenceVerified = $true },
+            @{ module = 'PrescribedExtinction.NewtonStaticIdentification'; scope = 'Actual original Newton volume distribution equals staticFourierOperator on every compactly supported vector L2 current; genuine current/test Fubini, smooth correlation, Fourier L1-L2 compatibility, and bounded physical L2 realization'; compactCurrentConvolutionIdentificationVerified = $true; physicalStaticOperatorVerified = $true }
         )
         unverifiedDependencies = @('3D outgoing Maxwell existence and uniqueness',
             'Scalar distributional Helmholtz fundamental-solution identity',
-            'Compact-current convolution/test Fubini, correlation differentiation, L1-L2 Fourier compatibility, and identification of the static Fourier operator with the actual Newton volume operator (kernel Fourier correspondence proved)',
             'Distributional dynamic-minus-static identification and bounded L2 realization/restriction of the full dyadic operator (classical remainder estimate and convolution bound proved)',
             'Volume representation equivalence to weak Maxwell, regularity and Silver-Muller radiation',
             'Full radiation identity, optical theorem, reciprocity and power balance',

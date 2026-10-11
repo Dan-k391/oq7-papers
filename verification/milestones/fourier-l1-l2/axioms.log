@@ -1,0 +1,21 @@
+@OQ7Prescribed.fourierIntegral_L1L2_schwartz_pairing : ∀ {F : Type u_1} [inst : NormedAddCommGroup F]
+  [inst_1 : InnerProductSpace ℂ F] [inst_2 : CompleteSpace F] {f : OQ7Prescribed.Position → F},
+  MeasureTheory.MemLp f 1 MeasureTheory.volume →
+    ∀ (hf2 : MeasureTheory.MemLp f 2 MeasureTheory.volume) (φ : SchwartzMap OQ7Prescribed.Position ℂ),
+      ∫ (ξ : OQ7Prescribed.Position), φ ξ • FourierTransform.fourier f ξ =
+        ∫ (ξ : OQ7Prescribed.Position),
+          φ ξ • ↑↑((MeasureTheory.Lp.fourierTransformₗᵢ OQ7Prescribed.Position F) (MeasureTheory.MemLp.toLp f hf2)) ξ
+'OQ7Prescribed.fourierIntegral_L1L2_schwartz_pairing' depends on axioms: [propext, Classical.choice, Quot.sound]
+@OQ7Prescribed.fourierIntegral_L1L2_ae : ∀ {F : Type u_1} [inst : NormedAddCommGroup F] [inst_1 : InnerProductSpace ℂ F]
+  [inst_2 : CompleteSpace F] {f : OQ7Prescribed.Position → F},
+  MeasureTheory.MemLp f 1 MeasureTheory.volume →
+    ∀ (hf2 : MeasureTheory.MemLp f 2 MeasureTheory.volume),
+      FourierTransform.fourier f =ᵐ[MeasureTheory.volume]
+        ↑↑((MeasureTheory.Lp.fourierTransformₗᵢ OQ7Prescribed.Position F) (MeasureTheory.MemLp.toLp f hf2))
+'OQ7Prescribed.fourierIntegral_L1L2_ae' depends on axioms: [propext, Classical.choice, Quot.sound]
+@OQ7Prescribed.fourierIntegral_L1L2_memLp : ∀ {F : Type u_1} [inst : NormedAddCommGroup F]
+  [inst_1 : InnerProductSpace ℂ F] [CompleteSpace F] {f : OQ7Prescribed.Position → F},
+  MeasureTheory.MemLp f 1 MeasureTheory.volume →
+    MeasureTheory.MemLp f 2 MeasureTheory.volume →
+      MeasureTheory.MemLp (FourierTransform.fourier f) 2 MeasureTheory.volume
+'OQ7Prescribed.fourierIntegral_L1L2_memLp' depends on axioms: [propext, Classical.choice, Quot.sound]

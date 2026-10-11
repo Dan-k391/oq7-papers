@@ -1,0 +1,57 @@
+OQ7Prescribed.reflectedCurrentComponent : OQ7Prescribed.CompactPolarization → Fin 3 → OQ7Prescribed.Position → ℂ
+'OQ7Prescribed.reflectedCurrentComponent' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.reflectedCurrentComponent_integrable : ∀ (p : OQ7Prescribed.CompactPolarization) (j : Fin 3),
+  MeasureTheory.Integrable (OQ7Prescribed.reflectedCurrentComponent p j) MeasureTheory.volume
+'OQ7Prescribed.reflectedCurrentComponent_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.reflectedCurrentComponent_hasCompactSupport : ∀ (p : OQ7Prescribed.CompactPolarization) (j : Fin 3),
+  HasCompactSupport (OQ7Prescribed.reflectedCurrentComponent p j)
+'OQ7Prescribed.reflectedCurrentComponent_hasCompactSupport' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.scalarTestSchwartz_hasCompactSupport : ∀ (φ : OQ7Prescribed.ScalarTest),
+  HasCompactSupport ⇑(OQ7Prescribed.scalarTestSchwartz φ)
+'OQ7Prescribed.scalarTestSchwartz_hasCompactSupport' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.newtonCurrentCorrelation_eq_convolution : ∀ (p : OQ7Prescribed.CompactPolarization)
+  (φ : OQ7Prescribed.ScalarTest) (j : Fin 3),
+  OQ7Prescribed.newtonCurrentCorrelation p φ j =
+    MeasureTheory.convolution (OQ7Prescribed.reflectedCurrentComponent p j) (⇑(OQ7Prescribed.scalarTestSchwartz φ))
+      (ContinuousLinearMap.mul ℝ ℂ) MeasureTheory.volume
+'OQ7Prescribed.newtonCurrentCorrelation_eq_convolution' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.newtonCurrentCorrelation_hasCompactSupport : ∀ (p : OQ7Prescribed.CompactPolarization)
+  (φ : OQ7Prescribed.ScalarTest) (j : Fin 3), HasCompactSupport (OQ7Prescribed.newtonCurrentCorrelation p φ j)
+'OQ7Prescribed.newtonCurrentCorrelation_hasCompactSupport' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.newtonCurrentCorrelation_contDiff : ∀ (p : OQ7Prescribed.CompactPolarization)
+  (φ : OQ7Prescribed.ScalarTest) (j : Fin 3), ContDiff ℝ (↑⊤) (OQ7Prescribed.newtonCurrentCorrelation p φ j)
+'OQ7Prescribed.newtonCurrentCorrelation_contDiff' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.scalarTestSchwartz_fderiv_basis : ∀ (φ : OQ7Prescribed.ScalarTest) (i : Fin 3)
+  (x : OQ7Prescribed.Position),
+  (fderiv ℝ (⇑(OQ7Prescribed.scalarTestSchwartz φ)) x) (OQ7Prescribed.basisR i) = ↑(((OQ7Prescribed.testPartial i) φ) x)
+'OQ7Prescribed.scalarTestSchwartz_fderiv_basis' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.newtonCurrentCorrelation_hasLineDerivAt : ∀ (p : OQ7Prescribed.CompactPolarization)
+  (φ : OQ7Prescribed.ScalarTest) (j i : Fin 3) (z : OQ7Prescribed.Position),
+  HasLineDerivAt ℝ (OQ7Prescribed.newtonCurrentCorrelation p φ j)
+    (OQ7Prescribed.newtonCurrentCorrelation p ((OQ7Prescribed.testPartial i) φ) j z) z (OQ7Prescribed.basisR i)
+'OQ7Prescribed.newtonCurrentCorrelation_hasLineDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.newtonCurrentCorrelation_lineDeriv : ∀ (p : OQ7Prescribed.CompactPolarization)
+  (φ : OQ7Prescribed.ScalarTest) (j i : Fin 3) (z : OQ7Prescribed.Position),
+  lineDeriv ℝ (OQ7Prescribed.newtonCurrentCorrelation p φ j) z (OQ7Prescribed.basisR i) =
+    OQ7Prescribed.newtonCurrentCorrelation p ((OQ7Prescribed.testPartial i) φ) j z
+'OQ7Prescribed.newtonCurrentCorrelation_lineDeriv' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.newtonCurrentCorrelationSchwartz : OQ7Prescribed.CompactPolarization →
+  OQ7Prescribed.ScalarTest → Fin 3 → SchwartzMap OQ7Prescribed.Position ℂ
+'OQ7Prescribed.newtonCurrentCorrelationSchwartz' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.newtonCurrentCorrelationSchwartz_apply : ∀ (p : OQ7Prescribed.CompactPolarization)
+  (φ : OQ7Prescribed.ScalarTest) (j : Fin 3) (z : OQ7Prescribed.Position),
+  (OQ7Prescribed.newtonCurrentCorrelationSchwartz p φ j) z = OQ7Prescribed.newtonCurrentCorrelation p φ j z
+'OQ7Prescribed.newtonCurrentCorrelationSchwartz_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.newtonCurrentCorrelationSchwartz_partial : ∀ (p : OQ7Prescribed.CompactPolarization)
+  (φ : OQ7Prescribed.ScalarTest) (j i : Fin 3),
+  LineDeriv.lineDerivOp (OQ7Prescribed.basisR i) (OQ7Prescribed.newtonCurrentCorrelationSchwartz p φ j) =
+    OQ7Prescribed.newtonCurrentCorrelationSchwartz p ((OQ7Prescribed.testPartial i) φ) j
+'OQ7Prescribed.newtonCurrentCorrelationSchwartz_partial' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.newtonCurrentCorrelationSchwartz_secondPartial : ∀ (p : OQ7Prescribed.CompactPolarization)
+  (φ : OQ7Prescribed.ScalarTest) (l i j : Fin 3),
+  LineDeriv.lineDerivOp (OQ7Prescribed.basisR j)
+      (LineDeriv.lineDerivOp (OQ7Prescribed.basisR i) (OQ7Prescribed.newtonCurrentCorrelationSchwartz p φ l)) =
+    OQ7Prescribed.newtonCurrentCorrelationSchwartz p ((OQ7Prescribed.testPartial j) ((OQ7Prescribed.testPartial i) φ)) l
+'OQ7Prescribed.newtonCurrentCorrelationSchwartz_secondPartial' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

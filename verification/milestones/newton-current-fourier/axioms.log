@@ -1,0 +1,21 @@
+OQ7Prescribed.current_component_fourier : ∀ (p : OQ7Prescribed.CompactPolarization) (j : Fin 3)
+  (ξ : OQ7Prescribed.Position),
+  FourierTransform.fourier (fun y => (p.current y).ofLp j) ξ = (FourierTransform.fourier p.current ξ).ofLp j
+'OQ7Prescribed.current_component_fourier' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.reflectedCurrentComponent_fourier_neg : ∀ (p : OQ7Prescribed.CompactPolarization) (j : Fin 3)
+  (ξ : OQ7Prescribed.Position),
+  FourierTransform.fourier (OQ7Prescribed.reflectedCurrentComponent p j) (-ξ) =
+    (FourierTransform.fourier p.current ξ).ofLp j
+'OQ7Prescribed.reflectedCurrentComponent_fourier_neg' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.newtonCurrentCorrelation_complex_convolution : ∀ (p : OQ7Prescribed.CompactPolarization)
+  (φ : OQ7Prescribed.ScalarTest) (j : Fin 3),
+  OQ7Prescribed.newtonCurrentCorrelation p φ j =
+    MeasureTheory.convolution (OQ7Prescribed.reflectedCurrentComponent p j) (⇑(OQ7Prescribed.scalarTestSchwartz φ))
+      (ContinuousLinearMap.mul ℂ ℂ) MeasureTheory.volume
+'OQ7Prescribed.newtonCurrentCorrelation_complex_convolution' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.newtonCurrentCorrelationSchwartz_fourierInv : ∀ (p : OQ7Prescribed.CompactPolarization)
+  (φ : OQ7Prescribed.ScalarTest) (j : Fin 3) (ξ : OQ7Prescribed.Position),
+  (FourierTransformInv.fourierInv (OQ7Prescribed.newtonCurrentCorrelationSchwartz p φ j)) ξ =
+    (FourierTransformInv.fourierInv (OQ7Prescribed.scalarTestSchwartz φ)) ξ *
+      (FourierTransform.fourier p.current ξ).ofLp j
+'OQ7Prescribed.newtonCurrentCorrelationSchwartz_fourierInv' depends on axioms: [propext, Classical.choice, Quot.sound]

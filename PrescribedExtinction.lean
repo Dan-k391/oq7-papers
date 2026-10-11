@@ -35,3 +35,9 @@ import PrescribedExtinction.NewtonHeatFourier
 import PrescribedExtinction.NewtonFrequencyHeat
 import PrescribedExtinction.NewtonTransform
 import PrescribedExtinction.NewtonSymbol
+import PrescribedExtinction.NewtonCurrentPairing
+import PrescribedExtinction.NewtonCurrentCorrelation
+import PrescribedExtinction.FourierL1L2
+import PrescribedExtinction.StaticOperatorDistribution
+import PrescribedExtinction.NewtonCurrentFourier
+import PrescribedExtinction.NewtonStaticIdentification
