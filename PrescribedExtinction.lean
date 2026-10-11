@@ -92,3 +92,7 @@ import PrescribedExtinction.RankOneScattering
 import PrescribedExtinction.PhysicalExtinctionWork
 import PrescribedExtinction.RotationResponse
 import PrescribedExtinction.RotationExtinction
+import PrescribedExtinction.PhysicalAbsorptionWork
+import PrescribedExtinction.RankOneAbsorption
+import PrescribedExtinction.InverseStability
+import PrescribedExtinction.PhysicalResponseStability

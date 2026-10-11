@@ -1,0 +1,18 @@
+import PrescribedExtinction.RankOneAbsorption
+import PrescribedExtinction.PhysicalResponseStability
+#check @OQ7Prescribed.physicalAbsorption_current_inner
+#print axioms OQ7Prescribed.physicalAbsorption_current_inner
+#check @OQ7Prescribed.physicalVolume_work_balance
+#print axioms OQ7Prescribed.physicalVolume_work_balance
+#check @OQ7Prescribed.physicalVolume_absorption_le_extinction
+#print axioms OQ7Prescribed.physicalVolume_absorption_le_extinction
+#check @OQ7Prescribed.activePhysicalAbsorption_work
+#print axioms OQ7Prescribed.activePhysicalAbsorption_work
+#check @OQ7Prescribed.activeInverseMaterial_loss_integral
+#print axioms OQ7Prescribed.activeInverseMaterial_loss_integral
+#check @OQ7Prescribed.physicalAbsorption_sine_squared_factorization
+#print axioms OQ7Prescribed.physicalAbsorption_sine_squared_factorization
+#check @OQ7Prescribed.normalizedActiveResponse_residual_bound
+#print axioms OQ7Prescribed.normalizedActiveResponse_residual_bound
+#check @OQ7Prescribed.normalizedActiveResponse_angle_difference_bound
+#print axioms OQ7Prescribed.normalizedActiveResponse_angle_difference_bound

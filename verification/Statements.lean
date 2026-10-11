@@ -7,14 +7,17 @@ import PrescribedExtinction
 #check @OQ7Prescribed.activeInjection_inner
 #check @OQ7Prescribed.activeInjection_norm
 #check @OQ7Prescribed.activeInverseMaterial_coe
+#check @OQ7Prescribed.activeInverseMaterial_loss_integral
 #check @OQ7Prescribed.activeInverseMaterial_negative_imaginary_bound
 #check @OQ7Prescribed.activeMaterialCoercivity_pos
 #check @OQ7Prescribed.activeMaterialEquiv_apply
 #check @OQ7Prescribed.activeMaterialEquiv_inverse_norm_le
 #check @OQ7Prescribed.activeMaterialOperator_imaginary_coercive
+#check @OQ7Prescribed.activePhysicalAbsorption_work
 #check @OQ7Prescribed.activePhysicalExtinction_work
 #check @OQ7Prescribed.activePhysicalSolution_equation
 #check @OQ7Prescribed.activePhysicalSolution_physicalVolumeEquation
+#check @OQ7Prescribed.activePhysicalSolution_projected_total
 #check @OQ7Prescribed.activePhysicalSolution_sine_factorization
 #check @OQ7Prescribed.activeProjectedIncident_sine_factorization
 #check @OQ7Prescribed.activeProjectedOutgoing_im_nonneg
@@ -42,6 +45,8 @@ import PrescribedExtinction
 #check @OQ7Prescribed.bodyCurrent_incident_work
 #check @OQ7Prescribed.bodyCurrentPolarization_current_ae
 #check @OQ7Prescribed.bodyDomain_isOpen
+#check @OQ7Prescribed.bodyField_memLp
+#check @OQ7Prescribed.bodyFieldCurrent_coe
 #check @OQ7Prescribed.bodyIncident_memLp
 #check @OQ7Prescribed.bodyIncidentCurrent_coe
 #check @OQ7Prescribed.bodyInverseSusceptibility_coe
@@ -50,6 +55,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.bodyOutgoingOperator_im_nonneg
 #check @OQ7Prescribed.bodyOutgoingOperator_inner
 #check @OQ7Prescribed.bodySupportRadius_nonneg
+#check @OQ7Prescribed.bodyVolumeTotalElectricCurrent_eq
 #check @OQ7Prescribed.classicalDyadic_coordinate
 #check @OQ7Prescribed.classicalDyadic_measurable
 #check @OQ7Prescribed.classicalDyadic_norm_le_far
@@ -104,6 +110,9 @@ import PrescribedExtinction
 #check @OQ7Prescribed.complexTestEval_sub
 #check @OQ7Prescribed.contDiff_lineDeriv_continuous
 #check @OQ7Prescribed.contDiff_test_ibp
+#check @OQ7Prescribed.continuousLinearEquiv_response_continuousAt
+#check @OQ7Prescribed.continuousLinearEquiv_response_difference_bound
+#check @OQ7Prescribed.continuousLinearEquiv_solution_residual_bound
 #check @OQ7Prescribed.coordinateReflect_apply
 #check @OQ7Prescribed.coordinateSwap_apply
 #check @OQ7Prescribed.cross_complexify_real_smul
@@ -440,7 +449,9 @@ import PrescribedExtinction
 #check @OQ7Prescribed.newtonTemperedHessian_fourier_eq
 #check @OQ7Prescribed.newtonTemperedHessian_fourier_integral
 #check @OQ7Prescribed.newtonTemperedHessian_scalarTest
+#check @OQ7Prescribed.normalizedActiveResponse_angle_difference_bound
 #check @OQ7Prescribed.normalizedActiveResponse_norm_le
+#check @OQ7Prescribed.normalizedActiveResponse_residual_bound
 #check @OQ7Prescribed.normalizedIncidentDrive_coe
 #check @OQ7Prescribed.orthogonalSphere_cone_preimage
 #check @OQ7Prescribed.orthogonalSphere_measurePreserving
@@ -517,6 +528,8 @@ import PrescribedExtinction
 #check @OQ7Prescribed.pairing_self
 #check @OQ7Prescribed.permittivity_one_outside
 #check @OQ7Prescribed.permittivity_reciprocal
+#check @OQ7Prescribed.physicalAbsorption_current_inner
+#check @OQ7Prescribed.physicalAbsorption_sine_squared_factorization
 #check @OQ7Prescribed.physicalExtinction_sine_squared_factorization
 #check @OQ7Prescribed.physicalOutgoingVolume_work_nonneg
 #check @OQ7Prescribed.physicalPolarization_indicator
@@ -527,6 +540,8 @@ import PrescribedExtinction
 #check @OQ7Prescribed.physicalSourceFields_first_weakCurl
 #check @OQ7Prescribed.physicalSourceFields_second_curl
 #check @OQ7Prescribed.physicalSourceFields_second_weakCurl
+#check @OQ7Prescribed.physicalVolume_absorption_le_extinction
+#check @OQ7Prescribed.physicalVolume_work_balance
 #check @OQ7Prescribed.planePhase_contDiff
 #check @OQ7Prescribed.planePhase_hasFDerivAt
 #check @OQ7Prescribed.planePhase_norm
@@ -749,6 +764,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.vectorL2Distribution_apply
 #check @OQ7Prescribed.vectorL2Distribution_tempered
 #check @OQ7Prescribed.vectorScalarMul_apply
+#check @OQ7Prescribed.volumeAbsorption_body_inner
 #check @OQ7Prescribed.volumeExtinction_current_work
 #check @OQ7Prescribed.volumeTotalElectric_locallySquareIntegrable
 #check @OQ7Prescribed.volumeTotalFields_weakMaxwell

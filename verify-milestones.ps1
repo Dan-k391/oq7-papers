@@ -59,7 +59,8 @@ try {
         @{ name = 'physical-scattering-existence'; module = 'PrescribedExtinction.ScatteringExistence' },
         @{ name = 'material-volume-uniqueness'; module = 'PrescribedExtinction.MaterialVolumeUniqueness' },
         @{ name = 'rank-one-physical-scattering'; module = 'PrescribedExtinction.RankOneScattering' },
-        @{ name = 'physical-rotation-extinction'; module = 'PrescribedExtinction.RotationExtinction' }
+        @{ name = 'physical-rotation-extinction'; module = 'PrescribedExtinction.RotationExtinction' },
+        @{ name = 'physical-rotation-absorption'; module = 'PrescribedExtinction.RankOneAbsorption' }
     )
     if ($Only) {
         foreach ($oq7Name in $Only) {

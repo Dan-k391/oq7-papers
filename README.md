@@ -24,8 +24,11 @@ remain unverified. These are required before Theorem 1.1 can be proved.
 For the manuscript's intermediate rank-one tensors, the exact physical
 scalar-current inverse is also verified, independently of aperture and
 rotation. The original projected drive and solved current factor as `sin theta`
-times normalized quantities, and the original physical extinction factors as
-`sin(theta)^2` times the normalized work. The auxiliary response is defined
+times normalized quantities, and the original physical extinction and absorption
+factor as `sin(theta)^2` times their normalized work and loss integrals. The
+actual volume solutions satisfy the physical work balance and absorption is
+at most extinction. A uniform residual bound controls normalized response
+errors. The auxiliary response is defined
 at zero rotation without division by a vanishing sine. Uniform aperture
 localization and the exact prescribed-extinction witness are still unproved.
 

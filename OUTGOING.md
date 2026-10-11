@@ -1,5 +1,18 @@
 # Physical outgoing volume operator
 
+`PhysicalAbsorptionWork.lean` identifies the original local dielectric
+absorption integral with total-field/current work and proves the exact
+physical work balance: extinction equals absorption plus outgoing-volume
+work. Proved outgoing positivity gives absorption at most extinction.
+`RankOneAbsorption.lean` identifies the active-material work with the exact
+local loss-weighted scalar-current integral and proves the original physical
+absorption's sine-squared factorization. The full angular radiation identity
+still must identify outgoing-volume work with the original scattering integral.
+`PhysicalResponseStability.lean` supplies quantitative residual and angle
+response estimates with the established aperture/rotation-independent inverse
+bound. No localization estimate is assumed or asserted by these bounds.
+Evidence: `verification/milestones/physical-rotation-absorption/`.
+
 `RotationResponse.lean` and `RotationExtinction.lean` prove the physical
 incident-drive and solved-current sine factorizations and the exact
 `physicalExtinction_sine_squared_factorization` for the original extinction

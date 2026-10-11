@@ -300,7 +300,15 @@ run_cmd do
         'OQ7Prescribed.activePhysicalSolution_sine_factorization',
         'OQ7Prescribed.normalizedActiveResponse_norm_le',
         'OQ7Prescribed.activePhysicalExtinction_work',
-        'OQ7Prescribed.physicalExtinction_sine_squared_factorization')) {
+        'OQ7Prescribed.physicalExtinction_sine_squared_factorization',
+        'OQ7Prescribed.physicalAbsorption_current_inner',
+        'OQ7Prescribed.physicalVolume_work_balance',
+        'OQ7Prescribed.physicalVolume_absorption_le_extinction',
+        'OQ7Prescribed.activePhysicalAbsorption_work',
+        'OQ7Prescribed.activeInverseMaterial_loss_integral',
+        'OQ7Prescribed.physicalAbsorption_sine_squared_factorization',
+        'OQ7Prescribed.normalizedActiveResponse_residual_bound',
+        'OQ7Prescribed.normalizedActiveResponse_angle_difference_bound')) {
         if ($oq7Required -notin $oq7NewKernelTheorems) { throw "Missing outgoing operator obligation: $oq7Required" }
     }
     if ('OQ7Prescribed.scatteringStateOfVolumeEquation' -notin $oq7Constants) {
@@ -378,6 +386,10 @@ run_cmd do
         physicalCurrentSineFactorizationVerified = $true
         originalPhysicalExtinctionSineSquaredFactorizationVerified = $true
         normalizedResponseDefinedAtZeroRotationVerified = $true
+        physicalAbsorptionEqualsCurrentWorkVerified = $true
+        physicalVolumeWorkBalanceVerified = $true
+        originalPhysicalAbsorptionSineSquaredFactorizationVerified = $true
+        normalizedPhysicalResponseUniformResidualBoundVerified = $true
         complexHilbertImaginaryCoerciveInverseVerified = $true
         physicalAdmissibleConstitutiveSusceptibilityInverseVerified = $true
         compactL2CurrentFixedSupportSmoothDensityVerified = $true
@@ -446,7 +458,7 @@ run_cmd do
         unverifiedDependencies = @('Uniqueness of arbitrary physical outgoing Maxwell states',
             'Converse outgoing volume representation',
             'Full radiation identity, optical theorem, reciprocity and power balance',
-            'Physical absorption/scattering sin-squared response factorization',
+            'Physical full-angular scattering sin-squared response factorization',
             'Uniform aperture localization including grazing singularities and all angular channels',
             'Planar construction and normalized zero-angle / zero-plate-loss limits',
             'First exact-extinction bracket and physical continuity',
