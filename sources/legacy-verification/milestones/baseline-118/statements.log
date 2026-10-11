@@ -1,0 +1,2610 @@
+@OQ7.ScalarEnvelope.active_target_properties : ∀ {T a : Real},
+  OQ7.ScalarEnvelope.ActiveTarget T a →
+    And
+      (@LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+        (OQ7.ScalarEnvelope.s a))
+      (And
+        (@LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+          (OQ7.ScalarEnvelope.y0 T a))
+        (And (@LT.lt.{0} Real Real.instLT (OQ7.ScalarEnvelope.y0 T a) (OQ7.ScalarEnvelope.b T a))
+          (And
+            (@LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+              (OQ7.ScalarEnvelope.x0 T a))
+            (And (@LT.lt.{0} Real Real.instLT (OQ7.ScalarEnvelope.x0 T a) (OQ7.ScalarEnvelope.b T a))
+              (And (@LT.lt.{0} Real Real.instLT (OQ7.ScalarEnvelope.x0 T a) a)
+                (And
+                  (@LT.lt.{0} Real Real.instLT
+                    (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+                    (OQ7.ScalarEnvelope.D0 T a))
+                  (@LT.lt.{0} Real Real.instLT
+                    (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+                    (OQ7.ScalarEnvelope.alpha T a))))))))
+@OQ7.ScalarEnvelope.x0_sq : ∀ {T a : Real},
+  OQ7.ScalarEnvelope.ActiveTarget T a →
+    @Eq.{1} Real
+      (@HPow.hPow.{0, 0, 0} Real Nat Real
+        (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+        (OQ7.ScalarEnvelope.x0 T a) (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+      (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+        (@HPow.hPow.{0, 0, 0} Real Nat Real
+          (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+          (OQ7.ScalarEnvelope.b T a) (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+        (@HPow.hPow.{0, 0, 0} Real Nat Real
+          (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+          (OQ7.ScalarEnvelope.y0 T a) (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+@OQ7.ScalarEnvelope.radicand_nonneg : ∀ {T a x : Real},
+  OQ7.ScalarEnvelope.ActiveTarget T a →
+    @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) x →
+      @LE.le.{0} Real Real.instLE x (OQ7.ScalarEnvelope.x0 T a) →
+        @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+          (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+            (@HPow.hPow.{0, 0, 0} Real Nat Real
+              (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+              (OQ7.ScalarEnvelope.b T a) (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (@HPow.hPow.{0, 0, 0} Real Nat Real
+              (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid))) x
+              (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+@OQ7.ScalarEnvelope.F_at_target : ∀ {T a : Real},
+  OQ7.ScalarEnvelope.ActiveTarget T a →
+    @Eq.{1} Real (OQ7.ScalarEnvelope.F T a (OQ7.ScalarEnvelope.x0 T a))
+      (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+@OQ7.ScalarEnvelope.tangent_remainder : ∀ {T a x : Real},
+  OQ7.ScalarEnvelope.ActiveTarget T a →
+    @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) x →
+      @LE.le.{0} Real Real.instLE x (OQ7.ScalarEnvelope.x0 T a) →
+        @Eq.{1} Real
+          (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+            (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+              (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                  (@OfNat.ofNat.{0} Real (nat_lit 2) (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast ⋯))
+                  (OQ7.ScalarEnvelope.s a))
+                (OQ7.ScalarEnvelope.x0 T a))
+              (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub) (OQ7.ScalarEnvelope.x0 T a) x))
+            (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (OQ7.ScalarEnvelope.y0 T a)
+              (OQ7.ScalarEnvelope.F T a x)))
+          (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+            (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (OQ7.ScalarEnvelope.y0 T a)
+              (@HPow.hPow.{0, 0, 0} Real Nat Real
+                (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+                (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub) (OQ7.ScalarEnvelope.x0 T a) x)
+                (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+            (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) T
+              (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+                (@HPow.hPow.{0, 0, 0} Real Nat Real
+                  (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+                  (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub) (OQ7.ScalarEnvelope.x0 T a) x)
+                  (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                (@HPow.hPow.{0, 0, 0} Real Nat Real
+                  (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+                  (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+                    (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+                        (@HPow.hPow.{0, 0, 0} Real Nat Real
+                          (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+                          (OQ7.ScalarEnvelope.b T a) (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                        (@HPow.hPow.{0, 0, 0} Real Nat Real
+                          (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid))) x
+                          (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))).sqrt
+                    (OQ7.ScalarEnvelope.y0 T a))
+                  (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))))
+@OQ7.ScalarEnvelope.supporting_tangent : ∀ {T a x : Real},
+  OQ7.ScalarEnvelope.ActiveTarget T a →
+    @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) x →
+      @LE.le.{0} Real Real.instLE x (OQ7.ScalarEnvelope.x0 T a) →
+        @LE.le.{0} Real Real.instLE
+          (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (OQ7.ScalarEnvelope.y0 T a)
+            (OQ7.ScalarEnvelope.F T a x))
+          (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+            (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+              (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                (@OfNat.ofNat.{0} Real (nat_lit 2) (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast ⋯))
+                (OQ7.ScalarEnvelope.s a))
+              (OQ7.ScalarEnvelope.x0 T a))
+            (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub) (OQ7.ScalarEnvelope.x0 T a) x))
+@OQ7.ScalarEnvelope.scalar_deficit : ∀ {T a x c : Real},
+  OQ7.ScalarEnvelope.ActiveTarget T a →
+    @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) x →
+      @LE.le.{0} Real Real.instLE x (OQ7.ScalarEnvelope.x0 T a) →
+        @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) c →
+          @LE.le.{0} Real Real.instLE (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) T c)
+              (OQ7.ScalarEnvelope.F T a x) →
+            @LE.le.{0} Real Real.instLE
+              (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (OQ7.ScalarEnvelope.alpha T a) c)
+              (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub) (OQ7.ScalarEnvelope.D0 T a)
+                (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                  (@OfNat.ofNat.{0} Real (nat_lit 2) (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast ⋯)) x))
+@OQ7.ScalarEnvelope.scalar_strict_gap : ∀ {T a x c : Real},
+  OQ7.ScalarEnvelope.ActiveTarget T a →
+    @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) x →
+      @LE.le.{0} Real Real.instLE x (OQ7.ScalarEnvelope.x0 T a) →
+        @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) c →
+          @LE.le.{0} Real Real.instLE (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) T c)
+              (OQ7.ScalarEnvelope.F T a x) →
+            @LT.lt.{0} Real Real.instLT
+              (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                (@OfNat.ofNat.{0} Real (nat_lit 2) (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast ⋯)) x)
+              (OQ7.ScalarEnvelope.D0 T a)
+@OQ7.ScalarEnvelope.F_alternative : ∀ {T a x : Real},
+  @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+      (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+        (@HPow.hPow.{0, 0, 0} Real Nat Real
+          (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+          (OQ7.ScalarEnvelope.b T a) (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+        (@HPow.hPow.{0, 0, 0} Real Nat Real
+          (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid))) x
+          (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))) →
+    @Eq.{1} Real (OQ7.ScalarEnvelope.F T a x)
+      (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+        (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+          (@HPow.hPow.{0, 0, 0} Real Nat Real
+            (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid))) a
+            (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (@HPow.hPow.{0, 0, 0} Real Nat Real
+            (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid))) x
+            (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+        (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+          (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+            (@OfNat.ofNat.{0} Real (nat_lit 2) (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast ⋯)) T)
+          (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub) (OQ7.ScalarEnvelope.b T a)
+            (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+                (@HPow.hPow.{0, 0, 0} Real Nat Real
+                  (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+                  (OQ7.ScalarEnvelope.b T a) (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                (@HPow.hPow.{0, 0, 0} Real Nat Real
+                  (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid))) x
+                  (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))).sqrt)))
+@OQ7.ScalarEnvelope.F_at_zero : ∀ {T a : Real},
+  OQ7.ScalarEnvelope.ActiveTarget T a →
+    @Eq.{1} Real (OQ7.ScalarEnvelope.F T a (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)))
+      (@HPow.hPow.{0, 0, 0} Real Nat Real
+        (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid))) a
+        (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+@OQ7.ScalarEnvelope.active_interval_of_envelope : ∀ {T a x : Real},
+  OQ7.ScalarEnvelope.ActiveTarget T a →
+    @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) x →
+      @LE.le.{0} Real Real.instLE x (OQ7.ScalarEnvelope.b T a) →
+        @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+            (OQ7.ScalarEnvelope.F T a x) →
+          @LE.le.{0} Real Real.instLE x (OQ7.ScalarEnvelope.x0 T a)
+@OQ7.ScalarEnvelope.scalar_deficit_of_envelope : ∀ {T a x c : Real},
+  OQ7.ScalarEnvelope.ActiveTarget T a →
+    @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) x →
+      @LE.le.{0} Real Real.instLE x (OQ7.ScalarEnvelope.b T a) →
+        @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) c →
+          @LE.le.{0} Real Real.instLE (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) T c)
+              (OQ7.ScalarEnvelope.F T a x) →
+            @LE.le.{0} Real Real.instLE
+              (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (OQ7.ScalarEnvelope.alpha T a) c)
+              (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub) (OQ7.ScalarEnvelope.D0 T a)
+                (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                  (@OfNat.ofNat.{0} Real (nat_lit 2) (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast ⋯)) x))
+@OQ7.ScalarEnvelope.absorption_budget : ∀ {T a x beta : Real},
+  OQ7.ScalarEnvelope.ActiveTarget T a →
+    @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) x →
+      @LE.le.{0} Real Real.instLE x (OQ7.ScalarEnvelope.b T a) →
+        @LE.le.{0} Real Real.instLE (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) T beta)
+            (OQ7.ScalarEnvelope.F T a x) →
+          @LE.le.{0} Real Real.instLE (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) T beta)
+            (@HPow.hPow.{0, 0, 0} Real Nat Real
+              (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid))) a
+              (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+@OQ7.ScalarEnvelope.determinant_budget_bound : ∀ {T a x beta : Real},
+  OQ7.ScalarEnvelope.ActiveTarget T a →
+    @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) x →
+      @LE.le.{0} Real Real.instLE x (OQ7.ScalarEnvelope.b T a) →
+        @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) beta →
+          @LE.le.{0} Real Real.instLE (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) T beta)
+              (OQ7.ScalarEnvelope.F T a x) →
+            @LE.le.{0} Real Real.instLE
+              (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                (@OfNat.ofNat.{0} Real (nat_lit 2) (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast ⋯)) x)
+              (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                (@OfNat.ofNat.{0} Real (nat_lit 2) (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast ⋯))
+                (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+                    (@HPow.hPow.{0, 0, 0} Real Nat Real
+                      (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+                      (OQ7.ScalarEnvelope.b T a) (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                    (@HPow.hPow.{0, 0, 0} Real Nat Real
+                      (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+                      (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+                        (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+                            (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+                              (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+                              (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                                (@OfNat.ofNat.{0} Real (nat_lit 2)
+                                  (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast ⋯))
+                                a))
+                            (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) T beta)).sqrt
+                        T)
+                      (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))).sqrt)
+OQ7.electricField_hasDerivAt : ∀ (k : Real) {n : Complex},
+  @Ne.{1} Complex n (@OfNat.ofNat.{0} Complex (nat_lit 0) (@Zero.toOfNat0.{0} Complex Complex.instZero)) →
+    ∀ (E₀ H₀ : Complex) (z : Real),
+      @HasDerivAt.{0, 0} Real (@DenselyNormedField.toNontriviallyNormedField.{0} Real Real.denselyNormedField) Complex
+        Complex.addCommGroup
+        (@NormedSpace.toModule.{0, 0} Real Complex Real.normedField
+          (@NonUnitalSeminormedRing.toSeminormedAddCommGroup.{0} Complex
+            (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing.{0} Complex
+              (@SeminormedCommRing.toNonUnitalSeminormedCommRing.{0} Complex
+                (@NormedCommRing.toSeminormedCommRing.{0} Complex
+                  (@NormedField.toNormedCommRing.{0} Complex Complex.instNormedField)))))
+          (@InnerProductSpace.toNormedSpace.{0, 0} Real Complex Real.instRCLike
+            (@NonUnitalSeminormedRing.toSeminormedAddCommGroup.{0} Complex
+              (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing.{0} Complex
+                (@SeminormedCommRing.toNonUnitalSeminormedCommRing.{0} Complex
+                  (@NormedCommRing.toSeminormedCommRing.{0} Complex
+                    (@NormedField.toNormedCommRing.{0} Complex Complex.instNormedField)))))
+            instInnerProductSpaceRealComplex))
+        (@UniformSpace.toTopologicalSpace.{0} Complex
+          (@PseudoMetricSpace.toUniformSpace.{0} Complex
+            (@SeminormedRing.toPseudoMetricSpace.{0} Complex
+              (@SeminormedCommRing.toSeminormedRing.{0} Complex
+                (@NormedCommRing.toSeminormedCommRing.{0} Complex
+                  (@NormedField.toNormedCommRing.{0} Complex Complex.instNormedField))))))
+        ⋯ (OQ7.electricField k n E₀ H₀)
+        (@HMul.hMul.{0, 0, 0} Complex Complex Complex (@instHMul.{0} Complex Complex.instMul)
+          (@HMul.hMul.{0, 0, 0} Complex Complex Complex (@instHMul.{0} Complex Complex.instMul) Complex.I ↑k)
+          (OQ7.magneticField k n E₀ H₀ z))
+        z
+OQ7.magneticField_hasDerivAt : ∀ (k : Real) {n : Complex},
+  @Ne.{1} Complex n (@OfNat.ofNat.{0} Complex (nat_lit 0) (@Zero.toOfNat0.{0} Complex Complex.instZero)) →
+    ∀ (E₀ H₀ : Complex) (z : Real),
+      @HasDerivAt.{0, 0} Real (@DenselyNormedField.toNontriviallyNormedField.{0} Real Real.denselyNormedField) Complex
+        Complex.addCommGroup
+        (@NormedSpace.toModule.{0, 0} Real Complex Real.normedField
+          (@NonUnitalSeminormedRing.toSeminormedAddCommGroup.{0} Complex
+            (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing.{0} Complex
+              (@SeminormedCommRing.toNonUnitalSeminormedCommRing.{0} Complex
+                (@NormedCommRing.toSeminormedCommRing.{0} Complex
+                  (@NormedField.toNormedCommRing.{0} Complex Complex.instNormedField)))))
+          (@InnerProductSpace.toNormedSpace.{0, 0} Real Complex Real.instRCLike
+            (@NonUnitalSeminormedRing.toSeminormedAddCommGroup.{0} Complex
+              (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing.{0} Complex
+                (@SeminormedCommRing.toNonUnitalSeminormedCommRing.{0} Complex
+                  (@NormedCommRing.toSeminormedCommRing.{0} Complex
+                    (@NormedField.toNormedCommRing.{0} Complex Complex.instNormedField)))))
+            instInnerProductSpaceRealComplex))
+        (@UniformSpace.toTopologicalSpace.{0} Complex
+          (@PseudoMetricSpace.toUniformSpace.{0} Complex
+            (@SeminormedRing.toPseudoMetricSpace.{0} Complex
+              (@SeminormedCommRing.toSeminormedRing.{0} Complex
+                (@NormedCommRing.toSeminormedCommRing.{0} Complex
+                  (@NormedField.toNormedCommRing.{0} Complex Complex.instNormedField))))))
+        ⋯ (OQ7.magneticField k n E₀ H₀)
+        (@HMul.hMul.{0, 0, 0} Complex Complex Complex (@instHMul.{0} Complex Complex.instMul)
+          (@HMul.hMul.{0, 0, 0} Complex Complex Complex (@instHMul.{0} Complex Complex.instMul)
+            (@HMul.hMul.{0, 0, 0} Complex Complex Complex (@instHMul.{0} Complex Complex.instMul) Complex.I ↑k)
+            (@HPow.hPow.{0, 0, 0} Complex Nat Complex
+              (@instHPow.{0, 0} Complex Nat
+                (@NPow.toPow.{0} Complex
+                  (@Monoid.toNPow.{0} Complex (@Semiring.toMonoid.{0} Complex Complex.instSemiring))))
+              n (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+          (OQ7.electricField k n E₀ H₀ z))
+        z
+OQ7.electricField_second_deriv : ∀ (k : Real) {n : Complex},
+  @Ne.{1} Complex n (@OfNat.ofNat.{0} Complex (nat_lit 0) (@Zero.toOfNat0.{0} Complex Complex.instZero)) →
+    ∀ (E₀ H₀ : Complex) (z : Real),
+      @Eq.{1} Complex
+        (@deriv.{0, 0} Real (@DenselyNormedField.toNontriviallyNormedField.{0} Real Real.denselyNormedField) Complex
+          Complex.addCommGroup
+          (@NormedSpace.toModule.{0, 0} Real Complex Real.normedField
+            (@NonUnitalSeminormedRing.toSeminormedAddCommGroup.{0} Complex
+              (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing.{0} Complex
+                (@SeminormedCommRing.toNonUnitalSeminormedCommRing.{0} Complex
+                  (@NormedCommRing.toSeminormedCommRing.{0} Complex
+                    (@NormedField.toNormedCommRing.{0} Complex Complex.instNormedField)))))
+            (@InnerProductSpace.toNormedSpace.{0, 0} Real Complex Real.instRCLike
+              (@NonUnitalSeminormedRing.toSeminormedAddCommGroup.{0} Complex
+                (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing.{0} Complex
+                  (@SeminormedCommRing.toNonUnitalSeminormedCommRing.{0} Complex
+                    (@NormedCommRing.toSeminormedCommRing.{0} Complex
+                      (@NormedField.toNormedCommRing.{0} Complex Complex.instNormedField)))))
+              instInnerProductSpaceRealComplex))
+          (@UniformSpace.toTopologicalSpace.{0} Complex
+            (@PseudoMetricSpace.toUniformSpace.{0} Complex
+              (@SeminormedRing.toPseudoMetricSpace.{0} Complex
+                (@SeminormedCommRing.toSeminormedRing.{0} Complex
+                  (@NormedCommRing.toSeminormedCommRing.{0} Complex
+                    (@NormedField.toNormedCommRing.{0} Complex Complex.instNormedField))))))
+          (@deriv.{0, 0} Real (@DenselyNormedField.toNontriviallyNormedField.{0} Real Real.denselyNormedField) Complex
+            Complex.addCommGroup
+            (@NormedSpace.toModule.{0, 0} Real Complex Real.normedField
+              (@NonUnitalSeminormedRing.toSeminormedAddCommGroup.{0} Complex
+                (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing.{0} Complex
+                  (@SeminormedCommRing.toNonUnitalSeminormedCommRing.{0} Complex
+                    (@NormedCommRing.toSeminormedCommRing.{0} Complex
+                      (@NormedField.toNormedCommRing.{0} Complex Complex.instNormedField)))))
+              (@InnerProductSpace.toNormedSpace.{0, 0} Real Complex Real.instRCLike
+                (@NonUnitalSeminormedRing.toSeminormedAddCommGroup.{0} Complex
+                  (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing.{0} Complex
+                    (@SeminormedCommRing.toNonUnitalSeminormedCommRing.{0} Complex
+                      (@NormedCommRing.toSeminormedCommRing.{0} Complex
+                        (@NormedField.toNormedCommRing.{0} Complex Complex.instNormedField)))))
+                instInnerProductSpaceRealComplex))
+            (@UniformSpace.toTopologicalSpace.{0} Complex
+              (@PseudoMetricSpace.toUniformSpace.{0} Complex
+                (@SeminormedRing.toPseudoMetricSpace.{0} Complex
+                  (@SeminormedCommRing.toSeminormedRing.{0} Complex
+                    (@NormedCommRing.toSeminormedCommRing.{0} Complex
+                      (@NormedField.toNormedCommRing.{0} Complex Complex.instNormedField))))))
+            (OQ7.electricField k n E₀ H₀))
+          z)
+        (@HMul.hMul.{0, 0, 0} Complex Complex Complex (@instHMul.{0} Complex Complex.instMul)
+          (@HMul.hMul.{0, 0, 0} Complex Complex Complex (@instHMul.{0} Complex Complex.instMul)
+            (@Neg.neg.{0} Complex Complex.instNeg
+              (@HPow.hPow.{0, 0, 0} Complex Nat Complex
+                (@instHPow.{0, 0} Complex Nat
+                  (@NPow.toPow.{0} Complex
+                    (@Monoid.toNPow.{0} Complex (@Semiring.toMonoid.{0} Complex Complex.instSemiring))))
+                (↑k) (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+            (@HPow.hPow.{0, 0, 0} Complex Nat Complex
+              (@instHPow.{0, 0} Complex Nat
+                (@NPow.toPow.{0} Complex
+                  (@Monoid.toNPow.{0} Complex (@Semiring.toMonoid.{0} Complex Complex.instSemiring))))
+              n (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+          (OQ7.electricField k n E₀ H₀ z))
+@OQ7.electricField_state_coordinate : ∀ {k : Real},
+  @Ne.{1} Real k (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) →
+    ∀ {n : Complex},
+      @Ne.{1} Complex n (@OfNat.ofNat.{0} Complex (nat_lit 0) (@Zero.toOfNat0.{0} Complex Complex.instZero)) →
+        ∀ (E₀ H₀ : Complex) (z : Real),
+          @Eq.{1} Complex
+            (@HDiv.hDiv.{0, 0, 0} Complex Complex Complex
+              (@instHDiv.{0} Complex (@DivInvMonoid.toDiv.{0} Complex Complex.instDivInvMonoid))
+              (@deriv.{0, 0} Real (@DenselyNormedField.toNontriviallyNormedField.{0} Real Real.denselyNormedField)
+                Complex Complex.addCommGroup
+                (@NormedSpace.toModule.{0, 0} Real Complex Real.normedField
+                  (@NonUnitalSeminormedRing.toSeminormedAddCommGroup.{0} Complex
+                    (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing.{0} Complex
+                      (@SeminormedCommRing.toNonUnitalSeminormedCommRing.{0} Complex
+                        (@NormedCommRing.toSeminormedCommRing.{0} Complex
+                          (@NormedField.toNormedCommRing.{0} Complex Complex.instNormedField)))))
+                  (@InnerProductSpace.toNormedSpace.{0, 0} Real Complex Real.instRCLike
+                    (@NonUnitalSeminormedRing.toSeminormedAddCommGroup.{0} Complex
+                      (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing.{0} Complex
+                        (@SeminormedCommRing.toNonUnitalSeminormedCommRing.{0} Complex
+                          (@NormedCommRing.toSeminormedCommRing.{0} Complex
+                            (@NormedField.toNormedCommRing.{0} Complex Complex.instNormedField)))))
+                    instInnerProductSpaceRealComplex))
+                (@UniformSpace.toTopologicalSpace.{0} Complex
+                  (@PseudoMetricSpace.toUniformSpace.{0} Complex
+                    (@SeminormedRing.toPseudoMetricSpace.{0} Complex
+                      (@SeminormedCommRing.toSeminormedRing.{0} Complex
+                        (@NormedCommRing.toSeminormedCommRing.{0} Complex
+                          (@NormedField.toNormedCommRing.{0} Complex Complex.instNormedField))))))
+                (OQ7.electricField k n E₀ H₀) z)
+              (@HMul.hMul.{0, 0, 0} Complex Complex Complex (@instHMul.{0} Complex Complex.instMul) Complex.I ↑k))
+            (OQ7.magneticField k n E₀ H₀ z)
+OQ7.homogeneousField_initial : ∀ (k : Real) (n E₀ H₀ : Complex),
+  And
+    (@Eq.{1} Complex
+      (OQ7.electricField k n E₀ H₀ (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))) E₀)
+    (@Eq.{1} Complex
+      (OQ7.magneticField k n E₀ H₀ (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))) H₀)
+OQ7.homogeneousField_transfer : ∀ (k : Real) (n E₀ H₀ : Complex) (z : Real),
+  @Eq.{1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) → Complex)
+    (@Matrix.mulVec.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+      (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex
+      (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring.{0} Complex
+        (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing.{0} Complex
+          (@NonUnitalCommRing.toNonUnitalNonAssocCommRing.{0} Complex Complex.instNonUnitalCommRing)))
+      (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) (OQ7.homogeneousTransfer k n z)
+      (@Matrix.vecCons.{0} Complex (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) E₀
+        (@Matrix.vecCons.{0} Complex (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) H₀
+          (@Matrix.vecEmpty.{0} Complex))))
+    (@Matrix.vecCons.{0} Complex (Nat.succ (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))))
+      (OQ7.electricField k n E₀ H₀ z)
+      (@Matrix.vecCons.{0} Complex (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+        (OQ7.magneticField k n E₀ H₀ z) (@Matrix.vecEmpty.{0} Complex)))
+OQ7.layerElectricField_maxwell : ∀ (k : Real) {layer : OQ7.HomogeneousLayer},
+  @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) layer.p →
+    ∀ (E₀ H₀ : Complex) (z : Real),
+      @HasDerivAt.{0, 0} Real (@DenselyNormedField.toNontriviallyNormedField.{0} Real Real.denselyNormedField) Complex
+        Complex.addCommGroup
+        (@NormedSpace.toModule.{0, 0} Real Complex Real.normedField
+          (@NonUnitalSeminormedRing.toSeminormedAddCommGroup.{0} Complex
+            (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing.{0} Complex
+              (@SeminormedCommRing.toNonUnitalSeminormedCommRing.{0} Complex
+                (@NormedCommRing.toSeminormedCommRing.{0} Complex
+                  (@NormedField.toNormedCommRing.{0} Complex Complex.instNormedField)))))
+          (@InnerProductSpace.toNormedSpace.{0, 0} Real Complex Real.instRCLike
+            (@NonUnitalSeminormedRing.toSeminormedAddCommGroup.{0} Complex
+              (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing.{0} Complex
+                (@SeminormedCommRing.toNonUnitalSeminormedCommRing.{0} Complex
+                  (@NormedCommRing.toSeminormedCommRing.{0} Complex
+                    (@NormedField.toNormedCommRing.{0} Complex Complex.instNormedField)))))
+            instInnerProductSpaceRealComplex))
+        (@UniformSpace.toTopologicalSpace.{0} Complex
+          (@PseudoMetricSpace.toUniformSpace.{0} Complex
+            (@SeminormedRing.toPseudoMetricSpace.{0} Complex
+              (@SeminormedCommRing.toSeminormedRing.{0} Complex
+                (@NormedCommRing.toSeminormedCommRing.{0} Complex
+                  (@NormedField.toNormedCommRing.{0} Complex Complex.instNormedField))))))
+        ⋯ (OQ7.layerElectricField k layer E₀ H₀)
+        (@HMul.hMul.{0, 0, 0} Complex Complex Complex (@instHMul.{0} Complex Complex.instMul)
+          (@HMul.hMul.{0, 0, 0} Complex Complex Complex (@instHMul.{0} Complex Complex.instMul) Complex.I ↑k)
+          (OQ7.layerMagneticField k layer E₀ H₀ z))
+        z
+OQ7.layerMagneticField_maxwell : ∀ (k : Real) {layer : OQ7.HomogeneousLayer},
+  @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) layer.p →
+    ∀ (E₀ H₀ : Complex) (z : Real),
+      @HasDerivAt.{0, 0} Real (@DenselyNormedField.toNontriviallyNormedField.{0} Real Real.denselyNormedField) Complex
+        Complex.addCommGroup
+        (@NormedSpace.toModule.{0, 0} Real Complex Real.normedField
+          (@NonUnitalSeminormedRing.toSeminormedAddCommGroup.{0} Complex
+            (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing.{0} Complex
+              (@SeminormedCommRing.toNonUnitalSeminormedCommRing.{0} Complex
+                (@NormedCommRing.toSeminormedCommRing.{0} Complex
+                  (@NormedField.toNormedCommRing.{0} Complex Complex.instNormedField)))))
+          (@InnerProductSpace.toNormedSpace.{0, 0} Real Complex Real.instRCLike
+            (@NonUnitalSeminormedRing.toSeminormedAddCommGroup.{0} Complex
+              (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing.{0} Complex
+                (@SeminormedCommRing.toNonUnitalSeminormedCommRing.{0} Complex
+                  (@NormedCommRing.toSeminormedCommRing.{0} Complex
+                    (@NormedField.toNormedCommRing.{0} Complex Complex.instNormedField)))))
+            instInnerProductSpaceRealComplex))
+        (@UniformSpace.toTopologicalSpace.{0} Complex
+          (@PseudoMetricSpace.toUniformSpace.{0} Complex
+            (@SeminormedRing.toPseudoMetricSpace.{0} Complex
+              (@SeminormedCommRing.toSeminormedRing.{0} Complex
+                (@NormedCommRing.toSeminormedCommRing.{0} Complex
+                  (@NormedField.toNormedCommRing.{0} Complex Complex.instNormedField))))))
+        ⋯ (OQ7.layerMagneticField k layer E₀ H₀)
+        (@HMul.hMul.{0, 0, 0} Complex Complex Complex (@instHMul.{0} Complex Complex.instMul)
+          (@HMul.hMul.{0, 0, 0} Complex Complex Complex (@instHMul.{0} Complex Complex.instMul)
+            (@HMul.hMul.{0, 0, 0} Complex Complex Complex (@instHMul.{0} Complex Complex.instMul) Complex.I ↑k)
+            (OQ7.relativePermittivity layer))
+          (OQ7.layerElectricField k layer E₀ H₀ z))
+        z
+OQ7.layerElectricField_helmholtz : ∀ (k : Real) {layer : OQ7.HomogeneousLayer},
+  @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) layer.p →
+    ∀ (E₀ H₀ : Complex) (z : Real),
+      @Eq.{1} Complex
+        (@HAdd.hAdd.{0, 0, 0} Complex Complex Complex (@instHAdd.{0} Complex Complex.instAdd)
+          (@deriv.{0, 0} Real (@DenselyNormedField.toNontriviallyNormedField.{0} Real Real.denselyNormedField) Complex
+            Complex.addCommGroup
+            (@NormedSpace.toModule.{0, 0} Real Complex Real.normedField
+              (@NonUnitalSeminormedRing.toSeminormedAddCommGroup.{0} Complex
+                (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing.{0} Complex
+                  (@SeminormedCommRing.toNonUnitalSeminormedCommRing.{0} Complex
+                    (@NormedCommRing.toSeminormedCommRing.{0} Complex
+                      (@NormedField.toNormedCommRing.{0} Complex Complex.instNormedField)))))
+              (@InnerProductSpace.toNormedSpace.{0, 0} Real Complex Real.instRCLike
+                (@NonUnitalSeminormedRing.toSeminormedAddCommGroup.{0} Complex
+                  (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing.{0} Complex
+                    (@SeminormedCommRing.toNonUnitalSeminormedCommRing.{0} Complex
+                      (@NormedCommRing.toSeminormedCommRing.{0} Complex
+                        (@NormedField.toNormedCommRing.{0} Complex Complex.instNormedField)))))
+                instInnerProductSpaceRealComplex))
+            (@UniformSpace.toTopologicalSpace.{0} Complex
+              (@PseudoMetricSpace.toUniformSpace.{0} Complex
+                (@SeminormedRing.toPseudoMetricSpace.{0} Complex
+                  (@SeminormedCommRing.toSeminormedRing.{0} Complex
+                    (@NormedCommRing.toSeminormedCommRing.{0} Complex
+                      (@NormedField.toNormedCommRing.{0} Complex Complex.instNormedField))))))
+            (@deriv.{0, 0} Real (@DenselyNormedField.toNontriviallyNormedField.{0} Real Real.denselyNormedField) Complex
+              Complex.addCommGroup
+              (@NormedSpace.toModule.{0, 0} Real Complex Real.normedField
+                (@NonUnitalSeminormedRing.toSeminormedAddCommGroup.{0} Complex
+                  (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing.{0} Complex
+                    (@SeminormedCommRing.toNonUnitalSeminormedCommRing.{0} Complex
+                      (@NormedCommRing.toSeminormedCommRing.{0} Complex
+                        (@NormedField.toNormedCommRing.{0} Complex Complex.instNormedField)))))
+                (@InnerProductSpace.toNormedSpace.{0, 0} Real Complex Real.instRCLike
+                  (@NonUnitalSeminormedRing.toSeminormedAddCommGroup.{0} Complex
+                    (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing.{0} Complex
+                      (@SeminormedCommRing.toNonUnitalSeminormedCommRing.{0} Complex
+                        (@NormedCommRing.toSeminormedCommRing.{0} Complex
+                          (@NormedField.toNormedCommRing.{0} Complex Complex.instNormedField)))))
+                  instInnerProductSpaceRealComplex))
+              (@UniformSpace.toTopologicalSpace.{0} Complex
+                (@PseudoMetricSpace.toUniformSpace.{0} Complex
+                  (@SeminormedRing.toPseudoMetricSpace.{0} Complex
+                    (@SeminormedCommRing.toSeminormedRing.{0} Complex
+                      (@NormedCommRing.toSeminormedCommRing.{0} Complex
+                        (@NormedField.toNormedCommRing.{0} Complex Complex.instNormedField))))))
+              (OQ7.layerElectricField k layer E₀ H₀))
+            z)
+          (@HMul.hMul.{0, 0, 0} Complex Complex Complex (@instHMul.{0} Complex Complex.instMul)
+            (@HMul.hMul.{0, 0, 0} Complex Complex Complex (@instHMul.{0} Complex Complex.instMul)
+              (@HPow.hPow.{0, 0, 0} Complex Nat Complex
+                (@instHPow.{0, 0} Complex Nat
+                  (@NPow.toPow.{0} Complex
+                    (@Monoid.toNPow.{0} Complex (@Semiring.toMonoid.{0} Complex Complex.instSemiring))))
+                (↑k) (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+              (OQ7.relativePermittivity layer))
+            (OQ7.layerElectricField k layer E₀ H₀ z)))
+        (@OfNat.ofNat.{0} Complex (nat_lit 0) (@Zero.toOfNat0.{0} Complex Complex.instZero))
+OQ7.layerField_transfer_boundary : ∀ (k : Real) (layer : OQ7.HomogeneousLayer) (E₀ H₀ : Complex),
+  @Eq.{1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) → Complex)
+    (@Matrix.mulVec.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+      (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex
+      (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring.{0} Complex
+        (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing.{0} Complex
+          (@NonUnitalCommRing.toNonUnitalNonAssocCommRing.{0} Complex Complex.instNonUnitalCommRing)))
+      (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) (OQ7.layerTransfer k layer)
+      (@Matrix.vecCons.{0} Complex (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) E₀
+        (@Matrix.vecCons.{0} Complex (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) H₀
+          (@Matrix.vecEmpty.{0} Complex))))
+    (@Matrix.vecCons.{0} Complex (Nat.succ (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))))
+      (OQ7.layerElectricField k layer E₀ H₀ layer.width)
+      (@Matrix.vecCons.{0} Complex (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+        (OQ7.layerMagneticField k layer E₀ H₀ layer.width) (@Matrix.vecEmpty.{0} Complex)))
+OQ7.directedFlux_derivative_algebra : ∀ (k p q : Real) (E H : Complex),
+  @Eq.{1} Real
+    (@HAdd.hAdd.{0, 0, 0} Complex Complex Complex (@instHAdd.{0} Complex Complex.instAdd)
+        (@HMul.hMul.{0, 0, 0} Complex Complex Complex (@instHMul.{0} Complex Complex.instMul)
+          (@star.{0} Complex
+            (@InvolutiveStar.toStar.{0} Complex
+              (@StarAddMonoid.toInvolutiveStar.{0} Complex
+                (@AddCommMonoid.toAddMonoid.{0} Complex
+                  (@NonUnitalNonAssocSemiring.toAddCommMonoid.{0} Complex
+                    (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring.{0} Complex
+                      (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing.{0} Complex
+                        (@NonUnitalCommRing.toNonUnitalNonAssocCommRing.{0} Complex Complex.instNonUnitalCommRing)))))
+                (@StarRing.toStarAddMonoid.{0} Complex
+                  (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring.{0} Complex
+                    (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing.{0} Complex
+                      (@NonUnitalCommRing.toNonUnitalNonAssocCommRing.{0} Complex Complex.instNonUnitalCommRing)))
+                  Complex.instStarRing)))
+            (@HMul.hMul.{0, 0, 0} Complex Complex Complex (@instHMul.{0} Complex Complex.instMul)
+              (@HMul.hMul.{0, 0, 0} Complex Complex Complex (@instHMul.{0} Complex Complex.instMul) Complex.I ↑k) H))
+          H)
+        (@HMul.hMul.{0, 0, 0} Complex Complex Complex (@instHMul.{0} Complex Complex.instMul)
+          (@star.{0} Complex
+            (@InvolutiveStar.toStar.{0} Complex
+              (@StarAddMonoid.toInvolutiveStar.{0} Complex
+                (@AddCommMonoid.toAddMonoid.{0} Complex
+                  (@NonUnitalNonAssocSemiring.toAddCommMonoid.{0} Complex
+                    (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring.{0} Complex
+                      (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing.{0} Complex
+                        (@NonUnitalCommRing.toNonUnitalNonAssocCommRing.{0} Complex Complex.instNonUnitalCommRing)))))
+                (@StarRing.toStarAddMonoid.{0} Complex
+                  (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring.{0} Complex
+                    (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing.{0} Complex
+                      (@NonUnitalCommRing.toNonUnitalNonAssocCommRing.{0} Complex Complex.instNonUnitalCommRing)))
+                  Complex.instStarRing)))
+            E)
+          (@HMul.hMul.{0, 0, 0} Complex Complex Complex (@instHMul.{0} Complex Complex.instMul)
+            (@HMul.hMul.{0, 0, 0} Complex Complex Complex (@instHMul.{0} Complex Complex.instMul)
+              (@HMul.hMul.{0, 0, 0} Complex Complex Complex (@instHMul.{0} Complex Complex.instMul) Complex.I ↑k)
+              (@HAdd.hAdd.{0, 0, 0} Complex Complex Complex (@instHAdd.{0} Complex Complex.instAdd) (↑p)
+                (@HMul.hMul.{0, 0, 0} Complex Complex Complex (@instHMul.{0} Complex Complex.instMul) Complex.I ↑q)))
+            E))).re
+    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+      (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (@Neg.neg.{0} Real Real.instNeg k) q)
+      (@DFunLike.coe.{1, 1, 1}
+        (@MonoidWithZeroHom.{0, 0} Complex Real (@instMulZeroOneClassOfSemiring.{0} Complex Complex.instSemiring)
+          (@instMulZeroOneClassOfSemiring.{0} Real Real.semiring))
+        Complex (fun x => Real)
+        (@MonoidWithZeroHom.funLike.{0, 0} Complex Real
+          (@instMulZeroOneClassOfSemiring.{0} Complex Complex.instSemiring)
+          (@instMulZeroOneClassOfSemiring.{0} Real Real.semiring))
+        Complex.normSq E))
+OQ7.layerDirectedFlux_hasDerivAt : ∀ (k : Real) {layer : OQ7.HomogeneousLayer},
+  @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) layer.p →
+    ∀ (E₀ H₀ : Complex) (z : Real),
+      @HasDerivAt.{0, 0} Real (@DenselyNormedField.toNontriviallyNormedField.{0} Real Real.denselyNormedField) Real
+        Real.instAddCommGroup
+        (@Semiring.toModule.{0} Real
+          (@CommSemiring.toSemiring.{0} Real
+            (@Semifield.toCommSemiring.{0} Real
+              (@Field.toSemifield.{0} Real
+                (@NormedField.toField.{0} Real
+                  (@NontriviallyNormedField.toNormedField.{0} Real
+                    (@DenselyNormedField.toNontriviallyNormedField.{0} Real Real.denselyNormedField)))))))
+        (@UniformSpace.toTopologicalSpace.{0} Real (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+        ⋯ (fun x => OQ7.directedFlux (OQ7.layerElectricField k layer E₀ H₀ x) (OQ7.layerMagneticField k layer E₀ H₀ x))
+        (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+          (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (@Neg.neg.{0} Real Real.instNeg k)
+            layer.q)
+          (@DFunLike.coe.{1, 1, 1}
+            (@MonoidWithZeroHom.{0, 0} Complex Real (@instMulZeroOneClassOfSemiring.{0} Complex Complex.instSemiring)
+              (@instMulZeroOneClassOfSemiring.{0} Real Real.semiring))
+            Complex (fun x => Real)
+            (@MonoidWithZeroHom.funLike.{0, 0} Complex Real
+              (@instMulZeroOneClassOfSemiring.{0} Complex Complex.instSemiring)
+              (@instMulZeroOneClassOfSemiring.{0} Real Real.semiring))
+            Complex.normSq (OQ7.layerElectricField k layer E₀ H₀ z)))
+        z
+OQ7.refractiveIndex_sq : ∀ (layer : OQ7.HomogeneousLayer),
+  @Eq.{1} Complex
+    (@HPow.hPow.{0, 0, 0} Complex Nat Complex
+      (@instHPow.{0, 0} Complex Nat
+        (@NPow.toPow.{0} Complex (@Monoid.toNPow.{0} Complex (@Semiring.toMonoid.{0} Complex Complex.instSemiring))))
+      (OQ7.refractiveIndex layer) (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+    (OQ7.relativePermittivity layer)
+@OQ7.relativePermittivity_ne_zero : ∀ {layer : OQ7.HomogeneousLayer},
+  @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) layer.p →
+    @Ne.{1} Complex (OQ7.relativePermittivity layer)
+      (@OfNat.ofNat.{0} Complex (nat_lit 0) (@Zero.toOfNat0.{0} Complex Complex.instZero))
+@OQ7.refractiveIndex_ne_zero : ∀ {layer : OQ7.HomogeneousLayer},
+  @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) layer.p →
+    @Ne.{1} Complex (OQ7.refractiveIndex layer)
+      (@OfNat.ofNat.{0} Complex (nat_lit 0) (@Zero.toOfNat0.{0} Complex Complex.instZero))
+OQ7.homogeneousTransfer_det : ∀ (k : Real) {n : Complex},
+  @Ne.{1} Complex n (@OfNat.ofNat.{0} Complex (nat_lit 0) (@Zero.toOfNat0.{0} Complex Complex.instZero)) →
+    ∀ (width : Real),
+      @Eq.{1} Complex
+        (@Matrix.det.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (instDecidableEqFin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex Complex.commRing
+          (OQ7.homogeneousTransfer k n width))
+        (@OfNat.ofNat.{0} Complex (nat_lit 1) (@One.toOfNat1.{0} Complex Complex.instOne))
+OQ7.layerTransfer_det : ∀ (k : Real) {P Q : Real} {layer : OQ7.HomogeneousLayer},
+  OQ7.LayerAdmissible P Q layer →
+    @Eq.{1} Complex
+      (@Matrix.det.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+        (instDecidableEqFin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+        (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex Complex.commRing
+        (OQ7.layerTransfer k layer))
+      (@OfNat.ofNat.{0} Complex (nat_lit 1) (@One.toOfNat1.{0} Complex Complex.instOne))
+OQ7.stackTransfer_det : ∀ (k : Real) {P Q : Real} {layers : List.{0} OQ7.HomogeneousLayer},
+  OQ7.StackAdmissible P Q layers →
+    @Eq.{1} Complex
+      (@Matrix.det.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+        (instDecidableEqFin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+        (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex Complex.commRing
+        (OQ7.stackTransfer k layers))
+      (@OfNat.ofNat.{0} Complex (nat_lit 1) (@One.toOfNat1.{0} Complex Complex.instOne))
+@OQ7.totalThickness_nonneg : ∀ {P Q : Real} {layers : List.{0} OQ7.HomogeneousLayer},
+  OQ7.StackAdmissible P Q layers →
+    @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+      (OQ7.totalThickness layers)
+@OQ7.integratedLoss_nonneg : ∀ {P Q : Real} {layers : List.{0} OQ7.HomogeneousLayer},
+  OQ7.StackAdmissible P Q layers →
+    @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+      (OQ7.integratedLoss layers)
+@OQ7.integratedLoss_le_cap_mul_thickness : ∀ {P Q : Real} {layers : List.{0} OQ7.HomogeneousLayer},
+  OQ7.StackAdmissible P Q layers →
+    @LE.le.{0} Real Real.instLE (OQ7.integratedLoss layers)
+      (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) Q (OQ7.totalThickness layers))
+@OQ7.passive_absorptances_nonneg : ∀ {rL rR t : Complex},
+  OQ7.Passive rL rR t →
+    And
+      (@LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+        (OQ7.absorptanceLeft rL t))
+      (@LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+        (OQ7.absorptanceRight rR t))
+@OQ7.passive_det_nonneg : ∀ {rL rR t : Complex},
+  OQ7.Passive rL rR t →
+    @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+      (@Matrix.det.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (instDecidableEqFin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex Complex.commRing
+          (OQ7.absorptionMatrix rL rR t)).re
+OQ7.reflection_coordinates : ∀ (rL rR t : Complex),
+  And
+    (@Eq.{1} Real
+      (@DFunLike.coe.{1, 1, 1}
+        (@MonoidWithZeroHom.{0, 0} Complex Real (@instMulZeroOneClassOfSemiring.{0} Complex Complex.instSemiring)
+          (@instMulZeroOneClassOfSemiring.{0} Real Real.semiring))
+        Complex (fun x => Real)
+        (@MonoidWithZeroHom.funLike.{0, 0} Complex Real
+          (@instMulZeroOneClassOfSemiring.{0} Complex Complex.instSemiring)
+          (@instMulZeroOneClassOfSemiring.{0} Real Real.semiring))
+        Complex.normSq rL)
+      (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+        (OQ7.ScalarEnvelope.b (OQ7.transmissionPower t) (OQ7.meanAbsorptance rL rR t)) (OQ7.halfAsymmetry rL rR t)))
+    (@Eq.{1} Real
+      (@DFunLike.coe.{1, 1, 1}
+        (@MonoidWithZeroHom.{0, 0} Complex Real (@instMulZeroOneClassOfSemiring.{0} Complex Complex.instSemiring)
+          (@instMulZeroOneClassOfSemiring.{0} Real Real.semiring))
+        Complex (fun x => Real)
+        (@MonoidWithZeroHom.funLike.{0, 0} Complex Real
+          (@instMulZeroOneClassOfSemiring.{0} Complex Complex.instSemiring)
+          (@instMulZeroOneClassOfSemiring.{0} Real Real.semiring))
+        Complex.normSq rR)
+      (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+        (OQ7.ScalarEnvelope.b (OQ7.transmissionPower t) (OQ7.meanAbsorptance rL rR t)) (OQ7.halfAsymmetry rL rR t)))
+OQ7.halfAsymmetry_le_b : ∀ (rL rR t : Complex),
+  @LE.le.{0} Real Real.instLE (@abs.{0} Real Real.lattice Real.instAddGroup (OQ7.halfAsymmetry rL rR t))
+    (OQ7.ScalarEnvelope.b (OQ7.transmissionPower t) (OQ7.meanAbsorptance rL rR t))
+OQ7.interference_reverse_triangle : ∀ (rL rR t : Complex),
+  @LE.le.{0} Real Real.instLE
+    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (OQ7.transmissionPower t)
+      (@HPow.hPow.{0, 0, 0} Real Nat Real
+        (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+        (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub) (@norm.{0} Complex Complex.instNorm rL)
+          (@norm.{0} Complex Complex.instNorm rR))
+        (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+    (@DFunLike.coe.{1, 1, 1}
+      (@MonoidWithZeroHom.{0, 0} Complex Real (@instMulZeroOneClassOfSemiring.{0} Complex Complex.instSemiring)
+        (@instMulZeroOneClassOfSemiring.{0} Real Real.semiring))
+      Complex (fun x => Real)
+      (@MonoidWithZeroHom.funLike.{0, 0} Complex Real (@instMulZeroOneClassOfSemiring.{0} Complex Complex.instSemiring)
+        (@instMulZeroOneClassOfSemiring.{0} Real Real.semiring))
+      Complex.normSq (OQ7.interference rL rR t))
+OQ7.reflection_product_sqrt : ∀ (rL rR t : Complex),
+  @Eq.{1} Real
+    (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+        (@HPow.hPow.{0, 0, 0} Real Nat Real
+          (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+          (OQ7.ScalarEnvelope.b (OQ7.transmissionPower t) (OQ7.meanAbsorptance rL rR t))
+          (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+        (@HPow.hPow.{0, 0, 0} Real Nat Real
+          (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+          (@abs.{0} Real Real.lattice Real.instAddGroup (OQ7.halfAsymmetry rL rR t))
+          (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))).sqrt
+    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (@norm.{0} Complex Complex.instNorm rL)
+      (@norm.{0} Complex Complex.instNorm rR))
+OQ7.absorption_det_le_envelope : ∀ (rL rR t : Complex),
+  @LE.le.{0} Real Real.instLE
+    (@Matrix.det.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+        (instDecidableEqFin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+        (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex Complex.commRing
+        (OQ7.absorptionMatrix rL rR t)).re
+    (OQ7.ScalarEnvelope.F (OQ7.transmissionPower t) (OQ7.meanAbsorptance rL rR t)
+      (@abs.{0} Real Real.lattice Real.instAddGroup (OQ7.halfAsymmetry rL rR t)))
+OQ7.responseAsymmetry_eq : ∀ (rL rR t : Complex),
+  @Eq.{1} Real (OQ7.responseAsymmetry rL rR t)
+    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+      (@OfNat.ofNat.{0} Real (nat_lit 2) (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast ⋯))
+      (@abs.{0} Real Real.lattice Real.instAddGroup (OQ7.halfAsymmetry rL rR t)))
+@OQ7.active_matrix_deficit : ∀ {rL rR t : Complex},
+  OQ7.Passive rL rR t →
+    OQ7.ScalarEnvelope.ActiveTarget (OQ7.transmissionPower t) (OQ7.meanAbsorptance rL rR t) →
+      @LE.le.{0} Real Real.instLE
+        (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+          (OQ7.ScalarEnvelope.alpha (OQ7.transmissionPower t) (OQ7.meanAbsorptance rL rR t))
+          (OQ7.normalizedAbsorptionDet rL rR t))
+        (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+          (OQ7.ScalarEnvelope.D0 (OQ7.transmissionPower t) (OQ7.meanAbsorptance rL rR t))
+          (OQ7.responseAsymmetry rL rR t))
+@OQ7.active_matrix_strict_gap : ∀ {rL rR t : Complex},
+  OQ7.Passive rL rR t →
+    OQ7.ScalarEnvelope.ActiveTarget (OQ7.transmissionPower t) (OQ7.meanAbsorptance rL rR t) →
+      @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+          (@Matrix.det.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+              (instDecidableEqFin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+              (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex Complex.commRing
+              (OQ7.absorptionMatrix rL rR t)).re →
+        @LT.lt.{0} Real Real.instLT (OQ7.responseAsymmetry rL rR t)
+          (OQ7.ScalarEnvelope.D0 (OQ7.transmissionPower t) (OQ7.meanAbsorptance rL rR t))
+@OQ7.phase_denominator_pos : ∀ {rL rR t : Complex},
+  @Ne.{1} Complex rL (@OfNat.ofNat.{0} Complex (nat_lit 0) (@Zero.toOfNat0.{0} Complex Complex.instZero)) →
+    @Ne.{1} Complex rR (@OfNat.ofNat.{0} Complex (nat_lit 0) (@Zero.toOfNat0.{0} Complex Complex.instZero)) →
+      @Ne.{1} Complex t (@OfNat.ofNat.{0} Complex (nat_lit 0) (@Zero.toOfNat0.{0} Complex Complex.instZero)) →
+        @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+          (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (OQ7.transmissionPower t)
+            (@norm.{0} Complex Complex.instNorm
+              (@HMul.hMul.{0, 0, 0} Complex Complex Complex (@instHMul.{0} Complex Complex.instMul) rL rR)))
+@OQ7.unitPhase_normSq : ∀ {rL rR t : Complex},
+  @Ne.{1} Complex rL (@OfNat.ofNat.{0} Complex (nat_lit 0) (@Zero.toOfNat0.{0} Complex Complex.instZero)) →
+    @Ne.{1} Complex rR (@OfNat.ofNat.{0} Complex (nat_lit 0) (@Zero.toOfNat0.{0} Complex Complex.instZero)) →
+      @Ne.{1} Complex t (@OfNat.ofNat.{0} Complex (nat_lit 0) (@Zero.toOfNat0.{0} Complex Complex.instZero)) →
+        @Eq.{1} Real
+          (@DFunLike.coe.{1, 1, 1}
+            (@MonoidWithZeroHom.{0, 0} Complex Real (@instMulZeroOneClassOfSemiring.{0} Complex Complex.instSemiring)
+              (@instMulZeroOneClassOfSemiring.{0} Real Real.semiring))
+            Complex (fun x => Real)
+            (@MonoidWithZeroHom.funLike.{0, 0} Complex Real
+              (@instMulZeroOneClassOfSemiring.{0} Complex Complex.instSemiring)
+              (@instMulZeroOneClassOfSemiring.{0} Real Real.semiring))
+            Complex.normSq (OQ7.unitPhase rL rR t))
+          (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+OQ7.normSq_add_one_of_unit : ∀ (z : Complex),
+  @Eq.{1} Real
+      (@DFunLike.coe.{1, 1, 1}
+        (@MonoidWithZeroHom.{0, 0} Complex Real (@instMulZeroOneClassOfSemiring.{0} Complex Complex.instSemiring)
+          (@instMulZeroOneClassOfSemiring.{0} Real Real.semiring))
+        Complex (fun x => Real)
+        (@MonoidWithZeroHom.funLike.{0, 0} Complex Real
+          (@instMulZeroOneClassOfSemiring.{0} Complex Complex.instSemiring)
+          (@instMulZeroOneClassOfSemiring.{0} Real Real.semiring))
+        Complex.normSq z)
+      (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) →
+    @Eq.{1} Real
+      (@DFunLike.coe.{1, 1, 1}
+        (@MonoidWithZeroHom.{0, 0} Complex Real (@instMulZeroOneClassOfSemiring.{0} Complex Complex.instSemiring)
+          (@instMulZeroOneClassOfSemiring.{0} Real Real.semiring))
+        Complex (fun x => Real)
+        (@MonoidWithZeroHom.funLike.{0, 0} Complex Real
+          (@instMulZeroOneClassOfSemiring.{0} Complex Complex.instSemiring)
+          (@instMulZeroOneClassOfSemiring.{0} Real Real.semiring))
+        Complex.normSq
+        (@HAdd.hAdd.{0, 0, 0} Complex Complex Complex (@instHAdd.{0} Complex Complex.instAdd) z
+          (@OfNat.ofNat.{0} Complex (nat_lit 1) (@One.toOfNat1.{0} Complex Complex.instOne))))
+      (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+        (@OfNat.ofNat.{0} Real (nat_lit 2) (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast ⋯))
+        (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+          (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) z.re))
+@OQ7.unitPhase_penalty : ∀ {rL rR t : Complex},
+  @Ne.{1} Complex rL (@OfNat.ofNat.{0} Complex (nat_lit 0) (@Zero.toOfNat0.{0} Complex Complex.instZero)) →
+    @Ne.{1} Complex rR (@OfNat.ofNat.{0} Complex (nat_lit 0) (@Zero.toOfNat0.{0} Complex Complex.instZero)) →
+      @Ne.{1} Complex t (@OfNat.ofNat.{0} Complex (nat_lit 0) (@Zero.toOfNat0.{0} Complex Complex.instZero)) →
+        @Eq.{1} Real
+          (@DFunLike.coe.{1, 1, 1}
+            (@MonoidWithZeroHom.{0, 0} Complex Real (@instMulZeroOneClassOfSemiring.{0} Complex Complex.instSemiring)
+              (@instMulZeroOneClassOfSemiring.{0} Real Real.semiring))
+            Complex (fun x => Real)
+            (@MonoidWithZeroHom.funLike.{0, 0} Complex Real
+              (@instMulZeroOneClassOfSemiring.{0} Complex Complex.instSemiring)
+              (@instMulZeroOneClassOfSemiring.{0} Real Real.semiring))
+            Complex.normSq
+            (@HAdd.hAdd.{0, 0, 0} Complex Complex Complex (@instHAdd.{0} Complex Complex.instAdd)
+              (OQ7.unitPhase rL rR t)
+              (@OfNat.ofNat.{0} Complex (nat_lit 1) (@One.toOfNat1.{0} Complex Complex.instOne))))
+          (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+            (@OfNat.ofNat.{0} Real (nat_lit 2) (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast ⋯))
+            (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+              (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) (OQ7.unitPhase rL rR t).re))
+OQ7.interference_phaseProduct : ∀ (rL rR t : Complex),
+  @Eq.{1} Real
+    (@DFunLike.coe.{1, 1, 1}
+      (@MonoidWithZeroHom.{0, 0} Complex Real (@instMulZeroOneClassOfSemiring.{0} Complex Complex.instSemiring)
+        (@instMulZeroOneClassOfSemiring.{0} Real Real.semiring))
+      Complex (fun x => Real)
+      (@MonoidWithZeroHom.funLike.{0, 0} Complex Real (@instMulZeroOneClassOfSemiring.{0} Complex Complex.instSemiring)
+        (@instMulZeroOneClassOfSemiring.{0} Real Real.semiring))
+      Complex.normSq (OQ7.interference rL rR t))
+    (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+      (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (OQ7.transmissionPower t)
+        (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+          (@DFunLike.coe.{1, 1, 1}
+            (@MonoidWithZeroHom.{0, 0} Complex Real (@instMulZeroOneClassOfSemiring.{0} Complex Complex.instSemiring)
+              (@instMulZeroOneClassOfSemiring.{0} Real Real.semiring))
+            Complex (fun x => Real)
+            (@MonoidWithZeroHom.funLike.{0, 0} Complex Real
+              (@instMulZeroOneClassOfSemiring.{0} Complex Complex.instSemiring)
+              (@instMulZeroOneClassOfSemiring.{0} Real Real.semiring))
+            Complex.normSq rL)
+          (@DFunLike.coe.{1, 1, 1}
+            (@MonoidWithZeroHom.{0, 0} Complex Real (@instMulZeroOneClassOfSemiring.{0} Complex Complex.instSemiring)
+              (@instMulZeroOneClassOfSemiring.{0} Real Real.semiring))
+            Complex (fun x => Real)
+            (@MonoidWithZeroHom.funLike.{0, 0} Complex Real
+              (@instMulZeroOneClassOfSemiring.{0} Complex Complex.instSemiring)
+              (@instMulZeroOneClassOfSemiring.{0} Real Real.semiring))
+            Complex.normSq rR)))
+      (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+        (@OfNat.ofNat.{0} Real (nat_lit 2) (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast ⋯))
+        (OQ7.phaseProduct rL rR t).re))
+@OQ7.phaseProduct_re : ∀ {rL rR t : Complex},
+  @Ne.{1} Complex rL (@OfNat.ofNat.{0} Complex (nat_lit 0) (@Zero.toOfNat0.{0} Complex Complex.instZero)) →
+    @Ne.{1} Complex rR (@OfNat.ofNat.{0} Complex (nat_lit 0) (@Zero.toOfNat0.{0} Complex Complex.instZero)) →
+      @Ne.{1} Complex t (@OfNat.ofNat.{0} Complex (nat_lit 0) (@Zero.toOfNat0.{0} Complex Complex.instZero)) →
+        @Eq.{1} Real (OQ7.phaseProduct rL rR t).re
+          (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+            (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (OQ7.transmissionPower t)
+              (@norm.{0} Complex Complex.instNorm
+                (@HMul.hMul.{0, 0, 0} Complex Complex Complex (@instHMul.{0} Complex Complex.instMul) rL rR)))
+            (OQ7.unitPhase rL rR t).re)
+@OQ7.interference_unitPhase : ∀ {rL rR t : Complex},
+  @Ne.{1} Complex rL (@OfNat.ofNat.{0} Complex (nat_lit 0) (@Zero.toOfNat0.{0} Complex Complex.instZero)) →
+    @Ne.{1} Complex rR (@OfNat.ofNat.{0} Complex (nat_lit 0) (@Zero.toOfNat0.{0} Complex Complex.instZero)) →
+      @Ne.{1} Complex t (@OfNat.ofNat.{0} Complex (nat_lit 0) (@Zero.toOfNat0.{0} Complex Complex.instZero)) →
+        @Eq.{1} Real
+          (@DFunLike.coe.{1, 1, 1}
+            (@MonoidWithZeroHom.{0, 0} Complex Real (@instMulZeroOneClassOfSemiring.{0} Complex Complex.instSemiring)
+              (@instMulZeroOneClassOfSemiring.{0} Real Real.semiring))
+            Complex (fun x => Real)
+            (@MonoidWithZeroHom.funLike.{0, 0} Complex Real
+              (@instMulZeroOneClassOfSemiring.{0} Complex Complex.instSemiring)
+              (@instMulZeroOneClassOfSemiring.{0} Real Real.semiring))
+            Complex.normSq (OQ7.interference rL rR t))
+          (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+            (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+              (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                (@OfNat.ofNat.{0} Real (nat_lit 2) (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast ⋯))
+                (OQ7.transmissionPower t))
+              (OQ7.ScalarEnvelope.b (OQ7.transmissionPower t) (OQ7.meanAbsorptance rL rR t)))
+            (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+              (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                  (@OfNat.ofNat.{0} Real (nat_lit 2) (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast ⋯))
+                  (OQ7.transmissionPower t))
+                (@norm.{0} Complex Complex.instNorm
+                  (@HMul.hMul.{0, 0, 0} Complex Complex Complex (@instHMul.{0} Complex Complex.instMul) rL rR)))
+              (OQ7.unitPhase rL rR t).re))
+@OQ7.absorption_det_phase_penalty : ∀ {rL rR t : Complex},
+  @Ne.{1} Complex rL (@OfNat.ofNat.{0} Complex (nat_lit 0) (@Zero.toOfNat0.{0} Complex Complex.instZero)) →
+    @Ne.{1} Complex rR (@OfNat.ofNat.{0} Complex (nat_lit 0) (@Zero.toOfNat0.{0} Complex Complex.instZero)) →
+      @Ne.{1} Complex t (@OfNat.ofNat.{0} Complex (nat_lit 0) (@Zero.toOfNat0.{0} Complex Complex.instZero)) →
+        @Eq.{1} Real
+          (@Matrix.det.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+              (instDecidableEqFin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+              (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex Complex.commRing
+              (OQ7.absorptionMatrix rL rR t)).re
+          (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+            (OQ7.ScalarEnvelope.F (OQ7.transmissionPower t) (OQ7.meanAbsorptance rL rR t)
+              (@abs.{0} Real Real.lattice Real.instAddGroup (OQ7.halfAsymmetry rL rR t)))
+            (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+              (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (OQ7.transmissionPower t)
+                (@norm.{0} Complex Complex.instNorm
+                  (@HMul.hMul.{0, 0, 0} Complex Complex Complex (@instHMul.{0} Complex Complex.instMul) rL rR)))
+              (@DFunLike.coe.{1, 1, 1}
+                (@MonoidWithZeroHom.{0, 0} Complex Real
+                  (@instMulZeroOneClassOfSemiring.{0} Complex Complex.instSemiring)
+                  (@instMulZeroOneClassOfSemiring.{0} Real Real.semiring))
+                Complex (fun x => Real)
+                (@MonoidWithZeroHom.funLike.{0, 0} Complex Real
+                  (@instMulZeroOneClassOfSemiring.{0} Complex Complex.instSemiring)
+                  (@instMulZeroOneClassOfSemiring.{0} Real Real.semiring))
+                Complex.normSq
+                (@HAdd.hAdd.{0, 0, 0} Complex Complex Complex (@instHAdd.{0} Complex Complex.instAdd)
+                  (OQ7.unitPhase rL rR t)
+                  (@OfNat.ofNat.{0} Complex (nat_lit 1) (@One.toOfNat1.{0} Complex Complex.instOne))))))
+@OQ7.absorption_det_phase_norm : ∀ {rL rR t : Complex},
+  @Ne.{1} Complex rL (@OfNat.ofNat.{0} Complex (nat_lit 0) (@Zero.toOfNat0.{0} Complex Complex.instZero)) →
+    @Ne.{1} Complex rR (@OfNat.ofNat.{0} Complex (nat_lit 0) (@Zero.toOfNat0.{0} Complex Complex.instZero)) →
+      @Ne.{1} Complex t (@OfNat.ofNat.{0} Complex (nat_lit 0) (@Zero.toOfNat0.{0} Complex Complex.instZero)) →
+        @Eq.{1} Real
+          (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+            (OQ7.ScalarEnvelope.F (OQ7.transmissionPower t) (OQ7.meanAbsorptance rL rR t)
+              (@abs.{0} Real Real.lattice Real.instAddGroup (OQ7.halfAsymmetry rL rR t)))
+            (@Matrix.det.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                (instDecidableEqFin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex Complex.commRing
+                (OQ7.absorptionMatrix rL rR t)).re)
+          (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+            (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (OQ7.transmissionPower t)
+              (@norm.{0} Complex Complex.instNorm
+                (@HMul.hMul.{0, 0, 0} Complex Complex Complex (@instHMul.{0} Complex Complex.instMul) rL rR)))
+            (@HPow.hPow.{0, 0, 0} Real Nat Real
+              (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+              (@norm.{0} Complex Complex.instNorm
+                (@HAdd.hAdd.{0, 0, 0} Complex Complex Complex (@instHAdd.{0} Complex Complex.instAdd)
+                  (OQ7.unitPhase rL rR t)
+                  (@OfNat.ofNat.{0} Complex (nat_lit 1) (@One.toOfNat1.{0} Complex Complex.instOne))))
+              (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+@OQ7.phase_remainder_bound : ∀ {rL rR t : Complex} {epsilon : Real},
+  @Ne.{1} Complex rL (@OfNat.ofNat.{0} Complex (nat_lit 0) (@Zero.toOfNat0.{0} Complex Complex.instZero)) →
+    @Ne.{1} Complex rR (@OfNat.ofNat.{0} Complex (nat_lit 0) (@Zero.toOfNat0.{0} Complex Complex.instZero)) →
+      @Ne.{1} Complex t (@OfNat.ofNat.{0} Complex (nat_lit 0) (@Zero.toOfNat0.{0} Complex Complex.instZero)) →
+        @LE.le.{0} Real Real.instLE
+            (@norm.{0} Complex Complex.instNorm
+              (@HAdd.hAdd.{0, 0, 0} Complex Complex Complex (@instHAdd.{0} Complex Complex.instAdd)
+                (OQ7.unitPhase rL rR t)
+                (@OfNat.ofNat.{0} Complex (nat_lit 1) (@One.toOfNat1.{0} Complex Complex.instOne))))
+            epsilon →
+          @LE.le.{0} Real Real.instLE
+            (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+              (OQ7.ScalarEnvelope.F (OQ7.transmissionPower t) (OQ7.meanAbsorptance rL rR t)
+                (@abs.{0} Real Real.lattice Real.instAddGroup (OQ7.halfAsymmetry rL rR t)))
+              (@Matrix.det.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                  (instDecidableEqFin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                  (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex Complex.commRing
+                  (OQ7.absorptionMatrix rL rR t)).re)
+            (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+              (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (OQ7.transmissionPower t)
+                (@norm.{0} Complex Complex.instNorm
+                  (@HMul.hMul.{0, 0, 0} Complex Complex Complex (@instHMul.{0} Complex Complex.instMul) rL rR)))
+              (@HPow.hPow.{0, 0, 0} Real Nat Real
+                (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid))) epsilon
+                (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+OQ7.fluxForm_quadratic : ∀ (u : Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) → Complex),
+  @Eq.{1} Complex
+    (@dotProduct.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex
+      (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex.instMul
+      Complex.instAddCommMonoid
+      (@star.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) → Complex)
+        (@Pi.instStarForall.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (fun a => Complex) fun i =>
+          @InvolutiveStar.toStar.{0} Complex
+            (@StarAddMonoid.toInvolutiveStar.{0} Complex
+              (@AddCommMonoid.toAddMonoid.{0} Complex
+                (@NonUnitalNonAssocSemiring.toAddCommMonoid.{0} Complex
+                  (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring.{0} Complex
+                    (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing.{0} Complex
+                      (@NonUnitalCommRing.toNonUnitalNonAssocCommRing.{0} Complex Complex.instNonUnitalCommRing)))))
+              (@StarRing.toStarAddMonoid.{0} Complex
+                (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring.{0} Complex
+                  (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing.{0} Complex
+                    (@NonUnitalCommRing.toNonUnitalNonAssocCommRing.{0} Complex Complex.instNonUnitalCommRing)))
+                Complex.instStarRing)))
+        u)
+      (@Matrix.mulVec.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+        (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex
+        (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring.{0} Complex
+          (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing.{0} Complex
+            (@NonUnitalCommRing.toNonUnitalNonAssocCommRing.{0} Complex Complex.instNonUnitalCommRing)))
+        (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) OQ7.fluxForm u))
+    ↑(@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+        (@OfNat.ofNat.{0} Real (nat_lit 2) (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast ⋯))
+        (OQ7.directedFlux
+          (u
+            (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) (nat_lit 0)
+              (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) ⋯ (nat_lit 0))))
+          (u
+            (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) (nat_lit 1)
+              (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) ⋯ (nat_lit 1))))))
+OQ7.fluxDefect_quadratic : ∀ (F : OQ7.Mat2)
+  (u : Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) → Complex),
+  @Eq.{1} Complex
+    (@dotProduct.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex
+      (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex.instMul
+      Complex.instAddCommMonoid
+      (@star.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) → Complex)
+        (@Pi.instStarForall.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (fun a => Complex) fun i =>
+          @InvolutiveStar.toStar.{0} Complex
+            (@StarAddMonoid.toInvolutiveStar.{0} Complex
+              (@AddCommMonoid.toAddMonoid.{0} Complex
+                (@NonUnitalNonAssocSemiring.toAddCommMonoid.{0} Complex
+                  (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring.{0} Complex
+                    (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing.{0} Complex
+                      (@NonUnitalCommRing.toNonUnitalNonAssocCommRing.{0} Complex Complex.instNonUnitalCommRing)))))
+              (@StarRing.toStarAddMonoid.{0} Complex
+                (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring.{0} Complex
+                  (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing.{0} Complex
+                    (@NonUnitalCommRing.toNonUnitalNonAssocCommRing.{0} Complex Complex.instNonUnitalCommRing)))
+                Complex.instStarRing)))
+        u)
+      (@Matrix.mulVec.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+        (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex
+        (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring.{0} Complex
+          (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing.{0} Complex
+            (@NonUnitalCommRing.toNonUnitalNonAssocCommRing.{0} Complex Complex.instNonUnitalCommRing)))
+        (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) (OQ7.fluxDefect F) u))
+    ↑(@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+        (@OfNat.ofNat.{0} Real (nat_lit 2) (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast ⋯))
+        (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+          (OQ7.directedFlux
+            (u
+              (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) (nat_lit 0)
+                (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) ⋯ (nat_lit 0))))
+            (u
+              (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) (nat_lit 1)
+                (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) ⋯ (nat_lit 1)))))
+          (OQ7.directedFlux
+            (@Matrix.mulVec.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex
+              (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring.{0} Complex
+                (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing.{0} Complex
+                  (@NonUnitalCommRing.toNonUnitalNonAssocCommRing.{0} Complex Complex.instNonUnitalCommRing)))
+              (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) F u
+              (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) (nat_lit 0)
+                (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) ⋯ (nat_lit 0))))
+            (@Matrix.mulVec.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex
+              (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring.{0} Complex
+                (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing.{0} Complex
+                  (@NonUnitalCommRing.toNonUnitalNonAssocCommRing.{0} Complex Complex.instNonUnitalCommRing)))
+              (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) F u
+              (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) (nat_lit 1)
+                (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) ⋯ (nat_lit 1)))))))
+@OQ7.layerDirectedFlux_antitone : ∀ {k : Real},
+  @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) k →
+    ∀ {layer : OQ7.HomogeneousLayer},
+      @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) layer.p →
+        @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+            layer.q →
+          ∀ (E₀ H₀ : Complex),
+            @Antitone.{0, 0} Real Real Real.instPreorder Real.instPreorder fun x =>
+              OQ7.directedFlux (OQ7.layerElectricField k layer E₀ H₀ x) (OQ7.layerMagneticField k layer E₀ H₀ x)
+@OQ7.layerTransfer_fluxDefect_posSemidef : ∀ {k : Real},
+  @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) k →
+    ∀ {layer : OQ7.HomogeneousLayer},
+      @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) layer.p →
+        @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+            layer.q →
+          @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+              layer.width →
+            @Matrix.PosSemidef.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex
+              Complex.instRing Complex.partialOrder Complex.instStarRing (OQ7.fluxDefect (OQ7.layerTransfer k layer))
+OQ7.fluxDefect_mul : ∀ (B A : OQ7.Mat2),
+  @Eq.{1} OQ7.Mat2
+    (OQ7.fluxDefect
+      (@HMul.hMul.{0, 0, 0} OQ7.Mat2 OQ7.Mat2
+        (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+        (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid.{0, 0, 0, 0}
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex
+          (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex.instMul
+          Complex.instAddCommMonoid)
+        B A))
+    (@HAdd.hAdd.{0, 0, 0} OQ7.Mat2
+      (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+        (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+      OQ7.Mat2
+      (@instHAdd.{0} OQ7.Mat2
+        (@Matrix.add.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex Complex.instAdd))
+      (OQ7.fluxDefect A)
+      (@HMul.hMul.{0, 0, 0}
+        (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+        OQ7.Mat2
+        (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+        (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid.{0, 0, 0, 0}
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex
+          (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex.instMul
+          Complex.instAddCommMonoid)
+        (@HMul.hMul.{0, 0, 0}
+          (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+          OQ7.Mat2
+          (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+          (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid.{0, 0, 0, 0}
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex
+            (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex.instMul
+            Complex.instAddCommMonoid)
+          (@Matrix.conjTranspose.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex
+            (@InvolutiveStar.toStar.{0} Complex
+              (@StarAddMonoid.toInvolutiveStar.{0} Complex
+                (@AddCommMonoid.toAddMonoid.{0} Complex
+                  (@NonUnitalNonAssocSemiring.toAddCommMonoid.{0} Complex
+                    (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring.{0} Complex
+                      (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing.{0} Complex
+                        (@NonUnitalCommRing.toNonUnitalNonAssocCommRing.{0} Complex Complex.instNonUnitalCommRing)))))
+                (@StarRing.toStarAddMonoid.{0} Complex
+                  (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring.{0} Complex
+                    (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing.{0} Complex
+                      (@NonUnitalCommRing.toNonUnitalNonAssocCommRing.{0} Complex Complex.instNonUnitalCommRing)))
+                  Complex.instStarRing)))
+            A)
+          (OQ7.fluxDefect B))
+        A))
+OQ7.fluxDefect_mul_posSemidef : ∀ (B A : OQ7.Mat2),
+  @Matrix.PosSemidef.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex Complex.instRing
+      Complex.partialOrder Complex.instStarRing (OQ7.fluxDefect B) →
+    @Matrix.PosSemidef.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex
+        Complex.instRing Complex.partialOrder Complex.instStarRing (OQ7.fluxDefect A) →
+      @Matrix.PosSemidef.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex
+        Complex.instRing Complex.partialOrder Complex.instStarRing
+        (OQ7.fluxDefect
+          (@HMul.hMul.{0, 0, 0} OQ7.Mat2 OQ7.Mat2
+            (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+            (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid.{0, 0, 0, 0}
+              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex
+              (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex.instMul
+              Complex.instAddCommMonoid)
+            B A))
+@OQ7.stackTransfer_fluxDefect_posSemidef : ∀ {k P Q : Real},
+  @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) k →
+    ∀ {layers : List.{0} OQ7.HomogeneousLayer},
+      OQ7.StackAdmissible P Q layers →
+        @Matrix.PosSemidef.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex
+          Complex.instRing Complex.partialOrder Complex.instStarRing (OQ7.fluxDefect (OQ7.stackTransfer k layers))
+@OQ7.stackTransfer_denominator_ne_zero : ∀ {k P Q : Real},
+  @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) k →
+    ∀ {layers : List.{0} OQ7.HomogeneousLayer},
+      OQ7.StackAdmissible P Q layers →
+        @Ne.{1} Complex
+          (OQ7.waveTransfer (OQ7.stackTransfer k layers)
+            (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) (nat_lit 1)
+              (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) ⋯ (nat_lit 1)))
+            (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) (nat_lit 1)
+              (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) ⋯ (nat_lit 1))))
+          (@OfNat.ofNat.{0} Complex (nat_lit 0) (@Zero.toOfNat0.{0} Complex Complex.instZero))
+@OQ7.stack_scattering_passive : ∀ {k P Q : Real},
+  @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) k →
+    ∀ {layers : List.{0} OQ7.HomogeneousLayer},
+      OQ7.StackAdmissible P Q layers →
+        OQ7.Passive (OQ7.transferReflectionLeft (OQ7.waveTransfer (OQ7.stackTransfer k layers)))
+          (OQ7.transferReflectionRight (OQ7.waveTransfer (OQ7.stackTransfer k layers)))
+          (OQ7.transferTransmissionRight (OQ7.waveTransfer (OQ7.stackTransfer k layers)))
+@OQ7.stack_transmission_ne_zero : ∀ {k P Q : Real},
+  @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) k →
+    ∀ {layers : List.{0} OQ7.HomogeneousLayer},
+      OQ7.StackAdmissible P Q layers →
+        @Ne.{1} Complex (OQ7.transferTransmissionRight (OQ7.waveTransfer (OQ7.stackTransfer k layers)))
+          (@OfNat.ofNat.{0} Complex (nat_lit 0) (@Zero.toOfNat0.{0} Complex Complex.instZero))
+@OQ7.stack_absorption_det_ratio : ∀ {k P Q : Real},
+  @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) k →
+    ∀ {layers : List.{0} OQ7.HomogeneousLayer},
+      OQ7.StackAdmissible P Q layers →
+        @Eq.{1} Complex
+          (@HDiv.hDiv.{0, 0, 0} Complex Complex Complex
+            (@instHDiv.{0} Complex (@DivInvMonoid.toDiv.{0} Complex Complex.instDivInvMonoid))
+            (@Matrix.det.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+              (instDecidableEqFin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+              (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex Complex.commRing
+              (OQ7.absorptionMatrix (OQ7.transferReflectionLeft (OQ7.waveTransfer (OQ7.stackTransfer k layers)))
+                (OQ7.transferReflectionRight (OQ7.waveTransfer (OQ7.stackTransfer k layers)))
+                (OQ7.transferTransmissionRight (OQ7.waveTransfer (OQ7.stackTransfer k layers)))))
+            ↑(@DFunLike.coe.{1, 1, 1}
+                (@MonoidWithZeroHom.{0, 0} Complex Real
+                  (@instMulZeroOneClassOfSemiring.{0} Complex Complex.instSemiring)
+                  (@instMulZeroOneClassOfSemiring.{0} Real Real.semiring))
+                Complex (fun x => Real)
+                (@MonoidWithZeroHom.funLike.{0, 0} Complex Real
+                  (@instMulZeroOneClassOfSemiring.{0} Complex Complex.instSemiring)
+                  (@instMulZeroOneClassOfSemiring.{0} Real Real.semiring))
+                Complex.normSq (OQ7.transferTransmissionRight (OQ7.waveTransfer (OQ7.stackTransfer k layers)))))
+          (@Matrix.det.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (instDecidableEqFin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex Complex.commRing
+            (OQ7.fluxDefect (OQ7.stackTransfer k layers)))
+OQ7.waveBasis_fluxForm : @Eq.{1}
+  (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+    (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+  (@HMul.hMul.{0, 0, 0}
+    (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+      (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+    OQ7.Mat2
+    (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+      (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+    (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid.{0, 0, 0, 0}
+      (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+      (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+      (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex
+      (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex.instMul
+      Complex.instAddCommMonoid)
+    (@HMul.hMul.{0, 0, 0}
+      (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+        (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+      OQ7.Mat2
+      (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+        (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+      (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid.{0, 0, 0, 0}
+        (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+        (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+        (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex
+        (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex.instMul
+        Complex.instAddCommMonoid)
+      (@Matrix.conjTranspose.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+        (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex
+        (@InvolutiveStar.toStar.{0} Complex
+          (@StarAddMonoid.toInvolutiveStar.{0} Complex
+            (@AddCommMonoid.toAddMonoid.{0} Complex
+              (@NonUnitalNonAssocSemiring.toAddCommMonoid.{0} Complex
+                (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring.{0} Complex
+                  (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing.{0} Complex
+                    (@NonUnitalCommRing.toNonUnitalNonAssocCommRing.{0} Complex Complex.instNonUnitalCommRing)))))
+            (@StarRing.toStarAddMonoid.{0} Complex
+              (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring.{0} Complex
+                (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing.{0} Complex
+                  (@NonUnitalCommRing.toNonUnitalNonAssocCommRing.{0} Complex Complex.instNonUnitalCommRing)))
+              Complex.instStarRing)))
+        OQ7.waveBasis)
+      OQ7.fluxForm)
+    OQ7.waveBasis)
+  (@HSMul.hSMul.{0, 0, 0} Complex OQ7.Mat2 OQ7.Mat2
+    (@instHSMul.{0, 0} Complex OQ7.Mat2
+      (@Matrix.smul.{0, 0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+        (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex Complex
+        (@instSMulOfMul.{0} Complex Complex.instMul)))
+    (@OfNat.ofNat.{0} Complex (nat_lit 2) (@instOfNatAtLeastTwo.{0} Complex (nat_lit 2) Complex.instNatCast ⋯))
+    OQ7.waveFluxForm)
+OQ7.waveBasis_fluxDefect : ∀ (F : OQ7.Mat2),
+  @Eq.{1}
+    (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+      (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+    (@HMul.hMul.{0, 0, 0}
+      (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+        (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+      OQ7.Mat2
+      (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+        (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+      (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid.{0, 0, 0, 0}
+        (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+        (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+        (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex
+        (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex.instMul
+        Complex.instAddCommMonoid)
+      (@HMul.hMul.{0, 0, 0}
+        (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+        OQ7.Mat2
+        (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+        (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid.{0, 0, 0, 0}
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex
+          (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex.instMul
+          Complex.instAddCommMonoid)
+        (@Matrix.conjTranspose.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex
+          (@InvolutiveStar.toStar.{0} Complex
+            (@StarAddMonoid.toInvolutiveStar.{0} Complex
+              (@AddCommMonoid.toAddMonoid.{0} Complex
+                (@NonUnitalNonAssocSemiring.toAddCommMonoid.{0} Complex
+                  (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring.{0} Complex
+                    (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing.{0} Complex
+                      (@NonUnitalCommRing.toNonUnitalNonAssocCommRing.{0} Complex Complex.instNonUnitalCommRing)))))
+              (@StarRing.toStarAddMonoid.{0} Complex
+                (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring.{0} Complex
+                  (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing.{0} Complex
+                    (@NonUnitalCommRing.toNonUnitalNonAssocCommRing.{0} Complex Complex.instNonUnitalCommRing)))
+                Complex.instStarRing)))
+          OQ7.waveBasis)
+        (OQ7.fluxDefect F))
+      OQ7.waveBasis)
+    (@HSMul.hSMul.{0, 0, 0} Complex OQ7.Mat2 OQ7.Mat2
+      (@instHSMul.{0, 0} Complex OQ7.Mat2
+        (@Matrix.smul.{0, 0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex Complex
+          (@instSMulOfMul.{0} Complex Complex.instMul)))
+      (@OfNat.ofNat.{0} Complex (nat_lit 2) (@instOfNatAtLeastTwo.{0} Complex (nat_lit 2) Complex.instNatCast ⋯))
+      (OQ7.waveFluxDefect (OQ7.waveTransfer F)))
+OQ7.waveFluxDefect_11 : ∀ (K : OQ7.Mat2),
+  @Eq.{1} Complex
+    (OQ7.waveFluxDefect K
+      (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) (nat_lit 1)
+        (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) ⋯ (nat_lit 1)))
+      (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) (nat_lit 1)
+        (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) ⋯ (nat_lit 1))))
+    (@HSub.hSub.{0, 0, 0} Complex Complex Complex (@instHSub.{0} Complex Complex.instSub)
+      (@HSub.hSub.{0, 0, 0} Complex Complex Complex (@instHSub.{0} Complex Complex.instSub)
+        ↑(@DFunLike.coe.{1, 1, 1}
+            (@MonoidWithZeroHom.{0, 0} Complex Real (@instMulZeroOneClassOfSemiring.{0} Complex Complex.instSemiring)
+              (@instMulZeroOneClassOfSemiring.{0} Real Real.semiring))
+            Complex (fun x => Real)
+            (@MonoidWithZeroHom.funLike.{0, 0} Complex Real
+              (@instMulZeroOneClassOfSemiring.{0} Complex Complex.instSemiring)
+              (@instMulZeroOneClassOfSemiring.{0} Real Real.semiring))
+            Complex.normSq
+            (K
+              (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) (nat_lit 1)
+                (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) ⋯ (nat_lit 1)))
+              (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) (nat_lit 1)
+                (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) ⋯ (nat_lit 1)))))
+        ↑(@DFunLike.coe.{1, 1, 1}
+            (@MonoidWithZeroHom.{0, 0} Complex Real (@instMulZeroOneClassOfSemiring.{0} Complex Complex.instSemiring)
+              (@instMulZeroOneClassOfSemiring.{0} Real Real.semiring))
+            Complex (fun x => Real)
+            (@MonoidWithZeroHom.funLike.{0, 0} Complex Real
+              (@instMulZeroOneClassOfSemiring.{0} Complex Complex.instSemiring)
+              (@instMulZeroOneClassOfSemiring.{0} Real Real.semiring))
+            Complex.normSq
+            (K
+              (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) (nat_lit 0)
+                (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) ⋯ (nat_lit 0)))
+              (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) (nat_lit 1)
+                (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) ⋯ (nat_lit 1))))))
+      (@OfNat.ofNat.{0} Complex (nat_lit 1) (@One.toOfNat1.{0} Complex Complex.instOne)))
+OQ7.passive_transfer_denominator_bound : ∀ (F : OQ7.Mat2),
+  @Matrix.PosSemidef.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex Complex.instRing
+      Complex.partialOrder Complex.instStarRing (OQ7.fluxDefect F) →
+    @LE.le.{0} Real Real.instLE
+      (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+        (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+        (@DFunLike.coe.{1, 1, 1}
+          (@MonoidWithZeroHom.{0, 0} Complex Real (@instMulZeroOneClassOfSemiring.{0} Complex Complex.instSemiring)
+            (@instMulZeroOneClassOfSemiring.{0} Real Real.semiring))
+          Complex (fun x => Real)
+          (@MonoidWithZeroHom.funLike.{0, 0} Complex Real
+            (@instMulZeroOneClassOfSemiring.{0} Complex Complex.instSemiring)
+            (@instMulZeroOneClassOfSemiring.{0} Real Real.semiring))
+          Complex.normSq
+          (OQ7.waveTransfer F
+            (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) (nat_lit 0)
+              (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) ⋯ (nat_lit 0)))
+            (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) (nat_lit 1)
+              (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) ⋯ (nat_lit 1))))))
+      (@DFunLike.coe.{1, 1, 1}
+        (@MonoidWithZeroHom.{0, 0} Complex Real (@instMulZeroOneClassOfSemiring.{0} Complex Complex.instSemiring)
+          (@instMulZeroOneClassOfSemiring.{0} Real Real.semiring))
+        Complex (fun x => Real)
+        (@MonoidWithZeroHom.funLike.{0, 0} Complex Real
+          (@instMulZeroOneClassOfSemiring.{0} Complex Complex.instSemiring)
+          (@instMulZeroOneClassOfSemiring.{0} Real Real.semiring))
+        Complex.normSq
+        (OQ7.waveTransfer F
+          (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) (nat_lit 1)
+            (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) ⋯ (nat_lit 1)))
+          (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) (nat_lit 1)
+            (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) ⋯ (nat_lit 1)))))
+OQ7.passive_transfer_denominator_ne_zero : ∀ (F : OQ7.Mat2),
+  @Matrix.PosSemidef.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex Complex.instRing
+      Complex.partialOrder Complex.instStarRing (OQ7.fluxDefect F) →
+    @Ne.{1} Complex
+      (OQ7.waveTransfer F
+        (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) (nat_lit 1)
+          (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) ⋯ (nat_lit 1)))
+        (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) (nat_lit 1)
+          (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) ⋯ (nat_lit 1))))
+      (@OfNat.ofNat.{0} Complex (nat_lit 0) (@Zero.toOfNat0.{0} Complex Complex.instZero))
+OQ7.passive_transfer_scattering : ∀ (F : OQ7.Mat2),
+  @Matrix.PosSemidef.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex Complex.instRing
+      Complex.partialOrder Complex.instStarRing (OQ7.fluxDefect F) →
+    @Eq.{1} Complex
+        (@Matrix.det.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (instDecidableEqFin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex Complex.commRing F)
+        (@OfNat.ofNat.{0} Complex (nat_lit 1) (@One.toOfNat1.{0} Complex Complex.instOne)) →
+      OQ7.Passive (OQ7.transferReflectionLeft (OQ7.waveTransfer F)) (OQ7.transferReflectionRight (OQ7.waveTransfer F))
+        (OQ7.transferTransmissionRight (OQ7.waveTransfer F))
+OQ7.passive_transfer_transmission_ne_zero : ∀ (F : OQ7.Mat2),
+  @Matrix.PosSemidef.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex Complex.instRing
+      Complex.partialOrder Complex.instStarRing (OQ7.fluxDefect F) →
+    @Ne.{1} Complex (OQ7.transferTransmissionRight (OQ7.waveTransfer F))
+      (@OfNat.ofNat.{0} Complex (nat_lit 0) (@Zero.toOfNat0.{0} Complex Complex.instZero))
+OQ7.passive_transfer_absorption_det_ratio : ∀ (F : OQ7.Mat2),
+  @Matrix.PosSemidef.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex Complex.instRing
+      Complex.partialOrder Complex.instStarRing (OQ7.fluxDefect F) →
+    @Eq.{1} Complex
+        (@Matrix.det.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (instDecidableEqFin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex Complex.commRing F)
+        (@OfNat.ofNat.{0} Complex (nat_lit 1) (@One.toOfNat1.{0} Complex Complex.instOne)) →
+      @Eq.{1} Complex
+        (@HDiv.hDiv.{0, 0, 0} Complex Complex Complex
+          (@instHDiv.{0} Complex (@DivInvMonoid.toDiv.{0} Complex Complex.instDivInvMonoid))
+          (@Matrix.det.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (instDecidableEqFin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex Complex.commRing
+            (OQ7.absorptionMatrix (OQ7.transferReflectionLeft (OQ7.waveTransfer F))
+              (OQ7.transferReflectionRight (OQ7.waveTransfer F)) (OQ7.transferTransmissionRight (OQ7.waveTransfer F))))
+          ↑(@DFunLike.coe.{1, 1, 1}
+              (@MonoidWithZeroHom.{0, 0} Complex Real (@instMulZeroOneClassOfSemiring.{0} Complex Complex.instSemiring)
+                (@instMulZeroOneClassOfSemiring.{0} Real Real.semiring))
+              Complex (fun x => Real)
+              (@MonoidWithZeroHom.funLike.{0, 0} Complex Real
+                (@instMulZeroOneClassOfSemiring.{0} Complex Complex.instSemiring)
+                (@instMulZeroOneClassOfSemiring.{0} Real Real.semiring))
+              Complex.normSq (OQ7.transferTransmissionRight (OQ7.waveTransfer F))))
+        (@Matrix.det.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (instDecidableEqFin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex Complex.commRing
+          (OQ7.fluxDefect F))
+@OQ7.layerDirectedFlux_strict : ∀ {k : Real},
+  @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) k →
+    ∀ {layer : OQ7.HomogeneousLayer},
+      @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) layer.p →
+        @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+            layer.q →
+          @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+              layer.width →
+            ∀ (E₀ H₀ : Complex),
+              @Ne.{1} (Fin (Nat.succ (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))) → Complex)
+                  (@Matrix.vecCons.{0} Complex (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) E₀
+                    (@Matrix.vecCons.{0} Complex (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) H₀
+                      (@Matrix.vecEmpty.{0} Complex)))
+                  (@OfNat.ofNat.{0}
+                    (Fin (Nat.succ (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))) → Complex) (nat_lit 0)
+                    (@Zero.toOfNat0.{0}
+                      (Fin (Nat.succ (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))) → Complex)
+                      (@Pi.instZero.{0, 0}
+                        (Fin (Nat.succ (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                        (fun a => Complex) fun i => Complex.instZero))) →
+                @LT.lt.{0} Real Real.instLT
+                  (OQ7.directedFlux (OQ7.layerElectricField k layer E₀ H₀ layer.width)
+                    (OQ7.layerMagneticField k layer E₀ H₀ layer.width))
+                  (OQ7.directedFlux E₀ H₀)
+@OQ7.layerTransfer_fluxDefect_posDef : ∀ {k : Real},
+  @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) k →
+    ∀ {layer : OQ7.HomogeneousLayer},
+      @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) layer.p →
+        @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+            layer.q →
+          @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+              layer.width →
+            @Matrix.PosDef.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex
+              Complex.instRing Complex.partialOrder Complex.instStarRing (OQ7.fluxDefect (OQ7.layerTransfer k layer))
+@OQ7.stackTransfer_fluxDefect_posDef : ∀ {k P Q : Real},
+  @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) k →
+    ∀ {layers : List.{0} OQ7.HomogeneousLayer},
+      OQ7.StackAdmissible P Q layers →
+        @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+            (OQ7.integratedLoss layers) →
+          @Matrix.PosDef.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex
+            Complex.instRing Complex.partialOrder Complex.instStarRing (OQ7.fluxDefect (OQ7.stackTransfer k layers))
+@OQ7.stack_absorption_posDef : ∀ {k P Q : Real},
+  @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) k →
+    ∀ {layers : List.{0} OQ7.HomogeneousLayer},
+      OQ7.StackAdmissible P Q layers →
+        @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+            (OQ7.integratedLoss layers) →
+          @Matrix.PosDef.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex
+            Complex.instRing Complex.partialOrder Complex.instStarRing
+            (OQ7.absorptionMatrix (OQ7.stackReflectionLeft k layers) (OQ7.stackReflectionRight k layers)
+              (OQ7.stackTransmission k layers))
+@OQ7.stack_absorption_det_pos : ∀ {k P Q : Real},
+  @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) k →
+    ∀ {layers : List.{0} OQ7.HomogeneousLayer},
+      OQ7.StackAdmissible P Q layers →
+        @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+            (OQ7.integratedLoss layers) →
+          @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+            (@Matrix.det.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                (instDecidableEqFin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex Complex.commRing
+                (OQ7.absorptionMatrix (OQ7.stackReflectionLeft k layers) (OQ7.stackReflectionRight k layers)
+                  (OQ7.stackTransmission k layers))).re
+@OQ7.exactTargetClass_strict_gap : ∀ {p : OQ7.PhysicalParameters} {L : Real} {layers : List.{0} OQ7.HomogeneousLayer},
+  @Membership.mem.{0, 0} (List.{0} OQ7.HomogeneousLayer) (Set.{0} (List.{0} OQ7.HomogeneousLayer))
+      (@Set.instMembership.{0} (List.{0} OQ7.HomogeneousLayer)) (OQ7.exactTargetClass p L) layers →
+    @LT.lt.{0} Real Real.instLT (OQ7.stackAsymmetry p.k layers) (OQ7.ScalarEnvelope.D0 p.T p.a)
+@OQ7.exactTargetClass_deficit : ∀ {p : OQ7.PhysicalParameters} {L : Real} {layers : List.{0} OQ7.HomogeneousLayer},
+  @Membership.mem.{0, 0} (List.{0} OQ7.HomogeneousLayer) (Set.{0} (List.{0} OQ7.HomogeneousLayer))
+      (@Set.instMembership.{0} (List.{0} OQ7.HomogeneousLayer)) (OQ7.exactTargetClass p L) layers →
+    @LE.le.{0} Real Real.instLE
+      (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (OQ7.ScalarEnvelope.alpha p.T p.a)
+        (OQ7.stackNormalizedAbsorptionDet p.k layers))
+      (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub) (OQ7.ScalarEnvelope.D0 p.T p.a)
+        (OQ7.stackAsymmetry p.k layers))
+@OQ7.exactTargetClass_normalizedDet_nonneg : ∀ {p : OQ7.PhysicalParameters} {L : Real}
+  {layers : List.{0} OQ7.HomogeneousLayer},
+  @Membership.mem.{0, 0} (List.{0} OQ7.HomogeneousLayer) (Set.{0} (List.{0} OQ7.HomogeneousLayer))
+      (@Set.instMembership.{0} (List.{0} OQ7.HomogeneousLayer)) (OQ7.exactTargetClass p L) layers →
+    @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+      (OQ7.stackNormalizedAbsorptionDet p.k layers)
+@OQ7.exactTargetClass_asymmetry_le : ∀ {p : OQ7.PhysicalParameters} {L : Real} {layers : List.{0} OQ7.HomogeneousLayer},
+  @Membership.mem.{0, 0} (List.{0} OQ7.HomogeneousLayer) (Set.{0} (List.{0} OQ7.HomogeneousLayer))
+      (@Set.instMembership.{0} (List.{0} OQ7.HomogeneousLayer)) (OQ7.exactTargetClass p L) layers →
+    @LE.le.{0} Real Real.instLE (OQ7.stackAsymmetry p.k layers) (OQ7.ScalarEnvelope.D0 p.T p.a)
+OQ7.exactTargetClass_bddAbove : ∀ (p : OQ7.PhysicalParameters) (L : Real),
+  @BddAbove.{0} Real Real.instLE
+    (@Set.image.{0, 0} (List.{0} OQ7.HomogeneousLayer) Real (OQ7.stackAsymmetry p.k) (OQ7.exactTargetClass p L))
+@OQ7.optimalAsymmetry_le : ∀ {p : OQ7.PhysicalParameters} {L : Real},
+  @Set.Nonempty.{0} (List.{0} OQ7.HomogeneousLayer) (OQ7.exactTargetClass p L) →
+    @LE.le.{0} Real Real.instLE (OQ7.optimalAsymmetry p L) (OQ7.ScalarEnvelope.D0 p.T p.a)
+@OQ7.stackAsymmetry_le_optimal : ∀ {p : OQ7.PhysicalParameters} {L : Real} {layers : List.{0} OQ7.HomogeneousLayer},
+  @Membership.mem.{0, 0} (List.{0} OQ7.HomogeneousLayer) (Set.{0} (List.{0} OQ7.HomogeneousLayer))
+      (@Set.instMembership.{0} (List.{0} OQ7.HomogeneousLayer)) (OQ7.exactTargetClass p L) layers →
+    @LE.le.{0} Real Real.instLE (OQ7.stackAsymmetry p.k layers) (OQ7.optimalAsymmetry p L)
+@OQ7.optimal_deficit_le_stack_deficit : ∀ {p : OQ7.PhysicalParameters} {L : Real}
+  {layers : List.{0} OQ7.HomogeneousLayer},
+  @Membership.mem.{0, 0} (List.{0} OQ7.HomogeneousLayer) (Set.{0} (List.{0} OQ7.HomogeneousLayer))
+      (@Set.instMembership.{0} (List.{0} OQ7.HomogeneousLayer)) (OQ7.exactTargetClass p L) layers →
+    @LE.le.{0} Real Real.instLE
+      (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub) (OQ7.ScalarEnvelope.D0 p.T p.a)
+        (OQ7.optimalAsymmetry p L))
+      (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub) (OQ7.ScalarEnvelope.D0 p.T p.a)
+        (OQ7.stackAsymmetry p.k layers))
+@OQ7.uniform_floor_optimal_deficit : ∀ {p : OQ7.PhysicalParameters} {L beta : Real},
+  @Set.Nonempty.{0} (List.{0} OQ7.HomogeneousLayer) (OQ7.exactTargetClass p L) →
+    (∀ (layers : List.{0} OQ7.HomogeneousLayer),
+        @Membership.mem.{0, 0} (List.{0} OQ7.HomogeneousLayer) (Set.{0} (List.{0} OQ7.HomogeneousLayer))
+            (@Set.instMembership.{0} (List.{0} OQ7.HomogeneousLayer)) (OQ7.exactTargetClass p L) layers →
+          @LE.le.{0} Real Real.instLE beta (OQ7.stackNormalizedAbsorptionDet p.k layers)) →
+      @LE.le.{0} Real Real.instLE
+        (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (OQ7.ScalarEnvelope.alpha p.T p.a) beta)
+        (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub) (OQ7.ScalarEnvelope.D0 p.T p.a)
+          (OQ7.optimalAsymmetry p L))
+OQ7.waveBasisInv_mul_waveBasis : @Eq.{1}
+  (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+    (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+  (@HMul.hMul.{0, 0, 0} OQ7.Mat2 OQ7.Mat2
+    (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+      (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+    (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid.{0, 0, 0, 0}
+      (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+      (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+      (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex
+      (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex.instMul
+      Complex.instAddCommMonoid)
+    OQ7.waveBasisInv OQ7.waveBasis)
+  (@OfNat.ofNat.{0} OQ7.Mat2 (nat_lit 1)
+    (@One.toOfNat1.{0} OQ7.Mat2
+      (@Matrix.one.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex
+        (instDecidableEqFin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex.instZero
+        Complex.instOne)))
+OQ7.waveBasis_mul_waveBasisInv : @Eq.{1}
+  (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+    (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+  (@HMul.hMul.{0, 0, 0} OQ7.Mat2 OQ7.Mat2
+    (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+      (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+    (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid.{0, 0, 0, 0}
+      (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+      (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+      (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex
+      (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex.instMul
+      Complex.instAddCommMonoid)
+    OQ7.waveBasis OQ7.waveBasisInv)
+  (@OfNat.ofNat.{0} OQ7.Mat2 (nat_lit 1)
+    (@One.toOfNat1.{0} OQ7.Mat2
+      (@Matrix.one.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex
+        (instDecidableEqFin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex.instZero
+        Complex.instOne)))
+OQ7.waveTransfer_det : ∀ (F : OQ7.Mat2),
+  @Eq.{1} Complex
+    (@Matrix.det.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+      (instDecidableEqFin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+      (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex Complex.commRing
+      (OQ7.waveTransfer F))
+    (@Matrix.det.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+      (instDecidableEqFin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+      (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex Complex.commRing F)
+OQ7.transfer_left_boundary : ∀ (K : OQ7.Mat2),
+  @Ne.{1} Complex
+      (K
+        (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) (nat_lit 1)
+          (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) ⋯ (nat_lit 1)))
+        (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) (nat_lit 1)
+          (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) ⋯ (nat_lit 1))))
+      (@OfNat.ofNat.{0} Complex (nat_lit 0) (@Zero.toOfNat0.{0} Complex Complex.instZero)) →
+    @Eq.{1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) → Complex)
+      (@Matrix.mulVec.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+        (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex
+        (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring.{0} Complex
+          (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing.{0} Complex
+            (@NonUnitalCommRing.toNonUnitalNonAssocCommRing.{0} Complex Complex.instNonUnitalCommRing)))
+        (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) K
+        (@Matrix.vecCons.{0} Complex (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+          (@OfNat.ofNat.{0} Complex (nat_lit 1) (@One.toOfNat1.{0} Complex Complex.instOne))
+          (@Matrix.vecCons.{0} Complex (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+            (OQ7.transferReflectionLeft K) (@Matrix.vecEmpty.{0} Complex))))
+      (@Matrix.vecCons.{0} Complex (Nat.succ (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))))
+        (OQ7.transferTransmissionLeft K)
+        (@Matrix.vecCons.{0} Complex (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+          (@OfNat.ofNat.{0} Complex (nat_lit 0) (@Zero.toOfNat0.{0} Complex Complex.instZero))
+          (@Matrix.vecEmpty.{0} Complex)))
+OQ7.transfer_right_boundary : ∀ (K : OQ7.Mat2),
+  @Ne.{1} Complex
+      (K
+        (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) (nat_lit 1)
+          (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) ⋯ (nat_lit 1)))
+        (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) (nat_lit 1)
+          (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) ⋯ (nat_lit 1))))
+      (@OfNat.ofNat.{0} Complex (nat_lit 0) (@Zero.toOfNat0.{0} Complex Complex.instZero)) →
+    @Eq.{1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) → Complex)
+      (@Matrix.mulVec.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+        (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex
+        (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring.{0} Complex
+          (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing.{0} Complex
+            (@NonUnitalCommRing.toNonUnitalNonAssocCommRing.{0} Complex Complex.instNonUnitalCommRing)))
+        (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) K
+        (@Matrix.vecCons.{0} Complex (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+          (@OfNat.ofNat.{0} Complex (nat_lit 0) (@Zero.toOfNat0.{0} Complex Complex.instZero))
+          (@Matrix.vecCons.{0} Complex (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+            (OQ7.transferTransmissionRight K) (@Matrix.vecEmpty.{0} Complex))))
+      (@Matrix.vecCons.{0} Complex (Nat.succ (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))))
+        (OQ7.transferReflectionRight K)
+        (@Matrix.vecCons.{0} Complex (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+          (@OfNat.ofNat.{0} Complex (nat_lit 1) (@One.toOfNat1.{0} Complex Complex.instOne))
+          (@Matrix.vecEmpty.{0} Complex)))
+OQ7.transfer_transmission_reciprocity : ∀ (K : OQ7.Mat2),
+  @Eq.{1} Complex
+      (@Matrix.det.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+        (instDecidableEqFin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+        (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex Complex.commRing K)
+      (@OfNat.ofNat.{0} Complex (nat_lit 1) (@One.toOfNat1.{0} Complex Complex.instOne)) →
+    @Eq.{1} Complex (OQ7.transferTransmissionLeft K) (OQ7.transferTransmissionRight K)
+OQ7.transfer_transmissionRight_ne_zero : ∀ (K : OQ7.Mat2),
+  @Ne.{1} Complex
+      (K
+        (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) (nat_lit 1)
+          (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) ⋯ (nat_lit 1)))
+        (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) (nat_lit 1)
+          (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) ⋯ (nat_lit 1))))
+      (@OfNat.ofNat.{0} Complex (nat_lit 0) (@Zero.toOfNat0.{0} Complex Complex.instZero)) →
+    @Ne.{1} Complex (OQ7.transferTransmissionRight K)
+      (@OfNat.ofNat.{0} Complex (nat_lit 0) (@Zero.toOfNat0.{0} Complex Complex.instZero))
+OQ7.transfer_boundary_states : ∀ (K : OQ7.Mat2),
+  @Ne.{1} Complex
+      (K
+        (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) (nat_lit 1)
+          (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) ⋯ (nat_lit 1)))
+        (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) (nat_lit 1)
+          (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) ⋯ (nat_lit 1))))
+      (@OfNat.ofNat.{0} Complex (nat_lit 0) (@Zero.toOfNat0.{0} Complex Complex.instZero)) →
+    @Eq.{1}
+      (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+        (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+      (@HMul.hMul.{0, 0, 0} OQ7.Mat2 OQ7.Mat2
+        (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+        (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid.{0, 0, 0, 0}
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex
+          (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex.instMul
+          Complex.instAddCommMonoid)
+        K (OQ7.incomingWaveStates K))
+      (OQ7.outgoingWaveStates K)
+OQ7.fieldTransfer_waveBasis : ∀ (F : OQ7.Mat2),
+  @Eq.{1}
+    (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+      (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+    (@HMul.hMul.{0, 0, 0} OQ7.Mat2 OQ7.Mat2
+      (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+        (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+      (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid.{0, 0, 0, 0}
+        (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+        (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+        (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex
+        (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex.instMul
+        Complex.instAddCommMonoid)
+      F OQ7.waveBasis)
+    (@HMul.hMul.{0, 0, 0} OQ7.Mat2 OQ7.Mat2
+      (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+        (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+      (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid.{0, 0, 0, 0}
+        (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+        (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+        (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex
+        (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex.instMul
+        Complex.instAddCommMonoid)
+      OQ7.waveBasis (OQ7.waveTransfer F))
+OQ7.inputFieldStates_det : ∀ (rL t : Complex),
+  @Eq.{1} Complex
+    (@Matrix.det.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+      (instDecidableEqFin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+      (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex Complex.commRing
+      (OQ7.inputFieldStates rL t))
+    (@HMul.hMul.{0, 0, 0} Complex Complex Complex (@instHMul.{0} Complex Complex.instMul)
+      (@Neg.neg.{0} Complex Complex.instNeg
+        (@OfNat.ofNat.{0} Complex (nat_lit 2) (@instOfNatAtLeastTwo.{0} Complex (nat_lit 2) Complex.instNatCast ⋯)))
+      t)
+OQ7.waveBasis_incoming_states : ∀ (K : OQ7.Mat2),
+  @Eq.{1}
+    (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+      (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+    (@HMul.hMul.{0, 0, 0} OQ7.Mat2 OQ7.Mat2
+      (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+        (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+      (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid.{0, 0, 0, 0}
+        (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+        (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+        (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex
+        (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex.instMul
+        Complex.instAddCommMonoid)
+      OQ7.waveBasis (OQ7.incomingWaveStates K))
+    (OQ7.inputFieldStates (OQ7.transferReflectionLeft K) (OQ7.transferTransmissionRight K))
+OQ7.waveBasis_outgoing_states : ∀ (K : OQ7.Mat2),
+  @Eq.{1} Complex
+      (@Matrix.det.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+        (instDecidableEqFin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+        (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex Complex.commRing K)
+      (@OfNat.ofNat.{0} Complex (nat_lit 1) (@One.toOfNat1.{0} Complex Complex.instOne)) →
+    @Eq.{1}
+      (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+        (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+      (@HMul.hMul.{0, 0, 0} OQ7.Mat2 OQ7.Mat2
+        (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+        (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid.{0, 0, 0, 0}
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex
+          (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex.instMul
+          Complex.instAddCommMonoid)
+        OQ7.waveBasis (OQ7.outgoingWaveStates K))
+      (OQ7.outputFieldStates (OQ7.transferReflectionRight K) (OQ7.transferTransmissionRight K))
+OQ7.field_transfer_boundary_states : ∀ (F : OQ7.Mat2),
+  @Ne.{1} Complex
+      (OQ7.waveTransfer F
+        (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) (nat_lit 1)
+          (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) ⋯ (nat_lit 1)))
+        (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) (nat_lit 1)
+          (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) ⋯ (nat_lit 1))))
+      (@OfNat.ofNat.{0} Complex (nat_lit 0) (@Zero.toOfNat0.{0} Complex Complex.instZero)) →
+    @Eq.{1} Complex
+        (@Matrix.det.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (instDecidableEqFin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex Complex.commRing F)
+        (@OfNat.ofNat.{0} Complex (nat_lit 1) (@One.toOfNat1.{0} Complex Complex.instOne)) →
+      @Eq.{1}
+        (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+        (@HMul.hMul.{0, 0, 0} OQ7.Mat2 OQ7.Mat2
+          (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+          (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid.{0, 0, 0, 0}
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex
+            (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex.instMul
+            Complex.instAddCommMonoid)
+          F
+          (OQ7.inputFieldStates (OQ7.transferReflectionLeft (OQ7.waveTransfer F))
+            (OQ7.transferTransmissionRight (OQ7.waveTransfer F))))
+        (OQ7.outputFieldStates (OQ7.transferReflectionRight (OQ7.waveTransfer F))
+          (OQ7.transferTransmissionRight (OQ7.waveTransfer F)))
+OQ7.fluxForm_conjTranspose : @Eq.{1}
+  (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+    (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+  (@Matrix.conjTranspose.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+    (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex
+    (@InvolutiveStar.toStar.{0} Complex
+      (@StarAddMonoid.toInvolutiveStar.{0} Complex
+        (@AddCommMonoid.toAddMonoid.{0} Complex
+          (@NonUnitalNonAssocSemiring.toAddCommMonoid.{0} Complex
+            (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring.{0} Complex
+              (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing.{0} Complex
+                (@NonUnitalCommRing.toNonUnitalNonAssocCommRing.{0} Complex Complex.instNonUnitalCommRing)))))
+        (@StarRing.toStarAddMonoid.{0} Complex
+          (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring.{0} Complex
+            (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing.{0} Complex
+              (@NonUnitalCommRing.toNonUnitalNonAssocCommRing.{0} Complex Complex.instNonUnitalCommRing)))
+          Complex.instStarRing)))
+    OQ7.fluxForm)
+  OQ7.fluxForm
+OQ7.fluxDefect_conjTranspose : ∀ (F : OQ7.Mat2),
+  @Eq.{1}
+    (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+      (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+    (@Matrix.conjTranspose.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+      (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex
+      (@InvolutiveStar.toStar.{0} Complex
+        (@StarAddMonoid.toInvolutiveStar.{0} Complex
+          (@AddCommMonoid.toAddMonoid.{0} Complex
+            (@NonUnitalNonAssocSemiring.toAddCommMonoid.{0} Complex
+              (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring.{0} Complex
+                (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing.{0} Complex
+                  (@NonUnitalCommRing.toNonUnitalNonAssocCommRing.{0} Complex Complex.instNonUnitalCommRing)))))
+          (@StarRing.toStarAddMonoid.{0} Complex
+            (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring.{0} Complex
+              (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing.{0} Complex
+                (@NonUnitalCommRing.toNonUnitalNonAssocCommRing.{0} Complex Complex.instNonUnitalCommRing)))
+            Complex.instStarRing)))
+      (OQ7.fluxDefect F))
+    (OQ7.fluxDefect F)
+OQ7.absorption_boundary_flux : ∀ (rL rR t : Complex),
+  @Eq.{1} OQ7.Mat2
+    (@HSMul.hSMul.{0, 0, 0} Complex OQ7.Mat2 OQ7.Mat2
+      (@instHSMul.{0, 0} Complex OQ7.Mat2
+        (@Matrix.smul.{0, 0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex Complex
+          (@instSMulOfMul.{0} Complex Complex.instMul)))
+      (@OfNat.ofNat.{0} Complex (nat_lit 2) (@instOfNatAtLeastTwo.{0} Complex (nat_lit 2) Complex.instNatCast ⋯))
+      (OQ7.absorptionMatrix rL rR t))
+    (@HSub.hSub.{0, 0, 0}
+      (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+        (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+      (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+        (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+      (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+        (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+      (@instHSub.{0}
+        (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+        (@Matrix.sub.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex Complex.instSub))
+      (@HMul.hMul.{0, 0, 0}
+        (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+        OQ7.Mat2
+        (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+        (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid.{0, 0, 0, 0}
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex
+          (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex.instMul
+          Complex.instAddCommMonoid)
+        (@HMul.hMul.{0, 0, 0}
+          (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+          OQ7.Mat2
+          (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+          (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid.{0, 0, 0, 0}
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex
+            (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex.instMul
+            Complex.instAddCommMonoid)
+          (@Matrix.conjTranspose.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex
+            (@InvolutiveStar.toStar.{0} Complex
+              (@StarAddMonoid.toInvolutiveStar.{0} Complex
+                (@AddCommMonoid.toAddMonoid.{0} Complex
+                  (@NonUnitalNonAssocSemiring.toAddCommMonoid.{0} Complex
+                    (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring.{0} Complex
+                      (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing.{0} Complex
+                        (@NonUnitalCommRing.toNonUnitalNonAssocCommRing.{0} Complex Complex.instNonUnitalCommRing)))))
+                (@StarRing.toStarAddMonoid.{0} Complex
+                  (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring.{0} Complex
+                    (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing.{0} Complex
+                      (@NonUnitalCommRing.toNonUnitalNonAssocCommRing.{0} Complex Complex.instNonUnitalCommRing)))
+                  Complex.instStarRing)))
+            (OQ7.inputFieldStates rL t))
+          OQ7.fluxForm)
+        (OQ7.inputFieldStates rL t))
+      (@HMul.hMul.{0, 0, 0}
+        (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+        OQ7.Mat2
+        (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+        (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid.{0, 0, 0, 0}
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex
+          (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex.instMul
+          Complex.instAddCommMonoid)
+        (@HMul.hMul.{0, 0, 0}
+          (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+          OQ7.Mat2
+          (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+          (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid.{0, 0, 0, 0}
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex
+            (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex.instMul
+            Complex.instAddCommMonoid)
+          (@Matrix.conjTranspose.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex
+            (@InvolutiveStar.toStar.{0} Complex
+              (@StarAddMonoid.toInvolutiveStar.{0} Complex
+                (@AddCommMonoid.toAddMonoid.{0} Complex
+                  (@NonUnitalNonAssocSemiring.toAddCommMonoid.{0} Complex
+                    (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring.{0} Complex
+                      (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing.{0} Complex
+                        (@NonUnitalCommRing.toNonUnitalNonAssocCommRing.{0} Complex Complex.instNonUnitalCommRing)))))
+                (@StarRing.toStarAddMonoid.{0} Complex
+                  (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring.{0} Complex
+                    (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing.{0} Complex
+                      (@NonUnitalCommRing.toNonUnitalNonAssocCommRing.{0} Complex Complex.instNonUnitalCommRing)))
+                  Complex.instStarRing)))
+            (OQ7.outputFieldStates rR t))
+          OQ7.fluxForm)
+        (OQ7.outputFieldStates rR t)))
+OQ7.absorption_fluxDefect_congruence : ∀ (F : OQ7.Mat2) (rL rR t : Complex),
+  @Eq.{1}
+      (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+        (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+      (@HMul.hMul.{0, 0, 0} OQ7.Mat2 OQ7.Mat2
+        (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+        (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid.{0, 0, 0, 0}
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex
+          (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex.instMul
+          Complex.instAddCommMonoid)
+        F (OQ7.inputFieldStates rL t))
+      (OQ7.outputFieldStates rR t) →
+    @Eq.{1} OQ7.Mat2
+      (@HSMul.hSMul.{0, 0, 0} Complex OQ7.Mat2 OQ7.Mat2
+        (@instHSMul.{0, 0} Complex OQ7.Mat2
+          (@Matrix.smul.{0, 0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex Complex
+            (@instSMulOfMul.{0} Complex Complex.instMul)))
+        (@OfNat.ofNat.{0} Complex (nat_lit 2) (@instOfNatAtLeastTwo.{0} Complex (nat_lit 2) Complex.instNatCast ⋯))
+        (OQ7.absorptionMatrix rL rR t))
+      (@HMul.hMul.{0, 0, 0}
+        (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+        OQ7.Mat2
+        (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+        (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid.{0, 0, 0, 0}
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex
+          (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex.instMul
+          Complex.instAddCommMonoid)
+        (@HMul.hMul.{0, 0, 0}
+          (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+          OQ7.Mat2
+          (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+          (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid.{0, 0, 0, 0}
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex
+            (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex.instMul
+            Complex.instAddCommMonoid)
+          (@Matrix.conjTranspose.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex
+            (@InvolutiveStar.toStar.{0} Complex
+              (@StarAddMonoid.toInvolutiveStar.{0} Complex
+                (@AddCommMonoid.toAddMonoid.{0} Complex
+                  (@NonUnitalNonAssocSemiring.toAddCommMonoid.{0} Complex
+                    (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring.{0} Complex
+                      (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing.{0} Complex
+                        (@NonUnitalCommRing.toNonUnitalNonAssocCommRing.{0} Complex Complex.instNonUnitalCommRing)))))
+                (@StarRing.toStarAddMonoid.{0} Complex
+                  (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring.{0} Complex
+                    (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing.{0} Complex
+                      (@NonUnitalCommRing.toNonUnitalNonAssocCommRing.{0} Complex Complex.instNonUnitalCommRing)))
+                  Complex.instStarRing)))
+            (OQ7.inputFieldStates rL t))
+          (OQ7.fluxDefect F))
+        (OQ7.inputFieldStates rL t))
+OQ7.transfer_absorption_fluxDefect : ∀ (F : OQ7.Mat2),
+  @Ne.{1} Complex
+      (OQ7.waveTransfer F
+        (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) (nat_lit 1)
+          (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) ⋯ (nat_lit 1)))
+        (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) (nat_lit 1)
+          (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) ⋯ (nat_lit 1))))
+      (@OfNat.ofNat.{0} Complex (nat_lit 0) (@Zero.toOfNat0.{0} Complex Complex.instZero)) →
+    @Eq.{1} Complex
+        (@Matrix.det.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (instDecidableEqFin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex Complex.commRing F)
+        (@OfNat.ofNat.{0} Complex (nat_lit 1) (@One.toOfNat1.{0} Complex Complex.instOne)) →
+      @Eq.{1} OQ7.Mat2
+        (@HSMul.hSMul.{0, 0, 0} Complex OQ7.Mat2 OQ7.Mat2
+          (@instHSMul.{0, 0} Complex OQ7.Mat2
+            (@Matrix.smul.{0, 0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex Complex
+              (@instSMulOfMul.{0} Complex Complex.instMul)))
+          (@OfNat.ofNat.{0} Complex (nat_lit 2) (@instOfNatAtLeastTwo.{0} Complex (nat_lit 2) Complex.instNatCast ⋯))
+          (OQ7.absorptionMatrix (OQ7.transferReflectionLeft (OQ7.waveTransfer F))
+            (OQ7.transferReflectionRight (OQ7.waveTransfer F)) (OQ7.transferTransmissionRight (OQ7.waveTransfer F))))
+        (@HMul.hMul.{0, 0, 0}
+          (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+          OQ7.Mat2
+          (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+          (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid.{0, 0, 0, 0}
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex
+            (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex.instMul
+            Complex.instAddCommMonoid)
+          (@HMul.hMul.{0, 0, 0}
+            (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+            OQ7.Mat2
+            (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+            (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid.{0, 0, 0, 0}
+              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex
+              (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex.instMul
+              Complex.instAddCommMonoid)
+            (@Matrix.conjTranspose.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex
+              (@InvolutiveStar.toStar.{0} Complex
+                (@StarAddMonoid.toInvolutiveStar.{0} Complex
+                  (@AddCommMonoid.toAddMonoid.{0} Complex
+                    (@NonUnitalNonAssocSemiring.toAddCommMonoid.{0} Complex
+                      (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring.{0} Complex
+                        (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing.{0} Complex
+                          (@NonUnitalCommRing.toNonUnitalNonAssocCommRing.{0} Complex Complex.instNonUnitalCommRing)))))
+                  (@StarRing.toStarAddMonoid.{0} Complex
+                    (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring.{0} Complex
+                      (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing.{0} Complex
+                        (@NonUnitalCommRing.toNonUnitalNonAssocCommRing.{0} Complex Complex.instNonUnitalCommRing)))
+                    Complex.instStarRing)))
+              (OQ7.inputFieldStates (OQ7.transferReflectionLeft (OQ7.waveTransfer F))
+                (OQ7.transferTransmissionRight (OQ7.waveTransfer F))))
+            (OQ7.fluxDefect F))
+          (OQ7.inputFieldStates (OQ7.transferReflectionLeft (OQ7.waveTransfer F))
+            (OQ7.transferTransmissionRight (OQ7.waveTransfer F))))
+OQ7.absorption_fluxDefect_det : ∀ (F : OQ7.Mat2) (rL rR t : Complex),
+  @Eq.{1}
+      (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+        (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+      (@HMul.hMul.{0, 0, 0} OQ7.Mat2 OQ7.Mat2
+        (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+        (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid.{0, 0, 0, 0}
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex
+          (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex.instMul
+          Complex.instAddCommMonoid)
+        F (OQ7.inputFieldStates rL t))
+      (OQ7.outputFieldStates rR t) →
+    @Eq.{1} Complex
+      (@Matrix.det.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+        (instDecidableEqFin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+        (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex Complex.commRing
+        (OQ7.absorptionMatrix rL rR t))
+      (@HMul.hMul.{0, 0, 0} Complex Complex Complex (@instHMul.{0} Complex Complex.instMul)
+        (↑(@DFunLike.coe.{1, 1, 1}
+            (@MonoidWithZeroHom.{0, 0} Complex Real (@instMulZeroOneClassOfSemiring.{0} Complex Complex.instSemiring)
+              (@instMulZeroOneClassOfSemiring.{0} Real Real.semiring))
+            Complex (fun x => Real)
+            (@MonoidWithZeroHom.funLike.{0, 0} Complex Real
+              (@instMulZeroOneClassOfSemiring.{0} Complex Complex.instSemiring)
+              (@instMulZeroOneClassOfSemiring.{0} Real Real.semiring))
+            Complex.normSq t))
+        (@Matrix.det.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (instDecidableEqFin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex Complex.commRing
+          (OQ7.fluxDefect F)))
+OQ7.transfer_absorption_fluxDefect_det : ∀ (F : OQ7.Mat2),
+  @Ne.{1} Complex
+      (OQ7.waveTransfer F
+        (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) (nat_lit 1)
+          (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) ⋯ (nat_lit 1)))
+        (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) (nat_lit 1)
+          (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) ⋯ (nat_lit 1))))
+      (@OfNat.ofNat.{0} Complex (nat_lit 0) (@Zero.toOfNat0.{0} Complex Complex.instZero)) →
+    @Eq.{1} Complex
+        (@Matrix.det.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (instDecidableEqFin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex Complex.commRing F)
+        (@OfNat.ofNat.{0} Complex (nat_lit 1) (@One.toOfNat1.{0} Complex Complex.instOne)) →
+      @Eq.{1} Complex
+        (@Matrix.det.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (instDecidableEqFin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex Complex.commRing
+          (OQ7.absorptionMatrix (OQ7.transferReflectionLeft (OQ7.waveTransfer F))
+            (OQ7.transferReflectionRight (OQ7.waveTransfer F)) (OQ7.transferTransmissionRight (OQ7.waveTransfer F))))
+        (@HMul.hMul.{0, 0, 0} Complex Complex Complex (@instHMul.{0} Complex Complex.instMul)
+          (↑(@DFunLike.coe.{1, 1, 1}
+              (@MonoidWithZeroHom.{0, 0} Complex Real (@instMulZeroOneClassOfSemiring.{0} Complex Complex.instSemiring)
+                (@instMulZeroOneClassOfSemiring.{0} Real Real.semiring))
+              Complex (fun x => Real)
+              (@MonoidWithZeroHom.funLike.{0, 0} Complex Real
+                (@instMulZeroOneClassOfSemiring.{0} Complex Complex.instSemiring)
+                (@instMulZeroOneClassOfSemiring.{0} Real Real.semiring))
+              Complex.normSq (OQ7.transferTransmissionRight (OQ7.waveTransfer F))))
+          (@Matrix.det.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (instDecidableEqFin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex Complex.commRing
+            (OQ7.fluxDefect F)))
+OQ7.absorption_fluxDefect_ratio : ∀ (F : OQ7.Mat2) (rL rR t : Complex),
+  @Eq.{1}
+      (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+        (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+      (@HMul.hMul.{0, 0, 0} OQ7.Mat2 OQ7.Mat2
+        (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+        (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid.{0, 0, 0, 0}
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex
+          (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex.instMul
+          Complex.instAddCommMonoid)
+        F (OQ7.inputFieldStates rL t))
+      (OQ7.outputFieldStates rR t) →
+    @Ne.{1} Complex t (@OfNat.ofNat.{0} Complex (nat_lit 0) (@Zero.toOfNat0.{0} Complex Complex.instZero)) →
+      @Eq.{1} Complex
+        (@HDiv.hDiv.{0, 0, 0} Complex Complex Complex
+          (@instHDiv.{0} Complex (@DivInvMonoid.toDiv.{0} Complex Complex.instDivInvMonoid))
+          (@Matrix.det.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (instDecidableEqFin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex Complex.commRing
+            (OQ7.absorptionMatrix rL rR t))
+          ↑(@DFunLike.coe.{1, 1, 1}
+              (@MonoidWithZeroHom.{0, 0} Complex Real (@instMulZeroOneClassOfSemiring.{0} Complex Complex.instSemiring)
+                (@instMulZeroOneClassOfSemiring.{0} Real Real.semiring))
+              Complex (fun x => Real)
+              (@MonoidWithZeroHom.funLike.{0, 0} Complex Real
+                (@instMulZeroOneClassOfSemiring.{0} Complex Complex.instSemiring)
+                (@instMulZeroOneClassOfSemiring.{0} Real Real.semiring))
+              Complex.normSq t))
+        (@Matrix.det.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (instDecidableEqFin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex Complex.commRing
+          (OQ7.fluxDefect F))
+OQ7.transfer_absorption_fluxDefect_ratio : ∀ (F : OQ7.Mat2),
+  @Ne.{1} Complex
+      (OQ7.waveTransfer F
+        (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) (nat_lit 1)
+          (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) ⋯ (nat_lit 1)))
+        (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) (nat_lit 1)
+          (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) ⋯ (nat_lit 1))))
+      (@OfNat.ofNat.{0} Complex (nat_lit 0) (@Zero.toOfNat0.{0} Complex Complex.instZero)) →
+    @Eq.{1} Complex
+        (@Matrix.det.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (instDecidableEqFin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex Complex.commRing F)
+        (@OfNat.ofNat.{0} Complex (nat_lit 1) (@One.toOfNat1.{0} Complex Complex.instOne)) →
+      @Eq.{1} Complex
+        (@HDiv.hDiv.{0, 0, 0} Complex Complex Complex
+          (@instHDiv.{0} Complex (@DivInvMonoid.toDiv.{0} Complex Complex.instDivInvMonoid))
+          (@Matrix.det.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (instDecidableEqFin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex Complex.commRing
+            (OQ7.absorptionMatrix (OQ7.transferReflectionLeft (OQ7.waveTransfer F))
+              (OQ7.transferReflectionRight (OQ7.waveTransfer F)) (OQ7.transferTransmissionRight (OQ7.waveTransfer F))))
+          ↑(@DFunLike.coe.{1, 1, 1}
+              (@MonoidWithZeroHom.{0, 0} Complex Real (@instMulZeroOneClassOfSemiring.{0} Complex Complex.instSemiring)
+                (@instMulZeroOneClassOfSemiring.{0} Real Real.semiring))
+              Complex (fun x => Real)
+              (@MonoidWithZeroHom.funLike.{0, 0} Complex Real
+                (@instMulZeroOneClassOfSemiring.{0} Complex Complex.instSemiring)
+                (@instMulZeroOneClassOfSemiring.{0} Real Real.semiring))
+              Complex.normSq (OQ7.transferTransmissionRight (OQ7.waveTransfer F))))
+        (@Matrix.det.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (instDecidableEqFin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex Complex.commRing
+          (OQ7.fluxDefect F))
+OQ7.coated_fluxDefect : ∀ (F CL CR : OQ7.Mat2),
+  @Eq.{1}
+      (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+        (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+      (@HMul.hMul.{0, 0, 0}
+        (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+        OQ7.Mat2
+        (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+        (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid.{0, 0, 0, 0}
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex
+          (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex.instMul
+          Complex.instAddCommMonoid)
+        (@HMul.hMul.{0, 0, 0}
+          (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+          OQ7.Mat2
+          (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+          (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid.{0, 0, 0, 0}
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex
+            (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex.instMul
+            Complex.instAddCommMonoid)
+          (@Matrix.conjTranspose.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex
+            (@InvolutiveStar.toStar.{0} Complex
+              (@StarAddMonoid.toInvolutiveStar.{0} Complex
+                (@AddCommMonoid.toAddMonoid.{0} Complex
+                  (@NonUnitalNonAssocSemiring.toAddCommMonoid.{0} Complex
+                    (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring.{0} Complex
+                      (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing.{0} Complex
+                        (@NonUnitalCommRing.toNonUnitalNonAssocCommRing.{0} Complex Complex.instNonUnitalCommRing)))))
+                (@StarRing.toStarAddMonoid.{0} Complex
+                  (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring.{0} Complex
+                    (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing.{0} Complex
+                      (@NonUnitalCommRing.toNonUnitalNonAssocCommRing.{0} Complex Complex.instNonUnitalCommRing)))
+                  Complex.instStarRing)))
+            CL)
+          OQ7.fluxForm)
+        CL)
+      OQ7.fluxForm →
+    @Eq.{1}
+        (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+        (@HMul.hMul.{0, 0, 0}
+          (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+          OQ7.Mat2
+          (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+          (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid.{0, 0, 0, 0}
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex
+            (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex.instMul
+            Complex.instAddCommMonoid)
+          (@HMul.hMul.{0, 0, 0}
+            (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+            OQ7.Mat2
+            (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+            (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid.{0, 0, 0, 0}
+              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex
+              (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex.instMul
+              Complex.instAddCommMonoid)
+            (@Matrix.conjTranspose.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex
+              (@InvolutiveStar.toStar.{0} Complex
+                (@StarAddMonoid.toInvolutiveStar.{0} Complex
+                  (@AddCommMonoid.toAddMonoid.{0} Complex
+                    (@NonUnitalNonAssocSemiring.toAddCommMonoid.{0} Complex
+                      (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring.{0} Complex
+                        (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing.{0} Complex
+                          (@NonUnitalCommRing.toNonUnitalNonAssocCommRing.{0} Complex Complex.instNonUnitalCommRing)))))
+                  (@StarRing.toStarAddMonoid.{0} Complex
+                    (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring.{0} Complex
+                      (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing.{0} Complex
+                        (@NonUnitalCommRing.toNonUnitalNonAssocCommRing.{0} Complex Complex.instNonUnitalCommRing)))
+                    Complex.instStarRing)))
+              CR)
+            OQ7.fluxForm)
+          CR)
+        OQ7.fluxForm →
+      @Eq.{1} OQ7.Mat2
+        (OQ7.fluxDefect
+          (@HMul.hMul.{0, 0, 0}
+            (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+            OQ7.Mat2
+            (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+            (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid.{0, 0, 0, 0}
+              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex
+              (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex.instMul
+              Complex.instAddCommMonoid)
+            (@HMul.hMul.{0, 0, 0} OQ7.Mat2 OQ7.Mat2
+              (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+              (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid.{0, 0, 0, 0}
+                (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex
+                (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex.instMul
+                Complex.instAddCommMonoid)
+              CR F)
+            CL))
+        (@HMul.hMul.{0, 0, 0}
+          (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+          OQ7.Mat2
+          (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+          (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid.{0, 0, 0, 0}
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex
+            (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex.instMul
+            Complex.instAddCommMonoid)
+          (@HMul.hMul.{0, 0, 0}
+            (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+            OQ7.Mat2
+            (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+            (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid.{0, 0, 0, 0}
+              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex
+              (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex.instMul
+              Complex.instAddCommMonoid)
+            (@Matrix.conjTranspose.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex
+              (@InvolutiveStar.toStar.{0} Complex
+                (@StarAddMonoid.toInvolutiveStar.{0} Complex
+                  (@AddCommMonoid.toAddMonoid.{0} Complex
+                    (@NonUnitalNonAssocSemiring.toAddCommMonoid.{0} Complex
+                      (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring.{0} Complex
+                        (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing.{0} Complex
+                          (@NonUnitalCommRing.toNonUnitalNonAssocCommRing.{0} Complex Complex.instNonUnitalCommRing)))))
+                  (@StarRing.toStarAddMonoid.{0} Complex
+                    (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring.{0} Complex
+                      (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing.{0} Complex
+                        (@NonUnitalCommRing.toNonUnitalNonAssocCommRing.{0} Complex Complex.instNonUnitalCommRing)))
+                    Complex.instStarRing)))
+              CL)
+            (OQ7.fluxDefect F))
+          CL)
+OQ7.coated_fluxDefect_det : ∀ (F CL CR : OQ7.Mat2),
+  @Eq.{1}
+      (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+        (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+      (@HMul.hMul.{0, 0, 0}
+        (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+        OQ7.Mat2
+        (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+        (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid.{0, 0, 0, 0}
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex
+          (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex.instMul
+          Complex.instAddCommMonoid)
+        (@HMul.hMul.{0, 0, 0}
+          (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+          OQ7.Mat2
+          (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+          (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid.{0, 0, 0, 0}
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex
+            (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex.instMul
+            Complex.instAddCommMonoid)
+          (@Matrix.conjTranspose.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex
+            (@InvolutiveStar.toStar.{0} Complex
+              (@StarAddMonoid.toInvolutiveStar.{0} Complex
+                (@AddCommMonoid.toAddMonoid.{0} Complex
+                  (@NonUnitalNonAssocSemiring.toAddCommMonoid.{0} Complex
+                    (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring.{0} Complex
+                      (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing.{0} Complex
+                        (@NonUnitalCommRing.toNonUnitalNonAssocCommRing.{0} Complex Complex.instNonUnitalCommRing)))))
+                (@StarRing.toStarAddMonoid.{0} Complex
+                  (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring.{0} Complex
+                    (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing.{0} Complex
+                      (@NonUnitalCommRing.toNonUnitalNonAssocCommRing.{0} Complex Complex.instNonUnitalCommRing)))
+                  Complex.instStarRing)))
+            CL)
+          OQ7.fluxForm)
+        CL)
+      OQ7.fluxForm →
+    @Eq.{1}
+        (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+        (@HMul.hMul.{0, 0, 0}
+          (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+          OQ7.Mat2
+          (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+          (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid.{0, 0, 0, 0}
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex
+            (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex.instMul
+            Complex.instAddCommMonoid)
+          (@HMul.hMul.{0, 0, 0}
+            (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+            OQ7.Mat2
+            (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+            (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid.{0, 0, 0, 0}
+              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex
+              (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex.instMul
+              Complex.instAddCommMonoid)
+            (@Matrix.conjTranspose.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex
+              (@InvolutiveStar.toStar.{0} Complex
+                (@StarAddMonoid.toInvolutiveStar.{0} Complex
+                  (@AddCommMonoid.toAddMonoid.{0} Complex
+                    (@NonUnitalNonAssocSemiring.toAddCommMonoid.{0} Complex
+                      (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring.{0} Complex
+                        (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing.{0} Complex
+                          (@NonUnitalCommRing.toNonUnitalNonAssocCommRing.{0} Complex Complex.instNonUnitalCommRing)))))
+                  (@StarRing.toStarAddMonoid.{0} Complex
+                    (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring.{0} Complex
+                      (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing.{0} Complex
+                        (@NonUnitalCommRing.toNonUnitalNonAssocCommRing.{0} Complex Complex.instNonUnitalCommRing)))
+                    Complex.instStarRing)))
+              CR)
+            OQ7.fluxForm)
+          CR)
+        OQ7.fluxForm →
+      @Eq.{1} Complex
+          (@Matrix.det.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (instDecidableEqFin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex Complex.commRing CL)
+          (@OfNat.ofNat.{0} Complex (nat_lit 1) (@One.toOfNat1.{0} Complex Complex.instOne)) →
+        @Eq.{1} Complex
+          (@Matrix.det.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (instDecidableEqFin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex Complex.commRing
+            (OQ7.fluxDefect
+              (@HMul.hMul.{0, 0, 0}
+                (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                  (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+                OQ7.Mat2
+                (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                  (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+                (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid.{0, 0, 0, 0}
+                  (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                  (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                  (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex
+                  (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex.instMul
+                  Complex.instAddCommMonoid)
+                (@HMul.hMul.{0, 0, 0} OQ7.Mat2 OQ7.Mat2
+                  (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                    (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+                  (@Matrix.instHMulOfFintypeOfMulOfAddCommMonoid.{0, 0, 0, 0}
+                    (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                    (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                    (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex
+                    (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex.instMul
+                    Complex.instAddCommMonoid)
+                  CR F)
+                CL)))
+          (@Matrix.det.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (instDecidableEqFin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex Complex.commRing
+            (OQ7.fluxDefect F))
+OQ7.absorptionMatrix_eq : ∀ (rL rR t : Complex),
+  @Eq.{1} OQ7.Mat2 (OQ7.absorptionMatrix rL rR t)
+    (@DFunLike.coe.{1, 1, 1}
+      (Equiv.{1, 1}
+        (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) →
+          Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) → Complex)
+        (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex))
+      (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) →
+        Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) → Complex)
+      (fun x =>
+        Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+      (@EquivLike.toFunLike.{1, 1, 1}
+        (Equiv.{1, 1}
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) →
+            Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) → Complex)
+          (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex))
+        (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) →
+          Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) → Complex)
+        (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+        (@Equiv.instEquivLike.{1, 1}
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) →
+            Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) → Complex)
+          (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)))
+      (@Matrix.of.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+        (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+      (@Matrix.vecCons.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) → Complex)
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+        (@Matrix.vecCons.{0} Complex (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+          (↑(OQ7.absorptanceLeft rL t))
+          (@Matrix.vecCons.{0} Complex (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+            (@Neg.neg.{0} Complex Complex.instNeg (OQ7.interference rL rR t)) (@Matrix.vecEmpty.{0} Complex)))
+        (@Matrix.vecCons.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) → Complex)
+          (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+          (@Matrix.vecCons.{0} Complex (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+            (@Neg.neg.{0} Complex Complex.instNeg
+              (@star.{0} Complex
+                (@InvolutiveStar.toStar.{0} Complex
+                  (@StarAddMonoid.toInvolutiveStar.{0} Complex
+                    (@AddCommMonoid.toAddMonoid.{0} Complex
+                      (@NonUnitalNonAssocSemiring.toAddCommMonoid.{0} Complex
+                        (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring.{0} Complex
+                          (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing.{0} Complex
+                            (@NonUnitalCommRing.toNonUnitalNonAssocCommRing.{0} Complex
+                              Complex.instNonUnitalCommRing)))))
+                    (@StarRing.toStarAddMonoid.{0} Complex
+                      (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring.{0} Complex
+                        (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing.{0} Complex
+                          (@NonUnitalCommRing.toNonUnitalNonAssocCommRing.{0} Complex Complex.instNonUnitalCommRing)))
+                      Complex.instStarRing)))
+                (OQ7.interference rL rR t)))
+            (@Matrix.vecCons.{0} Complex (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+              (↑(OQ7.absorptanceRight rR t)) (@Matrix.vecEmpty.{0} Complex)))
+          (@Matrix.vecEmpty.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) → Complex)))))
+OQ7.absorptance_difference : ∀ (rL rR t : Complex),
+  @Eq.{1} Real
+    (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub) (OQ7.absorptanceLeft rL t)
+      (OQ7.absorptanceRight rR t))
+    (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+      (@DFunLike.coe.{1, 1, 1}
+        (@MonoidWithZeroHom.{0, 0} Complex Real (@instMulZeroOneClassOfSemiring.{0} Complex Complex.instSemiring)
+          (@instMulZeroOneClassOfSemiring.{0} Real Real.semiring))
+        Complex (fun x => Real)
+        (@MonoidWithZeroHom.funLike.{0, 0} Complex Real
+          (@instMulZeroOneClassOfSemiring.{0} Complex Complex.instSemiring)
+          (@instMulZeroOneClassOfSemiring.{0} Real Real.semiring))
+        Complex.normSq rR)
+      (@DFunLike.coe.{1, 1, 1}
+        (@MonoidWithZeroHom.{0, 0} Complex Real (@instMulZeroOneClassOfSemiring.{0} Complex Complex.instSemiring)
+          (@instMulZeroOneClassOfSemiring.{0} Real Real.semiring))
+        Complex (fun x => Real)
+        (@MonoidWithZeroHom.funLike.{0, 0} Complex Real
+          (@instMulZeroOneClassOfSemiring.{0} Complex Complex.instSemiring)
+          (@instMulZeroOneClassOfSemiring.{0} Real Real.semiring))
+        Complex.normSq rL))
+OQ7.absorptance_coordinates : ∀ (rL rR t : Complex),
+  And
+    (@Eq.{1} Real (OQ7.absorptanceLeft rL t)
+      (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd) (OQ7.meanAbsorptance rL rR t)
+        (OQ7.halfAsymmetry rL rR t)))
+    (@Eq.{1} Real (OQ7.absorptanceRight rR t)
+      (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub) (OQ7.meanAbsorptance rL rR t)
+        (OQ7.halfAsymmetry rL rR t)))
+OQ7.absorption_det : ∀ (rL rR t : Complex),
+  @Eq.{1} Complex
+    (@Matrix.det.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+      (instDecidableEqFin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+      (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex Complex.commRing
+      (OQ7.absorptionMatrix rL rR t))
+    ↑(@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+        (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (OQ7.absorptanceLeft rL t)
+          (OQ7.absorptanceRight rR t))
+        (@DFunLike.coe.{1, 1, 1}
+          (@MonoidWithZeroHom.{0, 0} Complex Real (@instMulZeroOneClassOfSemiring.{0} Complex Complex.instSemiring)
+            (@instMulZeroOneClassOfSemiring.{0} Real Real.semiring))
+          Complex (fun x => Real)
+          (@MonoidWithZeroHom.funLike.{0, 0} Complex Real
+            (@instMulZeroOneClassOfSemiring.{0} Complex Complex.instSemiring)
+            (@instMulZeroOneClassOfSemiring.{0} Real Real.semiring))
+          Complex.normSq (OQ7.interference rL rR t)))
+OQ7.absorption_det_coordinates : ∀ (rL rR t : Complex),
+  @Eq.{1} Complex
+    (@Matrix.det.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+      (instDecidableEqFin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+      (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex Complex.commRing
+      (OQ7.absorptionMatrix rL rR t))
+    ↑(@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+        (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+          (@HPow.hPow.{0, 0, 0} Real Nat Real
+            (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+            (OQ7.meanAbsorptance rL rR t) (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (@HPow.hPow.{0, 0, 0} Real Nat Real
+            (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+            (OQ7.halfAsymmetry rL rR t) (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+        (@DFunLike.coe.{1, 1, 1}
+          (@MonoidWithZeroHom.{0, 0} Complex Real (@instMulZeroOneClassOfSemiring.{0} Complex Complex.instSemiring)
+            (@instMulZeroOneClassOfSemiring.{0} Real Real.semiring))
+          Complex (fun x => Real)
+          (@MonoidWithZeroHom.funLike.{0, 0} Complex Real
+            (@instMulZeroOneClassOfSemiring.{0} Complex Complex.instSemiring)
+            (@instMulZeroOneClassOfSemiring.{0} Real Real.semiring))
+          Complex.normSq (OQ7.interference rL rR t)))
+@OQ7.transmission_positive : ∀ {t : Complex},
+  @Ne.{1} Complex t (@OfNat.ofNat.{0} Complex (nat_lit 0) (@Zero.toOfNat0.{0} Complex Complex.instZero)) →
+    @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+      (OQ7.transmissionPower t)

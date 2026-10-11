@@ -1,0 +1,77 @@
+def OQ7Prescribed.Theorem11Statement : Prop :=
+∀ (k P Q target : ℝ),
+  0 < k →
+    1 < P →
+      0 < Q →
+        0 < target →
+          ∀ (ε : ℝ),
+            0 < ε →
+              ε < 1 →
+                ∃ B,
+                  B.admissible P Q ∧
+                    ∃ sp sm,
+                      OQ7Prescribed.extinction k B OQ7Prescribed.Direction.plus sp.electric = target ∧
+                        OQ7Prescribed.extinction k B OQ7Prescribed.Direction.minus sm.electric = target ∧
+                          1 - ε < OQ7Prescribed.normalizedAsymmetry k B sp.electric sm.electric ∧
+                            OQ7Prescribed.normalizedAsymmetry k B sp.electric sm.electric < 1
+'OQ7Prescribed.Theorem11Statement' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.axisCoupling_bound : ∀ (u : OQ7Prescribed.Position) (v : OQ7Prescribed.Vector),
+  ‖u‖ ^ 2 = 1 → Complex.normSq (OQ7Prescribed.axisCoupling u v) ≤ OQ7Prescribed.squareNorm v
+OQ7Prescribed.axisCoupling_eq_inner : ∀ (u : OQ7Prescribed.Position) (v : OQ7Prescribed.Vector),
+  OQ7Prescribed.axisCoupling u v = inner ℂ (OQ7Prescribed.complexify u) v
+OQ7Prescribed.complexify_norm_sq : ∀ (u : OQ7Prescribed.Position), ‖OQ7Prescribed.complexify u‖ ^ 2 = ‖u‖ ^ 2
+OQ7Prescribed.domain_compact_closure : ∀ (B : OQ7Prescribed.TwoLayerBody), IsCompact (closure B.domain)
+OQ7Prescribed.domain_subset_closedBall : ∀ (B : OQ7Prescribed.TwoLayerBody),
+  B.domain ⊆ Metric.closedBall 0 (B.aperture + B.absorberThickness + B.plateThickness)
+OQ7Prescribed.incident_absorber_coupling : ∀ (k : ℝ) (σ : OQ7Prescribed.Direction) (x : OQ7Prescribed.Position),
+  OQ7Prescribed.axisCoupling (OQ7Prescribed.basisR 0) (OQ7Prescribed.incidentElectric k σ x) = 0
+OQ7Prescribed.incident_plate_coupling : ∀ (θ k : ℝ) (σ : OQ7Prescribed.Direction) (x : OQ7Prescribed.Position),
+  OQ7Prescribed.axisCoupling (OQ7Prescribed.rotatedAxis θ) (OQ7Prescribed.incidentElectric k σ x) =
+    ↑(Real.sin θ) * OQ7Prescribed.planePhase k σ x
+OQ7Prescribed.incident_plate_rankOne : ∀ (θ k : ℝ) (σ : OQ7Prescribed.Direction) (x : OQ7Prescribed.Position),
+  OQ7Prescribed.tensorApply (OQ7Prescribed.rankOne (OQ7Prescribed.rotatedAxis θ))
+      (OQ7Prescribed.incidentElectric k σ x) =
+    (↑(Real.sin θ) * OQ7Prescribed.planePhase k σ x) • OQ7Prescribed.complexify (OQ7Prescribed.rotatedAxis θ)
+OQ7Prescribed.incident_plate_rankOne_zero_angle : ∀ (k : ℝ) (σ : OQ7Prescribed.Direction) (x : OQ7Prescribed.Position),
+  OQ7Prescribed.tensorApply (OQ7Prescribed.rankOne (OQ7Prescribed.rotatedAxis 0))
+      (OQ7Prescribed.incidentElectric k σ x) =
+    0
+OQ7Prescribed.incidentElectric_minus_conjugate : ∀ (k : ℝ) (x : OQ7Prescribed.Position),
+  OQ7Prescribed.incidentElectric k OQ7Prescribed.Direction.minus x =
+    WithLp.toLp 2 fun i => star ((OQ7Prescribed.incidentElectric k OQ7Prescribed.Direction.plus x).ofLp i)
+OQ7Prescribed.incidentElectric_squareNorm : ∀ (k : ℝ) (σ : OQ7Prescribed.Direction) (x : OQ7Prescribed.Position),
+  OQ7Prescribed.squareNorm (OQ7Prescribed.incidentElectric k σ x) = 1
+OQ7Prescribed.layerPermittivity_admissible : ∀ (P Q a b ν : ℝ) (u : OQ7Prescribed.Position),
+  ‖u‖ ^ 2 = 1 →
+    0 ≤ a →
+      1 + a ≤ P →
+        0 ≤ b → 0 < ν → b + ν ≤ Q → OQ7Prescribed.MaterialAdmissible P Q (OQ7Prescribed.layerPermittivity a b ν u)
+OQ7Prescribed.layerPermittivity_reciprocal : ∀ (a b ν : ℝ) (u : OQ7Prescribed.Position),
+  Matrix.transpose (OQ7Prescribed.layerPermittivity a b ν u) = OQ7Prescribed.layerPermittivity a b ν u
+OQ7Prescribed.pairing_self : ∀ (v : OQ7Prescribed.Vector), OQ7Prescribed.pairing v v = ↑(OQ7Prescribed.squareNorm v)
+OQ7Prescribed.permittivity_one_outside : ∀ (B : OQ7Prescribed.TwoLayerBody), ∀ x ∉ B.domain, B.permittivity x = 1
+OQ7Prescribed.permittivity_reciprocal : ∀ (B : OQ7Prescribed.TwoLayerBody) (P Q : ℝ),
+  B.admissible P Q → ∀ (x : OQ7Prescribed.Position), Matrix.transpose (B.permittivity x) = B.permittivity x
+OQ7Prescribed.planePhase_norm : ∀ (k : ℝ) (σ : OQ7Prescribed.Direction) (x : OQ7Prescribed.Position),
+  ‖OQ7Prescribed.planePhase k σ x‖ = 1
+OQ7Prescribed.quadratic_layer : ∀ (a b ν : ℝ) (u : OQ7Prescribed.Position) (v : OQ7Prescribed.Vector),
+  OQ7Prescribed.quadratic (OQ7Prescribed.layerPermittivity a b ν u) v =
+    (1 + Complex.I * ↑ν) * ↑(OQ7Prescribed.squareNorm v) +
+      (↑a + Complex.I * ↑b) * ↑(Complex.normSq (OQ7Prescribed.axisCoupling u v))
+OQ7Prescribed.quadratic_layer_im : ∀ (a b ν : ℝ) (u : OQ7Prescribed.Position) (v : OQ7Prescribed.Vector),
+  (OQ7Prescribed.quadratic (OQ7Prescribed.layerPermittivity a b ν u) v).im =
+    ν * OQ7Prescribed.squareNorm v + b * Complex.normSq (OQ7Prescribed.axisCoupling u v)
+OQ7Prescribed.quadratic_layer_re : ∀ (a b ν : ℝ) (u : OQ7Prescribed.Position) (v : OQ7Prescribed.Vector),
+  (OQ7Prescribed.quadratic (OQ7Prescribed.layerPermittivity a b ν u) v).re =
+    OQ7Prescribed.squareNorm v + a * Complex.normSq (OQ7Prescribed.axisCoupling u v)
+OQ7Prescribed.rankOne_transpose : ∀ (u : OQ7Prescribed.Position),
+  Matrix.transpose (OQ7Prescribed.rankOne u) = OQ7Prescribed.rankOne u
+OQ7Prescribed.rotatedAxis_unit : ∀ (θ : ℝ), ‖OQ7Prescribed.rotatedAxis θ‖ ^ 2 = 1
+OQ7Prescribed.sphereDirection_unit : ∀ (θ φ : ℝ), ‖OQ7Prescribed.sphereDirection θ φ‖ ^ 2 = 1
+OQ7Prescribed.squareNorm_eq_norm_sq : ∀ (v : OQ7Prescribed.Vector), OQ7Prescribed.squareNorm v = ‖v‖ ^ 2
+OQ7Prescribed.squareNorm_nonneg : ∀ (v : OQ7Prescribed.Vector), 0 ≤ OQ7Prescribed.squareNorm v
+@OQ7Prescribed.squareNorm_pos : ∀ {v : OQ7Prescribed.Vector}, v ≠ 0 → 0 < OQ7Prescribed.squareNorm v
+OQ7Prescribed.susceptibility_zero_outside : ∀ (B : OQ7Prescribed.TwoLayerBody), ∀ x ∉ B.domain, B.susceptibility x = 0
+OQ7Prescribed.tensorApply_one : ∀ (v : OQ7Prescribed.Vector), OQ7Prescribed.tensorApply 1 v = v
+OQ7Prescribed.tensorApply_rankOne : ∀ (u : OQ7Prescribed.Position) (v : OQ7Prescribed.Vector),
+  OQ7Prescribed.tensorApply (OQ7Prescribed.rankOne u) v = OQ7Prescribed.axisCoupling u v • OQ7Prescribed.complexify u
