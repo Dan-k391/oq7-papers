@@ -1,0 +1,18 @@
+import PrescribedExtinction.NewtonPrincipalValue
+
+#check @OQ7Prescribed.integral_polar_actual
+#check @OQ7Prescribed.newtonHessianKernel_classical
+#check @OQ7Prescribed.newtonCompensated_integrable
+#check @OQ7Prescribed.newtonAnnulus_integrable
+#check @OQ7Prescribed.newtonAnnulus_integral_zero
+#check @OQ7Prescribed.newtonPVTruncated_integrable
+#check @OQ7Prescribed.newtonPVTruncated_eq_compensated
+#check @OQ7Prescribed.newtonPrincipalValue_tendsto
+#print axioms OQ7Prescribed.integral_polar_actual
+#print axioms OQ7Prescribed.newtonHessianKernel_classical
+#print axioms OQ7Prescribed.newtonCompensated_integrable
+#print axioms OQ7Prescribed.newtonAnnulus_integrable
+#print axioms OQ7Prescribed.newtonAnnulus_integral_zero
+#print axioms OQ7Prescribed.newtonPVTruncated_integrable
+#print axioms OQ7Prescribed.newtonPVTruncated_eq_compensated
+#print axioms OQ7Prescribed.newtonPrincipalValue_tendsto

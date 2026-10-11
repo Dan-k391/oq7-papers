@@ -1,0 +1,14 @@
+OQ7Prescribed.sphereArea_real_univ : OQ7Prescribed.sphereArea.real Set.univ = 4 * Real.pi
+OQ7Prescribed.orthogonalSphere_measurePreserving : ∀ (e : OQ7Prescribed.Position ≃ₗᵢ[ℝ] OQ7Prescribed.Position),
+  MeasureTheory.MeasurePreserving (⇑(OQ7Prescribed.orthogonalSphere e)) OQ7Prescribed.sphereArea
+    OQ7Prescribed.sphereArea
+OQ7Prescribed.sphere_second_moment : ∀ (i j : Fin 3),
+  ∫ (n : ↑OQ7Prescribed.UnitSphere), (↑n).ofLp i * (↑n).ofLp j ∂OQ7Prescribed.sphereArea =
+    if i = j then 4 * Real.pi / 3 else 0
+OQ7Prescribed.sphere_newton_angular_cancellation : ∀ (i j : Fin 3),
+  ∫ (n : ↑OQ7Prescribed.UnitSphere), 3 * (↑n).ofLp i * (↑n).ofLp j - if i = j then 1 else 0 ∂OQ7Prescribed.sphereArea =
+    0
+'OQ7Prescribed.sphereArea_real_univ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.orthogonalSphere_measurePreserving' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.sphere_second_moment' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.sphere_newton_angular_cancellation' depends on axioms: [propext, Classical.choice, Quot.sound]

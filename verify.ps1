@@ -100,6 +100,22 @@ try {
     for ($oq7ByteIndex = 0; $oq7ByteIndex -lt $oq7PreviousRoot.Length; $oq7ByteIndex++) {
         if ($oq7CurrentRoot[$oq7ByteIndex] -ne $oq7PreviousRoot[$oq7ByteIndex]) { throw 'Previous aggregate imports changed.' }
     }
+    $oq7ContactBaseline = Get-Content 'sources/pre-contact-source-hashes.json' -Raw | ConvertFrom-Json
+    foreach ($oq7Saved in $oq7ContactBaseline) {
+        if ((Get-FileHash $oq7Saved.file -Algorithm SHA256).Hash -ne $oq7Saved.sha256) {
+            throw "Preserved dyadic milestone source differs: $($oq7Saved.file)"
+        }
+    }
+    $oq7ContactReport = Get-Content 'verification/milestones/pre-contact/report.json' -Raw | ConvertFrom-Json
+    $oq7ContactRootHash = @($oq7ContactReport.sourceHashes | Where-Object { $_.file -eq 'PrescribedExtinction.lean' })[0].sha256
+    if ((Get-FileHash 'sources/pre-contact-PrescribedExtinction.lean' -Algorithm SHA256).Hash -ne $oq7ContactRootHash) {
+        throw 'Dyadic milestone aggregate snapshot differs.'
+    }
+    $oq7ContactRoot = [IO.File]::ReadAllBytes((Join-Path $PSScriptRoot 'sources/pre-contact-PrescribedExtinction.lean'))
+    if ($oq7CurrentRoot.Length -lt $oq7ContactRoot.Length) { throw 'Aggregate source was truncated.' }
+    for ($oq7ByteIndex = 0; $oq7ByteIndex -lt $oq7ContactRoot.Length; $oq7ByteIndex++) {
+        if ($oq7CurrentRoot[$oq7ByteIndex] -ne $oq7ContactRoot[$oq7ByteIndex]) { throw 'Dyadic milestone imports changed.' }
+    }
     if ($oq7PdfHash -ne '3D9775D849234E828370D7C96D8BDCDD574BEB6831A7906EA6B7706579868710') { throw 'Manuscript hash differs.' }
     $oq7TargetHash = (Get-FileHash -LiteralPath 'PrescribedExtinction/Maxwell.lean' -Algorithm SHA256).Hash
     if ($oq7TargetHash -ne '071C04ED9417A1D9AC842D61B545183627E6F997C7C1899F908871608859ABF6') {
@@ -133,6 +149,13 @@ try {
         allPreDyadicLeanModulesUnchanged = $true
         existingAggregateImportPrefixUnchanged = $true
         dyadicGreenMilestoneComplete = $false
+        allPreContactLeanModulesUnchanged = $true
+        newtonContactIdentityVerified = $false
+        sphericalSecondMomentsVerified = $true
+        newtonAngularBoundaryLimitsVerified = $true
+        newtonPrincipalValueConvergenceVerified = $true
+        newtonPrincipalValueIsBundledDistribution = $false
+        staticNewtonIdentificationVerified = $false
         targetSourceSHA256 = $oq7TargetHash
         verifiedAtUTC = [DateTime]::UtcNow.ToString('o')
         lean = $oq7Version
@@ -155,10 +178,14 @@ try {
             @{ module = 'PrescribedExtinction.VolumePotential'; scope = 'Actual convolution exists for every compact vector L2 current; finite local bound; locally integrable potential; distributional volume formula and additivity'; boundedDyadicL2OperatorVerified = $false },
             @{ module = 'PrescribedExtinction.StaticFourier'; scope = 'Explicit static Fourier multiplier is an L2 contraction and has zero imaginary quadratic form'; identificationWithNewtonVolumePotentialVerified = $false },
             @{ module = 'PrescribedExtinction.OutgoingRadial'; scope = 'Actual Newton and outgoing radial derivatives and classical Hessian away from origin'; physicalContactCoefficientVerified = $false },
-            @{ module = 'PrescribedExtinction.RemainderConvolution'; scope = 'Actual classical dyadic dynamic-minus-static cancellation; explicit inverse-distance norm estimate; cutoff L2 kernel; actual convolution, compact-domain L2 bound, ae invariance and complex linearity'; identificationWithDistributionalDifferenceVerified = $false; fullPhysicalDyadicOperatorVerified = $false }
+            @{ module = 'PrescribedExtinction.RemainderConvolution'; scope = 'Actual classical dyadic dynamic-minus-static cancellation; explicit inverse-distance norm estimate; cutoff L2 kernel; actual convolution, compact-domain L2 bound, ae invariance and complex linearity'; identificationWithDistributionalDifferenceVerified = $false; fullPhysicalDyadicOperatorVerified = $false },
+            @{ module = 'PrescribedExtinction.SphereMoments'; scope = 'Actual polar angular measure, orthogonal invariance, area 4pi and exact second moments'; actualSphereMomentsVerified = $true },
+            @{ module = 'PrescribedExtinction.NewtonBoundary'; scope = 'Actual angular contact boundary tends to minus delta_ij phi(0)/3; derivative boundary tends to zero'; puncturedIntegrationByPartsVerified = $false },
+            @{ module = 'PrescribedExtinction.NewtonPrincipalValue'; scope = 'Actual spherical principal value converges for every original test function; compensated integral and every positive-radius truncated integral are proved integrable'; fullDistributionalHessianIdentityVerified = $false }
         )
         unverifiedDependencies = @('3D outgoing Maxwell existence and uniqueness',
-            'Scalar distributional Helmholtz fundamental-solution identity and explicit Hessian principal-value/contact formula',
+            'Punctured integration by parts and full Newton Hessian/contact identity (sphere moments, angular boundary limits and principal-value convergence proved)',
+            'Scalar distributional Helmholtz fundamental-solution identity',
             'Identification of the static Fourier operator with the distributional Newton volume operator',
             'Distributional dynamic-minus-static identification and bounded L2 realization/restriction of the full dyadic operator (classical remainder estimate and convolution bound proved)',
             'Volume representation equivalence to weak Maxwell, regularity and Silver-Muller radiation',

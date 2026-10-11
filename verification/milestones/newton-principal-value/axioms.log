@@ -1,0 +1,34 @@
+OQ7Prescribed.integral_polar_actual : ∀ (f : OQ7Prescribed.Position → ℝ),
+  ∫ (x : OQ7Prescribed.Position), f x =
+    ∫ (p : ↑OQ7Prescribed.UnitSphere × ↑(Set.Ioi 0)),
+      f (↑p.2 • ↑p.1) ∂OQ7Prescribed.sphereArea.prod (MeasureTheory.Measure.volumeIoiPow 2)
+OQ7Prescribed.newtonHessianKernel_classical : ∀ (i j : Fin 3) (x : OQ7Prescribed.Position),
+  x ≠ 0 →
+    ↑(OQ7Prescribed.newtonHessianKernel i j x) =
+      lineDeriv ℝ (fun y => lineDeriv ℝ (OQ7Prescribed.outgoingGreen 0) y (OQ7Prescribed.basisR j)) x
+        (OQ7Prescribed.basisR i)
+OQ7Prescribed.newtonCompensated_integrable : ∀ (φ : OQ7Prescribed.ScalarTest) (i j : Fin 3),
+  MeasureTheory.Integrable (OQ7Prescribed.newtonCompensated φ i j) MeasureTheory.volume
+OQ7Prescribed.newtonAnnulus_integrable : ∀ (i j : Fin 3) (r T : ℝ),
+  0 < r → MeasureTheory.Integrable (OQ7Prescribed.newtonAnnulus i j r T) MeasureTheory.volume
+OQ7Prescribed.newtonAnnulus_integral_zero : ∀ (i j : Fin 3) (r T : ℝ),
+  ∫ (x : OQ7Prescribed.Position), OQ7Prescribed.newtonAnnulus i j r T x = 0
+OQ7Prescribed.newtonPVTruncated_integrable : ∀ (φ : OQ7Prescribed.ScalarTest) (i j : Fin 3) (r : ℝ),
+  0 < r →
+    MeasureTheory.IntegrableOn (fun x => OQ7Prescribed.newtonHessianKernel i j x * φ x) {x | r < ‖x‖}
+      MeasureTheory.volume
+OQ7Prescribed.newtonPVTruncated_eq_compensated : ∀ (φ : OQ7Prescribed.ScalarTest) (i j : Fin 3) (r : ℝ),
+  0 < r →
+    OQ7Prescribed.newtonPVTruncated φ i j r =
+      ∫ (x : OQ7Prescribed.Position) in {x | r < ‖x‖}, OQ7Prescribed.newtonCompensated φ i j x
+OQ7Prescribed.newtonPrincipalValue_tendsto : ∀ (φ : OQ7Prescribed.ScalarTest) (i j : Fin 3),
+  Filter.Tendsto (OQ7Prescribed.newtonPVTruncated φ i j) (nhdsWithin 0 (Set.Ioi 0))
+    (nhds (OQ7Prescribed.newtonPVValue φ i j))
+'OQ7Prescribed.integral_polar_actual' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.newtonHessianKernel_classical' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.newtonCompensated_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.newtonAnnulus_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.newtonAnnulus_integral_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.newtonPVTruncated_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.newtonPVTruncated_eq_compensated' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.newtonPrincipalValue_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]

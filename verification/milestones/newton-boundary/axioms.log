@@ -1,0 +1,6 @@
+OQ7Prescribed.newtonContactBoundary_tendsto : ∀ (φ : OQ7Prescribed.ScalarTest) (i j : Fin 3),
+  Filter.Tendsto (OQ7Prescribed.newtonContactBoundary φ i j) (nhds 0) (nhds (-((if i = j then 1 else 0) / 3) * φ 0))
+OQ7Prescribed.newtonDerivativeBoundary_tendsto : ∀ (φ : OQ7Prescribed.ScalarTest) (i j : Fin 3),
+  Filter.Tendsto (OQ7Prescribed.newtonDerivativeBoundary φ i j) (nhds 0) (nhds 0)
+'OQ7Prescribed.newtonContactBoundary_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.newtonDerivativeBoundary_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]

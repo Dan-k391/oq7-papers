@@ -1,5 +1,7 @@
 # Physical dyadic Green milestone — PARTIAL
 
+This document records the preceding dyadic continuation. The latest contact work is documented in [CONTACT.md](CONTACT.md): spherical moments, angular boundary limits and actual principal-value convergence are now proved; the full distributional contact identity and operator identifications remain unproved.
+
 The requested milestone is **incomplete**, and physical Theorem 1.1 is **unproved**. The existing target and every previous Lean module are preserved byte for byte. Only imports are appended to the aggregate `PrescribedExtinction.lean`. The baseline is commit `41ca4f4ff48bbe6d2d1a356e938f1d689bd111cf`; its source hashes and verification evidence are retained in `sources/pre-dyadic-source-hashes.json` and `verification/milestones/pre-dyadic/`.
 
 No aperture-localization or extinction argument was added. No scattering result, contact identity, Fourier identification, or operator-representation identity is supplied as an assumption.

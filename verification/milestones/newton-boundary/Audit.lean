@@ -1,0 +1,6 @@
+import PrescribedExtinction.NewtonBoundary
+
+#check @OQ7Prescribed.newtonContactBoundary_tendsto
+#check @OQ7Prescribed.newtonDerivativeBoundary_tendsto
+#print axioms OQ7Prescribed.newtonContactBoundary_tendsto
+#print axioms OQ7Prescribed.newtonDerivativeBoundary_tendsto

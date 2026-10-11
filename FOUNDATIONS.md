@@ -1,5 +1,7 @@
 # Foundational Maxwell continuation — PARTIAL
 
+For the latest contact progress, see [CONTACT.md](CONTACT.md). The exact spherical moments, angular boundary limits and principal-value convergence are proved. The punctured integration identity, full distributional Hessian/contact identity and Fourier/outgoing correspondences remain unverified.
+
 This document records the preceding three foundational modules. The latest continuation is documented in [DYADIC.md](DYADIC.md): classical Hessians, dynamic-minus-static cancellation and actual remainder convolution estimates are now proved. The distributional contact term and the identification and bounded realization of the full physical dyadic operator remain unproved.
 
 The exact physical target `OQ7Prescribed.Theorem11Statement` is unchanged and unproved. No declaration of a proof of Theorem 1.1 exists. The additions below are intermediate analytic results for its actual kernel and current space; they are not an abstract replacement theorem.

@@ -12,3 +12,8 @@ import PrescribedExtinction.OutgoingRadial
 import PrescribedExtinction.GreenCancellation
 import PrescribedExtinction.DyadicRemainder
 import PrescribedExtinction.RemainderConvolution
+import PrescribedExtinction.SphereMeasure
+import PrescribedExtinction.SphereMoments
+import PrescribedExtinction.NewtonBoundary
+import PrescribedExtinction.NewtonPV
+import PrescribedExtinction.NewtonPrincipalValue

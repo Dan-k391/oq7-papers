@@ -1,0 +1,10 @@
+import PrescribedExtinction.SphereMoments
+
+#check @OQ7Prescribed.sphereArea_real_univ
+#check @OQ7Prescribed.orthogonalSphere_measurePreserving
+#check @OQ7Prescribed.sphere_second_moment
+#check @OQ7Prescribed.sphere_newton_angular_cancellation
+#print axioms OQ7Prescribed.sphereArea_real_univ
+#print axioms OQ7Prescribed.orthogonalSphere_measurePreserving
+#print axioms OQ7Prescribed.sphere_second_moment
+#print axioms OQ7Prescribed.sphere_newton_angular_cancellation

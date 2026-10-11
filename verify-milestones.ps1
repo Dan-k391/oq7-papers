@@ -8,7 +8,10 @@ try {
         @{ name = 'volume-potential'; module = 'PrescribedExtinction.VolumePotential' },
         @{ name = 'static-fourier'; module = 'PrescribedExtinction.StaticFourier' },
         @{ name = 'radial-hessian'; module = 'PrescribedExtinction.OutgoingRadial' },
-        @{ name = 'dyadic-remainder'; module = 'PrescribedExtinction.RemainderConvolution' }
+        @{ name = 'dyadic-remainder'; module = 'PrescribedExtinction.RemainderConvolution' },
+        @{ name = 'spherical-moments'; module = 'PrescribedExtinction.SphereMoments' },
+        @{ name = 'newton-boundary'; module = 'PrescribedExtinction.NewtonBoundary' },
+        @{ name = 'newton-principal-value'; module = 'PrescribedExtinction.NewtonPrincipalValue' }
     )
     foreach ($oq7Milestone in $oq7Milestones) {
         $oq7Directory = Join-Path 'verification/milestones' $oq7Milestone.name

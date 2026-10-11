@@ -2,6 +2,8 @@
 
 **Theorem 1.1 has not been kernel-verified. No final proof declaration exists.**
 
+The latest continuation proves the actual spherical second moments, Newton angular boundary limits, and spherical principal-value convergence with integrability. The full distributional contact identity and Fourier/outgoing identifications remain unproved. See [CONTACT.md](CONTACT.md) for exact declarations and the remaining punctured integration-by-parts obligation. Every Lean module from the preceding dyadic milestone is preserved byte for byte.
+
 The existing library and its exact target are preserved. The continuation now includes actual outgoing/Newton classical Hessians, a proved dynamic-minus-static kernel estimate, and actual remainder convolution bounds on compact domains, in addition to the earlier scalar distributions, convolution and static Fourier results. **The explicit distributional contact coefficient and the full physical dyadic operator are still unverified.** See [DYADIC.md](DYADIC.md) for this continuation's exact formulas, missing infrastructure and proof obligations. No conditional substitute is advertised as Theorem 1.1.
 
 `OQ7Prescribed.Theorem11Statement : Prop` is a **definition of an unproved proposition**, not a theorem. Its `#print axioms` output audits the definition's dependencies. It does not certify that the proposition is true.
