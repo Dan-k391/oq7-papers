@@ -205,3 +205,9 @@ import PrescribedExtinction.PlanarDriveNorm
 import PrescribedExtinction.SharpResponseEstimate
 import PrescribedExtinction.ApertureErrorAlgebra
 import PrescribedExtinction.UniformBodyResponse
+import PrescribedExtinction.ScaledInnerMap
+import PrescribedExtinction.BodySharpWork
+import PrescribedExtinction.BodyAbsorptionLocalization
+import PrescribedExtinction.UniformBodyPowers
+import PrescribedExtinction.UniformPhysicalPowers
+import PrescribedExtinction.UniformVectorCurrent

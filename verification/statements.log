@@ -38,6 +38,8 @@ OQ7Prescribed.activeInverseMaterial_loss_integral : ∀ (B : OQ7Prescribed.TwoLa
 OQ7Prescribed.activeInverseMaterial_negative_imaginary_bound : ∀ (B : OQ7Prescribed.TwoLayerBody) (α β : ℂ)
   (q : ↥(OQ7Prescribed.ScalarBodyCurrentL2 B)),
   OQ7Prescribed.activeMaterialCoercivity α β * ‖q‖ ^ 2 ≤ -(inner ℂ q ((OQ7Prescribed.activeInverseMaterial B α β) q)).im
+OQ7Prescribed.activeInverseMaterial_norm_le : ∀ (B : OQ7Prescribed.TwoLayerBody) (α β : ℂ),
+  ‖OQ7Prescribed.activeInverseMaterial B α β‖ ≤ OQ7Prescribed.activeMaterialNormBound α β
 OQ7Prescribed.activeMaterialCoercivity_pos : ∀ (α β : ℂ),
   0 < α.im → 0 < β.im → 0 < OQ7Prescribed.activeMaterialCoercivity α β
 OQ7Prescribed.activeMaterialEquiv_apply : ∀ (k : ℝ) (hk : 0 < k) (B : OQ7Prescribed.TwoLayerBody)
@@ -574,6 +576,15 @@ OQ7Prescribed.bodySharpScalarLift_coe : ∀ (B : OQ7Prescribed.TwoLayerBody)
   (q : ↥(OQ7Prescribed.PlanarCurrentL2 (B.absorberThickness + B.plateThickness))),
   ↑↑↑((OQ7Prescribed.bodySharpScalarLift B) q) =ᵐ[MeasureTheory.volume]
     OQ7Prescribed.slabSeparatedFunction (OQ7Prescribed.squareApertureWindow B.aperture) ↑↑↑q
+OQ7Prescribed.bodySharpScalarLift_inner : ∀ (B : OQ7Prescribed.TwoLayerBody)
+  (q r : ↥(OQ7Prescribed.PlanarCurrentL2 (B.absorberThickness + B.plateThickness))),
+  inner ℂ ((OQ7Prescribed.bodySharpScalarLift B) q) ((OQ7Prescribed.bodySharpScalarLift B) r) =
+    B.aperture ^ 2 • inner ℂ q r
+OQ7Prescribed.bodySharpScalarLift_inverse_material : ∀ (B : OQ7Prescribed.TwoLayerBody) (α β : ℂ)
+  (q : ↥(OQ7Prescribed.PlanarCurrentL2 (B.absorberThickness + B.plateThickness))),
+  (OQ7Prescribed.activeInverseMaterial B α β) ((OQ7Prescribed.bodySharpScalarLift B) q) =
+    (OQ7Prescribed.bodySharpScalarLift B)
+      ((OQ7Prescribed.planarInverseMaterial (B.absorberThickness + B.plateThickness) B.absorberThickness α β) q)
 OQ7Prescribed.bodySharpScalarLift_norm : ∀ (B : OQ7Prescribed.TwoLayerBody)
   (q : ↥(OQ7Prescribed.PlanarCurrentL2 (B.absorberThickness + B.plateThickness))),
   ‖(OQ7Prescribed.bodySharpScalarLift B) q‖ = B.aperture * ‖q‖
@@ -848,6 +859,9 @@ OQ7Prescribed.contDiff_test_ibp : ∀ (F : OQ7Prescribed.Position → ℝ),
   ‖e.symm s - f.symm t‖ ≤ ‖↑e.symm‖ * (‖s - t‖ + ‖↑e - ↑f‖ * ‖f.symm t‖)
 @OQ7Prescribed.continuousLinearEquiv_solution_residual_bound : ∀ {H : Type u_1} [inst : NormedAddCommGroup H]
   [inst_1 : InnerProductSpace ℂ H] [CompleteSpace H] (e : H ≃L[ℂ] H) (s v : H), ‖e.symm s - v‖ ≤ ‖↑e.symm‖ * ‖s - e v‖
+@OQ7Prescribed.continuousLinearMap_inner_of_norm_mul : ∀ {E : Type u_1} {F : Type u_2} [inst : NormedAddCommGroup E]
+  [inst_1 : InnerProductSpace ℂ E] [inst_2 : NormedAddCommGroup F] [inst_3 : InnerProductSpace ℂ F] (J : E →L[ℂ] F)
+  (R : ℝ), (∀ (q : E), ‖J q‖ = R * ‖q‖) → ∀ (q r : E), inner ℂ (J q) (J r) = R ^ 2 • inner ℂ q r
 OQ7Prescribed.coordinateReflect_apply : ∀ (i j : Fin 3) (x : OQ7Prescribed.Position),
   ((OQ7Prescribed.coordinateReflect i) x).ofLp j = if j = i then -x.ofLp j else x.ofLp j
 OQ7Prescribed.coordinateSwap_apply : ∀ (i j a : Fin 3) (x : OQ7Prescribed.Position),
@@ -1979,6 +1993,9 @@ OQ7Prescribed.incidentMagnetic_second_weakCurl : ∀ (k : ℝ) (σ : OQ7Prescrib
   [inst_1 : NormedAddCommGroup E] [inst_2 : InnerProductSpace ℂ E] [CompleteSpace E] (μ : MeasureTheory.Measure α)
   (s : Set α) (hs : MeasurableSet s) (f : ↥(MeasureTheory.Lp E 2 μ)),
   OQ7Prescribed.indicatorL2 μ s hs f ∈ OQ7Prescribed.setSupportedL2 μ s
+@OQ7Prescribed.inner_quadratic_difference_norm_bound : ∀ {E : Type u_1} [inst : NormedAddCommGroup E]
+  [inst_1 : InnerProductSpace ℂ E] [CompleteSpace E] (M : E →L[ℂ] E) (r s : E),
+  ‖inner ℂ r (M r) - inner ℂ s (M s)‖ ≤ ‖M‖ * (‖r‖ + ‖s‖) * ‖r - s‖
 OQ7Prescribed.integrable_polar_actual : ∀ (f : OQ7Prescribed.Position → ℝ),
   MeasureTheory.Integrable f MeasureTheory.volume →
     MeasureTheory.Integrable (fun p => f (↑p.2 • ↑p.1))
@@ -2606,6 +2623,18 @@ OQ7Prescribed.normalizedAbsorption_continuous : ∀ (k : ℝ) (hk : 0 < k) (B : 
 OQ7Prescribed.normalizedAbsorption_le_extinction : ∀ (k : ℝ) (hk : 0 < k) (B : OQ7Prescribed.TwoLayerBody)
   (σ : OQ7Prescribed.Direction) (θ : ℝ) (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im),
   OQ7Prescribed.normalizedAbsorption k hk B σ θ α β hα hβ ≤ OQ7Prescribed.normalizedExtinction k hk B σ θ α β hα hβ
+OQ7Prescribed.normalizedAbsorption_planar_lift_error_bound : ∀ (k : ℝ) (hk : 0 < k) (B : OQ7Prescribed.TwoLayerBody)
+  (σ : OQ7Prescribed.Direction) (θ : ℝ) (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im),
+  |OQ7Prescribed.normalizedAbsorption k hk B σ θ α β hα hβ -
+        B.aperture ^ 2 *
+          OQ7Prescribed.planarNormalizedAbsorption k hk σ (B.absorberThickness + B.plateThickness) ⋯ B.absorberThickness
+            θ α β hα hβ| ≤
+    2 * k * OQ7Prescribed.activeMaterialNormBound α β / OQ7Prescribed.activeMaterialCoercivity α β * B.aperture *
+        √B.plateThickness *
+      ‖OQ7Prescribed.normalizedActiveResponse k hk B σ θ α β hα hβ -
+          (OQ7Prescribed.bodySharpScalarLift B)
+            (OQ7Prescribed.planarNormalizedResponse k hk σ (B.absorberThickness + B.plateThickness) ⋯
+              B.absorberThickness θ α β hα hβ)‖
 OQ7Prescribed.normalizedAbsorption_pos : ∀ (k : ℝ) (hk : 0 < k) (B : OQ7Prescribed.TwoLayerBody)
   (σ : OQ7Prescribed.Direction) (θ : ℝ) (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im),
   0 < OQ7Prescribed.normalizedAbsorption k hk B σ θ α β hα hβ
@@ -2645,6 +2674,17 @@ OQ7Prescribed.normalizedExtinction_compact_lower_bound : ∀ (k : ℝ) (hk : 0 <
 OQ7Prescribed.normalizedExtinction_continuous : ∀ (k : ℝ) (hk : 0 < k) (B : OQ7Prescribed.TwoLayerBody)
   (σ : OQ7Prescribed.Direction) (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im),
   Continuous fun θ => OQ7Prescribed.normalizedExtinction k hk B σ θ α β hα hβ
+OQ7Prescribed.normalizedExtinction_planar_lift_error_bound : ∀ (k : ℝ) (hk : 0 < k) (B : OQ7Prescribed.TwoLayerBody)
+  (σ : OQ7Prescribed.Direction) (θ : ℝ) (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im),
+  |OQ7Prescribed.normalizedExtinction k hk B σ θ α β hα hβ -
+        B.aperture ^ 2 *
+          OQ7Prescribed.planarNormalizedExtinction k hk σ (B.absorberThickness + B.plateThickness) ⋯ B.absorberThickness
+            θ α β hα hβ| ≤
+    k * B.aperture * √B.plateThickness *
+      ‖OQ7Prescribed.normalizedActiveResponse k hk B σ θ α β hα hβ -
+          (OQ7Prescribed.bodySharpScalarLift B)
+            (OQ7Prescribed.planarNormalizedResponse k hk σ (B.absorberThickness + B.plateThickness) ⋯
+              B.absorberThickness θ α β hα hβ)‖
 OQ7Prescribed.normalizedExtinction_pos : ∀ (k : ℝ) (hk : 0 < k) (B : OQ7Prescribed.TwoLayerBody)
   (σ : OQ7Prescribed.Direction) (θ : ℝ) (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im),
   0 < OQ7Prescribed.normalizedExtinction k hk B σ θ α β hα hβ
@@ -2679,6 +2719,8 @@ OQ7Prescribed.normalizedIncidentDrive_eq_sharpLift : ∀ (k : ℝ) (B : OQ7Presc
       (OQ7Prescribed.planarNormalizedDrive k σ (B.absorberThickness + B.plateThickness) B.absorberThickness)
 OQ7Prescribed.normalizedIncidentDrive_ne_zero : ∀ (k : ℝ) (B : OQ7Prescribed.TwoLayerBody)
   (σ : OQ7Prescribed.Direction), OQ7Prescribed.normalizedIncidentDrive k B σ ≠ 0
+OQ7Prescribed.normalizedIncidentDrive_norm : ∀ (k : ℝ) (B : OQ7Prescribed.TwoLayerBody) (σ : OQ7Prescribed.Direction),
+  ‖OQ7Prescribed.normalizedIncidentDrive k B σ‖ = B.aperture * √B.plateThickness
 OQ7Prescribed.normalizedIncidentDrive_separated : ∀ (k : ℝ) (B : OQ7Prescribed.TwoLayerBody)
   (σ : OQ7Prescribed.Direction),
   ↑↑↑(OQ7Prescribed.normalizedIncidentDrive k B σ) =ᵐ[MeasureTheory.volume]
@@ -2980,6 +3022,27 @@ OQ7Prescribed.physicalAsymmetry_normalized_factorization : ∀ (k : ℝ) (hk : 0
                 (OQ7Prescribed.activePhysicalSolution k hk B OQ7Prescribed.Direction.minus (OQ7Prescribed.basisR 0)
                   (OQ7Prescribed.rotatedAxis θ) α β hα hβ)))) =
         OQ7Prescribed.normalizedRotationAsymmetry k hk B θ α β hα hβ
+OQ7Prescribed.physicalBody_normalized_powers_uniform_aperture_localization : ∀ (k : ℝ) (hk : 0 < k) (h d : ℝ),
+  0 < h →
+    0 < d →
+      ∀ (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im) (ε : ℝ),
+        0 < ε →
+          ∃ R0,
+            1 ≤ R0 ∧
+              ∀ (B : OQ7Prescribed.TwoLayerBody),
+                B.absorberThickness = h →
+                  B.plateThickness = d →
+                    R0 ≤ B.aperture →
+                      ∀ (σ : OQ7Prescribed.Direction) (θ : ℝ),
+                        |OQ7Prescribed.normalizedExtinction k hk B σ θ α β hα hβ -
+                                B.aperture ^ 2 *
+                                  OQ7Prescribed.planarNormalizedExtinction k hk σ
+                                    (B.absorberThickness + B.plateThickness) ⋯ B.absorberThickness θ α β hα hβ| +
+                            |OQ7Prescribed.normalizedAbsorption k hk B σ θ α β hα hβ -
+                                B.aperture ^ 2 *
+                                  OQ7Prescribed.planarNormalizedAbsorption k hk σ
+                                    (B.absorberThickness + B.plateThickness) ⋯ B.absorberThickness θ α β hα hβ| ≤
+                          ε * B.aperture ^ 2
 OQ7Prescribed.physicalBody_normalized_response_uniform_aperture_localization : ∀ (k : ℝ) (hk : 0 < k) (h d : ℝ),
   0 < h →
     0 < d →
@@ -2996,6 +3059,25 @@ OQ7Prescribed.physicalBody_normalized_response_uniform_aperture_localization : �
                               (OQ7Prescribed.bodySharpScalarLift B)
                                 (OQ7Prescribed.planarNormalizedResponse k hk σ (B.absorberThickness + B.plateThickness)
                                   ⋯ B.absorberThickness θ α β hα hβ)‖ ≤
+                          ε * B.aperture
+OQ7Prescribed.physicalBody_normalized_vector_current_uniform_aperture_localization : ∀ (k : ℝ) (hk : 0 < k) (h d : ℝ),
+  0 < h →
+    0 < d →
+      ∀ (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im) (ε : ℝ),
+        0 < ε →
+          ∃ R0,
+            1 ≤ R0 ∧
+              ∀ (B : OQ7Prescribed.TwoLayerBody),
+                B.absorberThickness = h →
+                  B.plateThickness = d →
+                    R0 ≤ B.aperture →
+                      ∀ (σ : OQ7Prescribed.Direction) (θ : ℝ),
+                        ‖(OQ7Prescribed.activeInjection B (OQ7Prescribed.basisR 0) (OQ7Prescribed.rotatedAxis θ))
+                                (OQ7Prescribed.normalizedActiveResponse k hk B σ θ α β hα hβ) -
+                              (OQ7Prescribed.activeInjection B (OQ7Prescribed.basisR 0) (OQ7Prescribed.rotatedAxis θ))
+                                ((OQ7Prescribed.bodySharpScalarLift B)
+                                  (OQ7Prescribed.planarNormalizedResponse k hk σ
+                                    (B.absorberThickness + B.plateThickness) ⋯ B.absorberThickness θ α β hα hβ))‖ ≤
                           ε * B.aperture
 OQ7Prescribed.physicalBody_uniform_planar_operator_residual : ∀ (k : ℝ) (hk : 0 < k) (h d : ℝ),
   0 ≤ h + d →
@@ -3094,6 +3176,42 @@ OQ7Prescribed.physicalPolarization_memLp : ∀ (B : OQ7Prescribed.TwoLayerBody) 
 OQ7Prescribed.physicalPolarization_vanish : ∀ (B : OQ7Prescribed.TwoLayerBody) (E : OQ7Prescribed.Field)
   (x : OQ7Prescribed.Position),
   B.aperture + B.absorberThickness + B.plateThickness < ‖x‖ → OQ7Prescribed.polarization B E x = 0
+OQ7Prescribed.physicalRankOne_original_powers_uniform_aperture_localization : ∀ (k : ℝ) (hk : 0 < k) (h d : ℝ),
+  0 < h →
+    0 < d →
+      ∀ (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im) (ε : ℝ),
+        0 < ε →
+          ∃ R0,
+            1 ≤ R0 ∧
+              ∀ (B : OQ7Prescribed.TwoLayerBody),
+                B.absorberThickness = h →
+                  B.plateThickness = d →
+                    R0 ≤ B.aperture →
+                      ∀ (σ : OQ7Prescribed.Direction) (θ : ℝ),
+                        |OQ7Prescribed.extinction k
+                                    (OQ7Prescribed.rankOneBody B (OQ7Prescribed.basisR 0) (OQ7Prescribed.rotatedAxis θ)
+                                      α β)
+                                    σ (OQ7Prescribed.rankOnePhysicalElectric k hk B σ θ α β hα hβ) -
+                                  B.aperture ^ 2 * Real.sin θ ^ 2 *
+                                    OQ7Prescribed.planarNormalizedExtinction k hk σ
+                                      (B.absorberThickness + B.plateThickness) ⋯ B.absorberThickness θ α β hα hβ| +
+                              |OQ7Prescribed.absorption k
+                                    (OQ7Prescribed.rankOneBody B (OQ7Prescribed.basisR 0) (OQ7Prescribed.rotatedAxis θ)
+                                      α β)
+                                    (OQ7Prescribed.rankOnePhysicalElectric k hk B σ θ α β hα hβ) -
+                                  B.aperture ^ 2 * Real.sin θ ^ 2 *
+                                    OQ7Prescribed.planarNormalizedAbsorption k hk σ
+                                      (B.absorberThickness + B.plateThickness) ⋯ B.absorberThickness θ α β hα hβ| +
+                            |OQ7Prescribed.scattering k
+                                  (OQ7Prescribed.rankOneBody B (OQ7Prescribed.basisR 0) (OQ7Prescribed.rotatedAxis θ) α
+                                    β)
+                                  (OQ7Prescribed.rankOnePhysicalElectric k hk B σ θ α β hα hβ) -
+                                B.aperture ^ 2 * Real.sin θ ^ 2 *
+                                  (OQ7Prescribed.planarNormalizedExtinction k hk σ
+                                      (B.absorberThickness + B.plateThickness) ⋯ B.absorberThickness θ α β hα hβ -
+                                    OQ7Prescribed.planarNormalizedAbsorption k hk σ
+                                      (B.absorberThickness + B.plateThickness) ⋯ B.absorberThickness θ α β hα hβ)| ≤
+                          ε * B.aperture ^ 2 * Real.sin θ ^ 2
 OQ7Prescribed.physicalScattering_sine_squared_factorization : ∀ (k : ℝ) (hk : 0 < k) (B : OQ7Prescribed.TwoLayerBody)
   (σ : OQ7Prescribed.Direction) (θ : ℝ) (α β : ℂ) (hα : 0 < α.im) (hβ : 0 < β.im),
   OQ7Prescribed.scattering k (OQ7Prescribed.rankOneBody B (OQ7Prescribed.basisR 0) (OQ7Prescribed.rotatedAxis θ) α β)
@@ -3459,6 +3577,7 @@ OQ7Prescribed.potentialDistribution_apply : ∀ (k : ℝ) (p : OQ7Prescribed.Com
   (φ : OQ7Prescribed.ScalarTest),
   (OQ7Prescribed.potentialDistribution k p) φ =
     ∫ (x : OQ7Prescribed.Position), φ x • OQ7Prescribed.outgoingPotential k p x
+OQ7Prescribed.power_difference_triangle : ∀ (x a X A t : ℝ), |x - a - t * (X - A)| ≤ |x - t * X| + |a - t * A|
 OQ7Prescribed.poynting_flux_lower_bound : ∀ (E H : OQ7Prescribed.Vector) (n : OQ7Prescribed.Position),
   ‖n‖ = 1 →
     -(‖H‖ * ‖OQ7Prescribed.cross H (OQ7Prescribed.complexify n) - E‖) ≤

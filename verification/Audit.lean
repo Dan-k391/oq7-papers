@@ -1534,6 +1534,7 @@ import PrescribedExtinction
 #print axioms OQ7Prescribed.activeInverseMaterial_coe
 #print axioms OQ7Prescribed.activeInverseMaterial_loss_integral
 #print axioms OQ7Prescribed.activeInverseMaterial_negative_imaginary_bound
+#print axioms OQ7Prescribed.activeInverseMaterial_norm_le
 #print axioms OQ7Prescribed.activeInverseMaterial._proof_1
 #print axioms OQ7Prescribed.activeInverseMaterial._proof_2
 #print axioms OQ7Prescribed.activeInverseMaterial._proof_3
@@ -1547,6 +1548,7 @@ import PrescribedExtinction
 #print axioms OQ7Prescribed.activeMaterialEquiv_apply
 #print axioms OQ7Prescribed.activeMaterialEquiv_inverse_norm_le
 #print axioms OQ7Prescribed.activeMaterialEquiv.congr_simp
+#print axioms OQ7Prescribed.activeMaterialNormBound
 #print axioms OQ7Prescribed.activeMaterialOperator
 #print axioms OQ7Prescribed.activeMaterialOperator_imaginary_coercive
 #print axioms OQ7Prescribed.activeMaterialOperator_rotation_continuous
@@ -1891,6 +1893,8 @@ import PrescribedExtinction
 #print axioms OQ7Prescribed.bodySeparatedScalarLiftLinear._proof_9
 #print axioms OQ7Prescribed.bodySharpScalarLift
 #print axioms OQ7Prescribed.bodySharpScalarLift_coe
+#print axioms OQ7Prescribed.bodySharpScalarLift_inner
+#print axioms OQ7Prescribed.bodySharpScalarLift_inverse_material
 #print axioms OQ7Prescribed.bodySharpScalarLift_norm
 #print axioms OQ7Prescribed.bodySharpScalarLift_window_difference_norm
 #print axioms OQ7Prescribed.bodySharpScalarLift._proof_1
@@ -2157,6 +2161,7 @@ import PrescribedExtinction
 #print axioms OQ7Prescribed.continuousLinearEquiv_response_difference_bound
 #print axioms OQ7Prescribed.continuousLinearEquiv_response_difference_bound._abel_1_1
 #print axioms OQ7Prescribed.continuousLinearEquiv_solution_residual_bound
+#print axioms OQ7Prescribed.continuousLinearMap_inner_of_norm_mul
 #print axioms OQ7Prescribed.coordinateReflect
 #print axioms OQ7Prescribed.coordinateReflect_apply
 #print axioms OQ7Prescribed.coordinateReflect.eq_1
@@ -2672,6 +2677,8 @@ import PrescribedExtinction
 #print axioms OQ7Prescribed.indicatorL2_supported
 #print axioms OQ7Prescribed.indicatorL2._proof_1
 #print axioms OQ7Prescribed.indicatorL2.congr_simp
+#print axioms OQ7Prescribed.inner_quadratic_difference_norm_bound
+#print axioms OQ7Prescribed.inner_quadratic_difference_norm_bound._abel_1_1
 #print axioms OQ7Prescribed.instDecidableEqDirection
 #print axioms OQ7Prescribed.instDecidableEqDirection._proof_1
 #print axioms OQ7Prescribed.instDecidableEqDirection._proof_2
@@ -3159,6 +3166,7 @@ import PrescribedExtinction
 #print axioms OQ7Prescribed.normalizedAbsorption
 #print axioms OQ7Prescribed.normalizedAbsorption_continuous
 #print axioms OQ7Prescribed.normalizedAbsorption_le_extinction
+#print axioms OQ7Prescribed.normalizedAbsorption_planar_lift_error_bound
 #print axioms OQ7Prescribed.normalizedAbsorption_pos
 #print axioms OQ7Prescribed.normalizedAbsorption._proof_1
 #print axioms OQ7Prescribed.normalizedAbsorption._proof_2
@@ -3175,10 +3183,12 @@ import PrescribedExtinction
 #print axioms OQ7Prescribed.normalizedActiveResponse_norm_le
 #print axioms OQ7Prescribed.normalizedActiveResponse_residual_bound
 #print axioms OQ7Prescribed.normalizedActiveResponse._proof_1
+#print axioms OQ7Prescribed.normalizedActiveResponse.congr_simp
 #print axioms OQ7Prescribed.normalizedAsymmetry
 #print axioms OQ7Prescribed.normalizedExtinction
 #print axioms OQ7Prescribed.normalizedExtinction_compact_lower_bound
 #print axioms OQ7Prescribed.normalizedExtinction_continuous
+#print axioms OQ7Prescribed.normalizedExtinction_planar_lift_error_bound
 #print axioms OQ7Prescribed.normalizedExtinction_pos
 #print axioms OQ7Prescribed.normalizedExtinction_reciprocity
 #print axioms OQ7Prescribed.normalizedExtinction_reciprocity_of_sine_ne_zero
@@ -3194,6 +3204,7 @@ import PrescribedExtinction
 #print axioms OQ7Prescribed.normalizedIncidentDrive_coe
 #print axioms OQ7Prescribed.normalizedIncidentDrive_eq_sharpLift
 #print axioms OQ7Prescribed.normalizedIncidentDrive_ne_zero
+#print axioms OQ7Prescribed.normalizedIncidentDrive_norm
 #print axioms OQ7Prescribed.normalizedIncidentDrive_separated
 #print axioms OQ7Prescribed.normalizedIncidentDrive_window_mismatch_norm
 #print axioms OQ7Prescribed.normalizedIncidentDrive._proof_1
@@ -3370,7 +3381,9 @@ import PrescribedExtinction
 #print axioms OQ7Prescribed.physicalAbsorption_current_inner
 #print axioms OQ7Prescribed.physicalAbsorption_sine_squared_factorization
 #print axioms OQ7Prescribed.physicalAsymmetry_normalized_factorization
+#print axioms OQ7Prescribed.physicalBody_normalized_powers_uniform_aperture_localization
 #print axioms OQ7Prescribed.physicalBody_normalized_response_uniform_aperture_localization
+#print axioms OQ7Prescribed.physicalBody_normalized_vector_current_uniform_aperture_localization
 #print axioms OQ7Prescribed.physicalBody_uniform_planar_operator_residual
 #print axioms OQ7Prescribed.physicalBody_uniform_planar_response_estimate
 #print axioms OQ7Prescribed.physicalBody_uniform_sharp_response_estimate
@@ -3385,6 +3398,7 @@ import PrescribedExtinction
 #print axioms OQ7Prescribed.physicalPolarization_memLp
 #print axioms OQ7Prescribed.physicalPolarization_vanish
 #print axioms OQ7Prescribed.physicalPolarization_vanish._simp_1_1
+#print axioms OQ7Prescribed.physicalRankOne_original_powers_uniform_aperture_localization
 #print axioms OQ7Prescribed.physicalScattering_sine_squared_factorization
 #print axioms OQ7Prescribed.physicalScatteringState_exists
 #print axioms OQ7Prescribed.physicalSlab_uniform_L2_aperture_residual
@@ -3615,6 +3629,7 @@ import PrescribedExtinction
 #print axioms OQ7Prescribed.potentialDistribution_add
 #print axioms OQ7Prescribed.potentialDistribution_apply
 #print axioms OQ7Prescribed.potentialDistribution._proof_1
+#print axioms OQ7Prescribed.power_difference_triangle
 #print axioms OQ7Prescribed.poynting_flux_lower_bound
 #print axioms OQ7Prescribed.poynting_flux_lower_bound._abel_1_1
 #print axioms OQ7Prescribed.purePhase_norm_sub_le
@@ -3652,6 +3667,19 @@ import PrescribedExtinction
 #print axioms OQ7Prescribed.rankOneBody_polarization
 #print axioms OQ7Prescribed.rankOneBody.eq_1
 #print axioms OQ7Prescribed.rankOnePhysical_extinction_reciprocity
+#print axioms OQ7Prescribed.rankOnePhysicalElectric
+#print axioms OQ7Prescribed.rankOnePhysicalElectric._proof_1
+#print axioms OQ7Prescribed.rankOnePhysicalElectric._proof_10
+#print axioms OQ7Prescribed.rankOnePhysicalElectric._proof_11
+#print axioms OQ7Prescribed.rankOnePhysicalElectric._proof_12
+#print axioms OQ7Prescribed.rankOnePhysicalElectric._proof_2
+#print axioms OQ7Prescribed.rankOnePhysicalElectric._proof_3
+#print axioms OQ7Prescribed.rankOnePhysicalElectric._proof_4
+#print axioms OQ7Prescribed.rankOnePhysicalElectric._proof_5
+#print axioms OQ7Prescribed.rankOnePhysicalElectric._proof_6
+#print axioms OQ7Prescribed.rankOnePhysicalElectric._proof_7
+#print axioms OQ7Prescribed.rankOnePhysicalElectric._proof_8
+#print axioms OQ7Prescribed.rankOnePhysicalElectric._proof_9
 #print axioms OQ7Prescribed.rankOnePhysicalScatteringState_exists
 #print axioms OQ7Prescribed.real_inner_basis
 #print axioms OQ7Prescribed.real_inner_norm_square_error
@@ -4554,7 +4582,7 @@ import PrescribedExtinction
 #print axioms OQ7Prescribed.supportedVectorConjugateLinear._proof_7
 #print axioms OQ7Prescribed.supportedVectorConjugateLinear._proof_8
 #print axioms OQ7Prescribed.supportedVectorConjugateLinear._proof_9
-#print axioms OQ7Prescribed.SupportedVectorL2
+#print axioms OQ7Prescribed.supportedVectorL2
 #print axioms OQ7Prescribed.supportedVectorL2_completeSpace
 #print axioms OQ7Prescribed.supportedVectorL2_current_ae
 #print axioms OQ7Prescribed.supportedVectorL2_isClosed

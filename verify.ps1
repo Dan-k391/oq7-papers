@@ -418,6 +418,9 @@ run_cmd do
         'OQ7Prescribed.normalizedIncidentDrive_eq_sharpLift',
         'OQ7Prescribed.planarNormalizedDrive_norm',
         'OQ7Prescribed.physicalBody_normalized_response_uniform_aperture_localization',
+        'OQ7Prescribed.physicalBody_normalized_powers_uniform_aperture_localization',
+        'OQ7Prescribed.physicalRankOne_original_powers_uniform_aperture_localization',
+        'OQ7Prescribed.physicalBody_normalized_vector_current_uniform_aperture_localization',
         'OQ7Prescribed.normalizedActiveResponse_residual_bound',
         'OQ7Prescribed.normalizedActiveResponse_angle_difference_bound')) {
         if ($oq7Required -notin $oq7NewKernelTheorems) { throw "Missing outgoing operator obligation: $oq7Required" }
@@ -529,7 +532,10 @@ run_cmd do
         physicalPlanarTrialResponseEstimateWithExplicitDriveMismatchVerified = $true
         originalSquareApertureSmoothL2WindowApproximationVerified = $true
         physicalRankOneNormalizedResponseUniformInApertureAndAllRotationAnglesVerified = $true
-        physicalVectorUniformApertureLocalizationVerified = $false
+        physicalVectorUniformApertureLocalizationVerified = $true
+        physicalApertureLocalizationScope = 'Actual normalized vector current and original extinction, absorption, and total full-angular scattering powers, uniformly in all rotation angles including zero'
+        physicalRankOneNormalizedExtinctionAbsorptionAndFullAngularScatteringUniformApertureLocalizationVerified = $true
+        physicalRankOneNormalizedVectorCurrentUniformApertureLocalizationVerified = $true
         physicalVolumeWorkBalanceVerified = $true
         originalPhysicalAbsorptionSineSquaredFactorizationVerified = $true
         normalizedPhysicalResponseUniformResidualBoundVerified = $true
@@ -600,7 +606,7 @@ run_cmd do
         )
         unverifiedDependencies = @('Uniqueness of arbitrary physical outgoing Maxwell states',
             'Converse outgoing volume representation',
-            'Uniform aperture localization including grazing singularities and all angular channels',
+            'Transfer of normalized power localization to physical asymmetry and exact extinction brackets',
             'Planar construction and normalized zero-angle / zero-plate-loss limits',
             'First exact-extinction bracket and physical continuity',
             'Positive-loss perturbation of solutions and second exact-extinction bracket',
