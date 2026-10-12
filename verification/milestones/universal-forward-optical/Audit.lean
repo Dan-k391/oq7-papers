@@ -1,0 +1,20 @@
+import PrescribedExtinction.ForwardOpticalTheorem
+
+#check OQ7Prescribed.physicalAbsorption_nonneg
+#check OQ7Prescribed.scatteringState_absorption_integrable
+#check OQ7Prescribed.physicalScattering_eq_Haar
+#check OQ7Prescribed.physicalScattering_nonneg
+#check OQ7Prescribed.physical_forward_optical_theorem
+#check OQ7Prescribed.scatteringState_forward_optical_theorem
+#check OQ7Prescribed.physicalScattering_zero_farField
+#check OQ7Prescribed.physicalScattering_zero_extinction
+#check OQ7Prescribed.scatteringState_positiveExtinction_scattering_pos
+#print axioms OQ7Prescribed.physicalAbsorption_nonneg
+#print axioms OQ7Prescribed.scatteringState_absorption_integrable
+#print axioms OQ7Prescribed.physicalScattering_eq_Haar
+#print axioms OQ7Prescribed.physicalScattering_nonneg
+#print axioms OQ7Prescribed.physical_forward_optical_theorem
+#print axioms OQ7Prescribed.scatteringState_forward_optical_theorem
+#print axioms OQ7Prescribed.physicalScattering_zero_farField
+#print axioms OQ7Prescribed.physicalScattering_zero_extinction
+#print axioms OQ7Prescribed.scatteringState_positiveExtinction_scattering_pos

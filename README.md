@@ -1,6 +1,8 @@
-# OQ7 physical prescribed extinction — kernel verified
+A subsequent independent audit identified missing universal and supremum obligations in the full manuscript theorem. See RESUME.md and verification/claude-independent-audit-5a8350d.md. The completion statements below refer to the existence core only.
 
-The exact physical Theorem 1.1 is proved by `OQ7Prescribed.theorem11 : OQ7Prescribed.Theorem11Statement` in [Theorem11.lean](PrescribedExtinction/Theorem11.lean). The fresh clean build and exhaustive transitive axiom audit passed on 2026-10-11. The final theorem depends only on Lean's standard foundations `propext`, `Classical.choice`, and `Quot.sound`.
+# OQ7 physical prescribed extinction — existence core verified; complete theorem in progress
+
+The existence core of physical Theorem 1.1 is proved by `OQ7Prescribed.theorem11 : OQ7Prescribed.Theorem11Statement` in [Theorem11.lean](PrescribedExtinction/Theorem11.lean). The fresh clean build and exhaustive transitive axiom audit passed on 2026-10-11. The final theorem depends only on Lean's standard foundations `propext`, `Classical.choice`, and `Quot.sound`.
 
 For every positive frequency, real material cap P greater than one, positive loss cap Q, positive prescribed extinction, and epsilon between zero and one, the proof constructs a finite actual two-layer body with strictly admissible tensors and both original incident-direction scattering states. Both physical extinction cross sections equal the target exactly, and the original absorption asymmetry is strictly between one minus epsilon and one. The states satisfy both physical weak Maxwell curls, local square integrability, and the full uniform Silver–Muller condition over all directions. The final theorem has no additional physical assumptions.
 

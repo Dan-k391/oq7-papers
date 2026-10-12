@@ -83,7 +83,10 @@ try {
         @{ name = 'planar-slab-response-identification'; module = 'PrescribedExtinction.PlanarSlabResponseIdentification' },
         @{ name = 'physical-planar-design-extinction-bracket'; module = 'PrescribedExtinction.PhysicalRankOneExtinctionBracket' },
         @{ name = 'physical-isotropic-loss-stability'; module = 'PrescribedExtinction.PhysicalCompactLossBracket' },
-        @{ name = 'physical-theorem11'; module = 'PrescribedExtinction.Theorem11' }
+        @{ name = 'physical-theorem11'; module = 'PrescribedExtinction.Theorem11' },
+        @{ name = 'universal-forward-optical'; module = 'PrescribedExtinction.ForwardOpticalTheorem' },
+        @{ name = 'weak-maxwell-foundations'; module = 'PrescribedExtinction.WeakScatteringResidual' },
+        @{ name = 'prescribed-extinction-class-lower'; module = 'PrescribedExtinction.PrescribedExtinctionClass' }
     )
     if ($Only) {
         foreach ($oq7Name in $Only) {

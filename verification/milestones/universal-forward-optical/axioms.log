@@ -1,0 +1,44 @@
+OQ7Prescribed.physicalAbsorption_nonneg (k : ℝ) (hk : 0 ≤ k) (P Q : ℝ) (B : OQ7Prescribed.TwoLayerBody)
+  (hB : B.admissible P Q) (E : OQ7Prescribed.Field) : 0 ≤ OQ7Prescribed.absorption k B E
+OQ7Prescribed.scatteringState_absorption_integrable (k : ℝ) (B : OQ7Prescribed.TwoLayerBody)
+  (σ : OQ7Prescribed.Direction) (s : OQ7Prescribed.ScatteringState k B σ) :
+  MeasureTheory.IntegrableOn (fun x => (OQ7Prescribed.quadratic (B.permittivity x) (s.electric x)).im) B.domain
+    MeasureTheory.volume
+OQ7Prescribed.physicalScattering_eq_Haar (k : ℝ) (B : OQ7Prescribed.TwoLayerBody) (E : OQ7Prescribed.Field)
+  (hE : OQ7Prescribed.LocallySquareIntegrable E) :
+  OQ7Prescribed.scattering k B E =
+    ∫ (n : ↑OQ7Prescribed.UnitSphere), ‖OQ7Prescribed.currentFarField k B E ↑n‖ ^ 2 ∂OQ7Prescribed.sphereArea
+OQ7Prescribed.physicalScattering_nonneg (k : ℝ) (B : OQ7Prescribed.TwoLayerBody) (E : OQ7Prescribed.Field)
+  (hE : OQ7Prescribed.LocallySquareIntegrable E) : 0 ≤ OQ7Prescribed.scattering k B E
+OQ7Prescribed.physical_forward_optical_theorem (k : ℝ) (hk : 0 < k) (B : OQ7Prescribed.TwoLayerBody)
+  (E : OQ7Prescribed.Field) (hE : OQ7Prescribed.LocallySquareIntegrable E) (σ : OQ7Prescribed.Direction) :
+  OQ7Prescribed.extinction k B σ E =
+    4 * Real.pi / k *
+      (OQ7Prescribed.pairing (OQ7Prescribed.basisC 1)
+          (OQ7Prescribed.currentFarField k B E (OQ7Prescribed.incidentForwardDirection σ))).im
+OQ7Prescribed.scatteringState_forward_optical_theorem (k : ℝ) (hk : 0 < k) (B : OQ7Prescribed.TwoLayerBody)
+  (σ : OQ7Prescribed.Direction) (s : OQ7Prescribed.ScatteringState k B σ) :
+  OQ7Prescribed.extinction k B σ s.electric =
+    4 * Real.pi / k *
+      (OQ7Prescribed.pairing (OQ7Prescribed.basisC 1)
+          (OQ7Prescribed.currentFarField k B s.electric (OQ7Prescribed.incidentForwardDirection σ))).im
+OQ7Prescribed.physicalScattering_zero_farField (k : ℝ) (B : OQ7Prescribed.TwoLayerBody) (E : OQ7Prescribed.Field)
+  (hE : OQ7Prescribed.LocallySquareIntegrable E) (hS : OQ7Prescribed.scattering k B E = 0)
+  (n : OQ7Prescribed.Position) : ‖n‖ = 1 → OQ7Prescribed.currentFarField k B E n = 0
+OQ7Prescribed.physicalScattering_zero_extinction (k : ℝ) (hk : 0 < k) (B : OQ7Prescribed.TwoLayerBody)
+  (E : OQ7Prescribed.Field) (hE : OQ7Prescribed.LocallySquareIntegrable E) (hS : OQ7Prescribed.scattering k B E = 0)
+  (σ : OQ7Prescribed.Direction) : OQ7Prescribed.extinction k B σ E = 0
+OQ7Prescribed.scatteringState_positiveExtinction_scattering_pos (k : ℝ) (hk : 0 < k) (B : OQ7Prescribed.TwoLayerBody)
+  (σ : OQ7Prescribed.Direction) (s : OQ7Prescribed.ScatteringState k B σ)
+  (hX : 0 < OQ7Prescribed.extinction k B σ s.electric) : 0 < OQ7Prescribed.scattering k B s.electric
+'OQ7Prescribed.physicalAbsorption_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.scatteringState_absorption_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.physicalScattering_eq_Haar' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.physicalScattering_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.physical_forward_optical_theorem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.scatteringState_forward_optical_theorem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.physicalScattering_zero_farField' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.physicalScattering_zero_extinction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.scatteringState_positiveExtinction_scattering_pos' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

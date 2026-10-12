@@ -1,5 +1,7 @@
-param([string]$LeanBin, [switch]$Clean)
+param([string]$LeanBin, [switch]$Clean, [int]$BuildThreads = 2)
 $ErrorActionPreference = 'Stop'
+if ($BuildThreads -lt 1) { throw 'BuildThreads must be positive.' }
+$env:LEAN_NUM_THREADS = [string]$BuildThreads
 if ($LeanBin) { $env:PATH = (Resolve-Path -LiteralPath $LeanBin).Path + ';' + $env:PATH }
 Push-Location $PSScriptRoot
 try {
@@ -17,6 +19,17 @@ try {
         if ($oq7Code -match '\b(sorry|admit|axiom|native_decide)\b|debug\.skipKernelTC|decide\s*\+native|implemented_by') {
             throw "Disallowed proof mechanism: $($oq7File.FullName)"
         }
+    }
+    $oq7AuditedHashes = Get-Content -LiteralPath 'verification/audited-5a8350d-source-hashes.json' -Raw | ConvertFrom-Json
+    foreach ($oq7Saved in $oq7AuditedHashes) {
+        if ($oq7Saved.file -ne 'PrescribedExtinction.lean' -and
+            (Get-FileHash -LiteralPath $oq7Saved.file -Algorithm SHA256).Hash -ne $oq7Saved.sha256) {
+            throw "Audited existence-core source changed: $($oq7Saved.file)"
+        }
+    }
+    $oq7AuditedImports = [IO.File]::ReadAllText((Join-Path $PSScriptRoot 'verification/audited-5a8350d-imports.txt'))
+    if (-not ([IO.File]::ReadAllText((Join-Path $PSScriptRoot 'PrescribedExtinction.lean'))).StartsWith($oq7AuditedImports)) {
+        throw 'Audited aggregate import prefix changed.'
     }
     if ($Clean) {
         $oq7CleanOutput = @(& lake clean oq7_prescribed_extinction 2>&1)
@@ -450,6 +463,20 @@ run_cmd do
         'OQ7Prescribed.isotropicRankOneBody_admissible',
         'OQ7Prescribed.physicalIsotropic_prescribedExtinctionOfPlanarDesign',
         'OQ7Prescribed.theorem11',
+        'OQ7Prescribed.physicalAbsorption_nonneg',
+        'OQ7Prescribed.scatteringState_absorption_integrable',
+        'OQ7Prescribed.physicalScattering_eq_Haar',
+        'OQ7Prescribed.physical_forward_optical_theorem',
+        'OQ7Prescribed.scatteringState_forward_optical_theorem',
+        'OQ7Prescribed.physicalScattering_zero_extinction',
+        'OQ7Prescribed.scatteringState_positiveExtinction_scattering_pos',
+        'OQ7Prescribed.HasWeakCurl.real_smul_field',
+        'OQ7Prescribed.HasWeakCurl.sub_fields',
+        'OQ7Prescribed.Outgoing.sub_fields',
+        'OQ7Prescribed.scatteringState_vacuum_residual',
+        'OQ7Prescribed.vacuumDistribution_Maxwell_Helmholtz',
+        'OQ7Prescribed.prescribedExtinctionAsymmetryValues_upperBound_ge_one',
+        'OQ7Prescribed.prescribedExtinctionDifferenceValues_upperBound_ge_target',
         'OQ7Prescribed.dielectricSlabLeft_absorptance_integral',
         'OQ7Prescribed.dielectricSlabRight_absorptance_integral',
         'OQ7Prescribed.dielectricSlabLeftAt_Green_interior',
@@ -516,13 +543,29 @@ run_cmd do
     }
     if (-not $oq7SameCleanSources) { throw 'Final certification requires a clean build of identical Lean sources. Run verify.ps1 -Clean.' }
     [ordered]@{
-        status = 'VERIFIED'
+        status = 'EXISTENCE_CORE_VERIFIED_COMPLETE_PHYSICAL_THEOREM_PENDING'
+        buildRuntimeThreads = $BuildThreads
+        completePhysicalTheorem11Verified = $false
+        auditedBaselineCommit = '5a8350d5408c38e333c9f6b6d8a94816c794120b'
+        auditedExistenceCoreSourcesPreserved = $true
+        universalForwardOpticalWorkIdentityVerified = $true
+        arbitraryStateAbsorptionIntegrabilityAndNonnegativityVerified = $true
+        arbitraryStateAllAngleCurrentScatteringNonnegativityVerified = $true
+        zeroAllAngleCurrentScatteringImpliesZeroExtinctionVerified = $true
+        arbitraryWeakScatteringStateSourceFreeOutgoingResidualVerified = $true
+        weakCurlCompactMultiplicationAndSubtractionVerified = $true
+        vacuumDistributionMaxwellImpliesHelmholtzVerified = $true
+        originalFixedExtinctionClassNonemptyAndSupremumLowerHalvesVerified = $true
         theorem11Verified = $true
         finalTheoremDeclaration = 'OQ7Prescribed.theorem11'
         finalTheoremIsKernelProofDeclaration = $true
         finalTheoremExactTypeAndTransitiveAxiomsVerified = $true
         finalTheoremVerificationLog = 'verification/final-theorem.log'
-        remainingTheorem11Obligations = @()
+        remainingTheorem11Obligations = @('Universal passivity upper bound for arbitrary weak states',
+            'Outgoing weak Maxwell uniqueness and converse volume representation',
+            'Arbitrary-state physical all-angle flux and X = A + S',
+            'Universal strict nonattainment',
+            'Complete fixed-extinction supremum theorem')
         targetProposition = 'OQ7Prescribed.Theorem11Statement'
         targetIsAProof = $false
         existingPhysicalTargetSourceUnchanged = $false
@@ -699,5 +742,5 @@ run_cmd do
         additionalResultsOutsideTheorem11NotProved = @('Uniqueness of arbitrary physical outgoing Maxwell states',
             'Converse outgoing volume representation')
     } | ConvertTo-Json -Depth 12 | Set-Content -LiteralPath 'verification/report.json' -Encoding utf8
-    Write-Output 'VERIFIED: exact physical Theorem 1.1 is a kernel proof declaration; identical-source clean build and all-project transitive axiom audit passed.'
+    Write-Output 'EXISTENCE CORE VERIFIED: preserved theorem11 and universal forward optical milestone passed identical-source clean build and all-project transitive axiom audit. Complete physical theorem remains pending.'
 } finally { Pop-Location }

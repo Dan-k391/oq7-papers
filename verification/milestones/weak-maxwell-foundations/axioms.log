@@ -1,0 +1,34 @@
+OQ7Prescribed.HasWeakCurl.real_smul_field (F G : OQ7Prescribed.Field)
+  (hF : MeasureTheory.LocallyIntegrable F MeasureTheory.volume)
+  (hG : MeasureTheory.LocallyIntegrable G MeasureTheory.volume) (hcurl : OQ7Prescribed.HasWeakCurl F G)
+  (ψ : OQ7Prescribed.Position → ℝ) (hψ : ContDiff ℝ (↑⊤) ψ) :
+  OQ7Prescribed.HasWeakCurl (fun x => ψ x • F x) fun x =>
+    OQ7Prescribed.cross (OQ7Prescribed.complexify (OQ7Prescribed.scalarGradient ψ x)) (F x) + ψ x • G x
+OQ7Prescribed.HasWeakCurl.sub_fields {F1 F2 G1 G2 : OQ7Prescribed.Field} (h1 : OQ7Prescribed.HasWeakCurl F1 G1)
+  (h2 : OQ7Prescribed.HasWeakCurl F2 G2) (hF1 : MeasureTheory.LocallyIntegrable F1 MeasureTheory.volume)
+  (hF2 : MeasureTheory.LocallyIntegrable F2 MeasureTheory.volume)
+  (hG1 : MeasureTheory.LocallyIntegrable G1 MeasureTheory.volume)
+  (hG2 : MeasureTheory.LocallyIntegrable G2 MeasureTheory.volume) : OQ7Prescribed.HasWeakCurl (F1 - F2) (G1 - G2)
+OQ7Prescribed.Outgoing.sub_fields {E1 E2 H1 H2 : OQ7Prescribed.Field} (h1 : OQ7Prescribed.Outgoing E1 H1)
+  (h2 : OQ7Prescribed.Outgoing E2 H2) : OQ7Prescribed.Outgoing (E1 - E2) (H1 - H2)
+OQ7Prescribed.scatteringState_vacuum_residual (k : ℝ) (B : OQ7Prescribed.TwoLayerBody) (σ : OQ7Prescribed.Direction)
+  (s : OQ7Prescribed.ScatteringState k B σ) :
+  have p := OQ7Prescribed.physicalCompactPolarization B s.electric ⋯;
+  have E := s.electric - OQ7Prescribed.volumeTotalElectric k σ p;
+  have H := s.magnetic - OQ7Prescribed.volumeTotalMagnetic k σ p;
+  OQ7Prescribed.LocallySquareIntegrable E ∧
+    OQ7Prescribed.LocallySquareIntegrable H ∧
+      (OQ7Prescribed.HasWeakCurl E fun x => (Complex.I * ↑k) • H x) ∧
+        (OQ7Prescribed.HasWeakCurl H fun x => (-Complex.I * ↑k) • E x) ∧ OQ7Prescribed.Outgoing E H
+OQ7Prescribed.vacuumDistribution_Maxwell_Helmholtz (k : ℝ) (hk : 0 < k) (E H : OQ7Prescribed.CartesianDistribution)
+  (he : OQ7Prescribed.distributionCurl E = (Complex.I * ↑k) • H)
+  (hh : OQ7Prescribed.distributionCurl H = (-Complex.I * ↑k) • E) :
+  OQ7Prescribed.distributionDivergence E = 0 ∧
+    OQ7Prescribed.distributionDivergence H = 0 ∧
+      (∀ (i : Fin 3), OQ7Prescribed.distributionLaplacian (E i) + ↑(k ^ 2) • E i = 0) ∧
+        ∀ (i : Fin 3), OQ7Prescribed.distributionLaplacian (H i) + ↑(k ^ 2) • H i = 0
+'OQ7Prescribed.HasWeakCurl.real_smul_field' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.HasWeakCurl.sub_fields' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.Outgoing.sub_fields' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.scatteringState_vacuum_residual' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.vacuumDistribution_Maxwell_Helmholtz' depends on axioms: [propext, Classical.choice, Quot.sound]

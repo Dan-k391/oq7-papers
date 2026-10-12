@@ -108,11 +108,14 @@ import PrescribedExtinction
 #check @OQ7Prescribed.bilinear_complexify_self
 #check @OQ7Prescribed.bilinear_continuous
 #check @OQ7Prescribed.bilinear_cross_conjugate
+#check @OQ7Prescribed.bilinear_cross_cycle
 #check @OQ7Prescribed.bilinear_cross_cyclic
+#check @OQ7Prescribed.bilinear_cross_skew
 #check @OQ7Prescribed.bilinear_eq_conjugate_inner
 #check @OQ7Prescribed.bilinear_norm_le
 #check @OQ7Prescribed.bilinear_radial_smul_norm_le
 #check @OQ7Prescribed.bilinear_real_smul_right
+#check @OQ7Prescribed.bilinear_real_smul_swap
 #check @OQ7Prescribed.bilinear_sub_left
 #check @OQ7Prescribed.bilinear_sub_right
 #check @OQ7Prescribed.bilinear_vectorConjugate_right
@@ -138,6 +141,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.bodyOutgoingOperator_farField_work
 #check @OQ7Prescribed.bodyOutgoingOperator_im_nonneg
 #check @OQ7Prescribed.bodyOutgoingOperator_inner
+#check @OQ7Prescribed.bodyPermittivity_admissible_on_domain
 #check @OQ7Prescribed.bodyPlateInterior_nonempty
 #check @OQ7Prescribed.bodyPlateInterior_volume_pos
 #check @OQ7Prescribed.bodyScaledLayerField_decomposition
@@ -231,7 +235,10 @@ import PrescribedExtinction
 #check @OQ7Prescribed.coordinateSwap_apply
 #check @OQ7Prescribed.cos_mul_abs
 #check @OQ7Prescribed.cross_add_left
+#check @OQ7Prescribed.cross_antisymm
+#check @OQ7Prescribed.cross_compactSupport_right
 #check @OQ7Prescribed.cross_complexify_real_smul
+#check @OQ7Prescribed.cross_continuous_fields
 #check @OQ7Prescribed.cross_cross
 #check @OQ7Prescribed.cross_norm_le
 #check @OQ7Prescribed.cross_smul_left
@@ -255,6 +262,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.currentDyadicTestPairing_eq
 #check @OQ7Prescribed.currentDyadicTestPairing_exterior_integrable
 #check @OQ7Prescribed.currentDyadicTestPairing_exterior_integral
+#check @OQ7Prescribed.currentFarField_forward_component
 #check @OQ7Prescribed.currentPlanePhase_norm
 #check @OQ7Prescribed.currentTestCorrelationVector_coordinate
 #check @OQ7Prescribed.currentTestCorrelationVector_integrable
@@ -319,6 +327,8 @@ import PrescribedExtinction
 #check @OQ7Prescribed.distributionCurl_gradient
 #check @OQ7Prescribed.distributionCurl_real_smul
 #check @OQ7Prescribed.distributionCurlCurl
+#check @OQ7Prescribed.distributionDivergence_complex_smul
+#check @OQ7Prescribed.distributionDivergence_curl
 #check @OQ7Prescribed.distributionPartial_commute
 #check @OQ7Prescribed.distributionPartial_complex_smul
 #check @OQ7Prescribed.domain_compact_closure
@@ -423,6 +433,8 @@ import PrescribedExtinction
 #check @OQ7Prescribed.fieldComponentDistribution_injective
 #check @OQ7Prescribed.fieldComponentDistribution_smul
 #check @OQ7Prescribed.fieldComponentDistribution_sub
+#check @OQ7Prescribed.forwardPlanePhase
+#check @OQ7Prescribed.forwardProjection_component
 #check @OQ7Prescribed.fourierIntegral_L1L2_ae
 #check @OQ7Prescribed.fourierIntegral_L1L2_memLp
 #check @OQ7Prescribed.fourierIntegral_L1L2_schwartz_pairing
@@ -448,6 +460,8 @@ import PrescribedExtinction
 #check @OQ7Prescribed.HasWeakCurl.add_fields
 #check @OQ7Prescribed.HasWeakCurl.congr_ae
 #check @OQ7Prescribed.HasWeakCurl.implies_analyticTestWeakCurl
+#check @OQ7Prescribed.HasWeakCurl.real_smul_field
+#check @OQ7Prescribed.HasWeakCurl.sub_fields
 #check @OQ7Prescribed.heightProfile_fixed_support_smooth_density
 #check @OQ7Prescribed.heightProfile_integrable
 #check @OQ7Prescribed.heightProfile_integral_norm_bound
@@ -498,11 +512,13 @@ import PrescribedExtinction
 #check @OQ7Prescribed.incidentElectric_minus_conjugate
 #check @OQ7Prescribed.incidentElectric_norm
 #check @OQ7Prescribed.incidentElectric_squareNorm
+#check @OQ7Prescribed.incidentForwardDirection_norm
 #check @OQ7Prescribed.incidentMagnetic_contDiff
 #check @OQ7Prescribed.incidentMagnetic_curl
 #check @OQ7Prescribed.incidentMagnetic_eq
 #check @OQ7Prescribed.incidentMagnetic_locallySquareIntegrable
 #check @OQ7Prescribed.incidentMagnetic_second_weakCurl
+#check @OQ7Prescribed.incidentPairing_phase_component
 #check @OQ7Prescribed.indicatorL2_add
 #check @OQ7Prescribed.indicatorL2_coe
 #check @OQ7Prescribed.indicatorL2_eq_self_iff
@@ -563,6 +579,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.magneticExterior_eq_pointwise_far
 #check @OQ7Prescribed.magneticVolumeField_distribution
 #check @OQ7Prescribed.magneticVolumeField_locallySquareIntegrable
+#check @OQ7Prescribed.material_quadratic_im_nonneg
 #check @OQ7Prescribed.materialBodyCoercivity_pos
 #check @OQ7Prescribed.materialBodyEquiv_apply
 #check @OQ7Prescribed.materialBodyEquiv_inverse_norm_le
@@ -746,6 +763,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.outgoing_dyadic_contact_identity
 #check @OQ7Prescribed.outgoing_helmholtz_fundamental_apply
 #check @OQ7Prescribed.outgoing_helmholtz_fundamental_distribution
+#check @OQ7Prescribed.Outgoing.sub_fields
 #check @OQ7Prescribed.outgoingElectric_uniform_physical_farField_error
 #check @OQ7Prescribed.outgoingElectricField_eq_ae
 #check @OQ7Prescribed.outgoingElectricField_locallySquareIntegrable
@@ -813,8 +831,12 @@ import PrescribedExtinction
 #check @OQ7Prescribed.pairing_self
 #check @OQ7Prescribed.permittivity_one_outside
 #check @OQ7Prescribed.permittivity_reciprocal
+#check @OQ7Prescribed.physical_forward_optical_theorem
 #check @OQ7Prescribed.physicalAbsorption_current_inner
+#check @OQ7Prescribed.physicalAbsorption_integrable
+#check @OQ7Prescribed.physicalAbsorption_nonneg
 #check @OQ7Prescribed.physicalAbsorption_sine_squared_factorization
+#check @OQ7Prescribed.physicalAsymmetry_nonneg
 #check @OQ7Prescribed.physicalAsymmetry_normalized_factorization
 #check @OQ7Prescribed.physicalBody_normalized_asymmetry_uniform_aperture_localization
 #check @OQ7Prescribed.physicalBody_normalized_powers_uniform_aperture_localization
@@ -823,6 +845,8 @@ import PrescribedExtinction
 #check @OQ7Prescribed.physicalBody_uniform_planar_operator_residual
 #check @OQ7Prescribed.physicalBody_uniform_planar_response_estimate
 #check @OQ7Prescribed.physicalBody_uniform_sharp_response_estimate
+#check @OQ7Prescribed.physicalCurrentFarField_continuous
+#check @OQ7Prescribed.physicalCurrentFarField_eq_compact
 #check @OQ7Prescribed.physicalElectricOperator_joint_continuous
 #check @OQ7Prescribed.physicalElectricOperator_zero_isUnit
 #check @OQ7Prescribed.physicalExtinction_sine_squared_factorization
@@ -857,7 +881,11 @@ import PrescribedExtinction
 #check @OQ7Prescribed.physicalRestrictedElectric_eq_total
 #check @OQ7Prescribed.physicalRestrictedElectric_equation
 #check @OQ7Prescribed.physicalRestrictedElectric_joint_continuousAt
+#check @OQ7Prescribed.physicalScattering_eq_Haar
+#check @OQ7Prescribed.physicalScattering_nonneg
 #check @OQ7Prescribed.physicalScattering_sine_squared_factorization
+#check @OQ7Prescribed.physicalScattering_zero_extinction
+#check @OQ7Prescribed.physicalScattering_zero_farField
 #check @OQ7Prescribed.physicalScatteringState_exists
 #check @OQ7Prescribed.physicalSlab_uniform_L2_aperture_residual
 #check @OQ7Prescribed.physicalSourceFields_first_curl
@@ -969,6 +997,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.position_ae_ne_zero
 #check @OQ7Prescribed.position_sum_basis
 #check @OQ7Prescribed.position_zero_volume
+#check @OQ7Prescribed.positiveExtinction_scattering_pos
 #check @OQ7Prescribed.potentialBound_lt_top
 #check @OQ7Prescribed.potentialComponent_eq_fieldComponent
 #check @OQ7Prescribed.potentialComponent_first_distribution
@@ -988,6 +1017,14 @@ import PrescribedExtinction
 #check @OQ7Prescribed.potentialDistribution_apply
 #check @OQ7Prescribed.power_difference_triangle
 #check @OQ7Prescribed.poynting_flux_lower_bound
+#check @OQ7Prescribed.prescribedExtinctionAsymmetryValues_above_every_lt_one
+#check @OQ7Prescribed.prescribedExtinctionAsymmetryValues_nonempty
+#check @OQ7Prescribed.prescribedExtinctionAsymmetryValues_upperBound_ge_one
+#check @OQ7Prescribed.prescribedExtinctionDifferenceValues_above_every_lt_target
+#check @OQ7Prescribed.prescribedExtinctionDifferenceValues_nonempty
+#check @OQ7Prescribed.prescribedExtinctionDifferenceValues_upperBound_ge_target
+#check @OQ7Prescribed.prescribedExtinctionPair_approaches_one
+#check @OQ7Prescribed.PrescribedExtinctionPair.difference_eq_target_mul_asymmetry
 #check @OQ7Prescribed.purePhase_norm_sub_le
 #check @OQ7Prescribed.quadratic_layer
 #check @OQ7Prescribed.quadratic_layer_im
@@ -1047,6 +1084,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.rotatedAxis_unit
 #check @OQ7Prescribed.scalarAxisPolarization_current
 #check @OQ7Prescribed.scalarConstitutive_negative_imaginary
+#check @OQ7Prescribed.scalarGradient_contDiff
 #check @OQ7Prescribed.scalarInverse_negative_imaginary
 #check @OQ7Prescribed.scalarOutgoingPotential_contDiff
 #check @OQ7Prescribed.scalarOutgoingPotential_convolution
@@ -1104,6 +1142,12 @@ import PrescribedExtinction
 #check @OQ7Prescribed.scaledSlabApertureDifference_coe
 #check @OQ7Prescribed.scaledSlabApertureDifference_smooth_bound
 #check @OQ7Prescribed.scaledSlabPolarization_current_ae
+#check @OQ7Prescribed.scatteringState_absorption_integrable
+#check @OQ7Prescribed.scatteringState_absorption_nonneg
+#check @OQ7Prescribed.scatteringState_forward_optical_theorem
+#check @OQ7Prescribed.scatteringState_positiveExtinction_scattering_pos
+#check @OQ7Prescribed.scatteringState_scattering_nonneg
+#check @OQ7Prescribed.scatteringState_vacuum_residual
 #check @OQ7Prescribed.separatedProduct_memLp_two
 #check @OQ7Prescribed.separatedProduct_norm
 #check @OQ7Prescribed.setRestrictionCLM_inner
@@ -1414,6 +1458,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.twoPieceSupportedOperator_negative_imaginary_bound
 #check @OQ7Prescribed.unitSphere_norm
 #check @OQ7Prescribed.unitSphere_sum_sq
+#check @OQ7Prescribed.vacuumDistribution_Maxwell_Helmholtz
 #check @OQ7Prescribed.vector_basisC_expansion
 #check @OQ7Prescribed.vector_clm_coordinate_expansion
 #check @OQ7Prescribed.vector_inner_real_smul
@@ -1434,8 +1479,10 @@ import PrescribedExtinction
 #check @OQ7Prescribed.volumeExtinction_global_current_work
 #check @OQ7Prescribed.volumePhysicalFarField_eq
 #check @OQ7Prescribed.volumeTotalElectric_locallySquareIntegrable
+#check @OQ7Prescribed.volumeTotalElectric_weakCurl
 #check @OQ7Prescribed.volumeTotalFields_weakMaxwell
 #check @OQ7Prescribed.volumeTotalMagnetic_locallySquareIntegrable
+#check @OQ7Prescribed.volumeTotalMagnetic_weakCurl
 #check @OQ7Prescribed.weakCurlTest_all_finite_orders
 #check @OQ7Prescribed.weakDielectric_interface_at_zero
 #check @OQ7Prescribed.weakDielectric_interface_continuous

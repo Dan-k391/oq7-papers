@@ -1,0 +1,24 @@
+OQ7Prescribed.prescribedExtinctionPair_approaches_one (k P Q target : ℝ) (hk : 0 < k) (hP : 1 < P) (hQ : 0 < Q)
+  (htarget : 0 < target) (ε : ℝ) (hε : 0 < ε) (hε1 : ε < 1) : ∃ s, 1 - ε < s.asymmetry ∧ s.asymmetry < 1
+OQ7Prescribed.prescribedExtinctionAsymmetryValues_nonempty (k P Q target : ℝ) (hk : 0 < k) (hP : 1 < P) (hQ : 0 < Q)
+  (htarget : 0 < target) : (OQ7Prescribed.prescribedExtinctionAsymmetryValues k P Q target).Nonempty
+OQ7Prescribed.prescribedExtinctionAsymmetryValues_upperBound_ge_one (k P Q target : ℝ) (hk : 0 < k) (hP : 1 < P)
+  (hQ : 0 < Q) (htarget : 0 < target) (u : ℝ)
+  (hu : u ∈ upperBounds (OQ7Prescribed.prescribedExtinctionAsymmetryValues k P Q target)) : 1 ≤ u
+OQ7Prescribed.prescribedExtinctionDifferenceValues_above_every_lt_target (k P Q target : ℝ) (hk : 0 < k) (hP : 1 < P)
+  (hQ : 0 < Q) (htarget : 0 < target) (u : ℝ) (hu : u < target) :
+  ∃ d ∈ OQ7Prescribed.prescribedExtinctionDifferenceValues k P Q target, u < d
+OQ7Prescribed.prescribedExtinctionDifferenceValues_upperBound_ge_target (k P Q target : ℝ) (hk : 0 < k) (hP : 1 < P)
+  (hQ : 0 < Q) (htarget : 0 < target) (u : ℝ)
+  (hu : u ∈ upperBounds (OQ7Prescribed.prescribedExtinctionDifferenceValues k P Q target)) : target ≤ u
+'OQ7Prescribed.prescribedExtinctionPair_approaches_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.prescribedExtinctionAsymmetryValues_nonempty' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OQ7Prescribed.prescribedExtinctionAsymmetryValues_upperBound_ge_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OQ7Prescribed.prescribedExtinctionDifferenceValues_above_every_lt_target' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OQ7Prescribed.prescribedExtinctionDifferenceValues_upperBound_ge_target' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
