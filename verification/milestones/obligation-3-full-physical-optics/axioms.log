@@ -1,0 +1,74 @@
+OQ7Prescribed.scatteringState_energy_balance : ∀ (k : ℝ),
+  0 < k →
+    ∀ (B : OQ7Prescribed.TwoLayerBody) (σ : OQ7Prescribed.Direction) (s : OQ7Prescribed.ScatteringState k B σ),
+      OQ7Prescribed.extinction k B σ s.electric =
+        OQ7Prescribed.absorption k B s.electric + OQ7Prescribed.scattering k B s.electric
+'OQ7Prescribed.scatteringState_energy_balance' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.scatteringState_extinction_reciprocity : ∀ (k : ℝ),
+  0 < k →
+    ∀ (B : OQ7Prescribed.TwoLayerBody),
+      Matrix.transpose B.absorberPermittivity = B.absorberPermittivity →
+        Matrix.transpose B.platePermittivity = B.platePermittivity →
+          ∀ (sp : OQ7Prescribed.ScatteringState k B OQ7Prescribed.Direction.plus)
+            (sm : OQ7Prescribed.ScatteringState k B OQ7Prescribed.Direction.minus),
+            OQ7Prescribed.extinction k B OQ7Prescribed.Direction.plus sp.electric =
+              OQ7Prescribed.extinction k B OQ7Prescribed.Direction.minus sm.electric
+'OQ7Prescribed.scatteringState_extinction_reciprocity' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.scatteringState_forward_optical_theorem : ∀ (k : ℝ),
+  0 < k →
+    ∀ (B : OQ7Prescribed.TwoLayerBody) (σ : OQ7Prescribed.Direction) (s : OQ7Prescribed.ScatteringState k B σ),
+      OQ7Prescribed.extinction k B σ s.electric =
+        4 * Real.pi / k *
+          (OQ7Prescribed.pairing (OQ7Prescribed.basisC 1)
+              (OQ7Prescribed.currentFarField k B s.electric (OQ7Prescribed.incidentForwardDirection σ))).im
+'OQ7Prescribed.scatteringState_forward_optical_theorem' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.exteriorSphereFlux_integrable : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization) (r : ℝ),
+  2 * p.radius + 2 ≤ r →
+    MeasureTheory.Integrable
+      (fun n =>
+        r ^ 2 *
+          (OQ7Prescribed.pairing (OQ7Prescribed.exteriorElectric k p (r • ↑n))
+              (OQ7Prescribed.cross (OQ7Prescribed.exteriorMagnetic k p (r • ↑n)) (OQ7Prescribed.complexify ↑n))).re)
+      OQ7Prescribed.sphereArea
+'OQ7Prescribed.exteriorSphereFlux_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.exteriorSphereFlux_farField_error : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization) (r : ℝ),
+  2 * p.radius + 2 ≤ r →
+    |OQ7Prescribed.exteriorSphereFlux k p r -
+          ∫ (n : ↑OQ7Prescribed.UnitSphere),
+            ‖OQ7Prescribed.compactCurrentFarField k p ↑n‖ ^ 2 ∂OQ7Prescribed.sphereArea| ≤
+      4 * Real.pi *
+        (OQ7Prescribed.farFieldFluxConstant k p.radius / r * (∫ (y : OQ7Prescribed.Position), ‖p.current y‖) ^ 2)
+'OQ7Prescribed.exteriorSphereFlux_farField_error' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.exteriorSphereFlux_tendsto : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization),
+  Filter.Tendsto (OQ7Prescribed.exteriorSphereFlux k p) Filter.atTop
+    (nhds
+      (∫ (n : ↑OQ7Prescribed.UnitSphere), ‖OQ7Prescribed.compactCurrentFarField k p ↑n‖ ^ 2 ∂OQ7Prescribed.sphereArea))
+'OQ7Prescribed.exteriorSphereFlux_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.scatteringState_radiating_representative : ∀ (k : ℝ),
+  0 < k →
+    ∀ (B : OQ7Prescribed.TwoLayerBody) (σ : OQ7Prescribed.Direction) (s : OQ7Prescribed.ScatteringState k B σ),
+      (s.electric =ᵐ[MeasureTheory.volume] fun x =>
+          OQ7Prescribed.incidentElectric k σ x + OQ7Prescribed.scatteringStateRadiatingElectric s x) ∧
+        s.magnetic =ᵐ[MeasureTheory.volume] fun x =>
+          OQ7Prescribed.incidentMagnetic k σ x + OQ7Prescribed.scatteringStateRadiatingMagnetic s x
+'OQ7Prescribed.scatteringState_radiating_representative' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.scatteringState_currentFarField_is_physical : ∀ (k : ℝ) (B : OQ7Prescribed.TwoLayerBody)
+  (σ : OQ7Prescribed.Direction) (s : OQ7Prescribed.ScatteringState k B σ),
+  have p := OQ7Prescribed.physicalCompactPolarization B s.electric ⋯;
+  ∀ (r : ℝ),
+    2 * p.radius + 2 ≤ r →
+      ∀ (n : ↑OQ7Prescribed.UnitSphere),
+        ‖(↑r * Complex.exp (-Complex.I * ↑(k * r))) • OQ7Prescribed.scatteringStateRadiatingElectric s (r • ↑n) -
+              OQ7Prescribed.currentFarField k B s.electric ↑n‖ ≤
+          OQ7Prescribed.farFieldKernelConstant k p.radius / r * ∫ (y : OQ7Prescribed.Position), ‖p.current y‖
+'OQ7Prescribed.scatteringState_currentFarField_is_physical' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.scatteringState_scattering_is_physical_flux : ∀ (k : ℝ) (B : OQ7Prescribed.TwoLayerBody)
+  (σ : OQ7Prescribed.Direction) (s : OQ7Prescribed.ScatteringState k B σ),
+  Filter.Tendsto (OQ7Prescribed.scatteringStateSphereFlux s) Filter.atTop
+    (nhds (OQ7Prescribed.scattering k B s.electric))
+'OQ7Prescribed.scatteringState_scattering_is_physical_flux' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.scatteringState_full_optical_theorem : ∀ (k : ℝ),
+  0 < k →
+    ∀ (B : OQ7Prescribed.TwoLayerBody) (σ : OQ7Prescribed.Direction) (s : OQ7Prescribed.ScatteringState k B σ),
+      OQ7Prescribed.FullPhysicalOpticalStatement k B σ s
+'OQ7Prescribed.scatteringState_full_optical_theorem' depends on axioms: [propext, Classical.choice, Quot.sound]

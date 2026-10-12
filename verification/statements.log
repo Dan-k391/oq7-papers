@@ -15,6 +15,69 @@ def OQ7Prescribed.Theorem11Statement : Prop :=
                           1 - ε < OQ7Prescribed.normalizedAsymmetry k B sp.electric sm.electric ∧
                             OQ7Prescribed.normalizedAsymmetry k B sp.electric sm.electric < 1
 'OQ7Prescribed.Theorem11Statement' depends on axioms: [propext, Classical.choice, Quot.sound]
+def OQ7Prescribed.PhysicalTheorem11Statement : Prop :=
+OQ7Prescribed.Theorem11Statement ∧
+  ∀ (k P Q target : ℝ),
+    0 < k →
+      1 < P →
+        0 < Q →
+          0 < target →
+            sSup (OQ7Prescribed.prescribedExtinctionAsymmetryValues k P Q target) = 1 ∧
+              sSup (OQ7Prescribed.prescribedExtinctionDifferenceValues k P Q target) = target ∧
+                (∀ (B : OQ7Prescribed.TwoLayerBody),
+                    B.admissible P Q →
+                      ∀ (σ : OQ7Prescribed.Direction),
+                        (∃ s,
+                            ∀ (t : OQ7Prescribed.ScatteringState k B σ),
+                              s.electric =ᵐ[MeasureTheory.volume] t.electric ∧
+                                s.magnetic =ᵐ[MeasureTheory.volume] t.magnetic) ∧
+                          ∀ (s : OQ7Prescribed.ScatteringState k B σ),
+                            OQ7Prescribed.FullPhysicalOpticalStatement k B σ s) ∧
+                  (∀ (B : OQ7Prescribed.TwoLayerBody),
+                      B.admissible P Q →
+                        ∀ (sp : OQ7Prescribed.ScatteringState k B OQ7Prescribed.Direction.plus)
+                          (sm : OQ7Prescribed.ScatteringState k B OQ7Prescribed.Direction.minus),
+                          OQ7Prescribed.extinction k B OQ7Prescribed.Direction.plus sp.electric =
+                              OQ7Prescribed.extinction k B OQ7Prescribed.Direction.minus sm.electric ∧
+                            0 ≤ OQ7Prescribed.normalizedAsymmetry k B sp.electric sm.electric ∧
+                              OQ7Prescribed.normalizedAsymmetry k B sp.electric sm.electric ≤ 1 ∧
+                                (0 < OQ7Prescribed.extinction k B OQ7Prescribed.Direction.plus sp.electric →
+                                    OQ7Prescribed.normalizedAsymmetry k B sp.electric sm.electric < 1) ∧
+                                  OQ7Prescribed.normalizedAsymmetry k B sp.electric sm.electric =
+                                    |OQ7Prescribed.scattering k B sp.electric -
+                                          OQ7Prescribed.scattering k B sm.electric| /
+                                      OQ7Prescribed.extinction k B OQ7Prescribed.Direction.plus sp.electric) ∧
+                    ∀ (s : OQ7Prescribed.PrescribedExtinctionPair k P Q target),
+                      s.asymmetry < 1 ∧ s.absorptionDifference < target
+def OQ7Prescribed.FullPhysicalOpticalStatement : (k : ℝ) →
+  (B : OQ7Prescribed.TwoLayerBody) → (σ : OQ7Prescribed.Direction) → OQ7Prescribed.ScatteringState k B σ → Prop :=
+fun k B σ s =>
+  (s.electric =ᵐ[MeasureTheory.volume] fun x =>
+      OQ7Prescribed.incidentElectric k σ x + OQ7Prescribed.scatteringStateRadiatingElectric s x) ∧
+    (s.magnetic =ᵐ[MeasureTheory.volume] fun x =>
+        OQ7Prescribed.incidentMagnetic k σ x + OQ7Prescribed.scatteringStateRadiatingMagnetic s x) ∧
+      OQ7Prescribed.extinction k B σ s.electric =
+          OQ7Prescribed.absorption k B s.electric + OQ7Prescribed.scattering k B s.electric ∧
+        OQ7Prescribed.extinction k B σ s.electric =
+            4 * Real.pi / k *
+              (OQ7Prescribed.pairing (OQ7Prescribed.basisC 1)
+                  (OQ7Prescribed.currentFarField k B s.electric (OQ7Prescribed.incidentForwardDirection σ))).im ∧
+          OQ7Prescribed.scattering k B s.electric =
+              ∫ (n : ↑OQ7Prescribed.UnitSphere),
+                ‖OQ7Prescribed.currentFarField k B s.electric ↑n‖ ^ 2 ∂OQ7Prescribed.sphereArea ∧
+            Filter.Tendsto (OQ7Prescribed.scatteringStateSphereFlux s) Filter.atTop
+                (nhds (OQ7Prescribed.scattering k B s.electric)) ∧
+              have p := OQ7Prescribed.physicalCompactPolarization B s.electric ⋯;
+              ∀ (r : ℝ),
+                2 * p.radius + 2 ≤ r →
+                  ∀ (n : ↑OQ7Prescribed.UnitSphere),
+                    ‖(↑r * Complex.exp (-Complex.I * ↑(k * r))) •
+                            OQ7Prescribed.scatteringStateRadiatingElectric s (r • ↑n) -
+                          OQ7Prescribed.currentFarField k B s.electric ↑n‖ ≤
+                      OQ7Prescribed.farFieldKernelConstant k p.radius / r *
+                        ∫ (y : OQ7Prescribed.Position), ‖p.current y‖
+OQ7Prescribed.absorption_congr_ae : ∀ (k : ℝ) (B : OQ7Prescribed.TwoLayerBody) (E F : OQ7Prescribed.Field),
+  E =ᵐ[MeasureTheory.volume] F → OQ7Prescribed.absorption k B E = OQ7Prescribed.absorption k B F
 OQ7Prescribed.activeForwardMaterial_coe : ∀ (B : OQ7Prescribed.TwoLayerBody) (α β : ℂ)
   (q : ↥(OQ7Prescribed.ScalarBodyCurrentL2 B)),
   ↑↑↑((OQ7Prescribed.activeForwardMaterial B α β) q) =ᵐ[MeasureTheory.volume] fun x =>
@@ -165,6 +228,14 @@ OQ7Prescribed.admissible_zeroAbsorption_zeroExtinction : ∀ (k : ℝ),
         ∀ (E : OQ7Prescribed.Field),
           OQ7Prescribed.LocallySquareIntegrable E →
             OQ7Prescribed.absorption k B E = 0 → ∀ (σ : OQ7Prescribed.Direction), OQ7Prescribed.extinction k B σ E = 0
+OQ7Prescribed.admissibleScatteringState_extinction_reciprocity : ∀ (k : ℝ),
+  0 < k →
+    ∀ (P Q : ℝ) (B : OQ7Prescribed.TwoLayerBody),
+      B.admissible P Q →
+        ∀ (sp : OQ7Prescribed.ScatteringState k B OQ7Prescribed.Direction.plus)
+          (sm : OQ7Prescribed.ScatteringState k B OQ7Prescribed.Direction.minus),
+          OQ7Prescribed.extinction k B OQ7Prescribed.Direction.plus sp.electric =
+            OQ7Prescribed.extinction k B OQ7Prescribed.Direction.minus sm.electric
 OQ7Prescribed.aperture_error_le_of_window_and_radius : ∀ (ε c G K e R : ℝ),
   0 < ε →
     0 < c → 0 < G → 0 ≤ R → e ≤ ε * c / (4 * G) → 2 * K * G / (ε * c ^ 2) ≤ R → (2 * R * e / c + K / c ^ 2) * G ≤ ε * R
@@ -681,6 +752,8 @@ OQ7Prescribed.bodyVolumeTotalElectricCurrent_eq : ∀ (k : ℝ) (B : OQ7Prescrib
     OQ7Prescribed.bodyIncidentCurrent k B σ + (OQ7Prescribed.bodyOutgoingOperator k B) f
 OQ7Prescribed.bump_scalarGradient_zero : ∀ (η : ContDiffBump 0) (x : OQ7Prescribed.Position),
   ‖x‖ < η.rIn → OQ7Prescribed.scalarGradient (↑η) x = 0
+OQ7Prescribed.classicalDyadic_apply_continuousAt : ∀ (k : ℝ) (x : OQ7Prescribed.Position),
+  x ≠ 0 → ∀ (v : OQ7Prescribed.Vector), ContinuousAt (fun y => (OQ7Prescribed.classicalDyadic k y) v) x
 OQ7Prescribed.classicalDyadic_coordinate : ∀ (k : ℝ) (x : OQ7Prescribed.Position),
   x ≠ 0 →
     ∀ (i j : Fin 3),
@@ -1064,6 +1137,8 @@ OQ7Prescribed.currentDyadicTestPairing_exterior_integral : ∀ (k : ℝ) (p : OQ
         ∫ (z : OQ7Prescribed.Position),
           OQ7Prescribed.newtonCurrentCorrelation p φ j z *
             ((OQ7Prescribed.classicalDyadic k z) (OQ7Prescribed.basisC j)).ofLp i
+OQ7Prescribed.currentFarField_congr_ae : ∀ (k : ℝ) (B : OQ7Prescribed.TwoLayerBody) (E F : OQ7Prescribed.Field),
+  E =ᵐ[MeasureTheory.volume] F → OQ7Prescribed.currentFarField k B E = OQ7Prescribed.currentFarField k B F
 OQ7Prescribed.currentFarField_forward_component : ∀ (k : ℝ) (B : OQ7Prescribed.TwoLayerBody) (E : OQ7Prescribed.Field),
   OQ7Prescribed.LocallySquareIntegrable E →
     ∀ (σ : OQ7Prescribed.Direction),
@@ -1991,6 +2066,8 @@ OQ7Prescribed.exteriorElectric_norm_le : ∀ (k : ℝ) (p : OQ7Prescribed.Compac
   p.radius + 1 ≤ ‖x‖ →
     ‖OQ7Prescribed.exteriorElectric k p x‖ ≤
       OQ7Prescribed.exteriorKernelBound k * ∫ (y : OQ7Prescribed.Position), ‖p.current y‖
+OQ7Prescribed.exteriorElectric_sphere_continuous : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization) (r : ℝ),
+  2 * p.radius + 2 ≤ r → Continuous fun n => OQ7Prescribed.exteriorElectric k p (r • ↑n)
 OQ7Prescribed.exteriorElectric_test_integrable : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization)
   (φ : OQ7Prescribed.ScalarTest),
   (∀ (x : OQ7Prescribed.Position), ‖x‖ ≤ p.radius + 1 → φ x = 0) →
@@ -2026,6 +2103,30 @@ OQ7Prescribed.exteriorMagnetic_norm_decay : ∀ (k : ℝ) (p : OQ7Prescribed.Com
   2 * p.radius + 2 ≤ ‖x‖ →
     ‖OQ7Prescribed.exteriorMagnetic k p x‖ ≤
       OQ7Prescribed.magneticDecayConstant k / ‖x‖ * ∫ (y : OQ7Prescribed.Position), ‖p.current y‖
+OQ7Prescribed.exteriorMagnetic_sphere_continuous : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization) (r : ℝ),
+  2 * p.radius + 2 ≤ r → Continuous fun n => OQ7Prescribed.exteriorMagnetic k p (r • ↑n)
+OQ7Prescribed.exteriorSphereFlux_farField_error : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization) (r : ℝ),
+  2 * p.radius + 2 ≤ r →
+    |OQ7Prescribed.exteriorSphereFlux k p r -
+          ∫ (n : ↑OQ7Prescribed.UnitSphere),
+            ‖OQ7Prescribed.compactCurrentFarField k p ↑n‖ ^ 2 ∂OQ7Prescribed.sphereArea| ≤
+      4 * Real.pi *
+        (OQ7Prescribed.farFieldFluxConstant k p.radius / r * (∫ (y : OQ7Prescribed.Position), ‖p.current y‖) ^ 2)
+OQ7Prescribed.exteriorSphereFlux_integrable : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization) (r : ℝ),
+  2 * p.radius + 2 ≤ r →
+    MeasureTheory.Integrable
+      (fun n =>
+        r ^ 2 *
+          (OQ7Prescribed.pairing (OQ7Prescribed.exteriorElectric k p (r • ↑n))
+              (OQ7Prescribed.cross (OQ7Prescribed.exteriorMagnetic k p (r • ↑n)) (OQ7Prescribed.complexify ↑n))).re)
+      OQ7Prescribed.sphereArea
+OQ7Prescribed.exteriorSphereFlux_tendsto : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization),
+  Filter.Tendsto (OQ7Prescribed.exteriorSphereFlux k p) Filter.atTop
+    (nhds
+      (∫ (n : ↑OQ7Prescribed.UnitSphere), ‖OQ7Prescribed.compactCurrentFarField k p ↑n‖ ^ 2 ∂OQ7Prescribed.sphereArea))
+OQ7Prescribed.extinction_congr_ae : ∀ (k : ℝ) (B : OQ7Prescribed.TwoLayerBody) (σ : OQ7Prescribed.Direction)
+  (E F : OQ7Prescribed.Field),
+  E =ᵐ[MeasureTheory.volume] F → OQ7Prescribed.extinction k B σ E = OQ7Prescribed.extinction k B σ F
 OQ7Prescribed.field_zero_ae_of_compact_smooth_bilinear_tests : ∀ (F : OQ7Prescribed.Field),
   MeasureTheory.LocallyIntegrable F MeasureTheory.volume →
     (∀ (q : OQ7Prescribed.CompactPolarization),
@@ -2661,6 +2762,8 @@ OQ7Prescribed.kernel_radiation_defect_norm_le : ∀ (k : ℝ) (x : OQ7Prescribed
       ‖OQ7Prescribed.cross (OQ7Prescribed.kernelMagnetic k x v) (OQ7Prescribed.complexify (‖x‖⁻¹ • x)) -
             (OQ7Prescribed.classicalDyadic k x) v‖ ≤
         (2 * |k| / (4 * Real.pi * ‖x‖ ^ 2) + 1 / (Real.pi * ‖x‖ ^ 3)) * ‖v‖
+OQ7Prescribed.kernelMagnetic_apply_continuousAt : ∀ (k : ℝ) (x : OQ7Prescribed.Position),
+  x ≠ 0 → ∀ (v : OQ7Prescribed.Vector), ContinuousAt (fun y => OQ7Prescribed.kernelMagnetic k y v) x
 OQ7Prescribed.kernelMagnetic_gradient : ∀ (k : ℝ) (x : OQ7Prescribed.Position) (v : OQ7Prescribed.Vector),
   OQ7Prescribed.kernelMagnetic k x v =
     (-Complex.I * ↑k) •
@@ -2941,6 +3044,10 @@ OQ7Prescribed.materialVolumeCurrent_operator_equation : ∀ (k : ℝ) (B : OQ7Pr
 OQ7Prescribed.materialVolumeCurrent_supported : ∀ (k : ℝ) (B : OQ7Prescribed.TwoLayerBody) (σ : OQ7Prescribed.Direction)
   (p : OQ7Prescribed.CompactPolarization),
   OQ7Prescribed.MaterialVolumeEquation k B σ p → ∀ᵐ (x : OQ7Prescribed.Position), x ∉ B.domain → p.current x = 0
+OQ7Prescribed.materialVolumeEquation_congr_current : ∀ (k : ℝ) (B : OQ7Prescribed.TwoLayerBody)
+  (σ : OQ7Prescribed.Direction) (p q : OQ7Prescribed.CompactPolarization),
+  OQ7Prescribed.MaterialVolumeEquation k B σ p →
+    p.current =ᵐ[MeasureTheory.volume] q.current → OQ7Prescribed.MaterialVolumeEquation k B σ q
 OQ7Prescribed.materialVolumeEquation_exists : ∀ (k : ℝ),
   0 < k →
     ∀ (P Q : ℝ) (B : OQ7Prescribed.TwoLayerBody),
@@ -3711,6 +3818,8 @@ OQ7Prescribed.outgoingRadialFirst_sub_static_norm_le : ∀ (k r : ℝ),
   0 < r →
     ‖OQ7Prescribed.outgoingRadialFirst k r - OQ7Prescribed.outgoingRadialFirst 0 r‖ ≤
       OQ7Prescribed.dynamicGradientBound k r
+OQ7Prescribed.outgoingRadialSecond_continuousAt : ∀ (k r : ℝ),
+  r ≠ 0 → ContinuousAt (OQ7Prescribed.outgoingRadialSecond k) r
 OQ7Prescribed.outgoingSourceFields_first_weakCurl : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization),
   OQ7Prescribed.HasWeakCurl (OQ7Prescribed.outgoingElectricField k p) fun x =>
     (Complex.I * ↑k) • OQ7Prescribed.outgoingMagneticField k p x
@@ -4862,6 +4971,8 @@ OQ7Prescribed.plateDesignPermittivity_pos_susceptibility : ∀ (j : ℕ),
   1 ≤ j → 0 < OQ7Prescribed.plateDesignPermittivity j - 1
 OQ7Prescribed.plateDesignThickness_pos : ∀ (k : ℝ),
   0 < k → ∀ (j : ℕ), 1 ≤ j → 0 < OQ7Prescribed.plateDesignThickness k j
+OQ7Prescribed.polarization_congr_ae : ∀ (B : OQ7Prescribed.TwoLayerBody) (E F : OQ7Prescribed.Field),
+  E =ᵐ[MeasureTheory.volume] F → OQ7Prescribed.polarization B E =ᵐ[MeasureTheory.volume] OQ7Prescribed.polarization B F
 OQ7Prescribed.polarization_zero_outside : ∀ (B : OQ7Prescribed.TwoLayerBody) (E : OQ7Prescribed.Field),
   ∀ x ∉ B.domain, OQ7Prescribed.polarization B E x = 0
 OQ7Prescribed.polarizationCurrentComponentDistribution_apply : ∀ (p : OQ7Prescribed.CompactPolarization) (i : Fin 3)
@@ -5596,6 +5707,8 @@ OQ7Prescribed.scaledSlabPolarization_current_ae : ∀ (w : ℂ → ℂ) (hw : Co
   (OQ7Prescribed.scaledSlabPolarization w hw hwc A X L hA0 hX hL hA R hR u q).current =ᵐ[MeasureTheory.volume] fun x =>
     OQ7Prescribed.slabSeparatedFunction (OQ7Prescribed.scaledApertureWindow w R) (↑↑↑q) x •
       OQ7Prescribed.complexify (OQ7Prescribed.slabPosition u 0)
+OQ7Prescribed.scattering_congr_ae : ∀ (k : ℝ) (B : OQ7Prescribed.TwoLayerBody) (E F : OQ7Prescribed.Field),
+  E =ᵐ[MeasureTheory.volume] F → OQ7Prescribed.scattering k B E = OQ7Prescribed.scattering k B F
 OQ7Prescribed.scatteringState_absorption_integrable : ∀ (k : ℝ) (B : OQ7Prescribed.TwoLayerBody)
   (σ : OQ7Prescribed.Direction) (s : OQ7Prescribed.ScatteringState k B σ),
   MeasureTheory.IntegrableOn (fun x => (OQ7Prescribed.quadratic (B.permittivity x) (s.electric x)).im) B.domain
@@ -5603,22 +5716,59 @@ OQ7Prescribed.scatteringState_absorption_integrable : ∀ (k : ℝ) (B : OQ7Pres
 OQ7Prescribed.scatteringState_absorption_le_extinction : ∀ (k : ℝ) (B : OQ7Prescribed.TwoLayerBody)
   (σ : OQ7Prescribed.Direction) (s : OQ7Prescribed.ScatteringState k B σ),
   OQ7Prescribed.absorption k B s.electric ≤ OQ7Prescribed.extinction k B σ s.electric
+OQ7Prescribed.scatteringState_absorption_lt_extinction : ∀ (k : ℝ),
+  0 < k →
+    ∀ (B : OQ7Prescribed.TwoLayerBody) (σ : OQ7Prescribed.Direction) (s : OQ7Prescribed.ScatteringState k B σ),
+      0 < OQ7Prescribed.extinction k B σ s.electric →
+        OQ7Prescribed.absorption k B s.electric < OQ7Prescribed.extinction k B σ s.electric
 OQ7Prescribed.scatteringState_absorption_nonneg : ∀ (k : ℝ),
   0 ≤ k →
     ∀ (P Q : ℝ) (B : OQ7Prescribed.TwoLayerBody),
       B.admissible P Q →
         ∀ (σ : OQ7Prescribed.Direction) (s : OQ7Prescribed.ScatteringState k B σ),
           0 ≤ OQ7Prescribed.absorption k B s.electric
+OQ7Prescribed.scatteringState_body_volume_representation : ∀ (k : ℝ),
+  0 < k →
+    ∀ (B : OQ7Prescribed.TwoLayerBody) (σ : OQ7Prescribed.Direction) (s : OQ7Prescribed.ScatteringState k B σ),
+      ∃ f,
+        OQ7Prescribed.MaterialVolumeEquation k B σ (OQ7Prescribed.bodyCurrentPolarization B f) ∧
+          s.electric =ᵐ[MeasureTheory.volume]
+              OQ7Prescribed.volumeTotalElectric k σ (OQ7Prescribed.bodyCurrentPolarization B f) ∧
+            s.magnetic =ᵐ[MeasureTheory.volume]
+              OQ7Prescribed.volumeTotalMagnetic k σ (OQ7Prescribed.bodyCurrentPolarization B f)
 OQ7Prescribed.scatteringState_converse_material_volume_equation : ∀ (k : ℝ),
   0 < k →
     ∀ (B : OQ7Prescribed.TwoLayerBody) (σ : OQ7Prescribed.Direction) (s : OQ7Prescribed.ScatteringState k B σ),
       OQ7Prescribed.MaterialVolumeEquation k B σ (OQ7Prescribed.physicalCompactPolarization B s.electric ⋯)
+OQ7Prescribed.scatteringState_currentFarField_is_physical : ∀ (k : ℝ) (B : OQ7Prescribed.TwoLayerBody)
+  (σ : OQ7Prescribed.Direction) (s : OQ7Prescribed.ScatteringState k B σ),
+  have p := OQ7Prescribed.physicalCompactPolarization B s.electric ⋯;
+  ∀ (r : ℝ),
+    2 * p.radius + 2 ≤ r →
+      ∀ (n : ↑OQ7Prescribed.UnitSphere),
+        ‖(↑r * Complex.exp (-Complex.I * ↑(k * r))) • OQ7Prescribed.scatteringStateRadiatingElectric s (r • ↑n) -
+              OQ7Prescribed.currentFarField k B s.electric ↑n‖ ≤
+          OQ7Prescribed.farFieldKernelConstant k p.radius / r * ∫ (y : OQ7Prescribed.Position), ‖p.current y‖
+OQ7Prescribed.scatteringState_energy_balance : ∀ (k : ℝ),
+  0 < k →
+    ∀ (B : OQ7Prescribed.TwoLayerBody) (σ : OQ7Prescribed.Direction) (s : OQ7Prescribed.ScatteringState k B σ),
+      OQ7Prescribed.extinction k B σ s.electric =
+        OQ7Prescribed.absorption k B s.electric + OQ7Prescribed.scattering k B s.electric
 OQ7Prescribed.scatteringState_extinction_nonneg : ∀ (k : ℝ),
   0 ≤ k →
     ∀ (P Q : ℝ) (B : OQ7Prescribed.TwoLayerBody),
       B.admissible P Q →
         ∀ (σ : OQ7Prescribed.Direction) (s : OQ7Prescribed.ScatteringState k B σ),
           0 ≤ OQ7Prescribed.extinction k B σ s.electric
+OQ7Prescribed.scatteringState_extinction_reciprocity : ∀ (k : ℝ),
+  0 < k →
+    ∀ (B : OQ7Prescribed.TwoLayerBody),
+      Matrix.transpose B.absorberPermittivity = B.absorberPermittivity →
+        Matrix.transpose B.platePermittivity = B.platePermittivity →
+          ∀ (sp : OQ7Prescribed.ScatteringState k B OQ7Prescribed.Direction.plus)
+            (sm : OQ7Prescribed.ScatteringState k B OQ7Prescribed.Direction.minus),
+            OQ7Prescribed.extinction k B OQ7Prescribed.Direction.plus sp.electric =
+              OQ7Prescribed.extinction k B OQ7Prescribed.Direction.minus sm.electric
 OQ7Prescribed.scatteringState_forward_optical_theorem : ∀ (k : ℝ),
   0 < k →
     ∀ (B : OQ7Prescribed.TwoLayerBody) (σ : OQ7Prescribed.Direction) (s : OQ7Prescribed.ScatteringState k B σ),
@@ -5626,6 +5776,10 @@ OQ7Prescribed.scatteringState_forward_optical_theorem : ∀ (k : ℝ),
         4 * Real.pi / k *
           (OQ7Prescribed.pairing (OQ7Prescribed.basisC 1)
               (OQ7Prescribed.currentFarField k B s.electric (OQ7Prescribed.incidentForwardDirection σ))).im
+OQ7Prescribed.scatteringState_full_optical_theorem : ∀ (k : ℝ),
+  0 < k →
+    ∀ (B : OQ7Prescribed.TwoLayerBody) (σ : OQ7Prescribed.Direction) (s : OQ7Prescribed.ScatteringState k B σ),
+      OQ7Prescribed.FullPhysicalOpticalStatement k B σ s
 OQ7Prescribed.scatteringState_outgoing_volume_representation : ∀ (k : ℝ),
   0 < k →
     ∀ (B : OQ7Prescribed.TwoLayerBody) (σ : OQ7Prescribed.Direction) (s : OQ7Prescribed.ScatteringState k B σ),
@@ -5642,6 +5796,13 @@ OQ7Prescribed.scatteringState_positiveExtinction_scattering_pos : ∀ (k : ℝ),
   0 < k →
     ∀ (B : OQ7Prescribed.TwoLayerBody) (σ : OQ7Prescribed.Direction) (s : OQ7Prescribed.ScatteringState k B σ),
       0 < OQ7Prescribed.extinction k B σ s.electric → 0 < OQ7Prescribed.scattering k B s.electric
+OQ7Prescribed.scatteringState_radiating_representative : ∀ (k : ℝ),
+  0 < k →
+    ∀ (B : OQ7Prescribed.TwoLayerBody) (σ : OQ7Prescribed.Direction) (s : OQ7Prescribed.ScatteringState k B σ),
+      (s.electric =ᵐ[MeasureTheory.volume] fun x =>
+          OQ7Prescribed.incidentElectric k σ x + OQ7Prescribed.scatteringStateRadiatingElectric s x) ∧
+        s.magnetic =ᵐ[MeasureTheory.volume] fun x =>
+          OQ7Prescribed.incidentMagnetic k σ x + OQ7Prescribed.scatteringStateRadiatingMagnetic s x
 OQ7Prescribed.scatteringState_scattered_source : ∀ (k : ℝ) (B : OQ7Prescribed.TwoLayerBody)
   (σ : OQ7Prescribed.Direction) (s : OQ7Prescribed.ScatteringState k B σ),
   have E := fun x => s.electric x - OQ7Prescribed.incidentElectric k σ x;
@@ -5650,6 +5811,10 @@ OQ7Prescribed.scatteringState_scattered_source : ∀ (k : ℝ) (B : OQ7Prescribe
     OQ7Prescribed.LocallySquareIntegrable H ∧
       (OQ7Prescribed.HasWeakCurl E fun x => (Complex.I * ↑k) • H x) ∧
         OQ7Prescribed.HasWeakCurl H fun x => (-Complex.I * ↑k) • (E x + OQ7Prescribed.polarization B s.electric x)
+OQ7Prescribed.scatteringState_scattering_is_physical_flux : ∀ (k : ℝ) (B : OQ7Prescribed.TwoLayerBody)
+  (σ : OQ7Prescribed.Direction) (s : OQ7Prescribed.ScatteringState k B σ),
+  Filter.Tendsto (OQ7Prescribed.scatteringStateSphereFlux s) Filter.atTop
+    (nhds (OQ7Prescribed.scattering k B s.electric))
 OQ7Prescribed.scatteringState_scattering_nonneg : ∀ (k : ℝ) (B : OQ7Prescribed.TwoLayerBody)
   (σ : OQ7Prescribed.Direction) (s : OQ7Prescribed.ScatteringState k B σ), 0 ≤ OQ7Prescribed.scattering k B s.electric
 OQ7Prescribed.scatteringState_vacuum_residual : ∀ (k : ℝ) (B : OQ7Prescribed.TwoLayerBody) (σ : OQ7Prescribed.Direction)
@@ -5661,6 +5826,11 @@ OQ7Prescribed.scatteringState_vacuum_residual : ∀ (k : ℝ) (B : OQ7Prescribed
     OQ7Prescribed.LocallySquareIntegrable H ∧
       (OQ7Prescribed.HasWeakCurl E fun x => (Complex.I * ↑k) • H x) ∧
         (OQ7Prescribed.HasWeakCurl H fun x => (-Complex.I * ↑k) • E x) ∧ OQ7Prescribed.Outgoing E H
+OQ7Prescribed.scatteringStateSphereFlux_eq_exterior : ∀ (k : ℝ) (B : OQ7Prescribed.TwoLayerBody)
+  (σ : OQ7Prescribed.Direction) (s : OQ7Prescribed.ScatteringState k B σ) (r : ℝ),
+  2 * (OQ7Prescribed.physicalCompactPolarization B s.electric ⋯).radius + 2 ≤ r →
+    OQ7Prescribed.scatteringStateSphereFlux s r =
+      OQ7Prescribed.exteriorSphereFlux k (OQ7Prescribed.physicalCompactPolarization B s.electric ⋯) r
 @OQ7Prescribed.separatedProduct_memLp_two : ∀ {α : Type u_1} {β : Type u_2} [inst : MeasurableSpace α]
   [inst_1 : MeasurableSpace β] {μ : MeasureTheory.Measure α} {ν : MeasureTheory.Measure β} [MeasureTheory.SFinite μ]
   [MeasureTheory.SFinite ν] (f : α → ℂ) (g : β → ℂ),
@@ -6742,6 +6912,9 @@ OQ7Prescribed.sphere_coordinate_sq_equal : ∀ (i j : Fin 3),
     ∫ (n : ↑OQ7Prescribed.UnitSphere), (↑n).ofLp j ^ 2 ∂OQ7Prescribed.sphereArea
 OQ7Prescribed.sphere_coordinate_sq_integral : ∀ (i : Fin 3),
   ∫ (n : ↑OQ7Prescribed.UnitSphere), (↑n).ofLp i ^ 2 ∂OQ7Prescribed.sphereArea = 4 * Real.pi / 3
+OQ7Prescribed.sphere_displaced_norm_ge_one : ∀ (p : OQ7Prescribed.CompactPolarization) (r : ℝ),
+  2 * p.radius + 2 ≤ r →
+    ∀ (n : ↑OQ7Prescribed.UnitSphere) (y : OQ7Prescribed.Position), ‖y‖ ≤ p.radius → 1 ≤ ‖r • ↑n - y‖
 OQ7Prescribed.sphere_integral_orthogonal : ∀ (e : OQ7Prescribed.Position ≃ₗᵢ[ℝ] OQ7Prescribed.Position)
   (f : ↑OQ7Prescribed.UnitSphere → ℝ),
   ∫ (n : ↑OQ7Prescribed.UnitSphere), f ((OQ7Prescribed.orthogonalSphere e) n) ∂OQ7Prescribed.sphereArea =
@@ -7014,6 +7187,7 @@ OQ7Prescribed.testPartial_second_eq_fderiv : ∀ (φ : OQ7Prescribed.ScalarTest)
   ((OQ7Prescribed.testPartial j) ((OQ7Prescribed.testPartial i) φ)) x =
     ((fderiv ℝ (fderiv ℝ ⇑φ) x) (OQ7Prescribed.basisR j)) (OQ7Prescribed.basisR i)
 OQ7Prescribed.theorem11 : OQ7Prescribed.Theorem11Statement
+OQ7Prescribed.theorem11_complete : OQ7Prescribed.PhysicalTheorem11Statement
 OQ7Prescribed.transition_average_tendsto : ∀ (r : ℝ) (A : ℝ → ℝ),
   Continuous A →
     Filter.Tendsto (fun t => ∫ (u : ℝ) in 0..1, OQ7Prescribed.transitionDerivative u * A (r + t * u)) (nhds 0)
@@ -7083,6 +7257,46 @@ OQ7Prescribed.transverseProjectionMap_apply : ∀ (n : OQ7Prescribed.Position) (
         c * ‖f‖ ^ 2 ≤ -(inner ℂ f ((OQ7Prescribed.twoPieceSupportedOperator μ s t ht A B) f)).im
 OQ7Prescribed.unitSphere_norm : ∀ (n : ↑OQ7Prescribed.UnitSphere), ‖↑n‖ = 1
 OQ7Prescribed.unitSphere_sum_sq : ∀ (n : ↑OQ7Prescribed.UnitSphere), ∑ i, (↑n).ofLp i ^ 2 = 1
+OQ7Prescribed.universal_physical_absorptionDifference_lt_extinction : ∀ (k : ℝ),
+  0 < k →
+    ∀ (P Q : ℝ) (B : OQ7Prescribed.TwoLayerBody),
+      B.admissible P Q →
+        ∀ (sp : OQ7Prescribed.ScatteringState k B OQ7Prescribed.Direction.plus)
+          (sm : OQ7Prescribed.ScatteringState k B OQ7Prescribed.Direction.minus),
+          0 < OQ7Prescribed.extinction k B OQ7Prescribed.Direction.plus sp.electric →
+            |OQ7Prescribed.absorption k B sp.electric - OQ7Prescribed.absorption k B sm.electric| <
+              OQ7Prescribed.extinction k B OQ7Prescribed.Direction.plus sp.electric
+OQ7Prescribed.universal_physical_asymmetry_eq_scattering_difference : ∀ (k : ℝ),
+  0 < k →
+    ∀ (P Q : ℝ) (B : OQ7Prescribed.TwoLayerBody),
+      B.admissible P Q →
+        ∀ (sp : OQ7Prescribed.ScatteringState k B OQ7Prescribed.Direction.plus)
+          (sm : OQ7Prescribed.ScatteringState k B OQ7Prescribed.Direction.minus),
+          OQ7Prescribed.normalizedAsymmetry k B sp.electric sm.electric =
+            |OQ7Prescribed.scattering k B sp.electric - OQ7Prescribed.scattering k B sm.electric| /
+              OQ7Prescribed.extinction k B OQ7Prescribed.Direction.plus sp.electric
+OQ7Prescribed.universal_physical_asymmetry_le_one : ∀ (k : ℝ),
+  0 < k →
+    ∀ (P Q : ℝ) (B : OQ7Prescribed.TwoLayerBody),
+      B.admissible P Q →
+        ∀ (sp : OQ7Prescribed.ScatteringState k B OQ7Prescribed.Direction.plus)
+          (sm : OQ7Prescribed.ScatteringState k B OQ7Prescribed.Direction.minus),
+          OQ7Prescribed.normalizedAsymmetry k B sp.electric sm.electric ≤ 1
+OQ7Prescribed.universal_physical_asymmetry_lt_one : ∀ (k : ℝ),
+  0 < k →
+    ∀ (P Q : ℝ) (B : OQ7Prescribed.TwoLayerBody),
+      B.admissible P Q →
+        ∀ (sp : OQ7Prescribed.ScatteringState k B OQ7Prescribed.Direction.plus)
+          (sm : OQ7Prescribed.ScatteringState k B OQ7Prescribed.Direction.minus),
+          0 < OQ7Prescribed.extinction k B OQ7Prescribed.Direction.plus sp.electric →
+            OQ7Prescribed.normalizedAsymmetry k B sp.electric sm.electric < 1
+OQ7Prescribed.universal_physical_asymmetry_nonneg : ∀ (k : ℝ),
+  0 < k →
+    ∀ (P Q : ℝ) (B : OQ7Prescribed.TwoLayerBody),
+      B.admissible P Q →
+        ∀ (sp : OQ7Prescribed.ScatteringState k B OQ7Prescribed.Direction.plus)
+          (sm : OQ7Prescribed.ScatteringState k B OQ7Prescribed.Direction.minus),
+          0 ≤ OQ7Prescribed.normalizedAsymmetry k B sp.electric sm.electric
 OQ7Prescribed.vacuum_outgoing_weak_smooth_work_zero : ∀ (k : ℝ),
   0 < k →
     ∀ (E H : OQ7Prescribed.Field),

@@ -1,0 +1,37 @@
+OQ7Prescribed.universal_physical_asymmetry_lt_one : ∀ (k : ℝ),
+  0 < k →
+    ∀ (P Q : ℝ) (B : OQ7Prescribed.TwoLayerBody),
+      B.admissible P Q →
+        ∀ (sp : OQ7Prescribed.ScatteringState k B OQ7Prescribed.Direction.plus)
+          (sm : OQ7Prescribed.ScatteringState k B OQ7Prescribed.Direction.minus),
+          0 < OQ7Prescribed.extinction k B OQ7Prescribed.Direction.plus sp.electric →
+            OQ7Prescribed.normalizedAsymmetry k B sp.electric sm.electric < 1
+'OQ7Prescribed.universal_physical_asymmetry_lt_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.universal_physical_absorptionDifference_lt_extinction : ∀ (k : ℝ),
+  0 < k →
+    ∀ (P Q : ℝ) (B : OQ7Prescribed.TwoLayerBody),
+      B.admissible P Q →
+        ∀ (sp : OQ7Prescribed.ScatteringState k B OQ7Prescribed.Direction.plus)
+          (sm : OQ7Prescribed.ScatteringState k B OQ7Prescribed.Direction.minus),
+          0 < OQ7Prescribed.extinction k B OQ7Prescribed.Direction.plus sp.electric →
+            |OQ7Prescribed.absorption k B sp.electric - OQ7Prescribed.absorption k B sm.electric| <
+              OQ7Prescribed.extinction k B OQ7Prescribed.Direction.plus sp.electric
+'OQ7Prescribed.universal_physical_absorptionDifference_lt_extinction' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+OQ7Prescribed.scatteringState_absorption_lt_extinction : ∀ (k : ℝ),
+  0 < k →
+    ∀ (B : OQ7Prescribed.TwoLayerBody) (σ : OQ7Prescribed.Direction) (s : OQ7Prescribed.ScatteringState k B σ),
+      0 < OQ7Prescribed.extinction k B σ s.electric →
+        OQ7Prescribed.absorption k B s.electric < OQ7Prescribed.extinction k B σ s.electric
+'OQ7Prescribed.scatteringState_absorption_lt_extinction' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.prescribedExtinctionAsymmetryValues_nonattainment : ∀ (k P Q target : ℝ),
+  0 < k → 0 < target → 1 ∉ OQ7Prescribed.prescribedExtinctionAsymmetryValues k P Q target
+'OQ7Prescribed.prescribedExtinctionAsymmetryValues_nonattainment' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+OQ7Prescribed.prescribedExtinctionDifferenceValues_nonattainment : ∀ (k P Q target : ℝ),
+  0 < k → 0 < target → target ∉ OQ7Prescribed.prescribedExtinctionDifferenceValues k P Q target
+'OQ7Prescribed.prescribedExtinctionDifferenceValues_nonattainment' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

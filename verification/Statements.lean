@@ -2,7 +2,10 @@ import PrescribedExtinction
 
 #print OQ7Prescribed.Theorem11Statement
 #print axioms OQ7Prescribed.Theorem11Statement
+#print OQ7Prescribed.PhysicalTheorem11Statement
+#print OQ7Prescribed.FullPhysicalOpticalStatement
 
+#check @OQ7Prescribed.absorption_congr_ae
 #check @OQ7Prescribed.activeForwardMaterial_coe
 #check @OQ7Prescribed.activeForwardMaterial_inverse_left
 #check @OQ7Prescribed.activeForwardMaterial_inverse_right
@@ -36,6 +39,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.admissible_susceptibility_bounded_inverse
 #check @OQ7Prescribed.admissible_susceptibility_imaginary_coercive
 #check @OQ7Prescribed.admissible_zeroAbsorption_zeroExtinction
+#check @OQ7Prescribed.admissibleScatteringState_extinction_reciprocity
 #check @OQ7Prescribed.aperture_error_le_of_window_and_radius
 #check @OQ7Prescribed.apertureCircleDirection_norm
 #check @OQ7Prescribed.apertureCircleJet_continuous
@@ -164,6 +168,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.bodySusceptibility_reciprocal
 #check @OQ7Prescribed.bodyVolumeTotalElectricCurrent_eq
 #check @OQ7Prescribed.bump_scalarGradient_zero
+#check @OQ7Prescribed.classicalDyadic_apply_continuousAt
 #check @OQ7Prescribed.classicalDyadic_coordinate
 #check @OQ7Prescribed.classicalDyadic_leading_error
 #check @OQ7Prescribed.classicalDyadic_measurable
@@ -272,6 +277,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.currentDyadicTestPairing_eq
 #check @OQ7Prescribed.currentDyadicTestPairing_exterior_integrable
 #check @OQ7Prescribed.currentDyadicTestPairing_exterior_integral
+#check @OQ7Prescribed.currentFarField_congr_ae
 #check @OQ7Prescribed.currentFarField_forward_component
 #check @OQ7Prescribed.currentPlanePhase_contDiff
 #check @OQ7Prescribed.currentPlanePhase_hasFDerivAt
@@ -432,12 +438,18 @@ import PrescribedExtinction
 #check @OQ7Prescribed.exteriorElectric_locallyIntegrableOn
 #check @OQ7Prescribed.exteriorElectric_norm_decay
 #check @OQ7Prescribed.exteriorElectric_norm_le
+#check @OQ7Prescribed.exteriorElectric_sphere_continuous
 #check @OQ7Prescribed.exteriorElectric_test_integrable
 #check @OQ7Prescribed.exteriorElectric_test_pairing
 #check @OQ7Prescribed.exteriorElectric_test_pointwise
 #check @OQ7Prescribed.exteriorElectric_uniform_farField_error
 #check @OQ7Prescribed.exteriorMagnetic_integrable_far
 #check @OQ7Prescribed.exteriorMagnetic_norm_decay
+#check @OQ7Prescribed.exteriorMagnetic_sphere_continuous
+#check @OQ7Prescribed.exteriorSphereFlux_farField_error
+#check @OQ7Prescribed.exteriorSphereFlux_integrable
+#check @OQ7Prescribed.exteriorSphereFlux_tendsto
+#check @OQ7Prescribed.extinction_congr_ae
 #check @OQ7Prescribed.field_zero_ae_of_compact_smooth_bilinear_tests
 #check @OQ7Prescribed.fieldComponent_locallyIntegrable
 #check @OQ7Prescribed.fieldComponentDistribution_add
@@ -562,6 +574,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.isotropicSusceptibilityOperator_joint_continuous
 #check @OQ7Prescribed.kernel_radiation_defect
 #check @OQ7Prescribed.kernel_radiation_defect_norm_le
+#check @OQ7Prescribed.kernelMagnetic_apply_continuousAt
 #check @OQ7Prescribed.kernelMagnetic_gradient
 #check @OQ7Prescribed.kernelMagnetic_leading
 #check @OQ7Prescribed.kernelMagnetic_norm_decay
@@ -613,6 +626,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.materialVolumeCurrent_eq_solution
 #check @OQ7Prescribed.materialVolumeCurrent_operator_equation
 #check @OQ7Prescribed.materialVolumeCurrent_supported
+#check @OQ7Prescribed.materialVolumeEquation_congr_current
 #check @OQ7Prescribed.materialVolumeEquation_exists
 #check @OQ7Prescribed.materialVolumeEquation_unique_current
 #check @OQ7Prescribed.memLp_compactSupport_integrable
@@ -839,6 +853,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.outgoingRadialFirst_hasDerivAt
 #check @OQ7Prescribed.outgoingRadialFirst_sub_static
 #check @OQ7Prescribed.outgoingRadialFirst_sub_static_norm_le
+#check @OQ7Prescribed.outgoingRadialSecond_continuousAt
 #check @OQ7Prescribed.outgoingSourceFields_first_weakCurl
 #check @OQ7Prescribed.outgoingSourceFields_outgoing
 #check @OQ7Prescribed.outgoingSourceFields_second_weakCurl
@@ -1024,6 +1039,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.plateDesignIndex_gt_one
 #check @OQ7Prescribed.plateDesignPermittivity_pos_susceptibility
 #check @OQ7Prescribed.plateDesignThickness_pos
+#check @OQ7Prescribed.polarization_congr_ae
 #check @OQ7Prescribed.polarization_zero_outside
 #check @OQ7Prescribed.polarizationCurrentComponentDistribution_apply
 #check @OQ7Prescribed.polarizationCurrentComponentDistribution_eq_vectorL2
@@ -1190,18 +1206,28 @@ import PrescribedExtinction
 #check @OQ7Prescribed.scaledSlabApertureDifference_coe
 #check @OQ7Prescribed.scaledSlabApertureDifference_smooth_bound
 #check @OQ7Prescribed.scaledSlabPolarization_current_ae
+#check @OQ7Prescribed.scattering_congr_ae
 #check @OQ7Prescribed.scatteringState_absorption_integrable
 #check @OQ7Prescribed.scatteringState_absorption_le_extinction
+#check @OQ7Prescribed.scatteringState_absorption_lt_extinction
 #check @OQ7Prescribed.scatteringState_absorption_nonneg
+#check @OQ7Prescribed.scatteringState_body_volume_representation
 #check @OQ7Prescribed.scatteringState_converse_material_volume_equation
+#check @OQ7Prescribed.scatteringState_currentFarField_is_physical
+#check @OQ7Prescribed.scatteringState_energy_balance
 #check @OQ7Prescribed.scatteringState_extinction_nonneg
+#check @OQ7Prescribed.scatteringState_extinction_reciprocity
 #check @OQ7Prescribed.scatteringState_forward_optical_theorem
+#check @OQ7Prescribed.scatteringState_full_optical_theorem
 #check @OQ7Prescribed.scatteringState_outgoing_volume_representation
 #check @OQ7Prescribed.scatteringState_positiveExtinction_absorption_pos
 #check @OQ7Prescribed.scatteringState_positiveExtinction_scattering_pos
+#check @OQ7Prescribed.scatteringState_radiating_representative
 #check @OQ7Prescribed.scatteringState_scattered_source
+#check @OQ7Prescribed.scatteringState_scattering_is_physical_flux
 #check @OQ7Prescribed.scatteringState_scattering_nonneg
 #check @OQ7Prescribed.scatteringState_vacuum_residual
+#check @OQ7Prescribed.scatteringStateSphereFlux_eq_exterior
 #check @OQ7Prescribed.separatedProduct_memLp_two
 #check @OQ7Prescribed.separatedProduct_norm
 #check @OQ7Prescribed.setRestrictionCLM_inner
@@ -1384,6 +1410,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.sphere_coordinate_mul_integrable
 #check @OQ7Prescribed.sphere_coordinate_sq_equal
 #check @OQ7Prescribed.sphere_coordinate_sq_integral
+#check @OQ7Prescribed.sphere_displaced_norm_ge_one
 #check @OQ7Prescribed.sphere_integral_orthogonal
 #check @OQ7Prescribed.sphere_newton_angular_cancellation
 #check @OQ7Prescribed.sphere_second_moment
@@ -1492,6 +1519,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.testPartial_hasLineDerivAt
 #check @OQ7Prescribed.testPartial_second_eq_fderiv
 #check @OQ7Prescribed.theorem11
+#check @OQ7Prescribed.theorem11_complete
 #check @OQ7Prescribed.transition_average_tendsto
 #check @OQ7Prescribed.transition_radial_integral
 #check @OQ7Prescribed.transition_radial_rescale
@@ -1513,6 +1541,11 @@ import PrescribedExtinction
 #check @OQ7Prescribed.twoPieceSupportedOperator_negative_imaginary_bound
 #check @OQ7Prescribed.unitSphere_norm
 #check @OQ7Prescribed.unitSphere_sum_sq
+#check @OQ7Prescribed.universal_physical_absorptionDifference_lt_extinction
+#check @OQ7Prescribed.universal_physical_asymmetry_eq_scattering_difference
+#check @OQ7Prescribed.universal_physical_asymmetry_le_one
+#check @OQ7Prescribed.universal_physical_asymmetry_lt_one
+#check @OQ7Prescribed.universal_physical_asymmetry_nonneg
 #check @OQ7Prescribed.vacuum_outgoing_weak_smooth_work_zero
 #check @OQ7Prescribed.vacuum_outgoing_weak_unique_zero
 #check @OQ7Prescribed.vacuum_weak_radial_flux_zero

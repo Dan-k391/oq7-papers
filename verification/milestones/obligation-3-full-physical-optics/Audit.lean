@@ -1,0 +1,22 @@
+import PrescribedExtinction.PhysicalTheorem11
+
+#check @OQ7Prescribed.scatteringState_energy_balance
+#print axioms OQ7Prescribed.scatteringState_energy_balance
+#check @OQ7Prescribed.scatteringState_extinction_reciprocity
+#print axioms OQ7Prescribed.scatteringState_extinction_reciprocity
+#check @OQ7Prescribed.scatteringState_forward_optical_theorem
+#print axioms OQ7Prescribed.scatteringState_forward_optical_theorem
+#check @OQ7Prescribed.exteriorSphereFlux_integrable
+#print axioms OQ7Prescribed.exteriorSphereFlux_integrable
+#check @OQ7Prescribed.exteriorSphereFlux_farField_error
+#print axioms OQ7Prescribed.exteriorSphereFlux_farField_error
+#check @OQ7Prescribed.exteriorSphereFlux_tendsto
+#print axioms OQ7Prescribed.exteriorSphereFlux_tendsto
+#check @OQ7Prescribed.scatteringState_radiating_representative
+#print axioms OQ7Prescribed.scatteringState_radiating_representative
+#check @OQ7Prescribed.scatteringState_currentFarField_is_physical
+#print axioms OQ7Prescribed.scatteringState_currentFarField_is_physical
+#check @OQ7Prescribed.scatteringState_scattering_is_physical_flux
+#print axioms OQ7Prescribed.scatteringState_scattering_is_physical_flux
+#check @OQ7Prescribed.scatteringState_full_optical_theorem
+#print axioms OQ7Prescribed.scatteringState_full_optical_theorem

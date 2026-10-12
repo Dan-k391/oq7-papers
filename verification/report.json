@@ -1,7 +1,7 @@
 {
-  "status": "EXISTENCE_CORE_VERIFIED_COMPLETE_PHYSICAL_THEOREM_PENDING",
+  "status": "COMPLETE_PHYSICAL_THEOREM11_VERIFIED",
   "buildRuntimeThreads": 2,
-  "completePhysicalTheorem11Verified": false,
+  "completePhysicalTheorem11Verified": true,
   "auditedBaselineCommit": "5a8350d5408c38e333c9f6b6d8a94816c794120b",
   "auditedExistenceCoreSourcesPreserved": true,
   "universalForwardOpticalWorkIdentityVerified": true,
@@ -25,17 +25,25 @@
   "arbitraryAdmissibleOutgoingWeakScatteringStateUniquenessAEVerified": true,
   "arbitraryAdmissibleOutgoingWeakScatteringStateWellposedAEVerified": true,
   "weakScatteringUniquenessDeclaration": "OQ7Prescribed.physicalScatteringState_unique_ae",
+  "arbitraryStateOriginalEnergyBalanceVerified": true,
+  "arbitraryStateOriginalExtinctionReciprocityVerified": true,
+  "actualAllAnglePhysicalSphereFluxIntegrabilityAndLimitVerified": true,
+  "originalCurrentFarFieldActualCanonicalRadiationAmplitudeVerified": true,
+  "fullPhysicalOpticalTheoremForArbitraryStatesVerified": true,
+  "universalPhysicalAsymmetryUpperBoundWithoutCommonExtinctionAssumptionVerified": true,
+  "universalPhysicalStrictNonattainmentWithoutCommonExtinctionAssumptionVerified": true,
+  "originalAbsorptionAndScatteringAsymmetriesIdenticalVerified": true,
+  "weakFieldUniquenessScope": "Equality almost everywhere; the canonical exterior representative determines actual sphere flux",
+  "fullPhysicalOpticalDeclaration": "OQ7Prescribed.scatteringState_full_optical_theorem",
   "theorem11Verified": true,
-  "finalTheoremDeclaration": "OQ7Prescribed.theorem11",
+  "preservedExistenceCoreDeclaration": "OQ7Prescribed.theorem11",
+  "finalTheoremDeclaration": "OQ7Prescribed.theorem11_complete",
   "finalTheoremIsKernelProofDeclaration": true,
   "finalTheoremExactTypeAndTransitiveAxiomsVerified": true,
-  "finalTheoremVerificationLog": "verification/final-theorem.log",
-  "remainingTheorem11Obligations": [
-    "Arbitrary-state physical all-angle flux and X = A + S",
-    "Reciprocity and normalized asymmetry bounds for arbitrary opposite-incidence states without an explicit common-extinction hypothesis",
-    "Combined complete physical theorem declaration and frozen review repository"
-  ],
-  "targetProposition": "OQ7Prescribed.Theorem11Statement",
+  "finalTheoremVerificationLog": "verification/final-complete-theorem.log",
+  "remainingTheorem11Obligations": [],
+  "targetProposition": "OQ7Prescribed.PhysicalTheorem11Statement",
+  "completePhysicalTargetSourceSHA256": "656353EFE23D729D63E17110540F52997DD4BACBEB607610B9853E3CAD9CA180",
   "targetIsAProof": false,
   "existingPhysicalTargetSourceUnchanged": false,
   "physicalTargetOnlySmoothTestAnnotationChanged": true,
@@ -174,7 +182,7 @@
   "newtonPrincipalValueIsBundledDistribution": true,
   "staticNewtonIdentificationVerified": true,
   "targetSourceSHA256": "A9950F0F1C9EA4A20FF2C480A71CC4FABDC4AB84F8173851C37A4BD56E0D231B",
-  "verifiedAtUTC": "2026-10-12T06:41:58.1514782Z",
+  "verifiedAtUTC": "2026-10-12T07:22:52.8890045Z",
   "lean": "Lean (version 4.34.1, x86_64-w64-windows-gnu, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)",
   "lakeBuildPassed": true,
   "cleanProjectBuild": true,
@@ -186,11 +194,12 @@
     "Classical.choice",
     "Quot.sound"
   ],
-  "allProjectConstantsAudited": 5603,
+  "allProjectConstantsAudited": 5654,
   "privateProjectConstantsAudited": 49,
-  "newTheoremCount": 1563,
-  "newKernelTheoremConstantCount": 3486,
+  "newTheoremCount": 1594,
+  "newKernelTheoremConstantCount": 3530,
   "newTheorems": [
+    "OQ7Prescribed.absorption_congr_ae",
     "OQ7Prescribed.activeForwardMaterial_coe",
     "OQ7Prescribed.activeForwardMaterial_inverse_left",
     "OQ7Prescribed.activeForwardMaterial_inverse_right",
@@ -224,6 +233,7 @@
     "OQ7Prescribed.admissible_susceptibility_bounded_inverse",
     "OQ7Prescribed.admissible_susceptibility_imaginary_coercive",
     "OQ7Prescribed.admissible_zeroAbsorption_zeroExtinction",
+    "OQ7Prescribed.admissibleScatteringState_extinction_reciprocity",
     "OQ7Prescribed.aperture_error_le_of_window_and_radius",
     "OQ7Prescribed.apertureCircleDirection_norm",
     "OQ7Prescribed.apertureCircleJet_continuous",
@@ -352,6 +362,7 @@
     "OQ7Prescribed.bodySusceptibility_reciprocal",
     "OQ7Prescribed.bodyVolumeTotalElectricCurrent_eq",
     "OQ7Prescribed.bump_scalarGradient_zero",
+    "OQ7Prescribed.classicalDyadic_apply_continuousAt",
     "OQ7Prescribed.classicalDyadic_coordinate",
     "OQ7Prescribed.classicalDyadic_leading_error",
     "OQ7Prescribed.classicalDyadic_measurable",
@@ -460,6 +471,7 @@
     "OQ7Prescribed.currentDyadicTestPairing_eq",
     "OQ7Prescribed.currentDyadicTestPairing_exterior_integrable",
     "OQ7Prescribed.currentDyadicTestPairing_exterior_integral",
+    "OQ7Prescribed.currentFarField_congr_ae",
     "OQ7Prescribed.currentFarField_forward_component",
     "OQ7Prescribed.currentPlanePhase_contDiff",
     "OQ7Prescribed.currentPlanePhase_hasFDerivAt",
@@ -620,12 +632,18 @@
     "OQ7Prescribed.exteriorElectric_locallyIntegrableOn",
     "OQ7Prescribed.exteriorElectric_norm_decay",
     "OQ7Prescribed.exteriorElectric_norm_le",
+    "OQ7Prescribed.exteriorElectric_sphere_continuous",
     "OQ7Prescribed.exteriorElectric_test_integrable",
     "OQ7Prescribed.exteriorElectric_test_pairing",
     "OQ7Prescribed.exteriorElectric_test_pointwise",
     "OQ7Prescribed.exteriorElectric_uniform_farField_error",
     "OQ7Prescribed.exteriorMagnetic_integrable_far",
     "OQ7Prescribed.exteriorMagnetic_norm_decay",
+    "OQ7Prescribed.exteriorMagnetic_sphere_continuous",
+    "OQ7Prescribed.exteriorSphereFlux_farField_error",
+    "OQ7Prescribed.exteriorSphereFlux_integrable",
+    "OQ7Prescribed.exteriorSphereFlux_tendsto",
+    "OQ7Prescribed.extinction_congr_ae",
     "OQ7Prescribed.field_zero_ae_of_compact_smooth_bilinear_tests",
     "OQ7Prescribed.fieldComponent_locallyIntegrable",
     "OQ7Prescribed.fieldComponentDistribution_add",
@@ -750,6 +768,7 @@
     "OQ7Prescribed.isotropicSusceptibilityOperator_joint_continuous",
     "OQ7Prescribed.kernel_radiation_defect",
     "OQ7Prescribed.kernel_radiation_defect_norm_le",
+    "OQ7Prescribed.kernelMagnetic_apply_continuousAt",
     "OQ7Prescribed.kernelMagnetic_gradient",
     "OQ7Prescribed.kernelMagnetic_leading",
     "OQ7Prescribed.kernelMagnetic_norm_decay",
@@ -801,6 +820,7 @@
     "OQ7Prescribed.materialVolumeCurrent_eq_solution",
     "OQ7Prescribed.materialVolumeCurrent_operator_equation",
     "OQ7Prescribed.materialVolumeCurrent_supported",
+    "OQ7Prescribed.materialVolumeEquation_congr_current",
     "OQ7Prescribed.materialVolumeEquation_exists",
     "OQ7Prescribed.materialVolumeEquation_unique_current",
     "OQ7Prescribed.memLp_compactSupport_integrable",
@@ -1027,6 +1047,7 @@
     "OQ7Prescribed.outgoingRadialFirst_hasDerivAt",
     "OQ7Prescribed.outgoingRadialFirst_sub_static",
     "OQ7Prescribed.outgoingRadialFirst_sub_static_norm_le",
+    "OQ7Prescribed.outgoingRadialSecond_continuousAt",
     "OQ7Prescribed.outgoingSourceFields_first_weakCurl",
     "OQ7Prescribed.outgoingSourceFields_outgoing",
     "OQ7Prescribed.outgoingSourceFields_second_weakCurl",
@@ -1212,6 +1233,7 @@
     "OQ7Prescribed.plateDesignIndex_gt_one",
     "OQ7Prescribed.plateDesignPermittivity_pos_susceptibility",
     "OQ7Prescribed.plateDesignThickness_pos",
+    "OQ7Prescribed.polarization_congr_ae",
     "OQ7Prescribed.polarization_zero_outside",
     "OQ7Prescribed.polarizationCurrentComponentDistribution_apply",
     "OQ7Prescribed.polarizationCurrentComponentDistribution_eq_vectorL2",
@@ -1378,18 +1400,28 @@
     "OQ7Prescribed.scaledSlabApertureDifference_coe",
     "OQ7Prescribed.scaledSlabApertureDifference_smooth_bound",
     "OQ7Prescribed.scaledSlabPolarization_current_ae",
+    "OQ7Prescribed.scattering_congr_ae",
     "OQ7Prescribed.scatteringState_absorption_integrable",
     "OQ7Prescribed.scatteringState_absorption_le_extinction",
+    "OQ7Prescribed.scatteringState_absorption_lt_extinction",
     "OQ7Prescribed.scatteringState_absorption_nonneg",
+    "OQ7Prescribed.scatteringState_body_volume_representation",
     "OQ7Prescribed.scatteringState_converse_material_volume_equation",
+    "OQ7Prescribed.scatteringState_currentFarField_is_physical",
+    "OQ7Prescribed.scatteringState_energy_balance",
     "OQ7Prescribed.scatteringState_extinction_nonneg",
+    "OQ7Prescribed.scatteringState_extinction_reciprocity",
     "OQ7Prescribed.scatteringState_forward_optical_theorem",
+    "OQ7Prescribed.scatteringState_full_optical_theorem",
     "OQ7Prescribed.scatteringState_outgoing_volume_representation",
     "OQ7Prescribed.scatteringState_positiveExtinction_absorption_pos",
     "OQ7Prescribed.scatteringState_positiveExtinction_scattering_pos",
+    "OQ7Prescribed.scatteringState_radiating_representative",
     "OQ7Prescribed.scatteringState_scattered_source",
+    "OQ7Prescribed.scatteringState_scattering_is_physical_flux",
     "OQ7Prescribed.scatteringState_scattering_nonneg",
     "OQ7Prescribed.scatteringState_vacuum_residual",
+    "OQ7Prescribed.scatteringStateSphereFlux_eq_exterior",
     "OQ7Prescribed.separatedProduct_memLp_two",
     "OQ7Prescribed.separatedProduct_norm",
     "OQ7Prescribed.setRestrictionCLM_inner",
@@ -1572,6 +1604,7 @@
     "OQ7Prescribed.sphere_coordinate_mul_integrable",
     "OQ7Prescribed.sphere_coordinate_sq_equal",
     "OQ7Prescribed.sphere_coordinate_sq_integral",
+    "OQ7Prescribed.sphere_displaced_norm_ge_one",
     "OQ7Prescribed.sphere_integral_orthogonal",
     "OQ7Prescribed.sphere_newton_angular_cancellation",
     "OQ7Prescribed.sphere_second_moment",
@@ -1680,6 +1713,7 @@
     "OQ7Prescribed.testPartial_hasLineDerivAt",
     "OQ7Prescribed.testPartial_second_eq_fderiv",
     "OQ7Prescribed.theorem11",
+    "OQ7Prescribed.theorem11_complete",
     "OQ7Prescribed.transition_average_tendsto",
     "OQ7Prescribed.transition_radial_integral",
     "OQ7Prescribed.transition_radial_rescale",
@@ -1701,6 +1735,11 @@
     "OQ7Prescribed.twoPieceSupportedOperator_negative_imaginary_bound",
     "OQ7Prescribed.unitSphere_norm",
     "OQ7Prescribed.unitSphere_sum_sq",
+    "OQ7Prescribed.universal_physical_absorptionDifference_lt_extinction",
+    "OQ7Prescribed.universal_physical_asymmetry_eq_scattering_difference",
+    "OQ7Prescribed.universal_physical_asymmetry_le_one",
+    "OQ7Prescribed.universal_physical_asymmetry_lt_one",
+    "OQ7Prescribed.universal_physical_asymmetry_nonneg",
     "OQ7Prescribed.vacuum_outgoing_weak_smooth_work_zero",
     "OQ7Prescribed.vacuum_outgoing_weak_unique_zero",
     "OQ7Prescribed.vacuum_weak_radial_flux_zero",
@@ -1760,48 +1799,48 @@
   "manuscriptSHA256": "3D9775D849234E828370D7C96D8BDCDD574BEB6831A7906EA6B7706579868710",
   "dependencyRevisions": [
     {
-      "name": "mathlib",
       "revision": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+      "name": "mathlib",
       "trackedSourceClean": true
     },
     {
-      "name": "plausible",
       "revision": "118aa17ee84656b8bd727fef7c458ee8c833385c",
+      "name": "plausible",
       "trackedSourceClean": true
     },
     {
-      "name": "LeanSearchClient",
       "revision": "ddf04cf3949fa556442341e87d47f9f6e6074707",
+      "name": "LeanSearchClient",
       "trackedSourceClean": true
     },
     {
-      "name": "importGraph",
       "revision": "e928b72544873815af278d38681b31c0293588e3",
+      "name": "importGraph",
       "trackedSourceClean": true
     },
     {
-      "name": "proofwidgets",
       "revision": "106ff4fafc74ef4ac99d81dbf3ab399118f497a5",
+      "name": "proofwidgets",
       "trackedSourceClean": true
     },
     {
-      "name": "aesop",
       "revision": "355695d523e41d0554926416cba2a2b3544fbbc9",
+      "name": "aesop",
       "trackedSourceClean": true
     },
     {
-      "name": "Qq",
       "revision": "6a489d9af5d0c47e5b259e2e8bcdfc1811b5a259",
+      "name": "Qq",
       "trackedSourceClean": true
     },
     {
-      "name": "batteries",
       "revision": "f2effa3d803fda822b1f97b806c47cf2adfbcbc2",
+      "name": "batteries",
       "trackedSourceClean": true
     },
     {
-      "name": "Cli",
       "revision": "e92c9f15fdfacc8536f31cfb3b7ad26c3c8cd204",
+      "name": "Cli",
       "trackedSourceClean": true
     }
   ],
@@ -2163,6 +2202,10 @@
       "file": "PrescribedExtinction\\ApertureWindowScale.lean"
     },
     {
+      "sha256": "04E7A0A5B3DDD17E568C09C43809C2BB3D0708A4E3CDA1FE143BB11E41051CA3",
+      "file": "PrescribedExtinction\\ArbitraryStateOpticalBalance.lean"
+    },
+    {
       "sha256": "C28784676179D6DE3515BCD1F4A954DE966DA5ED4B1AEC980DBA4835D8C842BE",
       "file": "PrescribedExtinction\\Basic.lean"
     },
@@ -2303,6 +2346,10 @@
       "file": "PrescribedExtinction\\ExteriorOutgoing.lean"
     },
     {
+      "sha256": "2205F60D6997CBDC895949E97AB6E8A0BFB02FA9434A039AB31CCBE15E5E9B07",
+      "file": "PrescribedExtinction\\ExteriorSphereContinuity.lean"
+    },
+    {
       "sha256": "6A5CD9E457F0712B065FC7D70D36CE10439019DE4F221CFA39BBA50585DE528C",
       "file": "PrescribedExtinction\\ExtinctionReciprocity.lean"
     },
@@ -2353,6 +2400,10 @@
     {
       "sha256": "AF6F8DAC4E9003D91E28E4DCD1B72A9052706DC9BDD5F86CC69BACD4F02173DB",
       "file": "PrescribedExtinction\\FourierL1L2.lean"
+    },
+    {
+      "sha256": "9D7D6D764295CEBD2B59BCF622913A764DFC2884449A30C96868F66D9CBD06B6",
+      "file": "PrescribedExtinction\\FullPhysicalOpticalTheorem.lean"
     },
     {
       "sha256": "DEBE40C0495C6A19B4695070454CBB0213F98086EDD2B5F5B4DD59B81691D8A5",
@@ -2627,6 +2678,10 @@
       "file": "PrescribedExtinction\\PhysicalPolarization.lean"
     },
     {
+      "sha256": "193EB21AED3A088D9D302DC10072A8C8BA22FD3ADB2CE253582C6F1964F5FC54",
+      "file": "PrescribedExtinction\\PhysicalPowersAE.lean"
+    },
+    {
       "sha256": "04317E2A7C588221D4B76BDF944045246AF8CDAE274858EF9D8A00CE3C32E431",
       "file": "PrescribedExtinction\\PhysicalRankOneExtinctionBracket.lean"
     },
@@ -2637,6 +2692,14 @@
     {
       "sha256": "092EDE2B0A9FB8E6A4ABDA2742A8BFDA927F069BDDEF69FD844B8AC8C99C1FBF",
       "file": "PrescribedExtinction\\PhysicalSourceFields.lean"
+    },
+    {
+      "sha256": "7FDCBC373A9B38D8D0959256278904327DF46E90E161054DEB645598E54A7C27",
+      "file": "PrescribedExtinction\\PhysicalSphereFlux.lean"
+    },
+    {
+      "sha256": "656353EFE23D729D63E17110540F52997DD4BACBEB607610B9853E3CAD9CA180",
+      "file": "PrescribedExtinction\\PhysicalTheorem11.lean"
     },
     {
       "sha256": "11C7202CC0E437CF0C4C998947186036381D3006CDBFE60F7876B86A1A4192AB",
@@ -2947,6 +3010,10 @@
       "file": "PrescribedExtinction\\ScatteringExistence.lean"
     },
     {
+      "sha256": "0B973AA07180037174AC9236D5240A383A07D2A1AFCDC3F6D67F594017B52C82",
+      "file": "PrescribedExtinction\\ScatteringStatePhysicalRadiation.lean"
+    },
+    {
       "sha256": "8A689D16D4274369E0A580000914E604B4AE26016EAE69FAAC805BFAB31CEBD7",
       "file": "PrescribedExtinction\\SeparatedL2Product.lean"
     },
@@ -3203,6 +3270,10 @@
       "file": "PrescribedExtinction\\UniversalPassivity.lean"
     },
     {
+      "sha256": "1F491C48091357CEAAE0E692108C0088B487A90AA0823851E7A261DD2EF4343D",
+      "file": "PrescribedExtinction\\UniversalPhysicalBounds.lean"
+    },
+    {
       "sha256": "0568CC496B02358A72EC41976259A5C7127AA24066969ECA2EB47FAC6E4C7DF9",
       "file": "PrescribedExtinction\\UniversalStrictAbsorption.lean"
     },
@@ -3283,80 +3354,80 @@
       "file": "OQ7.lean"
     },
     {
-      "sha256": "15FD0F6F77FAAC80FE5702A3F0F0014E4C5B2FA20AA0722B2FF54DF54B7EF36A",
+      "sha256": "89F48C129A9CB9AD043EE1ECD84ABB7F22F95FE09F89A3ED77EA1F07167354C6",
       "file": "PrescribedExtinction.lean"
     }
   ],
   "foundationalMilestones": [
     {
-      "scope": "Actual scalar kernel local L1/L2 integrability and distributional dyadic test formula; Newton contact identified in NewtonContact",
-      "physicalContactCoefficientVerified": true,
+      "positiveFrequencyOutgoingContactIdentityVerified": true,
       "module": "PrescribedExtinction.GreenKernel",
-      "positiveFrequencyOutgoingContactIdentityVerified": true
+      "scope": "Actual scalar kernel local L1/L2 integrability and distributional dyadic test formula; Newton contact identified in NewtonContact",
+      "physicalContactCoefficientVerified": true
     },
     {
+      "module": "PrescribedExtinction.VolumePotential",
       "scope": "Actual convolution exists for every compact vector L2 current; finite local bound; locally integrable potential; distributional volume formula and additivity",
-      "boundedDyadicL2OperatorVerified": true,
-      "module": "PrescribedExtinction.VolumePotential"
+      "boundedDyadicL2OperatorVerified": true
     },
     {
-      "scope": "Explicit static Fourier multiplier is an L2 contraction and has zero imaginary quadratic form; physical identity proved in NewtonStaticIdentification",
       "module": "PrescribedExtinction.StaticFourier",
+      "scope": "Explicit static Fourier multiplier is an L2 contraction and has zero imaginary quadratic form; physical identity proved in NewtonStaticIdentification",
       "identificationWithNewtonVolumePotentialVerified": true
     },
     {
-      "scope": "Actual Newton and outgoing radial derivatives and classical Hessian away from origin; Newton distributional contact identified in NewtonContact",
-      "physicalContactCoefficientVerified": true,
+      "positiveFrequencyOutgoingContactIdentityVerified": true,
       "module": "PrescribedExtinction.OutgoingRadial",
-      "positiveFrequencyOutgoingContactIdentityVerified": true
+      "scope": "Actual Newton and outgoing radial derivatives and classical Hessian away from origin; Newton distributional contact identified in NewtonContact",
+      "physicalContactCoefficientVerified": true
     },
     {
+      "module": "PrescribedExtinction.RemainderConvolution",
       "scope": "Actual classical dyadic dynamic-minus-static cancellation; explicit inverse-distance norm estimate; cutoff L2 kernel; actual convolution, compact-domain L2 bound, ae invariance and complex linearity",
       "fullPhysicalDyadicOperatorVerified": true,
-      "module": "PrescribedExtinction.RemainderConvolution",
       "identificationWithDistributionalDifferenceVerified": true
     },
     {
-      "scope": "Actual polar angular measure, orthogonal invariance, area 4pi and exact second moments",
+      "actualSphereMomentsVerified": true,
       "module": "PrescribedExtinction.SphereMoments",
-      "actualSphereMomentsVerified": true
+      "scope": "Actual polar angular measure, orthogonal invariance, area 4pi and exact second moments"
     },
     {
-      "scope": "Actual angular contact boundary tends to minus delta_ij phi(0)/3; derivative boundary tends to zero; connected to punctured integral in NewtonPunctured",
       "module": "PrescribedExtinction.NewtonBoundary",
+      "scope": "Actual angular contact boundary tends to minus delta_ij phi(0)/3; derivative boundary tends to zero; connected to punctured integral in NewtonPunctured",
       "puncturedIntegrationByPartsVerified": true
     },
     {
-      "scope": "Actual spherical principal value converges for every original test function; compensated integral and every positive-radius truncated integral are proved integrable; bundled in NewtonContact",
       "fullDistributionalHessianIdentityVerified": true,
-      "module": "PrescribedExtinction.NewtonPrincipalValue"
+      "module": "PrescribedExtinction.NewtonPrincipalValue",
+      "scope": "Actual spherical principal value converges for every original test function; compensated integral and every positive-radius truncated integral are proved integrable; bundled in NewtonContact"
     },
     {
+      "module": "PrescribedExtinction.NewtonCutoffIBP",
       "scope": "Actual smooth radial cutoff, exact derivative mass and whole-space Newton/gradient integration by parts for original test functions",
-      "cutoffIntegrationByPartsVerified": true,
-      "module": "PrescribedExtinction.NewtonCutoffIBP"
+      "cutoffIntegrationByPartsVerified": true
     },
     {
+      "module": "PrescribedExtinction.NewtonShell",
       "scope": "Actual exterior cutoff convergence, integrable polar conversion, radial shell rescaling and normalized shell limit",
-      "radialShellLimitVerified": true,
-      "module": "PrescribedExtinction.NewtonShell"
+      "radialShellLimitVerified": true
     },
     {
-      "scope": "Exact finite-radius punctured double integration by parts, inward-normal signs and vanishing outer boundaries; full Newton Hessian principal-value/contact identity; actual integral-valued principal value is a continuous distribution",
       "fullDistributionalHessianIdentityVerified": true,
       "module": "PrescribedExtinction.NewtonContact",
+      "scope": "Exact finite-radius punctured double integration by parts, inward-normal signs and vanishing outer boundaries; full Newton Hessian principal-value/contact identity; actual integral-valued principal value is a continuous distribution",
       "staticFourierIdentificationVerified": true
     },
     {
-      "scope": "Actual scalar Newton and full contact Hessian Fourier correspondence on all Schwartz tests; both heat interchanges absolutely integrable; zero-frequency handled globally",
       "module": "PrescribedExtinction.NewtonTransform",
+      "scope": "Actual scalar Newton and full contact Hessian Fourier correspondence on all Schwartz tests; both heat interchanges absolutely integrable; zero-frequency handled globally",
       "kernelFourierCorrespondenceVerified": true
     },
     {
-      "scope": "Actual original Newton volume distribution equals staticFourierOperator on every compactly supported vector L2 current; genuine current/test Fubini, smooth correlation, Fourier L1-L2 compatibility, and bounded physical L2 realization",
+      "compactCurrentConvolutionIdentificationVerified": true,
       "physicalStaticOperatorVerified": true,
       "module": "PrescribedExtinction.NewtonStaticIdentification",
-      "compactCurrentConvolutionIdentificationVerified": true
+      "scope": "Actual original Newton volume distribution equals staticFourierOperator on every compactly supported vector L2 current; genuine current/test Fubini, smooth correlation, Fourier L1-L2 compatibility, and bounded physical L2 realization"
     }
   ],
   "unverifiedDependencies": [],

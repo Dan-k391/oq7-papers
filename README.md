@@ -1,24 +1,32 @@
-# OQ7 physical prescribed extinction — verification in progress
+# OQ7 physical Theorem 1.1 — complete kernel proof
 
-The preserved existence declaration is `OQ7Prescribed.theorem11 : Theorem11Statement`. Claude's independent audit of commit `5a8350d5408c38e333c9f6b6d8a94816c794120b` confirms its kernel validity and identifies obligations omitted from the earlier completion claim. The audit is preserved in verification/claude-independent-audit-5a8350d.md. Full physical verification remains pending.
+The complete declaration is `OQ7Prescribed.theorem11_complete : PhysicalTheorem11Statement` in PrescribedExtinction/PhysicalTheorem11.lean:31. Its first conjunct is the unchanged original existence statement, proved by the preserved `theorem11`. It also proves both exact prescribed-extinction suprema and certifies the original Maxwell and power interpretation. The original existence core alone did not contain the full manuscript conclusion; Claude's independent baseline audit is preserved in verification/claude-independent-audit-5a8350d.md.
 
-The continuation proves universal passivity directly for every original outgoing weak Maxwell state: `scatteringState_absorption_le_extinction`. Admissibility gives nonnegative absorption; positive extinction gives strictly positive absorption. The proof derives compact weak integration by parts through actual Fourier curl symbols and Plancherel, then a weak cutoff Poynting identity and the full uniform Silver–Muller radiation condition. It assumes no volume equation or physical power identity.
+| Requested result | Exact declarations | Source |
+| --- | --- | --- |
+| Universal passivity and Gamma <= 1 | scatteringState_absorption_le_extinction; universal_physical_asymmetry_le_one | UniversalPassivity.lean:117; UniversalPhysicalBounds.lean:38 |
+| Outgoing weak uniqueness and converse volume representation | physicalScatteringState_unique_ae; physicalScatteringState_wellposed_ae; scatteringState_converse_material_volume_equation | WeakPhysicalUniqueness.lean:40; WeakPhysicalRepresentation.lean:27 |
+| Full optical theorem and X=A+S, with actual all-angle radiation | scatteringState_full_optical_theorem; scatteringState_energy_balance; scatteringState_scattering_is_physical_flux | FullPhysicalOpticalTheorem.lean:28; ArbitraryStateOpticalBalance.lean:39; ScatteringStatePhysicalRadiation.lean:83 |
+| Universal strict nonattainment at positive extinction | universal_physical_asymmetry_lt_one | UniversalPhysicalBounds.lean:24 |
+| Both full-class suprema and complete theorem | prescribedExtinction_full_supremum; theorem11_complete | FullPrescribedSuprema.lean:80; PhysicalTheorem11.lean:31 |
 
-`prescribedExtinction_full_supremum` proves both exact sharp values, `sSup prescribedExtinctionAsymmetryValues = 1` and `sSup prescribedExtinctionDifferenceValues = target`, and strict nonattainment for every member. `PrescribedExtinctionPair` ranges over all original admissible bodies and original weak states with both extinctions equal to the prescribed positive target. It is not restricted to the constructed family or volume-integral states. The lower bound uses the preserved existence proof; the upper bound uses universal weak passivity and strict material loss.
+Every declaration is in namespace OQ7Prescribed. The value sets range over all original admissible bodies and original weak scattering states at the prescribed common extinction, without a volume-equation or constructed-family restriction. Reciprocity proves common extinction for arbitrary opposite-incidence states. Both IsLUB results and nonempty value sets are proved before the sSup equalities.
 
-Outgoing weak-state uniqueness and converse volume representation are now proved. Remaining requested physical obligations are arbitrary-state X=A+S with S identified as actual all-angle outgoing radiation, and reciprocity/bounds for arbitrary opposite-incidence states without an explicit common-extinction hypothesis. A combined final declaration and frozen review repository are due after these are proved. No completion should be inferred from the existence-core certificate alone.
+Weak uniqueness is equality almost everywhere. The canonical exterior fields are proved to represent each weak solution; the original powers are invariant under that equality. The actual full-sphere Poynting integrals are proved genuinely integrable, with an explicit vanishing far-field error, and converge to the original scattering cross section. The original current far field is also identified uniformly over the whole sphere as the canonical electric radiation amplitude. No optical identity, converse, uniqueness, or passivity conclusion is assumed as a structure field or axiom.
 
-## Reproduction and evidence
+The final fresh project build passed 3601 jobs, the exact full theorem declaration/type check, and the exhaustive transitive axiom audit of all 5654 project constants. The only foundations used by the final theorem are propext, Classical.choice and Quot.sound. See verification/report.json and verification/final-complete-theorem.log for the current certificate. Separate obligation exports are in verification/milestones/. The empty-environment kernel replay and frozen review preparation are recorded separately; inspect verification/fresh-kernel-report.json when available.
 
-Pins: Lean 4.34.1, compiler commit `5045d0056413266e57c625dcd7c365b10e377c52`; Mathlib `d13f23b723b8a846827a245b89c10fc7d3f11612`. Configure without upgrading the pinned dependencies:
+## Reproduction
+
+Pins: Lean 4.34.1, compiler commit 5045d0056413266e57c625dcd7c365b10e377c52; Mathlib d13f23b723b8a846827a245b89c10fc7d3f11612. sources/pinned-lake-manifest.json preserves every transitive package revision. Configure build paths in a disposable checkout without changing Lean sources or upgrading pins:
 
 ```powershell
-./configure.ps1
+./configure.ps1 -PackagesDirectory 'C:/path/to/pinned/.lake/packages'
 ./verify.ps1 -LeanBin 'C:/path/to/lean-4.34.1-windows/bin' -Clean -BuildThreads 2
-./verify-milestones.ps1 -LeanBin 'C:/path/to/lean-4.34.1-windows/bin' -Only universal-weak-passivity,full-prescribed-suprema
+./verify-milestones.ps1 -LeanBin 'C:/path/to/lean-4.34.1-windows/bin' -Only obligation-1-universal-passivity,outgoing-weak-uniqueness,obligation-3-full-physical-optics,obligation-4-universal-nonattainment,obligation-5-complete-physical-theorem
+./verify-kernel.ps1 -LeanBin 'C:/path/to/lean-4.34.1-windows/bin'
 ```
 
-To reuse pinned packages, pass `-PackagesDirectory 'C:/path/to/.lake/packages'` to configure.ps1. `verification/report.json` records the exact current scope, source hashes, pinned dependency revisions and exhaustive transitive axiom audit. `verification/clean-build.log`, `verification/axioms.log`, and the selected milestone directories preserve build and declaration evidence. Standard foundations allowed are only `propext`, `Classical.choice`, and `Quot.sound`.
+configure.py provides the same path setup on other platforms, optionally with --packages-directory. The fresh replay command is `lake env leanchecker --fresh --verbose PrescribedExtinction`; it replays every constant in the aggregate's import closure into an empty environment, using the same Lean kernel implementation. This is distinct from an independently implemented kernel audit.
 
-Every original Lean leaf module from the audited commit is byte-preserved; the aggregate imports are only appended. Maxwell.lean retains the historical documented correction to all C-infinity compact tests and its exact guarded source hash. The manuscript and synced reference sources are unchanged. `RESUME.md` records the next analytic steps and safe continuation procedure.
-The next continuation adds `scatteringState_outgoing_volume_representation`, `scatteringState_converse_material_volume_equation`, `physicalScatteringState_unique_ae`, and `physicalScatteringState_wellposed_ae`. These apply to every original weak scattering state. A free outgoing weak pair is eliminated by the proved weighted vacuum energy and Lorentz identities against every compact smooth current. This checkpoint passed a fresh 3593-job clean build and exhaustive transitive audit of all 5603 project constants. Check the current report for the certified scope.
+All original Lean leaf modules from audited commit 5a8350d5408c38e333c9f6b6d8a94816c794120b are byte-preserved; aggregate imports are appended only. Maxwell.lean retains its historical smooth-test annotation correction and stale comments so the guarded source stays unchanged. The manuscript and read-only sources are preserved. The verifier guards these hashes, rejects prohibited proof mechanisms, and checks pinned dependency sources are clean. RESUME.md records session state. verification/INDEPENDENT_REVIEW_PROMPT.md supplies the next independent audit prompt.

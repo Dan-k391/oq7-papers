@@ -1,0 +1,34 @@
+OQ7Prescribed.scatteringState_absorption_nonneg : ∀ (k : ℝ),
+  0 ≤ k →
+    ∀ (P Q : ℝ) (B : OQ7Prescribed.TwoLayerBody),
+      B.admissible P Q →
+        ∀ (σ : OQ7Prescribed.Direction) (s : OQ7Prescribed.ScatteringState k B σ),
+          0 ≤ OQ7Prescribed.absorption k B s.electric
+'OQ7Prescribed.scatteringState_absorption_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.scatteringState_absorption_le_extinction : ∀ (k : ℝ) (B : OQ7Prescribed.TwoLayerBody)
+  (σ : OQ7Prescribed.Direction) (s : OQ7Prescribed.ScatteringState k B σ),
+  OQ7Prescribed.absorption k B s.electric ≤ OQ7Prescribed.extinction k B σ s.electric
+'OQ7Prescribed.scatteringState_absorption_le_extinction' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.scatteringState_extinction_nonneg : ∀ (k : ℝ),
+  0 ≤ k →
+    ∀ (P Q : ℝ) (B : OQ7Prescribed.TwoLayerBody),
+      B.admissible P Q →
+        ∀ (σ : OQ7Prescribed.Direction) (s : OQ7Prescribed.ScatteringState k B σ),
+          0 ≤ OQ7Prescribed.extinction k B σ s.electric
+'OQ7Prescribed.scatteringState_extinction_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.universal_physical_asymmetry_nonneg : ∀ (k : ℝ),
+  0 < k →
+    ∀ (P Q : ℝ) (B : OQ7Prescribed.TwoLayerBody),
+      B.admissible P Q →
+        ∀ (sp : OQ7Prescribed.ScatteringState k B OQ7Prescribed.Direction.plus)
+          (sm : OQ7Prescribed.ScatteringState k B OQ7Prescribed.Direction.minus),
+          0 ≤ OQ7Prescribed.normalizedAsymmetry k B sp.electric sm.electric
+'OQ7Prescribed.universal_physical_asymmetry_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.universal_physical_asymmetry_le_one : ∀ (k : ℝ),
+  0 < k →
+    ∀ (P Q : ℝ) (B : OQ7Prescribed.TwoLayerBody),
+      B.admissible P Q →
+        ∀ (sp : OQ7Prescribed.ScatteringState k B OQ7Prescribed.Direction.plus)
+          (sm : OQ7Prescribed.ScatteringState k B OQ7Prescribed.Direction.minus),
+          OQ7Prescribed.normalizedAsymmetry k B sp.electric sm.electric ≤ 1
+'OQ7Prescribed.universal_physical_asymmetry_le_one' depends on axioms: [propext, Classical.choice, Quot.sound]

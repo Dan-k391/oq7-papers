@@ -93,13 +93,18 @@ run_cmd do
         }
     }
     $oq7Statements = @('import PrescribedExtinction','', '#print OQ7Prescribed.Theorem11Statement',
-        '#print axioms OQ7Prescribed.Theorem11Statement', '') + @($oq7NewTheorems | ForEach-Object { '#check @' + $_ })
+        '#print axioms OQ7Prescribed.Theorem11Statement', '#print OQ7Prescribed.PhysicalTheorem11Statement',
+        '#print OQ7Prescribed.FullPhysicalOpticalStatement', '') + @($oq7NewTheorems | ForEach-Object { '#check @' + $_ })
     $oq7Statements | Set-Content -LiteralPath 'verification/Statements.lean' -Encoding utf8
     & lake env lean verification/Statements.lean 2>&1 | Set-Content -LiteralPath 'verification/statements.log' -Encoding utf8
     if ($LASTEXITCODE -ne 0) { throw 'Statement export failed.' }
     & lake env lean verification/FinalTheorem.lean 2>&1 | Set-Content -LiteralPath 'verification/final-theorem.log' -Encoding utf8
     if ($LASTEXITCODE -ne 0 -or (Get-Content -LiteralPath 'verification/final-theorem.log' -Raw) -notmatch 'VERIFIED-FINAL-THEOREM:') {
         throw 'Exact final proof declaration/type/transitive axiom check failed.'
+    }
+    & lake env lean verification/FinalCompleteTheorem.lean 2>&1 | Set-Content -LiteralPath 'verification/final-complete-theorem.log' -Encoding utf8
+    if ($LASTEXITCODE -ne 0 -or (Get-Content -LiteralPath 'verification/final-complete-theorem.log' -Raw) -notmatch 'VERIFIED-COMPLETE-PHYSICAL-THEOREM11:') {
+        throw 'Exact complete physical proof declaration/type/transitive axiom check failed.'
     }
     $oq7Pins = Get-Content -LiteralPath 'lake-manifest.json' -Raw | ConvertFrom-Json
     $oq7Dependencies = @()
@@ -531,8 +536,19 @@ run_cmd do
         'OQ7Prescribed.scatteringState_outgoing_volume_representation',
         'OQ7Prescribed.scatteringState_converse_material_volume_equation',
         'OQ7Prescribed.physicalScatteringState_unique_ae',
-        'OQ7Prescribed.physicalScatteringState_wellposed_ae')) {
-        if ($oq7Required -notin $oq7NewKernelTheorems) { throw "Missing universal passivity/supremum obligation: $oq7Required" }
+        'OQ7Prescribed.physicalScatteringState_wellposed_ae',
+        'OQ7Prescribed.scatteringState_energy_balance',
+        'OQ7Prescribed.scatteringState_extinction_reciprocity',
+        'OQ7Prescribed.exteriorSphereFlux_integrable',
+        'OQ7Prescribed.exteriorSphereFlux_tendsto',
+        'OQ7Prescribed.scatteringState_currentFarField_is_physical',
+        'OQ7Prescribed.scatteringState_scattering_is_physical_flux',
+        'OQ7Prescribed.scatteringState_full_optical_theorem',
+        'OQ7Prescribed.universal_physical_asymmetry_le_one',
+        'OQ7Prescribed.universal_physical_asymmetry_lt_one',
+        'OQ7Prescribed.universal_physical_asymmetry_eq_scattering_difference',
+        'OQ7Prescribed.theorem11_complete')) {
+        if ($oq7Required -notin $oq7NewKernelTheorems) { throw "Missing complete physical obligation: $oq7Required" }
     }
     if ('OQ7Prescribed.scatteringStateOfVolumeEquation' -notin $oq7Constants) {
         throw 'Missing proved physical volume-equation scattering-state constructor.'
@@ -562,9 +578,9 @@ run_cmd do
     }
     if (-not $oq7SameCleanSources) { throw 'Final certification requires a clean build of identical Lean sources. Run verify.ps1 -Clean.' }
     [ordered]@{
-        status = 'EXISTENCE_CORE_VERIFIED_COMPLETE_PHYSICAL_THEOREM_PENDING'
+        status = 'COMPLETE_PHYSICAL_THEOREM11_VERIFIED'
         buildRuntimeThreads = $BuildThreads
-        completePhysicalTheorem11Verified = $false
+        completePhysicalTheorem11Verified = $true
         auditedBaselineCommit = '5a8350d5408c38e333c9f6b6d8a94816c794120b'
         auditedExistenceCoreSourcesPreserved = $true
         universalForwardOpticalWorkIdentityVerified = $true
@@ -588,15 +604,25 @@ run_cmd do
         arbitraryAdmissibleOutgoingWeakScatteringStateUniquenessAEVerified = $true
         arbitraryAdmissibleOutgoingWeakScatteringStateWellposedAEVerified = $true
         weakScatteringUniquenessDeclaration = 'OQ7Prescribed.physicalScatteringState_unique_ae'
+        arbitraryStateOriginalEnergyBalanceVerified = $true
+        arbitraryStateOriginalExtinctionReciprocityVerified = $true
+        actualAllAnglePhysicalSphereFluxIntegrabilityAndLimitVerified = $true
+        originalCurrentFarFieldActualCanonicalRadiationAmplitudeVerified = $true
+        fullPhysicalOpticalTheoremForArbitraryStatesVerified = $true
+        universalPhysicalAsymmetryUpperBoundWithoutCommonExtinctionAssumptionVerified = $true
+        universalPhysicalStrictNonattainmentWithoutCommonExtinctionAssumptionVerified = $true
+        originalAbsorptionAndScatteringAsymmetriesIdenticalVerified = $true
+        weakFieldUniquenessScope = 'Equality almost everywhere; the canonical exterior representative determines actual sphere flux'
+        fullPhysicalOpticalDeclaration = 'OQ7Prescribed.scatteringState_full_optical_theorem'
         theorem11Verified = $true
-        finalTheoremDeclaration = 'OQ7Prescribed.theorem11'
+        preservedExistenceCoreDeclaration = 'OQ7Prescribed.theorem11'
+        finalTheoremDeclaration = 'OQ7Prescribed.theorem11_complete'
         finalTheoremIsKernelProofDeclaration = $true
         finalTheoremExactTypeAndTransitiveAxiomsVerified = $true
-        finalTheoremVerificationLog = 'verification/final-theorem.log'
-        remainingTheorem11Obligations = @('Arbitrary-state physical all-angle flux and X = A + S',
-            'Reciprocity and normalized asymmetry bounds for arbitrary opposite-incidence states without an explicit common-extinction hypothesis',
-            'Combined complete physical theorem declaration and frozen review repository')
-        targetProposition = 'OQ7Prescribed.Theorem11Statement'
+        finalTheoremVerificationLog = 'verification/final-complete-theorem.log'
+        remainingTheorem11Obligations = @()
+        targetProposition = 'OQ7Prescribed.PhysicalTheorem11Statement'
+        completePhysicalTargetSourceSHA256 = (Get-FileHash -LiteralPath 'PrescribedExtinction/PhysicalTheorem11.lean' -Algorithm SHA256).Hash
         targetIsAProof = $false
         existingPhysicalTargetSourceUnchanged = $false
         physicalTargetOnlySmoothTestAnnotationChanged = $true
@@ -771,5 +797,5 @@ run_cmd do
         unverifiedDependencies = @()
         additionalResultsOutsideTheorem11NotProved = @()
     } | ConvertTo-Json -Depth 12 | Set-Content -LiteralPath 'verification/report.json' -Encoding utf8
-    Write-Output 'VERIFIED MILESTONES: preserved existence core, universal weak passivity, both entire fixed-common-extinction suprema, arbitrary weak-state converse volume representation and Maxwell uniqueness passed identical-source clean build and all-project transitive axiom audit. Complete physical verification remains pending.'
+    Write-Output 'COMPLETE PHYSICAL THEOREM 1.1 VERIFIED: theorem11_complete has exactly PhysicalTheorem11Statement; preserved existence core, universal passivity/bounds/nonattainment, both suprema, arbitrary weak Maxwell well-posedness/converse, and full physical optical theorem passed identical-source clean build and all-project transitive axiom audit.'
 } finally { Pop-Location }

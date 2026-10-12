@@ -1,0 +1,12 @@
+import PrescribedExtinction.PhysicalTheorem11
+
+#check @OQ7Prescribed.scatteringState_absorption_nonneg
+#print axioms OQ7Prescribed.scatteringState_absorption_nonneg
+#check @OQ7Prescribed.scatteringState_absorption_le_extinction
+#print axioms OQ7Prescribed.scatteringState_absorption_le_extinction
+#check @OQ7Prescribed.scatteringState_extinction_nonneg
+#print axioms OQ7Prescribed.scatteringState_extinction_nonneg
+#check @OQ7Prescribed.universal_physical_asymmetry_nonneg
+#print axioms OQ7Prescribed.universal_physical_asymmetry_nonneg
+#check @OQ7Prescribed.universal_physical_asymmetry_le_one
+#print axioms OQ7Prescribed.universal_physical_asymmetry_le_one

@@ -89,7 +89,11 @@ try {
         @{ name = 'prescribed-extinction-class-lower'; module = 'PrescribedExtinction.PrescribedExtinctionClass' },
         @{ name = 'universal-weak-passivity'; module = 'PrescribedExtinction.UniversalPassivity' },
         @{ name = 'full-prescribed-suprema'; module = 'PrescribedExtinction.FullPrescribedSuprema' },
-        @{ name = 'outgoing-weak-uniqueness'; module = 'PrescribedExtinction.WeakPhysicalUniqueness' }
+        @{ name = 'outgoing-weak-uniqueness'; module = 'PrescribedExtinction.WeakPhysicalUniqueness' },
+        @{ name = 'obligation-1-universal-passivity'; module = 'PrescribedExtinction.UniversalPhysicalBounds' },
+        @{ name = 'obligation-3-full-physical-optics'; module = 'PrescribedExtinction.FullPhysicalOpticalTheorem' },
+        @{ name = 'obligation-4-universal-nonattainment'; module = 'PrescribedExtinction.UniversalPhysicalBounds' },
+        @{ name = 'obligation-5-complete-physical-theorem'; module = 'PrescribedExtinction.PhysicalTheorem11' }
     )
     if ($Only) {
         foreach ($oq7Name in $Only) {

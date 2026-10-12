@@ -1,0 +1,18 @@
+import PrescribedExtinction.PhysicalTheorem11
+
+#check @OQ7Prescribed.prescribedExtinctionAsymmetryValues_nonempty
+#print axioms OQ7Prescribed.prescribedExtinctionAsymmetryValues_nonempty
+#check @OQ7Prescribed.prescribedExtinctionDifferenceValues_nonempty
+#print axioms OQ7Prescribed.prescribedExtinctionDifferenceValues_nonempty
+#check @OQ7Prescribed.prescribedExtinctionAsymmetryValues_isLUB
+#print axioms OQ7Prescribed.prescribedExtinctionAsymmetryValues_isLUB
+#check @OQ7Prescribed.prescribedExtinctionDifferenceValues_isLUB
+#print axioms OQ7Prescribed.prescribedExtinctionDifferenceValues_isLUB
+#check @OQ7Prescribed.prescribedExtinctionAsymmetryValues_sSup
+#print axioms OQ7Prescribed.prescribedExtinctionAsymmetryValues_sSup
+#check @OQ7Prescribed.prescribedExtinctionDifferenceValues_sSup
+#print axioms OQ7Prescribed.prescribedExtinctionDifferenceValues_sSup
+#check @OQ7Prescribed.prescribedExtinction_full_supremum
+#print axioms OQ7Prescribed.prescribedExtinction_full_supremum
+#check @OQ7Prescribed.theorem11_complete
+#print axioms OQ7Prescribed.theorem11_complete

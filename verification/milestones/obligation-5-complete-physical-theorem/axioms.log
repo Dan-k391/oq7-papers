@@ -1,0 +1,30 @@
+OQ7Prescribed.prescribedExtinctionAsymmetryValues_nonempty : ∀ (k P Q target : ℝ),
+  0 < k → 1 < P → 0 < Q → 0 < target → (OQ7Prescribed.prescribedExtinctionAsymmetryValues k P Q target).Nonempty
+'OQ7Prescribed.prescribedExtinctionAsymmetryValues_nonempty' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.prescribedExtinctionDifferenceValues_nonempty : ∀ (k P Q target : ℝ),
+  0 < k → 1 < P → 0 < Q → 0 < target → (OQ7Prescribed.prescribedExtinctionDifferenceValues k P Q target).Nonempty
+'OQ7Prescribed.prescribedExtinctionDifferenceValues_nonempty' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.prescribedExtinctionAsymmetryValues_isLUB : ∀ (k P Q target : ℝ),
+  0 < k → 1 < P → 0 < Q → 0 < target → IsLUB (OQ7Prescribed.prescribedExtinctionAsymmetryValues k P Q target) 1
+'OQ7Prescribed.prescribedExtinctionAsymmetryValues_isLUB' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.prescribedExtinctionDifferenceValues_isLUB : ∀ (k P Q target : ℝ),
+  0 < k → 1 < P → 0 < Q → 0 < target → IsLUB (OQ7Prescribed.prescribedExtinctionDifferenceValues k P Q target) target
+'OQ7Prescribed.prescribedExtinctionDifferenceValues_isLUB' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.prescribedExtinctionAsymmetryValues_sSup : ∀ (k P Q target : ℝ),
+  0 < k → 1 < P → 0 < Q → 0 < target → sSup (OQ7Prescribed.prescribedExtinctionAsymmetryValues k P Q target) = 1
+'OQ7Prescribed.prescribedExtinctionAsymmetryValues_sSup' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.prescribedExtinctionDifferenceValues_sSup : ∀ (k P Q target : ℝ),
+  0 < k → 1 < P → 0 < Q → 0 < target → sSup (OQ7Prescribed.prescribedExtinctionDifferenceValues k P Q target) = target
+'OQ7Prescribed.prescribedExtinctionDifferenceValues_sSup' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.prescribedExtinction_full_supremum : ∀ (k P Q target : ℝ),
+  0 < k →
+    1 < P →
+      0 < Q →
+        0 < target →
+          sSup (OQ7Prescribed.prescribedExtinctionAsymmetryValues k P Q target) = 1 ∧
+            sSup (OQ7Prescribed.prescribedExtinctionDifferenceValues k P Q target) = target ∧
+              ∀ (s : OQ7Prescribed.PrescribedExtinctionPair k P Q target),
+                s.asymmetry < 1 ∧ s.absorptionDifference < target
+'OQ7Prescribed.prescribedExtinction_full_supremum' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.theorem11_complete : OQ7Prescribed.PhysicalTheorem11Statement
+'OQ7Prescribed.theorem11_complete' depends on axioms: [propext, Classical.choice, Quot.sound]

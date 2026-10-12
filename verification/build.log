@@ -1,4 +1,4 @@
-ℹ [2689/2699] Built OQ7.TwoPort (6.5s)
+ℹ [2689/2699] Built OQ7.TwoPort (6.4s)
 info: OQ7/TwoPort.lean:85:0: 'OQ7.absorptionMatrix_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/TwoPort.lean:86:0: 'OQ7.absorptance_difference' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/TwoPort.lean:87:0: 'OQ7.absorptance_coordinates' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -30,7 +30,7 @@ info: OQ7/Layers.lean:138:0: 'OQ7.stackTransfer_det' depends on axioms: [propext
 info: OQ7/Layers.lean:139:0: 'OQ7.totalThickness_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/Layers.lean:140:0: 'OQ7.integratedLoss_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/Layers.lean:141:0: 'OQ7.integratedLoss_le_cap_mul_thickness' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [2693/2703] Built OQ7.Transfer (6.8s)
+ℹ [2693/2703] Built OQ7.Transfer (6.9s)
 info: OQ7/Transfer.lean:257:0: 'OQ7.waveBasisInv_mul_waveBasis' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/Transfer.lean:258:0: 'OQ7.waveBasis_mul_waveBasisInv' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/Transfer.lean:259:0: 'OQ7.waveTransfer_det' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -55,7 +55,7 @@ info: OQ7/Transfer.lean:277:0: 'OQ7.absorption_fluxDefect_ratio' depends on axio
 info: OQ7/Transfer.lean:278:0: 'OQ7.transfer_absorption_fluxDefect_ratio' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/Transfer.lean:279:0: 'OQ7.coated_fluxDefect' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/Transfer.lean:280:0: 'OQ7.coated_fluxDefect_det' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [2696/2703] Built OQ7.Passivity (6.5s)
+ℹ [2696/2703] Built OQ7.Passivity (6.6s)
 info: OQ7/Passivity.lean:149:0: 'OQ7.passive_absorptances_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/Passivity.lean:150:0: 'OQ7.passive_det_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/Passivity.lean:151:0: 'OQ7.reflection_coordinates' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -66,8 +66,8 @@ info: OQ7/Passivity.lean:155:0: 'OQ7.absorption_det_le_envelope' depends on axio
 info: OQ7/Passivity.lean:156:0: 'OQ7.responseAsymmetry_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/Passivity.lean:157:0: 'OQ7.active_matrix_deficit' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/Passivity.lean:158:0: 'OQ7.active_matrix_strict_gap' depends on axioms: [propext, Classical.choice, Quot.sound]
-✔ [2697/2714] Built OQ7.Target (6.0s)
-ℹ [2719/2726] Built OQ7.Scattering (6.5s)
+✔ [2697/2725] Built OQ7.Target (6.0s)
+ℹ [2719/2726] Built OQ7.Scattering (6.6s)
 info: OQ7/Scattering.lean:97:0: 'OQ7.waveBasis_fluxForm' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/Scattering.lean:98:0: 'OQ7.waveBasis_fluxDefect' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/Scattering.lean:99:0: 'OQ7.waveFluxDefect_11' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -100,7 +100,7 @@ info: OQ7/Fields.lean:148:0: 'OQ7.layerElectricField_helmholtz' depends on axiom
 info: OQ7/Fields.lean:149:0: 'OQ7.layerField_transfer_boundary' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/Fields.lean:150:0: 'OQ7.directedFlux_derivative_algebra' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/Fields.lean:151:0: 'OQ7.layerDirectedFlux_hasDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
-⚠ [2741/2796] Built OQ7.ResourceScalar (7.3s)
+⚠ [2741/2858] Built OQ7.ResourceScalar (7.4s)
 warning: OQ7/ResourceScalar.lean:153:45: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
@@ -212,14 +212,14 @@ info: OQ7/PhysicalGlobal.lean:423:0: 'OQ7.stackRealProfile_measurable' depends o
 info: OQ7/PhysicalGlobal.lean:424:0: 'OQ7.stackLossProfile_integrableOn' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/PhysicalGlobal.lean:425:0: 'OQ7.stackLossProfile_intervalIntegrable' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/PhysicalGlobal.lean:426:0: 'OQ7.stackLossProfile_integral' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [2936/2943] Built OQ7.StrictLoss (6.4s)
+ℹ [2936/2943] Built OQ7.StrictLoss (6.5s)
 info: OQ7/StrictLoss.lean:162:0: 'OQ7.layerDirectedFlux_strict' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/StrictLoss.lean:163:0: 'OQ7.layerTransfer_fluxDefect_posDef' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/StrictLoss.lean:164:0: 'OQ7.stackTransfer_fluxDefect_posDef' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/StrictLoss.lean:165:0: 'OQ7.stack_absorption_posDef' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/StrictLoss.lean:166:0: 'OQ7.stack_absorption_det_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/StrictLoss.lean:167:0: 'OQ7.exactTargetClass_strict_gap' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [2940/3004] Built OQ7.TargetBounds (6.2s)
+ℹ [2940/3004] Built OQ7.TargetBounds (6.3s)
 info: OQ7/TargetBounds.lean:92:0: 'OQ7.exactTargetClass_deficit' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/TargetBounds.lean:93:0: 'OQ7.exactTargetClass_normalizedDet_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/TargetBounds.lean:94:0: 'OQ7.exactTargetClass_asymmetry_le' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -228,7 +228,7 @@ info: OQ7/TargetBounds.lean:96:0: 'OQ7.optimalAsymmetry_le' depends on axioms: [
 info: OQ7/TargetBounds.lean:97:0: 'OQ7.stackAsymmetry_le_optimal' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/TargetBounds.lean:98:0: 'OQ7.optimal_deficit_le_stack_deficit' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/TargetBounds.lean:99:0: 'OQ7.uniform_floor_optimal_deficit' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [2966/3004] Built OQ7.Gram (8.4s)
+ℹ [2966/3004] Built OQ7.Gram (8.5s)
 info: OQ7/Gram.lean:312:0: 'OQ7.mixedFlux_derivative_algebra' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/Gram.lean:313:0: 'OQ7.maxwellMixedFlux_hasDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/Gram.lean:314:0: 'OQ7.layerMixedFlux_hasDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -248,7 +248,7 @@ info: OQ7/Gram.lean:327:0: 'OQ7.gramPairKernel_swap' depends on axioms: [propext
 info: OQ7/Gram.lean:328:0: 'OQ7.gramPairKernel_diagonal' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/Gram.lean:329:0: 'OQ7.gramPairKernel_square_eq_twice_triangle' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/Gram.lean:330:0: 'OQ7.weightedGram_det_triangleIntegral' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [2967/3004] Built OQ7.ResourceAsymptotics (6.6s)
+ℹ [2967/3004] Built OQ7.ResourceAsymptotics (6.7s)
 info: OQ7/ResourceAsymptotics.lean:197:0: 'OQ7.ResourceFloor.cellCount_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/ResourceAsymptotics.lean:198:0: 'OQ7.ResourceFloor.cellCount_cast_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/ResourceAsymptotics.lean:199:0: 'OQ7.ResourceFloor.cellCount_eq_ceil' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -281,7 +281,7 @@ info: OQ7/DeterminantMinkowski.lean:113:0: 'OQ7.posSemidef_sqrt_det_aggregate' d
 info: OQ7/PhysicalClass.lean:50:0: 'OQ7.finitePhysicalStack_of_admissible' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/PhysicalClass.lean:51:0: 'OQ7.finitePhysicalStack_exists_caps' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/PhysicalClass.lean:52:0: 'OQ7.finitePhysicalStack_iff_exists_admissible' depends on axioms: [propext, Classical.choice, Quot.sound]
-⚠ [2970/3004] Built OQ7.ModulusComparison (6.8s)
+⚠ [2970/3004] Built OQ7.ModulusComparison (6.9s)
 warning: OQ7/ModulusComparison.lean:331:23: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
@@ -320,7 +320,7 @@ info: OQ7/ModulusComparison.lean:488:0: 'OQ7.ModulusComparison.helmholtz_sine_co
 info: OQ7/ModulusComparison.lean:489:0: 'OQ7.ModulusComparison.endpoint_le_of_le_Ioo' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/ModulusComparison.lean:490:0: 'OQ7.ModulusComparison.helmholtz_ne_zero_before' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/ModulusComparison.lean:491:0: 'OQ7.ModulusComparison.helmholtz_modulus_comparison' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [2971/3004] Built OQ7.PhysicalResourceDeficit (6.4s)
+ℹ [2971/3004] Built OQ7.PhysicalResourceDeficit (6.5s)
 info: OQ7/PhysicalResourceDeficit.lean:31:0: 'OQ7.exactTargetClass_normalizedDet_deficit' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/PhysicalResourceDeficit.lean:69:0: 'OQ7.exactTargetClass_asymmetry_bddAbove' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/PhysicalResourceDeficit.lean:70:0: 'OQ7.exactTargetClass_optimal_deficit_of_normalizedDet_floor' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -360,15 +360,7 @@ info: OQ7/CoreAlgebra.lean:174:0: 'OQ7.CoreConstruction.core_linear_determinant_
 info: OQ7/CoreAlgebra.lean:175:0: 'OQ7.CoreConstruction.linearizedCore_pow' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/CoreAlgebra.lean:176:0: 'OQ7.CoreConstruction.linearizedCore_reciprocal_pow' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/CoreAlgebra.lean:177:0: 'OQ7.CoreConstruction.linearizedCore_reciprocal_fullPower' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [2977/3009] Built OQ7.ProductRemainder (6.6s)
-info: OQ7/ProductRemainder.lean:72:0: 'OQ7.insertionError_zero' depends on axioms: [propext]
-info: OQ7/ProductRemainder.lean:111:0: 'OQ7.one_add_div_pow_le_exp' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/ProductRemainder.lean:112:0: 'OQ7.norm_insertionError_le_exp' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/ProductRemainder.lean:113:0: 'OQ7.norm_insertionError_quartic' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/ProductRemainder.lean:114:0: 'OQ7.insertionError_succ' depends on axioms: [propext]
-info: OQ7/ProductRemainder.lean:115:0: 'OQ7.norm_firstInsertion_le' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/ProductRemainder.lean:116:0: 'OQ7.norm_insertionError_le' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [2978/3009] Built OQ7.ScalarSign (7.0s)
+ℹ [2977/3009] Built OQ7.ScalarSign (6.4s)
 info: OQ7/ScalarSign.lean:108:0: 'OQ7.waveTransfer_smul' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/ScalarSign.lean:109:0: 'OQ7.transferReflectionLeft_smul' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/ScalarSign.lean:110:0: 'OQ7.transferReflectionRight_smul' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -384,12 +376,20 @@ info: OQ7/ScalarSign.lean:119:0: 'OQ7.unit_smul_fluxDefect' depends on axioms: [
 info: OQ7/ScalarSign.lean:120:0: 'OQ7.signPow_fluxDefect' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/ScalarSign.lean:121:0: 'OQ7.signPow_scattering' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/ScalarSign.lean:122:0: 'OQ7.signPow_targetPowers' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [2978/3009] Built OQ7.ProductRemainder (6.6s)
+info: OQ7/ProductRemainder.lean:72:0: 'OQ7.insertionError_zero' depends on axioms: [propext]
+info: OQ7/ProductRemainder.lean:111:0: 'OQ7.one_add_div_pow_le_exp' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/ProductRemainder.lean:112:0: 'OQ7.norm_insertionError_le_exp' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/ProductRemainder.lean:113:0: 'OQ7.norm_insertionError_quartic' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/ProductRemainder.lean:114:0: 'OQ7.insertionError_succ' depends on axioms: [propext]
+info: OQ7/ProductRemainder.lean:115:0: 'OQ7.norm_firstInsertion_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/ProductRemainder.lean:116:0: 'OQ7.norm_insertionError_le' depends on axioms: [propext, Classical.choice, Quot.sound]
 ℹ [2979/3009] Built OQ7.GramProperties (6.5s)
 info: OQ7/GramProperties.lean:71:0: 'OQ7.weightedGram_conjTranspose' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/GramProperties.lean:72:0: 'OQ7.weightedGram_quadraticDensity' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/GramProperties.lean:73:0: 'OQ7.weightedGram_quadratic' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/GramProperties.lean:74:0: 'OQ7.weightedGram_posSemidef' depends on axioms: [propext, Classical.choice, Quot.sound]
-⚠ [2980/3009] Built OQ7.PhysicalIntegrals (6.7s)
+⚠ [2980/3009] Built OQ7.PhysicalIntegrals (6.8s)
 warning: OQ7/PhysicalIntegrals.lean:49:33: `if_neg` has been deprecated: Use `ite_eq_right` instead
 info: OQ7/PhysicalIntegrals.lean:152:0: 'OQ7.stackWeightedField_integrableOn' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/PhysicalIntegrals.lean:153:0: 'OQ7.stackWeightedField_intervalIntegrable' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -399,13 +399,7 @@ info: OQ7/PhysicalIntegrals.lean:156:0: 'OQ7.stackWeightedField_integral_budget'
 info: OQ7/PhysicalIntegrals.lean:157:0: 'OQ7.layerTransfer_fieldState' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/PhysicalIntegrals.lean:158:0: 'OQ7.stackMixedFlux_integral' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/PhysicalIntegrals.lean:159:0: 'OQ7.stackFluxDefect_gram_entry' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [2981/3009] Built OQ7.ResourceUniform (5.8s)
-info: OQ7/ResourceUniform.lean:81:0: 'OQ7.resource_uniform_eventual_lower_of_floor' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/ResourceUniform.lean:82:0: 'OQ7.resourceAsymptoticCoefficient_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/ResourceUniform.lean:83:0: 'OQ7.resource_scaled_full_floor_eventually_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/ResourceUniform.lean:84:0: 'OQ7.resource_sequence_eventual_lower_of_floor' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/ResourceUniform.lean:85:0: 'OQ7.resource_sequence_liminf_lower_of_floor' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [2982/3009] Built OQ7.PhysicalGram (6.9s)
+ℹ [2981/3009] Built OQ7.PhysicalGram (6.8s)
 info: OQ7/PhysicalGram.lean:205:0: 'OQ7.stackScatteringElectric_as_field' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/PhysicalGram.lean:206:0: 'OQ7.stackScatteringMagnetic_as_field' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/PhysicalGram.lean:207:0: 'OQ7.stackScatteringElectric_hasDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -422,14 +416,20 @@ info: OQ7/PhysicalGram.lean:217:0: 'OQ7.stackScatteringWronskian' depends on axi
 info: OQ7/PhysicalGram.lean:218:0: 'OQ7.stackScatteringWedge' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/PhysicalGram.lean:219:0: 'OQ7.stackScatteringWedge_normSq' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/PhysicalGram.lean:220:0: 'OQ7.stackScatteringGramPairKernel' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [2983/3009] Built OQ7.ExpRemainder (6.5s)
+ℹ [2982/3009] Built OQ7.ResourceUniform (5.8s)
+info: OQ7/ResourceUniform.lean:81:0: 'OQ7.resource_uniform_eventual_lower_of_floor' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/ResourceUniform.lean:82:0: 'OQ7.resourceAsymptoticCoefficient_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/ResourceUniform.lean:83:0: 'OQ7.resource_scaled_full_floor_eventually_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/ResourceUniform.lean:84:0: 'OQ7.resource_sequence_eventual_lower_of_floor' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/ResourceUniform.lean:85:0: 'OQ7.resource_sequence_liminf_lower_of_floor' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [2983/3009] Built OQ7.ExpRemainder (6.6s)
 info: OQ7/ExpRemainder.lean:65:0: 'OQ7.factorial_product_le' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/ExpRemainder.lean:66:0: 'OQ7.real_exp_tail_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/ExpRemainder.lean:83:0: 'OQ7.norm_algebra_exp_le' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/ExpRemainder.lean:107:0: 'OQ7.algebra_exp_scaled_remainder_isBigO' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/ExpRemainder.lean:108:0: 'OQ7.norm_algebra_exp_scaled_remainder' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/ExpRemainder.lean:109:0: 'OQ7.norm_algebra_exp_remainder' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [2985/3009] Built OQ7.PhysicalCoatings (7.2s)
+ℹ [2985/3009] Built OQ7.PhysicalCoatings (7.3s)
 info: OQ7/PhysicalCoatings.lean:203:0: 'OQ7.coatingIndex₁_eq_checkpoint' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/PhysicalCoatings.lean:204:0: 'OQ7.coatingIndex₂_eq_checkpoint' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/PhysicalCoatings.lean:205:0: 'OQ7.losslessDiagonalScale_add' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -466,15 +466,15 @@ info: OQ7/PhysicalCore.lean:143:0: 'OQ7.CoreConstruction.physicalUnmatchedCore_a
 info: OQ7/PhysicalCore.lean:144:0: 'OQ7.CoreConstruction.physicalUnmatchedCore_eventually_admissible' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
-ℹ [2989/3043] Built OQ7.ConstructionBudget (6.2s)
+ℹ [2989/3009] Built OQ7.ConstructionBudget (6.3s)
 info: OQ7/ConstructionBudget.lean:60:0: 'OQ7.constructionShift_atTop' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/ConstructionBudget.lean:61:0: 'OQ7.constructionIndex_atTop' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/ConstructionBudget.lean:62:0: 'OQ7.constructionIndex_ratio' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/ConstructionBudget.lean:63:0: 'OQ7.constructionIndex_fits' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [2990/3043] Built OQ7.SelectedResource (6.3s)
+ℹ [2990/3009] Built OQ7.SelectedResource (6.3s)
 info: OQ7/SelectedResource.lean:40:0: 'OQ7.selectedResourceClass_of_admissible' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/SelectedResource.lean:41:0: 'OQ7.selectedResourceClass_of_exactTarget' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [2992/3043] Built OQ7.PhysicalAbsorption (6.8s)
+ℹ [2992/3043] Built OQ7.PhysicalAbsorption (6.9s)
 info: OQ7/PhysicalAbsorption.lean:205:0: 'OQ7.stackScatteringWeighted_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/PhysicalAbsorption.lean:206:0: 'OQ7.stackDepositedAbsorption_posSemidef' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/PhysicalAbsorption.lean:207:0: 'OQ7.stackAbsorption_eq_deposited' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -488,10 +488,10 @@ info: OQ7/PhysicalAbsorption.lean:214:0: 'OQ7.stackFundamentalPairKernel_integra
 info: OQ7/PhysicalAbsorption.lean:215:0: 'OQ7.stackAbsorption_physicalGramDeterminant' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/PhysicalAbsorption.lean:216:0: 'OQ7.stackAbsorption_physicalGramDeterminant_budget' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/PhysicalAbsorption.lean:217:0: 'OQ7.stackFluxDefect_physicalGramDeterminant_budget' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [2994/3043] Built OQ7.PhysicalModulus (6.9s)
+ℹ [2994/3043] Built OQ7.PhysicalModulus (7.0s)
 info: OQ7/PhysicalModulus.lean:77:0: 'OQ7.stackFundamentalSolution_modulus_comparison' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/PhysicalModulus.lean:90:0: 'OQ7.finitePhysicalStack_modulus_comparison' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [2996/3043] Built OQ7.CoreFactorization (6.6s)
+ℹ [2995/3043] Built OQ7.CoreFactorization (6.6s)
 info: OQ7/CoreFactorization.lean:87:0: 'OQ7.CoreConstruction.homogeneousTransfer_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/CoreFactorization.lean:88:0: 'OQ7.CoreConstruction.coreQuarterTransfer_realFormula' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/CoreFactorization.lean:89:0: 'OQ7.CoreConstruction.coreQuarterTransfer_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -510,40 +510,7 @@ info: OQ7/CellRemainder.lean:130:0: 'OQ7.triple_exp_remainder_of_tail_identity' 
 info: OQ7/CellRemainder.lean:131:0: 'OQ7.scalarPower_isBigO_of_le' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/CellRemainder.lean:132:0: 'OQ7.linear_remainder_isBigO_cubic_of_quartic' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/CellRemainder.lean:133:0: 'OQ7.isBigO_reciprocal_scale_norm_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [2998/3043] Built OQ7.SharpDeficit (6.6s)
-info: OQ7/SharpDeficit.lean:59:0: 'OQ7.ScalarEnvelope.sqrt_displacement_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/SharpDeficit.lean:60:0: 'OQ7.ScalarEnvelope.scaled_deficit_limit_of_phase' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [2999/3043] Built OQ7.CoreInsertion (7.6s)
-info: OQ7/CoreInsertion.lean:57:0: 'OQ7.CoreConstruction.linearizedCore_firstInsertion' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/CoreInsertion.lean:58:0: 'OQ7.CoreConstruction.sheetGenerator_coreK4_anticommutator' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/CoreInsertion.lean:59:0: 'OQ7.CoreConstruction.sheetGenerator_coreK4_sandwich' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/CoreInsertion.lean:60:0: 'OQ7.CoreConstruction.core_firstInsertion_reciprocal' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3000/3043] Built OQ7.CoreFluxPolynomial (6.0s)
-info: OQ7/CoreFluxPolynomial.lean:113:0: 'OQ7.CoreConstruction.limitingSheet_fluxDefect_polynomial' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/CoreFluxPolynomial.lean:114:0: 'OQ7.CoreConstruction.limitingSheet_fluxDeterminant_polynomial' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-info: OQ7/CoreFluxPolynomial.lean:115:0: 'OQ7.CoreConstruction.core_fluxDeterminant_polynomial' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/CoreFluxPolynomial.lean:116:0: 'OQ7.CoreConstruction.core_fluxDeterminant_real_polynomial' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/CoreFluxPolynomial.lean:117:0: 'OQ7.CoreConstruction.fluxDeterminantTail_continuous' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/CoreFluxPolynomial.lean:118:0: 'OQ7.CoreConstruction.scaled_fluxDefect_sub' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/CoreFluxPolynomial.lean:119:0: 'OQ7.CoreConstruction.limitingSheet_scaledFluxVariation_tendsto' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-info: OQ7/CoreFluxPolynomial.lean:120:0: 'OQ7.CoreConstruction.limitingSheet_scaledFluxDeterminant_tendsto' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-ℹ [3001/3043] Built OQ7.ScaledRemainder (5.5s)
-info: OQ7/ScaledRemainder.lean:73:0: 'OQ7.tendsto_scaled_quartic_remainder' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/ScaledRemainder.lean:74:0: 'OQ7.tendsto_of_scaled_square_difference' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/ScaledRemainder.lean:75:0: 'OQ7.isBigO_of_scaled_square_difference' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3003/3043] Built OQ7.MatrixNormBridge (6.1s)
-info: OQ7/MatrixNormBridge.lean:55:0: 'OQ7.matrixOperatorNorm_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/MatrixNormBridge.lean:56:0: 'OQ7.matrix_entry_norm_le_operator' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/MatrixNormBridge.lean:57:0: 'OQ7.matrix_elementwise_norm_le_operator' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/MatrixNormBridge.lean:58:0: 'OQ7.matrix_isBigO_of_operatorNorm' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/MatrixNormBridge.lean:59:0: 'OQ7.matrix_tendsto_of_operatorNorm' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3004/3043] Built OQ7.ResourcePartition (6.0s)
+ℹ [2998/3043] Built OQ7.ResourcePartition (7.1s)
 info: OQ7/ResourcePartition.lean:199:0: 'OQ7.resourceCellPoint_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/ResourcePartition.lean:200:0: 'OQ7.resourceCellPoint_end' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/ResourcePartition.lean:201:0: 'OQ7.resourceCellPoint_step' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -562,7 +529,40 @@ info: OQ7/ResourcePartition.lean:213:0: 'OQ7.resourceCell_subset_Ioo' depends on
 info: OQ7/ResourcePartition.lean:214:0: 'OQ7.resourceCellMass_bounds_Ioo' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/ResourcePartition.lean:215:0: 'OQ7.resourceCellU_bounds_Ioo' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/ResourcePartition.lean:216:0: 'OQ7.resourceMass_le_cap_Ioo' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3006/3043] Built OQ7.PhysicalExponential (6.6s)
+ℹ [2999/3043] Built OQ7.SharpDeficit (6.7s)
+info: OQ7/SharpDeficit.lean:59:0: 'OQ7.ScalarEnvelope.sqrt_displacement_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/SharpDeficit.lean:60:0: 'OQ7.ScalarEnvelope.scaled_deficit_limit_of_phase' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3000/3043] Built OQ7.CoreInsertion (7.7s)
+info: OQ7/CoreInsertion.lean:57:0: 'OQ7.CoreConstruction.linearizedCore_firstInsertion' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/CoreInsertion.lean:58:0: 'OQ7.CoreConstruction.sheetGenerator_coreK4_anticommutator' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/CoreInsertion.lean:59:0: 'OQ7.CoreConstruction.sheetGenerator_coreK4_sandwich' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/CoreInsertion.lean:60:0: 'OQ7.CoreConstruction.core_firstInsertion_reciprocal' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3001/3043] Built OQ7.ScaledRemainder (5.4s)
+info: OQ7/ScaledRemainder.lean:73:0: 'OQ7.tendsto_scaled_quartic_remainder' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/ScaledRemainder.lean:74:0: 'OQ7.tendsto_of_scaled_square_difference' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/ScaledRemainder.lean:75:0: 'OQ7.isBigO_of_scaled_square_difference' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3003/3043] Built OQ7.CoreFluxPolynomial (7.0s)
+info: OQ7/CoreFluxPolynomial.lean:113:0: 'OQ7.CoreConstruction.limitingSheet_fluxDefect_polynomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/CoreFluxPolynomial.lean:114:0: 'OQ7.CoreConstruction.limitingSheet_fluxDeterminant_polynomial' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: OQ7/CoreFluxPolynomial.lean:115:0: 'OQ7.CoreConstruction.core_fluxDeterminant_polynomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/CoreFluxPolynomial.lean:116:0: 'OQ7.CoreConstruction.core_fluxDeterminant_real_polynomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/CoreFluxPolynomial.lean:117:0: 'OQ7.CoreConstruction.fluxDeterminantTail_continuous' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/CoreFluxPolynomial.lean:118:0: 'OQ7.CoreConstruction.scaled_fluxDefect_sub' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/CoreFluxPolynomial.lean:119:0: 'OQ7.CoreConstruction.limitingSheet_scaledFluxVariation_tendsto' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: OQ7/CoreFluxPolynomial.lean:120:0: 'OQ7.CoreConstruction.limitingSheet_scaledFluxDeterminant_tendsto' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [3005/3043] Built OQ7.MatrixNormBridge (6.2s)
+info: OQ7/MatrixNormBridge.lean:55:0: 'OQ7.matrixOperatorNorm_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/MatrixNormBridge.lean:56:0: 'OQ7.matrix_entry_norm_le_operator' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/MatrixNormBridge.lean:57:0: 'OQ7.matrix_elementwise_norm_le_operator' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/MatrixNormBridge.lean:58:0: 'OQ7.matrix_isBigO_of_operatorNorm' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/MatrixNormBridge.lean:59:0: 'OQ7.matrix_tendsto_of_operatorNorm' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3006/3043] Built OQ7.PhysicalExponential (6.7s)
 info: OQ7/PhysicalExponential.lean:70:0: 'OQ7.homogeneousTransfer_hasDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/PhysicalExponential.lean:71:0: 'OQ7.homogeneousTransfer_eq_exp' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/PhysicalExponential.lean:72:0: 'OQ7.layerTransfer_eq_exp' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -570,7 +570,7 @@ info: OQ7/PhysicalExponential.lean:72:0: 'OQ7.layerTransfer_eq_exp' depends on a
 info: OQ7/CellNormBounds.lean:50:0: 'OQ7.norm_one_add_reciprocal_smul_le' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/CellNormBounds.lean:51:0: 'OQ7.norm_one_add_reciprocal_smul_add_le' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/CellNormBounds.lean:52:0: 'OQ7.reciprocalCell_insertionError_quartic_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3008/3043] Built OQ7.QuadraticRates (7.0s)
+ℹ [3008/3043] Built OQ7.QuadraticRates (7.1s)
 info: OQ7/QuadraticRates.lean:94:0: 'OQ7.reciprocal_square_norm_rate' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/QuadraticRates.lean:95:0: 'OQ7.reciprocal_square_scalar_rate' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/QuadraticRates.lean:96:0: 'OQ7.reciprocal_square_bound_of_isBigO' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -604,7 +604,7 @@ info: OQ7/CoreExponential.lean:74:0: 'OQ7.CoreConstruction.physicalUnmatchedCore
 info: OQ7/CoreExponential.lean:75:0: 'OQ7.CoreConstruction.physicalUnmatchedCore_fluxDefect_eq_dimensionless' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
-ℹ [3014/3043] Built OQ7.InsertionRemainder (6.2s)
+ℹ [3014/3043] Built OQ7.InsertionRemainder (6.3s)
 info: OQ7/InsertionRemainder.lean:45:0: 'OQ7.firstInsertion_add' depends on axioms: [propext]
 info: OQ7/InsertionRemainder.lean:46:0: 'OQ7.firstInsertion_sub' depends on axioms: [propext]
 info: OQ7/InsertionRemainder.lean:47:0: 'OQ7.norm_firstInsertion_quintic_reciprocal_le' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -674,7 +674,7 @@ info: OQ7/ResourceCells.lean:168:0: 'OQ7.cell_sqrt_det_lower_of_sineComparison' 
 ℹ [3020/3043] Built OQ7.FourierOpenCaps (6.9s)
 info: OQ7/FourierOpenCaps.lean:65:0: 'OQ7.capped_fourier_moment_Ioo' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/FourierOpenCaps.lean:66:0: 'OQ7.sineSquare_triangleIntegral_capped_Ioo' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3021/3043] Built OQ7.PhysicalCoreRemainder (6.7s)
+ℹ [3021/3043] Built OQ7.PhysicalCoreRemainder (6.8s)
 info: OQ7/PhysicalCoreRemainder.lean:110:0: 'OQ7.CoreConstruction.actual_repeatedCore_quartic_remainder_norm_bound' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
@@ -684,7 +684,7 @@ info: OQ7/PhysicalCoreRemainder.lean:111:0: 'OQ7.CoreConstruction.physicalUnmatc
 info: OQ7/PhysicalCoreRemainder.lean:112:0: 'OQ7.CoreConstruction.actual_repeatedCore_quadratic_convergence_norm_bound' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
-ℹ [3022/3043] Built OQ7.PhysicalCoatedCore (6.6s)
+ℹ [3022/3043] Built OQ7.PhysicalCoatedCore (6.5s)
 info: OQ7/PhysicalCoatedCore.lean:119:0: 'OQ7.CoreConstruction.physicalCoatedCore_transfer' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/PhysicalCoatedCore.lean:120:0: 'OQ7.CoreConstruction.physicalCoatedCore_loss' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/PhysicalCoatedCore.lean:121:0: 'OQ7.CoreConstruction.physicalCoatedCore_admissible' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -695,7 +695,7 @@ info: OQ7/PhysicalCoatedCore.lean:125:0: 'OQ7.CoreConstruction.coreCellLength_sc
 info: OQ7/PhysicalCoatedCore.lean:126:0: 'OQ7.CoreConstruction.physicalCoatedCore_eventually_dimensionless_thickness' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
-⚠ [3023/3043] Built OQ7.MatchingJacobian (6.0s)
+⚠ [3023/3043] Built OQ7.MatchingJacobian (6.9s)
 warning: OQ7/MatchingJacobian.lean:28:77: this tactic is never executed
 
 Note: This linter can be disabled with `set_option linter.unreachableTactic false`
@@ -789,7 +789,7 @@ info: OQ7/MatchingJacobian.lean:186:0: 'OQ7.logCoatedTransfer_sheet' depends on 
 info: OQ7/MatchingJacobian.lean:187:0: 'OQ7.matchingLogResponse_sheet' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/MatchingJacobian.lean:188:0: 'OQ7.matchingLogResponse_sheet_hasFDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/MatchingJacobian.lean:189:0: 'OQ7.matchingSheetLogJacobian_isInvertible' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3024/3043] Built OQ7.MatchingTarget (7.2s)
+ℹ [3024/3043] Built OQ7.MatchingTarget (7.1s)
 info: OQ7/MatchingTarget.lean:182:0: 'OQ7.smallSheetRoot_properties' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/MatchingTarget.lean:183:0: 'OQ7.active_target_s_lt_one' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/MatchingTarget.lean:184:0: 'OQ7.targetSheetV_gt_two' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -833,7 +833,7 @@ info: OQ7/ResourceCellsOpen.lean:185:0: 'OQ7.cell_sqrt_det_lower_finitePhysical_
 info: OQ7/MatchingImplicit.lean:77:0: 'OQ7.matchingLogResponse_sheet_coating_partial' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/MatchingImplicit.lean:78:0: 'OQ7.matching_implicit_sheet_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/MatchingImplicit.lean:79:0: 'OQ7.matching_implicit_sheet_sequence' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3029/3043] Built OQ7.SignedResponse (6.3s)
+ℹ [3029/3043] Built OQ7.SignedResponse (6.1s)
 info: OQ7/SignedResponse.lean:53:0: 'OQ7.halfAsymmetry_reflection_formula' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/SignedResponse.lean:54:0: 'OQ7.unit_smul_transferHalfAsymmetry' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/SignedResponse.lean:55:0: 'OQ7.signPow_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -841,12 +841,12 @@ info: OQ7/SignedResponse.lean:56:0: 'OQ7.signPow_unitPhase' depends on axioms: [
 info: OQ7/SignedResponse.lean:57:0: 'OQ7.signPow_transferUnitPhase' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/SignedResponse.lean:58:0: 'OQ7.unit_smul_responseAsymmetry' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/SignedResponse.lean:59:0: 'OQ7.signPow_transfer_det' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3030/3043] Built OQ7.MatchingOptimizer (9.1s)
+ℹ [3030/3043] Built OQ7.MatchingOptimizer (8.9s)
 info: OQ7/MatchingOptimizer.lean:93:0: 'OQ7.targetSheet_unitPhase' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/MatchingOptimizer.lean:94:0: 'OQ7.triangularMatchingTransfer_reflections_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/MatchingOptimizer.lean:95:0: 'OQ7.targetSheet_halfAsymmetry' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/MatchingOptimizer.lean:96:0: 'OQ7.targetSheet_unitPhase_contDiffAt' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3031/3043] Built OQ7.ResourceBounds (7.2s)
+ℹ [3031/3043] Built OQ7.ResourceBounds (7.0s)
 info: OQ7/ResourceBounds.lean:222:0: 'OQ7.physical_resource_cell_bounds_Ioo' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/ResourceBounds.lean:223:0: 'OQ7.physical_resource_half_lower_Ioo' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/ResourceBounds.lean:224:0: 'OQ7.physical_resource_full_lower_Ioo' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -863,7 +863,7 @@ info: OQ7/ResourceBounds.lean:233:0: 'OQ7.physical_resource_floor_of_cellBounds'
 info: OQ7/MatchingTargetImplicit.lean:62:0: 'OQ7.targetMatchingLogs_jacobian_conditions' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/MatchingTargetImplicit.lean:63:0: 'OQ7.exact_target_matching_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/MatchingTargetImplicit.lean:64:0: 'OQ7.exact_target_matching_sequence_operatorNorm' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3033/3043] Built OQ7.TransferSharpLimit (6.6s)
+ℹ [3033/3043] Built OQ7.TransferSharpLimit (6.5s)
 info: OQ7/TransferSharpLimit.lean:200:0: 'OQ7.matchingResponse_eq_physical' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/TransferSharpLimit.lean:201:0: 'OQ7.transfer_exact_targets' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/TransferSharpLimit.lean:202:0: 'OQ7.transferNormalizedDet_eq_fluxdet_re' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -874,23 +874,13 @@ info: OQ7/TransferSharpLimit.lean:206:0: 'OQ7.transfer_halfAsymmetry_quadratic_r
 info: OQ7/TransferSharpLimit.lean:207:0: 'OQ7.transfer_unitPhase_quadratic_rate' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/TransferSharpLimit.lean:208:0: 'OQ7.transfer_reflection_product_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/TransferSharpLimit.lean:209:0: 'OQ7.transfer_sharp_deficit_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3034/3043] Built OQ7.PhysicalSignedTransfer (6.5s)
+ℹ [3034/3043] Built OQ7.PhysicalSignedTransfer (6.4s)
 info: OQ7/PhysicalSignedTransfer.lean:55:0: 'OQ7.physical_signed_transfer_det' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/PhysicalSignedTransfer.lean:56:0: 'OQ7.physical_signed_transfer_fluxPSD' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/PhysicalSignedTransfer.lean:57:0: 'OQ7.physical_signed_transfer_response' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/PhysicalSignedTransfer.lean:58:0: 'OQ7.physical_signed_transfer_asymmetry' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/PhysicalSignedTransfer.lean:59:0: 'OQ7.physical_signed_transfer_invariant' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3035/3043] Built OQ7.ResourceTheorem45 (6.4s)
-info: OQ7/ResourceTheorem45.lean:138:0: 'OQ7.selectedResource_half_floor' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/ResourceTheorem45.lean:139:0: 'OQ7.selectedResource_half_floor_explicit' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/ResourceTheorem45.lean:140:0: 'OQ7.selectedResource_invariant_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/ResourceTheorem45.lean:141:0: 'OQ7.theorem45_finite' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/ResourceTheorem45.lean:142:0: 'OQ7.selectedResource_full_floor' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/ResourceTheorem45.lean:143:0: 'OQ7.selectedResource_full_floor_eventually' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/ResourceTheorem45.lean:144:0: 'OQ7.theorem45_uniform_asymptotic' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/ResourceTheorem45.lean:145:0: 'OQ7.theorem45_sequence_eventual_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: OQ7/ResourceTheorem45.lean:146:0: 'OQ7.theorem45_sequence_lowerlimit' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3036/3043] Built OQ7.PhysicalCoreInvariant (6.8s)
+ℹ [3035/3043] Built OQ7.PhysicalCoreInvariant (6.7s)
 info: OQ7/PhysicalCoreInvariant.lean:126:0: 'OQ7.CoreConstruction.actual_repeatedCore_scaledDifference_tendsto' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
@@ -920,7 +910,17 @@ info: OQ7/PhysicalCoreInvariant.lean:135:0: 'OQ7.CoreConstruction.physicallyCoat
 info: OQ7/PhysicalCoreInvariant.lean:136:0: 'OQ7.CoreConstruction.physicallyCoatedCore_scaledResourceInvariant_tendsto' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
-ℹ [3037/3043] Built OQ7.MatchedTransfer (6.2s)
+ℹ [3036/3043] Built OQ7.ResourceTheorem45 (6.5s)
+info: OQ7/ResourceTheorem45.lean:138:0: 'OQ7.selectedResource_half_floor' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/ResourceTheorem45.lean:139:0: 'OQ7.selectedResource_half_floor_explicit' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/ResourceTheorem45.lean:140:0: 'OQ7.selectedResource_invariant_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/ResourceTheorem45.lean:141:0: 'OQ7.theorem45_finite' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/ResourceTheorem45.lean:142:0: 'OQ7.selectedResource_full_floor' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/ResourceTheorem45.lean:143:0: 'OQ7.selectedResource_full_floor_eventually' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/ResourceTheorem45.lean:144:0: 'OQ7.theorem45_uniform_asymptotic' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/ResourceTheorem45.lean:145:0: 'OQ7.theorem45_sequence_eventual_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OQ7/ResourceTheorem45.lean:146:0: 'OQ7.theorem45_sequence_lowerlimit' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3037/3045] Built OQ7.MatchedTransfer (6.2s)
 info: OQ7/MatchedTransfer.lean:83:0: 'OQ7.matchedTransferMap_differentiableAt' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/MatchedTransfer.lean:84:0: 'OQ7.matchedTransferMap_isBigO' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/MatchedTransfer.lean:85:0: 'OQ7.matchedTransferMap_response' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -940,17 +940,17 @@ info: OQ7/PhysicalLowerAsymptotics.lean:156:0: 'OQ7.theorem51_optimal_full_floor
 info: OQ7/PhysicalLowerAsymptotics.lean:157:0: 'OQ7.theorem51_optimal_uniform_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/PhysicalLowerAsymptotics.lean:158:0: 'OQ7.theorem51_optimal_lowerlimit' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/PhysicalLowerAsymptotics.lean:159:0: 'OQ7.theorem51_sequence_lowerlimit' depends on axioms: [propext, Classical.choice, Quot.sound]
-✔ [3039/3046] Built PrescribedExtinction.Basic (6.1s)
-ℹ [3040/3046] Built OQ7.PhysicalSequenceSqueeze (6.0s)
+✔ [3039/3046] Built PrescribedExtinction.Basic (5.9s)
+ℹ [3040/3048] Built OQ7.PhysicalSequenceSqueeze (6.9s)
 info: OQ7/PhysicalSequenceSqueeze.lean:91:0: 'OQ7.physical_sequence_budget_membership' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/PhysicalSequenceSqueeze.lean:92:0: 'OQ7.physical_sequence_scaled_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/PhysicalSequenceSqueeze.lean:93:0: 'OQ7.theorem51_of_physical_constructed_sequence' depends on axioms: [propext, Classical.choice, Quot.sound]
 ✔ [3042/3054] Built PrescribedExtinction.Materials (6.3s)
-ℹ [3047/3054] Built OQ7.SharpPhysicalConstruction (6.6s)
+ℹ [3047/3054] Built OQ7.SharpPhysicalConstruction (6.5s)
 info: OQ7/SharpPhysicalConstruction.lean:91:0: 'OQ7.sharp_physical_constructed_sequence' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: OQ7/SharpPhysicalConstruction.lean:92:0: 'OQ7.theorem51' depends on axioms: [propext, Classical.choice, Quot.sound]
-✔ [3049/3054] Built PrescribedExtinction.Geometry (7.0s)
-✔ [3050/3137] Built OQ7 (6.3s)
+✔ [3049/3054] Built PrescribedExtinction.Geometry (6.0s)
+✔ [3050/3149] Built OQ7 (6.2s)
 ✔ [3289/3411] Built PrescribedExtinction.Maxwell (6.8s)
 ⚠ [3290/3411] Built PrescribedExtinction.SetSupportedL2 (6.9s)
 warning: PrescribedExtinction/SetSupportedL2.lean:36:0: automatically included section variable(s) unused in theorem `OQ7Prescribed.indicatorL2_coe`:
@@ -960,7 +960,7 @@ consider restructuring your `variable` declarations so that the variables are no
   omit [InnerProductSpace ℂ E] [CompleteSpace E] in theorem ...
 
 Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
-⚠ [3294/3412] Built PrescribedExtinction.InverseStability (6.1s)
+⚠ [3294/3412] Built PrescribedExtinction.InverseStability (5.0s)
 warning: PrescribedExtinction/InverseStability.lean:19:6: `ContinuousLinearMap.sub_apply` has been deprecated: Use `sub_apply` instead
 
 Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.sub_apply` to `sub_apply x`).
@@ -979,7 +979,7 @@ Note: This linter can be disabled with `set_option linter.unusedSectionVars fals
 warning: PrescribedExtinction/InverseStability.lean:47:99: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [3296/3412] Built PrescribedExtinction.FarFieldGeometry (7.2s)
+⚠ [3296/3412] Built PrescribedExtinction.FarFieldGeometry (7.1s)
 warning: PrescribedExtinction/FarFieldGeometry.lean:16:59: This simp argument is unused:
   abs_inv
 
@@ -1000,17 +1000,17 @@ consider restructuring your `variable` declarations so that the variables are no
   omit [InnerProductSpace ℝ H] in theorem ...
 
 Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
-✔ [3297/3412] Built PrescribedExtinction.TestRegularity (6.2s)
-✔ [3298/3412] Built PrescribedExtinction.GreenKernel (6.9s)
-✔ [3299/3417] Built PrescribedExtinction.Drive (6.2s)
-⚠ [3301/3417] Built PrescribedExtinction.TwoPieceL2 (7.1s)
+✔ [3297/3412] Built PrescribedExtinction.TestRegularity (6.0s)
+✔ [3298/3412] Built PrescribedExtinction.GreenKernel (6.8s)
+✔ [3299/3417] Built PrescribedExtinction.Drive (6.1s)
+⚠ [3301/3417] Built PrescribedExtinction.TwoPieceL2 (6.0s)
 warning: PrescribedExtinction/TwoPieceL2.lean:30:0: automatically included section variable(s) unused in theorem `OQ7Prescribed.supportedConstCLM_coe`:
   [CompleteSpace E]
 consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
   omit [CompleteSpace E] in theorem ...
 
 Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
-⚠ [3303/3417] Built PrescribedExtinction.SphericalCoordinates (7.0s)
+⚠ [3303/3417] Built PrescribedExtinction.SphericalCoordinates (6.9s)
 warning: PrescribedExtinction/SphericalCoordinates.lean:35:79: This simp argument is unused:
   Matrix.mulVec
 
@@ -1060,9 +1060,9 @@ Hint: Omit it from the simp argument list.
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
 ✔ [3304/3417] Built PrescribedExtinction.RadialCalculus (7.1s)
-✔ [3305/3450] Built PrescribedExtinction.VolumePotential (7.8s)
-✔ [3307/3450] Built PrescribedExtinction.StaticFourier (7.6s)
-⚠ [3308/3524] Built PrescribedExtinction.SupportedL2Maps (7.3s)
+✔ [3305/3450] Built PrescribedExtinction.VolumePotential (7.7s)
+✔ [3307/3450] Built PrescribedExtinction.StaticFourier (7.5s)
+⚠ [3308/3524] Built PrescribedExtinction.SupportedL2Maps (7.2s)
 warning: PrescribedExtinction/SupportedL2Maps.lean:27:0: automatically included section variable(s) unused in theorem `OQ7Prescribed.supportedConstMap_coe`:
   [CompleteSpace E]
   [CompleteSpace F]
@@ -1070,8 +1070,8 @@ consider restructuring your `variable` declarations so that the variables are no
   omit [CompleteSpace E] [CompleteSpace F] in theorem ...
 
 Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
-✔ [3311/3524] Built PrescribedExtinction.NewtonKernel (6.0s)
-⚠ [3312/3524] Built PrescribedExtinction.SeparatedL2Product (6.7s)
+✔ [3311/3524] Built PrescribedExtinction.NewtonKernel (6.9s)
+⚠ [3312/3524] Built PrescribedExtinction.SeparatedL2Product (6.6s)
 warning: PrescribedExtinction/SeparatedL2Product.lean:13:0: automatically included section variable(s) unused in theorem `OQ7Prescribed.separatedProduct_memLp_two`:
   [SFinite μ]
 consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
@@ -1084,9 +1084,9 @@ consider restructuring your `variable` declarations so that the variables are no
   omit [SFinite μ] in theorem ...
 
 Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
-✔ [3313/3574] Built PrescribedExtinction.FixedHeightDensity (6.7s)
-✔ [3314/3574] Built PrescribedExtinction.CompactCurrentDensity (7.2s)
-⚠ [3315/3574] Built PrescribedExtinction.ComplexCoerciveInverse (7.2s)
+✔ [3313/3574] Built PrescribedExtinction.FixedHeightDensity (6.6s)
+✔ [3314/3574] Built PrescribedExtinction.CompactCurrentDensity (7.1s)
+⚠ [3315/3574] Built PrescribedExtinction.ComplexCoerciveInverse (7.1s)
 warning: PrescribedExtinction/ComplexCoerciveInverse.lean:14:2: Try this: 
   letI̵
 
@@ -1107,9 +1107,9 @@ Hint: The binding can be removed (if unused) or named `_` (if used implicitly). 
   [apply] _hc
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-✔ [3316/3574] Built PrescribedExtinction.FourierL1L2 (7.0s)
-✔ [3318/3574] Built PrescribedExtinction.StaticSymbolCoordinates (6.8s)
-⚠ [3319/3574] Built PrescribedExtinction.SlabProductResidual (7.2s)
+✔ [3316/3574] Built PrescribedExtinction.FourierL1L2 (6.9s)
+✔ [3318/3574] Built PrescribedExtinction.StaticSymbolCoordinates (6.7s)
+⚠ [3319/3574] Built PrescribedExtinction.SlabProductResidual (7.0s)
 warning: PrescribedExtinction/SlabProductResidual.lean:34:2: Try this: 
   letI̵
 
@@ -1130,28 +1130,28 @@ Note: This linter can be disabled with `set_option linter.unusedTactic false`
 warning: PrescribedExtinction/SlabProductResidual.lean:52:8: this tactic is never executed
 
 Note: This linter can be disabled with `set_option linter.unreachableTactic false`
-✔ [3320/3574] Built PrescribedExtinction.DenseNormBound (5.5s)
+✔ [3320/3574] Built PrescribedExtinction.DenseNormBound (5.4s)
 ✔ [3321/3574] Built PrescribedExtinction.ScalarPiecewiseL2 (6.5s)
-✔ [3322/3574] Built PrescribedExtinction.InverseTrialEstimate (5.5s)
-✔ [3323/3574] Built PrescribedExtinction.ApertureErrorAlgebra (6.1s)
+✔ [3322/3574] Built PrescribedExtinction.InverseTrialEstimate (5.4s)
+✔ [3323/3574] Built PrescribedExtinction.ApertureErrorAlgebra (6.0s)
 ✔ [3324/3574] Built PrescribedExtinction.ScaledInnerMap (5.7s)
-⚠ [3326/3574] Built PrescribedExtinction.PlanarSlabExponential (6.5s)
-warning: PrescribedExtinction/PlanarSlabExponential.lean:24:22: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
-
-Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-warning: PrescribedExtinction/PlanarSlabExponential.lean:35:22: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
-
-Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [3327/3574] Built PrescribedExtinction.PlanarLosslessPlate (7.1s)
+⚠ [3326/3574] Built PrescribedExtinction.PlanarLosslessPlate (6.9s)
 warning: PrescribedExtinction/PlanarLosslessPlate.lean:37:33: this tactic is never executed
 
 Note: This linter can be disabled with `set_option linter.unreachableTactic false`
 warning: PrescribedExtinction/PlanarLosslessPlate.lean:37:33: Unused tactic linter: `ring` does nothing
 
 Note: This linter can be disabled with `set_option linter.unusedTactic false`
-✔ [3328/3574] Built PrescribedExtinction.SphereMeasure (6.0s)
+⚠ [3327/3574] Built PrescribedExtinction.PlanarSlabExponential (6.5s)
+warning: PrescribedExtinction/PlanarSlabExponential.lean:24:22: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: PrescribedExtinction/PlanarSlabExponential.lean:35:22: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [3328/3574] Built PrescribedExtinction.SphereMeasure (7.1s)
 ✔ [3330/3574] Built PrescribedExtinction.OutgoingRadial (7.0s)
-⚠ [3332/3593] Built PrescribedExtinction.BoundedWoodbury (5.9s)
+⚠ [3332/3601] Built PrescribedExtinction.BoundedWoodbury (5.8s)
 warning: PrescribedExtinction/BoundedWoodbury.lean:20:0: automatically included section variable(s) unused in theorem `OQ7Prescribed.woodburyElectricOperator_right_inverse`:
   [CompleteSpace H]
   [CompleteSpace S]
@@ -1173,19 +1173,9 @@ consider restructuring your `variable` declarations so that the variables are no
   omit [CompleteSpace H] [CompleteSpace S] in theorem ...
 
 Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
-✔ [3333/3593] Built PrescribedExtinction.CompactParameterNeighborhood (5.0s)
-⚠ [3334/3593] Built PrescribedExtinction.PlanarSlabThickLimit (6.3s)
-warning: PrescribedExtinction/PlanarSlabThickLimit.lean:38:22: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
-
-Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-warning: PrescribedExtinction/PlanarSlabThickLimit.lean:44:23: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
-
-Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-warning: PrescribedExtinction/PlanarSlabThickLimit.lean:61:23: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
-
-Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-✔ [3335/3593] Built PrescribedExtinction.HeightL1Bound (6.9s)
-⚠ [3336/3593] Built PrescribedExtinction.ApertureOscillation (6.0s)
+✔ [3333/3601] Built PrescribedExtinction.CompactParameterNeighborhood (4.9s)
+✔ [3334/3601] Built PrescribedExtinction.HeightL1Bound (6.7s)
+⚠ [3335/3601] Built PrescribedExtinction.ApertureOscillation (6.9s)
 warning: PrescribedExtinction/ApertureOscillation.lean:17:86: This simp argument is unused:
   mul_left_comm
 
@@ -1200,8 +1190,18 @@ Hint: Omit it from the simp argument list.
   [apply] simp [apertureOscillation, Complex.ofReal_mul]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-✔ [3337/3593] Built PrescribedExtinction.SphereMoments (7.1s)
-⚠ [3338/3593] Built PrescribedExtinction.PlanarDielectricIndex (6.6s)
+⚠ [3336/3601] Built PrescribedExtinction.PlanarSlabThickLimit (6.3s)
+warning: PrescribedExtinction/PlanarSlabThickLimit.lean:38:22: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: PrescribedExtinction/PlanarSlabThickLimit.lean:44:23: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: PrescribedExtinction/PlanarSlabThickLimit.lean:61:23: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [3337/3601] Built PrescribedExtinction.SphereMoments (7.0s)
+⚠ [3338/3601] Built PrescribedExtinction.PlanarDielectricIndex (6.6s)
 warning: PrescribedExtinction/PlanarDielectricIndex.lean:21:22: This simp argument is unused:
   Complex.mul_re
 
@@ -1216,12 +1216,13 @@ Hint: Omit it from the simp argument list.
   [apply] simp [Complex.mul_re]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-✔ [3340/3593] Built PrescribedExtinction.GreenCancellation (6.9s)
-✔ [3341/3593] Built PrescribedExtinction.PlanarLayerFTC (6.8s)
-✔ [3342/3593] Built PrescribedExtinction.ApertureCircleJets (7.0s)
-✔ [3343/3593] Built PrescribedExtinction.SlabGreen (6.0s)
-✔ [3345/3593] Built PrescribedExtinction.NewtonBoundary (7.1s)
-⚠ [3346/3593] Built PrescribedExtinction.ApertureWindowScale (6.8s)
+✔ [3340/3601] Built PrescribedExtinction.GreenCancellation (6.8s)
+✔ [3341/3601] Built PrescribedExtinction.PlanarLayerFTC (6.7s)
+✔ [3342/3601] Built PrescribedExtinction.ApertureCircleJets (6.0s)
+✔ [3343/3601] Built PrescribedExtinction.SlabGreen (6.9s)
+✔ [3345/3601] Built PrescribedExtinction.NewtonBoundary (7.0s)
+✔ [3346/3601] Built PrescribedExtinction.DyadicRemainder (7.9s)
+⚠ [3347/3601] Built PrescribedExtinction.ApertureWindowScale (6.8s)
 warning: PrescribedExtinction/ApertureWindowScale.lean:25:13: This simp argument is unused:
   mem_preimage
 
@@ -1230,54 +1231,54 @@ Hint: Omit it from the simp argument list.
     abs_of_pos (inv_pos.mpr hR)] at hm ⊢
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-✔ [3347/3593] Built PrescribedExtinction.DyadicRemainder (8.0s)
-✔ [3348/3593] Built PrescribedExtinction.SlabPolar (6.6s)
-✔ [3349/3593] Built PrescribedExtinction.ApertureCircleParity (6.9s)
-✔ [3350/3593] Built PrescribedExtinction.ApertureL2Scale (6.9s)
-✔ [3351/3593] Built PrescribedExtinction.NewtonPV (7.4s)
-✔ [3352/3593] Built PrescribedExtinction.ApertureMeanSlope (7.1s)
-✔ [3353/3593] Built PrescribedExtinction.RemainderConvolution (8.1s)
-✔ [3354/3593] Built PrescribedExtinction.NewtonPrincipalValue (7.5s)
-✔ [3355/3593] Built PrescribedExtinction.ApertureRadialLift (7.2s)
-✔ [3356/3593] Built PrescribedExtinction.NewtonCutoff (6.9s)
-✔ [3357/3593] Built PrescribedExtinction.DynamicGreenRegularity (8.1s)
-⚠ [3358/3593] Built PrescribedExtinction.ApertureRadialSupport (6.8s)
+✔ [3348/3601] Built PrescribedExtinction.ApertureCircleParity (6.7s)
+✔ [3349/3601] Built PrescribedExtinction.SlabPolar (6.7s)
+✔ [3350/3601] Built PrescribedExtinction.NewtonPV (7.2s)
+✔ [3351/3601] Built PrescribedExtinction.RemainderConvolution (7.9s)
+✔ [3352/3601] Built PrescribedExtinction.ApertureL2Scale (6.9s)
+✔ [3353/3601] Built PrescribedExtinction.ApertureMeanSlope (7.0s)
+✔ [3354/3601] Built PrescribedExtinction.NewtonPrincipalValue (7.3s)
+✔ [3355/3601] Built PrescribedExtinction.DynamicGreenRegularity (7.8s)
+✔ [3356/3601] Built PrescribedExtinction.ApertureRadialLift (7.1s)
+✔ [3357/3601] Built PrescribedExtinction.NewtonCutoff (6.8s)
+⚠ [3358/3601] Built PrescribedExtinction.ApertureRadialSupport (6.7s)
 warning: PrescribedExtinction/ApertureRadialSupport.lean:36:19: `ContinuousMultilinearMap.zero_apply` has been deprecated: Use `zero_apply` instead
 
 Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.zero_apply` to `zero_apply x`).
-✔ [3359/3593] Built PrescribedExtinction.NewtonCutoffLimit (7.2s)
-✔ [3360/3593] Built PrescribedExtinction.NewtonCutoffIBP (7.5s)
-✔ [3361/3593] Built PrescribedExtinction.ApertureRadialEstimate (7.3s)
-✔ [3362/3593] Built PrescribedExtinction.NewtonShell (6.8s)
-✔ [3363/3593] Built PrescribedExtinction.DistributionVectorCalculus (9.7s)
-✔ [3364/3593] Built PrescribedExtinction.SlabRadialCoordinates (7.0s)
-✔ [3365/3593] Built PrescribedExtinction.ShrinkingCutoff (7.1s)
-✔ [3366/3593] Built PrescribedExtinction.NewtonPunctured (7.4s)
-⚠ [3367/3593] Built PrescribedExtinction.SlabRadialWindow (7.2s)
+✔ [3359/3601] Built PrescribedExtinction.NewtonCutoffLimit (7.1s)
+✔ [3360/3601] Built PrescribedExtinction.NewtonCutoffIBP (7.3s)
+✔ [3361/3601] Built PrescribedExtinction.ApertureRadialEstimate (7.2s)
+✔ [3362/3601] Built PrescribedExtinction.NewtonShell (6.8s)
+✔ [3363/3601] Built PrescribedExtinction.DistributionVectorCalculus (9.6s)
+✔ [3364/3601] Built PrescribedExtinction.SlabRadialCoordinates (7.1s)
+✔ [3365/3601] Built PrescribedExtinction.ShrinkingCutoff (7.2s)
+✔ [3366/3601] Built PrescribedExtinction.NewtonPunctured (7.5s)
+⚠ [3367/3601] Built PrescribedExtinction.SlabRadialWindow (7.2s)
 warning: PrescribedExtinction/SlabRadialWindow.lean:35:6: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
 warning: PrescribedExtinction/SlabRadialWindow.lean:71:4: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-✔ [3368/3593] Built PrescribedExtinction.RemovablePointIBP (7.0s)
-✔ [3369/3593] Built PrescribedExtinction.NewtonContact (6.9s)
-✔ [3370/3593] Built PrescribedExtinction.PlanarGreenInterval (6.7s)
-✔ [3371/3593] Built PrescribedExtinction.SlabAngular (6.9s)
-✔ [3372/3593] Built PrescribedExtinction.PolePointIBP (7.3s)
-✔ [3373/3593] Built PrescribedExtinction.OutgoingDynamicIdentity (12s)
-✔ [3374/3593] Built PrescribedExtinction.NewtonHeat (7.2s)
-✔ [3375/3593] Built PrescribedExtinction.NewtonTempered (7.2s)
-✔ [3376/3593] Built PrescribedExtinction.NewtonFundamental (7.0s)
-✔ [3377/3593] Built PrescribedExtinction.SlabConvolution (6.7s)
-✔ [3378/3593] Built PrescribedExtinction.PlanarGreenBoundary (7.0s)
-✔ [3379/3593] Built PrescribedExtinction.NewtonHeatFourier (6.0s)
-✔ [3380/3593] Built PrescribedExtinction.NewtonHeatPairing (6.0s)
-✔ [3381/3593] Built PrescribedExtinction.NewtonSchwartz (6.7s)
-✔ [3382/3593] Built PrescribedExtinction.NewtonFrequency (7.4s)
-✔ [3383/3593] Built PrescribedExtinction.OutgoingFundamental (7.2s)
-✔ [3384/3593] Built PrescribedExtinction.SlabDerivatives (6.0s)
-⚠ [3385/3593] Built PrescribedExtinction.SlabScaledEstimate (7.4s)
+✔ [3368/3601] Built PrescribedExtinction.RemovablePointIBP (7.2s)
+✔ [3369/3601] Built PrescribedExtinction.NewtonContact (6.0s)
+✔ [3370/3601] Built PrescribedExtinction.PlanarGreenInterval (6.7s)
+✔ [3371/3601] Built PrescribedExtinction.SlabAngular (6.9s)
+✔ [3372/3601] Built PrescribedExtinction.PolePointIBP (7.4s)
+✔ [3373/3601] Built PrescribedExtinction.OutgoingDynamicIdentity (12s)
+✔ [3374/3601] Built PrescribedExtinction.NewtonHeat (7.2s)
+✔ [3375/3601] Built PrescribedExtinction.NewtonTempered (7.1s)
+✔ [3376/3601] Built PrescribedExtinction.NewtonFundamental (6.9s)
+✔ [3377/3601] Built PrescribedExtinction.PlanarGreenBoundary (6.9s)
+✔ [3378/3601] Built PrescribedExtinction.SlabConvolution (6.7s)
+✔ [3379/3601] Built PrescribedExtinction.NewtonHeatFourier (6.9s)
+✔ [3380/3601] Built PrescribedExtinction.NewtonHeatPairing (6.9s)
+✔ [3381/3601] Built PrescribedExtinction.NewtonFrequency (7.3s)
+✔ [3382/3601] Built PrescribedExtinction.NewtonSchwartz (6.7s)
+✔ [3383/3601] Built PrescribedExtinction.OutgoingFundamental (7.1s)
+✔ [3384/3601] Built PrescribedExtinction.PlanarLayerField (7.3s)
+✔ [3385/3601] Built PrescribedExtinction.SlabDerivatives (6.9s)
+⚠ [3386/3601] Built PrescribedExtinction.SlabScaledEstimate (7.3s)
 warning: PrescribedExtinction/SlabScaledEstimate.lean:22:44: Variable name `hB` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
@@ -1290,17 +1291,17 @@ Note: This linter can be disabled with `set_option linter.unusedTactic false`
 warning: PrescribedExtinction/SlabScaledEstimate.lean:37:10: this tactic is never executed
 
 Note: This linter can be disabled with `set_option linter.unreachableTactic false`
-✔ [3386/3593] Built PrescribedExtinction.PlanarLayerField (7.3s)
-✔ [3387/3593] Built PrescribedExtinction.NewtonSymbol (6.8s)
-✔ [3388/3593] Built PrescribedExtinction.NewtonFourier (7.2s)
-✔ [3389/3593] Built PrescribedExtinction.NewtonFrequencyHeat (6.0s)
-✔ [3390/3593] Built PrescribedExtinction.SlabSecondWindow (6.8s)
-✔ [3391/3593] Built PrescribedExtinction.PlanarPlateChannels (6.8s)
-⚠ [3392/3593] Built PrescribedExtinction.PlanarTwoLayerGreen (6.8s)
+✔ [3387/3601] Built PrescribedExtinction.NewtonFrequencyHeat (6.9s)
+✔ [3388/3601] Built PrescribedExtinction.NewtonSymbol (6.8s)
+✔ [3389/3601] Built PrescribedExtinction.NewtonFourier (7.1s)
+✔ [3390/3601] Built PrescribedExtinction.PlanarPlateChannels (6.8s)
+⚠ [3391/3601] Built PrescribedExtinction.PlanarTwoLayerGreen (6.8s)
 warning: PrescribedExtinction/PlanarTwoLayerGreen.lean:57:8: `if_pos` has been deprecated: Use `ite_eq_left` instead
 warning: PrescribedExtinction/PlanarTwoLayerGreen.lean:65:8: `if_neg` has been deprecated: Use `ite_eq_right` instead
-✔ [3393/3593] Built PrescribedExtinction.NewtonTransform (7.1s)
-⚠ [3394/3593] Built PrescribedExtinction.SlabHessianEstimate (7.4s)
+✔ [3392/3601] Built PrescribedExtinction.SlabSecondWindow (6.8s)
+✔ [3393/3601] Built PrescribedExtinction.NewtonTransform (7.2s)
+✔ [3394/3601] Built PrescribedExtinction.PlanarPlateJones (6.8s)
+⚠ [3395/3601] Built PrescribedExtinction.SlabHessianEstimate (7.5s)
 warning: PrescribedExtinction/SlabHessianEstimate.lean:10:27: This simp argument is unused:
   norm_mul
 
@@ -1336,23 +1337,22 @@ Note: This linter can be disabled with `set_option linter.unreachableTactic fals
 warning: PrescribedExtinction/SlabHessianEstimate.lean:101:6: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-✔ [3395/3593] Built PrescribedExtinction.PlanarPlateJones (6.7s)
-✔ [3396/3593] Built PrescribedExtinction.StaticOperatorDistribution (7.3s)
-✔ [3397/3593] Built PrescribedExtinction.NewtonCurrentPairing (7.1s)
-✔ [3398/3593] Built PrescribedExtinction.SlabTransverseKernel (7.5s)
-✔ [3399/3593] Built PrescribedExtinction.OutgoingCurrentPairing (6.9s)
-✔ [3400/3593] Built PrescribedExtinction.NewtonCurrentCorrelation (7.2s)
-✔ [3401/3593] Built PrescribedExtinction.RemainderCurrentPairing (7.3s)
-✔ [3402/3593] Built PrescribedExtinction.NewtonCurrentFourier (6.8s)
-✔ [3403/3593] Built PrescribedExtinction.YoungConvolution (7.4s)
-✔ [3404/3593] Built PrescribedExtinction.NewtonStaticIdentification (6.9s)
-✔ [3405/3593] Built PrescribedExtinction.GreenGradient (7.1s)
-✔ [3406/3593] Built PrescribedExtinction.OutgoingVolumeIdentification (7.1s)
-✔ [3407/3593] Built PrescribedExtinction.RadiationKernel (8.5s)
-✔ [3408/3593] Built PrescribedExtinction.CompactOutgoingOperator (9.9s)
-✔ [3409/3593] Built PrescribedExtinction.GreenFirstDerivative (6.8s)
-✔ [3410/3593] Built PrescribedExtinction.VolumeFundamental (6.0s)
-⚠ [3411/3593] Built PrescribedExtinction.ExteriorOutgoing (7.7s)
+✔ [3396/3601] Built PrescribedExtinction.StaticOperatorDistribution (7.4s)
+✔ [3397/3601] Built PrescribedExtinction.NewtonCurrentPairing (7.2s)
+✔ [3398/3601] Built PrescribedExtinction.SlabTransverseKernel (7.7s)
+✔ [3399/3601] Built PrescribedExtinction.OutgoingCurrentPairing (6.0s)
+✔ [3400/3601] Built PrescribedExtinction.NewtonCurrentCorrelation (7.2s)
+✔ [3401/3601] Built PrescribedExtinction.RemainderCurrentPairing (7.3s)
+✔ [3402/3601] Built PrescribedExtinction.NewtonCurrentFourier (6.9s)
+✔ [3403/3601] Built PrescribedExtinction.YoungConvolution (7.4s)
+✔ [3404/3601] Built PrescribedExtinction.NewtonStaticIdentification (7.1s)
+✔ [3405/3601] Built PrescribedExtinction.GreenGradient (7.2s)
+✔ [3406/3601] Built PrescribedExtinction.OutgoingVolumeIdentification (7.1s)
+✔ [3407/3601] Built PrescribedExtinction.RadiationKernel (8.4s)
+✔ [3408/3601] Built PrescribedExtinction.CompactOutgoingOperator (9.0s)
+✔ [3409/3601] Built PrescribedExtinction.GreenFirstDerivative (6.7s)
+✔ [3410/3601] Built PrescribedExtinction.VolumeFundamental (6.9s)
+⚠ [3411/3601] Built PrescribedExtinction.ExteriorOutgoing (7.6s)
 warning: PrescribedExtinction/ExteriorOutgoing.lean:112:10: This simp argument is unused:
   kernelMagnetic
 
@@ -1360,18 +1360,18 @@ Hint: Omit it from the simp argument list.
   [apply] simp [p.vanish y (lt_of_not_ge hy), cross]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-✔ [3412/3593] Built PrescribedExtinction.CompactOutgoingIdentification (7.0s)
-✔ [3413/3593] Built PrescribedExtinction.GradientCurrentPairing (7.2s)
-✔ [3414/3593] Built PrescribedExtinction.FarFieldPhase (7.3s)
-✔ [3415/3593] Built PrescribedExtinction.DyadicMaxwellSource (7.1s)
-⚠ [3416/3593] Built PrescribedExtinction.FarFieldKernel (8.2s)
+✔ [3412/3601] Built PrescribedExtinction.CompactOutgoingIdentification (7.8s)
+✔ [3413/3601] Built PrescribedExtinction.GradientCurrentPairing (7.1s)
+✔ [3414/3601] Built PrescribedExtinction.FarFieldPhase (7.2s)
+✔ [3415/3601] Built PrescribedExtinction.DyadicMaxwellSource (7.0s)
+⚠ [3416/3601] Built PrescribedExtinction.FarFieldKernel (8.1s)
 warning: PrescribedExtinction/FarFieldKernel.lean:94:21: Unused tactic linter: `ring` does nothing
 
 Note: This linter can be disabled with `set_option linter.unusedTactic false`
 warning: PrescribedExtinction/FarFieldKernel.lean:94:21: this tactic is never executed
 
 Note: This linter can be disabled with `set_option linter.unreachableTactic false`
-⚠ [3417/3593] Built PrescribedExtinction.PhysicalSourceFields (7.4s)
+⚠ [3417/3601] Built PrescribedExtinction.PhysicalSourceFields (7.3s)
 warning: PrescribedExtinction/PhysicalSourceFields.lean:90:65: This simp argument is unused:
   PiLp.smul_apply
 
@@ -1379,9 +1379,9 @@ Hint: Omit it from the simp argument list.
   [apply] simp [electricVolumeField, vectorCoordinate, PiLp.add_apply, Complex.real_smul, mul_add]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-✔ [3418/3593] Built PrescribedExtinction.DistributionVacuumHelmholtz (7.1s)
-✔ [3419/3593] Built PrescribedExtinction.WeakCurlBridge (11s)
-⚠ [3420/3593] Built PrescribedExtinction.ExteriorKernelTests (8.5s)
+✔ [3418/3601] Built PrescribedExtinction.DistributionVacuumHelmholtz (7.1s)
+✔ [3419/3601] Built PrescribedExtinction.WeakCurlBridge (11s)
+⚠ [3420/3601] Built PrescribedExtinction.ExteriorKernelTests (8.5s)
 warning: PrescribedExtinction/ExteriorKernelTests.lean:50:79: This simp argument is unused:
   Pi.add_apply
 
@@ -1403,7 +1403,7 @@ Hint: Omit it from the simp argument list.
   [apply] simp only [hij, ite_false, zero_apply, zero_add]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-⚠ [3421/3593] Built PrescribedExtinction.IncidentMaxwell (8.8s)
+⚠ [3421/3601] Built PrescribedExtinction.IncidentMaxwell (8.8s)
 warning: PrescribedExtinction/IncidentMaxwell.lean:79:75: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
@@ -1413,14 +1413,14 @@ Note: This linter can be disabled with `set_option linter.unusedTactic false`
 warning: PrescribedExtinction/IncidentMaxwell.lean:87:95: this tactic is never executed
 
 Note: This linter can be disabled with `set_option linter.unreachableTactic false`
-✔ [3422/3593] Built PrescribedExtinction.SmoothOutgoingFields (7.3s)
-✔ [3423/3593] Built PrescribedExtinction.ExteriorCurrentIdentification (7.9s)
-✔ [3424/3593] Built PrescribedExtinction.CompactFieldTestSeparation (6.9s)
-⚠ [3425/3593] Built PrescribedExtinction.SmoothDyadicRepresentation (12s)
+✔ [3422/3601] Built PrescribedExtinction.SmoothOutgoingFields (7.3s)
+✔ [3423/3601] Built PrescribedExtinction.ExteriorCurrentIdentification (7.8s)
+✔ [3424/3601] Built PrescribedExtinction.CompactFieldTestSeparation (6.9s)
+⚠ [3425/3601] Built PrescribedExtinction.SmoothDyadicRepresentation (12s)
 warning: PrescribedExtinction/SmoothDyadicRepresentation.lean:82:4: `MeasureTheory.integrable_finset_sum` has been deprecated: Use `MeasureTheory.integrable_finsetSum` instead
 warning: PrescribedExtinction/SmoothDyadicRepresentation.lean:84:4: `MeasureTheory.integral_finset_sum` has been deprecated: Use `MeasureTheory.integral_finsetSum` instead
-✔ [3426/3593] Built PrescribedExtinction.ScalarCompactConvolution (6.9s)
-⚠ [3427/3593] Built PrescribedExtinction.OutgoingSourceFields (7.6s)
+✔ [3426/3601] Built PrescribedExtinction.ScalarCompactConvolution (6.9s)
+⚠ [3427/3601] Built PrescribedExtinction.OutgoingSourceFields (7.5s)
 warning: PrescribedExtinction/OutgoingSourceFields.lean:71:6: This simp argument is unused:
   Matrix.cons_val_zero
 
@@ -1443,7 +1443,7 @@ Hint: Omit it from the simp argument list.
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
 warning: PrescribedExtinction/OutgoingSourceFields.lean:141:29: `if_pos` has been deprecated: Use `ite_eq_left` instead
-⚠ [3428/3593] Built PrescribedExtinction.DyadicAxisRepresentation (6.0s)
+⚠ [3428/3601] Built PrescribedExtinction.DyadicAxisRepresentation (6.9s)
 warning: PrescribedExtinction/DyadicAxisRepresentation.lean:39:13: `ContinuousLinearMap.sum_apply` has been deprecated: Use `sum_apply` instead
 
 Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.sum_apply` to `sum_apply x`).
@@ -1457,8 +1457,8 @@ Hint: Omit it from the simp argument list.
   [apply] simp [Complex.real_smul, mul_comm, mul_left_comm]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-✔ [3429/3593] Built PrescribedExtinction.PhysicalPolarization (6.9s)
-⚠ [3430/3593] Built PrescribedExtinction.TensorLossCoercivity (7.7s)
+✔ [3429/3601] Built PrescribedExtinction.PhysicalPolarization (6.9s)
+⚠ [3430/3601] Built PrescribedExtinction.TensorLossCoercivity (7.7s)
 warning: PrescribedExtinction/TensorLossCoercivity.lean:34:4: Try `simp at hw` instead of `simpa using hw`
 
 Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
@@ -1497,7 +1497,7 @@ Hint: Omit it from the simp argument list.
   [apply] simp only [Complex.real_smul, Complex.mul_im, Complex.ofReal_re, Complex.ofReal_im, zero_mul]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-⚠ [3431/3593] Built PrescribedExtinction.VolumeScatteringBridge (7.9s)
+⚠ [3431/3601] Built PrescribedExtinction.VolumeScatteringBridge (7.9s)
 warning: PrescribedExtinction/VolumeScatteringBridge.lean:60:83: This simp argument is unused:
   PiLp.add_apply
 
@@ -1505,9 +1505,10 @@ Hint: Omit it from the simp argument list.
   [apply] simp [polarization, TwoLayerBody.susceptibility, tensorApply, Matrix.sub_mulVec]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-✔ [3432/3593] Built PrescribedExtinction.RadiationEnergyBounds (7.5s)
-✔ [3433/3593] Built PrescribedExtinction.PoyntingCutoff (7.5s)
-⚠ [3434/3593] Built PrescribedExtinction.WeakCurlProducts (6.9s)
+✔ [3432/3601] Built PrescribedExtinction.PhysicalPowersAE (6.7s)
+✔ [3433/3601] Built PrescribedExtinction.RadiationEnergyBounds (7.4s)
+✔ [3434/3601] Built PrescribedExtinction.PoyntingCutoff (7.4s)
+⚠ [3435/3601] Built PrescribedExtinction.WeakCurlProducts (6.9s)
 warning: PrescribedExtinction/WeakCurlProducts.lean:24:80: This simp argument is unused:
   mul_comm
 
@@ -1515,9 +1516,36 @@ Hint: Omit it from the simp argument list.
   [apply] simp [bilinear, PiLp.smul_apply, Complex.real_smul, mul_left_comm, mul_assoc]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-✔ [3435/3593] Built PrescribedExtinction.RadialEnergyCutoff (7.2s)
-✔ [3436/3593] Built PrescribedExtinction.SmoothOutgoingDissipativity (7.8s)
-⚠ [3437/3593] Built PrescribedExtinction.WeakScatteringResidual (8.8s)
+✔ [3436/3601] Built PrescribedExtinction.RadialEnergyCutoff (7.2s)
+⚠ [3437/3601] Built PrescribedExtinction.ExteriorSphereContinuity (7.3s)
+warning: PrescribedExtinction/ExteriorSphereContinuity.lean:33:30: `ContinuousLinearMap.add_apply` has been deprecated: Use `add_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.add_apply` to `add_apply x`).
+warning: PrescribedExtinction/ExteriorSphereContinuity.lean:33:61: `ContinuousLinearMap.smul_apply` has been deprecated: Use `smul_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.smul_apply` to `smul_apply x`).
+warning: PrescribedExtinction/ExteriorSphereContinuity.lean:54:57: This simp argument is unused:
+  unitSphere_norm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [norm_smul, Real.norm_eq_abs, abs_of_pos hrpos]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PrescribedExtinction/ExteriorSphereContinuity.lean:64:57: This simp argument is unused:
+  unitSphere_norm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [norm_smul, Real.norm_eq_abs, abs_of_pos hrpos]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PrescribedExtinction/ExteriorSphereContinuity.lean:96:57: This simp argument is unused:
+  unitSphere_norm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [norm_smul, Real.norm_eq_abs, abs_of_pos hrpos]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [3438/3601] Built PrescribedExtinction.WeakScatteringResidual (8.6s)
 warning: PrescribedExtinction/WeakScatteringResidual.lean:76:22: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
@@ -1527,32 +1555,33 @@ Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus fa
 warning: PrescribedExtinction/WeakScatteringResidual.lean:76:69: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-✔ [3438/3593] Built PrescribedExtinction.OutgoingDissipativity (7.5s)
-✔ [3439/3593] Built PrescribedExtinction.BodyCurrentSpace (7.9s)
-✔ [3440/3593] Built PrescribedExtinction.MaterialBodyInverse (7.3s)
-✔ [3441/3593] Built PrescribedExtinction.ScatteringExistence (7.9s)
-✔ [3442/3593] Built PrescribedExtinction.MaterialVolumeUniqueness (11s)
-⚠ [3443/3593] Built PrescribedExtinction.ActiveCurrentSpace (11s)
+✔ [3439/3601] Built PrescribedExtinction.SmoothOutgoingDissipativity (7.7s)
+✔ [3440/3601] Built PrescribedExtinction.OutgoingDissipativity (7.5s)
+✔ [3441/3601] Built PrescribedExtinction.BodyCurrentSpace (7.9s)
+✔ [3442/3601] Built PrescribedExtinction.MaterialBodyInverse (7.3s)
+✔ [3443/3601] Built PrescribedExtinction.ScatteringExistence (7.7s)
+✔ [3444/3601] Built PrescribedExtinction.MaterialVolumeUniqueness (7.8s)
+⚠ [3445/3601] Built PrescribedExtinction.ActiveCurrentSpace (11s)
 warning: PrescribedExtinction/ActiveCurrentSpace.lean:59:62: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
-⚠ [3444/3593] Built PrescribedExtinction.ActiveMaterialInverse (7.0s)
+⚠ [3446/3601] Built PrescribedExtinction.ActiveMaterialInverse (7.0s)
 warning: PrescribedExtinction/ActiveMaterialInverse.lean:11:35: Try `simp at hα` instead of `simpa using hα`
 
 Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
-⚠ [3445/3593] Built PrescribedExtinction.RankOneScattering (8.8s)
+⚠ [3447/3601] Built PrescribedExtinction.RankOneScattering (8.7s)
 warning: PrescribedExtinction/RankOneScattering.lean:63:36: Try `simp at hα` instead of `simpa using hα`
 
 Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
 warning: PrescribedExtinction/RankOneScattering.lean:64:36: Try `simp at hβ` instead of `simpa using hβ`
 
 Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
-✔ [3446/3593] Built PrescribedExtinction.PhysicalExtinctionWork (7.3s)
-✔ [3447/3593] Built PrescribedExtinction.RotationResponse (7.5s)
-⚠ [3448/3593] Built PrescribedExtinction.FarFieldCurrent (7.5s)
+✔ [3448/3601] Built PrescribedExtinction.PhysicalExtinctionWork (7.2s)
+✔ [3449/3601] Built PrescribedExtinction.RotationResponse (7.5s)
+⚠ [3450/3601] Built PrescribedExtinction.FarFieldCurrent (7.5s)
 warning: PrescribedExtinction/FarFieldCurrent.lean:136:78: `if_pos` has been deprecated: Use `ite_eq_left` instead
-✔ [3449/3593] Built PrescribedExtinction.PhysicalAbsorptionWork (7.0s)
-✔ [3450/3593] Built PrescribedExtinction.PhysicalResponseStability (7.1s)
-✔ [3451/3593] Built PrescribedExtinction.RotationExtinction (7.2s)
-⚠ [3452/3593] Built PrescribedExtinction.WeakCurlPlaneWave (7.9s)
+✔ [3451/3601] Built PrescribedExtinction.PhysicalAbsorptionWork (7.0s)
+✔ [3452/3601] Built PrescribedExtinction.PhysicalResponseStability (6.0s)
+✔ [3453/3601] Built PrescribedExtinction.RotationExtinction (7.1s)
+⚠ [3454/3601] Built PrescribedExtinction.WeakCurlPlaneWave (7.8s)
 warning: PrescribedExtinction/WeakCurlPlaneWave.lean:42:4: This simp argument is unused:
   Fin.sum_univ_succ
 
@@ -1561,7 +1590,7 @@ Hint: Omit it from the simp argument list.
     PiLp.inner_apply, RCLike.inner_apply]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-⚠ [3453/3593] Built PrescribedExtinction.FarFieldL2 (7.5s)
+⚠ [3455/3601] Built PrescribedExtinction.FarFieldL2 (7.4s)
 warning: PrescribedExtinction/FarFieldL2.lean:60:65: This simp argument is unused:
   Pi.add_apply
 
@@ -1576,7 +1605,7 @@ Hint: Omit it from the simp argument list.
   [apply] simp only [← transverseProjectionMap_apply, map_smul]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-⚠ [3454/3593] Built PrescribedExtinction.FarFieldRadial (7.1s)
+⚠ [3456/3601] Built PrescribedExtinction.FarFieldRadial (7.1s)
 warning: PrescribedExtinction/FarFieldRadial.lean:11:69: This simp argument is unused:
   unitSphere_norm
 
@@ -1584,7 +1613,7 @@ Hint: Omit it from the simp argument list.
   [apply] simp [radialDirection, norm_smul, Real.norm_eq_abs, abs_of_pos hs, smul_smul, hs.ne']
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-⚠ [3455/3593] Built PrescribedExtinction.FarFieldFlux (7.6s)
+⚠ [3457/3601] Built PrescribedExtinction.FarFieldFlux (7.6s)
 warning: PrescribedExtinction/FarFieldFlux.lean:32:13: This simp argument is unused:
   ← Complex.ofReal_pow
 
@@ -1594,8 +1623,8 @@ Hint: Omit it from the simp argument list.
 Note: Simp arguments with `←` have the additional effect of removing the other direction from the simp set, even if the simp argument itself is unused. If the hint above does not work, try replacing `←` with `-` to only get that effect and silence this warning.
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-✔ [3456/3593] Built PrescribedExtinction.RankOneAbsorption (7.4s)
-⚠ [3457/3593] Built PrescribedExtinction.WeakCurlFourier (7.3s)
+✔ [3458/3601] Built PrescribedExtinction.RankOneAbsorption (7.4s)
+⚠ [3459/3601] Built PrescribedExtinction.WeakCurlFourier (7.3s)
 warning: PrescribedExtinction/WeakCurlFourier.lean:59:96: This simp argument is unused:
   mul_assoc
 
@@ -1611,16 +1640,23 @@ Hint: Omit it from the simp argument list.
     map_mul]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-⚠ [3458/3593] Built PrescribedExtinction.SphericalDomain (7.4s)
+⚠ [3460/3601] Built PrescribedExtinction.SphericalDomain (7.3s)
 warning: PrescribedExtinction/SphericalDomain.lean:103:4: try 'simp' instead of 'simpa'
 
 Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
 warning: PrescribedExtinction/SphericalDomain.lean:106:4: try 'simp' instead of 'simpa'
 
 Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
-✔ [3459/3593] Built PrescribedExtinction.FarFieldWork (7.6s)
-✔ [3460/3593] Built PrescribedExtinction.WeakCurlLocalization (8.1s)
-⚠ [3461/3593] Built PrescribedExtinction.RotationContinuity (10s)
+⚠ [3461/3601] Built PrescribedExtinction.PhysicalSphereFlux (7.2s)
+warning: PrescribedExtinction/PhysicalSphereFlux.lean:52:57: This simp argument is unused:
+  unitSphere_norm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [norm_smul, Real.norm_eq_abs, abs_of_pos hrpos]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+✔ [3462/3601] Built PrescribedExtinction.FarFieldWork (7.6s)
+⚠ [3463/3601] Built PrescribedExtinction.RotationContinuity (10s)
 warning: PrescribedExtinction/RotationContinuity.lean:29:0: automatically included section variable(s) unused in theorem `OQ7Prescribed.supportedConstMap_norm_le`:
   [CompleteSpace E]
   [CompleteSpace F]
@@ -1656,14 +1692,12 @@ Hint: Omit it from the simp argument list.
   [apply] simp only [rotatedAxis, Matrix.cons_val_zero, Matrix.cons_val_one]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-✔ [3462/3593] Built PrescribedExtinction.SphericalVolume (6.9s)
-⚠ [3463/3593] Built PrescribedExtinction.LorentzCutoff (6.0s)
+✔ [3464/3601] Built PrescribedExtinction.WeakCurlLocalization (8.0s)
+✔ [3465/3601] Built PrescribedExtinction.SphericalVolume (6.9s)
+⚠ [3466/3601] Built PrescribedExtinction.LorentzCutoff (6.0s)
 warning: PrescribedExtinction/LorentzCutoff.lean:43:8: `continuous_finset_sum` has been deprecated: Use `continuous_finsetSum` instead
-✔ [3464/3593] Built PrescribedExtinction.FarFieldWorkL2 (7.5s)
-✔ [3465/3593] Built PrescribedExtinction.WeakCurlWeightedGreen (7.3s)
-⚠ [3466/3593] Built PrescribedExtinction.SphericalProduct (6.6s)
-warning: PrescribedExtinction/SphericalProduct.lean:28:21: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
-⚠ [3467/3593] Built PrescribedExtinction.PhysicalElectricWoodbury (9.5s)
+✔ [3467/3601] Built PrescribedExtinction.FarFieldWorkL2 (7.5s)
+⚠ [3468/3601] Built PrescribedExtinction.PhysicalElectricWoodbury (9.4s)
 warning: PrescribedExtinction/PhysicalElectricWoodbury.lean:30:64: This simp argument is unused:
   mul_assoc
 
@@ -1684,10 +1718,14 @@ Note: This linter can be disabled with `set_option linter.unnecessarySimpa false
 warning: PrescribedExtinction/PhysicalElectricWoodbury.lean:62:35: Try `simp at hβ` instead of `simpa using hβ`
 
 Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
-✔ [3468/3593] Built PrescribedExtinction.LorentzIdentity (6.9s)
-✔ [3469/3593] Built PrescribedExtinction.WeakPoynting (7.1s)
-✔ [3470/3593] Built PrescribedExtinction.SlabVolumeCoordinates (6.6s)
-⚠ [3471/3593] Built PrescribedExtinction.SphericalAngular (7.1s)
+✔ [3469/3601] Built PrescribedExtinction.WeakCurlWeightedGreen (7.3s)
+⚠ [3470/3601] Built PrescribedExtinction.SphericalProduct (6.7s)
+warning: PrescribedExtinction/SphericalProduct.lean:28:21: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+✔ [3471/3601] Built PrescribedExtinction.LorentzIdentity (6.9s)
+✔ [3472/3601] Built PrescribedExtinction.PhysicalPerturbedResponse (7.8s)
+✔ [3473/3601] Built PrescribedExtinction.WeakPoynting (7.1s)
+✔ [3474/3601] Built PrescribedExtinction.SlabVolumeCoordinates (6.7s)
+⚠ [3475/3601] Built PrescribedExtinction.SphericalAngular (7.2s)
 warning: PrescribedExtinction/SphericalAngular.lean:11:29: This simp argument is unused:
   sphereDirection
 
@@ -1716,23 +1754,31 @@ Hint: Omit it from the simp argument list.
   [apply] simp only [sphereDirection, Matrix.cons_val_zero, Matrix.cons_val_one]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-✔ [3472/3593] Built PrescribedExtinction.PhysicalPerturbedResponse (7.8s)
-✔ [3473/3593] Built PrescribedExtinction.LorentzBounds (7.3s)
-⚠ [3474/3593] Built PrescribedExtinction.OutgoingWeakEnergy (7.3s)
+✔ [3476/3601] Built PrescribedExtinction.LorentzBounds (7.3s)
+✔ [3477/3601] Built PrescribedExtinction.IsotropicPhysicalBody (7.5s)
+⚠ [3478/3601] Built PrescribedExtinction.OutgoingWeakEnergy (7.3s)
 warning: PrescribedExtinction/OutgoingWeakEnergy.lean:24:28: Variable name `hρ` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
   [apply] _hρ
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-✔ [3475/3593] Built PrescribedExtinction.SlabSourceGeometry (6.9s)
-✔ [3476/3593] Built PrescribedExtinction.PhysicalOpticalBalance (6.7s)
-✔ [3477/3593] Built PrescribedExtinction.IsotropicPhysicalBody (7.5s)
-✔ [3478/3593] Built PrescribedExtinction.WeakSmoothLorentz (8.1s)
-✔ [3479/3593] Built PrescribedExtinction.SmoothReciprocity (7.1s)
-✔ [3480/3593] Built PrescribedExtinction.WeightedRadiationEnergy (7.4s)
-✔ [3481/3593] Built PrescribedExtinction.SlabSeparatedL2 (6.7s)
-⚠ [3482/3593] Built PrescribedExtinction.SlabSourceDerivatives (6.9s)
+✔ [3479/3601] Built PrescribedExtinction.SlabSourceGeometry (6.8s)
+✔ [3480/3601] Built PrescribedExtinction.PhysicalOpticalBalance (6.6s)
+✔ [3481/3601] Built PrescribedExtinction.WeakSmoothLorentz (8.1s)
+✔ [3482/3601] Built PrescribedExtinction.SmoothReciprocity (7.1s)
+⚠ [3483/3601] Built PrescribedExtinction.IsotropicPhysicalAdmissibility (6.5s)
+warning: PrescribedExtinction/IsotropicPhysicalAdmissibility.lean:13:24: This simp argument is unused:
+  EuclideanSpace.norm_sq_eq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [basisR]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+✔ [3484/3601] Built PrescribedExtinction.IsotropicPhysicalPowers (6.6s)
+✔ [3485/3601] Built PrescribedExtinction.WeightedRadiationEnergy (7.4s)
+✔ [3486/3601] Built PrescribedExtinction.SlabSeparatedL2 (6.6s)
+⚠ [3487/3601] Built PrescribedExtinction.SlabSourceDerivatives (6.8s)
 warning: PrescribedExtinction/SlabSourceDerivatives.lean:42:40: This simp argument is unused:
   slabHorizontalCLM_at_slab
 
@@ -1749,32 +1795,23 @@ Hint: Omit it from the simp argument list.
     slabHeightCLM, slabHorizontalCLM_apply, mul_comm]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-✔ [3483/3593] Built PrescribedExtinction.SlabPotentialSeparation (6.8s)
-✔ [3484/3593] Built PrescribedExtinction.UniversalFieldPowers (6.7s)
-⚠ [3485/3593] Built PrescribedExtinction.NormalizedWork (8.4s)
+✔ [3488/3601] Built PrescribedExtinction.SlabPotentialSeparation (6.7s)
+⚠ [3489/3601] Built PrescribedExtinction.NormalizedWork (8.2s)
 warning: PrescribedExtinction/NormalizedWork.lean:41:41: `if_neg` has been deprecated: Use `ite_eq_right` instead
-⚠ [3486/3593] Built PrescribedExtinction.IsotropicPhysicalAdmissibility (6.5s)
-warning: PrescribedExtinction/IsotropicPhysicalAdmissibility.lean:13:24: This simp argument is unused:
-  EuclideanSpace.norm_sq_eq
-
-Hint: Omit it from the simp argument list.
-  [apply] simp [basisR]
-
-Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-✔ [3487/3593] Built PrescribedExtinction.IsotropicPhysicalPowers (6.6s)
-✔ [3488/3593] Built PrescribedExtinction.SmoothSourceWeakDecay (6.9s)
-✔ [3489/3593] Built PrescribedExtinction.ReciprocityL2 (9.0s)
-⚠ [3490/3593] Built PrescribedExtinction.WeakLorentzBoundaryBound (7.7s)
+✔ [3490/3601] Built PrescribedExtinction.UniversalFieldPowers (6.7s)
+✔ [3491/3601] Built PrescribedExtinction.SmoothSourceWeakDecay (6.9s)
+✔ [3492/3601] Built PrescribedExtinction.ReciprocityL2 (8.0s)
+⚠ [3493/3601] Built PrescribedExtinction.WeakLorentzBoundaryBound (7.8s)
 warning: PrescribedExtinction/WeakLorentzBoundaryBound.lean:18:18: Variable name `hε` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
   [apply] _hε
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-✔ [3491/3593] Built PrescribedExtinction.SlabL2Lift (7.4s)
-✔ [3492/3593] Built PrescribedExtinction.SlabDyadicSeparation (9.5s)
-✔ [3493/3593] Built PrescribedExtinction.UniversalStrictAbsorption (6.9s)
-⚠ [3494/3593] Built PrescribedExtinction.ForwardOpticalTheorem (7.2s)
+✔ [3494/3601] Built PrescribedExtinction.SlabL2Lift (7.5s)
+✔ [3495/3601] Built PrescribedExtinction.SlabDyadicSeparation (9.7s)
+✔ [3496/3601] Built PrescribedExtinction.UniversalStrictAbsorption (7.0s)
+⚠ [3497/3601] Built PrescribedExtinction.ForwardOpticalTheorem (7.2s)
 warning: PrescribedExtinction/ForwardOpticalTheorem.lean:17:24: This simp argument is unused:
   Fin.sum_univ_succ
 
@@ -1790,7 +1827,7 @@ Hint: Omit it from the simp argument list.
   [apply] simp [pairing, basisC]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-⚠ [3495/3593] Built PrescribedExtinction.ExtinctionReciprocity (7.2s)
+⚠ [3498/3601] Built PrescribedExtinction.ExtinctionReciprocity (7.1s)
 warning: PrescribedExtinction/ExtinctionReciprocity.lean:92:29: This simp argument is unused:
   vectorConjugate_apply
 
@@ -1798,42 +1835,64 @@ Hint: Omit it from the simp argument list.
   [apply] simp [bilinear, pairing, mul_comm]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-✔ [3496/3593] Built PrescribedExtinction.VacuumOutgoingWeakUniqueness (7.4s)
-✔ [3497/3593] Built PrescribedExtinction.SlabDyadicAperture (7.1s)
-⚠ [3498/3593] Built PrescribedExtinction.UniversalPassivity (7.1s)
+✔ [3499/3601] Built PrescribedExtinction.VacuumOutgoingWeakUniqueness (7.6s)
+✔ [3500/3601] Built PrescribedExtinction.SlabDyadicAperture (7.2s)
+⚠ [3501/3601] Built PrescribedExtinction.UniversalPassivity (73s)
 warning: PrescribedExtinction/UniversalPassivity.lean:100:22: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
 warning: PrescribedExtinction/UniversalPassivity.lean:100:35: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-✔ [3499/3593] Built PrescribedExtinction.IsotropicPhysicalStrictLoss (8.1s)
-✔ [3500/3593] Built PrescribedExtinction.NormalizedReciprocity (6.7s)
-✔ [3501/3593] Built PrescribedExtinction.WeakPhysicalRepresentation (6.7s)
-✔ [3502/3593] Built PrescribedExtinction.SlabPhysicalAperture (6.0s)
-✔ [3503/3593] Built PrescribedExtinction.NormalizedRotationPowers (7.0s)
-✔ [3504/3593] Built PrescribedExtinction.WeakPhysicalUniqueness (6.6s)
-✔ [3505/3593] Built PrescribedExtinction.SlabSupportedLift (7.4s)
-⚠ [3506/3593] Built PrescribedExtinction.SlabObservationRegion (6.0s)
+✔ [3502/3601] Built PrescribedExtinction.IsotropicPhysicalStrictLoss (73s)
+✔ [3503/3601] Built PrescribedExtinction.NormalizedReciprocity (6.8s)
+✔ [3504/3601] Built PrescribedExtinction.WeakPhysicalRepresentation (6.7s)
+✔ [3505/3601] Built PrescribedExtinction.SlabPhysicalAperture (7.1s)
+✔ [3506/3601] Built PrescribedExtinction.NormalizedRotationPowers (6.0s)
+⚠ [3507/3601] Built PrescribedExtinction.ScatteringStatePhysicalRadiation (7.0s)
+warning: PrescribedExtinction/ScatteringStatePhysicalRadiation.lean:41:8: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: PrescribedExtinction/ScatteringStatePhysicalRadiation.lean:35:96: This simp argument is unused:
+  unitSphere_norm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [norm_smul, Real.norm_eq_abs, abs_of_pos hrpos]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PrescribedExtinction/ScatteringStatePhysicalRadiation.lean:77:8: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: PrescribedExtinction/ScatteringStatePhysicalRadiation.lean:69:96: This simp argument is unused:
+  unitSphere_norm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [norm_smul, Real.norm_eq_abs, abs_of_pos hrpos]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+✔ [3508/3601] Built PrescribedExtinction.WeakPhysicalUniqueness (6.7s)
+✔ [3509/3601] Built PrescribedExtinction.SlabSupportedLift (7.5s)
+⚠ [3510/3601] Built PrescribedExtinction.SlabObservationRegion (7.0s)
 warning: PrescribedExtinction/SlabObservationRegion.lean:38:55: Variable name `hL` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
   [apply] _hL
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-✔ [3507/3593] Built PrescribedExtinction.CenteredSlabAperture (6.9s)
-✔ [3508/3593] Built PrescribedExtinction.PlanarScalarPotential (6.7s)
-✔ [3509/3593] Built PrescribedExtinction.HeightSupportDensity (6.0s)
-✔ [3510/3593] Built PrescribedExtinction.SlabPhysicalMap (7.3s)
-✔ [3511/3593] Built PrescribedExtinction.PlanarHeightGreen (6.8s)
-⚠ [3512/3593] Built PrescribedExtinction.SlabSmoothL2Residual (6.9s)
+✔ [3511/3601] Built PrescribedExtinction.PlanarScalarPotential (6.7s)
+✔ [3512/3601] Built PrescribedExtinction.CenteredSlabAperture (7.2s)
+⚠ [3513/3601] Built PrescribedExtinction.ArbitraryStateOpticalBalance (6.8s)
+warning: PrescribedExtinction/ArbitraryStateOpticalBalance.lean:15:2: Unused tactic linter: `change q.current x = polarization B (volumeTotalElectric k σ q) x` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+✔ [3514/3601] Built PrescribedExtinction.HeightSupportDensity (7.1s)
+✔ [3515/3601] Built PrescribedExtinction.SlabPhysicalMap (7.5s)
+✔ [3516/3601] Built PrescribedExtinction.PlanarHeightGreen (6.9s)
+✔ [3517/3601] Built PrescribedExtinction.FullPhysicalOpticalTheorem (6.6s)
+⚠ [3518/3601] Built PrescribedExtinction.SlabSmoothL2Residual (7.1s)
 warning: PrescribedExtinction/SlabSmoothL2Residual.lean:17:5: Variable name `hwc` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
   [apply] _hwc
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-⚠ [3513/3593] Built PrescribedExtinction.PlanarKernelSplit (6.8s)
+⚠ [3519/3601] Built PrescribedExtinction.PlanarKernelSplit (6.9s)
 warning: PrescribedExtinction/PlanarKernelSplit.lean:24:24: This simp argument is unused:
   Complex.ofReal_add
 
@@ -1842,23 +1901,23 @@ Hint: Omit it from the simp argument list.
     Complex.ofReal_ofNat, planarRealKernel, Complex.ofReal_neg]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-✔ [3514/3593] Built PrescribedExtinction.PlanarQuadraticKernel (6.8s)
-✔ [3515/3593] Built PrescribedExtinction.PlanarHeightMap (7.1s)
-✔ [3516/3593] Built PrescribedExtinction.SlabSmoothCenteredL2Residual (7.2s)
-✔ [3517/3593] Built PrescribedExtinction.PlanarCosineWork (6.8s)
-✔ [3518/3593] Built PrescribedExtinction.PlanarCurrentSpace (7.7s)
-✔ [3519/3593] Built PrescribedExtinction.SlabPlanarMap (7.0s)
-✔ [3520/3593] Built PrescribedExtinction.PlanarGreenWork (6.9s)
-✔ [3521/3593] Built PrescribedExtinction.PlanarLayerCurrent (6.7s)
-✔ [3522/3593] Built PrescribedExtinction.BodySeparatedLift (7.1s)
-⚠ [3523/3593] Built PrescribedExtinction.PlanarDrive (6.9s)
+✔ [3520/3601] Built PrescribedExtinction.PlanarQuadraticKernel (6.0s)
+✔ [3521/3601] Built PrescribedExtinction.PlanarHeightMap (7.2s)
+✔ [3522/3601] Built PrescribedExtinction.SlabSmoothCenteredL2Residual (7.4s)
+✔ [3523/3601] Built PrescribedExtinction.PlanarCosineWork (6.9s)
+✔ [3524/3601] Built PrescribedExtinction.PlanarCurrentSpace (7.8s)
+✔ [3525/3601] Built PrescribedExtinction.SlabPlanarMap (6.0s)
+✔ [3526/3601] Built PrescribedExtinction.PlanarGreenWork (6.9s)
+✔ [3527/3601] Built PrescribedExtinction.PlanarLayerCurrent (6.8s)
+✔ [3528/3601] Built PrescribedExtinction.BodySeparatedLift (7.2s)
+⚠ [3529/3601] Built PrescribedExtinction.PlanarDrive (6.8s)
 warning: PrescribedExtinction/PlanarDrive.lean:62:6: `if_neg` has been deprecated: Use `ite_eq_right` instead
-⚠ [3524/3593] Built PrescribedExtinction.SlabSmoothDifference (6.9s)
+✔ [3530/3601] Built PrescribedExtinction.PlanarLayerCompression (7.7s)
+⚠ [3531/3601] Built PrescribedExtinction.SlabSmoothDifference (6.9s)
 warning: PrescribedExtinction/SlabSmoothDifference.lean:78:2: Unused tactic linter: `change ‖D x‖ ^ 2 = _` does nothing
 
 Note: This linter can be disabled with `set_option linter.unusedTactic false`
-✔ [3525/3593] Built PrescribedExtinction.PlanarLayerCompression (7.9s)
-⚠ [3526/3593] Built PrescribedExtinction.PlanarScalarWork (6.0s)
+⚠ [3532/3601] Built PrescribedExtinction.PlanarScalarWork (6.9s)
 warning: PrescribedExtinction/PlanarScalarWork.lean:30:70: This simp argument is unused:
   mul_zero
 
@@ -1866,9 +1925,9 @@ Hint: Omit it from the simp argument list.
   [apply] simp only [indicator_of_notMem hm, hz hm, map_zero, zero_mul, inner_zero_left]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-✔ [3527/3593] Built PrescribedExtinction.BodyApertureWindow (7.4s)
-✔ [3528/3593] Built PrescribedExtinction.PlanarLayerIncoming (6.9s)
-⚠ [3529/3593] Built PrescribedExtinction.PlanarDriveNorm (7.1s)
+✔ [3533/3601] Built PrescribedExtinction.BodyApertureWindow (7.2s)
+✔ [3534/3601] Built PrescribedExtinction.PlanarLayerIncoming (6.8s)
+⚠ [3535/3601] Built PrescribedExtinction.PlanarDriveNorm (6.0s)
 warning: PrescribedExtinction/PlanarDriveNorm.lean:21:16: This simp argument is unused:
   hi
 
@@ -1883,7 +1942,7 @@ Hint: Omit it from the simp argument list.
   [apply] simp [hc, hn]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-⚠ [3530/3593] Built PrescribedExtinction.PlanarLayerKernel (7.8s)
+⚠ [3536/3601] Built PrescribedExtinction.PlanarLayerKernel (7.5s)
 warning: PrescribedExtinction/PlanarLayerKernel.lean:17:15: `if_pos` has been deprecated: Use `ite_eq_left` instead
 warning: PrescribedExtinction/PlanarLayerKernel.lean:20:15: `if_neg` has been deprecated: Use `ite_eq_right` instead
 warning: PrescribedExtinction/PlanarLayerKernel.lean:55:37: This simp argument is unused:
@@ -1900,17 +1959,17 @@ Hint: Omit it from the simp argument list.
   [apply] simp [hm, hz, Complex.real_smul, mul_add, mul_left_comm, C, S]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-✔ [3531/3593] Built PrescribedExtinction.SlabL2Aperture (8.0s)
-✔ [3532/3593] Built PrescribedExtinction.PlanarLayerNorm (6.8s)
-⚠ [3533/3593] Built PrescribedExtinction.PlanarMaterialInverse (7.1s)
+✔ [3537/3601] Built PrescribedExtinction.PlanarLayerNorm (6.6s)
+✔ [3538/3601] Built PrescribedExtinction.SlabL2Aperture (8.7s)
+⚠ [3539/3601] Built PrescribedExtinction.PlanarMaterialInverse (7.0s)
 warning: PrescribedExtinction/PlanarMaterialInverse.lean:12:13: `ContinuousLinearMap.add_apply` has been deprecated: Use `add_apply` instead
 
 Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.add_apply` to `add_apply x`).
-✔ [3534/3593] Built PrescribedExtinction.BodySlabGeometry (7.3s)
-✔ [3535/3593] Built PrescribedExtinction.PlanarSlabCoefficients (6.0s)
-✔ [3536/3593] Built PrescribedExtinction.BodyLayerSeparatedCurrent (6.0s)
-✔ [3537/3593] Built PrescribedExtinction.SlabL2PhysicalError (7.5s)
-⚠ [3538/3593] Built PrescribedExtinction.PlanarResponse (7.1s)
+✔ [3540/3601] Built PrescribedExtinction.BodySlabGeometry (7.3s)
+✔ [3541/3601] Built PrescribedExtinction.PlanarSlabCoefficients (6.9s)
+✔ [3542/3601] Built PrescribedExtinction.BodyLayerSeparatedCurrent (6.9s)
+✔ [3543/3601] Built PrescribedExtinction.SlabL2PhysicalError (7.4s)
+⚠ [3544/3601] Built PrescribedExtinction.PlanarResponse (6.0s)
 warning: PrescribedExtinction/PlanarResponse.lean:31:2: Try this: 
   letI̵
 
@@ -1919,7 +1978,7 @@ The difference between `let` and `letI` is that `letI` inlines the value.
 But this is not relevant for proofs because of proof irrelevance.
 
 Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-⚠ [3539/3593] Built PrescribedExtinction.SquareApertureWindow (7.2s)
+⚠ [3545/3601] Built PrescribedExtinction.SquareApertureWindow (7.0s)
 warning: PrescribedExtinction/SquareApertureWindow.lean:39:43: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
 warning: PrescribedExtinction/SquareApertureWindow.lean:69:39: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
 warning: PrescribedExtinction/SquareApertureWindow.lean:70:58: This simp argument is unused:
@@ -1938,7 +1997,7 @@ Hint: Omit it from the simp argument list.
     Complex.ofReal_re, Complex.ofReal_im, mul_zero, sub_zero, zero_mul, add_zero]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-⚠ [3540/3593] Built PrescribedExtinction.PlanarSlabParameterContinuity (6.9s)
+⚠ [3546/3601] Built PrescribedExtinction.PlanarSlabParameterContinuity (6.9s)
 warning: PrescribedExtinction/PlanarSlabParameterContinuity.lean:21:57: This simp argument is unused:
   Matrix.cons_val_zero
 
@@ -1953,14 +2012,14 @@ Hint: Omit it from the simp argument list.
   [apply] simp only [OQ7.homogeneousTransfer, Matrix.of_apply, Matrix.cons_val_zero]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-✔ [3541/3593] Built PrescribedExtinction.PlanarActualLosslessPlate (6.0s)
-✔ [3542/3593] Built PrescribedExtinction.PlanarSlabFeedback (7.2s)
-⚠ [3543/3593] Built PrescribedExtinction.PlanarSlabGreenField (7.0s)
+✔ [3547/3601] Built PrescribedExtinction.PlanarActualLosslessPlate (6.9s)
+✔ [3548/3601] Built PrescribedExtinction.PlanarSlabFeedback (7.0s)
+⚠ [3549/3601] Built PrescribedExtinction.PlanarSlabGreenField (6.9s)
 warning: PrescribedExtinction/PlanarSlabGreenField.lean:52:6: `if_pos` has been deprecated: Use `ite_eq_left` instead
 warning: PrescribedExtinction/PlanarSlabGreenField.lean:46:102: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [3544/3593] Built PrescribedExtinction.PlanarSlabStrictAbsorption (6.9s)
+⚠ [3550/3601] Built PrescribedExtinction.PlanarSlabStrictAbsorption (6.8s)
 warning: PrescribedExtinction/PlanarSlabStrictAbsorption.lean:11:26: This simp argument is unused:
   Complex.star_def
 
@@ -1975,21 +2034,21 @@ Hint: Omit it from the simp argument list.
   [apply] simp [OQ7.directedFlux, Complex.mul_re, Complex.normSq_apply]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-✔ [3545/3593] Built PrescribedExtinction.BodyScaledLift (7.2s)
-✔ [3546/3593] Built PrescribedExtinction.SquareSmoothWindow (7.1s)
-✔ [3547/3593] Built PrescribedExtinction.PlanarReflectedLayer (6.0s)
-✔ [3548/3593] Built PrescribedExtinction.PlanarAbsorberDesign (6.0s)
-✔ [3549/3593] Built PrescribedExtinction.BodySlabError (6.9s)
-✔ [3550/3593] Built PrescribedExtinction.SquareWindowApproximation (7.3s)
-✔ [3551/3593] Built PrescribedExtinction.PlanarSlabAbsorptionIntegral (6.9s)
-⚠ [3552/3593] Built PrescribedExtinction.PlanarSingleLayerCurrent (6.8s)
+✔ [3551/3601] Built PrescribedExtinction.BodyScaledLift (7.1s)
+✔ [3552/3601] Built PrescribedExtinction.SquareSmoothWindow (7.1s)
+✔ [3553/3601] Built PrescribedExtinction.PlanarReflectedLayer (6.9s)
+✔ [3554/3601] Built PrescribedExtinction.PlanarAbsorberDesign (6.9s)
+✔ [3555/3601] Built PrescribedExtinction.BodySlabError (6.8s)
+✔ [3556/3601] Built PrescribedExtinction.SquareWindowApproximation (7.3s)
+✔ [3557/3601] Built PrescribedExtinction.PlanarSlabAbsorptionIntegral (6.8s)
+⚠ [3558/3601] Built PrescribedExtinction.PlanarSingleLayerCurrent (6.7s)
 warning: PrescribedExtinction/PlanarSingleLayerCurrent.lean:9:53: Variable name `hab` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
   [apply] _hab
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-⚠ [3553/3593] Built PrescribedExtinction.BodyCompressedError (9.8s)
+⚠ [3559/3601] Built PrescribedExtinction.BodyCompressedError (9.7s)
 warning: PrescribedExtinction/BodyCompressedError.lean:49:34: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
 warning: PrescribedExtinction/BodyCompressedError.lean:92:48: This simp argument is unused:
   real_inner_eq_re_inner ℂ
@@ -2010,22 +2069,22 @@ warning: PrescribedExtinction/BodyCompressedError.lean:118:2: Unused tactic lint
     _` does nothing
 
 Note: This linter can be disabled with `set_option linter.unusedTactic false`
-✔ [3554/3593] Built PrescribedExtinction.PlanarLayerCurrentAlgebra (7.0s)
-⚠ [3555/3593] Built PrescribedExtinction.PlanarLayerAxisSupport (6.8s)
+✔ [3560/3601] Built PrescribedExtinction.PlanarLayerCurrentAlgebra (6.9s)
+⚠ [3561/3601] Built PrescribedExtinction.PlanarLayerAxisSupport (6.8s)
 warning: PrescribedExtinction/PlanarLayerAxisSupport.lean:28:15: `if_pos` has been deprecated: Use `ite_eq_left` instead
 warning: PrescribedExtinction/PlanarLayerAxisSupport.lean:49:15: `if_neg` has been deprecated: Use `ite_eq_right` instead
-✔ [3556/3593] Built PrescribedExtinction.PlanarSlabChannels (6.7s)
-⚠ [3557/3593] Built PrescribedExtinction.BodyApertureResidual (7.9s)
+✔ [3562/3601] Built PrescribedExtinction.PlanarSlabChannels (6.7s)
+⚠ [3563/3601] Built PrescribedExtinction.BodyApertureResidual (7.9s)
 warning: PrescribedExtinction/BodyApertureResidual.lean:13:9: Variable name `hR` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
   [apply] _hR
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-⚠ [3558/3593] Built PrescribedExtinction.PlanarCoupledGreen (7.2s)
+⚠ [3564/3601] Built PrescribedExtinction.PlanarCoupledGreen (7.3s)
 warning: PrescribedExtinction/PlanarCoupledGreen.lean:31:15: `if_pos` has been deprecated: Use `ite_eq_left` instead
 warning: PrescribedExtinction/PlanarCoupledGreen.lean:33:15: `if_neg` has been deprecated: Use `ite_eq_right` instead
-⚠ [3559/3593] Built PrescribedExtinction.PlanarSlabChannelGreen (6.8s)
+⚠ [3565/3601] Built PrescribedExtinction.PlanarSlabChannelGreen (6.8s)
 warning: PrescribedExtinction/PlanarSlabChannelGreen.lean:18:20: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
@@ -2044,32 +2103,32 @@ Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus fa
 warning: PrescribedExtinction/PlanarSlabChannelGreen.lean:88:20: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [3560/3593] Built PrescribedExtinction.BodyMaterialLift (7.1s)
+⚠ [3566/3601] Built PrescribedExtinction.BodyMaterialLift (7.2s)
 warning: PrescribedExtinction/BodyMaterialLift.lean:49:67: `ContinuousLinearMap.sub_apply` has been deprecated: Use `sub_apply` instead
 
 Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.sub_apply` to `sub_apply x`).
-✔ [3561/3593] Built PrescribedExtinction.PlanarSlabCoupledFields (6.8s)
-✔ [3562/3593] Built PrescribedExtinction.BodyResponseResidual (6.0s)
-✔ [3563/3593] Built PrescribedExtinction.PlanarSlabCoupledContinuity (6.8s)
-✔ [3564/3593] Built PrescribedExtinction.PlanarSlabCoupledPotentials (6.9s)
-✔ [3565/3593] Built PrescribedExtinction.DriveWindowMismatch (7.0s)
-⚠ [3566/3593] Built PrescribedExtinction.PlanarSlabCoupledEquations (7.3s)
+✔ [3567/3601] Built PrescribedExtinction.PlanarSlabCoupledFields (6.9s)
+✔ [3568/3601] Built PrescribedExtinction.BodyResponseResidual (7.1s)
+✔ [3569/3601] Built PrescribedExtinction.PlanarSlabCoupledContinuity (7.1s)
+✔ [3570/3601] Built PrescribedExtinction.PlanarSlabCoupledPotentials (6.0s)
+✔ [3571/3601] Built PrescribedExtinction.DriveWindowMismatch (7.2s)
+⚠ [3572/3601] Built PrescribedExtinction.PlanarSlabCoupledEquations (7.4s)
 warning: PrescribedExtinction/PlanarSlabCoupledEquations.lean:110:17: `if_pos` has been deprecated: Use `ite_eq_left` instead
 warning: PrescribedExtinction/PlanarSlabCoupledEquations.lean:117:17: `if_neg` has been deprecated: Use `ite_eq_right` instead
-✔ [3567/3593] Built PrescribedExtinction.BodySharpLift (7.3s)
-✔ [3568/3593] Built PrescribedExtinction.PlanarSlabResponseIdentification (6.8s)
-✔ [3569/3593] Built PrescribedExtinction.SharpResponseEstimate (7.4s)
-⚠ [3570/3593] Built PrescribedExtinction.PlanarSlabExtinctionIntegral (6.9s)
+✔ [3573/3601] Built PrescribedExtinction.BodySharpLift (7.5s)
+✔ [3574/3601] Built PrescribedExtinction.PlanarSlabResponseIdentification (7.1s)
+✔ [3575/3601] Built PrescribedExtinction.SharpResponseEstimate (7.5s)
+⚠ [3576/3601] Built PrescribedExtinction.PlanarSlabExtinctionIntegral (7.1s)
 warning: PrescribedExtinction/PlanarSlabExtinctionIntegral.lean:42:8: `if_neg` has been deprecated: Use `ite_eq_right` instead
-⚠ [3571/3593] Built PrescribedExtinction.PlanarSlabAbsorptionWork (7.1s)
+⚠ [3577/3601] Built PrescribedExtinction.PlanarSlabAbsorptionWork (7.2s)
 warning: PrescribedExtinction/PlanarSlabAbsorptionWork.lean:60:17: `if_pos` has been deprecated: Use `ite_eq_left` instead
 warning: PrescribedExtinction/PlanarSlabAbsorptionWork.lean:67:17: `if_neg` has been deprecated: Use `ite_eq_right` instead
 warning: PrescribedExtinction/PlanarSlabAbsorptionWork.lean:56:4: Unused tactic linter: `change -(inner ℂ _ (if z < A.width then α⁻¹ * _ else β⁻¹ * _)).im = f z + g z` does nothing
 
 Note: This linter can be disabled with `set_option linter.unusedTactic false`
-✔ [3572/3593] Built PrescribedExtinction.UniformBodyResponse (6.0s)
-✔ [3573/3593] Built PrescribedExtinction.PlanarSlabIntegralPowers (6.0s)
-⚠ [3574/3593] Built PrescribedExtinction.BodySharpWork (7.9s)
+✔ [3578/3601] Built PrescribedExtinction.UniformBodyResponse (7.1s)
+✔ [3579/3601] Built PrescribedExtinction.PlanarSlabIntegralPowers (7.0s)
+⚠ [3580/3601] Built PrescribedExtinction.BodySharpWork (7.9s)
 info: PrescribedExtinction/BodySharpWork.lean:57:2: Try this:
   [apply] ring_nf
   
@@ -2084,8 +2143,8 @@ Hint: Omit it from the simp argument list.
     add_zero]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-✔ [3575/3593] Built PrescribedExtinction.PlanarSlabAbsorberPower (6.9s)
-⚠ [3576/3593] Built PrescribedExtinction.BodyAbsorptionLocalization (8.6s)
+✔ [3581/3601] Built PrescribedExtinction.PlanarSlabAbsorberPower (7.0s)
+⚠ [3582/3601] Built PrescribedExtinction.BodyAbsorptionLocalization (8.6s)
 warning: PrescribedExtinction/BodyAbsorptionLocalization.lean:34:15: This simp argument is unused:
   RCLike.ofReal_eq_complex_ofReal
 
@@ -2094,12 +2153,21 @@ Hint: Omit it from the simp argument list.
     add_zero]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-✔ [3577/3593] Built PrescribedExtinction.UniformBodyPowers (7.4s)
-✔ [3578/3593] Built PrescribedExtinction.PowerRatioEstimate (7.3s)
-✔ [3579/3593] Built PrescribedExtinction.PlanarRotationPowers (7.5s)
-✔ [3580/3593] Built PrescribedExtinction.PlanarSlabDesignLimit (7.2s)
-✔ [3581/3593] Built PrescribedExtinction.UniformPhysicalPowers (7.6s)
-⚠ [3582/3593] Built PrescribedExtinction.PlanarPrescribedDesign (7.0s)
+✔ [3583/3601] Built PrescribedExtinction.UniformBodyPowers (7.3s)
+✔ [3584/3601] Built PrescribedExtinction.PowerRatioEstimate (7.2s)
+✔ [3585/3601] Built PrescribedExtinction.PlanarRotationPowers (7.4s)
+✔ [3586/3601] Built PrescribedExtinction.UniformPhysicalPowers (7.4s)
+✔ [3587/3601] Built PrescribedExtinction.PlanarSlabDesignLimit (7.2s)
+⚠ [3588/3601] Built PrescribedExtinction.UniformVectorCurrent (7.0s)
+warning: PrescribedExtinction/UniformVectorCurrent.lean:20:18: This simp argument is unused:
+  EuclideanSpace.norm_sq_eq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [basisR]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+✔ [3589/3601] Built PrescribedExtinction.UniformPhysicalAsymmetry (7.7s)
+⚠ [3590/3601] Built PrescribedExtinction.PlanarPrescribedDesign (7.0s)
 warning: PrescribedExtinction/PlanarPrescribedDesign.lean:10:36: Variable name `hpA` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
@@ -2112,27 +2180,20 @@ Hint: The binding can be removed (if unused) or named `_` (if used implicitly). 
   [apply] _hpW
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-✔ [3583/3593] Built PrescribedExtinction.UniformPhysicalAsymmetry (7.5s)
-⚠ [3584/3593] Built PrescribedExtinction.UniformVectorCurrent (7.0s)
-warning: PrescribedExtinction/UniformVectorCurrent.lean:20:18: This simp argument is unused:
-  EuclideanSpace.norm_sq_eq
-
-Hint: Omit it from the simp argument list.
-  [apply] simp [basisR]
-
-Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-✔ [3585/3593] Built PrescribedExtinction.PhysicalRankOneExtinctionBracket (8.8s)
-⚠ [3586/3593] Built PrescribedExtinction.PhysicalPerturbationZero (12s)
+✔ [3591/3601] Built PrescribedExtinction.PhysicalRankOneExtinctionBracket (8.8s)
+⚠ [3592/3601] Built PrescribedExtinction.PhysicalPerturbationZero (12s)
 warning: PrescribedExtinction/PhysicalPerturbationZero.lean:30:35: Try `simp at hα` instead of `simpa using hα`
 
 Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
 warning: PrescribedExtinction/PhysicalPerturbationZero.lean:31:35: Try `simp at hβ` instead of `simpa using hβ`
 
 Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
-✔ [3587/3593] Built PrescribedExtinction.PhysicalCompactLossBracket (7.5s)
-✔ [3588/3593] Built PrescribedExtinction.PhysicalIsotropicPrescribedExtinction (7.3s)
-✔ [3589/3593] Built PrescribedExtinction.Theorem11 (7.2s)
-✔ [3590/3593] Built PrescribedExtinction.PrescribedExtinctionClass (7.2s)
-✔ [3591/3593] Built PrescribedExtinction.FullPrescribedSuprema (6.0s)
-✔ [3592/3593] Built PrescribedExtinction (6.5s)
-Build completed successfully (3593 jobs).
+✔ [3593/3601] Built PrescribedExtinction.PhysicalCompactLossBracket (7.6s)
+✔ [3594/3601] Built PrescribedExtinction.PhysicalIsotropicPrescribedExtinction (7.3s)
+✔ [3595/3601] Built PrescribedExtinction.Theorem11 (7.1s)
+✔ [3596/3601] Built PrescribedExtinction.PrescribedExtinctionClass (7.1s)
+✔ [3597/3601] Built PrescribedExtinction.FullPrescribedSuprema (6.8s)
+✔ [3598/3601] Built PrescribedExtinction.UniversalPhysicalBounds (6.8s)
+✔ [3599/3601] Built PrescribedExtinction.PhysicalTheorem11 (6.6s)
+✔ [3600/3601] Built PrescribedExtinction (6.5s)
+Build completed successfully (3601 jobs).
