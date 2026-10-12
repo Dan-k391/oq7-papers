@@ -88,7 +88,8 @@ try {
         @{ name = 'weak-maxwell-foundations'; module = 'PrescribedExtinction.WeakScatteringResidual' },
         @{ name = 'prescribed-extinction-class-lower'; module = 'PrescribedExtinction.PrescribedExtinctionClass' },
         @{ name = 'universal-weak-passivity'; module = 'PrescribedExtinction.UniversalPassivity' },
-        @{ name = 'full-prescribed-suprema'; module = 'PrescribedExtinction.FullPrescribedSuprema' }
+        @{ name = 'full-prescribed-suprema'; module = 'PrescribedExtinction.FullPrescribedSuprema' },
+        @{ name = 'outgoing-weak-uniqueness'; module = 'PrescribedExtinction.WeakPhysicalUniqueness' }
     )
     if ($Only) {
         foreach ($oq7Name in $Only) {

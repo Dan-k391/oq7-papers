@@ -526,7 +526,12 @@ run_cmd do
         'OQ7Prescribed.PrescribedExtinctionPair.asymmetry_lt_one',
         'OQ7Prescribed.prescribedExtinctionAsymmetryValues_sSup',
         'OQ7Prescribed.prescribedExtinctionDifferenceValues_sSup',
-        'OQ7Prescribed.prescribedExtinction_full_supremum')) {
+        'OQ7Prescribed.prescribedExtinction_full_supremum',
+        'OQ7Prescribed.vacuum_outgoing_weak_unique_zero',
+        'OQ7Prescribed.scatteringState_outgoing_volume_representation',
+        'OQ7Prescribed.scatteringState_converse_material_volume_equation',
+        'OQ7Prescribed.physicalScatteringState_unique_ae',
+        'OQ7Prescribed.physicalScatteringState_wellposed_ae')) {
         if ($oq7Required -notin $oq7NewKernelTheorems) { throw "Missing universal passivity/supremum obligation: $oq7Required" }
     }
     if ('OQ7Prescribed.scatteringStateOfVolumeEquation' -notin $oq7Constants) {
@@ -578,13 +583,17 @@ run_cmd do
         bothEntireFixedCommonExtinctionClassSupremaVerified = $true
         entireFixedCommonExtinctionClassStrictNonattainmentVerified = $true
         fixedExtinctionSupremumDeclaration = 'OQ7Prescribed.prescribedExtinction_full_supremum'
+        vacuumOutgoingWeakMaxwellUniquenessVerified = $true
+        arbitraryOutgoingWeakScatteringStateConverseVolumeRepresentationVerified = $true
+        arbitraryAdmissibleOutgoingWeakScatteringStateUniquenessAEVerified = $true
+        arbitraryAdmissibleOutgoingWeakScatteringStateWellposedAEVerified = $true
+        weakScatteringUniquenessDeclaration = 'OQ7Prescribed.physicalScatteringState_unique_ae'
         theorem11Verified = $true
         finalTheoremDeclaration = 'OQ7Prescribed.theorem11'
         finalTheoremIsKernelProofDeclaration = $true
         finalTheoremExactTypeAndTransitiveAxiomsVerified = $true
         finalTheoremVerificationLog = 'verification/final-theorem.log'
-        remainingTheorem11Obligations = @('Outgoing weak Maxwell uniqueness and converse volume representation',
-            'Arbitrary-state physical all-angle flux and X = A + S',
+        remainingTheorem11Obligations = @('Arbitrary-state physical all-angle flux and X = A + S',
             'Reciprocity and normalized asymmetry bounds for arbitrary opposite-incidence states without an explicit common-extinction hypothesis',
             'Combined complete physical theorem declaration and frozen review repository')
         targetProposition = 'OQ7Prescribed.Theorem11Statement'
@@ -702,7 +711,7 @@ run_cmd do
         actualOutgoingVolumeDissipativityVerified = $true
         outgoingDissipativityForAllCompactL2CurrentsVerified = $true
         physicalDyadicDistributionExteriorTestIdentificationVerified = $true
-        outgoingWeakMaxwellRepresentationVerified = $false
+        outgoingWeakMaxwellRepresentationVerified = $true
         scatteringStateExistenceVerified = $true
         allPreContactLeanModulesUnchanged = $false
         allPrePuncturedLeanModulesUnchanged = $false
@@ -760,8 +769,7 @@ run_cmd do
             @{ module = 'PrescribedExtinction.NewtonStaticIdentification'; scope = 'Actual original Newton volume distribution equals staticFourierOperator on every compactly supported vector L2 current; genuine current/test Fubini, smooth correlation, Fourier L1-L2 compatibility, and bounded physical L2 realization'; compactCurrentConvolutionIdentificationVerified = $true; physicalStaticOperatorVerified = $true }
         )
         unverifiedDependencies = @()
-        additionalResultsOutsideTheorem11NotProved = @('Uniqueness of arbitrary physical outgoing Maxwell states',
-            'Converse outgoing volume representation')
+        additionalResultsOutsideTheorem11NotProved = @()
     } | ConvertTo-Json -Depth 12 | Set-Content -LiteralPath 'verification/report.json' -Encoding utf8
-    Write-Output 'VERIFIED MILESTONES: preserved existence core, universal weak passivity, and both entire fixed-common-extinction suprema passed identical-source clean build and all-project transitive axiom audit. Complete physical verification remains pending.'
+    Write-Output 'VERIFIED MILESTONES: preserved existence core, universal weak passivity, both entire fixed-common-extinction suprema, arbitrary weak-state converse volume representation and Maxwell uniqueness passed identical-source clean build and all-project transitive axiom audit. Complete physical verification remains pending.'
 } finally { Pop-Location }

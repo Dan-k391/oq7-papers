@@ -1,0 +1,88 @@
+OQ7Prescribed.vacuum_weak_weighted_electric_energy : ∀ (k : ℝ) (E H : OQ7Prescribed.Field),
+  OQ7Prescribed.LocallySquareIntegrable E →
+    OQ7Prescribed.LocallySquareIntegrable H →
+      (OQ7Prescribed.HasWeakCurl E fun x => (Complex.I * ↑k) • H x) →
+        (OQ7Prescribed.HasWeakCurl H fun x => (-Complex.I * ↑k) • E x) →
+          ∀ (ε ρ : ℝ),
+            0 < ε →
+              (∀ (x : OQ7Prescribed.Position),
+                  ρ ≤ ‖x‖ → ‖x‖ * ‖OQ7Prescribed.cross (H x) (OQ7Prescribed.complexify (‖x‖⁻¹ • x)) - E x‖ < ε) →
+                ∀ (r : ℝ),
+                  0 < r →
+                    ρ ≤ r →
+                      ∫ (x : OQ7Prescribed.Position), OQ7Prescribed.sourceEnergyWeight r x * ‖E x‖ ^ 2 ≤
+                        4 * Real.pi * ε ^ 2
+'OQ7Prescribed.vacuum_weak_weighted_electric_energy' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.vacuum_weak_smooth_source_radial_Lorentz : ∀ (k : ℝ) (E H : OQ7Prescribed.Field),
+  OQ7Prescribed.LocallySquareIntegrable E →
+    OQ7Prescribed.LocallySquareIntegrable H →
+      (OQ7Prescribed.HasWeakCurl E fun x => (Complex.I * ↑k) • H x) →
+        (OQ7Prescribed.HasWeakCurl H fun x => (-Complex.I * ↑k) • E x) →
+          ∀ (q : OQ7Prescribed.CompactPolarization),
+            ContDiff ℝ (↑⊤) q.current →
+              ∀ (r : ℝ),
+                0 < r →
+                  q.radius ≤ r →
+                    ∫ (x : OQ7Prescribed.Position),
+                        ↑(OQ7Prescribed.sourceEnergyWeight r x) *
+                          (OQ7Prescribed.bilinear (E x)
+                              (OQ7Prescribed.cross (OQ7Prescribed.smoothMagneticSource k q x)
+                                (OQ7Prescribed.complexify (OQ7Prescribed.radialDirection x))) -
+                            OQ7Prescribed.bilinear (OQ7Prescribed.smoothElectricSource k q x)
+                              (OQ7Prescribed.cross (H x)
+                                (OQ7Prescribed.complexify (OQ7Prescribed.radialDirection x)))) =
+                      Complex.I * ↑k * ∫ (x : OQ7Prescribed.Position), OQ7Prescribed.bilinear (q.current x) (E x)
+'OQ7Prescribed.vacuum_weak_smooth_source_radial_Lorentz' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.vacuum_outgoing_weak_smooth_work_zero : ∀ (k : ℝ),
+  0 < k →
+    ∀ (E H : OQ7Prescribed.Field),
+      OQ7Prescribed.LocallySquareIntegrable E →
+        OQ7Prescribed.LocallySquareIntegrable H →
+          (OQ7Prescribed.HasWeakCurl E fun x => (Complex.I * ↑k) • H x) →
+            (OQ7Prescribed.HasWeakCurl H fun x => (-Complex.I * ↑k) • E x) →
+              OQ7Prescribed.Outgoing E H →
+                ∀ (q : OQ7Prescribed.CompactPolarization),
+                  ContDiff ℝ (↑⊤) q.current →
+                    ∫ (x : OQ7Prescribed.Position), OQ7Prescribed.bilinear (q.current x) (E x) = 0
+'OQ7Prescribed.vacuum_outgoing_weak_smooth_work_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.vacuum_outgoing_weak_unique_zero : ∀ (k : ℝ),
+  0 < k →
+    ∀ (E H : OQ7Prescribed.Field),
+      OQ7Prescribed.LocallySquareIntegrable E →
+        OQ7Prescribed.LocallySquareIntegrable H →
+          (OQ7Prescribed.HasWeakCurl E fun x => (Complex.I * ↑k) • H x) →
+            (OQ7Prescribed.HasWeakCurl H fun x => (-Complex.I * ↑k) • E x) →
+              OQ7Prescribed.Outgoing E H → E =ᵐ[MeasureTheory.volume] 0 ∧ H =ᵐ[MeasureTheory.volume] 0
+'OQ7Prescribed.vacuum_outgoing_weak_unique_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.scatteringState_outgoing_volume_representation : ∀ (k : ℝ),
+  0 < k →
+    ∀ (B : OQ7Prescribed.TwoLayerBody) (σ : OQ7Prescribed.Direction) (s : OQ7Prescribed.ScatteringState k B σ),
+      have p := OQ7Prescribed.physicalCompactPolarization B s.electric ⋯;
+      s.electric =ᵐ[MeasureTheory.volume] OQ7Prescribed.volumeTotalElectric k σ p ∧
+        s.magnetic =ᵐ[MeasureTheory.volume] OQ7Prescribed.volumeTotalMagnetic k σ p
+'OQ7Prescribed.scatteringState_outgoing_volume_representation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+OQ7Prescribed.scatteringState_converse_material_volume_equation : ∀ (k : ℝ),
+  0 < k →
+    ∀ (B : OQ7Prescribed.TwoLayerBody) (σ : OQ7Prescribed.Direction) (s : OQ7Prescribed.ScatteringState k B σ),
+      OQ7Prescribed.MaterialVolumeEquation k B σ (OQ7Prescribed.physicalCompactPolarization B s.electric ⋯)
+'OQ7Prescribed.scatteringState_converse_material_volume_equation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+OQ7Prescribed.physicalScatteringState_unique_ae : ∀ (k : ℝ),
+  0 < k →
+    ∀ (P Q : ℝ) (B : OQ7Prescribed.TwoLayerBody),
+      B.admissible P Q →
+        ∀ (σ : OQ7Prescribed.Direction) (s t : OQ7Prescribed.ScatteringState k B σ),
+          s.electric =ᵐ[MeasureTheory.volume] t.electric ∧ s.magnetic =ᵐ[MeasureTheory.volume] t.magnetic
+'OQ7Prescribed.physicalScatteringState_unique_ae' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.physicalScatteringState_wellposed_ae : ∀ (k : ℝ),
+  0 < k →
+    ∀ (P Q : ℝ) (B : OQ7Prescribed.TwoLayerBody),
+      B.admissible P Q →
+        ∀ (σ : OQ7Prescribed.Direction),
+          ∃ s,
+            ∀ (t : OQ7Prescribed.ScatteringState k B σ),
+              s.electric =ᵐ[MeasureTheory.volume] t.electric ∧ s.magnetic =ᵐ[MeasureTheory.volume] t.magnetic
+'OQ7Prescribed.physicalScatteringState_wellposed_ae' depends on axioms: [propext, Classical.choice, Quot.sound]

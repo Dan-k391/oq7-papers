@@ -438,6 +438,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.exteriorElectric_uniform_farField_error
 #check @OQ7Prescribed.exteriorMagnetic_integrable_far
 #check @OQ7Prescribed.exteriorMagnetic_norm_decay
+#check @OQ7Prescribed.field_zero_ae_of_compact_smooth_bilinear_tests
 #check @OQ7Prescribed.fieldComponent_locallyIntegrable
 #check @OQ7Prescribed.fieldComponentDistribution_add
 #check @OQ7Prescribed.fieldComponentDistribution_apply
@@ -457,6 +458,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.gradient_current_test_joint_integrable
 #check @OQ7Prescribed.gradientPotential_ae_integrable_on_compact
 #check @OQ7Prescribed.gradientPotential_component_integral_far
+#check @OQ7Prescribed.gradientPotential_congr_current
 #check @OQ7Prescribed.gradientPotential_eq_cutoff
 #check @OQ7Prescribed.gradientPotential_integrable_far
 #check @OQ7Prescribed.gradientPotential_integrand_cutoff
@@ -575,8 +577,10 @@ import PrescribedExtinction
 #check @OQ7Prescribed.layerPermittivity_reciprocal
 #check @OQ7Prescribed.localizedWeakCurl_hasCompactSupport
 #check @OQ7Prescribed.localizedWeakCurl_memLp
+#check @OQ7Prescribed.locallyIntegrable_weighted_smooth_bilinear
 #check @OQ7Prescribed.locallyL2_inner_compactL2_integrable
 #check @OQ7Prescribed.locallyL2_weighted_inner_integrable
+#check @OQ7Prescribed.locallyL2_weighted_norm_sq_integrable
 #check @OQ7Prescribed.locallySquareIntegrable_locallyIntegrable
 #check @OQ7Prescribed.Lorentz_flux_norm_bound
 #check @OQ7Prescribed.LorentzDecayConstant_nonneg
@@ -789,6 +793,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.outgoing_weak_source_work_nonneg
 #check @OQ7Prescribed.Outgoing.sub_fields
 #check @OQ7Prescribed.outgoingElectric_uniform_physical_farField_error
+#check @OQ7Prescribed.outgoingElectricField_congr_current_ae
 #check @OQ7Prescribed.outgoingElectricField_eq_ae
 #check @OQ7Prescribed.outgoingElectricField_locallySquareIntegrable
 #check @OQ7Prescribed.outgoingGradient_eq_static_add_dynamic
@@ -811,6 +816,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.outgoingGreen_zero_eq_newton
 #check @OQ7Prescribed.outgoingGreenDistribution_apply
 #check @OQ7Prescribed.outgoingMagneticDistribution_second_curl
+#check @OQ7Prescribed.outgoingMagneticField_congr_current
 #check @OQ7Prescribed.outgoingMagneticField_locallySquareIntegrable
 #check @OQ7Prescribed.outgoingPhysicalSourceFields
 #check @OQ7Prescribed.outgoingPotential_add
@@ -913,6 +919,8 @@ import PrescribedExtinction
 #check @OQ7Prescribed.physicalScattering_zero_extinction
 #check @OQ7Prescribed.physicalScattering_zero_farField
 #check @OQ7Prescribed.physicalScatteringState_exists
+#check @OQ7Prescribed.physicalScatteringState_unique_ae
+#check @OQ7Prescribed.physicalScatteringState_wellposed_ae
 #check @OQ7Prescribed.physicalSlab_uniform_L2_aperture_residual
 #check @OQ7Prescribed.physicalSourceFields_first_curl
 #check @OQ7Prescribed.physicalSourceFields_first_weakCurl
@@ -1185,8 +1193,10 @@ import PrescribedExtinction
 #check @OQ7Prescribed.scatteringState_absorption_integrable
 #check @OQ7Prescribed.scatteringState_absorption_le_extinction
 #check @OQ7Prescribed.scatteringState_absorption_nonneg
+#check @OQ7Prescribed.scatteringState_converse_material_volume_equation
 #check @OQ7Prescribed.scatteringState_extinction_nonneg
 #check @OQ7Prescribed.scatteringState_forward_optical_theorem
+#check @OQ7Prescribed.scatteringState_outgoing_volume_representation
 #check @OQ7Prescribed.scatteringState_positiveExtinction_absorption_pos
 #check @OQ7Prescribed.scatteringState_positiveExtinction_scattering_pos
 #check @OQ7Prescribed.scatteringState_scattered_source
@@ -1312,6 +1322,7 @@ import PrescribedExtinction
 #check @OQ7Prescribed.smooth_cutoff_flux_integrable
 #check @OQ7Prescribed.smooth_pair_cutoff_curl
 #check @OQ7Prescribed.smooth_source_cutoff_energy
+#check @OQ7Prescribed.smooth_source_weak_decay
 #check @OQ7Prescribed.smooth_sources_cutoff_Lorentz
 #check @OQ7Prescribed.smoothDyadicComponent_contDiff
 #check @OQ7Prescribed.smoothDyadicComponent_distribution
@@ -1502,6 +1513,12 @@ import PrescribedExtinction
 #check @OQ7Prescribed.twoPieceSupportedOperator_negative_imaginary_bound
 #check @OQ7Prescribed.unitSphere_norm
 #check @OQ7Prescribed.unitSphere_sum_sq
+#check @OQ7Prescribed.vacuum_outgoing_weak_smooth_work_zero
+#check @OQ7Prescribed.vacuum_outgoing_weak_unique_zero
+#check @OQ7Prescribed.vacuum_weak_radial_flux_zero
+#check @OQ7Prescribed.vacuum_weak_smooth_source_cutoff_Lorentz
+#check @OQ7Prescribed.vacuum_weak_smooth_source_radial_Lorentz
+#check @OQ7Prescribed.vacuum_weak_weighted_electric_energy
 #check @OQ7Prescribed.vacuumDistribution_Maxwell_Helmholtz
 #check @OQ7Prescribed.vector_basisC_expansion
 #check @OQ7Prescribed.vector_clm_coordinate_expansion
@@ -1522,15 +1539,19 @@ import PrescribedExtinction
 #check @OQ7Prescribed.volumeExtinction_current_work
 #check @OQ7Prescribed.volumeExtinction_global_current_work
 #check @OQ7Prescribed.volumePhysicalFarField_eq
+#check @OQ7Prescribed.volumeTotalElectric_congr_current_ae
 #check @OQ7Prescribed.volumeTotalElectric_locallySquareIntegrable
 #check @OQ7Prescribed.volumeTotalElectric_weakCurl
 #check @OQ7Prescribed.volumeTotalFields_weakMaxwell
+#check @OQ7Prescribed.volumeTotalMagnetic_congr_current
 #check @OQ7Prescribed.volumeTotalMagnetic_locallySquareIntegrable
 #check @OQ7Prescribed.volumeTotalMagnetic_weakCurl
 #check @OQ7Prescribed.weak_cutoff_flux_integrable
 #check @OQ7Prescribed.weak_cutoff_left_real
 #check @OQ7Prescribed.weak_cutoff_right_real
+#check @OQ7Prescribed.weak_Lorentz_boundary_bound
 #check @OQ7Prescribed.weak_radial_flux_integrable
+#check @OQ7Prescribed.weak_smooth_cutoff_bilinear_green
 #check @OQ7Prescribed.weak_source_cutoff_energy
 #check @OQ7Prescribed.weak_source_radial_energy
 #check @OQ7Prescribed.weakCurl_compact_Fourier_symbol

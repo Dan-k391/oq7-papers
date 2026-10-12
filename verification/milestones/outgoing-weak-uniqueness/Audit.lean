@@ -1,0 +1,18 @@
+import PrescribedExtinction.WeakPhysicalUniqueness
+
+#check @OQ7Prescribed.vacuum_weak_weighted_electric_energy
+#print axioms OQ7Prescribed.vacuum_weak_weighted_electric_energy
+#check @OQ7Prescribed.vacuum_weak_smooth_source_radial_Lorentz
+#print axioms OQ7Prescribed.vacuum_weak_smooth_source_radial_Lorentz
+#check @OQ7Prescribed.vacuum_outgoing_weak_smooth_work_zero
+#print axioms OQ7Prescribed.vacuum_outgoing_weak_smooth_work_zero
+#check @OQ7Prescribed.vacuum_outgoing_weak_unique_zero
+#print axioms OQ7Prescribed.vacuum_outgoing_weak_unique_zero
+#check @OQ7Prescribed.scatteringState_outgoing_volume_representation
+#print axioms OQ7Prescribed.scatteringState_outgoing_volume_representation
+#check @OQ7Prescribed.scatteringState_converse_material_volume_equation
+#print axioms OQ7Prescribed.scatteringState_converse_material_volume_equation
+#check @OQ7Prescribed.physicalScatteringState_unique_ae
+#print axioms OQ7Prescribed.physicalScatteringState_unique_ae
+#check @OQ7Prescribed.physicalScatteringState_wellposed_ae
+#print axioms OQ7Prescribed.physicalScatteringState_wellposed_ae
