@@ -139,6 +139,13 @@ OQ7Prescribed.activeProjection_inner : ∀ (B : OQ7Prescribed.TwoLayerBody) (u v
 OQ7Prescribed.activeProjection_rotation_continuous : ∀ (B : OQ7Prescribed.TwoLayerBody),
   Continuous fun θ => OQ7Prescribed.activeProjection B (OQ7Prescribed.basisR 0) (OQ7Prescribed.rotatedAxis θ)
 OQ7Prescribed.activeScalarLoss_pos : ∀ (α : ℂ), 0 < α.im → 0 < OQ7Prescribed.activeScalarLoss α
+OQ7Prescribed.admissible_positiveExtinction_absorption_pos : ∀ (k : ℝ),
+  0 < k →
+    ∀ (P Q : ℝ) (B : OQ7Prescribed.TwoLayerBody),
+      B.admissible P Q →
+        ∀ (E : OQ7Prescribed.Field),
+          OQ7Prescribed.LocallySquareIntegrable E →
+            ∀ (σ : OQ7Prescribed.Direction), 0 < OQ7Prescribed.extinction k B σ E → 0 < OQ7Prescribed.absorption k B E
 OQ7Prescribed.admissible_susceptibility_bounded_inverse : ∀ (P Q : ℝ) (T : OQ7Prescribed.Tensor),
   OQ7Prescribed.MaterialAdmissible P Q T →
     ∃ c,
@@ -151,6 +158,13 @@ OQ7Prescribed.admissible_susceptibility_bounded_inverse : ∀ (P Q : ℝ) (T : O
 OQ7Prescribed.admissible_susceptibility_imaginary_coercive : ∀ (P Q : ℝ) (T : OQ7Prescribed.Tensor),
   OQ7Prescribed.MaterialAdmissible P Q T →
     ∃ c, 0 < c ∧ ∀ (v : OQ7Prescribed.Vector), c * ‖v‖ ^ 2 ≤ (inner ℂ v ((OQ7Prescribed.tensorMap (T - 1)) v)).im
+OQ7Prescribed.admissible_zeroAbsorption_zeroExtinction : ∀ (k : ℝ),
+  0 < k →
+    ∀ (P Q : ℝ) (B : OQ7Prescribed.TwoLayerBody),
+      B.admissible P Q →
+        ∀ (E : OQ7Prescribed.Field),
+          OQ7Prescribed.LocallySquareIntegrable E →
+            OQ7Prescribed.absorption k B E = 0 → ∀ (σ : OQ7Prescribed.Direction), OQ7Prescribed.extinction k B σ E = 0
 OQ7Prescribed.aperture_error_le_of_window_and_radius : ∀ (ε c G K e R : ℝ),
   0 < ε →
     0 < c → 0 < G → 0 ≤ R → e ≤ ε * c / (4 * G) → 2 * K * G / (ε * c ^ 2) ≤ R → (2 * R * e / c + K / c ^ 2) * G ≤ ε * R
@@ -419,6 +433,8 @@ OQ7Prescribed.bilinear_sub_right : ∀ (u v w : OQ7Prescribed.Vector),
   OQ7Prescribed.bilinear u (v - w) = OQ7Prescribed.bilinear u v - OQ7Prescribed.bilinear u w
 OQ7Prescribed.bilinear_vectorConjugate_right : ∀ (u v : OQ7Prescribed.Vector),
   OQ7Prescribed.bilinear u (OQ7Prescribed.vectorConjugate v) = OQ7Prescribed.pairing v u
+OQ7Prescribed.bilinearFunctional_apply : ∀ (v w : OQ7Prescribed.Vector),
+  (OQ7Prescribed.bilinearFunctional v) w = OQ7Prescribed.bilinear w v
 OQ7Prescribed.bodyAbsorberSlice_measurable : ∀ (B : OQ7Prescribed.TwoLayerBody),
   MeasurableSet (OQ7Prescribed.bodyAbsorberSlice B)
 OQ7Prescribed.bodyCompressed_aperture_error_identity : ∀ (k : ℝ) (hk : 0 < k) (B : OQ7Prescribed.TwoLayerBody)
@@ -663,6 +679,8 @@ OQ7Prescribed.bodyVolumeTotalElectricCurrent_eq : ∀ (k : ℝ) (B : OQ7Prescrib
   OQ7Prescribed.bodyFieldCurrent B (OQ7Prescribed.volumeTotalElectric k σ (OQ7Prescribed.bodyCurrentPolarization B f))
       ⋯ =
     OQ7Prescribed.bodyIncidentCurrent k B σ + (OQ7Prescribed.bodyOutgoingOperator k B) f
+OQ7Prescribed.bump_scalarGradient_zero : ∀ (η : ContDiffBump 0) (x : OQ7Prescribed.Position),
+  ‖x‖ < η.rIn → OQ7Prescribed.scalarGradient (↑η) x = 0
 OQ7Prescribed.classicalDyadic_coordinate : ∀ (k : ℝ) (x : OQ7Prescribed.Position),
   x ≠ 0 →
     ∀ (i j : Fin 3),
@@ -693,10 +711,19 @@ OQ7Prescribed.compact_scalar_weight_integrable : ∀ (ψ : OQ7Prescribed.Positio
     HasCompactSupport ψ →
       ∀ (f : OQ7Prescribed.Position → ℂ),
         Continuous f → MeasureTheory.Integrable (fun x => ↑(ψ x) * f x) MeasureTheory.volume
+OQ7Prescribed.compactCrossWeight_memLp : ∀ (F : OQ7Prescribed.Field),
+  OQ7Prescribed.LocallySquareIntegrable F →
+    ∀ (V : OQ7Prescribed.Field),
+      Continuous V →
+        HasCompactSupport V → MeasureTheory.MemLp (fun x => OQ7Prescribed.cross (V x) (F x)) 2 MeasureTheory.volume
 OQ7Prescribed.compactCurrent_incident_bilinear_integrable : ∀ (k : ℝ) (σ : OQ7Prescribed.Direction)
   (p : OQ7Prescribed.CompactPolarization),
   MeasureTheory.Integrable (fun x => OQ7Prescribed.bilinear (p.current x) (OQ7Prescribed.incidentElectric k σ x))
     MeasureTheory.volume
+OQ7Prescribed.compactCurrent_inner_locallyL2_integrable : ∀ (p : OQ7Prescribed.CompactPolarization)
+  (E : OQ7Prescribed.Field),
+  OQ7Prescribed.LocallySquareIntegrable E →
+    MeasureTheory.Integrable (fun x => OQ7Prescribed.pairing (p.current x) (E x)) MeasureTheory.volume
 OQ7Prescribed.compactCurrent_outgoingOperator_coe : ∀ (k R : ℝ) (hR : 0 ≤ R) (p : OQ7Prescribed.CompactPolarization)
   (hpR : p.radius ≤ R),
   ↑↑↑((OQ7Prescribed.compactOutgoingOperator k R hR) (p.toSupportedLp R hpR)) =ᵐ[MeasureTheory.volume]
@@ -829,12 +856,35 @@ OQ7Prescribed.compactRestrictionLp_smul : ∀ (R : ℝ) (z : ℂ) (f : ↥OQ7Pre
   OQ7Prescribed.compactRestrictionLp R (z • f) = z • OQ7Prescribed.compactRestrictionLp R f
 OQ7Prescribed.compactRestrictionLp_supported : ∀ (R : ℝ) (f : ↥OQ7Prescribed.VectorL2),
   OQ7Prescribed.compactRestrictionLp R f ∈ OQ7Prescribed.supportedVectorL2 R
+OQ7Prescribed.compactScalarWeight_memLp : ∀ (F : OQ7Prescribed.Field),
+  OQ7Prescribed.LocallySquareIntegrable F →
+    ∀ (ψ : OQ7Prescribed.Position → ℝ),
+      Continuous ψ → HasCompactSupport ψ → MeasureTheory.MemLp (fun x => ψ x • F x) 2 MeasureTheory.volume
 OQ7Prescribed.compactStaticOperator_apply_norm_le : ∀ (R : ℝ) (f : ↥(OQ7Prescribed.SupportedVectorL2 R)),
   ‖(OQ7Prescribed.compactStaticOperator R) f‖ ≤ ‖f‖
 OQ7Prescribed.compactTest_component_integrable : ∀ (F : OQ7Prescribed.Field),
   MeasureTheory.LocallyIntegrable F MeasureTheory.volume →
     ∀ (i : Fin 3) (ψ : OQ7Prescribed.Position → ℂ),
       Continuous ψ → HasCompactSupport ψ → MeasureTheory.Integrable (fun x => ψ x * (F x).ofLp i) MeasureTheory.volume
+OQ7Prescribed.compactWeakCurl_integral_inner : ∀ (F G C D : OQ7Prescribed.Field),
+  MeasureTheory.MemLp F 1 MeasureTheory.volume →
+    ∀ (hF2 : MeasureTheory.MemLp F 2 MeasureTheory.volume),
+      MeasureTheory.MemLp G 1 MeasureTheory.volume →
+        ∀ (hG2 : MeasureTheory.MemLp G 2 MeasureTheory.volume),
+          MeasureTheory.MemLp C 1 MeasureTheory.volume →
+            ∀ (hC2 : MeasureTheory.MemLp C 2 MeasureTheory.volume),
+              MeasureTheory.MemLp D 1 MeasureTheory.volume →
+                ∀ (hD2 : MeasureTheory.MemLp D 2 MeasureTheory.volume),
+                  OQ7Prescribed.HasWeakCurl F C →
+                    OQ7Prescribed.HasWeakCurl G D →
+                      ∀ (R : ℝ),
+                        0 ≤ R →
+                          (∀ (x : OQ7Prescribed.Position), R < ‖x‖ → F x = 0) →
+                            (∀ (x : OQ7Prescribed.Position), R < ‖x‖ → G x = 0) →
+                              (∀ (x : OQ7Prescribed.Position), R < ‖x‖ → C x = 0) →
+                                (∀ (x : OQ7Prescribed.Position), R < ‖x‖ → D x = 0) →
+                                  inner ℂ (MeasureTheory.MemLp.toLp F hF2) (MeasureTheory.MemLp.toLp D hD2) =
+                                    inner ℂ (MeasureTheory.MemLp.toLp C hC2) (MeasureTheory.MemLp.toLp G hG2)
 @OQ7Prescribed.complex_imaginary_coercive_bijective : ∀ {H : Type u_1} [inst : NormedAddCommGroup H]
   [inst_1 : InnerProductSpace ℂ H] [CompleteSpace H] (A : H →L[ℂ] H) (c : ℝ),
   0 < c → (∀ (u : H), c * ‖u‖ ^ 2 ≤ (inner ℂ u (A u)).im) → Function.Bijective ⇑A
@@ -908,6 +958,8 @@ OQ7Prescribed.cos_mul_abs : ∀ (k s : ℝ), Real.cos (k * |s|) = Real.cos (k * 
 OQ7Prescribed.cross_add_left : ∀ (u v w : OQ7Prescribed.Vector),
   OQ7Prescribed.cross (u + v) w = OQ7Prescribed.cross u w + OQ7Prescribed.cross v w
 OQ7Prescribed.cross_antisymm : ∀ (u v : OQ7Prescribed.Vector), OQ7Prescribed.cross u v = -OQ7Prescribed.cross v u
+OQ7Prescribed.cross_compactSupport_left : ∀ (F G : OQ7Prescribed.Field),
+  HasCompactSupport F → HasCompactSupport fun x => OQ7Prescribed.cross (F x) (G x)
 OQ7Prescribed.cross_compactSupport_right : ∀ (F G : OQ7Prescribed.Field),
   HasCompactSupport G → HasCompactSupport fun x => OQ7Prescribed.cross (F x) (G x)
 OQ7Prescribed.cross_complexify_real_smul : ∀ (H : OQ7Prescribed.Vector) (n : OQ7Prescribed.Position) (r : ℝ),
@@ -926,6 +978,8 @@ OQ7Prescribed.cross_sub_left : ∀ (u v w : OQ7Prescribed.Vector),
   OQ7Prescribed.cross (u - v) w = OQ7Prescribed.cross u w - OQ7Prescribed.cross v w
 OQ7Prescribed.cross_sub_right : ∀ (u v w : OQ7Prescribed.Vector),
   OQ7Prescribed.cross u (v - w) = OQ7Prescribed.cross u v - OQ7Prescribed.cross u w
+OQ7Prescribed.crossLeftOperator_apply : ∀ (n : OQ7Prescribed.Position) (v : OQ7Prescribed.Vector),
+  (OQ7Prescribed.crossLeftOperator n) v = OQ7Prescribed.cross (OQ7Prescribed.complexify n) v
 OQ7Prescribed.crossRightMap_apply : ∀ (n v : OQ7Prescribed.Vector),
   (OQ7Prescribed.crossRightMap n) v = OQ7Prescribed.cross v n
 OQ7Prescribed.curl_real_smul : ∀ (ψ : OQ7Prescribed.Position → ℝ) (F : OQ7Prescribed.Field),
@@ -1017,6 +1071,11 @@ OQ7Prescribed.currentFarField_forward_component : ∀ (k : ℝ) (B : OQ7Prescrib
         ↑(k ^ 2 / (4 * Real.pi)) *
           ∫ (x : OQ7Prescribed.Position) in B.domain,
             OQ7Prescribed.pairing (OQ7Prescribed.incidentElectric k σ x) (OQ7Prescribed.polarization B E x)
+OQ7Prescribed.currentPlanePhase_contDiff : ∀ (k : ℝ) (n : OQ7Prescribed.Position),
+  ContDiff ℝ (↑⊤) (OQ7Prescribed.currentPlanePhase k n)
+OQ7Prescribed.currentPlanePhase_hasFDerivAt : ∀ (k : ℝ) (n x : OQ7Prescribed.Position),
+  HasFDerivAt (OQ7Prescribed.currentPlanePhase k n)
+    ((-Complex.I * ↑k * OQ7Prescribed.currentPlanePhase k n x) • Complex.ofRealCLM ∘SL (innerSL ℝ) n) x
 OQ7Prescribed.currentPlanePhase_norm : ∀ (k : ℝ) (n y : OQ7Prescribed.Position),
   ‖OQ7Prescribed.currentPlanePhase k n y‖ = 1
 OQ7Prescribed.currentTestCorrelationVector_coordinate : ∀ (p : OQ7Prescribed.CompactPolarization)
@@ -2001,6 +2060,14 @@ OQ7Prescribed.forwardPlanePhase : ∀ (k : ℝ) (σ : OQ7Prescribed.Direction) (
   OQ7Prescribed.currentPlanePhase k (OQ7Prescribed.incidentForwardDirection σ) x = star (OQ7Prescribed.planePhase k σ x)
 OQ7Prescribed.forwardProjection_component : ∀ (σ : OQ7Prescribed.Direction) (v : OQ7Prescribed.Vector),
   (OQ7Prescribed.transverseProjection (OQ7Prescribed.incidentForwardDirection σ) v).ofLp 1 = v.ofLp 1
+OQ7Prescribed.four_compact_fields_common_radius : ∀ (F G C D : OQ7Prescribed.Field),
+  HasCompactSupport F →
+    HasCompactSupport G →
+      HasCompactSupport C →
+        HasCompactSupport D →
+          ∃ R, 0 < R ∧ ∀ (x : OQ7Prescribed.Position), R < ‖x‖ → F x = 0 ∧ G x = 0 ∧ C x = 0 ∧ D x = 0
+OQ7Prescribed.fourier_eq_currentPlanePhase : ∀ (F : OQ7Prescribed.Field) (ξ : OQ7Prescribed.Position),
+  FourierTransform.fourier F ξ = ∫ (x : OQ7Prescribed.Position), OQ7Prescribed.currentPlanePhase (2 * Real.pi) ξ x • F x
 @OQ7Prescribed.fourierIntegral_L1L2_ae : ∀ {F : Type u_1} [inst : NormedAddCommGroup F] [inst_1 : InnerProductSpace ℂ F]
   [inst_2 : CompleteSpace F] {f : OQ7Prescribed.Position → F},
   MeasureTheory.MemLp f 1 MeasureTheory.volume →
@@ -2484,6 +2551,9 @@ OQ7Prescribed.incidentPairing_phase_component : ∀ (k : ℝ) (σ : OQ7Prescribe
 @OQ7Prescribed.inner_quadratic_difference_norm_bound : ∀ {E : Type u_1} [inst : NormedAddCommGroup E]
   [inst_1 : InnerProductSpace ℂ E] [CompleteSpace E] (M : E →L[ℂ] E) (r s : E),
   ‖inner ℂ r (M r) - inner ℂ s (M s)‖ ≤ ‖M‖ * (‖r‖ + ‖s‖) * ‖r - s‖
+OQ7Prescribed.integrable_currentPlanePhase_smul : ∀ (k : ℝ) (n : OQ7Prescribed.Position) (F : OQ7Prescribed.Field),
+  MeasureTheory.Integrable F MeasureTheory.volume →
+    MeasureTheory.Integrable (fun x => OQ7Prescribed.currentPlanePhase k n x • F x) MeasureTheory.volume
 OQ7Prescribed.integrable_polar_actual : ∀ (f : OQ7Prescribed.Position → ℝ),
   MeasureTheory.Integrable f MeasureTheory.volume →
     MeasureTheory.Integrable (fun p => f (↑p.2 • ↑p.1))
@@ -2640,6 +2710,31 @@ OQ7Prescribed.layerPermittivity_admissible : ∀ (P Q a b ν : ℝ) (u : OQ7Pres
         0 ≤ b → 0 < ν → b + ν ≤ Q → OQ7Prescribed.MaterialAdmissible P Q (OQ7Prescribed.layerPermittivity a b ν u)
 OQ7Prescribed.layerPermittivity_reciprocal : ∀ (a b ν : ℝ) (u : OQ7Prescribed.Position),
   Matrix.transpose (OQ7Prescribed.layerPermittivity a b ν u) = OQ7Prescribed.layerPermittivity a b ν u
+OQ7Prescribed.localizedWeakCurl_hasCompactSupport : ∀ (F G : OQ7Prescribed.Field) (ψ : OQ7Prescribed.Position → ℝ),
+  HasCompactSupport ψ →
+    HasCompactSupport fun x =>
+      OQ7Prescribed.cross (OQ7Prescribed.complexify (OQ7Prescribed.scalarGradient ψ x)) (F x) + ψ x • G x
+OQ7Prescribed.localizedWeakCurl_memLp : ∀ (F G : OQ7Prescribed.Field),
+  OQ7Prescribed.LocallySquareIntegrable F →
+    OQ7Prescribed.LocallySquareIntegrable G →
+      ∀ (ψ : OQ7Prescribed.Position → ℝ),
+        ContDiff ℝ (↑⊤) ψ →
+          HasCompactSupport ψ →
+            MeasureTheory.MemLp
+              (fun x =>
+                OQ7Prescribed.cross (OQ7Prescribed.complexify (OQ7Prescribed.scalarGradient ψ x)) (F x) + ψ x • G x)
+              2 MeasureTheory.volume
+OQ7Prescribed.locallyL2_inner_compactL2_integrable : ∀ (F : OQ7Prescribed.Field),
+  OQ7Prescribed.LocallySquareIntegrable F →
+    ∀ (G : OQ7Prescribed.Field),
+      MeasureTheory.MemLp G 2 MeasureTheory.volume →
+        HasCompactSupport G → MeasureTheory.Integrable (fun x => inner ℂ (F x) (G x)) MeasureTheory.volume
+OQ7Prescribed.locallyL2_weighted_inner_integrable : ∀ (F G : OQ7Prescribed.Field),
+  OQ7Prescribed.LocallySquareIntegrable F →
+    OQ7Prescribed.LocallySquareIntegrable G →
+      ∀ (ψ : OQ7Prescribed.Position → ℝ),
+        Continuous ψ →
+          HasCompactSupport ψ → MeasureTheory.Integrable (fun x => inner ℂ (F x) (ψ x • G x)) MeasureTheory.volume
 OQ7Prescribed.locallySquareIntegrable_locallyIntegrable : ∀ (F : OQ7Prescribed.Field),
   OQ7Prescribed.LocallySquareIntegrable F → MeasureTheory.LocallyIntegrable F MeasureTheory.volume
 OQ7Prescribed.Lorentz_flux_norm_bound : ∀ (E₁ H₁ E₂ H₂ n : OQ7Prescribed.Vector),
@@ -2835,6 +2930,16 @@ OQ7Prescribed.materialVolumeEquation_unique_current : ∀ (k : ℝ),
         ∀ (σ : OQ7Prescribed.Direction) (p q : OQ7Prescribed.CompactPolarization),
           OQ7Prescribed.MaterialVolumeEquation k B σ p →
             OQ7Prescribed.MaterialVolumeEquation k B σ q → p.current =ᵐ[MeasureTheory.volume] q.current
+OQ7Prescribed.memLp_compactSupport_integrable : ∀ (F : OQ7Prescribed.Field),
+  MeasureTheory.MemLp F 2 MeasureTheory.volume → HasCompactSupport F → MeasureTheory.Integrable F MeasureTheory.volume
+OQ7Prescribed.memLp_inner_integrable : ∀ (F G : OQ7Prescribed.Field),
+  MeasureTheory.MemLp F 2 MeasureTheory.volume →
+    MeasureTheory.MemLp G 2 MeasureTheory.volume →
+      MeasureTheory.Integrable (fun x => inner ℂ (F x) (G x)) MeasureTheory.volume
+OQ7Prescribed.memLp_toLp_inner_integral : ∀ (F G : OQ7Prescribed.Field)
+  (hF : MeasureTheory.MemLp F 2 MeasureTheory.volume) (hG : MeasureTheory.MemLp G 2 MeasureTheory.volume),
+  inner ℂ (MeasureTheory.MemLp.toLp F hF) (MeasureTheory.MemLp.toLp G hG) =
+    ∫ (x : OQ7Prescribed.Position), inner ℂ (F x) (G x)
 @OQ7Prescribed.memLp_two_integral_norm_sq : ∀ {α : Type u_1} [inst : MeasurableSpace α] {μ : MeasureTheory.Measure α}
   [MeasureTheory.SFinite μ] (f : α → ℂ) (hf : MeasureTheory.MemLp f 2 μ),
   ∫ (x : α), ‖f x‖ ^ 2 ∂μ = ‖MeasureTheory.MemLp.toLp f hf‖ ^ 2
@@ -3419,6 +3524,31 @@ OQ7Prescribed.outgoing_helmholtz_fundamental_apply : ∀ (k : ℝ) (φ : OQ7Pres
     -↑(φ 0)
 OQ7Prescribed.outgoing_helmholtz_fundamental_distribution : ∀ (k : ℝ),
   ∑ i, OQ7Prescribed.greenHessian k i i + k ^ 2 • OQ7Prescribed.outgoingGreenDistribution k = -OQ7Prescribed.newtonDirac
+OQ7Prescribed.outgoing_radial_flux_lower : ∀ (E H : OQ7Prescribed.Field),
+  OQ7Prescribed.LocallySquareIntegrable E →
+    OQ7Prescribed.LocallySquareIntegrable H →
+      ∀ (ε ρ : ℝ),
+        0 < ε →
+          0 < ρ →
+            (∀ (x : OQ7Prescribed.Position),
+                ρ ≤ ‖x‖ → ‖x‖ * ‖OQ7Prescribed.cross (H x) (OQ7Prescribed.complexify (‖x‖⁻¹ • x)) - E x‖ < ε) →
+              ∀ (r : ℝ),
+                0 < r →
+                  ρ ≤ r →
+                    -(4 * Real.pi * ε ^ 2) ≤
+                      ∫ (x : OQ7Prescribed.Position),
+                        OQ7Prescribed.sourceEnergyWeight r x *
+                          (OQ7Prescribed.pairing (E x)
+                              (OQ7Prescribed.cross (H x)
+                                (OQ7Prescribed.complexify (OQ7Prescribed.radialDirection x)))).re
+OQ7Prescribed.outgoing_weak_source_work_nonneg : ∀ (k : ℝ) (E H : OQ7Prescribed.Field)
+  (p : OQ7Prescribed.CompactPolarization),
+  OQ7Prescribed.LocallySquareIntegrable E →
+    OQ7Prescribed.LocallySquareIntegrable H →
+      (OQ7Prescribed.HasWeakCurl E fun x => (Complex.I * ↑k) • H x) →
+        (OQ7Prescribed.HasWeakCurl H fun x => (-Complex.I * ↑k) • (E x + p.current x)) →
+          OQ7Prescribed.Outgoing E H →
+            0 ≤ k * (∫ (x : OQ7Prescribed.Position), OQ7Prescribed.pairing (p.current x) (E x)).im
 @OQ7Prescribed.Outgoing.sub_fields : ∀ {E1 E2 H1 H2 : OQ7Prescribed.Field},
   OQ7Prescribed.Outgoing E1 H1 → OQ7Prescribed.Outgoing E2 H2 → OQ7Prescribed.Outgoing (E1 - E2) (H1 - H2)
 OQ7Prescribed.outgoingElectric_uniform_physical_farField_error : ∀ (k : ℝ) (B : OQ7Prescribed.TwoLayerBody)
@@ -3642,6 +3772,13 @@ OQ7Prescribed.physical_forward_optical_theorem : ∀ (k : ℝ),
             4 * Real.pi / k *
               (OQ7Prescribed.pairing (OQ7Prescribed.basisC 1)
                   (OQ7Prescribed.currentFarField k B E (OQ7Prescribed.incidentForwardDirection σ))).im
+OQ7Prescribed.physical_scattered_source_work : ∀ (k : ℝ) (B : OQ7Prescribed.TwoLayerBody) (σ : OQ7Prescribed.Direction)
+  (E : OQ7Prescribed.Field),
+  OQ7Prescribed.LocallySquareIntegrable E →
+    k *
+        (∫ (x : OQ7Prescribed.Position),
+            OQ7Prescribed.pairing (OQ7Prescribed.polarization B E x) (E x - OQ7Prescribed.incidentElectric k σ x)).im =
+      OQ7Prescribed.extinction k B σ E - OQ7Prescribed.absorption k B E
 OQ7Prescribed.physicalAbsorption_current_inner : ∀ (k : ℝ) (B : OQ7Prescribed.TwoLayerBody) (E : OQ7Prescribed.Field)
   (hE : OQ7Prescribed.LocallySquareIntegrable E) (f : ↥(OQ7Prescribed.BodyCurrentL2 B)),
   ↑↑↑f =ᵐ[MeasureTheory.volume] OQ7Prescribed.polarization B E →
@@ -3819,6 +3956,9 @@ OQ7Prescribed.physicalBody_uniform_sharp_response_estimate : ∀ (k : ℝ) (hk :
                               OQ7Prescribed.activeMaterialCoercivity α β +
                             K / OQ7Prescribed.activeMaterialCoercivity α β ^ 2) *
                           √d
+OQ7Prescribed.physicalCurlSymbol_hermitian : ∀ (k : ℝ) (n : OQ7Prescribed.Position) (u v : OQ7Prescribed.Vector),
+  inner ℂ u ((Complex.I * ↑k) • (OQ7Prescribed.crossLeftOperator n) v) =
+    inner ℂ ((Complex.I * ↑k) • (OQ7Prescribed.crossLeftOperator n) u) v
 OQ7Prescribed.physicalCurrentFarField_continuous : ∀ (k : ℝ) (B : OQ7Prescribed.TwoLayerBody) (E : OQ7Prescribed.Field),
   OQ7Prescribed.LocallySquareIntegrable E → Continuous (OQ7Prescribed.currentFarField k B E)
 OQ7Prescribed.physicalCurrentFarField_eq_compact : ∀ (k : ℝ) (B : OQ7Prescribed.TwoLayerBody) (E : OQ7Prescribed.Field)
@@ -4665,6 +4805,10 @@ OQ7Prescribed.planePhase_hasFDerivAt : ∀ (k : ℝ) (σ : OQ7Prescribed.Directi
     ((Complex.I * ↑(σ.sign * k) * OQ7Prescribed.planePhase k σ x) • Complex.ofRealCLM ∘SL PiLp.proj 2 (fun x => ℝ) 2) x
 OQ7Prescribed.planePhase_norm : ∀ (k : ℝ) (σ : OQ7Prescribed.Direction) (x : OQ7Prescribed.Position),
   ‖OQ7Prescribed.planePhase k σ x‖ = 1
+OQ7Prescribed.planeWaveVector_curl : ∀ (k : ℝ) (n : OQ7Prescribed.Position) (v : OQ7Prescribed.Vector)
+  (x : OQ7Prescribed.Position),
+  OQ7Prescribed.curl (fun y => OQ7Prescribed.currentPlanePhase k n y • v) x =
+    (-Complex.I * ↑k * OQ7Prescribed.currentPlanePhase k n x) • OQ7Prescribed.cross (OQ7Prescribed.complexify n) v
 OQ7Prescribed.plateDesign_phases : ∀ (k : ℝ),
   k ≠ 0 →
     ∀ (j : ℕ),
@@ -4786,11 +4930,29 @@ OQ7Prescribed.poynting_flux_lower_bound : ∀ (E H : OQ7Prescribed.Vector) (n : 
   ‖n‖ = 1 →
     -(‖H‖ * ‖OQ7Prescribed.cross H (OQ7Prescribed.complexify n) - E‖) ≤
       (OQ7Prescribed.pairing E (OQ7Prescribed.cross H (OQ7Prescribed.complexify n))).re
+OQ7Prescribed.poynting_flux_residual_lower : ∀ (E H : OQ7Prescribed.Vector) (n : OQ7Prescribed.Position),
+  -‖OQ7Prescribed.cross H (OQ7Prescribed.complexify n) - E‖ ^ 2 ≤
+    (OQ7Prescribed.pairing E (OQ7Prescribed.cross H (OQ7Prescribed.complexify n))).re
+OQ7Prescribed.prescribedExtinction_full_supremum : ∀ (k P Q target : ℝ),
+  0 < k →
+    1 < P →
+      0 < Q →
+        0 < target →
+          sSup (OQ7Prescribed.prescribedExtinctionAsymmetryValues k P Q target) = 1 ∧
+            sSup (OQ7Prescribed.prescribedExtinctionDifferenceValues k P Q target) = target ∧
+              ∀ (s : OQ7Prescribed.PrescribedExtinctionPair k P Q target),
+                s.asymmetry < 1 ∧ s.absorptionDifference < target
 OQ7Prescribed.prescribedExtinctionAsymmetryValues_above_every_lt_one : ∀ (k P Q target : ℝ),
   0 < k →
     1 < P → 0 < Q → 0 < target → ∀ u < 1, ∃ g ∈ OQ7Prescribed.prescribedExtinctionAsymmetryValues k P Q target, u < g
+OQ7Prescribed.prescribedExtinctionAsymmetryValues_isLUB : ∀ (k P Q target : ℝ),
+  0 < k → 1 < P → 0 < Q → 0 < target → IsLUB (OQ7Prescribed.prescribedExtinctionAsymmetryValues k P Q target) 1
+OQ7Prescribed.prescribedExtinctionAsymmetryValues_nonattainment : ∀ (k P Q target : ℝ),
+  0 < k → 0 < target → 1 ∉ OQ7Prescribed.prescribedExtinctionAsymmetryValues k P Q target
 OQ7Prescribed.prescribedExtinctionAsymmetryValues_nonempty : ∀ (k P Q target : ℝ),
   0 < k → 1 < P → 0 < Q → 0 < target → (OQ7Prescribed.prescribedExtinctionAsymmetryValues k P Q target).Nonempty
+OQ7Prescribed.prescribedExtinctionAsymmetryValues_sSup : ∀ (k P Q target : ℝ),
+  0 < k → 1 < P → 0 < Q → 0 < target → sSup (OQ7Prescribed.prescribedExtinctionAsymmetryValues k P Q target) = 1
 OQ7Prescribed.prescribedExtinctionAsymmetryValues_upperBound_ge_one : ∀ (k P Q target : ℝ),
   0 < k →
     1 < P →
@@ -4799,8 +4961,14 @@ OQ7Prescribed.prescribedExtinctionDifferenceValues_above_every_lt_target : ∀ (
   0 < k →
     1 < P →
       0 < Q → 0 < target → ∀ u < target, ∃ d ∈ OQ7Prescribed.prescribedExtinctionDifferenceValues k P Q target, u < d
+OQ7Prescribed.prescribedExtinctionDifferenceValues_isLUB : ∀ (k P Q target : ℝ),
+  0 < k → 1 < P → 0 < Q → 0 < target → IsLUB (OQ7Prescribed.prescribedExtinctionDifferenceValues k P Q target) target
+OQ7Prescribed.prescribedExtinctionDifferenceValues_nonattainment : ∀ (k P Q target : ℝ),
+  0 < k → 0 < target → target ∉ OQ7Prescribed.prescribedExtinctionDifferenceValues k P Q target
 OQ7Prescribed.prescribedExtinctionDifferenceValues_nonempty : ∀ (k P Q target : ℝ),
   0 < k → 1 < P → 0 < Q → 0 < target → (OQ7Prescribed.prescribedExtinctionDifferenceValues k P Q target).Nonempty
+OQ7Prescribed.prescribedExtinctionDifferenceValues_sSup : ∀ (k P Q target : ℝ),
+  0 < k → 1 < P → 0 < Q → 0 < target → sSup (OQ7Prescribed.prescribedExtinctionDifferenceValues k P Q target) = target
 OQ7Prescribed.prescribedExtinctionDifferenceValues_upperBound_ge_target : ∀ (k P Q target : ℝ),
   0 < k →
     1 < P →
@@ -4808,6 +4976,12 @@ OQ7Prescribed.prescribedExtinctionDifferenceValues_upperBound_ge_target : ∀ (k
         0 < target → ∀ u ∈ upperBounds (OQ7Prescribed.prescribedExtinctionDifferenceValues k P Q target), target ≤ u
 OQ7Prescribed.prescribedExtinctionPair_approaches_one : ∀ (k P Q target : ℝ),
   0 < k → 1 < P → 0 < Q → 0 < target → ∀ (ε : ℝ), 0 < ε → ε < 1 → ∃ s, 1 - ε < s.asymmetry ∧ s.asymmetry < 1
+@OQ7Prescribed.PrescribedExtinctionPair.absorptionDifference_lt_target : ∀ {k P Q target : ℝ}
+  (s : OQ7Prescribed.PrescribedExtinctionPair k P Q target), 0 < k → 0 < target → s.absorptionDifference < target
+@OQ7Prescribed.PrescribedExtinctionPair.asymmetry_le_one : ∀ {k P Q target : ℝ}
+  (s : OQ7Prescribed.PrescribedExtinctionPair k P Q target), 0 < k → 0 < target → s.asymmetry ≤ 1
+@OQ7Prescribed.PrescribedExtinctionPair.asymmetry_lt_one : ∀ {k P Q target : ℝ}
+  (s : OQ7Prescribed.PrescribedExtinctionPair k P Q target), 0 < k → 0 < target → s.asymmetry < 1
 @OQ7Prescribed.PrescribedExtinctionPair.difference_eq_target_mul_asymmetry : ∀ {k P Q target : ℝ}
   (s : OQ7Prescribed.PrescribedExtinctionPair k P Q target), 0 < target → s.absorptionDifference = target * s.asymmetry
 OQ7Prescribed.purePhase_norm_sub_le : ∀ (a b : ℝ),
@@ -5039,6 +5213,10 @@ OQ7Prescribed.scalarConstitutive_negative_imaginary : ∀ (α z : ℂ),
   α ≠ 0 → -(inner ℂ (α * z) (α⁻¹ * (α * z))).im = α.im * Complex.normSq z
 OQ7Prescribed.scalarGradient_contDiff : ∀ (ψ : OQ7Prescribed.Position → ℝ),
   ContDiff ℝ (↑⊤) ψ → ContDiff ℝ (↑⊤) (OQ7Prescribed.scalarGradient ψ)
+OQ7Prescribed.scalarGradient_hasCompactSupport : ∀ (ψ : OQ7Prescribed.Position → ℝ),
+  HasCompactSupport ψ → HasCompactSupport (OQ7Prescribed.scalarGradient ψ)
+OQ7Prescribed.scalarGradient_zero_off_tsupport : ∀ (ψ : OQ7Prescribed.Position → ℝ),
+  ∀ x ∉ tsupport ψ, OQ7Prescribed.scalarGradient ψ x = 0
 OQ7Prescribed.scalarInverse_negative_imaginary : ∀ (α z : ℂ),
   -(inner ℂ z (α⁻¹ • z)).im = OQ7Prescribed.activeScalarLoss α * ‖z‖ ^ 2
 OQ7Prescribed.scalarOutgoingPotential_contDiff : ∀ (k : ℝ) (f : OQ7Prescribed.Position → ℂ),
@@ -5380,12 +5558,21 @@ OQ7Prescribed.scatteringState_absorption_integrable : ∀ (k : ℝ) (B : OQ7Pres
   (σ : OQ7Prescribed.Direction) (s : OQ7Prescribed.ScatteringState k B σ),
   MeasureTheory.IntegrableOn (fun x => (OQ7Prescribed.quadratic (B.permittivity x) (s.electric x)).im) B.domain
     MeasureTheory.volume
+OQ7Prescribed.scatteringState_absorption_le_extinction : ∀ (k : ℝ) (B : OQ7Prescribed.TwoLayerBody)
+  (σ : OQ7Prescribed.Direction) (s : OQ7Prescribed.ScatteringState k B σ),
+  OQ7Prescribed.absorption k B s.electric ≤ OQ7Prescribed.extinction k B σ s.electric
 OQ7Prescribed.scatteringState_absorption_nonneg : ∀ (k : ℝ),
   0 ≤ k →
     ∀ (P Q : ℝ) (B : OQ7Prescribed.TwoLayerBody),
       B.admissible P Q →
         ∀ (σ : OQ7Prescribed.Direction) (s : OQ7Prescribed.ScatteringState k B σ),
           0 ≤ OQ7Prescribed.absorption k B s.electric
+OQ7Prescribed.scatteringState_extinction_nonneg : ∀ (k : ℝ),
+  0 ≤ k →
+    ∀ (P Q : ℝ) (B : OQ7Prescribed.TwoLayerBody),
+      B.admissible P Q →
+        ∀ (σ : OQ7Prescribed.Direction) (s : OQ7Prescribed.ScatteringState k B σ),
+          0 ≤ OQ7Prescribed.extinction k B σ s.electric
 OQ7Prescribed.scatteringState_forward_optical_theorem : ∀ (k : ℝ),
   0 < k →
     ∀ (B : OQ7Prescribed.TwoLayerBody) (σ : OQ7Prescribed.Direction) (s : OQ7Prescribed.ScatteringState k B σ),
@@ -5393,10 +5580,24 @@ OQ7Prescribed.scatteringState_forward_optical_theorem : ∀ (k : ℝ),
         4 * Real.pi / k *
           (OQ7Prescribed.pairing (OQ7Prescribed.basisC 1)
               (OQ7Prescribed.currentFarField k B s.electric (OQ7Prescribed.incidentForwardDirection σ))).im
+OQ7Prescribed.scatteringState_positiveExtinction_absorption_pos : ∀ (k : ℝ),
+  0 < k →
+    ∀ (P Q : ℝ) (B : OQ7Prescribed.TwoLayerBody),
+      B.admissible P Q →
+        ∀ (σ : OQ7Prescribed.Direction) (s : OQ7Prescribed.ScatteringState k B σ),
+          0 < OQ7Prescribed.extinction k B σ s.electric → 0 < OQ7Prescribed.absorption k B s.electric
 OQ7Prescribed.scatteringState_positiveExtinction_scattering_pos : ∀ (k : ℝ),
   0 < k →
     ∀ (B : OQ7Prescribed.TwoLayerBody) (σ : OQ7Prescribed.Direction) (s : OQ7Prescribed.ScatteringState k B σ),
       0 < OQ7Prescribed.extinction k B σ s.electric → 0 < OQ7Prescribed.scattering k B s.electric
+OQ7Prescribed.scatteringState_scattered_source : ∀ (k : ℝ) (B : OQ7Prescribed.TwoLayerBody)
+  (σ : OQ7Prescribed.Direction) (s : OQ7Prescribed.ScatteringState k B σ),
+  have E := fun x => s.electric x - OQ7Prescribed.incidentElectric k σ x;
+  have H := fun x => s.magnetic x - OQ7Prescribed.incidentMagnetic k σ x;
+  OQ7Prescribed.LocallySquareIntegrable E ∧
+    OQ7Prescribed.LocallySquareIntegrable H ∧
+      (OQ7Prescribed.HasWeakCurl E fun x => (Complex.I * ↑k) • H x) ∧
+        OQ7Prescribed.HasWeakCurl H fun x => (-Complex.I * ↑k) • (E x + OQ7Prescribed.polarization B s.electric x)
 OQ7Prescribed.scatteringState_scattering_nonneg : ∀ (k : ℝ) (B : OQ7Prescribed.TwoLayerBody)
   (σ : OQ7Prescribed.Direction) (s : OQ7Prescribed.ScatteringState k B σ), 0 ≤ OQ7Prescribed.scattering k B s.electric
 OQ7Prescribed.scatteringState_vacuum_residual : ∀ (k : ℝ) (B : OQ7Prescribed.TwoLayerBody) (σ : OQ7Prescribed.Direction)
@@ -6899,6 +7100,111 @@ OQ7Prescribed.volumeTotalMagnetic_weakCurl : ∀ (k : ℝ) (σ : OQ7Prescribed.D
   (p : OQ7Prescribed.CompactPolarization),
   OQ7Prescribed.HasWeakCurl (OQ7Prescribed.volumeTotalMagnetic k σ p) fun x =>
     (-Complex.I * ↑k) • (OQ7Prescribed.volumeTotalElectric k σ p x + p.current x)
+OQ7Prescribed.weak_cutoff_flux_integrable : ∀ (k : ℝ) (E H : OQ7Prescribed.Field),
+  OQ7Prescribed.LocallySquareIntegrable E →
+    OQ7Prescribed.LocallySquareIntegrable H →
+      ∀ (ψ : OQ7Prescribed.Position → ℝ),
+        ContDiff ℝ (↑⊤) ψ →
+          HasCompactSupport ψ →
+            MeasureTheory.Integrable
+              (fun x =>
+                (OQ7Prescribed.pairing (E x)
+                    (OQ7Prescribed.cross (H x) (OQ7Prescribed.complexify (OQ7Prescribed.scalarGradient ψ x)))).re)
+              MeasureTheory.volume
+OQ7Prescribed.weak_cutoff_left_real : ∀ (E H : OQ7Prescribed.Vector) (v : OQ7Prescribed.Position) (r k : ℝ),
+  (inner ℂ H (OQ7Prescribed.cross (OQ7Prescribed.complexify v) E + r • (Complex.I * ↑k) • H)).re =
+    (OQ7Prescribed.pairing E (OQ7Prescribed.cross H (OQ7Prescribed.complexify v))).re
+OQ7Prescribed.weak_cutoff_right_real : ∀ (E p : OQ7Prescribed.Vector) (r k : ℝ),
+  (inner ℂ ((-Complex.I * ↑k) • (E + p)) (r • E)).re = -k * (↑r * OQ7Prescribed.pairing p E).im
+OQ7Prescribed.weak_radial_flux_integrable : ∀ (E H : OQ7Prescribed.Field),
+  OQ7Prescribed.LocallySquareIntegrable E →
+    OQ7Prescribed.LocallySquareIntegrable H →
+      ∀ (r : ℝ),
+        0 < r →
+          MeasureTheory.Integrable
+            (fun x =>
+              OQ7Prescribed.sourceEnergyWeight r x *
+                (OQ7Prescribed.pairing (E x)
+                    (OQ7Prescribed.cross (H x) (OQ7Prescribed.complexify (OQ7Prescribed.radialDirection x)))).re)
+            MeasureTheory.volume
+OQ7Prescribed.weak_source_cutoff_energy : ∀ (k : ℝ) (E H p : OQ7Prescribed.Field),
+  OQ7Prescribed.LocallySquareIntegrable E →
+    OQ7Prescribed.LocallySquareIntegrable H →
+      OQ7Prescribed.LocallySquareIntegrable p →
+        (OQ7Prescribed.HasWeakCurl E fun x => (Complex.I * ↑k) • H x) →
+          (OQ7Prescribed.HasWeakCurl H fun x => (-Complex.I * ↑k) • (E x + p x)) →
+            ∀ (ψ : OQ7Prescribed.Position → ℝ),
+              ContDiff ℝ (↑⊤) ψ →
+                HasCompactSupport ψ →
+                  k * (∫ (x : OQ7Prescribed.Position), ↑(ψ x) * OQ7Prescribed.pairing (p x) (E x)).im =
+                    -∫ (x : OQ7Prescribed.Position),
+                        (OQ7Prescribed.pairing (E x)
+                            (OQ7Prescribed.cross (H x)
+                              (OQ7Prescribed.complexify (OQ7Prescribed.scalarGradient ψ x)))).re
+OQ7Prescribed.weak_source_radial_energy : ∀ (k : ℝ) (E H : OQ7Prescribed.Field) (p : OQ7Prescribed.CompactPolarization),
+  OQ7Prescribed.LocallySquareIntegrable E →
+    OQ7Prescribed.LocallySquareIntegrable H →
+      (OQ7Prescribed.HasWeakCurl E fun x => (Complex.I * ↑k) • H x) →
+        (OQ7Prescribed.HasWeakCurl H fun x => (-Complex.I * ↑k) • (E x + p.current x)) →
+          ∀ (r : ℝ),
+            0 < r →
+              p.radius ≤ r →
+                k * (∫ (x : OQ7Prescribed.Position), OQ7Prescribed.pairing (p.current x) (E x)).im =
+                  ∫ (x : OQ7Prescribed.Position),
+                    OQ7Prescribed.sourceEnergyWeight r x *
+                      (OQ7Prescribed.pairing (E x)
+                          (OQ7Prescribed.cross (H x) (OQ7Prescribed.complexify (OQ7Prescribed.radialDirection x)))).re
+OQ7Prescribed.weakCurl_compact_Fourier_symbol : ∀ (F G : OQ7Prescribed.Field),
+  MeasureTheory.Integrable F MeasureTheory.volume →
+    MeasureTheory.Integrable G MeasureTheory.volume →
+      OQ7Prescribed.HasWeakCurl F G →
+        ∀ (R : ℝ),
+          0 ≤ R →
+            (∀ (x : OQ7Prescribed.Position), R < ‖x‖ → F x = 0) →
+              (∀ (x : OQ7Prescribed.Position), R < ‖x‖ → G x = 0) →
+                ∀ (ξ : OQ7Prescribed.Position),
+                  FourierTransform.fourier G ξ =
+                    (Complex.I * ↑(2 * Real.pi)) • (OQ7Prescribed.crossLeftOperator ξ) (FourierTransform.fourier F ξ)
+OQ7Prescribed.weakCurl_compact_planeWave_pairing : ∀ (F G : OQ7Prescribed.Field),
+  OQ7Prescribed.HasWeakCurl F G →
+    ∀ (R : ℝ),
+      0 ≤ R →
+        (∀ (x : OQ7Prescribed.Position), R < ‖x‖ → F x = 0) →
+          (∀ (x : OQ7Prescribed.Position), R < ‖x‖ → G x = 0) →
+            ∀ (k : ℝ) (n : OQ7Prescribed.Position) (v : OQ7Prescribed.Vector),
+              ∫ (x : OQ7Prescribed.Position),
+                  OQ7Prescribed.bilinear (F x)
+                    ((-Complex.I * ↑k * OQ7Prescribed.currentPlanePhase k n x) •
+                      OQ7Prescribed.cross (OQ7Prescribed.complexify n) v) =
+                ∫ (x : OQ7Prescribed.Position), OQ7Prescribed.bilinear (G x) (OQ7Prescribed.currentPlanePhase k n x • v)
+OQ7Prescribed.weakCurl_compact_planeWave_transform : ∀ (F G : OQ7Prescribed.Field),
+  MeasureTheory.Integrable F MeasureTheory.volume →
+    MeasureTheory.Integrable G MeasureTheory.volume →
+      OQ7Prescribed.HasWeakCurl F G →
+        ∀ (R : ℝ),
+          0 ≤ R →
+            (∀ (x : OQ7Prescribed.Position), R < ‖x‖ → F x = 0) →
+              (∀ (x : OQ7Prescribed.Position), R < ‖x‖ → G x = 0) →
+                ∀ (k : ℝ) (n : OQ7Prescribed.Position),
+                  ∫ (x : OQ7Prescribed.Position), OQ7Prescribed.currentPlanePhase k n x • G x =
+                    (Complex.I * ↑k) •
+                      (OQ7Prescribed.crossLeftOperator n)
+                        (∫ (x : OQ7Prescribed.Position), OQ7Prescribed.currentPlanePhase k n x • F x)
+OQ7Prescribed.weakCurl_weighted_inner_identity : ∀ (F G C D : OQ7Prescribed.Field),
+  OQ7Prescribed.LocallySquareIntegrable F →
+    OQ7Prescribed.LocallySquareIntegrable G →
+      OQ7Prescribed.LocallySquareIntegrable C →
+        OQ7Prescribed.LocallySquareIntegrable D →
+          OQ7Prescribed.HasWeakCurl F C →
+            OQ7Prescribed.HasWeakCurl G D →
+              ∀ (ψ : OQ7Prescribed.Position → ℝ),
+                ContDiff ℝ (↑⊤) ψ →
+                  HasCompactSupport ψ →
+                    ∫ (x : OQ7Prescribed.Position),
+                        inner ℂ (F x)
+                          (OQ7Prescribed.cross (OQ7Prescribed.complexify (OQ7Prescribed.scalarGradient ψ x)) (G x) +
+                            ψ x • D x) =
+                      ∫ (x : OQ7Prescribed.Position), inner ℂ (C x) (ψ x • G x)
 OQ7Prescribed.weakCurlTest_all_finite_orders : ∀ (φ : OQ7Prescribed.Field),
   ContDiff ℝ (↑⊤) φ → ∀ (n : ℕ), ContDiff ℝ (↑n) φ
 OQ7Prescribed.weakDielectric_interface_at_zero : OQ7Prescribed.slabInterfaceReflection

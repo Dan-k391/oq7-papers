@@ -86,7 +86,9 @@ try {
         @{ name = 'physical-theorem11'; module = 'PrescribedExtinction.Theorem11' },
         @{ name = 'universal-forward-optical'; module = 'PrescribedExtinction.ForwardOpticalTheorem' },
         @{ name = 'weak-maxwell-foundations'; module = 'PrescribedExtinction.WeakScatteringResidual' },
-        @{ name = 'prescribed-extinction-class-lower'; module = 'PrescribedExtinction.PrescribedExtinctionClass' }
+        @{ name = 'prescribed-extinction-class-lower'; module = 'PrescribedExtinction.PrescribedExtinctionClass' },
+        @{ name = 'universal-weak-passivity'; module = 'PrescribedExtinction.UniversalPassivity' },
+        @{ name = 'full-prescribed-suprema'; module = 'PrescribedExtinction.FullPrescribedSuprema' }
     )
     if ($Only) {
         foreach ($oq7Name in $Only) {

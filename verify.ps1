@@ -515,6 +515,20 @@ run_cmd do
         'OQ7Prescribed.normalizedActiveResponse_angle_difference_bound')) {
         if ($oq7Required -notin $oq7NewKernelTheorems) { throw "Missing outgoing operator obligation: $oq7Required" }
     }
+    foreach ($oq7Required in @('OQ7Prescribed.weakCurl_compact_Fourier_symbol',
+        'OQ7Prescribed.compactWeakCurl_integral_inner',
+        'OQ7Prescribed.weakCurl_weighted_inner_identity',
+        'OQ7Prescribed.weak_source_cutoff_energy',
+        'OQ7Prescribed.outgoing_weak_source_work_nonneg',
+        'OQ7Prescribed.scatteringState_absorption_le_extinction',
+        'OQ7Prescribed.scatteringState_extinction_nonneg',
+        'OQ7Prescribed.scatteringState_positiveExtinction_absorption_pos',
+        'OQ7Prescribed.PrescribedExtinctionPair.asymmetry_lt_one',
+        'OQ7Prescribed.prescribedExtinctionAsymmetryValues_sSup',
+        'OQ7Prescribed.prescribedExtinctionDifferenceValues_sSup',
+        'OQ7Prescribed.prescribedExtinction_full_supremum')) {
+        if ($oq7Required -notin $oq7NewKernelTheorems) { throw "Missing universal passivity/supremum obligation: $oq7Required" }
+    }
     if ('OQ7Prescribed.scatteringStateOfVolumeEquation' -notin $oq7Constants) {
         throw 'Missing proved physical volume-equation scattering-state constructor.'
     }
@@ -556,16 +570,23 @@ run_cmd do
         weakCurlCompactMultiplicationAndSubtractionVerified = $true
         vacuumDistributionMaxwellImpliesHelmholtzVerified = $true
         originalFixedExtinctionClassNonemptyAndSupremumLowerHalvesVerified = $true
+        weakCompactFourierCurlIntegrationByPartsVerified = $true
+        arbitraryWeakMaxwellCompactCutoffEnergyVerified = $true
+        arbitraryOutgoingWeakScatteringStatePassivityVerified = $true
+        arbitraryPositiveExtinctionAdmissibleStateAbsorptionPositiveVerified = $true
+        entireFixedCommonExtinctionClassAsymmetryStrictUpperBoundVerified = $true
+        bothEntireFixedCommonExtinctionClassSupremaVerified = $true
+        entireFixedCommonExtinctionClassStrictNonattainmentVerified = $true
+        fixedExtinctionSupremumDeclaration = 'OQ7Prescribed.prescribedExtinction_full_supremum'
         theorem11Verified = $true
         finalTheoremDeclaration = 'OQ7Prescribed.theorem11'
         finalTheoremIsKernelProofDeclaration = $true
         finalTheoremExactTypeAndTransitiveAxiomsVerified = $true
         finalTheoremVerificationLog = 'verification/final-theorem.log'
-        remainingTheorem11Obligations = @('Universal passivity upper bound for arbitrary weak states',
-            'Outgoing weak Maxwell uniqueness and converse volume representation',
+        remainingTheorem11Obligations = @('Outgoing weak Maxwell uniqueness and converse volume representation',
             'Arbitrary-state physical all-angle flux and X = A + S',
-            'Universal strict nonattainment',
-            'Complete fixed-extinction supremum theorem')
+            'Reciprocity and normalized asymmetry bounds for arbitrary opposite-incidence states without an explicit common-extinction hypothesis',
+            'Combined complete physical theorem declaration and frozen review repository')
         targetProposition = 'OQ7Prescribed.Theorem11Statement'
         targetIsAProof = $false
         existingPhysicalTargetSourceUnchanged = $false
@@ -742,5 +763,5 @@ run_cmd do
         additionalResultsOutsideTheorem11NotProved = @('Uniqueness of arbitrary physical outgoing Maxwell states',
             'Converse outgoing volume representation')
     } | ConvertTo-Json -Depth 12 | Set-Content -LiteralPath 'verification/report.json' -Encoding utf8
-    Write-Output 'EXISTENCE CORE VERIFIED: preserved theorem11 and universal forward optical milestone passed identical-source clean build and all-project transitive axiom audit. Complete physical theorem remains pending.'
+    Write-Output 'VERIFIED MILESTONES: preserved existence core, universal weak passivity, and both entire fixed-common-extinction suprema passed identical-source clean build and all-project transitive axiom audit. Complete physical verification remains pending.'
 } finally { Pop-Location }

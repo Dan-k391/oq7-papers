@@ -1,0 +1,20 @@
+import PrescribedExtinction.FullPrescribedSuprema
+
+#check @OQ7Prescribed.weakCurl_compact_Fourier_symbol
+#print axioms OQ7Prescribed.weakCurl_compact_Fourier_symbol
+#check @OQ7Prescribed.compactWeakCurl_integral_inner
+#print axioms OQ7Prescribed.compactWeakCurl_integral_inner
+#check @OQ7Prescribed.weakCurl_weighted_inner_identity
+#print axioms OQ7Prescribed.weakCurl_weighted_inner_identity
+#check @OQ7Prescribed.weak_source_cutoff_energy
+#print axioms OQ7Prescribed.weak_source_cutoff_energy
+#check @OQ7Prescribed.outgoing_weak_source_work_nonneg
+#print axioms OQ7Prescribed.outgoing_weak_source_work_nonneg
+#check @OQ7Prescribed.physical_scattered_source_work
+#print axioms OQ7Prescribed.physical_scattered_source_work
+#check @OQ7Prescribed.scatteringState_absorption_le_extinction
+#print axioms OQ7Prescribed.scatteringState_absorption_le_extinction
+#check @OQ7Prescribed.scatteringState_extinction_nonneg
+#print axioms OQ7Prescribed.scatteringState_extinction_nonneg
+#check @OQ7Prescribed.scatteringState_positiveExtinction_absorption_pos
+#print axioms OQ7Prescribed.scatteringState_positiveExtinction_absorption_pos

@@ -1,0 +1,100 @@
+OQ7Prescribed.weakCurl_compact_Fourier_symbol : ∀ (F G : OQ7Prescribed.Field),
+  MeasureTheory.Integrable F MeasureTheory.volume →
+    MeasureTheory.Integrable G MeasureTheory.volume →
+      OQ7Prescribed.HasWeakCurl F G →
+        ∀ (R : ℝ),
+          0 ≤ R →
+            (∀ (x : OQ7Prescribed.Position), R < ‖x‖ → F x = 0) →
+              (∀ (x : OQ7Prescribed.Position), R < ‖x‖ → G x = 0) →
+                ∀ (ξ : OQ7Prescribed.Position),
+                  FourierTransform.fourier G ξ =
+                    (Complex.I * ↑(2 * Real.pi)) • (OQ7Prescribed.crossLeftOperator ξ) (FourierTransform.fourier F ξ)
+'OQ7Prescribed.weakCurl_compact_Fourier_symbol' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.compactWeakCurl_integral_inner : ∀ (F G C D : OQ7Prescribed.Field),
+  MeasureTheory.MemLp F 1 MeasureTheory.volume →
+    ∀ (hF2 : MeasureTheory.MemLp F 2 MeasureTheory.volume),
+      MeasureTheory.MemLp G 1 MeasureTheory.volume →
+        ∀ (hG2 : MeasureTheory.MemLp G 2 MeasureTheory.volume),
+          MeasureTheory.MemLp C 1 MeasureTheory.volume →
+            ∀ (hC2 : MeasureTheory.MemLp C 2 MeasureTheory.volume),
+              MeasureTheory.MemLp D 1 MeasureTheory.volume →
+                ∀ (hD2 : MeasureTheory.MemLp D 2 MeasureTheory.volume),
+                  OQ7Prescribed.HasWeakCurl F C →
+                    OQ7Prescribed.HasWeakCurl G D →
+                      ∀ (R : ℝ),
+                        0 ≤ R →
+                          (∀ (x : OQ7Prescribed.Position), R < ‖x‖ → F x = 0) →
+                            (∀ (x : OQ7Prescribed.Position), R < ‖x‖ → G x = 0) →
+                              (∀ (x : OQ7Prescribed.Position), R < ‖x‖ → C x = 0) →
+                                (∀ (x : OQ7Prescribed.Position), R < ‖x‖ → D x = 0) →
+                                  inner ℂ (MeasureTheory.MemLp.toLp F hF2) (MeasureTheory.MemLp.toLp D hD2) =
+                                    inner ℂ (MeasureTheory.MemLp.toLp C hC2) (MeasureTheory.MemLp.toLp G hG2)
+'OQ7Prescribed.compactWeakCurl_integral_inner' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.weakCurl_weighted_inner_identity : ∀ (F G C D : OQ7Prescribed.Field),
+  OQ7Prescribed.LocallySquareIntegrable F →
+    OQ7Prescribed.LocallySquareIntegrable G →
+      OQ7Prescribed.LocallySquareIntegrable C →
+        OQ7Prescribed.LocallySquareIntegrable D →
+          OQ7Prescribed.HasWeakCurl F C →
+            OQ7Prescribed.HasWeakCurl G D →
+              ∀ (ψ : OQ7Prescribed.Position → ℝ),
+                ContDiff ℝ (↑⊤) ψ →
+                  HasCompactSupport ψ →
+                    ∫ (x : OQ7Prescribed.Position),
+                        inner ℂ (F x)
+                          (OQ7Prescribed.cross (OQ7Prescribed.complexify (OQ7Prescribed.scalarGradient ψ x)) (G x) +
+                            ψ x • D x) =
+                      ∫ (x : OQ7Prescribed.Position), inner ℂ (C x) (ψ x • G x)
+'OQ7Prescribed.weakCurl_weighted_inner_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.weak_source_cutoff_energy : ∀ (k : ℝ) (E H p : OQ7Prescribed.Field),
+  OQ7Prescribed.LocallySquareIntegrable E →
+    OQ7Prescribed.LocallySquareIntegrable H →
+      OQ7Prescribed.LocallySquareIntegrable p →
+        (OQ7Prescribed.HasWeakCurl E fun x => (Complex.I * ↑k) • H x) →
+          (OQ7Prescribed.HasWeakCurl H fun x => (-Complex.I * ↑k) • (E x + p x)) →
+            ∀ (ψ : OQ7Prescribed.Position → ℝ),
+              ContDiff ℝ (↑⊤) ψ →
+                HasCompactSupport ψ →
+                  k * (∫ (x : OQ7Prescribed.Position), ↑(ψ x) * OQ7Prescribed.pairing (p x) (E x)).im =
+                    -∫ (x : OQ7Prescribed.Position),
+                        (OQ7Prescribed.pairing (E x)
+                            (OQ7Prescribed.cross (H x)
+                              (OQ7Prescribed.complexify (OQ7Prescribed.scalarGradient ψ x)))).re
+'OQ7Prescribed.weak_source_cutoff_energy' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.outgoing_weak_source_work_nonneg : ∀ (k : ℝ) (E H : OQ7Prescribed.Field)
+  (p : OQ7Prescribed.CompactPolarization),
+  OQ7Prescribed.LocallySquareIntegrable E →
+    OQ7Prescribed.LocallySquareIntegrable H →
+      (OQ7Prescribed.HasWeakCurl E fun x => (Complex.I * ↑k) • H x) →
+        (OQ7Prescribed.HasWeakCurl H fun x => (-Complex.I * ↑k) • (E x + p.current x)) →
+          OQ7Prescribed.Outgoing E H →
+            0 ≤ k * (∫ (x : OQ7Prescribed.Position), OQ7Prescribed.pairing (p.current x) (E x)).im
+'OQ7Prescribed.outgoing_weak_source_work_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.physical_scattered_source_work : ∀ (k : ℝ) (B : OQ7Prescribed.TwoLayerBody) (σ : OQ7Prescribed.Direction)
+  (E : OQ7Prescribed.Field),
+  OQ7Prescribed.LocallySquareIntegrable E →
+    k *
+        (∫ (x : OQ7Prescribed.Position),
+            OQ7Prescribed.pairing (OQ7Prescribed.polarization B E x) (E x - OQ7Prescribed.incidentElectric k σ x)).im =
+      OQ7Prescribed.extinction k B σ E - OQ7Prescribed.absorption k B E
+'OQ7Prescribed.physical_scattered_source_work' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.scatteringState_absorption_le_extinction : ∀ (k : ℝ) (B : OQ7Prescribed.TwoLayerBody)
+  (σ : OQ7Prescribed.Direction) (s : OQ7Prescribed.ScatteringState k B σ),
+  OQ7Prescribed.absorption k B s.electric ≤ OQ7Prescribed.extinction k B σ s.electric
+'OQ7Prescribed.scatteringState_absorption_le_extinction' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.scatteringState_extinction_nonneg : ∀ (k : ℝ),
+  0 ≤ k →
+    ∀ (P Q : ℝ) (B : OQ7Prescribed.TwoLayerBody),
+      B.admissible P Q →
+        ∀ (σ : OQ7Prescribed.Direction) (s : OQ7Prescribed.ScatteringState k B σ),
+          0 ≤ OQ7Prescribed.extinction k B σ s.electric
+'OQ7Prescribed.scatteringState_extinction_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.scatteringState_positiveExtinction_absorption_pos : ∀ (k : ℝ),
+  0 < k →
+    ∀ (P Q : ℝ) (B : OQ7Prescribed.TwoLayerBody),
+      B.admissible P Q →
+        ∀ (σ : OQ7Prescribed.Direction) (s : OQ7Prescribed.ScatteringState k B σ),
+          0 < OQ7Prescribed.extinction k B σ s.electric → 0 < OQ7Prescribed.absorption k B s.electric
+'OQ7Prescribed.scatteringState_positiveExtinction_absorption_pos' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

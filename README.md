@@ -1,46 +1,23 @@
-A subsequent independent audit identified missing universal and supremum obligations in the full manuscript theorem. See RESUME.md and verification/claude-independent-audit-5a8350d.md. The completion statements below refer to the existence core only.
+# OQ7 physical prescribed extinction — verification in progress
 
-# OQ7 physical prescribed extinction — existence core verified; complete theorem in progress
+The preserved existence declaration is `OQ7Prescribed.theorem11 : Theorem11Statement`. Claude's independent audit of commit `5a8350d5408c38e333c9f6b6d8a94816c794120b` confirms its kernel validity and identifies obligations omitted from the earlier completion claim. The audit is preserved in verification/claude-independent-audit-5a8350d.md. Full physical verification remains pending.
 
-The existence core of physical Theorem 1.1 is proved by `OQ7Prescribed.theorem11 : OQ7Prescribed.Theorem11Statement` in [Theorem11.lean](PrescribedExtinction/Theorem11.lean). The fresh clean build and exhaustive transitive axiom audit passed on 2026-10-11. The final theorem depends only on Lean's standard foundations `propext`, `Classical.choice`, and `Quot.sound`.
+The continuation proves universal passivity directly for every original outgoing weak Maxwell state: `scatteringState_absorption_le_extinction`. Admissibility gives nonnegative absorption; positive extinction gives strictly positive absorption. The proof derives compact weak integration by parts through actual Fourier curl symbols and Plancherel, then a weak cutoff Poynting identity and the full uniform Silver–Muller radiation condition. It assumes no volume equation or physical power identity.
 
-For every positive frequency, real material cap P greater than one, positive loss cap Q, positive prescribed extinction, and epsilon between zero and one, the proof constructs a finite actual two-layer body with strictly admissible tensors and both original incident-direction scattering states. Both physical extinction cross sections equal the target exactly, and the original absorption asymmetry is strictly between one minus epsilon and one. The states satisfy both physical weak Maxwell curls, local square integrability, and the full uniform Silver–Muller condition over all directions. The final theorem has no additional physical assumptions.
+`prescribedExtinction_full_supremum` proves both exact sharp values, `sSup prescribedExtinctionAsymmetryValues = 1` and `sSup prescribedExtinctionDifferenceValues = target`, and strict nonattainment for every member. `PrescribedExtinctionPair` ranges over all original admissible bodies and original weak states with both extinctions equal to the prescribed positive target. It is not restricted to the constructed family or volume-integral states. The lower bound uses the preserved existence proof; the upper bound uses universal weak passivity and strict material loss.
 
-## Verified dependency chain
+Remaining requested physical obligations are outgoing weak-state uniqueness and converse volume representation, arbitrary-state X=A+S with S identified as actual all-angle outgoing radiation, and reciprocity/bounds for arbitrary opposite-incidence states without an explicit common-extinction hypothesis. A combined final declaration and frozen review repository are due after these are proved. No completion should be inferred from the existence-core certificate alone.
 
-| Milestone | Main proof modules |
-| --- | --- |
-| Physical static operator, including Newton contact and Fourier identification | NewtonContact, NewtonTransform, NewtonStaticIdentification |
-| Actual bounded outgoing operator and global radiating Maxwell fields | OutgoingVolumeIdentification, CompactOutgoingIdentification, OutgoingSourceFields, VolumeScatteringBridge |
-| Scattering existence, dissipativity, original full-angular optical balance, and reciprocity | ScatteringExistence, OutgoingDissipativity, PhysicalOpticalBalance, ExtinctionReciprocity |
-| Uniform aperture localization for actual normalized currents and original physical powers | UniformBodyResponse, UniformPhysicalPowers, UniformPhysicalAsymmetry |
-| Actual planar design, first finite-body bracket, positive isotropic loss, exact tuning, and admissible final witness | PlanarPrescribedDesign, PhysicalRankOneExtinctionBracket, PhysicalCompactLossBracket, PhysicalIsotropicPrescribedExtinction, Theorem11 |
+## Reproduction and evidence
 
-The added generic bounded Woodbury and compact parameter-neighborhood lemmas are proved in BoundedWoodbury and CompactParameterNeighborhood. Strict positive isotropic loss gives positive physical absorption in both directions, which yields strict nonattainment of asymmetry one. Continuity and the intermediate value theorem tune the final angle to the prescribed extinction after adding this loss.
-
-## Reproducible certificate
-
-- [verification/report.json](verification/report.json): `status: VERIFIED`, `theorem11Verified: true`, final theorem declaration, clean-build/source-hash equality, pinned dependency revisions, and no remaining Theorem 1.1 obligations.
-- [verification/final-theorem.log](verification/final-theorem.log): exact theorem type, transitive axioms, and verification that the declaration is a kernel theorem with exactly Theorem11Statement.
-- [verification/clean-build.log](verification/clean-build.log): successful fresh project build, 3568 jobs.
-- [verification/axioms.log](verification/axioms.log) and [verification/inventory.log](verification/inventory.log): exhaustive audit of all 5402 public, private, and generated project constants selected by the project namespace inventory.
-- [verification/milestones/physical-theorem11/axioms.log](verification/milestones/physical-theorem11/axioms.log): independently exported final milestone statements and transitive axioms.
-- [verification/physical-theorem11-clean-verification.log](verification/physical-theorem11-clean-verification.log): successful final verifier result.
-
-Pins: Lean 4.34.1, compiler commit `5045d0056413266e57c625dcd7c365b10e377c52`; Mathlib `d13f23b723b8a846827a245b89c10fc7d3f11612`. The canonical transitive manifest is [sources/pinned-lake-manifest.json](sources/pinned-lake-manifest.json). Configure without upgrading dependencies, then verify:
+Pins: Lean 4.34.1, compiler commit `5045d0056413266e57c625dcd7c365b10e377c52`; Mathlib `d13f23b723b8a846827a245b89c10fc7d3f11612`. Configure without upgrading the pinned dependencies:
 
 ```powershell
 ./configure.ps1
-./verify.ps1 -LeanBin 'C:/path/to/lean-4.34.1-windows/bin' -Clean
-./verify-milestones.ps1 -LeanBin 'C:/path/to/lean-4.34.1-windows/bin' -Only physical-theorem11
+./verify.ps1 -LeanBin 'C:/path/to/lean-4.34.1-windows/bin' -Clean -BuildThreads 2
+./verify-milestones.ps1 -LeanBin 'C:/path/to/lean-4.34.1-windows/bin' -Only universal-weak-passivity,full-prescribed-suprema
 ```
 
-To reuse existing pinned packages, pass `-PackagesDirectory 'C:/path/to/.lake/packages'` to configure.ps1. The verifier checks every tracked dependency is clean at its pinned revision, bans prohibited proof mechanisms, inventories kernel theorem declarations, checks all transitive project axioms, guards the physical target's exact source, and requires a clean build of identical Lean sources before issuing VERIFIED.
+To reuse pinned packages, pass `-PackagesDirectory 'C:/path/to/.lake/packages'` to configure.ps1. `verification/report.json` records the exact current scope, source hashes, pinned dependency revisions and exhaustive transitive axiom audit. `verification/clean-build.log`, `verification/axioms.log`, and the selected milestone directories preserve build and declaration evidence. Standard foundations allowed are only `propext`, `Classical.choice`, and `Quot.sound`.
 
-## Physical statement and preservation
-
-The whole Theorem11Statement body, its parameters, finite geometry, tensor caps, original cross sections, and full outgoing quantifiers are preserved. The sole historical target-source edit explicitly strengthens compact curl testing from analytic tests to all C-infinity tests with `ContDiff ℝ (⊤ : ℕ∞)`. The exact original source is archived in [verification/physical-target-before-test-correction.txt](verification/physical-target-before-test-correction.txt), and the verifier permits precisely that annotation replacement. TestRegularity proves the corrected condition implies the original one. Current target SHA256: `A9950F0F1C9EA4A20FF2C480A71CC4FABDC4AB84F8173851C37A4BD56E0D231B`.
-
-Maxwell.lean deliberately retains its historical "unproved" comments so its guarded source remains unchanged. Theorem11Statement remains a proposition definition; Theorem11.lean now provides its actual proof declaration. Historical milestone documents and old PARTIAL logs describe earlier commits; the current certificate is verification/report.json.
-
-The manuscript and all read-only sources are preserved. The original OQ7 library's scalar one-dimensional Theorem 5.1 is separate from this physical three-dimensional theorem. Additional converse outgoing-volume representation and uniqueness of arbitrary outgoing Maxwell states are not proved here and are not dependencies of this existential final statement.
+Every original Lean leaf module from the audited commit is byte-preserved; the aggregate imports are only appended. Maxwell.lean retains the historical documented correction to all C-infinity compact tests and its exact guarded source hash. The manuscript and synced reference sources are unchanged. `RESUME.md` records the next analytic steps and safe continuation procedure.
