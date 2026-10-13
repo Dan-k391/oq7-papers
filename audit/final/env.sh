@@ -1,0 +1,2 @@
+export PATH=<AUDIT_ROOT>/tc/lean-4.34.1-linux/bin:$PATH
+export LEAN_PATH=<AUDIT_ROOT>/pkgs/Cli/.lake/build/lib/lean:<AUDIT_ROOT>/pkgs/batteries/.lake/build/lib/lean:<AUDIT_ROOT>/pkgs/Qq/.lake/build/lib/lean:<AUDIT_ROOT>/pkgs/aesop/.lake/build/lib/lean:<AUDIT_ROOT>/pkgs/proofwidgets/.lake/build/lib/lean:<AUDIT_ROOT>/pkgs/importGraph/.lake/build/lib/lean:<AUDIT_ROOT>/pkgs/LeanSearchClient/.lake/build/lib/lean:<AUDIT_ROOT>/pkgs/plausible/.lake/build/lib/lean:<AUDIT_ROOT>/pkgs/mathlib/.lake/build/lib/lean:<AUDIT2_ROOT>/oq7/.lake/build/lib/lean
