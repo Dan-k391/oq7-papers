@@ -10,9 +10,11 @@ def unpack(archive,destination):
  with zipfile.ZipFile(archive) as z:
   for member in z.infolist():
    path=pathlib.PurePosixPath(member.filename)
-   if path.is_absolute() or '..' in path.parts or stat.S_ISLNK(member.external_attr>>16): raise RuntimeError('Unsafe archive member')
+   if path.is_absolute() or '..' in path.parts or any(':' in part for part in path.parts): raise RuntimeError('Unsafe archive member')
    target=destination.joinpath(*path.parts)
    if member.is_dir(): target.mkdir(parents=True,exist_ok=True);continue
+   # Preserve symbolic-link blobs as ordinary link-text files, matching the
+   # supplied core.symlinks=false Git metadata. Never create or follow links.
    target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes(z.read(member))
 for package in pins['packages']:
  target=root/'.lake/packages'/package['name']
