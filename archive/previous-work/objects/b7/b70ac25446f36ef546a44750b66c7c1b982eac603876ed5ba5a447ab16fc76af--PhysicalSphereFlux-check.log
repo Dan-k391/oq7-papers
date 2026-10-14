@@ -1,0 +1,7 @@
+work/PhysicalSphereFlux.lean:52:57: warning: This simp argument is unused:
+  unitSphere_norm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [norm_smul, Real.norm_eq_abs, abs_of_pos hrpos]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

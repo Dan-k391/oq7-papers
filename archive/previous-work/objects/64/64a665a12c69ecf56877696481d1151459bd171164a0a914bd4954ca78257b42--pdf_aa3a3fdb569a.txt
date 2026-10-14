@@ -1,0 +1,842 @@
+Unit Absorption Asymmetry at Prescribed Extinction
+for Compact Reciprocal Dielectrics
+Abstract
+For two opposite real linearly polarized plane waves, reciprocity ﬁxes the extinction of a com-
+pact scatterer but permits diﬀerent absorption and scattering. At a ﬁxed vacuum wavenumber
+k > 0, we establish that the supremum of the absorption diﬀerence divided by common extinc-
+tion is one at every exactly prescribed extinction E∗ > 0. The realization uses ﬁnite compact
+two-layer local anisotropic nonmagnetic dielectrics satisfying arbitrary ﬁxed upper caps P > 1
+and Q > 0, with I ⪯ ReH ε ⪯ P I and 0 ≺ ImH ε ⪯ QI in each layer. Every individual body
+has asymmetry strictly below one. The constructive step is a physical aperture limit uniform
+after factorization by the squared sine of a material rotation angle, including its zero-angle
+auxiliary limit. This permits the coupling angle to decrease as the aperture increases while
+total extinction remains ﬁxed. A subsequent positive isotropic-loss perturbation and a second
+intermediate-value argument preserve the exact target. Geometric resources are unrestricted
+across the approximating sequence, and no common positive loss ﬂoor or bandwidth is imposed.
+The polarization mechanism and reciprocal extinction identity have prior precedents; the con-
+tribution is the controlled compact Maxwell realization at prescribed extinction. A frozen Lean
+4 formalization certiﬁes the stated existence, suprema, and physical power identities, with the
+scope of its veriﬁcation distinguished from independent semantic and priority review.
+1 Introduction and relation to OQ7
+Open Question 7 in the tutorial of Miller and Monticone asks for fundamental limits on the redis-
+tribution between absorption and scattering under time-reversed illumination [ 1]. A normalization,
+illumination class, and resource class are needed to turn that question into a theorem. Here the
+normalization is the common dimensional plane-wave extinction, the illumination pair is opposite
+real linear polarization in vacuum, and the objects are local reciprocal dielectric bodies at one
+frequency.
+The result is an existence and supremum theorem. It states that a ﬁnite object can have exactly
+any prescribed positive extinction and an absorption diﬀerence arbitrarily close to that extinction,
+while its real permittivity and loss obey ﬁxed pointwise upper bounds. It establishes neither a
+ﬁnite-resource optimum nor ﬁnite-bandwidth performance. The same material tensor is used in
+both experiments, and scattering includes the whole outgoing sphere and both polarizations.
+At a ﬁxed coupling angle, enlarging a planar-like aperture increases extinction proportionally
+to area. A ﬁxed-stack aperture limit therefore does not suﬃce to prescribe total extinction. The
+exact rotation factorization and uniform normalized aperture theorem below permit the coupling
+angle to decrease while the aperture grows. Green-operator and localization arguments justify this
+passage for actual ﬁnite Maxwell bodies. Dipole optimization, scalar thickness laws, ﬁxed-resource
+bounds, and quartic small-size results have diﬀerent hypotheses and are outside the present proof.
+1
+2 Prior work and the precise contribution
+Reciprocal extinction equality and directional absorption are established facts. Sounas and Alù
+derived opposite-incidence extinction symmetry and its implications for scattering manipulation [ 2].
+Hopkins and coauthors studied directional absorption and scattering at equal extinction through
+modal interference in reciprocal particles [ 3]. The passive inequality used below is a consequence of
+power conservation, and its strictness follows from the optical theorem. We claim no independent
+discovery of these facts.
+Polarization conversion combined with selective attenuation also has a substantial history. Ar-
+mitage gives reciprocity constraints for Jones matrices and a polarizer–waveplate example [ 4]. Khur-
+gin and coauthors demonstrated reciprocal asymmetric polarization switching using selective at-
+tenuation and imperfect waveplates, including passive experiments [ 5]. This is a closely related
+channel mechanism. Ra’di, Asadchy, and Tretyakov analyze thin bianisotropic absorbers and dis-
+tinct opposite-side responses, distinguishing reciprocal and nonreciprocal constitutive classes [ 6].
+Such sheet and channel constructions establish relevant mechanisms; their realizability assump-
+tions must be retained when comparing them with local nonmagnetic dielectric volumes. Likewise,
+the lossless-response time-reversal bounds of Sounas and Alù concern a diﬀerent set of hypotheses
+[7].
+Andersen and Frandsen showed that receiving-antenna absorption divided by absorption plus
+total scattering can approach one, with a directivity-dependent cost [ 8]. That result precedes any
+general near-unit absorption-eﬃciency claim. It does not by itself supply the present simultaneous
+opposite-incidence response at every prescribed extinction within a capped local dielectric class.
+Schab, Gustafsson, and collaborators formulate absorption–scattering tradeoﬀs with prescribed
+losses and material parameters [ 9]; those ﬁnite-resource optimization problems motivate the re-
+source distinctions maintained here. Khurgin and Sun’s loss-scaling analysis supplies separate
+material and conﬁnement context for resonant metal–dielectric structures [ 10].
+Related layered and metasurface devices also require explicit comparison. Kononchuk and coau-
+thors combine dichroic attenuation with magnetic Faraday rotation in a layered-sheet isolator [ 11];
+its complete device has a diﬀerent, magnetically nonreciprocal constitutive class, while its selective-
+attenuation component is relevant. Earlier bianisotropic metasurface asymmetric absorption was
+studied by Yazdi and coauthors [ 12]. Máñez-Espina and coauthors derive maximum directional
+absorptance diﬀerence in a reciprocal bianisotropic metasurface model and verify its predictions
+with full-wave simulations [ 13]. A planar absorptance diﬀerence in a speciﬁed coupled-mode model
+is distinct from a compact dimensional extinction-normalized supremum with every positive tar-
+get and arbitrary material caps. These comparisons do not establish ﬁrst priority for the latter
+theorem.
+For the ﬁnite-to-planar passage, Gao, Yang, and Kattawar studied polarized extinction of plates
+with large aspect ratios [ 14]. Gustafsson and coauthors derived planar extinction and scattered-
+transmission identities for periodic slabs [ 15]; literal compact-material truncation and the uniform
+normalized limit required here have diﬀerent quantiﬁers. Windowed Green-function methods rig-
+orously treat layered backgrounds [ 16, 17], while volume-integral formulations supply the singular-
+kernel and radiation framework [ 18, 19]. A computational window applied to an inﬁnite-interface
+equation and literal truncation of a material body are diﬀerent operations. Our smooth windows
+enter only trial currents; the ﬁnal material aperture remains sharp.
+Mann and Alù’s 2023 conference abstract explicitly announces maximal directional absorption
+for bianisotropic dipolar particles [ 20]. It is direct prior art for the qualitative extremal phenomenon.
+The full equations, normalization, and any equivalent compact dielectric realization have not been
+veriﬁed from that contribution. Priority against it remains unresolved. More generally, absence of
+2
+an identical retrieved statement does not establish ﬁrst priority.
+The contribution established here is the combination of an aperture theorem uniform at van-
+ishing physical coupling, exact ﬁnite-object extinction tuning, and positive-loss regularization pre-
+serving arbitrary ﬁxed upper material caps. The mechanism, passive bound, extinction symmetry,
+and planar optical theorem have the prior precedents described above.
+3 Maxwell model, material class, and cross sections
+Use time dependence e− iωt , vacuum wavenumber k = ω/c > 0, relative permeability µ = I, and
+relative permittivity ε = I + χ. Write H = Z0H for the impedance-normalized magnetic ﬁeld. The
+incident ﬁelds are
+f± (x) = eye± ikz, Hinc, ± = ± (ez × ey)e± ikz. (1)
+Their electric amplitudes are one and their incident intensities coincide. This is a time-reversed pair
+of vacuum waves. The absorbing object itself is reciprocal, without requiring its lossy dynamics to
+be invariant under time reversal.
+Let R, h, d > 0, SR = (− R/ 2, R/ 2)2, and DR = SR × (0, h +d). The absorber occupies SR × (0, h )
+and the plate occupies SR× (h, h +d). Each layer has a constant complex 3× 3 tensor. The coeﬃcient
+is I outside DR; boundary values do not aﬀect the weak equations. The closure of the material
+region is compact. For ﬁxed P > 1, Q > 0, both tensors satisfy
+εT = ε, I ⪯ ReH ε ⪯ P I, 0 ≺ ImH ε ⪯ QI, (2)
+where ReH T = (T + T †)/ 2 and ImH T = (T − T †)/ (2i). Strict positivity holds separately for each
+selected ﬁnite object. The class imposes no common lower loss bound.
+The total ﬁelds are locally square integrable and satisfy, distributionally,
+∇ × E = ikH, ∇ × H = − ikεE. (3)
+The equations are tested against every C∞
+c complex vector ﬁeld with the bilinear distribution pairing.
+Thus the ﬁelds belong locally to H(curl). The scattered ﬁelds Es = E − f± and Hs = H − Hinc, ±
+obey the uniform Silver–Müller condition
+r∥Hs(rn) × n − Es(rn)∥ − → 0 ( r → ∞ ), uniformly for n ∈ S2. (4)
+Weak ﬁelds are unique almost everywhere. Their physical far ﬁeld and sphere-ﬂux limits refer to
+the canonical radiating exterior representative, avoiding arbitrary pointwise changes on null sets.
+Put p = χE and use an inner product conjugate-linear in its ﬁrst argument. For unit electric
+incident amplitude, the dimensional cross sections are
+X± = kℑ⟨f± , p ± ⟩DR, A ± = k
+∫
+DR
+E†
+± ImH χE± dx. (5)
+The far-ﬁeld amplitude and total scattering are
+Fp(n) = k2
+4π Π n
+∫
+DR
+p(x)e− ikn·x dx, Π n = I − nnT , S =
+∫
+S2
+∥Fp(n)∥2 dΩ . (6)
+Compactly supported L2 currents are L1, so this far ﬁeld is continuous. It is the actual radiation
+amplitude, with Es(rn) = eikrFp(n)/r + O(r− 2) uniformly on the sphere. Reciprocity and the
+optical theorem give
+X+ = X− = X, X = A± + S± , X ± = 4π
+k ℑ{e†
+yFp± (± ez)}. (7)
+3
+When X > 0, deﬁne
+Γ = |A+ − A− |
+X = |S+ − S− |
+X . (8)
+X, A, S, E ∗ have units of area; Γ is dimensionless. Inﬁnite plane waves are never assigned a ﬁnite
+total incident power. Section 5 establishes the physical identities used here.
+4 Main theorem and nonattainment
+Let Ck,P,Q,E ∗ consist of all two-layer square-aperture bodies just deﬁned whose opposite-incidence
+solutions have common extinction E∗ > 0.
+Theorem 4.1 (Prescribed-extinction supremum) . Fix k > 0, P > 1, Q > 0, and E∗ > 0. For
+every 0 < ϵ < 1, there exists a body satisfying (2), with ﬁnite positive R, h, d , whose unique outgoing
+weak Maxwell solutions for (1) obey
+X+ = X− = E∗ exactly, 1 − ϵ < Γ < 1. (9)
+Consequently,
+sup
+Ck,P,Q,E ∗
+Γ = 1 , sup
+Ck,P,Q,E ∗
+|A+ − A− |= E∗. (10)
+Neither supremum is attained. No common bound on aperture, thickness, volume, integrated mate-
+rial resources, or positive loss ﬂoor is imposed across the approximating sequence.
+Lemma 4.2 (Passive bound and strict nonattainment) . Every individual body in the stated class
+with X > 0 has 0 ≤ Γ < 1.
+Proof. Passivity and ( 7) give 0 ≤ A± ≤ X, hence Γ ≤ 1. Equality would require one experiment to
+have A = X and S = 0 . By continuity, a far ﬁeld with zero integral of its squared norm vanishes
+in every direction. Its forward optical theorem then gives X = 0 , a contradiction. This strictness
+argument also applies to any compact passive reciprocal object for which the same physical identities
+hold; the formal class of Theorem 4.1 is the two-layer class.
+The existence construction is proved in Sections 6– 8. Lemma 4.2 supplies the upper bound and
+nonattainment; the constructed sequence supplies the lower bound on each supremum.
+5 Exact volume operators and physical power identities
+For any bounded D, extend p ∈ L2(D)3 by zero and deﬁne
+KDp = ( k2I + ∇∇·)(gk ∗p)
+⏐⏐⏐
+D
+, g k(x) = eik|x|
+4π|x|. (11)
+The derivatives are distributional, including the static contact term. In this section Kstat denotes
+the electrostatic operator; the later transverse ﬁber Kκ=0 is a diﬀerent operator at the nonzero
+frequency k.
+Lemma 5.1 (Boundedness and radiation identity) . The restricted operator KD is bounded on
+L2(D)3, and
+∥Kstat∥ ≤ 1, ∥KD − Kstat
+D ∥ ≤ 3
+4 k2
+( 3|D|
+4π
+) 2/ 3
+. (12)
+4
+For every such current,
+ℑ⟨p, K Dp⟩= k3
+16π2
+∫
+S2
+Π n
+∫
+D
+p(x)e− ikn·x dx
+
+2
+dΩ ≥ 0. (13)
+Proof. The Newtonian part has Fourier multiplier − ξξT / |ξ|2, with norm at most one. It in-
+cludes the local distributional contribution. Set b(u) = eiu(iu − 1) + 1 . Since b′(u) = − ueiu
+and b(0) = 0 , |b(u)| ≤ u2/ 2 for real u ≥ 0. The dynamic diﬀerence kernel has radial and tan-
+gential eigenvalues − 2b(kr)/ (4πr3) and ((kr)2eikr + b(kr))/ (4πr3), respectively. Its operator norm
+is at most 3k2/ (8πr). Rearrangement of the radial decreasing kernel gives supx
+∫
+D|x − y|− 1 dy ≤
+2π(3|D|/ (4π))2/ 3. Schur’s test proves ( 12).
+The smooth identity ℑgk(x) = k(16π2)− 1 ∫
+S2 eikn·x dΩ follows by direct angular integration.
+Applying k2I + ∇∇· supplies k2Π n. Reciprocity of the kernel, Fubini’s theorem, and L2(D) density
+yield ( 13). The static contact term is real and contributes no imaginary work. The large-distance
+expansion of the same kernel gives ( 6) and its uniform remainder, together with Hs(rn) = eikrn ×
+Fp(n)/r + O(r− 2). Their sphere Poynting ﬂux tends to S.
+Proposition 5.2 (Weak Maxwell well-posedness and optical identities) . For every body satisfy-
+ing (2), each incidence has a unique outgoing weak solution up to equality almost everywhere. Its
+powers satisfy (7) and A± , S ± ≥ 0.
+Proof. For this ﬁxed body, ImH χ ⪰ mI and ∥χ∥ ≤ M for some m, M > 0, because there are two
+constant tensors. Hence χ is invertible and
+W = − ImH χ− 1 = χ−† (ImH χ)χ− 1 ⪰ m
+M 2 I. (14)
+Set LD = χ− 1 − KD. Then −ℑ⟨p, L Dp⟩ ≥ (m/M 2)∥p∥2 by Lemma 5.1. Complex Lax–Milgram
+applied to i⟨q, L Dp⟩gives a unique solution of LDp = f , with inverse norm at most M 2/m . Recon-
+struct E = f + (k2I + ∇∇·)(gk ∗p) and H = (ik)− 1∇ × E. Local H 2 regularity of the scalar volume
+potential gives locally square-integrable ﬁelds and distributional Maxwell equations; their scattered
+ﬁelds are outgoing. Conversely, subtracting this reconstruction from any outgoing weak state pro-
+duces an entire outgoing vacuum Maxwell pair, which vanishes almost everywhere by Appendix A.
+Thus the volume and weak formulations describe the same solution.
+Inside D, E = χ− 1p, so A = k⟨p, W p ⟩. Taking the imaginary part of ⟨p, L Dp⟩= ⟨p, f ⟩gives
+kℑ⟨f, p ⟩= k⟨p, W p ⟩+ kℑ⟨p, K Dp⟩= A + S. (15)
+The last equality is ( 13). Substitution of ( 6) at the forward direction proves the forward optical
+theorem. For reciprocity, use [u, v ] =
+∫
+D uT v without conjugation. Symmetry of χ− 1 and of the dis-
+tributional Green kernel gives [u, L − 1
+D v] = [ v, L − 1
+D u]. Since f− = f+, ⟨f+, L − 1
+D f+⟩= [ f− , L − 1
+D f+] =
+[f+, L − 1
+D f− ] = ⟨f− , L − 1
+D f− ⟩. Their imaginary parts coincide. This proves all stated identities for
+the actual weak solutions.
+6 Planar dielectric construction and rotation factorization
+Initially use passive rank-one susceptibilities
+χA = iηexeT
+x , χ W,θ = (a + iδ)uθuT
+θ , uθ = cos θex + sin θey, (16)
+5
+with η, a, δ > 0. These intermediate tensors have loss-free null directions and are not the ﬁnal
+admissible tensors. Their local rank-one law reduces the unknown current to a scalar, while prop-
+agation and radiation remain the full vector Maxwell problem. Figure 1 summarizes the geometry
+and polarization axes.
+Let Jθ : L2(DR) → L2(DR)3 multiply a scalar by ex in the absorber and by uθ in the plate. It
+is a real isometry. Let α(z) = iη below h and α(z) = a + iδ above h. The scalar operator is
+LR,θ = α− 1 − J ∗
+θKDRJθ, L R,θ q = J ∗
+θf. (17)
+Its loss weight and coercivity constant are
+w = −ℑ α− 1, c 0 = min
+{
+η− 1, δ
+a2 + δ2
+}
+> 0. (18)
+Lemma 5.1 gives −ℑ⟨q, L R,θ q⟩ ≥ c0∥q∥2. Lax–Milgram proves
+∥L− 1
+R,θ ∥ ≤ c− 1
+0 , (19)
+independently of aperture and angle. The same reconstruction and converse argument as above
+establishes uniqueness for these intermediate rank-one bodies: every physical current lies in the
+range of Jθ, so every weak solution satisﬁes ( 17).
+For (1), J ∗
+θf± = sin θ g± , where g± = 1(h,h +d)(z)e± ikz. Deﬁne
+r±
+R,θ = L− 1
+R,θ g± , p ±
+R,θ = sin θ Jθr±
+R,θ . (20)
+The auxiliary r± are deﬁned even at θ = 0 , where the physical y illumination induces no current.
+The exact physical powers factor as
+X ±
+R,θ = sin 2 θ YR(θ), Y ±
+R = kℑ⟨g± , r ±
+R,θ ⟩,
+A±
+R,θ = sin 2 θ B±
+R (θ), B ±
+R = k⟨r±
+R,θ , wr ±
+R,θ ⟩,
+S±
+R,θ = sin 2 θ C±
+R (θ), C ±
+R = kℑ⟨Jθr±
+R,θ , K DRJθr±
+R,θ ⟩.
+(21)
+Bilinear reciprocity with g− = g+ gives Y +
+R = Y −
+R = YR > 0. Also YR = B±
+R + C±
+R , and for sin θ ̸= 0,
+Γ R(θ) = |B+
+R (θ) − B−
+R (θ)|
+YR(θ) . (22)
+Only a physical material angle changes; the incident intensity stays ﬁxed.
+6.1 A reﬂectionless plate under any upper real-permittivity cap
+Given P > 1, choose an integer j ≥ 1 such that
+pj =
+( 2j
+2j − 1
+) 2
+≤ P, a = pj − 1, kd = (2j − 1)π. (23)
+At δ = 0 , the phase along uθ is 2jπ, and the orthogonal transverse phase is (2j − 1)π. Matching
+tangential E, H, equivalently the scalar E, E ′, gives zero reﬂection in both principal directions. The
+boundary-plane Jones transmission and the vacuum plate phase are
+Hθ = 2uθuT
+θ − I2, v W = eikd = − 1. (24)
+6
+Finite body: (x,z) section
+Plate
+active axis u_θ
+Absorber
+active axis e_x
+z = h+d
+z = h
+z = 0
+vacuum
+vacuum
+e_z
+d
+h
+− incidence
++ incidence
+R
+Square aperture R × R in (x,y)
+Transverse axes
+e_x
+e_y
+u_θ
+θ
+Incident polarization: e_y
+Not to scale
+Figure 1: Finite two-layer geometry and transverse material axes, not to scale. Both incident waves
+have electric polarization ey. The + wave encounters the absorber ﬁrst; the − wave encounters
+the plate ﬁrst. Each layer has square transverse aperture R × R. The susceptibilities in ( 16) are
+intermediate; adding iνI in ( 42) gives the ﬁnal strictly lossy tensors.
+Indeed, propagation of (E, E ′/k )T through a scalar layer of index n is the matrix with entries
+cos(nkd), sin(nkd)/n, − n sin(nkd), cos(nkd); at an integer multiple of π it is ± I2.
+All slab coeﬃcients are referenced to their boundary planes: unit incident electric amplitude at
+one interface gives reﬂected amplitude r there and transmitted amplitude t at the other interface.
+A vacuum layer of width ℓ has r = 0, t = eikℓ. For the absorber’s x polarization, put n = √ 1 + iη
+on the passive branch, r0 = (1 − n)/ (1 + n), and p = einkh. Its exact amplitudes and absorptance
+are
+rA = r0(1 − p2)
+1 − r2
+0p2 , t A = (1 − r2
+0)p
+1 − r2
+0p2 , A x = 1 − |rA|2 − |tA|2. (25)
+|r0|< 1 and |p|< 1 make the denominator nonzero and tA ̸= 0 . The scalar ﬂux identity Ax =
+kη
+∫ h
+0 |Ex|2 dz proves Ax > 0: a zero ﬁeld inside would force both 1 + rA = 0 and 1 − rA = 0 at the
+incident interface. Thus 0 < A x < 1.
+Lemma 6.1 (Regular normalized planar limit) . At zero plate loss and sin θ ̸= 0, the physical planar
+power densities are
+X∞ = 4 sin2 θ, A +
+∞ = 0, A −
+∞ = 4 sin2 θcos2 θAx. (26)
+Their normalized values extend to θ = 0 with Y∞ = 4 , B+
+∞ = 0 , B−
+∞ = 4 cos 2 θAx. For ﬁxed ﬁnite
+h, η, j , the normalized powers are jointly continuous in (δ, θ) near (0, 0), and
+Y∞ ,δ (0) → 4, γ ∞ ,δ (0) :=
+|B+
+∞ ,δ (0) − B−
+∞ ,δ (0)|
+Y∞ ,δ (0) → Ax (δ ↓ 0). (27)
+Proof. From the absorber side, y crosses vacuum-equivalent material before the reﬂectionless plate.
+From the plate side, Hθey has x component sin 2θ, giving absorption sin2 2θAx. In both directions
+the co-polar transmission relative to vacuum is cos 2θ. The planar optical theorem is X∞ = 2(1 −
+ℜtco), with scattered transmission deﬁned by subtracting the vacuum wave [ 15]. This proves ( 26).
+7
+Let rW , t W be scalar slab coeﬃcients for permittivity pj + iδ and width d. Put D = 1 −
+rArW cos2 θ. Deﬁne tco as the complete-stack co-polar transmitted amplitude divided by the vacuum
+factor eik(h+d) = vAvW . Exact cascade matching gives
+tco = 1 + (tW /v W − 1) sin2 θ
+D , Y ∞ ,δ (θ) = 2 ℜ
+{ 1 − tW /v W
+D
+}
+. (28)
+At (δ, θ) = (0 , 0), rW = 0 , t W = 1 , D = 1 . Appendix B supplies every scattered amplitude divided
+by sin θ as a nonsingular continuous expression. Squared norms give the continuous normalized
+scattering, and B∞ = Y∞ − C∞ gives continuous absorption. This proves ( 27) without dividing
+two vanishing quantities.
+Finally take η = 1/N and kh = N 2. Then r0 → 0, while |p|= exp[− N 2ℑ
+√
+1 + i/N ] → 0, since
+N ℑ
+√
+1 + i/N → 1/ 2. Hence Ax → 1. Every selected h, η is ﬁnite and positive; j stays ﬁxed for
+the cap P .
+7 Uniform physical-aperture estimates
+Write L = h + d and H = L2((0, L )). The planar scalar operator uses the same Jθ, α, w , now on
+the interval. Let Kκ be the transverse Fourier ﬁber of the vector Green operator, and set
+Bκ,θ = J ∗
+θKκ Jθ, r ±
+∞ ,θ = (α− 1 − B0,θ )− 1g± . (29)
+The planar Y∞ , B ±
+∞ , C ±
+∞ are given by the normalized work formulas on (0, L ), per unit area. They
+are dimensionless; YR, B R, C R have units of area. The auxiliary planar response at angle zero is
+not the physical zero-angle illumination.
+Theorem 7.1 (Uniform normalized aperture limit) . Fix k, h, d, η, a, δ > 0 and a compact angle
+interval Iθ. Extend r±
+∞ ,θ constantly in the transverse coordinates. As R → ∞ ,
+sup
+θ∈ Iθ
+∥r±
+R,θ − r±
+∞ ,θ ∥L2(DR)
+R − → 0. (30)
+Uniformly on Iθ,
+YR
+R2 → Y∞ , B±
+R
+R2 → B±
+∞ , C±
+R
+R2 → C±
+∞ . (31)
+The auxiliary ratios converge uniformly as well. These statements include arbitrary sequences θR →
+0 in Iθ. Constants may depend on the ﬁxed thicknesses and positive active losses; no joint uniformity
+as those losses vanish or thicknesses diverge is asserted.
+7.1 Weyl ﬁbers and the grazing singularity
+Use ˆv(κ) =
+∫
+R2 e− iκ·xv(x) dx, with inverse factor (2π)− 2. Let
+β(κ) =
+√
+k2 − |κ|2, G κ (z) = i
+2β(κ) eiβ(κ)|z|, (32)
+on the outgoing/decaying branch. For transverse indices a, b ∈ {1, 2},
+(Kκ )ab = (k2δab − κaκb)Gκ ∗,
+(Kκ )a3 = (Kκ )3a = iκa∂zGκ ∗,
+(Kκ )33 = |κ|2Gκ ∗ −I.
+(33)
+8
+Convolution integrates the source height over (0, L ). These formulas follow by transverse Fourier
+transformation of (− ∆ − k2)gk = δ0. In particular, ∂2
+z Gκ = − β2Gκ − δ0 supplies the longitudinal
+local term.
+Since |G| ≤ (2|β|)− 1 and |∂zG| ≤ 1/ 2 oﬀ the diagonal, Schur estimates yield ﬁnite constants
+depending on k, L such that
+∥Kκ ∥ ≤ C
+(
+1 + |κ|+ k2 + |κ|2
+|β(κ)|
+)
+,
+∥Kκ − K0∥ ≤ C1|κ|, |κ| ≤k/ 2.
+(34)
+The second bound follows from bounded derivatives of the kernels on the low-frequency disk. The
+possible grazing singularity is
+⏐⏐|κ| −k
+⏐⏐− 1/ 2, locally integrable in two dimensions; its square need not
+be integrable. At zero transverse wavevector the active transverse kernel is (ik/ 2)eik|z− z′| times the
+dot product of the active axes. Its imaginary quadratic form is a positive sum of the two outgoing
+planar ﬂuxes. Thus the planar inverse has the same bound c− 1
+0 and ∥r±
+∞ ,θ ∥ ≤ c− 1
+0 ∥g± ∥ uniformly
+in angle.
+7.2 Mixed Fourier localization proof
+Proof of Theorem 7.1. Choose a ﬁxed v ∈ C∞
+c ((− 1/ 2, 1/ 2)2) and put vR(x) = v(x/R ). Extend Jθ
+constantly in the transverse coordinates on R2 × (0, L ). For a compactly supported strip current p,
+deﬁne the unrestricted observation ﬁeld Kp = (k2I + ∇∇·)(gk ∗ ˜p), where ˜p is its zero extension in
+three dimensions. For r ∈ H, set ˜HR,θ = J ∗
+θK(Jθ(vRr)) − vRB0,θ r on this strip and HR,θ = ˜HR,θ |DR.
+The latter equals J ∗
+θKDRJθ(vRr)− vRB0,θ r on DR. The global auxiliary ﬁeld has transverse Fourier
+representation
+ˆ˜H R,θ (κ) = R2ˆv(Rκ)(Bκ,θ − B0,θ )r. (35)
+First derive this identity for smooth compactly supported height proﬁles by the distributional Weyl
+formula. The transverse transform acts on the global auxiliary ﬁeld before aperture restriction.
+Density extends the distributional identity to H and the following estimates to its aperture restric-
+tion.
+For |κ| ≤k/ 2, Hilbert-valued Plancherel and (34) bound the global L2 norm of the low-frequency
+part of ˜HR,θ by C∥r∥∥∇vR∥2 = C∥r∥∥∇v∥2. For the complementary region choose an integer N > 3.
+Schwartz decay gives R2|ˆv(Rκ)| ≤Cv,N R2− N |κ|− N , and
+∫
+|κ|>k/ 2
+|κ|− N (∥Kκ ∥+ ∥K0∥) dκ < ∞ . (36)
+The grazing part is locally L1; at inﬁnity the radial integrand is O(ρ2− N ). Inverse Fourier L1 control
+gives the complementary part of ˜HR,θ a transverse L∞ (H) bound Cv,N R2− N ∥r∥. Restricting to the
+aperture gives an L2(DR) bound Cv,N R3− N ∥r∥. Therefore
+∥HR,θ ∥L2(DR) ≤ Cv∥r∥+ o(1)∥r∥ (37)
+uniformly in angle, because each Jθ is an isometry. Only the low-frequency part used global
+Plancherel. For the density passage, boundedness of the restricted KDR identiﬁes the local L2 limit
+with the volume ﬁeld; the high-frequency inverse transforms converge in transverse L∞ (H). Thus
+no square of the grazing singularity is introduced.
+9
+Take r = r±
+∞ ,θ . The trial current has residual (vR − 1)g± − HR,θ in (17). Apply ( 19) and compare
+vRr with the constant transverse extension of r:
+sup
+θ∈ Iθ
+∥r±
+R,θ − r±
+∞ ,θ ∥L2(DR)
+R ≤ C∥1 − v∥L2((− 1/ 2, 1/ 2)2) + Cv
+R + o(R− 1). (38)
+At ﬁxed v, let R → ∞ ; then approximate one in L2 by such smooth windows. The left side is
+independent of the window, proving ( 30). The material aperture and incident ﬁeld were never
+smoothed.
+Both exact and planar-extended currents have norm O(R) uniformly in angle. Cauchy–Schwarz
+in the work formula gives |YR− R2Y∞ |= o(R2). Boundedness of w and the quadratic-form diﬀerence
+estimate give |B±
+R − R2B±
+∞ |= o(R2). Exact energy balance gives the scattering limit by subtraction.
+This controls the full integrated scattering, including edge radiation and a narrowing forward peak.
+The zero-wavevector operator varies continuously in norm with θ; its uniformly bounded inverse
+makes the planar powers continuous. Positive w and nonzero g± imply Y∞ > 0, so its minimum
+on Iθ is positive. Division therefore gives uniform convergence of the auxiliary ratios, including the
+zero-angle limit.
+8 Exact prescribed-extinction realization
+8.1 A root in a ﬁnite rank-one object
+Fix 0 < ϵ < 1. Choose a ﬁnite absorber with 0 < η < Q/ 3 and Ax > 1 − ϵ/ 4. Lemma 6.1
+then permits a ﬁxed 0 < δ < Q/ 3 such that γ∞ ,δ (0) > 1 − ϵ/ 2. Choose θ0 > 0 so that the planar
+normalized ratio exceeds 1− 5ϵ/ 8 on [0, θ 0]. Freeze these material parameters and thicknesses before
+enlarging the aperture.
+Set Y0 = Y∞ ,δ (0) > 0 and deﬁne
+θlo(R) =
+√
+E∗
+2R2Y0
+, θ hi(R) =
+√
+2E∗
+R2Y0
+. (39)
+For suﬃciently large ﬁnite R this bracket lies in (0, θ 0], and the uniform aperture theorem and the
+exact factorization imply
+XR(θlo(R)) → E∗/ 2, X R(θhi(R)) → 2E∗. (40)
+Indeed, YR(θ)/R 2 → Y0 along either endpoint and sin θ/θ → 1. For large R, throughout the bracket
+Γ R > 1 − 3ϵ/ 4.
+At ﬁxed R, Jθ and LR,θ vary continuously in operator norm; the inverse identity and ( 19) give
+continuity of XR. The intermediate value theorem supplies an angle θR with XR(θR) = E∗ exactly.
+Reciprocity supplies the same extinction for the other incidence. Monotonicity and a nonzero
+derivative are unnecessary. For every choice of such roots,
+RθR →
+√
+E∗/Y 0, Γ R(θR) → γ∞ ,δ (0). (41)
+This scaling is an auxiliary statement about the intermediate rank-one family; it is not a uniform
+loss-regularized resource estimate.
+10
+8.2 Strict tensor loss without losing the exact target
+For the selected ﬁnite R, add common isotropic loss:
+χA,ν = iηexeT
+x + iνI, χ W,θ,ν = (a + iδ)uθuT
+θ + iνI, ν > 0. (42)
+Continuity at the rank-deﬁcient tensor follows from an explicit full-vector electric-ﬁeld inverse:
+(I − KDRJθαJ ∗
+θ)− 1 = I + KDRJθL− 1
+R,θ J ∗
+θ. (43)
+Multiplication in either order veriﬁes this using LR,θ = α− 1 − J ∗
+θKDRJθ. The inverse norm is at
+most 1 + ∥KDR∥/c 0, uniformly on the compact angle bracket for this ﬁxed body.
+Adding iνI changes the electric-ﬁeld operator by − iνKDR. If ν∥KDR∥(1 + ∥KDR∥/c 0) < 1,
+a Neumann series gives an inverse converging uniformly to ( 43) as ν ↓ 0. Fields, currents, and
+their ﬁnite-domain power forms are consequently continuous in (ν, θ) uniformly on the bracket. Its
+unperturbed extinction has a positive minimum, so the normalized ratio is uniformly continuous
+there too.
+Choose 0 < ν < Q/ 3 small enough to preserve both strict endpoint inequalities around E∗
+and Γ > 1 − ϵ everywhere in the bracket. A second intermediate-value argument gives a possibly
+adjusted angle with X+ = X− = E∗ exactly. In the absorber, the real eigenvalues are all one
+and the loss eigenvalues are η + ν, ν, ν . In the plate the real eigenvalues are pj, 1, 1 and the loss
+eigenvalues are δ + ν, ν, ν . They obey ( 2). The ﬁnite object has strictly positive tensor loss and
+satisﬁes ( 9); Lemma 4.2 supplies its strict upper bound. Letting ϵ↓ 0 proves both suprema in ( 10).
+The order of choices matters: choose a ﬁnite absorber, choose positive active plate loss, ﬁx an
+angle interval, enlarge the aperture, and only then choose isotropic loss and retune. None of the
+estimates is asserted uniform in a vanishing active loss or a diverging thickness. The main theorem
+needs preservation of the bracket, not a quantitative rate for the ﬁnal angle.
+9 Physical consequences and limitations
+At ﬁxed extinction, let h denote the more absorbing incidence and ℓ the other one. Energy balance
+gives
+1 − Γ = Sh + Aℓ
+E∗
+. (44)
+Thus Γ → 1 implies Ah → E∗, Sh → 0, Aℓ → 0, and Sℓ → E∗. No ﬁnite member has zero Sh at
+positive extinction. Deﬁne co-polar forward directivity by
+Dco,h = 4π|e†
+yFh(dh)|2
+Sh
+, Γ ≤ 1 − k2E∗
+4πDco,h
+, dh = ± ez. (45)
+The inequality follows by squaring the forward optical theorem and using |ℑz| ≤ |z|. It is an estab-
+lished eﬃciency/directivity obstruction, consistent with the antenna literature [ 8]. The expanding
+aperture permits the required unbounded directivity and a narrowing forward peak.
+The selected positive principal-axis susceptibilities are compatible with passive causal scalar
+dispersion at the chosen frequency. For a target a + ib with a ≥ 0, b > 0, choose any γ > 0 and set
+χ(ζ) = F
+ω2
+0 − ζ2 − iγζ, ω 2
+0 − ω2 = a
+b γω, F = γω a2 + b2
+b > 0. (46)
+11
+Then χ(ω) = a + ib. Independent oscillators on the real principal axes preserve locality and
+reciprocity. This compatibility observation is not part of the formal main theorem and gives no
+bandwidth claim.
+The theorem supplies no practical ﬁnite-size optimizer, quantitative universal resource cost,
+common positive loss ﬂoor, or all-isotropic realization. Aperture and absorber thickness can grow,
+and the ﬁnal isotropic loss can shrink. The ﬁxed-resource and quartic small-object questions require
+diﬀerent quantiﬁers and remain separate. No numerical simulation or experimental data are needed
+for the existence proof, and none is presented as a continuum accuracy certiﬁcate here.
+10 Formal veriﬁcation correspondence
+The frozen Lean 4 repository is identiﬁed by commit
+686402a6c2d63820828729cc7ab02504632e3fe7.
+The principal declaration and its type are
+OQ7Prescribed.theorem11_complete
+: PhysicalTheorem11Statement .
+The source is PrescribedExtinction/PhysicalTheorem11.lean. The ﬁrst conjunct preserves
+the existence statement Theorem11Statement. Further conjuncts prove both prescribed-extinction
+suprema, well-posedness almost everywhere for every admissible two-layer body, the full physical
+optical certiﬁcates, reciprocal extinction, universal bounds, and strict nonattainment.
+The correspondence is literal at the level of the main class and powers. TwoLayerBody uses two
+positive ﬁnite thicknesses and a ﬁnite positive square side length. MaterialAdmissible imposes
+transpose symmetry and the same Hermitian quadratic-form bounds as ( 2). ScatteringState con-
+tains actual weak Maxwell ﬁelds, the uniform outgoing condition, and an L2 compact polarization.
+Its test class is C∞
+c . The formal supremum sets range over every such admissible body and state
+pair at the prescribed extinction, rather than only the constructed family. Physical sphere ﬂux is
+proved for the canonical radiating representative.
+The machine proof of universal strictness also uses strictly positive local absorption at positive
+extinction, while Lemma 4.2 uses the far-ﬁeld optical theorem. These are compatible proofs of the
+same conclusion within the stated class. Supplement S1: theorem correspondence distinguishes
+direct declarations, mathematical consequences, and exposition that is not separately formalized.
+The Weyl-ﬁber argument in Section 7 and the Lean localization proof, which uses physical-space
+and L2 lemmas, have diﬀerent organizations. Equality of theorem statements does not require
+identical proof organization.
+The repository certiﬁcates report a clean project build, an exhaustive audit of 5654 project
+constants, and only the standard foundations propext, Classical.choice, and Quot.sound for
+the ﬁnal theorem. An empty-environment replay of the full aggregate import closure used the same
+Lean kernel implementation. This is kernel checking, not an independently implemented kernel.
+Supplement S3: frozen veriﬁcation manifest records independent semantic review as pending at
+its export on 12 October 2026. The archived AI-assisted independent audit concerns the earlier
+existence-only commit; Supplement S4: audit provenance identiﬁes its scope and the available
+evidence. No ﬁnal-commit independent audit is archived with these materials.
+Kernel checking veriﬁes the encoded implication. Independent AI-assisted semantic audit and
+human scientiﬁc review are distinct from kernel checking and from each other. Identifying the
+deﬁnitions with the intended Maxwell model, assessing the idealized constitutive assumptions, and
+12
+establishing scientiﬁc priority remain separate tasks. Neither formalization nor absence of a re-
+trieved equivalent publication establishes novelty.
+No experimental or simulation datasets are used. The proof code is distributed with this review
+manuscript as Supplement S2: frozen Lean source ; its toolchain, dependencies, correspondence
+table, and checking instructions are listed in the supplement index. These are accompanying review
+materials; a public archival location remains unspeciﬁed.
+11 Conclusion
+The prescribed-extinction problem has a unit normalized supremum within ﬁnite compact two-layer
+reciprocal anisotropic dielectrics at one frequency and under arbitrary ﬁxed positive upper material
+caps. The proof combines exact rotation factorization, uniform normalized aperture localization,
+and two ﬁnite-object continuity arguments. Each selected object retains the exact extinction target
+and strictly positive tensor loss, while strict optical-theorem nonattainment prevents equality for
+an individual body. This gives a precise resource-unrestricted answer to one formulation of OQ7;
+ﬁnite-resource optima and bandwidth remain separate questions.
+A Entire outgoing weak vacuum uniqueness
+This appendix supplies the converse-representation step without assuming classical traces of arbi-
+trary weak representatives. Let E, H ∈ Hloc(curl) solve the vacuum equations ( 3) on all of R3 and
+satisfy ( 4). Choose a smooth radial cutoﬀ ηR equal to one on r ≤ R and zero on r ≥ 2R, with
+wR = − η′
+R ≥ 0 and
+∫ 2R
+R wR dr = 1 . Weighted weak Green identities follow by local molliﬁcation,
+compact integration by parts, and passage to the limit in products of local L2 ﬁelds. The constant-
+coeﬃcient curls commute with molliﬁcation; the products converge in L1. In particular, the real
+Poynting identity gives ∫
+R3
+wRℜ{E ·H × n}dx = 0, n = x/ |x|. (47)
+The pointwise norm-square identity and outgoing condition yield
+∫
+wR
+(
+∥E∥2 + ∥H × n∥2)
+=
+∫
+wR∥H × n − E∥2 = o(1), (48)
+since
+∫
+wR/r 2 dx = 4π.
+For an arbitrary q ∈ C∞
+c (R3)3, let (Eq, Hq) be its outgoing volume ﬁelds, so ∇ × Hq = − ik(Eq +
+q). These smooth ﬁelds satisfy Eq = O(r− 1) and Hq × n − Eq = O(r− 2) outside the source support.
+The weak bilinear Lorentz identity, derived by the same compact product argument, is
+ik
+∫
+ηRE ·q dx =
+∫
+wR{E ·(Hq × n) − Eq ·(H × n)}dx. (49)
+Rewrite the integrand as E ·(Hq × n − Eq) − Eq ·(H × n − E). Cauchy–Schwarz and ( 48) bound the
+ﬁrst term by o(1)O(R− 1), using
+∫
+wR/r 4 dx ≤ 4π/R 2. The second tends to zero by Eq = O(r− 1),
+uniform outgoing decay, and
+∫
+wR/r 2 dx = 4 π. For large R, ηR = 1 on the ﬁxed source support,
+so
+∫
+E ·q = 0 for every smooth compact vector test. Distributional injectivity gives E = 0 almost
+everywhere, and its curl equation gives H = 0 almost everywhere.
+For a general weak scattering state, subtract the compact-source reconstruction with p = χE.
+The diﬀerence is an entire outgoing vacuum pair and hence vanishes. This proves the converse rep-
+resentation before applying constitutive volume-equation uniqueness. It also explains why equality
+of arbitrary raw weak representatives is stated almost everywhere, while the smooth exterior rep-
+resentative carries the pointwise radiation and ﬂux limits.
+13
+B Nonsingular normalized planar amplitudes
+The reference planes are L : z = 0 and R : z = L = h + d. For b+ and b− the incident y amplitude
+is one at the left and right planes, respectively. The latter convention multiplies f− by eikL, an
+overall unit-modulus phase that does not change powers. Outgoing amplitudes are read at these
+planes. Let s = sin θ, c = cos θ, vA = eikh, vW = eikd, ∆ = tW − vW , and D = 1 − rArW c2. With
+output order (Lx, Ly, Rx, Ry ), subtract vAvW ey from the transmitted amplitude and divide the
+scattered vector by s. Cascade matching gives
+b+ = 1
+D
+
+
+rW vAtAc
+rW v2
+As
+cvA(∆ + vW rArW )
+svA∆
+
+ , (50)
+b− =
+
+
+ctA∆ /D
+svA∆ /D
+c{rA∆( vW + ∆ c2)/D + rW }
+s{rA∆ 2c2/D + rW }
+
+ . (51)
+The scalar amplitudes are obtained by matching E, E ′ at the two boundaries of each layer; the
+common denominator sums the reﬂected x-channel feedback rArW c2. All expressions extend con-
+tinuously at s = 0 near δ = 0 , where D = 1 . The normalized powers are C±
+∞ = ∥b± ∥2 and B±
+∞ =
+Y∞ − C±
+∞ . Substituting rW = 0, t W = 1, v W = − 1 gives C+
+∞ = 4 and C−
+∞ = 4(s2 + c2(|rA|2 + |tA|2)),
+recovering Lemma 6.1 directly.
+An operator argument independently justiﬁes this regular limit. At δ = 0 the active scalar
+susceptibility stays nonzero. The projected transverse planar Green kernel on the ﬁnite interval is
+Hilbert–Schmidt, so α− 1 − B0,θ is Fredholm of index zero. A nullvector reconstructs a source-free
+outgoing passive one-dimensional ﬁeld. Its ﬂux identity forces both outgoing amplitudes to vanish;
+exterior E, E ′ are therefore zero at an interface. Uniqueness of the ﬁnite-layer ordinary diﬀerential
+equation makes the ﬁeld and current zero. The inverse exists, and operator-norm perturbation
+gives joint continuity in (δ, θ) near (0, 0) for the ﬁxed auxiliary drives. No inverse estimate uniform
+as δ ↓ 0 is used in the aperture theorem.
+References
+[1] Owen D. Miller and Francesco Monticone. Fundamental limits in photonics and electromag-
+netics: a tutorial, 2026. URL https://arxiv.org/abs/2605.24738v1. Version 1, Section 4.1,
+OQ7.
+[2] Dimitrios L. Sounas and Andrea Alù. Extinction symmetry for reciprocal objects and its
+implications on cloaking and scattering manipulation. Optics Letters, 39:4053–4056, 2014. doi:
+10.1364/OL.39.004053.
+[3] Ben Hopkins, Andrey E. Miroshnichenko, Alexander N. Poddubny, and Yuri S. Kivshar. Fano
+resonance enhanced nonreciprocal absorption and scattering of light. Photonics, 2:745–757,
+2015. doi: 10.3390/photonics2020745.
+[4] N. P. Armitage. Constraints on Jones transmission matrices from time-reversal invariance and
+discrete spatial symmetries. Physical Review B , 90:035135, 2014. doi: 10.1103/PhysRevB.90.
+035135. URL https://arxiv.org/abs/1311.5556.
+14
+[5] J. B. Khurgin, Y. Sebbag, E. Edrei, R. Zektzer, K. Shastri, U. Levy, and F. Monticone. Emulat-
+ing exceptional-point encirclements using imperfect (leaky) photonic components: asymmetric
+mode-switching and omni-polarizer action. Optica, 8(4):563–569, 2021. doi: 10.1364/OPTICA.
+412981. URL https://opg.optica.org/optica/fulltext.cfm?uri=optica-8-4-563 .
+[6] Younes Ra’di, V. S. Asadchy, and Sergei A. Tretyakov. Total absorption of electromagnetic
+waves in ultimately thin layers. IEEE Transactions on Antennas and Propagation , 61(9):4606–
+4614, 2013. doi: 10.1109/TAP.2013.2271892. URL https://arxiv.org/abs/1211.3549.
+[7] Dimitrios L. Sounas and Andrea Alù. Time-reversal symmetry bounds on the electromagnetic
+response of asymmetric structures. Physical Review Letters , 118:154302, 2017. doi: 10.1103/
+PhysRevLett.118.154302.
+[8] J. Bach Andersen and Aksel Frandsen. Absorption eﬃciency of receiving antennas. IEEE
+Transactions on Antennas and Propagation , 53(9):2843–2849, 2005. doi: 10.1109/TAP.2005.
+854532. URL https://vbn.aau.dk/ws/files/19704710/Absorption_Efficiency.pdf.
+[9] Kurt Schab, Austin Rothschild, Kristi Nguyen, Miloslav Capek, Lukas Jelinek, and Mats
+Gustafsson. Trade-oﬀs in absorption and scattering by nanophotonic structures. Optics Ex-
+press, 28:36584–36599, 2020. doi: 10.1364/OE.410520.
+[10] Jacob B. Khurgin and Greg Sun. Scaling of losses with size and wavelength in nanoplasmonics
+and metamaterials. Applied Physics Letters , 99:211106, 2011. doi: 10.1063/1.3664105. URL
+https://arxiv.org/abs/1110.0753.
+[11] R. Kononchuk, C. Pfeiﬀer, I. Anisimov, N. I. Limberopoulos, I. Vitebskiy, and A. A. Cha-
+banov. Wide-aperture layered-sheet Faraday isolator. Physical Review Applied , 12:054046,
+2019. doi: 10.1103/PhysRevApplied.12.054046. URL https://link.aps.org/accepted/10.
+1103/PhysRevApplied.12.054046.
+[12] Mohammad Yazdi, Mohammad Albooyeh, Rasoul Alaee, Viktar Asadchy, Nader Komjani,
+Carsten Rockstuhl, Constantin R. Simovski, and Sergei Tretyakov. A bianisotropic metasurface
+with resonant asymmetric absorption. IEEE Transactions on Antennas and Propagation , 63
+(7):3004–3015, 2015. doi: 10.1109/TAP.2015.2423855.
+[13] L. M. Máñez-Espina, B. Amrahi, V. S. Asadchy, and A. Díaz-Rubio. Strong mode coupling
+and maximum directional absorption in reciprocal bianisotropic metasurfaces. Nanophotonics,
+15(12):e70145, 2026. doi: 10.1002/nap2.70145.
+[14] Meng Gao, Ping Yang, and George W. Kattawar. Polarized extinction properties of plates
+with large aspect ratios. Journal of Quantitative Spectroscopy and Radiative Transfer , 131:
+72–81, 2013. doi: 10.1016/j.jqsrt.2013.03.010.
+[15] Mats Gustafsson, Iman Vakili, Sena Esen Bayer Keskin, Daniel Sjöberg, and Christer Larsson.
+Optical theorem and forward scattering sum rule for periodic structures. IEEE Transactions
+on Antennas and Propagation , 60(8):3818–3826, 2012. doi: 10.1109/TAP.2012.2201113. URL
+https://lup.lub.lu.se/search/files/96358663/TEAT_7213.pdf.
+[16] Oscar P. Bruno, Mark Lyon, Carlos Pérez-Arancibia, and Catalin Turc. Windowed Green
+function method for layered-media scattering. SIAM Journal on Applied Mathematics , 76:
+1871–1898, 2016. doi: 10.1137/15M1033782. URL https://arxiv.org/abs/1507.04445.
+15
+[17] Rodrigo Arrieta and Carlos Pérez-Arancibia. Windowed Green function MoM for second-kind
+surface integral equation formulations of layered media electromagnetic scattering problems.
+IEEE Transactions on Antennas and Propagation , 70:11978–11989, 2022. doi: 10.1109/TAP.
+2022.3209245. URL https://arxiv.org/abs/2210.02565.
+[18] Maxim A. Yurkin and Michael I. Mishchenko. Volume integral equation for electromagnetic
+scattering: Rigorous derivation and analysis for a set of multilayered particles with piecewise-
+smooth boundaries in a passive host medium. Physical Review A , 97:043824, 2018. doi:
+10.1103/PhysRevA.97.043824.
+[19] Michael I. Mishchenko and Maxim A. Yurkin. Impressed sources and ﬁelds in the volume-
+integral-equation formulation of electromagnetic scattering by a ﬁnite object: a tutorial. Jour-
+nal of Quantitative Spectroscopy and Radiative Transfer , 214:158–167, 2018. doi: 10.1016/j.
+jqsrt.2018.04.023. URL https://pmc.ncbi.nlm.nih.gov/articles/PMC6074055/.
+[20] Sander A. Mann and Andrea Alù. Maximum asymmetric absorption and scattering
+in bianisotropic particles. Metamaterials 2023, oral contribution, 14 September 2023,
+2023. URL https://congress2023.metamorphose-vi.org/index.php/component/svisor/
+?Itemid=156&task=showScheduleSvisor. Oﬃcial program and abstract; full equations and
+priority equivalence remain unveriﬁed.
+16

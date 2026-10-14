@@ -1,0 +1,3869 @@
+{
+  "mathematical_source_files": 378,
+  "default_targets": [
+    "OQ7",
+    "PrescribedExtinction"
+  ],
+  "project_modules_reachable_from_default_targets": 378,
+  "unreachable_project_modules": [],
+  "final_module_project_import_closure": [
+    "OQ7.Envelope",
+    "OQ7.Fields",
+    "OQ7.Layers",
+    "OQ7.Passivity",
+    "OQ7.PhysicalPassivity",
+    "OQ7.Scattering",
+    "OQ7.StrictLoss",
+    "OQ7.Target",
+    "OQ7.Transfer",
+    "OQ7.TwoPort",
+    "PrescribedExtinction.ActiveCurrentSpace",
+    "PrescribedExtinction.ActiveMaterialInverse",
+    "PrescribedExtinction.ApertureCircleJets",
+    "PrescribedExtinction.ApertureCircleParity",
+    "PrescribedExtinction.ApertureErrorAlgebra",
+    "PrescribedExtinction.ApertureL2Scale",
+    "PrescribedExtinction.ApertureMeanSlope",
+    "PrescribedExtinction.ApertureOscillation",
+    "PrescribedExtinction.ApertureRadialEstimate",
+    "PrescribedExtinction.ApertureRadialLift",
+    "PrescribedExtinction.ApertureRadialSupport",
+    "PrescribedExtinction.ApertureWindowScale",
+    "PrescribedExtinction.ArbitraryStateOpticalBalance",
+    "PrescribedExtinction.Basic",
+    "PrescribedExtinction.BodyAbsorptionLocalization",
+    "PrescribedExtinction.BodyApertureResidual",
+    "PrescribedExtinction.BodyApertureWindow",
+    "PrescribedExtinction.BodyCompressedError",
+    "PrescribedExtinction.BodyCurrentSpace",
+    "PrescribedExtinction.BodyLayerSeparatedCurrent",
+    "PrescribedExtinction.BodyMaterialLift",
+    "PrescribedExtinction.BodyResponseResidual",
+    "PrescribedExtinction.BodyScaledLift",
+    "PrescribedExtinction.BodySeparatedLift",
+    "PrescribedExtinction.BodySharpLift",
+    "PrescribedExtinction.BodySharpWork",
+    "PrescribedExtinction.BodySlabError",
+    "PrescribedExtinction.BodySlabGeometry",
+    "PrescribedExtinction.BoundedWoodbury",
+    "PrescribedExtinction.CenteredSlabAperture",
+    "PrescribedExtinction.CompactCurrentDensity",
+    "PrescribedExtinction.CompactFieldTestSeparation",
+    "PrescribedExtinction.CompactOutgoingIdentification",
+    "PrescribedExtinction.CompactOutgoingOperator",
+    "PrescribedExtinction.CompactParameterNeighborhood",
+    "PrescribedExtinction.ComplexCoerciveInverse",
+    "PrescribedExtinction.DenseNormBound",
+    "PrescribedExtinction.DistributionVectorCalculus",
+    "PrescribedExtinction.Drive",
+    "PrescribedExtinction.DriveWindowMismatch",
+    "PrescribedExtinction.DyadicAxisRepresentation",
+    "PrescribedExtinction.DyadicMaxwellSource",
+    "PrescribedExtinction.DyadicRemainder",
+    "PrescribedExtinction.DynamicGreenRegularity",
+    "PrescribedExtinction.ExteriorCurrentIdentification",
+    "PrescribedExtinction.ExteriorKernelTests",
+    "PrescribedExtinction.ExteriorOutgoing",
+    "PrescribedExtinction.ExteriorSphereContinuity",
+    "PrescribedExtinction.ExtinctionReciprocity",
+    "PrescribedExtinction.FarFieldCurrent",
+    "PrescribedExtinction.FarFieldFlux",
+    "PrescribedExtinction.FarFieldGeometry",
+    "PrescribedExtinction.FarFieldKernel",
+    "PrescribedExtinction.FarFieldL2",
+    "PrescribedExtinction.FarFieldPhase",
+    "PrescribedExtinction.FarFieldRadial",
+    "PrescribedExtinction.FarFieldWork",
+    "PrescribedExtinction.FarFieldWorkL2",
+    "PrescribedExtinction.FixedHeightDensity",
+    "PrescribedExtinction.ForwardOpticalTheorem",
+    "PrescribedExtinction.FourierL1L2",
+    "PrescribedExtinction.FullPhysicalOpticalTheorem",
+    "PrescribedExtinction.FullPrescribedSuprema",
+    "PrescribedExtinction.Geometry",
+    "PrescribedExtinction.GradientCurrentPairing",
+    "PrescribedExtinction.GreenCancellation",
+    "PrescribedExtinction.GreenFirstDerivative",
+    "PrescribedExtinction.GreenGradient",
+    "PrescribedExtinction.GreenKernel",
+    "PrescribedExtinction.HeightL1Bound",
+    "PrescribedExtinction.HeightSupportDensity",
+    "PrescribedExtinction.IncidentMaxwell",
+    "PrescribedExtinction.InverseStability",
+    "PrescribedExtinction.InverseTrialEstimate",
+    "PrescribedExtinction.IsotropicPhysicalAdmissibility",
+    "PrescribedExtinction.IsotropicPhysicalBody",
+    "PrescribedExtinction.IsotropicPhysicalPowers",
+    "PrescribedExtinction.IsotropicPhysicalStrictLoss",
+    "PrescribedExtinction.LorentzBounds",
+    "PrescribedExtinction.LorentzCutoff",
+    "PrescribedExtinction.LorentzIdentity",
+    "PrescribedExtinction.MaterialBodyInverse",
+    "PrescribedExtinction.MaterialVolumeUniqueness",
+    "PrescribedExtinction.Materials",
+    "PrescribedExtinction.Maxwell",
+    "PrescribedExtinction.NewtonBoundary",
+    "PrescribedExtinction.NewtonContact",
+    "PrescribedExtinction.NewtonCurrentCorrelation",
+    "PrescribedExtinction.NewtonCurrentFourier",
+    "PrescribedExtinction.NewtonCurrentPairing",
+    "PrescribedExtinction.NewtonCutoff",
+    "PrescribedExtinction.NewtonCutoffIBP",
+    "PrescribedExtinction.NewtonCutoffLimit",
+    "PrescribedExtinction.NewtonFourier",
+    "PrescribedExtinction.NewtonFrequency",
+    "PrescribedExtinction.NewtonFrequencyHeat",
+    "PrescribedExtinction.NewtonFundamental",
+    "PrescribedExtinction.NewtonHeat",
+    "PrescribedExtinction.NewtonHeatFourier",
+    "PrescribedExtinction.NewtonHeatPairing",
+    "PrescribedExtinction.NewtonKernel",
+    "PrescribedExtinction.NewtonPV",
+    "PrescribedExtinction.NewtonPrincipalValue",
+    "PrescribedExtinction.NewtonPunctured",
+    "PrescribedExtinction.NewtonSchwartz",
+    "PrescribedExtinction.NewtonShell",
+    "PrescribedExtinction.NewtonStaticIdentification",
+    "PrescribedExtinction.NewtonSymbol",
+    "PrescribedExtinction.NewtonTempered",
+    "PrescribedExtinction.NewtonTransform",
+    "PrescribedExtinction.NormalizedReciprocity",
+    "PrescribedExtinction.NormalizedRotationPowers",
+    "PrescribedExtinction.NormalizedWork",
+    "PrescribedExtinction.OutgoingCurrentPairing",
+    "PrescribedExtinction.OutgoingDissipativity",
+    "PrescribedExtinction.OutgoingDynamicIdentity",
+    "PrescribedExtinction.OutgoingFundamental",
+    "PrescribedExtinction.OutgoingRadial",
+    "PrescribedExtinction.OutgoingSourceFields",
+    "PrescribedExtinction.OutgoingVolumeIdentification",
+    "PrescribedExtinction.OutgoingWeakEnergy",
+    "PrescribedExtinction.PhysicalAbsorptionWork",
+    "PrescribedExtinction.PhysicalCompactLossBracket",
+    "PrescribedExtinction.PhysicalElectricWoodbury",
+    "PrescribedExtinction.PhysicalExtinctionWork",
+    "PrescribedExtinction.PhysicalIsotropicPrescribedExtinction",
+    "PrescribedExtinction.PhysicalOpticalBalance",
+    "PrescribedExtinction.PhysicalPerturbationZero",
+    "PrescribedExtinction.PhysicalPerturbedResponse",
+    "PrescribedExtinction.PhysicalPolarization",
+    "PrescribedExtinction.PhysicalPowersAE",
+    "PrescribedExtinction.PhysicalRankOneExtinctionBracket",
+    "PrescribedExtinction.PhysicalResponseStability",
+    "PrescribedExtinction.PhysicalSourceFields",
+    "PrescribedExtinction.PhysicalSphereFlux",
+    "PrescribedExtinction.PhysicalTheorem11",
+    "PrescribedExtinction.PlanarAbsorberDesign",
+    "PrescribedExtinction.PlanarActualLosslessPlate",
+    "PrescribedExtinction.PlanarCosineWork",
+    "PrescribedExtinction.PlanarCoupledGreen",
+    "PrescribedExtinction.PlanarCurrentSpace",
+    "PrescribedExtinction.PlanarDielectricIndex",
+    "PrescribedExtinction.PlanarDrive",
+    "PrescribedExtinction.PlanarDriveNorm",
+    "PrescribedExtinction.PlanarGreenBoundary",
+    "PrescribedExtinction.PlanarGreenInterval",
+    "PrescribedExtinction.PlanarGreenWork",
+    "PrescribedExtinction.PlanarHeightGreen",
+    "PrescribedExtinction.PlanarHeightMap",
+    "PrescribedExtinction.PlanarKernelSplit",
+    "PrescribedExtinction.PlanarLayerAxisSupport",
+    "PrescribedExtinction.PlanarLayerCompression",
+    "PrescribedExtinction.PlanarLayerCurrent",
+    "PrescribedExtinction.PlanarLayerCurrentAlgebra",
+    "PrescribedExtinction.PlanarLayerFTC",
+    "PrescribedExtinction.PlanarLayerField",
+    "PrescribedExtinction.PlanarLayerIncoming",
+    "PrescribedExtinction.PlanarLayerKernel",
+    "PrescribedExtinction.PlanarLayerNorm",
+    "PrescribedExtinction.PlanarLosslessPlate",
+    "PrescribedExtinction.PlanarMaterialInverse",
+    "PrescribedExtinction.PlanarPrescribedDesign",
+    "PrescribedExtinction.PlanarQuadraticKernel",
+    "PrescribedExtinction.PlanarReflectedLayer",
+    "PrescribedExtinction.PlanarResponse",
+    "PrescribedExtinction.PlanarRotationPowers",
+    "PrescribedExtinction.PlanarScalarPotential",
+    "PrescribedExtinction.PlanarScalarWork",
+    "PrescribedExtinction.PlanarSingleLayerCurrent",
+    "PrescribedExtinction.PlanarSlabAbsorberPower",
+    "PrescribedExtinction.PlanarSlabAbsorptionIntegral",
+    "PrescribedExtinction.PlanarSlabAbsorptionWork",
+    "PrescribedExtinction.PlanarSlabChannelGreen",
+    "PrescribedExtinction.PlanarSlabChannels",
+    "PrescribedExtinction.PlanarSlabCoefficients",
+    "PrescribedExtinction.PlanarSlabCoupledContinuity",
+    "PrescribedExtinction.PlanarSlabCoupledEquations",
+    "PrescribedExtinction.PlanarSlabCoupledFields",
+    "PrescribedExtinction.PlanarSlabCoupledPotentials",
+    "PrescribedExtinction.PlanarSlabDesignLimit",
+    "PrescribedExtinction.PlanarSlabExponential",
+    "PrescribedExtinction.PlanarSlabExtinctionIntegral",
+    "PrescribedExtinction.PlanarSlabFeedback",
+    "PrescribedExtinction.PlanarSlabGreenField",
+    "PrescribedExtinction.PlanarSlabIntegralPowers",
+    "PrescribedExtinction.PlanarSlabParameterContinuity",
+    "PrescribedExtinction.PlanarSlabResponseIdentification",
+    "PrescribedExtinction.PlanarSlabStrictAbsorption",
+    "PrescribedExtinction.PlanarSlabThickLimit",
+    "PrescribedExtinction.PlanarTwoLayerGreen",
+    "PrescribedExtinction.PolePointIBP",
+    "PrescribedExtinction.PowerRatioEstimate",
+    "PrescribedExtinction.PoyntingCutoff",
+    "PrescribedExtinction.PrescribedExtinctionClass",
+    "PrescribedExtinction.RadialCalculus",
+    "PrescribedExtinction.RadialEnergyCutoff",
+    "PrescribedExtinction.RadiationEnergyBounds",
+    "PrescribedExtinction.RadiationKernel",
+    "PrescribedExtinction.RankOneAbsorption",
+    "PrescribedExtinction.RankOneScattering",
+    "PrescribedExtinction.ReciprocityL2",
+    "PrescribedExtinction.RemainderConvolution",
+    "PrescribedExtinction.RemainderCurrentPairing",
+    "PrescribedExtinction.RemovablePointIBP",
+    "PrescribedExtinction.RotationContinuity",
+    "PrescribedExtinction.RotationExtinction",
+    "PrescribedExtinction.RotationResponse",
+    "PrescribedExtinction.ScalarCompactConvolution",
+    "PrescribedExtinction.ScalarPiecewiseL2",
+    "PrescribedExtinction.ScaledInnerMap",
+    "PrescribedExtinction.ScatteringExistence",
+    "PrescribedExtinction.ScatteringStatePhysicalRadiation",
+    "PrescribedExtinction.SeparatedL2Product",
+    "PrescribedExtinction.SetSupportedL2",
+    "PrescribedExtinction.SharpResponseEstimate",
+    "PrescribedExtinction.ShrinkingCutoff",
+    "PrescribedExtinction.SlabAngular",
+    "PrescribedExtinction.SlabConvolution",
+    "PrescribedExtinction.SlabDerivatives",
+    "PrescribedExtinction.SlabDyadicAperture",
+    "PrescribedExtinction.SlabDyadicSeparation",
+    "PrescribedExtinction.SlabGreen",
+    "PrescribedExtinction.SlabHessianEstimate",
+    "PrescribedExtinction.SlabL2Aperture",
+    "PrescribedExtinction.SlabL2Lift",
+    "PrescribedExtinction.SlabL2PhysicalError",
+    "PrescribedExtinction.SlabObservationRegion",
+    "PrescribedExtinction.SlabPhysicalAperture",
+    "PrescribedExtinction.SlabPhysicalMap",
+    "PrescribedExtinction.SlabPlanarMap",
+    "PrescribedExtinction.SlabPolar",
+    "PrescribedExtinction.SlabPotentialSeparation",
+    "PrescribedExtinction.SlabProductResidual",
+    "PrescribedExtinction.SlabRadialCoordinates",
+    "PrescribedExtinction.SlabRadialWindow",
+    "PrescribedExtinction.SlabScaledEstimate",
+    "PrescribedExtinction.SlabSecondWindow",
+    "PrescribedExtinction.SlabSeparatedL2",
+    "PrescribedExtinction.SlabSmoothCenteredL2Residual",
+    "PrescribedExtinction.SlabSmoothDifference",
+    "PrescribedExtinction.SlabSmoothL2Residual",
+    "PrescribedExtinction.SlabSourceDerivatives",
+    "PrescribedExtinction.SlabSourceGeometry",
+    "PrescribedExtinction.SlabSupportedLift",
+    "PrescribedExtinction.SlabTransverseKernel",
+    "PrescribedExtinction.SlabVolumeCoordinates",
+    "PrescribedExtinction.SmoothDyadicRepresentation",
+    "PrescribedExtinction.SmoothOutgoingDissipativity",
+    "PrescribedExtinction.SmoothOutgoingFields",
+    "PrescribedExtinction.SmoothReciprocity",
+    "PrescribedExtinction.SmoothSourceWeakDecay",
+    "PrescribedExtinction.SphereMeasure",
+    "PrescribedExtinction.SphereMoments",
+    "PrescribedExtinction.SphericalAngular",
+    "PrescribedExtinction.SphericalCoordinates",
+    "PrescribedExtinction.SphericalDomain",
+    "PrescribedExtinction.SphericalProduct",
+    "PrescribedExtinction.SphericalVolume",
+    "PrescribedExtinction.SquareApertureWindow",
+    "PrescribedExtinction.SquareSmoothWindow",
+    "PrescribedExtinction.SquareWindowApproximation",
+    "PrescribedExtinction.StaticFourier",
+    "PrescribedExtinction.StaticOperatorDistribution",
+    "PrescribedExtinction.StaticSymbolCoordinates",
+    "PrescribedExtinction.SupportedL2Maps",
+    "PrescribedExtinction.TensorLossCoercivity",
+    "PrescribedExtinction.Theorem11",
+    "PrescribedExtinction.TwoPieceL2",
+    "PrescribedExtinction.UniformBodyPowers",
+    "PrescribedExtinction.UniformBodyResponse",
+    "PrescribedExtinction.UniformPhysicalAsymmetry",
+    "PrescribedExtinction.UniformPhysicalPowers",
+    "PrescribedExtinction.UniversalFieldPowers",
+    "PrescribedExtinction.UniversalPassivity",
+    "PrescribedExtinction.UniversalPhysicalBounds",
+    "PrescribedExtinction.UniversalStrictAbsorption",
+    "PrescribedExtinction.VacuumOutgoingWeakUniqueness",
+    "PrescribedExtinction.VolumeFundamental",
+    "PrescribedExtinction.VolumePotential",
+    "PrescribedExtinction.VolumeScatteringBridge",
+    "PrescribedExtinction.WeakCurlBridge",
+    "PrescribedExtinction.WeakCurlFourier",
+    "PrescribedExtinction.WeakCurlLocalization",
+    "PrescribedExtinction.WeakCurlPlaneWave",
+    "PrescribedExtinction.WeakCurlProducts",
+    "PrescribedExtinction.WeakCurlWeightedGreen",
+    "PrescribedExtinction.WeakLorentzBoundaryBound",
+    "PrescribedExtinction.WeakPhysicalRepresentation",
+    "PrescribedExtinction.WeakPhysicalUniqueness",
+    "PrescribedExtinction.WeakPoynting",
+    "PrescribedExtinction.WeakScatteringResidual",
+    "PrescribedExtinction.WeakSmoothLorentz",
+    "PrescribedExtinction.WeightedRadiationEnergy",
+    "PrescribedExtinction.YoungConvolution"
+  ],
+  "risk_scan_method": "Nested Lean block comments, line comments and strings excluded; proof/runtime/bypass syntax searched in mathematical sources only",
+  "risk_hits": [],
+  "sources": [
+    {
+      "path": "OQ7/CellNormBounds.lean",
+      "sha256": "af31164222dd2052b4e3ad55fe1a2809c9e70a3b39f965278872d9a8232e3956",
+      "imports": [
+        "OQ7.CellRemainder",
+        "OQ7.ProductRemainder"
+      ]
+    },
+    {
+      "path": "OQ7/CellRemainder.lean",
+      "sha256": "e1513a81be7199d9cf7bc9d3f4e2d16e8019a4f86da226cce59890edb847ae68",
+      "imports": [
+        "OQ7.ExpRemainder",
+        "Mathlib.Analysis.Asymptotics.Lemmas",
+        "Mathlib.Analysis.SpecificLimits.Basic",
+        "Mathlib.Tactic.NoncommRing",
+        "Mathlib.Tactic.FunProp"
+      ]
+    },
+    {
+      "path": "OQ7/ConstructionBudget.lean",
+      "sha256": "c2ff5b88f9d5ea70a8019743d4d09107835463f1ebc79d73fd156e8e244f356f",
+      "imports": [
+        "OQ7.ResourceAsymptotics"
+      ]
+    },
+    {
+      "path": "OQ7/CoreAlgebra.lean",
+      "sha256": "5b4cd3c356d8a34e7b608f6bde8906dae5e1d2d2d11d5b56c972af39fd809729",
+      "imports": [
+        "OQ7.Layers",
+        "OQ7.Transfer",
+        "Mathlib.Tactic.FinCases",
+        "Mathlib.Tactic.Ring",
+        "Mathlib.Tactic.FieldSimp",
+        "Mathlib.Tactic.NormNum"
+      ]
+    },
+    {
+      "path": "OQ7/CoreExponential.lean",
+      "sha256": "fda309baa3f2a35e2b4ae7edc7eebf868bf9ce21f77e23377b0e15d263b57cdd",
+      "imports": [
+        "OQ7.CoreFactorization",
+        "OQ7.PhysicalExponential",
+        "OQ7.ScalarSign"
+      ]
+    },
+    {
+      "path": "OQ7/CoreFactorization.lean",
+      "sha256": "d5505550c4f8abf9e9055f81608dfdf975eab9cd9716df0100b233b33fbbec5b",
+      "imports": [
+        "OQ7.PhysicalCore"
+      ]
+    },
+    {
+      "path": "OQ7/CoreFluxPolynomial.lean",
+      "sha256": "d071f20022163efa3dce5dc6fbc09ea3824de3ea52f03c474077598aad89e368",
+      "imports": [
+        "OQ7.CoreAlgebra",
+        "Mathlib.Tactic.FunProp",
+        "Mathlib.Topology.Instances.Matrix",
+        "Mathlib.Analysis.Matrix.Normed"
+      ]
+    },
+    {
+      "path": "OQ7/CoreInsertion.lean",
+      "sha256": "2b336bd25bfcfeb82c479327e70a6d18100630a6562cf274712a1a0692e60939",
+      "imports": [
+        "OQ7.CoreAlgebra",
+        "OQ7.ProductRemainder"
+      ]
+    },
+    {
+      "path": "OQ7/CoreTaylor.lean",
+      "sha256": "d82ffe24340bd3af35a13f85f9bf94e6a2e450b55410743fc2afe25aef1e9072",
+      "imports": [
+        "OQ7.CoreAlgebra",
+        "OQ7.CellRemainder"
+      ]
+    },
+    {
+      "path": "OQ7/DeterminantMinkowski.lean",
+      "sha256": "b8f6c39315f3fcee0d1d98ac27359f3dc0a03dea3fd73c8eb2132c90e9ec61db",
+      "imports": [
+        "OQ7.TwoPort",
+        "Mathlib.Algebra.Order.BigOperators.Ring.Finset"
+      ]
+    },
+    {
+      "path": "OQ7/Envelope.lean",
+      "sha256": "10636a65b9bb7ca4dd8fe00d743846d263b690646f65cdffd284aeb5fc5dee80",
+      "imports": [
+        "Mathlib.Analysis.Real.Sqrt",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.Ring",
+        "Mathlib.Tactic.FieldSimp",
+        "Mathlib.Tactic.Positivity"
+      ]
+    },
+    {
+      "path": "OQ7/ExpRemainder.lean",
+      "sha256": "1fec4c1e1041fa0b8d069a182dba817845652c7b856936b14b994418a04916ad",
+      "imports": [
+        "Mathlib.Analysis.SpecialFunctions.Exponential",
+        "Mathlib.Analysis.Normed.Group.InfiniteSum",
+        "Mathlib.Analysis.SpecificLimits.Normed",
+        "Mathlib.Analysis.Matrix.Normed",
+        "Mathlib.Analysis.Asymptotics.Defs",
+        "Mathlib.Tactic.NormNum",
+        "Mathlib.Tactic.Positivity",
+        "Mathlib.Tactic.Linarith"
+      ]
+    },
+    {
+      "path": "OQ7/Fields.lean",
+      "sha256": "c147d5be50dca9fe3905b7608952169af36ea38786241f2b785ef745d9b9c93a",
+      "imports": [
+        "OQ7.Layers",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Deriv",
+        "Mathlib.Analysis.Calculus.Deriv.Star"
+      ]
+    },
+    {
+      "path": "OQ7/FourierCap.lean",
+      "sha256": "9056e0f2d266ce968c304fb3f325bb79b7185d864cdcbed15d6c04784e2f80e0",
+      "imports": [
+        "Mathlib.Analysis.SpecialFunctions.Integrals.Basic",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.Periodic",
+        "Mathlib.Analysis.SpecialFunctions.Complex.Arg",
+        "OQ7.TwoPort"
+      ]
+    },
+    {
+      "path": "OQ7/FourierOpenCaps.lean",
+      "sha256": "9f0fb0593a4263888b9f9974339049f548138b32bf7f9ec8495af6ad2079c665",
+      "imports": [
+        "OQ7.FourierTriangle"
+      ]
+    },
+    {
+      "path": "OQ7/FourierSquare.lean",
+      "sha256": "f6c0d497b7f0eb66def43eb0127ce21013c2cb9e07f4f8b9aaec18dd6582ef37",
+      "imports": [
+        "Mathlib.Analysis.SpecialFunctions.Integrals.Basic",
+        "OQ7.TwoPort"
+      ]
+    },
+    {
+      "path": "OQ7/FourierTriangle.lean",
+      "sha256": "824c0299bbe810ff1248caf88daa6f3cece04763ebf1b660fd6148f0c6b1fdc4",
+      "imports": [
+        "OQ7.FourierSquare",
+        "OQ7.FourierCap",
+        "Mathlib.MeasureTheory.Integral.Prod"
+      ]
+    },
+    {
+      "path": "OQ7/Gram.lean",
+      "sha256": "6f7243bea101d86716692bd01cd4fed14954a6c5703101095afa92a5914199dc",
+      "imports": [
+        "OQ7.Fields",
+        "OQ7.Transfer",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.FundThmCalculus",
+        "Mathlib.MeasureTheory.Integral.Prod",
+        "Mathlib.Tactic.LinearCombination"
+      ]
+    },
+    {
+      "path": "OQ7/GramProperties.lean",
+      "sha256": "1fcffbc54bb94a78f847e2a2cd60d0f29f187e1c0e27844ec24b6ae100565de4",
+      "imports": [
+        "OQ7.Gram"
+      ]
+    },
+    {
+      "path": "OQ7/InsertionRemainder.lean",
+      "sha256": "392030c7f42d4e212dff09a861e562826c029a62917099bf9583141071a923dd",
+      "imports": [
+        "OQ7.CellNormBounds"
+      ]
+    },
+    {
+      "path": "OQ7/Layers.lean",
+      "sha256": "f6f562751517005b453c50413b13dcb16e2525925c6e5389f0061002100cf3c6",
+      "imports": [
+        "OQ7.TwoPort",
+        "Mathlib.Analysis.Complex.Trigonometric",
+        "Mathlib.Analysis.RCLike.Sqrt"
+      ]
+    },
+    {
+      "path": "OQ7/MatchedTransfer.lean",
+      "sha256": "9380a3b8c0fce3e880d58f858c4ef166d732c98a7470add652b7bf133408723d",
+      "imports": [
+        "OQ7.MatchingTargetImplicit"
+      ]
+    },
+    {
+      "path": "OQ7/MatchingImplicit.lean",
+      "sha256": "9d52a6c53c45594b692f52c096597dc5a1b44c5027d50e55da39c2a93174049d",
+      "imports": [
+        "OQ7.MatchingJacobian"
+      ]
+    },
+    {
+      "path": "OQ7/MatchingJacobian.lean",
+      "sha256": "73e1fafd8131bc6d427f1860a7bda7d459f45a5f2921f20d8c6c1fd601f2cb6f",
+      "imports": [
+        "OQ7.MatchingSheet",
+        "Mathlib.Analysis.Calculus.Deriv.Inv"
+      ]
+    },
+    {
+      "path": "OQ7/MatchingOptimizer.lean",
+      "sha256": "a8a163ece63b5843b5a1a2178775b649cf999572682178a09200ec1f28e6fa42",
+      "imports": [
+        "OQ7.MatchingTarget",
+        "OQ7.PhaseSmooth"
+      ]
+    },
+    {
+      "path": "OQ7/MatchingResponse.lean",
+      "sha256": "81618a45f4c9654cf8ccfa6f236c2149a6dc2fe21db0a029e795b651dd09407d",
+      "imports": [
+        "OQ7.Transfer",
+        "OQ7.PhysicalCoatings",
+        "Mathlib.Analysis.Matrix.Normed",
+        "Mathlib.Analysis.Calculus.ContDiff.RCLike",
+        "Mathlib.Analysis.Calculus.ImplicitFunction.ProdDomain",
+        "Mathlib.Analysis.Complex.RealDeriv",
+        "Mathlib.Analysis.SpecialFunctions.ExpDeriv"
+      ]
+    },
+    {
+      "path": "OQ7/MatchingSheet.lean",
+      "sha256": "c0ca17649e7774079effa28191e393f23fa200ed5fd527beb00f363840d625db",
+      "imports": [
+        "OQ7.MatchingResponse"
+      ]
+    },
+    {
+      "path": "OQ7/MatchingTarget.lean",
+      "sha256": "64be656471c178fd35a767994eef0812a723c3c2062098f6bd5d8cea9a4ed5c5",
+      "imports": [
+        "OQ7.MatchingSheet",
+        "OQ7.Envelope",
+        "OQ7.CoreAlgebra"
+      ]
+    },
+    {
+      "path": "OQ7/MatchingTargetImplicit.lean",
+      "sha256": "e7255b886afabc27b5468b263e68be8cad65447f8f42a33023584d016cc42edc",
+      "imports": [
+        "OQ7.MatchingImplicit",
+        "OQ7.MatchingTarget",
+        "OQ7.MatrixNormBridge"
+      ]
+    },
+    {
+      "path": "OQ7/MatrixNormBridge.lean",
+      "sha256": "02186639664c6f5515313a6c87698f75ff90faab6b1705c0784989558d358f03",
+      "imports": [
+        "OQ7.Transfer",
+        "Mathlib.Analysis.Matrix.Normed",
+        "Mathlib.Analysis.Asymptotics.Basic",
+        "Mathlib.Analysis.Normed.Group.Continuity"
+      ]
+    },
+    {
+      "path": "OQ7/ModulusComparison.lean",
+      "sha256": "1f736c93f0414e7d9fe52c782801a2cbd2739da78ba9fdcbfae45cdbcf2797d5",
+      "imports": [
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Deriv",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Bounds",
+        "Mathlib.Analysis.Complex.Basic",
+        "Mathlib.Analysis.SpecialFunctions.Sqrt",
+        "Mathlib.Analysis.Calculus.Deriv.Star",
+        "Mathlib.Analysis.Calculus.Deriv.MeanValue",
+        "Mathlib.Tactic.LinearCombination",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.Ring",
+        "Mathlib.Tactic.FieldSimp",
+        "Mathlib.Tactic.Positivity",
+        "Mathlib.Tactic.FunProp",
+        "Mathlib.Tactic.NormNum",
+        "Mathlib.Topology.Order.LeftRightNhds",
+        "Mathlib.Topology.Order.Compact"
+      ]
+    },
+    {
+      "path": "OQ7/Passivity.lean",
+      "sha256": "4caab20f55ffb6ab0fa3b23b0620abea208e3cd00813dcf7626f2b0bbf84f5c0",
+      "imports": [
+        "OQ7.TwoPort",
+        "OQ7.Envelope"
+      ]
+    },
+    {
+      "path": "OQ7/Phase.lean",
+      "sha256": "dfa7bd6c096033c4b7bccd509e69ab143536e1c5e9bcd5e06a3fa231e5e3b11d",
+      "imports": [
+        "OQ7.Passivity"
+      ]
+    },
+    {
+      "path": "OQ7/PhaseSmooth.lean",
+      "sha256": "d3fb071da3c929c339354524b97452cfb822a905164a6c2f832f37f835545c78",
+      "imports": [
+        "OQ7.Phase",
+        "OQ7.MatchingSheet",
+        "Mathlib.Analysis.SpecialFunctions.Sqrt"
+      ]
+    },
+    {
+      "path": "OQ7/PhysicalAbsorption.lean",
+      "sha256": "74e0dbf1376654c2a1ed39b9f8d2ffd203ffc543d74ae9c931866054161119f6",
+      "imports": [
+        "OQ7.PhysicalIntegrals",
+        "OQ7.PhysicalGram",
+        "OQ7.GramProperties",
+        "OQ7.PhysicalPassivity"
+      ]
+    },
+    {
+      "path": "OQ7/PhysicalCellBounds.lean",
+      "sha256": "f4aaef7fc6670294cd6e2764dd33d6c59b6ed22b96e572806c89802ec48e00e0",
+      "imports": [
+        "OQ7.ResourceCells",
+        "OQ7.PhysicalModulus",
+        "OQ7.PhysicalClass"
+      ]
+    },
+    {
+      "path": "OQ7/PhysicalCellRemainder.lean",
+      "sha256": "2f0b09073577826a6033d786100f05df8967e3c80a73d447f1758afef605b2ee",
+      "imports": [
+        "OQ7.CoreExponential",
+        "OQ7.CoreTaylor",
+        "OQ7.CellNormBounds",
+        "Mathlib.Tactic.FieldSimp",
+        "Mathlib.Tactic.FinCases"
+      ]
+    },
+    {
+      "path": "OQ7/PhysicalClass.lean",
+      "sha256": "f4926590b00d728f35f99d81197aaa5117351ede0be5d327143bde906c6c63e1",
+      "imports": [
+        "OQ7.Layers",
+        "Mathlib.Algebra.Order.BigOperators.Group.List"
+      ]
+    },
+    {
+      "path": "OQ7/PhysicalCoatedCore.lean",
+      "sha256": "6102ec8d2e1dfc537dfedf07be5b9b6a433ae9afe9284da3bd362d1af0fb8e6d",
+      "imports": [
+        "OQ7.CoreExponential",
+        "OQ7.MatchingSheet"
+      ]
+    },
+    {
+      "path": "OQ7/PhysicalCoatings.lean",
+      "sha256": "82e09bca6e23fd1b5b1c402788acbb0cdc854e337593dd341fb5d5169e0fafa1",
+      "imports": [
+        "OQ7.PhysicalQuarterWave",
+        "OQ7.Transfer"
+      ]
+    },
+    {
+      "path": "OQ7/PhysicalCore.lean",
+      "sha256": "f9474e6eb5549e9c9805d57a49d99b2d69de0210f0fffad02580f43161f68c7a",
+      "imports": [
+        "OQ7.CoreAlgebra",
+        "OQ7.PhysicalQuarterWave",
+        "Mathlib.Analysis.SpecificLimits.Basic"
+      ]
+    },
+    {
+      "path": "OQ7/PhysicalCoreInvariant.lean",
+      "sha256": "ff4d3e535f0cf608d8940bbda87dedebbbe8393efa8725b372d9dbd8e3a5a46f",
+      "imports": [
+        "OQ7.PhysicalCoreRemainder",
+        "OQ7.CoreFluxPolynomial",
+        "OQ7.ScaledRemainder",
+        "OQ7.ResourceBounds",
+        "OQ7.PhysicalCoatings",
+        "OQ7.MatrixNormBridge"
+      ]
+    },
+    {
+      "path": "OQ7/PhysicalCoreRemainder.lean",
+      "sha256": "853ba767258172239ad828bf2cb86cfaf39054863bfd966e888656c35f900d41",
+      "imports": [
+        "OQ7.PhysicalCellRemainder",
+        "OQ7.CoreInsertion",
+        "OQ7.InsertionRemainder"
+      ]
+    },
+    {
+      "path": "OQ7/PhysicalExponential.lean",
+      "sha256": "3fe327410b287c4dda2eb0573e71f263de24e0c6811fee153edc1e0ec70e31a6",
+      "imports": [
+        "OQ7.Fields",
+        "Mathlib.Analysis.Normed.Algebra.MatrixExponential",
+        "Mathlib.Analysis.SpecialFunctions.Exponential",
+        "Mathlib.Analysis.Calculus.MeanValue",
+        "Mathlib.Analysis.Calculus.Deriv.Prod",
+        "Mathlib.Tactic.NoncommRing"
+      ]
+    },
+    {
+      "path": "OQ7/PhysicalGlobal.lean",
+      "sha256": "348d4d7c61b7d195660b4089b20bc0e339fde514b3b63e7fa8e53430d4c317c7",
+      "imports": [
+        "OQ7.Fields",
+        "OQ7.Transfer",
+        "Mathlib.Topology.Piecewise",
+        "Mathlib.Analysis.Calculus.Deriv.Slope",
+        "Mathlib.Topology.Order.DenselyOrdered",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic",
+        "Mathlib.MeasureTheory.Function.LocallyIntegrable"
+      ]
+    },
+    {
+      "path": "OQ7/PhysicalGram.lean",
+      "sha256": "7d5d9ff6f24d75de00e34423b706c5b53e682231f8d581ec9d743039e9abd050",
+      "imports": [
+        "OQ7.PhysicalGlobal",
+        "OQ7.Gram"
+      ]
+    },
+    {
+      "path": "OQ7/PhysicalIntegrals.lean",
+      "sha256": "1f71ea5a5f540a56ef8f386f9da3532ff2b5cde3026be53fec3769bdf82b27f3",
+      "imports": [
+        "OQ7.PhysicalGlobal",
+        "OQ7.Gram"
+      ]
+    },
+    {
+      "path": "OQ7/PhysicalLowerAsymptotics.lean",
+      "sha256": "5d3b587c36c6bbcb6f1d6624e0c133f4b0ece5289899d3650d0e03b9cebe1f90",
+      "imports": [
+        "OQ7.ResourceTheorem45",
+        "OQ7.PhysicalResourceDeficit"
+      ]
+    },
+    {
+      "path": "OQ7/PhysicalModulus.lean",
+      "sha256": "f56dc24885e1a1f9bcb3b3302eeb9b3182f080bc6ec46aec0270dcc44115cfe7",
+      "imports": [
+        "OQ7.ModulusComparison",
+        "OQ7.PhysicalGram",
+        "OQ7.PhysicalClass"
+      ]
+    },
+    {
+      "path": "OQ7/PhysicalPassivity.lean",
+      "sha256": "ee9939e4b2301596da867e76d5e55f3355f95be9e3687cda1d3be33084240f8e",
+      "imports": [
+        "OQ7.Scattering",
+        "OQ7.Fields",
+        "Mathlib.Analysis.Calculus.Deriv.MeanValue"
+      ]
+    },
+    {
+      "path": "OQ7/PhysicalQuarterWave.lean",
+      "sha256": "a0e31a67aeffc4bd519a50a4f4c75fe424ed0a101989d1fbed85e43e5fd9f84b",
+      "imports": [
+        "OQ7.Layers",
+        "Mathlib.Analysis.SpecialFunctions.Pow.Real"
+      ]
+    },
+    {
+      "path": "OQ7/PhysicalResourceDeficit.lean",
+      "sha256": "aada8150325d0a2dce46096711a2c6d8dbdca31d911765b6e8456a4e1cf46c2d",
+      "imports": [
+        "OQ7.Target",
+        "OQ7.Passivity",
+        "OQ7.PhysicalPassivity"
+      ]
+    },
+    {
+      "path": "OQ7/PhysicalSequenceSqueeze.lean",
+      "sha256": "d4dee93e927dde6ef5f56bf995fffa066d6e1fa3617b7ac05c366e83dde2711e",
+      "imports": [
+        "OQ7.ConstructionBudget",
+        "OQ7.PhysicalLowerAsymptotics",
+        "OQ7.StrictLoss",
+        "OQ7.TargetBounds"
+      ]
+    },
+    {
+      "path": "OQ7/PhysicalSignedTransfer.lean",
+      "sha256": "0a9622b2242fc4ab5647c94dcd6e2a40370058b5c878bc34afa9d8a2757632bb",
+      "imports": [
+        "OQ7.SignedResponse",
+        "OQ7.MatchingResponse",
+        "OQ7.ResourceBounds",
+        "OQ7.PhysicalPassivity"
+      ]
+    },
+    {
+      "path": "OQ7/ProductRemainder.lean",
+      "sha256": "066af3a4a6352b5bc21721d7b7304ff5750e02bd53dbdfb2d1b32f1b61212b56",
+      "imports": [
+        "Mathlib.Analysis.Normed.Ring.Basic",
+        "Mathlib.Analysis.SpecialFunctions.Exponential",
+        "Mathlib.Tactic.NoncommRing",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.Positivity",
+        "Mathlib.Tactic.Ring"
+      ]
+    },
+    {
+      "path": "OQ7/QuadraticRates.lean",
+      "sha256": "290cf890bfd2c3b8f33a5e5783d058b32bcaeb2afe7e7048d265a8322c1d61fd",
+      "imports": [
+        "OQ7.SharpDeficit",
+        "Mathlib.Analysis.SpecificLimits.Basic"
+      ]
+    },
+    {
+      "path": "OQ7/ResourceAsymptotics.lean",
+      "sha256": "f96313b3335294193d4d5baa358a26e07071820e2c3c40dd68901ac107aed121",
+      "imports": [
+        "OQ7.ResourceScalar",
+        "Mathlib.Analysis.SpecificLimits.Basic"
+      ]
+    },
+    {
+      "path": "OQ7/ResourceBounds.lean",
+      "sha256": "18d5b8b0a9ba5a16815b91952e81d57d0a5a232c4e52e7804ba90286ccb13440",
+      "imports": [
+        "OQ7.ResourcePartition",
+        "OQ7.DeterminantMinkowski",
+        "OQ7.ResourceCells",
+        "OQ7.ResourceCellsOpen",
+        "OQ7.Target",
+        "OQ7.Passivity",
+        "OQ7.PhysicalClass"
+      ]
+    },
+    {
+      "path": "OQ7/ResourceCells.lean",
+      "sha256": "c4e1bf045f3f66aad3cc16a1770c1c3a67c48e12c3d5008b52856e998c4a7011",
+      "imports": [
+        "OQ7.PhysicalIntegrals",
+        "OQ7.PhysicalAbsorption",
+        "OQ7.PhysicalGram",
+        "OQ7.PhysicalPassivity",
+        "OQ7.FourierTriangle",
+        "OQ7.ResourceScalar"
+      ]
+    },
+    {
+      "path": "OQ7/ResourceCellsOpen.lean",
+      "sha256": "c25cd05446dc2f0268d092b1331afd4c3933fc17bc039c75abe8fcbbff09e5af",
+      "imports": [
+        "OQ7.ResourceCells",
+        "OQ7.PhysicalModulus",
+        "OQ7.PhysicalClass",
+        "OQ7.FourierOpenCaps"
+      ]
+    },
+    {
+      "path": "OQ7/ResourcePartition.lean",
+      "sha256": "75e50be4254c937e8a2e762f846db143060ab8df3365810fbda296de0235af4d",
+      "imports": [
+        "OQ7.PhysicalIntegrals",
+        "OQ7.ResourceAsymptotics",
+        "OQ7.PhysicalAbsorption"
+      ]
+    },
+    {
+      "path": "OQ7/ResourceScalar.lean",
+      "sha256": "167a36f12a8a13449cb7ba282dbe747ca2403e89bec50c9f9883bceba58533a7",
+      "imports": [
+        "Mathlib.Analysis.Convex.Deriv",
+        "Mathlib.Analysis.Convex.Jensen",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Bounds",
+        "Mathlib.Analysis.SpecialFunctions.Sqrt",
+        "Mathlib.Analysis.Real.Pi.Bounds",
+        "Mathlib.Tactic.FunProp",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.Ring",
+        "Mathlib.Tactic.FieldSimp",
+        "Mathlib.Tactic.Positivity"
+      ]
+    },
+    {
+      "path": "OQ7/ResourceTheorem45.lean",
+      "sha256": "eb23d45a3b1c53873d10ffbe1448fe285f80baa2c7d354f33c5bf1684f3e0b72",
+      "imports": [
+        "OQ7.ResourceBounds",
+        "OQ7.ResourceUniform",
+        "OQ7.SelectedResource"
+      ]
+    },
+    {
+      "path": "OQ7/ResourceUniform.lean",
+      "sha256": "f58796d067e589145701038937c81e1517b61df5ca59f49d1c336f6aa230b598",
+      "imports": [
+        "OQ7.ResourceAsymptotics",
+        "Mathlib.Topology.Instances.EReal.Lemmas",
+        "Mathlib.Topology.Order.LiminfLimsup"
+      ]
+    },
+    {
+      "path": "OQ7/ScalarSign.lean",
+      "sha256": "a5ed7b49e4ef20495615fd8c76bbe46190cf0226f83eb727abcb92d9b50f2b2d",
+      "imports": [
+        "OQ7.Target"
+      ]
+    },
+    {
+      "path": "OQ7/ScaledRemainder.lean",
+      "sha256": "d2aa780910e241a7fc391a99bc6e93ec9ecebe687cb3416751d7d729b00b73da",
+      "imports": [
+        "Mathlib.Analysis.Asymptotics.Lemmas",
+        "Mathlib.Analysis.SpecificLimits.Basic",
+        "Mathlib.Analysis.Normed.Module.Basic",
+        "Mathlib.Tactic.FieldSimp",
+        "Mathlib.Tactic.Ring"
+      ]
+    },
+    {
+      "path": "OQ7/Scattering.lean",
+      "sha256": "d17247f509d946fb81c922c454497360d4dfb30cb327bf782c1dd5a59c993433",
+      "imports": [
+        "OQ7.Transfer"
+      ]
+    },
+    {
+      "path": "OQ7/SelectedResource.lean",
+      "sha256": "bfa4992c91d1e3953f002c3080aa5080d0b85cbd797f6b49474922955b98f998",
+      "imports": [
+        "OQ7.PhysicalIntegrals",
+        "OQ7.PhysicalClass",
+        "OQ7.Target"
+      ]
+    },
+    {
+      "path": "OQ7/SharpDeficit.lean",
+      "sha256": "518d8ed0cf5a4a8efb3f866953b46edc515028b71376dfdefe7d09278ab3eba1",
+      "imports": [
+        "OQ7.Envelope",
+        "Mathlib.Analysis.SpecialFunctions.Sqrt",
+        "Mathlib.Analysis.Asymptotics.Lemmas"
+      ]
+    },
+    {
+      "path": "OQ7/SharpPhysicalConstruction.lean",
+      "sha256": "42e4cad1412d3ec3768df0fabec01ef093571832f23f4678d475b2dd855eb674",
+      "imports": [
+        "OQ7.PhysicalCoreInvariant",
+        "OQ7.PhysicalCoatedCore",
+        "OQ7.MatchedTransfer",
+        "OQ7.TransferSharpLimit",
+        "OQ7.PhysicalSignedTransfer",
+        "OQ7.PhysicalSequenceSqueeze"
+      ]
+    },
+    {
+      "path": "OQ7/SignedResponse.lean",
+      "sha256": "da69d0d220be9611f7942afcc4f97f1870c3af803ea93faf420456e37012c28a",
+      "imports": [
+        "OQ7.PhaseSmooth",
+        "OQ7.ScalarSign"
+      ]
+    },
+    {
+      "path": "OQ7/StrictLoss.lean",
+      "sha256": "c19f0dcb064a418c9345c471d20b0d031cb73f47934bf624074a6a6f4123ff04",
+      "imports": [
+        "OQ7.PhysicalPassivity",
+        "OQ7.Passivity",
+        "OQ7.Target"
+      ]
+    },
+    {
+      "path": "OQ7/Target.lean",
+      "sha256": "532340262db79baf66e731f1603cc7eda172d1dce14722959eb1faefead3ea66",
+      "imports": [
+        "OQ7.Layers",
+        "OQ7.Transfer",
+        "OQ7.Envelope"
+      ]
+    },
+    {
+      "path": "OQ7/TargetBounds.lean",
+      "sha256": "915bdfe895d1c9696cdb383cdfc471a532b25bf203516988a2178ad3e1c73784",
+      "imports": [
+        "OQ7.Target",
+        "OQ7.PhysicalPassivity",
+        "OQ7.Passivity"
+      ]
+    },
+    {
+      "path": "OQ7/Transfer.lean",
+      "sha256": "6f66be71d97d3425bdee6de3f085d035798206281b0e191fd3b55013e380a790",
+      "imports": [
+        "OQ7.TwoPort"
+      ]
+    },
+    {
+      "path": "OQ7/TransferSharpLimit.lean",
+      "sha256": "7fe350ed18c983f199167490237d942125c468329557dffa88374765d3806f66",
+      "imports": [
+        "OQ7.MatchingOptimizer",
+        "OQ7.QuadraticRates",
+        "OQ7.Scattering"
+      ]
+    },
+    {
+      "path": "OQ7/TwoPort.lean",
+      "sha256": "678f322243947dcd7be2619632503e68ea77a3f93071fafb0682190e65d1bf6d",
+      "imports": [
+        "Mathlib.Analysis.Complex.Norm",
+        "Mathlib.Analysis.Matrix.PosDef",
+        "Mathlib.LinearAlgebra.Matrix.Determinant.Basic",
+        "Mathlib.Tactic.Ring",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.NormNum",
+        "Mathlib.Tactic.FieldSimp",
+        "Mathlib.Tactic.FinCases",
+        "Mathlib.Tactic.Positivity"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/ActiveCurrentSpace.lean",
+      "sha256": "2a2b8a1523a12cf1cba84ff5f41c36abac12198d76e565c3fe2a6e5259489923",
+      "imports": [
+        "PrescribedExtinction.SupportedL2Maps",
+        "PrescribedExtinction.ScatteringExistence"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/ActiveMaterialInverse.lean",
+      "sha256": "a676e58ba5f27241e9ba19f9c8fbdd4af9d8941e88fb88823f567841b70ffef4",
+      "imports": [
+        "PrescribedExtinction.ActiveCurrentSpace"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/ApertureCircleJets.lean",
+      "sha256": "e74778aa922b4e2158aac065dbbcbeadc91af636fd4a250b31dd2752457deabc",
+      "imports": [
+        "PrescribedExtinction.ApertureOscillation",
+        "Mathlib.Analysis.Calculus.ParametricIntegral",
+        "Mathlib.Analysis.Calculus.ContDiff.Basic"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/ApertureCircleParity.lean",
+      "sha256": "fe3d233c4b843270214be168fc6214ee7d71515049d1f6cd401cc2c0a494e10e",
+      "imports": [
+        "PrescribedExtinction.ApertureCircleJets"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/ApertureErrorAlgebra.lean",
+      "sha256": "622c2c1bc16992f888982310d182cfa81381cd909121ca6449d8ccddbd39c7fd",
+      "imports": [
+        "Mathlib.Analysis.SpecialFunctions.Sqrt",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.Ring"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/ApertureL2Scale.lean",
+      "sha256": "f9c218eaeeab6c336854e0ae908aa6fa64e08bd87201d98780b19f857a021b66",
+      "imports": [
+        "PrescribedExtinction.ApertureWindowScale",
+        "PrescribedExtinction.SeparatedL2Product",
+        "Mathlib.MeasureTheory.Measure.Haar.NormedSpace",
+        "Mathlib.LinearAlgebra.Complex.FiniteDimensional"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/ApertureMeanSlope.lean",
+      "sha256": "418d05d43f991a97859ea028b33e9e3acee483f71e8be321378571caa94b4ba6",
+      "imports": [
+        "PrescribedExtinction.ApertureCircleParity",
+        "Mathlib.Analysis.SpecialFunctions.Integrals.Basic"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/ApertureOscillation.lean",
+      "sha256": "b225eed13fa80ab0342a4c947565fabfa7d9efcd9849e3fd35cd272d73d201d5",
+      "imports": [
+        "PrescribedExtinction.GreenKernel",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.IntegrationByParts",
+        "Mathlib.MeasureTheory.Integral.CircleAverage"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/ApertureRadialEstimate.lean",
+      "sha256": "4fc753ff0b3e6dbcb3f1d11838a1ba6fb7c613014aa3d4c471ce4f6a47c48028",
+      "imports": [
+        "PrescribedExtinction.ApertureRadialSupport"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/ApertureRadialLift.lean",
+      "sha256": "c54964204e7f780a401b808b8500626573517c0689ff7cd133246a5d4ffc1496",
+      "imports": [
+        "PrescribedExtinction.ApertureMeanSlope",
+        "Mathlib.Analysis.SpecialFunctions.Sqrt"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/ApertureRadialSupport.lean",
+      "sha256": "af1ae803102b30f7d24c714552c8d21981339c583ea0ca2979fa1da65c490471",
+      "imports": [
+        "PrescribedExtinction.ApertureRadialLift"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/ApertureWindowScale.lean",
+      "sha256": "34fa4ff8672657a1cdd0865488810f0ec3a302fdaecab94882ff415900b89c8b",
+      "imports": [
+        "PrescribedExtinction.ApertureCircleJets"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/ArbitraryStateOpticalBalance.lean",
+      "sha256": "04e7a0a5b3ddd17e568c09c43809c2bb3d0708a4e3cda1fe143bb11e41051ca3",
+      "imports": [
+        "PrescribedExtinction.PhysicalPowersAE",
+        "PrescribedExtinction.WeakPhysicalUniqueness",
+        "PrescribedExtinction.PhysicalOpticalBalance",
+        "PrescribedExtinction.ExtinctionReciprocity"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/Basic.lean",
+      "sha256": "c28784676179d6de3515bcd1f4a954de966da5ed4b1aec980dba4835d8c842be",
+      "imports": [
+        "Mathlib.Analysis.InnerProductSpace.PiL2",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic",
+        "Mathlib.LinearAlgebra.Matrix.ConjTranspose",
+        "Mathlib.Tactic.FinCases",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.NormNum",
+        "Mathlib.Tactic.Ring"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/BodyAbsorptionLocalization.lean",
+      "sha256": "0d9f6e2868a9861a8bf9b9613a904ada774c9de80d53398f1cb1b18c5094bb57",
+      "imports": [
+        "PrescribedExtinction.BodySharpWork"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/BodyApertureResidual.lean",
+      "sha256": "0aa2380d73a7baf5d88e089c125c87fd0c3feab21f30ef4d82f6edf2b6209035",
+      "imports": [
+        "PrescribedExtinction.BodyCompressedError"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/BodyApertureWindow.lean",
+      "sha256": "6fdefd6229161d2786c43d30ed5bc594dde5a393bafd38607b3d39cc7d91da35",
+      "imports": [
+        "PrescribedExtinction.BodySeparatedLift",
+        "PrescribedExtinction.ApertureL2Scale"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/BodyCompressedError.lean",
+      "sha256": "50df1ff144d23bbaa25294843fb8f019b7b50c37147021fbebd1ac54f29a0524",
+      "imports": [
+        "PrescribedExtinction.BodySlabError"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/BodyCurrentSpace.lean",
+      "sha256": "b662a768ae2d5d9f6bc706fa0d04a1e19212dd8d309b0a00986a7a14f78ac3b8",
+      "imports": [
+        "PrescribedExtinction.SetSupportedL2",
+        "PrescribedExtinction.OutgoingDissipativity"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/BodyLayerSeparatedCurrent.lean",
+      "sha256": "fffde9c4c4f2e564183cf50227b2476d008cc9013c52c4eff3be8fb4f93303cc",
+      "imports": [
+        "PrescribedExtinction.BodySeparatedLift",
+        "PrescribedExtinction.PlanarLayerKernel"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/BodyMaterialLift.lean",
+      "sha256": "c587fceafb2e9310eaee0d247072f3173c8721901027f081f2b511827c8cbc39",
+      "imports": [
+        "PrescribedExtinction.BodyApertureResidual",
+        "PrescribedExtinction.PlanarResponse"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/BodyResponseResidual.lean",
+      "sha256": "5defed7dbd23db50c1c1d74e178876e4088d966ecbf05596f2fc0d5098ce8607",
+      "imports": [
+        "PrescribedExtinction.BodyMaterialLift",
+        "PrescribedExtinction.InverseTrialEstimate"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/BodyScaledLift.lean",
+      "sha256": "66699e85890d9880f02fd35a1346ee79444206e8382dc04febd06f6055229858",
+      "imports": [
+        "PrescribedExtinction.BodyLayerSeparatedCurrent",
+        "PrescribedExtinction.BodyApertureWindow",
+        "PrescribedExtinction.SlabL2PhysicalError"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/BodySeparatedLift.lean",
+      "sha256": "b541e09105cf7b962051bdebfe6ed7e0a2fcb65c02fbfc1e5153b44cc3aaa4de",
+      "imports": [
+        "PrescribedExtinction.PlanarCurrentSpace",
+        "PrescribedExtinction.SlabL2Lift"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/BodySharpLift.lean",
+      "sha256": "7b311ae4107947d7b04f4c43c448a92f46a33cd055c15ecdeadb6cbe80baad1c",
+      "imports": [
+        "PrescribedExtinction.DriveWindowMismatch",
+        "PrescribedExtinction.SquareWindowApproximation"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/BodySharpWork.lean",
+      "sha256": "06c02753a8c36b235787461d7219dc7ced9a34103f1a1fed4bdbe51773f95284",
+      "imports": [
+        "PrescribedExtinction.UniformBodyResponse",
+        "PrescribedExtinction.ScaledInnerMap",
+        "PrescribedExtinction.NormalizedRotationPowers"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/BodySlabError.lean",
+      "sha256": "a20ec62b8246d0558e2a52cca1cc7b321b2a24a3eebe771ab312ac97de7f267b",
+      "imports": [
+        "PrescribedExtinction.BodyScaledLift",
+        "PrescribedExtinction.BodySlabGeometry",
+        "PrescribedExtinction.ScalarPiecewiseL2",
+        "PrescribedExtinction.PlanarLayerNorm"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/BodySlabGeometry.lean",
+      "sha256": "fbcf90dd0a2826a9cc721a2430ce87bb9e82717f5664b365207d06d57f070099",
+      "imports": [
+        "PrescribedExtinction.BodyApertureWindow",
+        "PrescribedExtinction.SlabObservationRegion"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/BoundedWoodbury.lean",
+      "sha256": "ddc5fbdde44eefd1f5f73bea870ff5cb5f2fb83abc311c36bc87f4cb2208c090",
+      "imports": [
+        "Mathlib.Analysis.Normed.Operator.Banach",
+        "Mathlib.Analysis.Normed.Ring.Units",
+        "Mathlib.Analysis.Complex.Basic",
+        "Mathlib.Tactic.Abel"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/CenteredSlabAperture.lean",
+      "sha256": "8c9428f95c1f71a305c69d1aacbe742014a52c4b8ab396968cdde0c67fd7f56e",
+      "imports": [
+        "PrescribedExtinction.SlabPhysicalAperture"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/CompactCurrentDensity.lean",
+      "sha256": "27ccbbbad1f10f6b125eef5661c7953a39962cb7bb88ffad82a17fa47c5ee151",
+      "imports": [
+        "PrescribedExtinction.VolumePotential",
+        "PrescribedExtinction.StaticFourier",
+        "Mathlib.Analysis.Normed.Lp.SmoothApprox"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/CompactFieldTestSeparation.lean",
+      "sha256": "611d864dac3533c011ee34705171669d33131461ee75ef2dcd018a4ed22a1cce",
+      "imports": [
+        "PrescribedExtinction.SmoothOutgoingFields"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/CompactOutgoingIdentification.lean",
+      "sha256": "ac0826e440dab1f78780917e8ba277b53443bded9cd292caae8d791e411af70c",
+      "imports": [
+        "PrescribedExtinction.CompactOutgoingOperator",
+        "PrescribedExtinction.OutgoingVolumeIdentification"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/CompactOutgoingOperator.lean",
+      "sha256": "b3b1dd8830c6dc7aa1c7335f8ff256c7b867ae7ef4a2b45461de9a2b44ebec00",
+      "imports": [
+        "PrescribedExtinction.NewtonStaticIdentification",
+        "PrescribedExtinction.RemainderCurrentPairing",
+        "Mathlib.MeasureTheory.Function.LpSpace.Indicator"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/CompactParameterNeighborhood.lean",
+      "sha256": "ddd8a9f115c63a6683d7da0198488aaa46d88d5da901a55d59f6212aa03138d8",
+      "imports": [
+        "Mathlib.Topology.Compactness.Compact",
+        "Mathlib.Topology.MetricSpace.Basic",
+        "Mathlib.Topology.Instances.Real.Lemmas",
+        "Mathlib.Analysis.Normed.Group.Real"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/ComplexCoerciveInverse.lean",
+      "sha256": "79ec011d85c761a702d9778f4cb624c61122e0194dcaed68e878f7e7b51e48bf",
+      "imports": [
+        "PrescribedExtinction.StaticFourier",
+        "Mathlib.Analysis.InnerProductSpace.LaxMilgram"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/DenseNormBound.lean",
+      "sha256": "14ce1344837e84208c5fa9ec1794a1fd0760f9b129ab8691bae1e674b193159c",
+      "imports": [
+        "Mathlib.Analysis.Normed.Operator.Basic",
+        "Mathlib.Topology.MetricSpace.Pseudo.Defs",
+        "Mathlib.Analysis.Complex.Basic"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/DistributionVacuumHelmholtz.lean",
+      "sha256": "4b7f453353b563d80e2fa2d3e35d2d4d07dd6cd3c890f079d20b114b09da08fd",
+      "imports": [
+        "PrescribedExtinction.DyadicMaxwellSource"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/DistributionVectorCalculus.lean",
+      "sha256": "6eafe833c17cdb2c21390ef82eaf2fd1b8bee84433916f236940c9048b4b7bd0",
+      "imports": [
+        "PrescribedExtinction.NewtonCutoffIBP",
+        "Mathlib.Analysis.Calculus.FDeriv.Symmetric"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/Drive.lean",
+      "sha256": "3c255778b8a6d83a7ee290c9a843771695f3e2f5163d666e3a4043b76e879a3c",
+      "imports": [
+        "PrescribedExtinction.Materials",
+        "PrescribedExtinction.Maxwell"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/DriveWindowMismatch.lean",
+      "sha256": "3f906c01504d228416bbc7c17bd531ff669f82be88883b98d280c023d40b8d72",
+      "imports": [
+        "PrescribedExtinction.BodyResponseResidual",
+        "PrescribedExtinction.SquareApertureWindow"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/DyadicAxisRepresentation.lean",
+      "sha256": "5697a30a8fd4e5ec117395c53455780749423b52f9709578ab276fd5209774c4",
+      "imports": [
+        "PrescribedExtinction.SmoothDyadicRepresentation",
+        "PrescribedExtinction.ScalarCompactConvolution"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/DyadicMaxwellSource.lean",
+      "sha256": "3bd14ea9c917bb4c4895636231f44ca00a19b597885a77f30a7b793da8e21573",
+      "imports": [
+        "PrescribedExtinction.VolumeFundamental",
+        "PrescribedExtinction.CompactOutgoingIdentification"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/DyadicRemainder.lean",
+      "sha256": "5fb0ff5ccb18154ad79da9fd73141660a03405dc0ad134d8269a208e4379544d",
+      "imports": [
+        "PrescribedExtinction.GreenCancellation",
+        "PrescribedExtinction.StaticFourier"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/DynamicGreenRegularity.lean",
+      "sha256": "077a70bef44ef8e70e0de29ce33ecfc16f1b8af197fcd01f521ceef2436a5c4c",
+      "imports": [
+        "PrescribedExtinction.RemainderConvolution",
+        "Mathlib.Analysis.Calculus.ContDiff.Operations"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/ExteriorCurrentIdentification.lean",
+      "sha256": "8f15494d3a3a2223bac79a7c542e027071e7af153bb226af62cb37c12abdc15f",
+      "imports": [
+        "PrescribedExtinction.ExteriorKernelTests",
+        "Mathlib.MeasureTheory.Group.Prod"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/ExteriorKernelTests.lean",
+      "sha256": "d85e570aaa34d58cb7c22fc7785feb16513f3f65cf3da620cf5fd9835b8fc79e",
+      "imports": [
+        "PrescribedExtinction.WeakCurlBridge",
+        "PrescribedExtinction.ExteriorOutgoing"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/ExteriorOutgoing.lean",
+      "sha256": "f957a4e9ca74cfdaeb05f6922e46488f2cf56d05bb9a3a109c2cf00771b02ec4",
+      "imports": [
+        "PrescribedExtinction.RadiationKernel"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/ExteriorSphereContinuity.lean",
+      "sha256": "2205f60d6997cbdc895949e97ab6e8a0bfb02fa9434a039ab31ccbe15e5e9b07",
+      "imports": [
+        "PrescribedExtinction.WeakCurlProducts",
+        "PrescribedExtinction.ExteriorOutgoing"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/ExtinctionReciprocity.lean",
+      "sha256": "6a5cd9e457f0712b065fc7d70d36ce10439019de4f221cfa39bba50585de528c",
+      "imports": [
+        "PrescribedExtinction.ReciprocityL2",
+        "PrescribedExtinction.MaterialVolumeUniqueness",
+        "PrescribedExtinction.PhysicalExtinctionWork",
+        "Mathlib.LinearAlgebra.Matrix.Symmetric"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/FarFieldCurrent.lean",
+      "sha256": "66c222464beb9038ee4aa88671173375df6c4219bee2f42e111b680821e07869",
+      "imports": [
+        "PrescribedExtinction.FarFieldKernel",
+        "PrescribedExtinction.PhysicalExtinctionWork"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/FarFieldFlux.lean",
+      "sha256": "a81fa4f4380c3d1242dae5a07ef7692d27f1fff1ca3bf7f1c0a287a920309194",
+      "imports": [
+        "PrescribedExtinction.FarFieldCurrent",
+        "PrescribedExtinction.RadiationEnergyBounds"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/FarFieldGeometry.lean",
+      "sha256": "51d5a672c1832f525af923f0b5afbf47a7a318c61050539a3cfc453db36f1f08",
+      "imports": [
+        "Mathlib.Analysis.InnerProductSpace.Basic",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Bounds",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.Ring"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/FarFieldKernel.lean",
+      "sha256": "b9abede0db7727c77c89bb5272946235711ecb93c326d3e34fc928d44b55d48d",
+      "imports": [
+        "PrescribedExtinction.FarFieldPhase",
+        "PrescribedExtinction.ExteriorOutgoing"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/FarFieldL2.lean",
+      "sha256": "18faccd837af10fe9a6b1e8a4646a6cbd7e87c3cecc0dc616582072b9c1d4aee",
+      "imports": [
+        "PrescribedExtinction.FarFieldCurrent",
+        "PrescribedExtinction.OutgoingDissipativity"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/FarFieldPhase.lean",
+      "sha256": "e2dced38efe03621d22bbbf8a7abfa65fda603e0909e2ce6bd56acc58d3b176a",
+      "imports": [
+        "PrescribedExtinction.FarFieldGeometry",
+        "PrescribedExtinction.ExteriorOutgoing"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/FarFieldRadial.lean",
+      "sha256": "3f7190a3b97f8141e7b34062be5ad12575e1b989aba34cab1a55031ee34963c2",
+      "imports": [
+        "PrescribedExtinction.FarFieldCurrent",
+        "PrescribedExtinction.RadialEnergyCutoff"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/FarFieldWork.lean",
+      "sha256": "e9008dc3ed323f754a6d635ebbf5383bd092a387168ceaebb4a155e7f4de69af",
+      "imports": [
+        "PrescribedExtinction.FarFieldFlux",
+        "PrescribedExtinction.FarFieldRadial",
+        "PrescribedExtinction.SmoothOutgoingDissipativity"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/FarFieldWorkL2.lean",
+      "sha256": "872246f1860f31dc9b0d7c72d2f2bb875855ee552cb93d479a4b1c483a8f630f",
+      "imports": [
+        "PrescribedExtinction.FarFieldWork",
+        "PrescribedExtinction.FarFieldL2",
+        "PrescribedExtinction.PhysicalAbsorptionWork"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/FixedHeightDensity.lean",
+      "sha256": "7234a02206416c797025a550d803b62a159cce0c7e818f792079bf73f352862d",
+      "imports": [
+        "Mathlib.Analysis.Normed.Lp.SmoothApprox",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.NormNum"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/ForwardOpticalTheorem.lean",
+      "sha256": "7719872cc8382994ab8b62d11a3efaf196dfa64e6c5644551d0ef7481b07a845",
+      "imports": [
+        "PrescribedExtinction.UniversalFieldPowers",
+        "Mathlib.MeasureTheory.Measure.OpenPos"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/FourierL1L2.lean",
+      "sha256": "af6f8dac4e9003d91e28e4dcd1b72a9052706dc9bdd5f86cc69bacd4f02173db",
+      "imports": [
+        "PrescribedExtinction.StaticFourier",
+        "Mathlib.Analysis.Distribution.AEEqOfIntegralContDiff"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/FullPhysicalOpticalTheorem.lean",
+      "sha256": "9d7d6d764295cebd2b59bcf622913a764dfc2884449a30c96868f66d9cbd06b6",
+      "imports": [
+        "PrescribedExtinction.ArbitraryStateOpticalBalance",
+        "PrescribedExtinction.ScatteringStatePhysicalRadiation"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/FullPrescribedSuprema.lean",
+      "sha256": "debe40c0495c6a19b4695070454cbb0213f98086edd2b5f5b4dd59b81691d8a5",
+      "imports": [
+        "PrescribedExtinction.UniversalPassivity",
+        "PrescribedExtinction.PrescribedExtinctionClass"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/Geometry.lean",
+      "sha256": "b584c06ebf199cd9565a858104b4b7d2e5989e1c6140222175e322a385dd5a25",
+      "imports": [
+        "PrescribedExtinction.Basic",
+        "Mathlib.Analysis.Normed.Module.FiniteDimension"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/GradientCurrentPairing.lean",
+      "sha256": "8e7973880bccc0c77b7300f2bf7fe2eef7fe59e927f746d5fd964dd59c2b42d5",
+      "imports": [
+        "PrescribedExtinction.GreenFirstDerivative",
+        "PrescribedExtinction.VolumeFundamental"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/GreenCancellation.lean",
+      "sha256": "93a0d5145050f289d945f7473cea317a44fe742e8a3c8b507cd4d65207b3d72a",
+      "imports": [
+        "PrescribedExtinction.OutgoingRadial",
+        "Mathlib.Analysis.Complex.Exponential"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/GreenFirstDerivative.lean",
+      "sha256": "23ae1be155b4f182a62fcaf5cd70c90e2c8f40587412fc7b68a2ab9150dae28c",
+      "imports": [
+        "PrescribedExtinction.GreenGradient",
+        "PrescribedExtinction.PolePointIBP"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/GreenGradient.lean",
+      "sha256": "b5194720653f05da0ad8bec8a45668473b85fa26b965f1e07049c945f8b0e859",
+      "imports": [
+        "PrescribedExtinction.YoungConvolution",
+        "PrescribedExtinction.OutgoingDynamicIdentity"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/GreenKernel.lean",
+      "sha256": "3a601832c3d6454533f558f130d988650b1215d9c1ce62ca846dd0effd9600dc",
+      "imports": [
+        "PrescribedExtinction.Maxwell",
+        "Mathlib.Analysis.Distribution.Distribution",
+        "Mathlib.Analysis.SpecialFunctions.Pow.Integral",
+        "Mathlib.MeasureTheory.Function.L2Space",
+        "Mathlib.Tactic.FunProp"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/HeightL1Bound.lean",
+      "sha256": "b4b3867f224c37a0bbf644ab88c83249e7f1e43b6aed9f82a943e04c44487484",
+      "imports": [
+        "Mathlib.MeasureTheory.Function.L2Space",
+        "Mathlib.MeasureTheory.Function.LpSeminorm.CompareExp",
+        "Mathlib.MeasureTheory.Function.LpSeminorm.Indicator",
+        "Mathlib.MeasureTheory.Function.LpSeminorm.LpNorm",
+        "Mathlib.MeasureTheory.Measure.Lebesgue.Basic",
+        "Mathlib.Analysis.SpecialFunctions.Pow.Real",
+        "Mathlib.Analysis.SpecialFunctions.Sqrt",
+        "Mathlib.Tactic.NormNum"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/HeightSupportDensity.lean",
+      "sha256": "27685bfd4ab101bb07d9f21d89513ebbccaf5649c63ec20a54809fb0a55be4f8",
+      "imports": [
+        "PrescribedExtinction.SlabSupportedLift",
+        "PrescribedExtinction.FixedHeightDensity"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/IncidentMaxwell.lean",
+      "sha256": "cae1d8b9f4c86f20ae7a2e060fd2ac2134458d76275671219b3a8f2c619db755",
+      "imports": [
+        "PrescribedExtinction.WeakCurlBridge",
+        "Mathlib.Analysis.Calculus.LineDeriv.IntegrationByParts"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/InverseStability.lean",
+      "sha256": "a6c7eb307e758f64b1f287516941bc3fcc55c96e574b4e2631275d300de522fa",
+      "imports": [
+        "Mathlib.Analysis.Normed.Operator.CompleteCodomain",
+        "Mathlib.Analysis.InnerProductSpace.Basic",
+        "Mathlib.Tactic.Abel"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/InverseTrialEstimate.lean",
+      "sha256": "157438f50a5315d90c16fdfd649722ad88dbdcf3212c7b53616f0a2fe939d821",
+      "imports": [
+        "Mathlib.Analysis.Normed.Operator.Banach",
+        "Mathlib.Tactic.Abel"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/IsotropicPhysicalAdmissibility.lean",
+      "sha256": "f4bb10d1f6846f7a278d535886275215b905835b010ce03106883d12a99c411e",
+      "imports": [
+        "PrescribedExtinction.IsotropicPhysicalBody"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/IsotropicPhysicalBody.lean",
+      "sha256": "41956c2c3561c2d60a9e1edc908b2809c4bacb79d3386bd731b1e57d26d6a3b3",
+      "imports": [
+        "PrescribedExtinction.PhysicalPerturbedResponse"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/IsotropicPhysicalPowers.lean",
+      "sha256": "8152034b30709c233bfef0b2fb050864096ea27c6c470590aab0b9e6d87286cf",
+      "imports": [
+        "PrescribedExtinction.IsotropicPhysicalBody"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/IsotropicPhysicalStrictLoss.lean",
+      "sha256": "3a059c438b2a6f0ecbb0da54954eb7f9fc910227d93f5c95e681836ca20978a3",
+      "imports": [
+        "PrescribedExtinction.IsotropicPhysicalPowers",
+        "PrescribedExtinction.NormalizedWork",
+        "PrescribedExtinction.ExtinctionReciprocity"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/LorentzBounds.lean",
+      "sha256": "f887ff10433b031e353985b2e8528c714c04964e03d1281d6ccdccefc8ee8520",
+      "imports": [
+        "PrescribedExtinction.LorentzIdentity"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/LorentzCutoff.lean",
+      "sha256": "dce3e65b7c26467e832b06a2dd9598ae6391fb1ef979257ec99ba487c070fdf0",
+      "imports": [
+        "PrescribedExtinction.RadialEnergyCutoff",
+        "PrescribedExtinction.FarFieldWork"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/LorentzIdentity.lean",
+      "sha256": "81f2a436ff342590493c73ecae77f3e323217f6116b9b7a5e3f5a6d24850307c",
+      "imports": [
+        "PrescribedExtinction.LorentzCutoff",
+        "Mathlib.Tactic.LinearCombination"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/MaterialBodyInverse.lean",
+      "sha256": "26c53f6776185e5ca5e59c2278ddaf847cda2cd71080b71d089e9dd3ddc60c3a",
+      "imports": [
+        "PrescribedExtinction.BodyCurrentSpace",
+        "PrescribedExtinction.TwoPieceL2",
+        "PrescribedExtinction.TensorLossCoercivity"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/Materials.lean",
+      "sha256": "6bbf0eb08fc0f159f45101b602a8b0be6dc9351d988f71061d8dbce2517af321",
+      "imports": [
+        "PrescribedExtinction.Basic"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/MaterialVolumeUniqueness.lean",
+      "sha256": "78c6459df67395572e949c20ade3187f84e76c0b717250984b2082d2d111535a",
+      "imports": [
+        "PrescribedExtinction.ScatteringExistence"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/Maxwell.lean",
+      "sha256": "a9950f0f1c9ea4a20ff2c480a71cc4fabdc4ab84f8173851c37a4bd56e0d231b",
+      "imports": [
+        "PrescribedExtinction.Basic",
+        "Mathlib.Analysis.Calculus.ContDiff.Defs",
+        "Mathlib.Analysis.SpecialFunctions.Complex.Log",
+        "Mathlib.MeasureTheory.Function.LocallyIntegrable",
+        "Mathlib.MeasureTheory.Function.LpSeminorm.Basic",
+        "Mathlib.MeasureTheory.Integral.Bochner.Basic",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic",
+        "Mathlib.MeasureTheory.Measure.Haar.InnerProductSpace"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/NewtonBoundary.lean",
+      "sha256": "19f2ad2bfa12843cc2017e5f69e2b1975969e08c780bb8319944938919b20c95",
+      "imports": [
+        "PrescribedExtinction.SphereMoments",
+        "Mathlib.MeasureTheory.Integral.Bochner.Set"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/NewtonContact.lean",
+      "sha256": "81fce662c7cd20fa669ee43e025de6434803b9ea82f3442dff4c5d09f30db10f",
+      "imports": [
+        "PrescribedExtinction.NewtonPunctured"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/NewtonCurrentCorrelation.lean",
+      "sha256": "e37f59eaada9138d5c8a97d8d2cf85f3b73a9ea9cf47c9f246e4c6c6b30a67ca",
+      "imports": [
+        "PrescribedExtinction.NewtonCurrentPairing",
+        "PrescribedExtinction.NewtonSchwartz",
+        "Mathlib.Analysis.Calculus.ContDiff.Convolution"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/NewtonCurrentFourier.lean",
+      "sha256": "ad79a469ba7c993c95818f5e3d0ce940307face965e5ecba7916c2136fab8cbe",
+      "imports": [
+        "PrescribedExtinction.NewtonCurrentCorrelation",
+        "Mathlib.Analysis.Fourier.Convolution"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/NewtonCurrentPairing.lean",
+      "sha256": "6df33c1f06141d671aeedadfffdc265808783d6439b4ec2dbf4ed6e069d8be33",
+      "imports": [
+        "PrescribedExtinction.NewtonTransform",
+        "PrescribedExtinction.VolumePotential",
+        "Mathlib.MeasureTheory.Integral.Prod"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/NewtonCutoff.lean",
+      "sha256": "d99782437fd61f6bd64d7cf8a4000b1475c60721120b5a596ea54926c11ae92e",
+      "imports": [
+        "PrescribedExtinction.NewtonPrincipalValue",
+        "Mathlib.Analysis.SpecialFunctions.SmoothTransition",
+        "Mathlib.Analysis.Calculus.ContDiff.Deriv",
+        "Mathlib.Analysis.Calculus.LineDeriv.IntegrationByParts",
+        "Mathlib.Analysis.Calculus.LocalExtr.Basic",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.FundThmCalculus"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/NewtonCutoffIBP.lean",
+      "sha256": "a98002ada6f2360c8e30bc2e2a29101abcacbb014c105f8c5b39012067427597",
+      "imports": [
+        "PrescribedExtinction.NewtonCutoff"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/NewtonCutoffLimit.lean",
+      "sha256": "12d535691bb12e2ce383ffbbf9f5274e46df55325e18ac5f668aabaedee47b97",
+      "imports": [
+        "PrescribedExtinction.NewtonCutoff"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/NewtonFourier.lean",
+      "sha256": "f13fcd0d70ab48f7eadcf4309388ec42768355e987119b0b27dd986420e2e872",
+      "imports": [
+        "PrescribedExtinction.NewtonSchwartz"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/NewtonFrequency.lean",
+      "sha256": "2477696f808b3a5f6b5ea3516741cb25143925cdc9b197fc6b4659e1e3caa0a2",
+      "imports": [
+        "PrescribedExtinction.NewtonTempered",
+        "PrescribedExtinction.StaticSymbolCoordinates"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/NewtonFrequencyHeat.lean",
+      "sha256": "070a90d685c43312389900f8a630e31c4e8889a6996ca5f0043c661d337b718a",
+      "imports": [
+        "PrescribedExtinction.NewtonFrequency",
+        "Mathlib.MeasureTheory.Integral.Prod"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/NewtonFundamental.lean",
+      "sha256": "301c1cf98293b4783dfff2eaff68560caaa8f49eb073304e9b78ac9a0ac8362e",
+      "imports": [
+        "PrescribedExtinction.NewtonContact"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/NewtonHeat.lean",
+      "sha256": "43294481702e7adc3329cd655a5467304e38774aa533d8dc525269859f8d0189",
+      "imports": [
+        "PrescribedExtinction.NewtonContact",
+        "Mathlib.Analysis.SpecialFunctions.Gaussian.GaussianIntegral"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/NewtonHeatFourier.lean",
+      "sha256": "2bb4fb1fd6f0ccb6db4985791e8eb609eecd93b3695e22cb704e573cbc2ecdb2",
+      "imports": [
+        "PrescribedExtinction.NewtonHeat",
+        "Mathlib.Analysis.SpecialFunctions.Gaussian.FourierTransform"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/NewtonHeatPairing.lean",
+      "sha256": "3d431472c379ff57196009a4e380901733b59d2a4b612538ec4b32b6b6f6e8bd",
+      "imports": [
+        "PrescribedExtinction.NewtonHeat",
+        "PrescribedExtinction.NewtonTempered",
+        "Mathlib.MeasureTheory.Integral.Prod"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/NewtonKernel.lean",
+      "sha256": "a86012ead7511d0f67ce931b3ab653cd3d738d735a847a99b3c08388e6b95e6f",
+      "imports": [
+        "PrescribedExtinction.RadialCalculus"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/NewtonPrincipalValue.lean",
+      "sha256": "36338fd7f4bc485e084e6bce58789787ddc1fe8bf23e5a4fcdf8ecfe3fc9535b",
+      "imports": [
+        "PrescribedExtinction.NewtonPV"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/NewtonPunctured.lean",
+      "sha256": "2eeb944bd5f12916ace526217e6f5831fc06d2a114ce7a16e112144a6263132e",
+      "imports": [
+        "PrescribedExtinction.NewtonShell"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/NewtonPV.lean",
+      "sha256": "1fb2370b4c80d31b9b8b2032da9c201986905f20cae6729fdfea369e6e83558d",
+      "imports": [
+        "PrescribedExtinction.NewtonBoundary",
+        "Mathlib.Analysis.Calculus.MeanValue",
+        "Mathlib.MeasureTheory.Integral.DominatedConvergence"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/NewtonSchwartz.lean",
+      "sha256": "01dcd60aece07933c05cc556e89c29559e56a43b3976e9697c5e0e830bc0e1a7",
+      "imports": [
+        "PrescribedExtinction.NewtonTempered",
+        "PrescribedExtinction.NewtonFundamental"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/NewtonShell.lean",
+      "sha256": "27e18d2200ca955f3511b6d6df697dff8b8006750cb5c8909b45e9a11e9fc2d0",
+      "imports": [
+        "PrescribedExtinction.NewtonCutoffIBP",
+        "PrescribedExtinction.NewtonCutoffLimit"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/NewtonStaticIdentification.lean",
+      "sha256": "02a03d5277cdcf69afd3f0821cf9865493c459629b965c13917103c80f968885",
+      "imports": [
+        "PrescribedExtinction.NewtonCurrentFourier",
+        "PrescribedExtinction.FourierL1L2",
+        "PrescribedExtinction.StaticOperatorDistribution"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/NewtonSymbol.lean",
+      "sha256": "906d98a5a54bb1d40f006cabcd43bde0ea0c263fd136779ec2e372d8779b2e22",
+      "imports": [
+        "PrescribedExtinction.StaticSymbolCoordinates",
+        "PrescribedExtinction.NewtonSchwartz"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/NewtonTempered.lean",
+      "sha256": "1a2f75f44af14b236a8e9b27efcef86c15cf42e9bf54aadf510f8eb840b4dcf6",
+      "imports": [
+        "PrescribedExtinction.NewtonContact",
+        "PrescribedExtinction.VolumePotential",
+        "Mathlib.Analysis.Fourier.LpSpace"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/NewtonTransform.lean",
+      "sha256": "4d84043b57394a1245ea57256462100e0ad4edbbfe0cc437b0e491ab1c022a55",
+      "imports": [
+        "PrescribedExtinction.NewtonFourier",
+        "PrescribedExtinction.NewtonHeatPairing",
+        "PrescribedExtinction.NewtonHeatFourier",
+        "PrescribedExtinction.NewtonFrequencyHeat",
+        "PrescribedExtinction.NewtonSymbol"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/NormalizedReciprocity.lean",
+      "sha256": "78ac2d81ff5e2bad2f2d24efe38c2c9274600be987f30f74f45166e32f11064a",
+      "imports": [
+        "PrescribedExtinction.RotationContinuity",
+        "PrescribedExtinction.ExtinctionReciprocity",
+        "Mathlib.Topology.Algebra.Module.Cardinality"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/NormalizedRotationPowers.lean",
+      "sha256": "a446cae3a218bdc5b9e77e73ddee0422f21ea6b94a4c2d9254650e1da5aae6fe",
+      "imports": [
+        "PrescribedExtinction.NormalizedWork",
+        "PrescribedExtinction.NormalizedReciprocity"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/NormalizedWork.lean",
+      "sha256": "69163c6899ef5f5bdffe259e9bcbc59d1628cbe585e964929dd3ca958b6f108d",
+      "imports": [
+        "PrescribedExtinction.RotationContinuity",
+        "PrescribedExtinction.PhysicalOpticalBalance"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/OutgoingCurrentPairing.lean",
+      "sha256": "eb72daaa8e6993e24216f4d25956deb614b9a7a1fd4931c3796e92c3b9908fab",
+      "imports": [
+        "PrescribedExtinction.NewtonCurrentPairing"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/OutgoingDissipativity.lean",
+      "sha256": "04530caf58f61bd65e7bbf662929c65f6aeb0a90980e9ec35442da3780edcf5e",
+      "imports": [
+        "PrescribedExtinction.SmoothOutgoingDissipativity",
+        "PrescribedExtinction.CompactCurrentDensity"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/OutgoingDynamicIdentity.lean",
+      "sha256": "8d60fa2204d26ef6eeb7011aede64a57a265c27230114d12f3a6d10af165ce36",
+      "imports": [
+        "PrescribedExtinction.RemovablePointIBP",
+        "PrescribedExtinction.DynamicGreenRegularity",
+        "PrescribedExtinction.NewtonContact"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/OutgoingFundamental.lean",
+      "sha256": "c3318b75c2d8b4378aa43f2553e8a0f975c9e19d8e9d1bdb412cc1d40f9fecbd",
+      "imports": [
+        "PrescribedExtinction.OutgoingDynamicIdentity",
+        "PrescribedExtinction.NewtonFundamental"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/OutgoingRadial.lean",
+      "sha256": "b010c014ba7d30cf9fa70dd5f9b8de3116b7cbfee8066a425a5c4d6adcdee16f",
+      "imports": [
+        "PrescribedExtinction.NewtonKernel",
+        "Mathlib.Analysis.SpecialFunctions.ExpDeriv"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/OutgoingSourceFields.lean",
+      "sha256": "e9df4f89e73f33879dc406be96a656bb0515ef35d78ad1d9adb23dfc762eede8",
+      "imports": [
+        "PrescribedExtinction.ExteriorCurrentIdentification"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/OutgoingVolumeIdentification.lean",
+      "sha256": "eec7c58b619de7db6ba6f35d6f57148a1f44fa618c2cc976e181fe925f28feb6",
+      "imports": [
+        "PrescribedExtinction.OutgoingDynamicIdentity",
+        "PrescribedExtinction.RemainderCurrentPairing",
+        "PrescribedExtinction.NewtonStaticIdentification"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/OutgoingWeakEnergy.lean",
+      "sha256": "0aa7d46c6d1fc9cca6c911590c8caa15741d92ca99d790b629d3c9dd5231e3fd",
+      "imports": [
+        "PrescribedExtinction.WeakPoynting",
+        "PrescribedExtinction.FarFieldRadial"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/PhysicalAbsorptionWork.lean",
+      "sha256": "35aa94973fbbeeaa32bfb4246beaca4fc942b5bcbfb4841dc5b69a40d9ff5b88",
+      "imports": [
+        "PrescribedExtinction.PhysicalExtinctionWork"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/PhysicalCompactLossBracket.lean",
+      "sha256": "7ab9430c2d3ae179dcf433e9000d6dce219380a777e81287153c1fd23636696d",
+      "imports": [
+        "PrescribedExtinction.PhysicalPerturbationZero",
+        "PrescribedExtinction.CompactParameterNeighborhood"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/PhysicalElectricWoodbury.lean",
+      "sha256": "5b0e397662463a3c442500e5cfc0b2bed4db313532efdca2eb44d2aa6afde26b",
+      "imports": [
+        "PrescribedExtinction.BoundedWoodbury",
+        "PrescribedExtinction.RotationContinuity"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/PhysicalExtinctionWork.lean",
+      "sha256": "f0d54b75d1cdebfebd68a64857d556d2967d5f39e0ad10c4ec52ac70b97d11a1",
+      "imports": [
+        "PrescribedExtinction.RankOneScattering"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/PhysicalIsotropicPrescribedExtinction.lean",
+      "sha256": "cc025c128a2d09a765ef3654f2f3da5258f8e4b0e22bc232bda9545f9420ffda",
+      "imports": [
+        "PrescribedExtinction.PhysicalCompactLossBracket",
+        "PrescribedExtinction.IsotropicPhysicalStrictLoss"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/PhysicalOpticalBalance.lean",
+      "sha256": "49c53cd27c2129bc27f1273564bcbc4cc5f7841b8653697d38ef54a6d9b30bb6",
+      "imports": [
+        "PrescribedExtinction.SphericalAngular",
+        "PrescribedExtinction.FarFieldWorkL2"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/PhysicalPerturbationZero.lean",
+      "sha256": "5fcdfb6f082dbc70b5b2a882e86113c84be0dd5e7fffbb7db2206044a1fa39c0",
+      "imports": [
+        "PrescribedExtinction.PhysicalPerturbedResponse",
+        "PrescribedExtinction.PhysicalRankOneExtinctionBracket"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/PhysicalPerturbedResponse.lean",
+      "sha256": "403d42da0384194ae7e6c75e2c510d0bfa4910c98c66cc676584ef2633260b9f",
+      "imports": [
+        "PrescribedExtinction.PhysicalElectricWoodbury",
+        "PrescribedExtinction.PhysicalAbsorptionWork"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/PhysicalPolarization.lean",
+      "sha256": "1d7b4b707b6909fd75924fb0fdd272e63ecbdcebccd0f05347b161617d4cf3a0",
+      "imports": [
+        "PrescribedExtinction.OutgoingSourceFields"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/PhysicalPowersAE.lean",
+      "sha256": "193eb21aed3a088d9d302dc10072a8c8ba22fd3adb2ce253582c6f1964f5fc54",
+      "imports": [
+        "PrescribedExtinction.PhysicalPolarization"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/PhysicalRankOneExtinctionBracket.lean",
+      "sha256": "04317e2a7c588221d4b76bdf944045246af8cdae274858ef9d8a00ce3c32e431",
+      "imports": [
+        "PrescribedExtinction.UniformPhysicalAsymmetry",
+        "Mathlib.Topology.Order.IntermediateValue"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/PhysicalResponseStability.lean",
+      "sha256": "242b54c360bba2b81a34ca03317839b7d491f8f10ed2c44b22ec77b951d067f6",
+      "imports": [
+        "PrescribedExtinction.InverseStability",
+        "PrescribedExtinction.RotationResponse"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/PhysicalSourceFields.lean",
+      "sha256": "092ede2b0a9fb8e6a4abda2742a8bfda927f069bddef69fd844b8ac8c99c1fbf",
+      "imports": [
+        "PrescribedExtinction.GradientCurrentPairing",
+        "PrescribedExtinction.DyadicMaxwellSource"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/PhysicalSphereFlux.lean",
+      "sha256": "7fdcbc373a9b38d8d0959256278904327df46e90e161054deb645598e54a7c27",
+      "imports": [
+        "PrescribedExtinction.ExteriorSphereContinuity",
+        "PrescribedExtinction.FarFieldFlux",
+        "PrescribedExtinction.FarFieldRadial"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/PhysicalTheorem11.lean",
+      "sha256": "656353efe23d729d63e17110540f52997dd4bacbeb607610b9853e3cad9ca180",
+      "imports": [
+        "PrescribedExtinction.FullPhysicalOpticalTheorem",
+        "PrescribedExtinction.UniversalPhysicalBounds"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/PlanarAbsorberDesign.lean",
+      "sha256": "11c7202cc0e437cf0c4c998947186036381d3006cdbfe60f7876b86a1a4192ab",
+      "imports": [
+        "PrescribedExtinction.PlanarSlabStrictAbsorption",
+        "PrescribedExtinction.PlanarSlabThickLimit",
+        "PrescribedExtinction.PlanarDielectricIndex"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/PlanarActualLosslessPlate.lean",
+      "sha256": "128a4b55fc9da5f24f5083e0c993e1a9dd2ed61539733e6c33abc76d7899ed7f",
+      "imports": [
+        "PrescribedExtinction.PlanarLosslessPlate",
+        "PrescribedExtinction.PlanarDielectricIndex",
+        "PrescribedExtinction.PlanarSlabCoefficients"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/PlanarCosineWork.lean",
+      "sha256": "d761491f3e3ec05dde905b00a1ecb2da1f9a883b773b165bf684ba252bcdd4f1",
+      "imports": [
+        "PrescribedExtinction.PlanarQuadraticKernel"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/PlanarCoupledGreen.lean",
+      "sha256": "08181c72333076d5c3b00ecd536a6ef1bcbf0689853e9fcce4a624ae06c22ec8",
+      "imports": [
+        "PrescribedExtinction.PlanarLayerAxisSupport"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/PlanarCurrentSpace.lean",
+      "sha256": "4458e249297dff4944a51c85b49c69e6d43abb84edf75da90c632ef74a7a0282",
+      "imports": [
+        "PrescribedExtinction.PlanarHeightMap"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/PlanarDielectricIndex.lean",
+      "sha256": "6c9494d3136796679b530c8adbba39250854456fda2146c78ae719b8fd996cdb",
+      "imports": [
+        "PrescribedExtinction.PlanarSlabExponential",
+        "Mathlib.Analysis.Complex.SqrtDeriv"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/PlanarDrive.lean",
+      "sha256": "a99fe0eac89c1ed6e6ae2a9314915bbb06c59138896c3bd49cb5f71f8272e69d",
+      "imports": [
+        "PrescribedExtinction.PlanarCurrentSpace"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/PlanarDriveNorm.lean",
+      "sha256": "a09c14713e9355b1087471b63be1f28cdb6e533423e85d2db72e71900d6c6de9",
+      "imports": [
+        "PrescribedExtinction.PlanarDrive",
+        "Mathlib.Analysis.SpecialFunctions.Sqrt"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/PlanarGreenBoundary.lean",
+      "sha256": "86714b364186e2e759a0c16f1cbb7a1a0eae2cccd21000acf3c3c29687498f50",
+      "imports": [
+        "PrescribedExtinction.PlanarLayerFTC",
+        "PrescribedExtinction.PlanarGreenInterval"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/PlanarGreenInterval.lean",
+      "sha256": "babf4e81e03d726913e0c9c27c54073ef67686d19a1050fd959f96c28dc8a9ab",
+      "imports": [
+        "PrescribedExtinction.SlabRadialWindow"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/PlanarGreenWork.lean",
+      "sha256": "43f2aea48d3aa8df6918c36430e2f6e52640a7bdf95d381acd87259e3eb4e379",
+      "imports": [
+        "PrescribedExtinction.PlanarKernelSplit",
+        "PrescribedExtinction.PlanarCosineWork"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/PlanarHeightGreen.lean",
+      "sha256": "646a0d58bce9faeb9c1831653cdae6cdaeebf4fbdf5f1e909b38b8e978c6d8be",
+      "imports": [
+        "PrescribedExtinction.PlanarScalarPotential",
+        "PrescribedExtinction.HeightL1Bound"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/PlanarHeightMap.lean",
+      "sha256": "289a9306a15eaf40e4244a16886cc82fe50de9c9c565ed5c7211bcd557a34b34",
+      "imports": [
+        "PrescribedExtinction.PlanarHeightGreen",
+        "PrescribedExtinction.SlabSupportedLift"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/PlanarKernelSplit.lean",
+      "sha256": "8ae60759751602a2edf6bc5400b593fa428859ce767b0b2b4e6333fbd86c25f1",
+      "imports": [
+        "PrescribedExtinction.PlanarHeightGreen",
+        "Mathlib.Tactic.FieldSimp"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/PlanarLayerAxisSupport.lean",
+      "sha256": "229a9326f397aa94c2868699482416ab06f3b9ec6ee9bb212b21d0f40ff6dce0",
+      "imports": [
+        "PrescribedExtinction.PlanarSingleLayerCurrent",
+        "PrescribedExtinction.PlanarLayerKernel"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/PlanarLayerCompression.lean",
+      "sha256": "58a602ac9ef39c2d14e49b0faf6c3b7369f7944b4bc113cff628066d1bdbf86b",
+      "imports": [
+        "PrescribedExtinction.PlanarCurrentSpace",
+        "PrescribedExtinction.RotationContinuity"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/PlanarLayerCurrent.lean",
+      "sha256": "af03317ef9c946a7baa4219ad522a15f91fd5ca282dc9c56081fb0204c53de61",
+      "imports": [
+        "PrescribedExtinction.PlanarTwoLayerGreen",
+        "PrescribedExtinction.PlanarCurrentSpace"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/PlanarLayerCurrentAlgebra.lean",
+      "sha256": "54b654c3c991460ed005625bdbe7770c0ddcb3c62d9502ce5f728ac9b2e83231",
+      "imports": [
+        "PrescribedExtinction.PlanarSingleLayerCurrent"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/PlanarLayerField.lean",
+      "sha256": "50c1d59bd363ddaf45507ab6ee15a60d860d51cba2fc74ed109c26c965ea7fcf",
+      "imports": [
+        "PrescribedExtinction.PlanarGreenBoundary"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/PlanarLayerFTC.lean",
+      "sha256": "f08b6cda47810a328b7c0875fc43afa7adfad55cfb5febfe7abc95ec3bb4c897",
+      "imports": [
+        "PrescribedExtinction.ApertureOscillation",
+        "OQ7.Fields"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/PlanarLayerIncoming.lean",
+      "sha256": "12c434a2d5ec292ba67866f831f553064b616c9566ec5144cbd1fe99e15a63ad",
+      "imports": [
+        "PrescribedExtinction.PlanarLayerCurrent",
+        "PrescribedExtinction.PlanarDrive",
+        "Mathlib.Tactic.LinearCombination"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/PlanarLayerKernel.lean",
+      "sha256": "60726be5acb5e6cc5417d230b5129838dcff3c8f437d81e998cc2e763726a99c",
+      "imports": [
+        "PrescribedExtinction.PlanarLayerCompression"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/PlanarLayerNorm.lean",
+      "sha256": "a1f4e8f6c03ce7bf15e590a18420296d9fccc55a039672c627b0d3ce5a3a1b19",
+      "imports": [
+        "PrescribedExtinction.PlanarLayerCompression"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/PlanarLosslessPlate.lean",
+      "sha256": "5a839cc4f3522def888e1b5299f4eb02fecdbb1fbee6a0e964951a313adf9398",
+      "imports": [
+        "OQ7.Layers",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.FieldSimp"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/PlanarMaterialInverse.lean",
+      "sha256": "7d18da3c6b401b23a3674d9b9638d214bf249c1798efec4358374c004a00de60",
+      "imports": [
+        "PrescribedExtinction.PlanarScalarWork",
+        "PrescribedExtinction.PlanarLayerCompression"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/PlanarPlateChannels.lean",
+      "sha256": "f05566605475e3e438899314520367b207c537d25083c4f2c4578238c0471547",
+      "imports": [
+        "PrescribedExtinction.PlanarLosslessPlate",
+        "PrescribedExtinction.PlanarLayerField",
+        "Mathlib.Tactic.LinearCombination"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/PlanarPlateJones.lean",
+      "sha256": "eba257e7d6b778efc8029e85337e665b157e25102540f80f74ea2f3134f71140",
+      "imports": [
+        "PrescribedExtinction.PlanarPlateChannels"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/PlanarPrescribedDesign.lean",
+      "sha256": "956b2a26ffd7e793778994e492dadf42d0b9723210919a0eb18989fb7d30c777",
+      "imports": [
+        "PrescribedExtinction.PlanarSlabDesignLimit",
+        "PrescribedExtinction.PlanarAbsorberDesign"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/PlanarQuadraticKernel.lean",
+      "sha256": "32e1e6e537e04a6713796014707c91cfa3ab4de3f8c8667b2a0272e6bf2d80e5",
+      "imports": [
+        "PrescribedExtinction.PlanarHeightGreen",
+        "Mathlib.MeasureTheory.Integral.Prod"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/PlanarReflectedLayer.lean",
+      "sha256": "9e7173b7e3eac26329132d4a78685d5cae8654da8a932e68b027e297bd939398",
+      "imports": [
+        "PrescribedExtinction.PlanarSlabGreenField"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/PlanarResponse.lean",
+      "sha256": "d3dabbfeec4c8bb7f3254ad7d7f233b2a3d797807fde683d0134a91464686386",
+      "imports": [
+        "PrescribedExtinction.PlanarMaterialInverse",
+        "PrescribedExtinction.PlanarDrive"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/PlanarRotationPowers.lean",
+      "sha256": "ace7641e3a7e5e70ce2e07a5700641bc2692ea394e1fb22c7ef4921f80f18bfc",
+      "imports": [
+        "PrescribedExtinction.UniformBodyPowers",
+        "PrescribedExtinction.NormalizedRotationPowers"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/PlanarScalarPotential.lean",
+      "sha256": "5f2d6b6dbab82b42623534ccbbe23c7e1645c967bd29b4b5db26bb0544a5180f",
+      "imports": [
+        "PrescribedExtinction.SlabPhysicalAperture"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/PlanarScalarWork.lean",
+      "sha256": "9b8d38124a6af434724c45bffb9101e3a69a88a96a838fb041091e7693d94790",
+      "imports": [
+        "PrescribedExtinction.PlanarCurrentSpace",
+        "PrescribedExtinction.PlanarGreenWork"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/PlanarSingleLayerCurrent.lean",
+      "sha256": "18d3ccfec949239c95f9254e1a8c3051434a0c5444af8cca5f96750451598497",
+      "imports": [
+        "PrescribedExtinction.PlanarReflectedLayer"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/PlanarSlabAbsorberPower.lean",
+      "sha256": "9faa37848c0a7affbd5b66d9c816aa62b0d47b553e3c651b82e66cb38cbdd8e2",
+      "imports": [
+        "PrescribedExtinction.PlanarSlabIntegralPowers",
+        "PrescribedExtinction.PlanarSlabAbsorptionIntegral",
+        "PrescribedExtinction.PlanarActualLosslessPlate"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/PlanarSlabAbsorptionIntegral.lean",
+      "sha256": "9032064f61376bfec8a71992f2fb1e1c2fd3756f84373c32fa2ec6c57531c177",
+      "imports": [
+        "PrescribedExtinction.PlanarReflectedLayer",
+        "PrescribedExtinction.PlanarSlabStrictAbsorption"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/PlanarSlabAbsorptionWork.lean",
+      "sha256": "bf81c60ef214d250efa9f265b429e393fd978092281dec86a8e7b33656245cfc",
+      "imports": [
+        "PrescribedExtinction.PlanarSlabResponseIdentification"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/PlanarSlabChannelGreen.lean",
+      "sha256": "ad814d9aee224af1b81c57ebe7f11ef3493d94691ecf340fdfc16386ce5c7304",
+      "imports": [
+        "PrescribedExtinction.PlanarSlabChannels"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/PlanarSlabChannels.lean",
+      "sha256": "47de6fb7794aa430a84f2157e477995ef41b090ca12e97343ad37b6a680fc325",
+      "imports": [
+        "PrescribedExtinction.PlanarSingleLayerCurrent"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/PlanarSlabCoefficients.lean",
+      "sha256": "975b4c922007977dd881381b2b6b14654293b525c92b0fe214bc5a344012b05c",
+      "imports": [
+        "OQ7.StrictLoss",
+        "PrescribedExtinction.PlanarLayerIncoming"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/PlanarSlabCoupledContinuity.lean",
+      "sha256": "434e42486c33a82c47508ff2337cd29d3cf3b05aadde62d646e751c993909901",
+      "imports": [
+        "PrescribedExtinction.PlanarSlabParameterContinuity",
+        "PrescribedExtinction.PlanarSlabCoupledFields",
+        "Mathlib.MeasureTheory.Integral.DominatedConvergence"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/PlanarSlabCoupledEquations.lean",
+      "sha256": "9c8f9c66e4ac4d4d2bb22b68a2d533db9142b1e847e1cfefbf6da2c28224e76e",
+      "imports": [
+        "PrescribedExtinction.PlanarSlabCoupledPotentials",
+        "PrescribedExtinction.BodyMaterialLift"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/PlanarSlabCoupledFields.lean",
+      "sha256": "a5a67ca2231197c2447732d6f8b4c967fa3644f9301c2a5646599339124ce9ca",
+      "imports": [
+        "PrescribedExtinction.PlanarSlabFeedback",
+        "PrescribedExtinction.PlanarSlabChannelGreen",
+        "PrescribedExtinction.PlanarLayerCurrentAlgebra",
+        "PrescribedExtinction.PlanarCoupledGreen",
+        "PrescribedExtinction.PlanarDrive"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/PlanarSlabCoupledPotentials.lean",
+      "sha256": "21943f58faab0d940f07357d72d6c7483e79d6e2e11bde616e23784dfbfb5f47",
+      "imports": [
+        "PrescribedExtinction.PlanarSlabCoupledFields"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/PlanarSlabDesignLimit.lean",
+      "sha256": "a57a30c54d6103581dd7e8d8416768752283e4785a56ad5419830bbf0b025511",
+      "imports": [
+        "PrescribedExtinction.PlanarSlabAbsorberPower",
+        "PrescribedExtinction.PlanarRotationPowers"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/PlanarSlabExponential.lean",
+      "sha256": "07858fc0f86549cd16bbdd069da3b41bedf9c9ed394ff507e4c5f3954badc8bc",
+      "imports": [
+        "OQ7.Layers",
+        "OQ7.Transfer",
+        "Mathlib.Tactic.LinearCombination"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/PlanarSlabExtinctionIntegral.lean",
+      "sha256": "59820aae388cd0c7f22e5d137e8e8ceddcfc57ff32276735a7a39b2d3c991b8d",
+      "imports": [
+        "PrescribedExtinction.PlanarSlabResponseIdentification"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/PlanarSlabFeedback.lean",
+      "sha256": "adf79da2a51500bb7eb137519101d3eec13ed2f03a153bc8786903996751b639",
+      "imports": [
+        "PrescribedExtinction.PlanarSlabCoefficients"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/PlanarSlabGreenField.lean",
+      "sha256": "76c956d500c03bee2e52e06e1bf029ea37a824cc7e6723a5b6ae357e313e95b5",
+      "imports": [
+        "PrescribedExtinction.PlanarSlabCoefficients"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/PlanarSlabIntegralPowers.lean",
+      "sha256": "2e8ba35868f34cc5ae48426d6fbbcf846f76121c8497e4cae86b1a311e42befc",
+      "imports": [
+        "PrescribedExtinction.PlanarSlabAbsorptionWork",
+        "PrescribedExtinction.PlanarSlabExtinctionIntegral",
+        "PrescribedExtinction.PlanarSlabCoupledContinuity"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/PlanarSlabParameterContinuity.lean",
+      "sha256": "7996b3aea021fa6b23b53eb16c2eb004c4d64811c969d73b0d9bee35074c9e3d",
+      "imports": [
+        "PrescribedExtinction.PlanarDielectricIndex",
+        "PrescribedExtinction.PlanarSlabCoefficients",
+        "Mathlib.Topology.Instances.Matrix"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/PlanarSlabResponseIdentification.lean",
+      "sha256": "3e412d8f236400821d2a2bea71fff8f406a6f2a036ffae7382bce4beb4632bbb",
+      "imports": [
+        "PrescribedExtinction.PlanarSlabCoupledEquations"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/PlanarSlabStrictAbsorption.lean",
+      "sha256": "d00d1ba2f907f18819397f5677e8127887cfdd986535a9bb595bc3c074c3e764",
+      "imports": [
+        "PrescribedExtinction.PlanarSlabCoefficients",
+        "Mathlib.Tactic.LinearCombination"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/PlanarSlabThickLimit.lean",
+      "sha256": "951ea45208feff9d10969ef6e0c859dbea72a33615f218ac5ecea59cfe9eb3f5",
+      "imports": [
+        "PrescribedExtinction.PlanarSlabExponential",
+        "Mathlib.Analysis.SpecialFunctions.Exp",
+        "Mathlib.Order.Filter.AtTopBot.Field",
+        "Mathlib.Analysis.Complex.Norm"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/PlanarTwoLayerGreen.lean",
+      "sha256": "20502e576246dd3bb4f9ee7b254bb096189a109862c0993c7de0aed13fbf6b29",
+      "imports": [
+        "PrescribedExtinction.PlanarLayerField"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/PolePointIBP.lean",
+      "sha256": "9c6f0fe9f21e752b10ef3da8cc12a4a03b1517a70b3735161bd7362e2870bf06",
+      "imports": [
+        "PrescribedExtinction.RemovablePointIBP"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/PowerRatioEstimate.lean",
+      "sha256": "a64bbe7e5a424b703e2bb5319689e2dad3aacf157a739ebe0b4a4e727cf3b9ee",
+      "imports": [
+        "PrescribedExtinction.UniformBodyPowers"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/PoyntingCutoff.lean",
+      "sha256": "efd0f304c7feb8dba575ebb3904afa046154e73cfa5653a42a0ba6c5697f162a",
+      "imports": [
+        "PrescribedExtinction.SmoothOutgoingFields",
+        "PrescribedExtinction.VolumeScatteringBridge",
+        "PrescribedExtinction.TensorLossCoercivity"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/PrescribedExtinctionClass.lean",
+      "sha256": "c4264a38fc5ea36509d89dae680eed50d48eb5a0fd299da6c7c4485704985402",
+      "imports": [
+        "PrescribedExtinction.Theorem11"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/RadialCalculus.lean",
+      "sha256": "ed8b9b42f0bf64be57073ba74f16728064fc479ff843729849f9b2bb97bf87e9",
+      "imports": [
+        "PrescribedExtinction.GreenKernel",
+        "Mathlib.Analysis.InnerProductSpace.Calculus",
+        "Mathlib.Analysis.Calculus.LineDeriv.Basic",
+        "Mathlib.Analysis.Calculus.Deriv.Inv",
+        "Mathlib.Analysis.Calculus.FDeriv.Mul",
+        "Mathlib.Analysis.SpecialFunctions.Pow.Deriv"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/RadialEnergyCutoff.lean",
+      "sha256": "a7af45be576cbf2dac3611a0fceb6350894541b8e4685b29037d4b04c7293656",
+      "imports": [
+        "PrescribedExtinction.PoyntingCutoff",
+        "PrescribedExtinction.NewtonShell",
+        "Mathlib.Analysis.Calculus.Deriv.Slope"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/RadiationEnergyBounds.lean",
+      "sha256": "4cf96fcdac6ec88a38dd5e1e13b2aa1de2e71e02f1a1f70a6788964c84dd9d23",
+      "imports": [
+        "PrescribedExtinction.OutgoingSourceFields",
+        "PrescribedExtinction.TensorLossCoercivity",
+        "PrescribedExtinction.SmoothOutgoingFields"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/RadiationKernel.lean",
+      "sha256": "d6782a59bf5dae9e1a71664910d1158a258814115a694990beab573db2ff754c",
+      "imports": [
+        "PrescribedExtinction.GreenGradient"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/RankOneAbsorption.lean",
+      "sha256": "64b11f804bc6f43ccfc2b6b2a65202c23ec8a8acc514ab32129558b58267a437",
+      "imports": [
+        "PrescribedExtinction.PhysicalAbsorptionWork",
+        "PrescribedExtinction.RotationResponse"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/RankOneScattering.lean",
+      "sha256": "3fb2849d49904f3ac4702e90531a1f430f99584114ce34768f2f37a1f61fbb2b",
+      "imports": [
+        "PrescribedExtinction.ActiveMaterialInverse"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/ReciprocityL2.lean",
+      "sha256": "e7af6b6394ad788775364c4d47b62fff18d63d4484778ffbb7b389defbd86985",
+      "imports": [
+        "PrescribedExtinction.SmoothReciprocity"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/RemainderConvolution.lean",
+      "sha256": "3b2ec87dd3816c75bb89e9968f5f3b2dd763e0d4f8b8d1175eff88011896c75a",
+      "imports": [
+        "PrescribedExtinction.DyadicRemainder",
+        "PrescribedExtinction.VolumePotential",
+        "Mathlib.MeasureTheory.Function.LpSeminorm.Monotonicity"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/RemainderCurrentPairing.lean",
+      "sha256": "91d40c5d919fa3a36d4be0670ad55aa9ad1929777380596cf6e3d8a0674a9eeb",
+      "imports": [
+        "PrescribedExtinction.OutgoingCurrentPairing",
+        "PrescribedExtinction.RemainderConvolution"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/RemovablePointIBP.lean",
+      "sha256": "35990de178a401b2a34e7b911b9f17deae17aadd524795e4f6dc3dc234f18e83",
+      "imports": [
+        "PrescribedExtinction.NewtonShell",
+        "PrescribedExtinction.StaticSymbolCoordinates",
+        "PrescribedExtinction.ShrinkingCutoff"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/RotationContinuity.lean",
+      "sha256": "f6352f8d922761f4db15655b3b295fcb8c21b57ecc07a8c34aa9f9b2d6aa067d",
+      "imports": [
+        "PrescribedExtinction.PhysicalResponseStability",
+        "PrescribedExtinction.RotationExtinction",
+        "PrescribedExtinction.RankOneAbsorption"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/RotationExtinction.lean",
+      "sha256": "d076bd86aa78a4979c817be22c5207bdd126681a831d3d022cea6cd134a87d1c",
+      "imports": [
+        "PrescribedExtinction.RotationResponse",
+        "PrescribedExtinction.PhysicalExtinctionWork"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/RotationResponse.lean",
+      "sha256": "8858de5cf5db540b4949bcf64b2f6a2dd9dc79a674f2afcc9d176db0de62cd4a",
+      "imports": [
+        "PrescribedExtinction.RankOneScattering",
+        "PrescribedExtinction.Drive"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/ScalarCompactConvolution.lean",
+      "sha256": "288fd7be58d2dd852c85bf79f9ed56d66ca5a8f709fd29abcdb559b8bed06254",
+      "imports": [
+        "PrescribedExtinction.VolumePotential",
+        "PrescribedExtinction.SmoothOutgoingFields"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/ScalarPiecewiseL2.lean",
+      "sha256": "c75871346d5227dc12b8b8c49906314d8fea57d032d3d755e340643f79b9e58b",
+      "imports": [
+        "PrescribedExtinction.SetSupportedL2"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/ScaledInnerMap.lean",
+      "sha256": "8b7463346224964db6327a7f2958835b9ce06970fab7d738aa6ecb8b610b0193",
+      "imports": [
+        "Mathlib.Analysis.InnerProductSpace.LinearMap",
+        "Mathlib.Tactic.Ring"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/ScatteringExistence.lean",
+      "sha256": "d4f27e0b65b4ce72df53151f9d75c56b0aa3ca064e6d3af4a37e50c4b5acf122",
+      "imports": [
+        "PrescribedExtinction.MaterialBodyInverse",
+        "PrescribedExtinction.VolumeScatteringBridge"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/ScatteringStatePhysicalRadiation.lean",
+      "sha256": "0b973aa07180037174ac9236d5240a383a07d2a1afcdc3f6d67f594017b52c82",
+      "imports": [
+        "PrescribedExtinction.PhysicalSphereFlux",
+        "PrescribedExtinction.WeakPhysicalRepresentation",
+        "PrescribedExtinction.ForwardOpticalTheorem"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/SeparatedL2Product.lean",
+      "sha256": "8a689d16d4274369e0a580000914e604b4ae26016eae69faac805bfab31cebd7",
+      "imports": [
+        "Mathlib.MeasureTheory.Function.L2Space",
+        "Mathlib.MeasureTheory.Integral.Prod",
+        "Mathlib.Tactic.Linarith"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/SetSupportedL2.lean",
+      "sha256": "5ddb514d50df9697999151cce0fb8660a3b76479e8cdfaabb3e416330a486788",
+      "imports": [
+        "Mathlib.MeasureTheory.Function.L2Space",
+        "Mathlib.MeasureTheory.Function.LpSeminorm.Indicator"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/SharpResponseEstimate.lean",
+      "sha256": "04fc958e9ab11a47249a4632eaa1919df2d411981d082e88072b61adb0bdc012",
+      "imports": [
+        "PrescribedExtinction.BodySharpLift",
+        "PrescribedExtinction.PlanarDriveNorm"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/ShrinkingCutoff.lean",
+      "sha256": "7b85aa314f05c955dd541591be82390b05ba8715c5539fc81aa5c054252a33da",
+      "imports": [
+        "PrescribedExtinction.NewtonShell",
+        "Mathlib.MeasureTheory.Measure.Lebesgue.EqHaar"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/SlabAngular.lean",
+      "sha256": "2fec59b3e4da904138cdc60ab6967b95a890fdc314b9755bcb046b0307b91171",
+      "imports": [
+        "PrescribedExtinction.SlabRadialWindow",
+        "PrescribedExtinction.SlabPolar"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/SlabConvolution.lean",
+      "sha256": "e3cdf6e849807fdb4485203ac40d3f8bafb98337c502947bc71ec07adee32cdd",
+      "imports": [
+        "PrescribedExtinction.SlabAngular"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/SlabDerivatives.lean",
+      "sha256": "4158b39ca3a498edb894007da7cfa591602bc2f40a28ce1dff7d1a778887e7d0",
+      "imports": [
+        "PrescribedExtinction.SlabConvolution",
+        "Mathlib.Analysis.Calculus.ContDiff.Convolution"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/SlabDyadicAperture.lean",
+      "sha256": "cf47a788f2c02510561a4790e4d3d56675635339b2828049e1a815a3e7c06a1d",
+      "imports": [
+        "PrescribedExtinction.SlabDyadicSeparation"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/SlabDyadicSeparation.lean",
+      "sha256": "8deb57e612df77c58fc0ac584b5b931c03f5c3620c48e4fd0cceff4128c7d2f5",
+      "imports": [
+        "PrescribedExtinction.SlabPotentialSeparation",
+        "PrescribedExtinction.SlabSourceDerivatives",
+        "PrescribedExtinction.SlabTransverseKernel"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/SlabGreen.lean",
+      "sha256": "e2825feb712dbea52dba650b465a25c68cadd7dd36ff6786d1f3c4c304a55b84",
+      "imports": [
+        "PrescribedExtinction.ApertureOscillation",
+        "Mathlib.Analysis.SpecialFunctions.PolarCoord",
+        "Mathlib.LinearAlgebra.Complex.FiniteDimensional"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/SlabHessianEstimate.lean",
+      "sha256": "847b022a8511fbcf352a3d73c922e197b0bb81a1932ab2bd4b862de0334b0c3d",
+      "imports": [
+        "PrescribedExtinction.SlabSecondWindow"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/SlabL2Aperture.lean",
+      "sha256": "32fd448c26d9c99e48568eed5f6072e84b9cbeaad25f012003930a9af631f4ed",
+      "imports": [
+        "PrescribedExtinction.SlabSmoothDifference",
+        "PrescribedExtinction.DenseNormBound"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/SlabL2Lift.lean",
+      "sha256": "32e08ce90d92620c8cf6984767a48480b5a163cfb98352470cd262501c4ab56b",
+      "imports": [
+        "PrescribedExtinction.SlabSeparatedL2",
+        "PrescribedExtinction.ActiveCurrentSpace"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/SlabL2PhysicalError.lean",
+      "sha256": "2b6270fab4fd529b794f6a5142c60a837b11275e52786c097059ed356db70e61",
+      "imports": [
+        "PrescribedExtinction.SlabL2Aperture"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/SlabObservationRegion.lean",
+      "sha256": "8dfc1c08086b7d5436338994d37a641c1733afa41635a441c94a0fc8e0f2733b",
+      "imports": [
+        "PrescribedExtinction.SlabPhysicalAperture",
+        "PrescribedExtinction.SlabProductResidual"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/SlabPhysicalAperture.lean",
+      "sha256": "b8bb866b63cf39359d4ac1eb470a1860eb381913de2e3c5b9a61649710f7d15f",
+      "imports": [
+        "PrescribedExtinction.SlabDyadicAperture",
+        "PrescribedExtinction.DyadicAxisRepresentation"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/SlabPhysicalMap.lean",
+      "sha256": "1174b873c96591dbf7c80c39203c9ba4bfcb8fc4fe24113075e033e5e58ec33a",
+      "imports": [
+        "PrescribedExtinction.SlabSupportedLift",
+        "PrescribedExtinction.SlabObservationRegion"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/SlabPlanarMap.lean",
+      "sha256": "054c4601afeb8b93512c47ff5771437523d47ea4be355dfafb2b846ad545b943",
+      "imports": [
+        "PrescribedExtinction.PlanarHeightMap",
+        "PrescribedExtinction.SlabPhysicalMap"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/SlabPolar.lean",
+      "sha256": "f367e9d791c6ab2e7a3054f04e54772797d132f15f94ef5deb911b889484d0ae",
+      "imports": [
+        "PrescribedExtinction.SlabGreen",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.Periodic"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/SlabPotentialSeparation.lean",
+      "sha256": "b9ff83f9cf3e2bbc653cd28cf758858d6bc20bb7806c03b73c6b070183e12b53",
+      "imports": [
+        "PrescribedExtinction.SlabSourceGeometry",
+        "PrescribedExtinction.ScalarCompactConvolution",
+        "PrescribedExtinction.SlabConvolution"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/SlabProductResidual.lean",
+      "sha256": "21a89ed0c8880d089aeff3aca42d89cebdb6ed352097698ee17d81cc341f2880",
+      "imports": [
+        "Mathlib.MeasureTheory.Function.L2Space",
+        "Mathlib.MeasureTheory.Integral.Prod",
+        "Mathlib.MeasureTheory.Measure.Lebesgue.VolumeOfBalls",
+        "Mathlib.Tactic.FieldSimp",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.Ring"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/SlabRadialCoordinates.lean",
+      "sha256": "137a04f6a7ce70ae64e1d8c8b12e02162f90b4e7e1d3be799e99afbb3487d115",
+      "imports": [
+        "PrescribedExtinction.SlabGreen",
+        "PrescribedExtinction.ApertureRadialEstimate"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/SlabRadialWindow.lean",
+      "sha256": "56a0484c607494b2360bf417618b30121349746799d8af8fec77530cb31944fd",
+      "imports": [
+        "PrescribedExtinction.SlabRadialCoordinates"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/SlabScaledEstimate.lean",
+      "sha256": "184fa0fa72c5cf0ecc17c6f449ca99496ab23bae4bdb03fa8ee2eeeb1bfa9b94",
+      "imports": [
+        "PrescribedExtinction.SlabConvolution",
+        "PrescribedExtinction.ApertureWindowScale"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/SlabSecondWindow.lean",
+      "sha256": "6f18095031f140864fe2a3475fe390216edc1164432fc8019cb196c27ca11815",
+      "imports": [
+        "PrescribedExtinction.SlabDerivatives",
+        "PrescribedExtinction.SlabScaledEstimate"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/SlabSeparatedL2.lean",
+      "sha256": "58ae4bb5d33f0192799f2270da953d9e4c0e43e1e5af93638fd4880c00769aef",
+      "imports": [
+        "PrescribedExtinction.SlabSourceGeometry",
+        "PrescribedExtinction.SeparatedL2Product"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/SlabSmoothCenteredL2Residual.lean",
+      "sha256": "ee0d4cbfdf123b32a80d50503ac553093632c5810686427a9d5c2726237ac889",
+      "imports": [
+        "PrescribedExtinction.CenteredSlabAperture",
+        "PrescribedExtinction.SlabSmoothL2Residual",
+        "PrescribedExtinction.HeightL1Bound"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/SlabSmoothDifference.lean",
+      "sha256": "b5b69f1a5e1a3695eb7a527ad5037e31b6dfbe146b40fadd75214f6399a607ab",
+      "imports": [
+        "PrescribedExtinction.SlabPlanarMap",
+        "PrescribedExtinction.HeightSupportDensity",
+        "PrescribedExtinction.SlabSmoothCenteredL2Residual"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/SlabSmoothL2Residual.lean",
+      "sha256": "8632ff0766a393451534da6c1e06dd2d031f1a48dfa2ab99c0ae725c742e687e",
+      "imports": [
+        "PrescribedExtinction.PlanarScalarPotential",
+        "PrescribedExtinction.SlabProductResidual"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/SlabSourceDerivatives.lean",
+      "sha256": "cb86d4a3f0b70ecb606a6744a523ecf7076d684c6005884c9a352ccd5251f31b",
+      "imports": [
+        "PrescribedExtinction.SlabSourceGeometry",
+        "PrescribedExtinction.SlabDerivatives",
+        "PrescribedExtinction.SlabSecondWindow",
+        "PrescribedExtinction.ScalarCompactConvolution"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/SlabSourceGeometry.lean",
+      "sha256": "6d531e89c65d9974ba3c0034f676518f7b56714aaead5dbe616a9d2768ea854b",
+      "imports": [
+        "PrescribedExtinction.SlabVolumeCoordinates",
+        "PrescribedExtinction.SmoothOutgoingFields"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/SlabSupportedLift.lean",
+      "sha256": "b9d3a5c93c282883c3e800b3e2d358a5854eb1201a2e1b0bef51157a42660023",
+      "imports": [
+        "PrescribedExtinction.SlabL2Lift",
+        "PrescribedExtinction.SlabPhysicalAperture"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/SlabTransverseKernel.lean",
+      "sha256": "46fb5a7a411cb44b1dcd32abf0d3c5c0fadcdfefef8062cfae0a09d6cf73b059",
+      "imports": [
+        "PrescribedExtinction.SlabHessianEstimate"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/SlabVolumeCoordinates.lean",
+      "sha256": "449b5c4790dc622c0931c4f5468755e04c6ab12f969822c0f82f3057686478ad",
+      "imports": [
+        "PrescribedExtinction.SlabGreen",
+        "PrescribedExtinction.SphericalProduct"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/SmoothDyadicRepresentation.lean",
+      "sha256": "bd466b57dab7bf99f0f78927e05096184657b774eef27e89ad1a2b22f60be295",
+      "imports": [
+        "PrescribedExtinction.SmoothOutgoingFields"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/SmoothOutgoingDissipativity.lean",
+      "sha256": "6bb0c8921dd5183b6e1d30b31842d680f34f80d728983d4eb41ec1e2b247ab55",
+      "imports": [
+        "PrescribedExtinction.RadialEnergyCutoff",
+        "PrescribedExtinction.RadiationEnergyBounds",
+        "Mathlib.MeasureTheory.Measure.Lebesgue.VolumeOfBalls",
+        "Mathlib.Topology.Algebra.Order.Field"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/SmoothOutgoingFields.lean",
+      "sha256": "dd5ec20245746c5df7edb244eba9641519e76f9fd82be6b262666f4c233dd0a5",
+      "imports": [
+        "PrescribedExtinction.IncidentMaxwell",
+        "PrescribedExtinction.NewtonCurrentPairing",
+        "Mathlib.Analysis.Calculus.ContDiff.Convolution",
+        "Mathlib.MeasureTheory.Measure.OpenPos"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/SmoothReciprocity.lean",
+      "sha256": "30f7f359145352b9c98488cb1345ea4620b1561b1f7d62be5cf5c84fc5473b63",
+      "imports": [
+        "PrescribedExtinction.LorentzBounds"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/SmoothSourceWeakDecay.lean",
+      "sha256": "bb1650d67623fa190ff90058bb31d0cd52da316639f74a959ff3817b6ec3e426",
+      "imports": [
+        "PrescribedExtinction.WeakSmoothLorentz"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/SphereMeasure.lean",
+      "sha256": "875388fb1316c5d3a87fe63b607454b8c94014028c9cfb4cb2188de467eb3955",
+      "imports": [
+        "PrescribedExtinction.NewtonKernel",
+        "Mathlib.MeasureTheory.Constructions.HaarToSphere",
+        "Mathlib.MeasureTheory.Measure.Lebesgue.VolumeOfBalls",
+        "Mathlib.MeasureTheory.Measure.Haar.NormedSpace"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/SphereMoments.lean",
+      "sha256": "b0af55057732cfbafc8e4313ce68f10fbf69df0a4ed1fcebeb2cea9fd928e8d2",
+      "imports": [
+        "PrescribedExtinction.SphereMeasure"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/SphericalAngular.lean",
+      "sha256": "dda2636cff0c404bd274d19ea9c6918a5a30e89c5f15c5550dc8868fa19cc429",
+      "imports": [
+        "PrescribedExtinction.SphericalProduct"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/SphericalCoordinates.lean",
+      "sha256": "3ab92499bae5c71f4f04f2f8bd0b6c6c08a095948491516650eabdc387eae9d4",
+      "imports": [
+        "PrescribedExtinction.Maxwell",
+        "Mathlib.Analysis.SpecialFunctions.PolarCoord",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.InverseDeriv",
+        "Mathlib.Tactic.FinCases",
+        "Mathlib.Tactic.Ring",
+        "Mathlib.Tactic.Linarith"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/SphericalDomain.lean",
+      "sha256": "d011e14e9eaf512303e8f6cf62e6962120771873785c7e0b8598b21685703009",
+      "imports": [
+        "PrescribedExtinction.SphericalCoordinates",
+        "PrescribedExtinction.FarFieldRadial"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/SphericalProduct.lean",
+      "sha256": "47dfcc6a732de4406ce7c11f8f4240ad61816178aefa6b86e3dd498c07a934b8",
+      "imports": [
+        "PrescribedExtinction.SphericalVolume",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.Periodic"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/SphericalVolume.lean",
+      "sha256": "42d692978742ab433a3d157f3fa41d4c736b51880dfe30a840f2465352adbff3",
+      "imports": [
+        "PrescribedExtinction.SphericalDomain"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/SquareApertureWindow.lean",
+      "sha256": "bcf4ff64ac8c8372292d7de4578a7d87d3e89e197925d31088e1d45b02b62238",
+      "imports": [
+        "PrescribedExtinction.BodySlabGeometry",
+        "Mathlib.MeasureTheory.Measure.Lebesgue.Complex"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/SquareSmoothWindow.lean",
+      "sha256": "e44377a2e26c54fcbca4cadd8a94835234847693e0414d901e694bd9b3c5471b",
+      "imports": [
+        "PrescribedExtinction.SquareApertureWindow",
+        "Mathlib.Analysis.Calculus.BumpFunction.FiniteDimension"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/SquareWindowApproximation.lean",
+      "sha256": "e2f191e63ca0a38a75af363fcc38e98211af1dd6070c19069b1d7ee37166cb76",
+      "imports": [
+        "PrescribedExtinction.SquareSmoothWindow"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/StaticFourier.lean",
+      "sha256": "16ecc1c08e33a8cdde982108acf09e25c025db1b8a28ffa8dbca755525d51cb9",
+      "imports": [
+        "PrescribedExtinction.Materials",
+        "PrescribedExtinction.Maxwell",
+        "Mathlib.Analysis.Fourier.LpSpace",
+        "Mathlib.MeasureTheory.Function.StronglyMeasurable.Lemmas",
+        "Mathlib.Tactic.FunProp"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/StaticOperatorDistribution.lean",
+      "sha256": "7a4f3d1260eb0f6b1b2c874c8364a37e1dbee95f98f6236e7d1901f535494807",
+      "imports": [
+        "PrescribedExtinction.NewtonTransform"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/StaticSymbolCoordinates.lean",
+      "sha256": "34b6aff125774fe750f182a01ea68c3d7bb09a38e69648a54a2f8d73076d70c0",
+      "imports": [
+        "PrescribedExtinction.StaticFourier"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/SupportedL2Maps.lean",
+      "sha256": "7c7b832696b927dea1ca0fbf16eb04361145ed8eb94d4b8943f4c6794af6315f",
+      "imports": [
+        "PrescribedExtinction.TwoPieceL2",
+        "Mathlib.Analysis.InnerProductSpace.Adjoint"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/TensorLossCoercivity.lean",
+      "sha256": "c43b6f6bfdd503851d81e8b8e76bf51e725a385f8472ebf7984d4d72aa6c3e86",
+      "imports": [
+        "PrescribedExtinction.PhysicalPolarization",
+        "PrescribedExtinction.ComplexCoerciveInverse",
+        "Mathlib.Topology.Order.Compact"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/TestRegularity.lean",
+      "sha256": "4ed0115d94c6779a7ef097989c30e028fb6ce1dbfcd11cb31e1c65b302fdb739",
+      "imports": [
+        "PrescribedExtinction.Maxwell"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/Theorem11.lean",
+      "sha256": "2b24e11a782c91af9d0c1eb10d4e8f70c9942ec9b3a356611147b00233f1c1cd",
+      "imports": [
+        "PrescribedExtinction.PhysicalIsotropicPrescribedExtinction",
+        "PrescribedExtinction.IsotropicPhysicalAdmissibility",
+        "PrescribedExtinction.PlanarPrescribedDesign"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/TwoPieceL2.lean",
+      "sha256": "196ded0233d056b3c8b5a376b92caceed95fadac06114f90c2bcb37836a802b5",
+      "imports": [
+        "PrescribedExtinction.SetSupportedL2"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/UniformBodyPowers.lean",
+      "sha256": "a2909fcfa590b88634c0ddef7a5438eec0e437a5e51573552fe0f1e7380b173c",
+      "imports": [
+        "PrescribedExtinction.BodyAbsorptionLocalization"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/UniformBodyResponse.lean",
+      "sha256": "690a2d2e18a7390f341f4d665edd5f431be25378620ccea165985bca5b5c254e",
+      "imports": [
+        "PrescribedExtinction.SharpResponseEstimate",
+        "PrescribedExtinction.ApertureErrorAlgebra"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/UniformPhysicalAsymmetry.lean",
+      "sha256": "f11757453416740115d46c75600057844f5b234990660ef897ed855fb225d812",
+      "imports": [
+        "PrescribedExtinction.PlanarRotationPowers",
+        "PrescribedExtinction.PowerRatioEstimate",
+        "PrescribedExtinction.UniformPhysicalPowers"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/UniformPhysicalPowers.lean",
+      "sha256": "c0f1342f7e84c51a9b9f7eb566e88a42a93f68e176b03253ae4d8abe97cc975e",
+      "imports": [
+        "PrescribedExtinction.UniformBodyPowers"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/UniformVectorCurrent.lean",
+      "sha256": "7e4162dc3b4c864d0da3b18b41518dfb68d170efdaeecfef8388f982442241e1",
+      "imports": [
+        "PrescribedExtinction.UniformPhysicalPowers"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/UniversalFieldPowers.lean",
+      "sha256": "56dcab7a6c2e105564022848218d834d1ff98aaaaa88e69c9320cb2cb9eb8bd1",
+      "imports": [
+        "PrescribedExtinction.PhysicalOpticalBalance",
+        "PrescribedExtinction.TensorLossCoercivity"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/UniversalPassivity.lean",
+      "sha256": "3473dcec73de232ef6e8a6daaee7fe0b492abbd20d097f54ef7405a80148bb49",
+      "imports": [
+        "PrescribedExtinction.OutgoingWeakEnergy",
+        "PrescribedExtinction.UniversalStrictAbsorption",
+        "PrescribedExtinction.WeakScatteringResidual",
+        "PrescribedExtinction.ForwardOpticalTheorem"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/UniversalPhysicalBounds.lean",
+      "sha256": "1f491c48091357ceaae0e692108c0088b487a90aa0823851e7a261dd2ef4343d",
+      "imports": [
+        "PrescribedExtinction.ArbitraryStateOpticalBalance",
+        "PrescribedExtinction.FullPrescribedSuprema"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/UniversalStrictAbsorption.lean",
+      "sha256": "0568cc496b02358a72ec41976259a5c7127aa24066969eca2eb47fac6e4c7df9",
+      "imports": [
+        "PrescribedExtinction.UniversalFieldPowers"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/VacuumOutgoingWeakUniqueness.lean",
+      "sha256": "b40149defc960a4786e5c93860eeacee253a1511486de3ff58ea5284b6fd6e4b",
+      "imports": [
+        "PrescribedExtinction.WeakLorentzBoundaryBound",
+        "PrescribedExtinction.SmoothSourceWeakDecay",
+        "PrescribedExtinction.CompactFieldTestSeparation"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/VolumeFundamental.lean",
+      "sha256": "c36315f427457f6af06181bedff4a5b1cc0f24efd11838012fb93db0302eb9bc",
+      "imports": [
+        "PrescribedExtinction.OutgoingFundamental",
+        "PrescribedExtinction.OutgoingVolumeIdentification",
+        "PrescribedExtinction.DistributionVectorCalculus"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/VolumePotential.lean",
+      "sha256": "2b1d2e99f9a52d07b36d9a4721b9ac840f0f41045d179c5363b4fb29714353c9",
+      "imports": [
+        "PrescribedExtinction.GreenKernel",
+        "PrescribedExtinction.Geometry",
+        "Mathlib.Analysis.Convolution",
+        "Mathlib.MeasureTheory.Function.LpSeminorm.Indicator"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/VolumeScatteringBridge.lean",
+      "sha256": "37ad16336613d61781490f27a68019fe9ca591057209a0dff9309db8d1e8b0b4",
+      "imports": [
+        "PrescribedExtinction.PhysicalPolarization",
+        "PrescribedExtinction.IncidentMaxwell"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/WeakCurlBridge.lean",
+      "sha256": "fb86140f0c34b471d4c2de99a5db85d9af6aaa0a448f81cfd62c5f59d416db96",
+      "imports": [
+        "PrescribedExtinction.PhysicalSourceFields"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/WeakCurlFourier.lean",
+      "sha256": "9deaa63122cd2ec5b74efd20920904a8b46af911a4ffd3d26f545ed0f60fad6b",
+      "imports": [
+        "PrescribedExtinction.WeakCurlPlaneWave",
+        "PrescribedExtinction.FourierL1L2"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/WeakCurlLocalization.lean",
+      "sha256": "6670d49d20bba5304ecf26ffec4c26b1c7e3f0e13ff34380da9281c47cb428bd",
+      "imports": [
+        "PrescribedExtinction.WeakCurlFourier",
+        "Mathlib.MeasureTheory.Function.LpSeminorm.CompareExp",
+        "Mathlib.MeasureTheory.SpecificCodomains.WithLp"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/WeakCurlPlaneWave.lean",
+      "sha256": "57fd884f1a1e2c621f2dc747f4bf3de40fc7b64614cc3bc6a6bd6b43d8170ef8",
+      "imports": [
+        "PrescribedExtinction.WeakCurlProducts",
+        "PrescribedExtinction.FarFieldCurrent",
+        "Mathlib.Analysis.Calculus.BumpFunction.FiniteDimension"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/WeakCurlProducts.lean",
+      "sha256": "29a3e9b6bd4de78f2061baa1a60a4f84476bfb5c96e2a972d7d0f53b73fed854",
+      "imports": [
+        "PrescribedExtinction.PoyntingCutoff"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/WeakCurlWeightedGreen.lean",
+      "sha256": "3c983da75acf31f696dda5a77815baab4f516db0200fe7573a5fcf97964ebd32",
+      "imports": [
+        "PrescribedExtinction.WeakCurlLocalization"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/WeakLorentzBoundaryBound.lean",
+      "sha256": "10368aeb7cd08b4ae17439cd6ae659b71d0fe895f88010690ffb330635578d06",
+      "imports": [
+        "PrescribedExtinction.WeightedRadiationEnergy",
+        "PrescribedExtinction.WeakSmoothLorentz"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/WeakPhysicalRepresentation.lean",
+      "sha256": "5ab5154492b15d5b39b96c712ad0ca45d44d334176e70c316fb5bd156e5dd865",
+      "imports": [
+        "PrescribedExtinction.VacuumOutgoingWeakUniqueness",
+        "PrescribedExtinction.WeakScatteringResidual"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/WeakPhysicalUniqueness.lean",
+      "sha256": "8966e79c29fe2217fb6fb5fd46d71fbcb2589a7afc45194811b17d6284e297c1",
+      "imports": [
+        "PrescribedExtinction.WeakPhysicalRepresentation",
+        "PrescribedExtinction.MaterialVolumeUniqueness"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/WeakPoynting.lean",
+      "sha256": "3f109d9e616ad5c90746227b25d5b5b6aa815106c912b5bfaed291891286695b",
+      "imports": [
+        "PrescribedExtinction.WeakCurlWeightedGreen",
+        "PrescribedExtinction.RadialEnergyCutoff"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/WeakScatteringResidual.lean",
+      "sha256": "e34f8fb8d3c330ff3305473a282af3fa4d67628669bbe737762be418c6bff199",
+      "imports": [
+        "PrescribedExtinction.WeakCurlProducts",
+        "PrescribedExtinction.FarFieldKernel"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/WeakSmoothLorentz.lean",
+      "sha256": "d73216ec1a8b188bbc50e8a5193b59132d715c5569eb00bec061dfb995e824ec",
+      "imports": [
+        "PrescribedExtinction.WeakPoynting",
+        "PrescribedExtinction.LorentzBounds"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/WeightedRadiationEnergy.lean",
+      "sha256": "3af1b7a821aae3b39c66534056503306f826fffd75fedfe97119689a451d72d8",
+      "imports": [
+        "PrescribedExtinction.OutgoingWeakEnergy"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction/YoungConvolution.lean",
+      "sha256": "243bac6f55dcd708003abc2fb1144f7910168d6dbebf0a9a3eb7eac9faf02bde",
+      "imports": [
+        "PrescribedExtinction.RemainderCurrentPairing",
+        "Mathlib.MeasureTheory.Function.L2Space"
+      ]
+    },
+    {
+      "path": "OQ7.lean",
+      "sha256": "0b437fb8a4043f92c4d8225f161bb014152ad58e7fd35eafc5f0899c4e187db0",
+      "imports": [
+        "OQ7.TwoPort",
+        "OQ7.Envelope",
+        "OQ7.Passivity",
+        "OQ7.Transfer",
+        "OQ7.Layers",
+        "OQ7.Target",
+        "OQ7.Scattering",
+        "OQ7.Fields",
+        "OQ7.Phase",
+        "OQ7.PhysicalPassivity",
+        "OQ7.TargetBounds",
+        "OQ7.StrictLoss",
+        "OQ7.ResourceScalar",
+        "OQ7.Gram",
+        "OQ7.PhysicalGlobal",
+        "OQ7.FourierCap",
+        "OQ7.FourierSquare",
+        "OQ7.ResourceAsymptotics",
+        "OQ7.PhysicalGram",
+        "OQ7.PhysicalIntegrals",
+        "OQ7.DeterminantMinkowski",
+        "OQ7.GramProperties",
+        "OQ7.FourierTriangle",
+        "OQ7.PhysicalAbsorption",
+        "OQ7.PhysicalClass",
+        "OQ7.ResourcePartition",
+        "OQ7.ModulusComparison",
+        "OQ7.ResourceCells",
+        "OQ7.PhysicalModulus",
+        "OQ7.PhysicalCellBounds",
+        "OQ7.FourierOpenCaps",
+        "OQ7.ResourceCellsOpen",
+        "OQ7.PhysicalResourceDeficit",
+        "OQ7.ResourceUniform",
+        "OQ7.SelectedResource",
+        "OQ7.ResourceBounds",
+        "OQ7.ResourceTheorem45",
+        "OQ7.PhysicalQuarterWave",
+        "OQ7.ExpRemainder",
+        "OQ7.PhysicalLowerAsymptotics",
+        "OQ7.CoreAlgebra",
+        "OQ7.PhysicalCore",
+        "OQ7.PhysicalCoatings",
+        "OQ7.ScalarSign",
+        "OQ7.ProductRemainder",
+        "OQ7.PhysicalExponential",
+        "OQ7.ConstructionBudget",
+        "OQ7.CoreFactorization",
+        "OQ7.MatchingResponse",
+        "OQ7.CellRemainder",
+        "OQ7.PhysicalSequenceSqueeze",
+        "OQ7.MatchingSheet",
+        "OQ7.CellNormBounds",
+        "OQ7.CoreExponential",
+        "OQ7.SharpDeficit",
+        "OQ7.QuadraticRates",
+        "OQ7.PhaseSmooth",
+        "OQ7.MatchingTarget",
+        "OQ7.MatchingOptimizer",
+        "OQ7.CoreTaylor",
+        "OQ7.CoreInsertion",
+        "OQ7.CoreFluxPolynomial",
+        "OQ7.ScaledRemainder",
+        "OQ7.PhysicalCellRemainder",
+        "OQ7.MatchingJacobian",
+        "OQ7.MatrixNormBridge",
+        "OQ7.MatchingImplicit",
+        "OQ7.MatchingTargetImplicit",
+        "OQ7.MatchedTransfer",
+        "OQ7.SignedResponse",
+        "OQ7.PhysicalSignedTransfer",
+        "OQ7.InsertionRemainder",
+        "OQ7.PhysicalCoreRemainder",
+        "OQ7.PhysicalCoreInvariant",
+        "OQ7.PhysicalCoatedCore",
+        "OQ7.TransferSharpLimit",
+        "OQ7.SharpPhysicalConstruction"
+      ]
+    },
+    {
+      "path": "PrescribedExtinction.lean",
+      "sha256": "89f48c129a9cb9ad043ee1ecd84abb7f22f95fe09f89a3ed77ea1f07167354c6",
+      "imports": [
+        "PrescribedExtinction.Basic",
+        "PrescribedExtinction.Materials",
+        "PrescribedExtinction.Maxwell",
+        "PrescribedExtinction.Geometry",
+        "PrescribedExtinction.Drive",
+        "PrescribedExtinction.GreenKernel",
+        "PrescribedExtinction.VolumePotential",
+        "PrescribedExtinction.StaticFourier",
+        "PrescribedExtinction.RadialCalculus",
+        "PrescribedExtinction.NewtonKernel",
+        "PrescribedExtinction.OutgoingRadial",
+        "PrescribedExtinction.GreenCancellation",
+        "PrescribedExtinction.DyadicRemainder",
+        "PrescribedExtinction.RemainderConvolution",
+        "PrescribedExtinction.SphereMeasure",
+        "PrescribedExtinction.SphereMoments",
+        "PrescribedExtinction.NewtonBoundary",
+        "PrescribedExtinction.NewtonPV",
+        "PrescribedExtinction.NewtonPrincipalValue",
+        "PrescribedExtinction.NewtonCutoff",
+        "PrescribedExtinction.NewtonCutoffIBP",
+        "PrescribedExtinction.NewtonCutoffLimit",
+        "PrescribedExtinction.NewtonShell",
+        "PrescribedExtinction.NewtonPunctured",
+        "PrescribedExtinction.NewtonContact",
+        "PrescribedExtinction.NewtonFundamental",
+        "PrescribedExtinction.NewtonTempered",
+        "PrescribedExtinction.StaticSymbolCoordinates",
+        "PrescribedExtinction.NewtonSchwartz",
+        "PrescribedExtinction.NewtonHeat",
+        "PrescribedExtinction.NewtonFourier",
+        "PrescribedExtinction.NewtonFrequency",
+        "PrescribedExtinction.NewtonHeatPairing",
+        "PrescribedExtinction.NewtonHeatFourier",
+        "PrescribedExtinction.NewtonFrequencyHeat",
+        "PrescribedExtinction.NewtonTransform",
+        "PrescribedExtinction.NewtonSymbol",
+        "PrescribedExtinction.NewtonCurrentPairing",
+        "PrescribedExtinction.NewtonCurrentCorrelation",
+        "PrescribedExtinction.FourierL1L2",
+        "PrescribedExtinction.StaticOperatorDistribution",
+        "PrescribedExtinction.NewtonCurrentFourier",
+        "PrescribedExtinction.NewtonStaticIdentification",
+        "PrescribedExtinction.ShrinkingCutoff",
+        "PrescribedExtinction.RemovablePointIBP",
+        "PrescribedExtinction.DynamicGreenRegularity",
+        "PrescribedExtinction.OutgoingDynamicIdentity",
+        "PrescribedExtinction.OutgoingCurrentPairing",
+        "PrescribedExtinction.RemainderCurrentPairing",
+        "PrescribedExtinction.OutgoingVolumeIdentification",
+        "PrescribedExtinction.CompactOutgoingOperator",
+        "PrescribedExtinction.CompactOutgoingIdentification",
+        "PrescribedExtinction.OutgoingFundamental",
+        "PrescribedExtinction.DistributionVectorCalculus",
+        "PrescribedExtinction.VolumeFundamental",
+        "PrescribedExtinction.DyadicMaxwellSource",
+        "PrescribedExtinction.YoungConvolution",
+        "PrescribedExtinction.PolePointIBP",
+        "PrescribedExtinction.GreenGradient",
+        "PrescribedExtinction.GreenFirstDerivative",
+        "PrescribedExtinction.GradientCurrentPairing",
+        "PrescribedExtinction.PhysicalSourceFields",
+        "PrescribedExtinction.TestRegularity",
+        "PrescribedExtinction.WeakCurlBridge",
+        "PrescribedExtinction.RadiationKernel",
+        "PrescribedExtinction.ExteriorOutgoing",
+        "PrescribedExtinction.ExteriorKernelTests",
+        "PrescribedExtinction.ExteriorCurrentIdentification",
+        "PrescribedExtinction.OutgoingSourceFields",
+        "PrescribedExtinction.IncidentMaxwell",
+        "PrescribedExtinction.PhysicalPolarization",
+        "PrescribedExtinction.VolumeScatteringBridge",
+        "PrescribedExtinction.ComplexCoerciveInverse",
+        "PrescribedExtinction.TensorLossCoercivity",
+        "PrescribedExtinction.CompactCurrentDensity",
+        "PrescribedExtinction.SmoothOutgoingFields",
+        "PrescribedExtinction.PoyntingCutoff",
+        "PrescribedExtinction.RadialEnergyCutoff",
+        "PrescribedExtinction.RadiationEnergyBounds",
+        "PrescribedExtinction.SmoothOutgoingDissipativity",
+        "PrescribedExtinction.OutgoingDissipativity",
+        "PrescribedExtinction.SetSupportedL2",
+        "PrescribedExtinction.TwoPieceL2",
+        "PrescribedExtinction.BodyCurrentSpace",
+        "PrescribedExtinction.MaterialBodyInverse",
+        "PrescribedExtinction.ScatteringExistence",
+        "PrescribedExtinction.MaterialVolumeUniqueness",
+        "PrescribedExtinction.SupportedL2Maps",
+        "PrescribedExtinction.ActiveCurrentSpace",
+        "PrescribedExtinction.ActiveMaterialInverse",
+        "PrescribedExtinction.RankOneScattering",
+        "PrescribedExtinction.PhysicalExtinctionWork",
+        "PrescribedExtinction.RotationResponse",
+        "PrescribedExtinction.RotationExtinction",
+        "PrescribedExtinction.PhysicalAbsorptionWork",
+        "PrescribedExtinction.RankOneAbsorption",
+        "PrescribedExtinction.InverseStability",
+        "PrescribedExtinction.PhysicalResponseStability",
+        "PrescribedExtinction.FarFieldGeometry",
+        "PrescribedExtinction.FarFieldPhase",
+        "PrescribedExtinction.FarFieldKernel",
+        "PrescribedExtinction.FarFieldCurrent",
+        "PrescribedExtinction.FarFieldFlux",
+        "PrescribedExtinction.FarFieldRadial",
+        "PrescribedExtinction.FarFieldWork",
+        "PrescribedExtinction.FarFieldL2",
+        "PrescribedExtinction.FarFieldWorkL2",
+        "PrescribedExtinction.SphericalCoordinates",
+        "PrescribedExtinction.SphericalDomain",
+        "PrescribedExtinction.SphericalVolume",
+        "PrescribedExtinction.SphericalProduct",
+        "PrescribedExtinction.SphericalAngular",
+        "PrescribedExtinction.PhysicalOpticalBalance",
+        "PrescribedExtinction.LorentzCutoff",
+        "PrescribedExtinction.LorentzIdentity",
+        "PrescribedExtinction.LorentzBounds",
+        "PrescribedExtinction.SmoothReciprocity",
+        "PrescribedExtinction.ReciprocityL2",
+        "PrescribedExtinction.ExtinctionReciprocity",
+        "PrescribedExtinction.RotationContinuity",
+        "PrescribedExtinction.NormalizedReciprocity",
+        "PrescribedExtinction.NormalizedWork",
+        "PrescribedExtinction.NormalizedRotationPowers",
+        "PrescribedExtinction.ApertureOscillation",
+        "PrescribedExtinction.SlabGreen",
+        "PrescribedExtinction.ApertureCircleJets",
+        "PrescribedExtinction.ApertureCircleParity",
+        "PrescribedExtinction.ApertureMeanSlope",
+        "PrescribedExtinction.ApertureRadialLift",
+        "PrescribedExtinction.ApertureRadialSupport",
+        "PrescribedExtinction.ApertureRadialEstimate",
+        "PrescribedExtinction.SlabRadialCoordinates",
+        "PrescribedExtinction.SlabRadialWindow",
+        "PrescribedExtinction.SlabPolar",
+        "PrescribedExtinction.SlabAngular",
+        "PrescribedExtinction.SlabConvolution",
+        "PrescribedExtinction.ApertureWindowScale",
+        "PrescribedExtinction.SlabScaledEstimate",
+        "PrescribedExtinction.SlabDerivatives",
+        "PrescribedExtinction.SlabSecondWindow",
+        "PrescribedExtinction.SlabHessianEstimate",
+        "PrescribedExtinction.SlabTransverseKernel",
+        "PrescribedExtinction.SlabVolumeCoordinates",
+        "PrescribedExtinction.SlabSourceGeometry",
+        "PrescribedExtinction.ScalarCompactConvolution",
+        "PrescribedExtinction.SlabPotentialSeparation",
+        "PrescribedExtinction.SlabSourceDerivatives",
+        "PrescribedExtinction.SmoothDyadicRepresentation",
+        "PrescribedExtinction.SlabDyadicSeparation",
+        "PrescribedExtinction.SlabDyadicAperture",
+        "PrescribedExtinction.DyadicAxisRepresentation",
+        "PrescribedExtinction.SlabPhysicalAperture",
+        "PrescribedExtinction.SeparatedL2Product",
+        "PrescribedExtinction.FixedHeightDensity",
+        "PrescribedExtinction.HeightL1Bound",
+        "PrescribedExtinction.SlabProductResidual",
+        "PrescribedExtinction.PlanarScalarPotential",
+        "PrescribedExtinction.SlabSmoothL2Residual",
+        "PrescribedExtinction.SlabSeparatedL2",
+        "PrescribedExtinction.CenteredSlabAperture",
+        "PrescribedExtinction.SlabSmoothCenteredL2Residual",
+        "PrescribedExtinction.SlabL2Lift",
+        "PrescribedExtinction.SlabSupportedLift",
+        "PrescribedExtinction.PlanarHeightGreen",
+        "PrescribedExtinction.PlanarHeightMap",
+        "PrescribedExtinction.SlabObservationRegion",
+        "PrescribedExtinction.SlabPhysicalMap",
+        "PrescribedExtinction.SlabPlanarMap",
+        "PrescribedExtinction.HeightSupportDensity",
+        "PrescribedExtinction.SlabSmoothDifference",
+        "PrescribedExtinction.DenseNormBound",
+        "PrescribedExtinction.SlabL2Aperture",
+        "PrescribedExtinction.SlabL2PhysicalError",
+        "PrescribedExtinction.ApertureL2Scale",
+        "PrescribedExtinction.PlanarCurrentSpace",
+        "PrescribedExtinction.PlanarQuadraticKernel",
+        "PrescribedExtinction.PlanarKernelSplit",
+        "PrescribedExtinction.PlanarCosineWork",
+        "PrescribedExtinction.PlanarGreenWork",
+        "PrescribedExtinction.PlanarScalarWork",
+        "PrescribedExtinction.PlanarLayerCompression",
+        "PrescribedExtinction.PlanarMaterialInverse",
+        "PrescribedExtinction.PlanarDrive",
+        "PrescribedExtinction.PlanarResponse",
+        "PrescribedExtinction.PlanarLayerNorm",
+        "PrescribedExtinction.PlanarLayerKernel",
+        "PrescribedExtinction.ScalarPiecewiseL2",
+        "PrescribedExtinction.InverseTrialEstimate",
+        "PrescribedExtinction.BodySeparatedLift",
+        "PrescribedExtinction.BodyApertureWindow",
+        "PrescribedExtinction.BodyLayerSeparatedCurrent",
+        "PrescribedExtinction.BodyScaledLift",
+        "PrescribedExtinction.BodySlabGeometry",
+        "PrescribedExtinction.BodySlabError",
+        "PrescribedExtinction.BodyCompressedError",
+        "PrescribedExtinction.BodyApertureResidual",
+        "PrescribedExtinction.BodyMaterialLift",
+        "PrescribedExtinction.BodyResponseResidual",
+        "PrescribedExtinction.SquareApertureWindow",
+        "PrescribedExtinction.DriveWindowMismatch",
+        "PrescribedExtinction.SquareSmoothWindow",
+        "PrescribedExtinction.SquareWindowApproximation",
+        "PrescribedExtinction.BodySharpLift",
+        "PrescribedExtinction.PlanarDriveNorm",
+        "PrescribedExtinction.SharpResponseEstimate",
+        "PrescribedExtinction.ApertureErrorAlgebra",
+        "PrescribedExtinction.UniformBodyResponse",
+        "PrescribedExtinction.ScaledInnerMap",
+        "PrescribedExtinction.BodySharpWork",
+        "PrescribedExtinction.BodyAbsorptionLocalization",
+        "PrescribedExtinction.UniformBodyPowers",
+        "PrescribedExtinction.UniformPhysicalPowers",
+        "PrescribedExtinction.UniformVectorCurrent",
+        "PrescribedExtinction.PlanarLayerFTC",
+        "PrescribedExtinction.PlanarGreenInterval",
+        "PrescribedExtinction.PlanarGreenBoundary",
+        "PrescribedExtinction.PlanarLayerField",
+        "PrescribedExtinction.PlanarTwoLayerGreen",
+        "PrescribedExtinction.PlanarLayerCurrent",
+        "PrescribedExtinction.PlanarLayerIncoming",
+        "PrescribedExtinction.PlanarLosslessPlate",
+        "PrescribedExtinction.PlanarPlateChannels",
+        "PrescribedExtinction.PlanarPlateJones",
+        "PrescribedExtinction.PlanarSlabCoefficients",
+        "PrescribedExtinction.PlanarSlabStrictAbsorption",
+        "PrescribedExtinction.PlanarSlabExponential",
+        "PrescribedExtinction.PlanarSlabThickLimit",
+        "PrescribedExtinction.PlanarDielectricIndex",
+        "PrescribedExtinction.PlanarAbsorberDesign",
+        "PrescribedExtinction.PlanarSlabGreenField",
+        "PrescribedExtinction.PlanarRotationPowers",
+        "PrescribedExtinction.PowerRatioEstimate",
+        "PrescribedExtinction.UniformPhysicalAsymmetry",
+        "PrescribedExtinction.PlanarReflectedLayer",
+        "PrescribedExtinction.PlanarSingleLayerCurrent",
+        "PrescribedExtinction.PlanarSlabChannels",
+        "PrescribedExtinction.PlanarSlabChannelGreen",
+        "PrescribedExtinction.PlanarLayerAxisSupport",
+        "PrescribedExtinction.PlanarCoupledGreen",
+        "PrescribedExtinction.PlanarLayerCurrentAlgebra",
+        "PrescribedExtinction.PlanarSlabFeedback",
+        "PrescribedExtinction.PlanarSlabCoupledFields",
+        "PrescribedExtinction.PlanarSlabCoupledPotentials",
+        "PrescribedExtinction.PlanarSlabCoupledEquations",
+        "PrescribedExtinction.PlanarSlabResponseIdentification",
+        "PrescribedExtinction.PlanarSlabAbsorptionIntegral",
+        "PrescribedExtinction.PlanarSlabParameterContinuity",
+        "PrescribedExtinction.PlanarActualLosslessPlate",
+        "PrescribedExtinction.PlanarSlabCoupledContinuity",
+        "PrescribedExtinction.PlanarSlabAbsorptionWork",
+        "PrescribedExtinction.PlanarSlabExtinctionIntegral",
+        "PrescribedExtinction.PlanarSlabIntegralPowers",
+        "PrescribedExtinction.PlanarSlabAbsorberPower",
+        "PrescribedExtinction.PlanarSlabDesignLimit",
+        "PrescribedExtinction.PlanarPrescribedDesign",
+        "PrescribedExtinction.PhysicalRankOneExtinctionBracket",
+        "PrescribedExtinction.BoundedWoodbury",
+        "PrescribedExtinction.PhysicalElectricWoodbury",
+        "PrescribedExtinction.CompactParameterNeighborhood",
+        "PrescribedExtinction.PhysicalPerturbedResponse",
+        "PrescribedExtinction.PhysicalPerturbationZero",
+        "PrescribedExtinction.IsotropicPhysicalBody",
+        "PrescribedExtinction.IsotropicPhysicalPowers",
+        "PrescribedExtinction.PhysicalCompactLossBracket",
+        "PrescribedExtinction.IsotropicPhysicalStrictLoss",
+        "PrescribedExtinction.IsotropicPhysicalAdmissibility",
+        "PrescribedExtinction.PhysicalIsotropicPrescribedExtinction",
+        "PrescribedExtinction.Theorem11",
+        "PrescribedExtinction.UniversalFieldPowers",
+        "PrescribedExtinction.ForwardOpticalTheorem",
+        "PrescribedExtinction.WeakCurlProducts",
+        "PrescribedExtinction.DistributionVacuumHelmholtz",
+        "PrescribedExtinction.WeakScatteringResidual",
+        "PrescribedExtinction.PrescribedExtinctionClass",
+        "PrescribedExtinction.WeakCurlPlaneWave",
+        "PrescribedExtinction.WeakCurlFourier",
+        "PrescribedExtinction.WeakCurlLocalization",
+        "PrescribedExtinction.WeakCurlWeightedGreen",
+        "PrescribedExtinction.WeakPoynting",
+        "PrescribedExtinction.OutgoingWeakEnergy",
+        "PrescribedExtinction.UniversalStrictAbsorption",
+        "PrescribedExtinction.UniversalPassivity",
+        "PrescribedExtinction.FullPrescribedSuprema",
+        "PrescribedExtinction.WeightedRadiationEnergy",
+        "PrescribedExtinction.WeakSmoothLorentz",
+        "PrescribedExtinction.WeakLorentzBoundaryBound",
+        "PrescribedExtinction.SmoothSourceWeakDecay",
+        "PrescribedExtinction.CompactFieldTestSeparation",
+        "PrescribedExtinction.VacuumOutgoingWeakUniqueness",
+        "PrescribedExtinction.WeakPhysicalRepresentation",
+        "PrescribedExtinction.WeakPhysicalUniqueness",
+        "PrescribedExtinction.PhysicalPowersAE",
+        "PrescribedExtinction.ArbitraryStateOpticalBalance",
+        "PrescribedExtinction.ExteriorSphereContinuity",
+        "PrescribedExtinction.PhysicalSphereFlux",
+        "PrescribedExtinction.ScatteringStatePhysicalRadiation",
+        "PrescribedExtinction.UniversalPhysicalBounds",
+        "PrescribedExtinction.FullPhysicalOpticalTheorem",
+        "PrescribedExtinction.PhysicalTheorem11"
+      ]
+    }
+  ],
+  "note": "Import coverage plus a successful fresh project build is required; coverage alone is not kernel verification."
+}

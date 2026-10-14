@@ -1,0 +1,497 @@
+=== PDF PAGE 1 ===
+Aalborg Universitet
+Absorption Efficiency of Receiving Antennas
+Andersen, Jørgen Bach; Frandsen, Aksel
+Published in:
+IEEE Transactions on Antennas and Propagation
+Publication date:
+2005
+Document Version
+Publisher's PDF, also known as Version of record
+Link to publication from Aalborg University
+Citation for published version (APA):
+Andersen, J. B., & Frandsen, A. (2005). Absorption Efficiency of Receiving Antennas. IEEE Transactions on
+Antennas and Propagation, 53(9), 2843-2849.
+General rights
+Copyright and moral rights for the publications made accessible in the public portal are retained by the authors and/or other copyright owners
+and it is a condition of accessing publications that users recognise and abide by the legal requirements associated with these rights.
+            - Users may download and print one copy of any publication from the public portal for the purpose of private study or research.
+            - You may not further distribute the material or use it for any profit-making activity or commercial gain
+            - You may freely distribute the URL identifying the publication in the public portal -
+Take down policy
+If you believe that this document breaches copyright please contact us at vbn@aub.aau.dk providing details, and we will remove access to
+the work immediately and investigate your claim.
+Downloaded from vbn.aau.dk on: 10 13, 2026
+
+=== PDF PAGE 2 ===
+IEEE TRANSACTIONS ON ANTENNAS AND PROPAGATION, VOL. 53, NO. 9, SEPTEMBER 2005 2843
+Absorption Efﬁciency of Receiving Antennas
+J. Bach Andersen, Life Fellow, IEEE, and Aksel Frandsen, Member, IEEE
+Abstract—A receiving antenna with a matched load will always
+scatter some power. This paper sets an upper and a lower bound
+on the absorption efﬁciency (absorbed power over sum of absorbed
+and scattered powers), which lies between 0 and 100% depending
+on the directivities of the antenna and scatter patterns. It can ap-
+proach 100% as closely as desired, although in practice this may
+not be an attractive solution. An example with a small endﬁre array
+of dipoles shows an efﬁciency of 93%. Several examples of small
+conical horn antennas are also given, and they all have absorption
+efﬁciencies less than 50%.
+Index Terms—Antennas, receiving, scattering.
+I. I NTRODUCTION
+U
+SUALLY , the scattering properties of receiving antennas
+are not considered, since most important antenna proper-
+ties, such as pattern, gain, and impedance, are the same as those
+for transmitting antennas. However, there are a few situations
+where the scattering is of importance, and recently there have
+been discussions in the literature [1], [2] concerning the absorp-
+tion efﬁciency, which we here deﬁne as the ratio between the ab-
+sorbed power and the sum of the absorbed and scattered powers.
+It is generally believed that this quantity is less than or equal to
+50%, although is has been shown [1], [3] that this need not be the
+case. The scattering depends on the matching and can be divided
+into two parts : one that is due to mismatch at the load, called the
+antenna scattering or reradiation, since it has the same pattern
+as the transmitting antenna; and one that is what is left when the
+antenna is matched, called the residual or structural scattering.
+Only the residual scattering is considered in this paper.
+Several known cases are worth mentioning. The ﬁrst is the
+classical minimum scattering antenna, which is a one-mode an-
+tenna (like a thin dipole), which has the same scattering pattern
+as transmitting pattern. It follows from a simple analysis that the
+absorption efﬁciency is 50%, i.e., an equal amount of power is
+absorbed and scattered. The second example is an electrically
+large ﬂat antenna (or array), where the forward scattering pat-
+tern again equals the transmitting pattern, since the sources have
+the same distribution. The sources of the scattering pattern must
+equal the incident with a minus sign to create the shadow (zero
+ﬁeld) area behind the absorber. Again the absorption efﬁciency
+equals 50%. This type of argumentation has led many to believe
+that the absorption efﬁciency always equals 50%. In this paper,
+we demonstrate that there can be a signiﬁcant variety of absorp-
+tion efﬁciencies.
+Recently, Munk [4] published an extensive analysis of the
+bistatic scattering from arrays in the back half-space, showing
+Manuscript received December 6, 2004; revised February 12, 2005.
+J. B. Andersen is with the Aalborg University, Aalborg DK 9220, Denmark
+(e-mail: jba@cpk.auc.dk).
+A. Frandsen is with the TICRA, Copenhagen DK 1201, Denmark (e-mail:
+af@ticra.com).
+Digital Object Identiﬁer 10.1109/TAP.2005.854532
+that the back scattering may be reduced to zero. This is usu-
+ally what is of practical interest; our approach here is different,
+seeking to ﬁnd basic limitations on the absorption efﬁciency,
+which is related to the total scattered power, not just in a cer-
+tain region of space. Although it is known by examples that the
+absorption efﬁciency may be larger than 50%, it is not known
+how close to 100% it can be. It is one of the results of this paper
+that theoretically it may approach 100% as closely as desired,
+although of course not without a price. It is worth emphasizing
+that the absorption efﬁciency as deﬁned here is not related to the
+aperture efﬁciency, which is a quantity related to the absorption
+area relative to the area of a uniformly illuminated aperture [2].
+The aperture efﬁciency is a receiving-transmitting property of
+an antenna, and as such not necessarily related to the scattering
+from the antenna.
+This paper is organized such that ﬁrst the fundamental bounds
+are given as dictated by the universally validforward scattering
+theorem, also known as theoptical theorem. In Section III, some
+examples are presented, including a case of an antenna with high
+absorption efﬁciency. A discussion concludes this paper.
+II. F
+UNDAMENTAL RELATIONSHIPS FOR THE SCA TTERING
+FROM ANTENNAS
+As shown in Fig. 1, a receiving antenna can be thought of as
+an absorbing scatterer, and general relationships for scatterers
+can thus be applied.
+As is customary and useful, we deﬁne the total ﬁeld as the
+sum of the incident and scattered ﬁelds, i.e.,
+(1)
+where
+ is called the far-ﬁeld pattern function. The corre-
+sponding scattered power ﬂow is, from Poynting’s vector
+(2)
+with
+ being the free-space impedance.
+Assume a plane wave incident from a direction
+(3)
+where
+ is a complex vector, and
+ is the propagation vector
+(4)
+The power density of the incident ﬁeld is determined from
+Poynting’s vector for
+(5)
+0018-926X/$20.00 © 2005 IEEE
+
+=== PDF PAGE 3 ===
+2844 IEEE TRANSACTIONS ON ANTENNAS AND PROPAGATION, VOL. 53, NO. 9, SEPTEMBER 2005
+Fig. 1. Matched receiving antenna has a receiving as well as a scattering pattern. The antenna receives the incident ﬁeld from the direction /40/18/59 /30/41/61/40/18
+/59/30
+/41with
+a directivity /68
+, given by its receiving properties, and scatters in the forward direction /40/18/59 /30/41/61/40/25/0/18
+/59/25/43/30
+/41with a scattering directivity /68
+. The antenna
+receiving and scattering patterns are in general quite different.
+We can now de ﬁne the (bistatic) scattering cross section (or
+radar cross-section) as
+(6)
+It has the dimension of area and signiﬁes an equivalent source of
+power, equal to the area times the incident power density, giving
+the same power density as the scattered ﬁeld in the direction
+.
+It is thus a normalized measure of the radiation pattern of the
+scattered energy.
+Consider now the total scattered power obtained by inte-
+grating over the far-ﬁeld sphere
+(7)
+and deﬁne in turn the total scattering cross-section as the area
+that extracts the scattered power from the incident power density
+(8)
+It is natural to make an analogy with a transmitting antenna,
+where the total radiated power now corresponds to the scattered
+power from the scatterer, and we easily ﬁnd that the directivity
+of the scattering pattern in the direction
+ equals
+(9)
+An important general relationship for scatterers, which we will
+ﬁnd useful for receiving antennas as well, is the so-called op-
+tical theorem or forward scattering theorem, which relates the
+total scattered and absorbed powers to the forward scattered
+ﬁeld
+. In the notation used previously, the optical theorem
+[5], [6] reads
+(10)
+in the case of a unit incident ﬁeld linearly polarized along
+ .
+Here
+ is the absorption cross-section. Normalizing the cross-
+sections to
+ , and assuming that
+ is the component along the
+incident polarization
+ , the equation is reduced
+to
+(11)
+The optical theorem states that the total cross-section of an ob-
+stacle, i.e., the sum of the absorption and scattering cross-sec-
+tions, is simply related to the
+-component of the forward scat-
+tered ﬁeld in the direction of the incident wave, i.e., directly in the
+shadow of the scatterer.
+ is also sometimes denoted theextinc-
+tion cross-section, since it represents the total power loss from the
+incident ﬁeld due to scattering and absorption by the obstacle.
+By utilizing that the imaginary part is less than or equal to the
+absolute value we arrive at the following fundamental inequality
+(12)
+or, from (9)
+(13)
+Equation (13) provides an interesting possibility for studying
+the bounds of the scattering cross-section as a function of the
+absorption cross-section and the directivity of the scatteredﬁeld.
+Note that the scattered power may tend to zero and still maintain
+the absorbed power if the directivity of the scattered power tends
+to inﬁnity.
+Now let
+in (13). We then get the following
+second-degree inequality for
+ :
+(14)
+which leads to the following lower and upper bounds on
+ :
+(15)
+The two bounds meet when
+ , equivalent to
+(16)
+since the cross-sections are normalized to
+ .
+
+=== PDF PAGE 4 ===
+ANDERSEN AND FRANDSEN: ABSORPTION EFFICIENCY OF RECEIVING ANTENNAS 2845
+Fig. 2. Upper and lower bounds on absorption ef ﬁciency as a function of antenna directivity and scatter directivity. The points refer to the examples in Section III.
+The right side of (16) is the fundamental relationship between
+absorption area and directivity for any antenna. In all cases con-
+sidered here, we have assumed a lossless and matched antenna,
+so there are no re ﬂections from the load. It should also be re-
+membered that
+ is the directivity of the antenna in the direc-
+tion looking toward the source
+ , while
+ is the directivity
+of the scattered ﬁeld in the forward direction
+ , opposite to
+the direction to the source (Fig. 1). It also follows that at the
+point where the two bounds coalesce
+(17)
+i.e., the two directivities as well as the two cross-sections are the
+same. This situation is valid for many antennas, from a simple
+dipole to a large ﬂat aperture antenna.
+Let us deﬁne the absorption efﬁciency
+ as
+(18)
+An upper and lower bound on
+ may now be found from (15).
+Consider the right-hand-side inequality of (15)
+(19)
+or
+(20)
+and hence
+(21)
+which gives a lower bound on
+ . A similar derivation based on
+the left-hand side of (15) gives an upper bound, so ﬁnally
+(22)
+For the traditional minimum scattering antenna (MSA),
+and
+ , by virtue of the restrictions the
+MSA property imposes on the radiation and scattering patterns.
+For other situations, the case is illustrated in Fig. 2, which shows
+the upper and lower bounds on the absorption efﬁciency (22) as
+a function of the ratio between the antenna directivity and the
+scatter directivity
+. It is clear that the absorp-
+tion efﬁciency may theoretically be as close to one as wanted
+for a sufﬁciently large scatter directivity. These are theoretical
+bounds valid for all antennas, which must lie inside the parabola.
+It is also an interesting corollary that, for any antenna, the direc-
+tivity of the scatteredﬁeld is higher than or equal to the antenna
+directivity. If this were not the case, the optical theorem would
+
+=== PDF PAGE 5 ===
+2846 IEEE TRANSACTIONS ON ANTENNAS AND PROPAGATION, VOL. 53, NO. 9, SEPTEMBER 2005
+Fig. 3. Three parallel half-wave dipoles connected through a lossless network
+to a matched load form the antenna.
+not be satisﬁed since the left-hand side of (14) would never be
+negative.
+III. E XAMPLES
+A. An Endﬁre Array of Dipoles
+The example is an array of parallel half-wave dipoles spaced
+0.2 wavelengths and connected through a lossless network to a
+matched load (Fig. 3). An imaginary impedance matrix with ar-
+bitrary elements describes the network, and a search algorithm
+varies the elements until a solution is found which maximizes
+the absorption efﬁciency. The algorithm ﬁnds the maximum ef-
+ﬁciency case among 10 000 random cases, then narrows the
+search in the next phase and so on until convergence. The in-
+cident ﬁeld is incident along the array axis and copolarized with
+the dipoles. For each realization of the network, the scattering
+and absorption cross-sections are found using standard antenna
+theory and mutual impedances for thin dipoles, like in [1], and
+for the ﬁnal solution the radiation and scattering patterns are
+determined. One optimized solution (not necessarily the global
+optimum) is described by the following parameters with the di-
+rectivity patterns shown in Fig. 4:
+The point (0.252, 0.93) is plotted in Fig. 2 and is seen to be
+very close to the upper bound. The antenna pattern [Fig. 4(a)]
+is quite wide, corresponding to the dipole-like directivity. Of
+course the three dipoles and the network could have been used
+to design a higher antenna directivity, but not without sacriﬁcing
+the absorption efﬁciency. How to realize the network in practice
+has not been considered.
+It is also illuminating to plot the radar cross-section (6) in-
+stead of the directivity. This is done in Fig. 5, where a single
+half-wave dipole is shown for comparison. The dipole has a di-
+rectivity of 1.64 (2.15 dB) and a
+of 0.13
+ , which gives a
+of
+ 6.7 dB. The directivities of the two antennas are compa-
+rable, but the array scattering is below the dipole scattering for
+all angles and highest in the forward direction. In a sense this is
+a true “minimum scattering antenna.”
+Fig. 4. (a) Radiation pattern (directivity) for an /78/61/51half-wave dipole
+array optimized for maximum absorption ef ﬁciency. (b) The scattering pattern
+(directivity) for the same antenna.
+B. A Five-Element Yagi
+The NEC1 program has been used to calculate the parame-
+ters for a standard Yagi antenna. First the structures are excited
+by a source as a transmit antenna resulting in maximum direc-
+tivity (and thus absorption area) and impedance. The conjugate
+impedance is then used as a load for an incident plane wave, re-
+sulting in scatter directivity and scattered power.
+A Yagi antenna with one reﬂector and four directors is shown
+as point “Yagi” in Fig. 2. It has an absorption efﬁciency of 60%.
+C. An Elementary Antenna
+Green [3] has devised a matched antenna consisting of an
+elementary Hertzian dipole and a small loop. Properly com-
+bined, this antenna absorbs more power than it scatters, at the
+expense of decreasing the absorbed power, i.e., its receiving
+properties are not optimized. When the antenna is phased for
+1SuperNEC (www.poynting.za).
+
+=== PDF PAGE 6 ===
+ANDERSEN AND FRANDSEN: ABSORPTION EFFICIENCY OF RECEIVING ANTENNAS 2847
+Fig. 5. Radar cross-section (6) of the three-element array compared with that of a single half-wave dipole.
+maximum absorption, the scattered power equals the absorbed
+power. Green conveniently describes the antenna combination
+using scattering matrices. In doing so, two parameters
+and
+sufﬁce to characterize the antenna,
+ and
+. Carrying through the analysis, oneﬁnds maximum
+and minimum absorption ef ﬁciencies of 2/3 and 1/6, respec-
+tively. Speciﬁcally
+For
+ and
+For
+ and
+For
+ and
+These data points are plotted in Fig. 2. It should be noted that
+the points lie exactly on the boundary curve for the absorption
+efﬁciency (22).
+D. Small Conical Horn Antennas
+The scattering and radiation properties of small conical horn
+antennas have been studied in [7] using moment methods for
+perfectly conducting bodies of revolution. In order to achieve a
+matched load condition, a“sliding short” technique was used, in
+which a short terminates the circular waveguide part of the horn.
+The horn is illuminated by a plane wave axial at incidence on the
+horn aperture from the direction
+. The forward direction
+is then at
+ . By placing the short in at least three different
+positions in the waveguide, and for each position calculating the
+scattered ﬁeld from the short-circuited horn, it is possible to ex-
+tract information about the horn’s voltage standing-wave ratio,
+radiation pattern, and scattering pattern for arbitrary load im-
+pedances, the matched load being a special case. A convenient
+spacing between the short positions is
+, where
+ is the
+waveguide wavelength for the fundamental TE
+ mode. Fig. 6
+shows the general geometry of a conical horn with the pertinent
+parameters.
+Table I lists the parameters for a few conical horns, including
+an open ended circular waveguide. The so-called “optimum
+horns” are optimum in the sense that they provide the largest
+directivity
+for a ﬁxed apex length. For small apertures,
+this results in fairly large horn ﬂare angles. The calculated
+absorption efﬁciencies and directivity ratios are shown to the
+right in Table I and also plotted in Fig. 2, with the identiﬁcation
+tag taken from the leftmost column in Table I. It is noteworthy
+that, as opposed to the dipole cases in Section III-A and -B, the
+absorption efﬁciencies for these conical horns tend to be very
+close to the lower bound for
+ .
+Fig. 7 shows the geometry of a feed horn intended for illu-
+mination of deep center-fed paraboloids. The horn is basically a
+choked waveguide, also sometimes referred to as a coaxial feed.
+The geometry is given in Table II, while the calculated results
+for this horn at a frequency of 8.5 GHz are
+IV . DISCUSSION
+As discussed in [1], there are several misunderstandings con-
+cerning the amount of scattered power from matched receiving
+
+=== PDF PAGE 7 ===
+2848 IEEE TRANSACTIONS ON ANTENNAS AND PROPAGATION, VOL. 53, NO. 9, SEPTEMBER 2005
+Fig. 6. Geometry of conical horn.
+TABLE I
+HORN GEOMETRY PARAMETERS (Fig. 6) AND CALCULATED ABSORPTION EFFICIENCIES
+Fig. 7. Geometry of coaxial feed horn.
+
+=== PDF PAGE 8 ===
+ANDERSEN AND FRANDSEN: ABSORPTION EFFICIENCY OF RECEIVING ANTENNAS 2849
+Table II
+GEOMETRY PARAMETERS FOR COAXIAL FEED (Fig. 7)
+antennas. It is often stated that scattered power is equal to or
+larger than the absorbed power, which is probably due to a mis-
+conception of the notion of the so-called minimum scattering
+antennas, in which case it is true that the two powers are equal,
+leading to an absorption ef ﬁciency of 50%. It is one of the re-
+sults of this paper that, literally speaking, minimum scattering
+antennas do not exist.
+Based on fundamental concepts for scattering from objects
+with losses, bounds have been derived for the absorption ef ﬁ-
+ciency of any antenna. The bounds depend only on the ratio
+between two directivities, the antenna directivity in the direc-
+tion toward the source, and the directivity of the scattered ﬁeld
+in the forward scattering direction. When the two directivities
+are equal, the efﬁciency is 50%, but may approach 100% or 0%
+when the scatter directivity is much larger than the antenna di-
+rectivity. It should be noted that it is possible to design antennas
+with low backscattering with 50% ef ﬁciency [4], but here we
+are only concerned with the total scattered power. It is impor-
+tant to note that the absorption ef ﬁciency is not related to the
+well-known aperture efﬁciency of antenna theory.
+It is not obvious from the theory how to design antennas with
+low scattered power, except that an antenna with a delta func-
+tion scattering pattern in the forward direction may have zero
+scatter in all other directions. In this paper an example is given
+for an array of three half-wave dipoles coupled to a matched
+load via an optimized lossless network. The ef ﬁciency is 93%,
+and the scattered power is below that of a dipole in all directions.
+The directivities of the two antennas are similar. Most antennas
+will have absorption efﬁciencies below 50%, as evidenced from
+the many examples of conical structures, but calculations have
+shown that exceptions do occur. Apart from the array mentioned
+above, a Yagi antenna has an efﬁciency larger than 50%.
+It is interesting to observe that, in all cases, the points lie very
+near or on the bounds, indicating that the imaginary part of the
+forward scattered ﬁeld is close to being equal to the absolute
+value, or, in other words, the phase difference between the in-
+cident and scattered ﬁelds is close to 90
+. For Green’s antenna,
+this phase difference is exactly 90
+ .
+REFERENCES
+[1] J. B. Andersen and R. G. Vaughan, “Transmitting, receiving and scat-
+tering properties of antennas, ” IEEE Antennas Propag. Mag. , vol. 45,
+pp. 93–98, Aug. 2003.
+[2] R. E. Collin, “Remarks on “Comments on the limitations of the thevenin
+and norton equivalent circuits for a receiving antenna”,” IEEE Antennas
+Propag. Mag., vol. 45, pp. 99–100, Aug. 2003.
+[3] R. B. Green, “Scattering from conjugate-matched antennas, ” IEEE
+Trans. Antennas Propag., vol. AP-14, no. 1, pp. 17–21, Jan. 1966.
+[4] B. A. Munk, Finite Antenna Arrays and FSS. New York: Wiley Inter-
+science, 2003.
+[5] A. Ishimaru, Electromagnetic Wave Propagation, Radiation, and Scat-
+tering. Englewood Cliffs, NJ: Prentice-Hall, 1991, pp. 583 –585.
+[6] G. Kristensson, Spridningsteori med Antenntillämpningar. Lund: Stu-
+dentlitteratur, 1999. Swedish.
+[7] A. Frandsen, “A numerical investigation of scattering from small conical
+horn antennas,” Ph.D. dissertation LD58, Electromagnetics Inst., Tech-
+nical Univ. of Denmark, Nov. 1985.
+Jørgen Bach Andersen (M’68–SM’78–F’92–
+LF’02) received the M.Sc. and Dr. Tech. degrees
+from the Technical University of Denmark (DTU),
+Lyngby, in 1961 and 1971, respectively.
+From 1961 to 1973, he was with the Electro-
+magnetics Institute, DTU. Since 1973, he has been
+with Aalborg University, Aalborg, Denmark, where
+he is now a Professor Emeritus. He has been a
+Visiting Professor in Tucson, AZ; Christchurch,
+New Zealand; Vienna, Austria; and Lund, Sweden.
+From 1993 to 2003, he was Head of the Center for
+Personkommunikation, dealing with modern wireless communications. He has
+published widely on antennas, radio wave propagation, and communications,
+and has also worked on biological effects of electromagnetic systems. He
+was on the Management Committee for COST 231 and 259, a collaborative
+European program on mobile communications. He has recently published (
+with R G Vaughan) Channels, Propagation and Antennas for Mobile Commu-
+nications (London, U.K.: The IEE, 2003). He is a former Vice President of the
+International Union of Radio Science.
+Prof. Andersen received an honorary degree from Lund University, Sweden
+in 2003.
+Aksel Frandsen (S’77–M’80) received the M.Sc.
+E.E. and Ph.D. degrees from the Electromagnetics
+Institute, Technical University of Denmark (TUD),
+Lyngby, in 1978 and 1985, respectively.
+He joined TICRA, Copenhagen, Denmark, in
+1980. He has been involved in several projects
+related to near-ﬁeld antenna measurements, from de-
+velopment of transformation software and computer
+simulation studies of the impact of measurement
+inaccuracies to design, manufacturing, and quali-
+ﬁcation testing of customer-speci ﬁc high-precision
+near-ﬁeld probes. Particularly the spherical technique has attracted his attention.
+His other areas of interest include basic and applied electromagnetic theory and
+the application of numerical techniques to antenna design and analysis.
+Dr. Frandsen is a Member of the Antenna Measurement Techniques
+Association.

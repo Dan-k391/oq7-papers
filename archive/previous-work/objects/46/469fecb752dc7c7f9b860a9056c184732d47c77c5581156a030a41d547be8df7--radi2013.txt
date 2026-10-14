@@ -1,0 +1,1314 @@
+=== PDF PAGE 1 ===
+RA’DI et al.: TOTAL ABSORPTION OF ELECTROMAGNETIC W A VES IN ULTIMATELY THIN LAYERS 1
+Total absorption of electromagnetic waves in
+ultimately thin layers
+Y . Ra’di,Student member, IEEE, V .S. Asadchy, S.A. Tretyakov, Fellow, IEEE
+Abstract—We consider single-layer arrays of electrically small
+lossy particles that completely absorb electromagnetic waves
+at normal incidence. Required conditions for electromagnetic
+properties of bi-anisotropic particles have been identiﬁed in
+the most general case of uniaxial reciprocal and nonreciprocal
+particles. We consider the design possibilities offered by the par-
+ticles of all four fundamental classes of bi-anisotropic inclusions:
+reciprocal chiral and omega particles and nonreciprocal Tellegen
+and moving particles. We also study the reﬂection/transmission
+properties of asymmetric structures with different properties
+when illuminated from the opposite sides of the sheet. It has
+been found that it is possible to realize single-layer grids which
+exhibit the total absorption property when illuminated from one
+side but are totally transparent when illuminated from the other
+side (an ultimately thin isolator). Other possible properties are
+co-polarized or twist polarized reﬂection from the side opposite
+to the absorbing one. Finally, we discuss possible approaches to
+practical realization of particles with the properties required for
+single-layer perfect absorbers and other proposed devices.
+Index Terms—Electromagnetic wave absorption, absorber, pe-
+riodical structures, isolator, twist-polarizer, bi-anisotropic parti-
+cle, reﬂection, transmission, resonance
+I. I NTRODUCTION
+I
+N this paper we study possible approaches to the design
+of electrically thin layers (sheets) which would behave as
+perfect absorbers for normally-incident electromagnetic plane
+waves. We say that absorption in a layer at some frequency
+is “perfect” or “total”, if all incident power is dissipated in
+the layer. This implies that both reﬂection and transmission
+coefﬁcients are equal to zero. In this study we will consider
+only the case of normal incidence, thus, this term should not
+be confused with the perfectly matched layer or PML, which
+implies zero reﬂection coefﬁcient at any incident angle and
+for any polarization of the incident wave.
+The theory and design of absorbers for electromagnetic
+radiation has a long history and there exists a large variety of
+designs, especially for microwave frequencies (see, e.g. [1]–
+[3]). However, in most of these designs the absorbing structure
+is backed by a reﬂecting wall (usually a metal surface),
+because most often the goal is to reduce microwave reﬂections
+from metal structures. Recently, there has been considerable
+interest in thin absorbing layers for situations where there is no
+reﬂector behind, so that the electromagnetic properties of the
+object which one wants to “hide” can be arbitrary. Naturally,
+a thin reﬂector can be incorporated in the absorber structure,
+but often it is desirable to allow off-band electromagnetic
+Y . Ra’di, V .S. Asadchy, S.A. Tretyakov are with the Department of Radio
+Science and Engineering/SMARAD Center of Excellence, Aalto University,
+P. O. Box 13000, FI-00076 AALTO, Finland. Email: younes.radi@aalto.ﬁ.
+waves to pass through the structure or avoiding conductors
+is one of the application requirements. Also, for infrared and
+visible-light applications the use of perfect reﬂectors as parts
+of absorbing layers is not practically possible except if the use
+of electrically thick layers of photonic crystals is allowed in
+design. Electrically thin matched absorbers can be realized
+in many ways, but, to the best of our knowledge, only a
+very limited set of opportunities has been explored so far.
+One known possibility is to combine two thin metamaterial
+layers with contrasting material parameters [4] or combine
+a thin resistive sheet with an array of small resonant split
+rings (which realize the necessary magnetic response) [5].
+A fundamental limitation on the bandwidth of metal-backed
+absorbers has been discussed in [6]. A review of recently
+introduced multilayer absorbers can be found in [7]. Here
+we will not consider such two- or multilayer structures,
+concentrating on the basic and fundamentally simplest case
+of a single sheet with properly designed properties. These
+single-layer absorbers provide ultimately thin design solutions,
+because the layer thickness cannot be made smaller than just
+one layer of particles (molecules).
+Conceptually, the simplest possible thin absorbing sheet is a
+uniform or composite layer of electrically negligible thickness
+(impedance sheet). In this case, the incident electric ﬁeld
+induces an inﬁnitesimally thin sheet of electric current in the
+layer, which eventually leads to dissipation of the incident
+power, if the layer is lossy. However, it is obvious that in
+this case the absorbed power can reach only one half of the
+incident power, and the total absorption is not possible (e.g.,
+[8], [9]). This follows from the fact that the induced current
+sheet symmetrically radiates plane waves in the forward and
+back directions. Zero transmission coefﬁcient implies that the
+amplitude of this secondary wave behind the sheet equals
+to that of the incident wave (so that the two waves cancel
+each other behind the sheet), but this means that the reﬂection
+coefﬁcient equals unity in the amplitude. Thus, in order to
+enable total absorption, we need to allow also magnetic current
+to be induced in the layer. Strictly speaking, this implies that
+the layer thickness cannot be negligibly small (electrically), at
+least if no natural magnetics are used, but it can be still made
+very small compared with the wavelength.
+In view of practical requirements in realization of layers
+with desired electromagnetic response, calling for the use
+of composite structures, we do not model the layer as a
+homogeneous sheet described by some surface susceptibility
+or impedance, but assume from the beginning that the layer
+is a composite structure: a single layer of small polarizable
+particles. Engineering these inclusions, we can tune the reﬂec-
+arXiv:1211.3549v3  [physics.class-ph]  24 Jun 2013
+
+=== PDF PAGE 2 ===
+RA’DI et al.: TOTAL ABSORPTION OF ELECTROMAGNETIC W A VES IN ULTIMATELY THIN LAYERS 2
+tion and transmission responses of the composite layer. Such
+artiﬁcial sheets with engineered electromagnetic properties
+are called “metasurfaces” or “metasheets”, see recent reviews
+[10], [11]. The absorber designs which we will develop here
+will give the required polarizabilities of individual inclusions
+together with the appropriate array period. In order to have
+full design freedom in deﬁning how the induced electric and
+magnetic moments of the absorbing dipolar particles depend
+on the incident ﬁelds, we assume that the particles are the
+most general bi-anisotropic particles, possibly nonreciprocal.
+Here, we will consider only the case of normal plane-
+wave incidence. In practice, performance stability for oblique
+incidence is an important issue. Conventional absorbers are
+made of material layers of considerable electrical thickness,
+and this thickness is the key parameter deﬁning the resonant
+frequency. Because this thickness changes when the incidence
+angle of the incident wave deviates from the normal, a shift
+in the frequency of the absorption maximum is expected.
+The ultimately thin absorbing layers proposed in this paper
+are expected to be more stable for changes of the incident
+angle, but a separate study is needed to understand the angular
+dependence of response of these new structures.
+The condition for total absorption of normally incident
+plane waves by a single inﬁnite periodic array of electric and
+magnetic dipoles is known from the antenna theory [9]. Let
+us assume that an inﬁnite array with the period a (a is smaller
+than the wavelength in the surrounding space) in each unit cell
+contains one isotropic particle in which the incident electric
+and magnetic ﬁelds induce electric dipole moment p and
+magnetic moment m. The two moments will be orthogonal:
+electric moment along the incident electric ﬁeld and magnetic
+moment along the magnetic ﬁeld. Arrays of both moments will
+create secondary plane waves, and in the forward direction the
+secondary electric ﬁeld amplitude reads
+Eforward = −jω
+2S
+(
+η0p + 1
+η0
+m
+)
+(1)
+where S = a2 is the unit-cell area, so that jωp/S is the
+surface-averaged electric current density and jωm/S is the
+magnetic current surface density. η0 =
+√
+µ0/ϵ0 is the wave
+impedance of the surrounding space. Derivation of these
+formulas for plane-wave ﬁelds created by planar sheets of
+electric and magnetic currents can be found e.g. in [12]. In the
+opposite direction (the reﬂection direction), the same induced
+electric and magnetic currents generate a plane wave with the
+amplitude
+Eback = −jω
+2S
+(
+η0p − 1
+η0
+m
+)
+(2)
+Now, we see that it is possible to choose the moments so
+that the secondary ﬁeld would cancel the incident ﬁeld Einc
+in the forward direction (zero transmission coefﬁcient) and
+at the same time the secondary ﬁeld would be zero in the
+back direction (zero reﬂection coefﬁcient). Obviously, the
+conditions are
+p = −jS
+ωη0
+Einc, m =η2
+0p (3)
+This arrangement of electric and magnetic current sheets is in
+fact a Huygens surface, and for volumetric material layers that
+would correspond to materials with equal relative permittivity
+and permeability. We note in passing that the use of volumetric
+materials with matched wave impedance in absorbers is well
+known, see e.g. [1], [13] or [14, ch. 12].
+Thus, a simple approach to realization of total absorbing
+layers is to arrange electrically and magnetically polarizable
+particles in a dense lattice and tune the polarizabilities so
+that (3) are satisﬁed. However, this is not the only possible
+approach. We only need to ensure that the dipole moments
+have the required values, but the particles in which these dipole
+moments are induced can be any electrically small objects
+which one can describe as dipole scatterers. We expect that
+there should be considerable design freedom and possibilities
+for realizing additional practically useful properties if we do
+not restrict the design space by the simplest case of small
+electrically and magnetically polarizable scatterers (like small
+magnetodielectric spheres, for example).
+In this paper we consider planar layers formed by elec-
+trically small particles modeled by the most general linear
+relations between the induced dipole moments p and m and
+the local ﬁelds Eloc and Hloc at the positions of the particles:
+[p
+m
+]
+=
+[αee αem
+αme αmm
+]
+·
+[Eloc
+Hloc
+]
+. (4)
+Although for the desired operation of the layer the induced
+dipole moments must satisfy the same conditions of the Huy-
+gens sheet (3), the actual design space is vastly larger, since we
+can exploit the magneto-electric coupling parameters αem and
+αme to bring the induced moments to the desired balance and
+required amplitudes. Furthermore, additional functionalities
+will become possible, as we will see in the following.
+While the simple and well-known solution in form of
+electric and magnetic dipole particles corresponds to simple
+magnetodielectric layers with ϵr = µr (if we think about
+layers of homogeneous materials), the general case of bi-
+anisotropic polarizabilities of individual particles corresponds
+to bi-anisotropic absorbing layers. In the past, chiral absorbing
+layers were studied in detail [15]–[21], but only for metal-
+backed volumetric layers. The use of omega coupling phe-
+nomenon for matched absorber layers was explored in [14],
+[22], [23], but also only for material layers on perfectly con-
+ducting surfaces. Recently, different kinds of absorbers have
+been proposed to absorb electromagnetic waves in microwave
+or optical spectra [24]–[30]. As it was mentioned, most of
+these absorbers are backed with a metal sheet which limits
+their functionality for the wave coming from the other side.
+These absorbers contain more than one layer of particles
+and they are designed so that to absorb the wave from one
+side while they have some uncontrollable properties for the
+wave coming from the other side. Here, we answer important
+questions: How one can realize single-layer perfect absorbers
+from one side of the sheet and what functionalities can be
+realized for waves coming from the other side? Of course,
+this implies that there is no metal (PEC) ground plane as a
+part of the absorbing structure.
+Here, we study the possible use of single arrays of bi-
+anisotropic particles of all known classes: reciprocal chiral
+
+=== PDF PAGE 3 ===
+RA’DI et al.: TOTAL ABSORPTION OF ELECTROMAGNETIC W A VES IN ULTIMATELY THIN LAYERS 3
+and omega and nonreciprocal Tellegen and “moving” particles
+[14], [31]. Also in this paper we consider the use of parti-
+cles which have hybrid electromagnetic properties of several
+classes, e.g. “moving” chiral and Tellegen omega particles.
+The electromagnetic coupling of the artiﬁcial omega-Tellegen
+particle was measured experimentally in [32]. It was shown
+that nonreciprocal electromagnetic coupling really exists in
+the particle and the electromagnetic coupling coefﬁcient is
+commensurate by magnitude with the electric and magnetic
+polarizabilities. Described implementation of the particle im-
+plies presence of external magnetic ﬁeld bias (3570 Oe in
+[32]). The used material of ferrite inclusions was yttrium iron
+garnet.
+II. T OTAL ABSORPTION IN ARRAYS OF GENERAL
+BI-ANISOTROPIC PARTICLES
+A. Effective polarizability dyadics of particles in periodic
+arrays
+In this paper, we consider thin absorbers for normally
+incident plane waves and concentrate on uniaxial structures,
+isotropic in the plane of the layer. This property ensures
+that the absorber functions for arbitrary polarized incident
+plane waves. The orientation of the absorbing sheet in space
+is deﬁned by the unit vector z0, orthogonal to its plane.
+The layer consists of an array of electrically small uniaxial
+particles. As discussed above, total absorption requires at least
+electric and magnetic dipole moments induced in the particles,
+and the requirement of ultimately small thickness means that
+higher-order multipoles are negligible. Thus, we assume that
+the particles are bi-anisotropic particles characterized by four
+dyadic polarizabilities: electric, magnetic, electromagnetic,
+and magnetoelectric, which relate local electromagnetic ﬁelds
+to the induced electric and magnetic dipole moments as in (4).
+The uniaxial symmetry allows only isotopic response and
+rotation around the axis z0. Thus, all the polarizabilities in (4)
+take the forms:
+αee =αco
+eeI t +αcr
+eeJ t, αmm =αco
+mmI t +αcr
+mmJ t
+αem =αco
+emI t +αcr
+emJ t, αme =αco
+meI t +αcr
+meJ t, (5)
+where indices co and cr refer to the symmetric and anti-
+symmetric parts of the corresponding dyadics, respectively.
+I t =I − z0z0 is the transverse unit dyadic and J t = z0 ×I t
+is the vector-product operator. The particles are arranged in a
+square lattice with the unit cell of the size a ×a. The grid is
+excited by an arbitrary polarized plane wave with the electric
+and magnetic ﬁelds of Einc and Hinc, respectively, which are
+uniform in the array plane (normal incidence). In this situation,
+the induced dipole moments are the same for all particles. We
+assume that the grid period a is smaller than the wavelength,
+so that no grating lobes are generated.
+The local ﬁelds exciting the particles are the sums of the
+external incident ﬁeld and the interaction ﬁeld caused by the
+induced dipole moments in other particles:
+Eloc = Einc +βe · p
+Hloc = Hinc +βm · m,
+(6)
+where βe and βm are the interaction constants. These dyadic
+coefﬁcients are proportional to the two-dimensional unit
+dyadic I t. Explicit analytical expressions for the interaction
+constants can be found in [14].
+Equations (4) and (6) can be re-written as relations between
+the induced dipole moments and the incident ﬁelds:
+[p
+m
+]
+=
+[
+ˆαee ˆαem
+ˆαme ˆαmm
+]
+·
+[Einc
+Hinc
+]
+, (7)
+where the effective polarizabilities (marked by hats) include
+the effects of particle interactions in the array. Explicit formu-
+las for the effective polarizabilities in terms of the individual
+polarizabilities and interaction constants are given in [33]:
+ˆαee =
+(
+I t −αee ·βe −αem ·βm ·(I t −αmm ·βm)−1 ·αme ·βe
+)−1
+.
+(
+αee +αem ·βm · (I t −αmm ·βm)−1 ·αme
+)
+ˆαem =
+(
+I t −αee ·βe −αem ·βm ·(I t −αmm ·βm)−1 ·αme ·βe
+)−1
+.
+(
+αem +αem ·βm · (I t −αmm ·βm)−1 ·αmm
+)
+ˆαme =
+(
+I t −αme ·βe ·(I t −αee ·βe)−1 ·αem ·βm −αmm ·βm
+)−1
+.
+(
+αme +αme ·βe · (I t −αee ·βe)−1 ·αee
+)
+ˆαmm =
+(
+I t −αme ·βe ·(I t −αee ·βe)−1 ·αem ·βm −αmm ·βm
+)−1
+.
+(
+αmm +αme ·βe · (I t −αee ·βe)−1 ·αem
+)
+.
+(8)
+Because the interaction constants are diagonal dyadics, the
+symmetry properties of the effective polarizabilities are the
+same as for the individual particle polarizabilities (as deﬁned
+in (5)):
+ˆαee =ˆαco
+eeI t +ˆαcr
+eeJ t, ˆαmm =ˆαco
+mmI t +ˆαcr
+mmJ t
+ˆαem =ˆαco
+emI t +ˆαcr
+emJ t, ˆαme =ˆαco
+meI t +ˆαcr
+meJ t. (9)
+This can be checked by substituting (5) in (8).
+B. Reﬂection and transmission coefﬁcients
+In the theory of absorbing sheets, we will distinguish
+between illuminations of the sheet from its two opposite sides,
+along −z0 and z0. In the rest of the paper, we will use double
+signs for these two cases, where the top and bottom signs
+correspond to the incident plane wave propagating in −z0 and
+z0 directions, respectively.
+In the incident plane wave, the electric and magnetic ﬁelds
+satisfy
+Hinc = ∓ 1
+η0
+J t · Einc. (10)
+
+=== PDF PAGE 4 ===
+RA’DI et al.: TOTAL ABSORPTION OF ELECTROMAGNETIC W A VES IN ULTIMATELY THIN LAYERS 4
+Thus, the dipole moments in (7) can be written as
+[
+p
+m
+]
+=
+
+
+ˆαee ∓ 1
+η0
+ˆαem · (z0 ×I t)
+ˆαme ∓ 1
+η0
+ˆαmm · (z0 ×I t)
+
+ · Einc . (11)
+Secondary plane waves (reﬂected and transmitted) are gener-
+ated by surface-averaged current densities
+Je = jω
+S p, Jm = jω
+S m. (12)
+Radiation from inﬁnite sheets of electric and magnetic currents
+can be easily solved [33] from the Maxwell equations:
+Er = −jω
+2S
+{[
+η0ˆαco
+ee ±ˆαcr
+em ±ˆαcr
+me − 1
+η0
+ˆαco
+mm
+]
+I t
++
+[
+η0ˆαcr
+ee ∓ˆαco
+em ∓ˆαco
+me − 1
+η0
+ˆαcr
+mm
+]
+J t
+}
+· Einc
+(13)
+Et =
+{[
+1 − jω
+2S
+(
+η0ˆαco
+ee ±ˆαcr
+em ∓ˆαcr
+me + 1
+η0
+ˆαco
+mm
+)]
+I t
+−jω
+2S
+[
+η0ˆαcr
+ee ∓ˆαco
+em ±ˆαco
+me + 1
+η0
+ˆαcr
+mm
+]
+J t
+}
+· Einc.
+(14)
+Using these general expressions for the reﬂected and trans-
+mitted ﬁelds from general bi-anisotropic planar arrays, we are
+ready to study how we can make these ﬁelds equal to zero, as
+required for perfect absorbers.
+C. General conditions for total absorption
+1) Total absorption from both sides of the sheet: The
+deﬁnition of a perfect absorber implies that
+Er = 0, Et = 0 . (15)
+Equating to zero the expressions in square brackets in (13) and
+(14), we arrive to sufﬁcient conditions for total absorption of
+arbitrarily polarized incident plane waves:
+η0ˆαco
+ee ±ˆαcr
+em ±ˆαcr
+me − 1
+η0
+ˆαco
+mm = 0
+η0ˆαcr
+ee ∓ˆαco
+em ∓ˆαco
+me − 1
+η0
+ˆαcr
+mm = 0
+η0ˆαco
+ee ±ˆαcr
+em ∓ˆαcr
+me + 1
+η0
+ˆαco
+mm = 2S
+jω
+η0ˆαcr
+ee ∓ˆαco
+em ±ˆαco
+me + 1
+η0
+ˆαcr
+mm = 0.
+(16)
+Because in the expressions for the reﬂected and transmitted
+ﬁelds (13) and (14) the terms proportional to I t and J t are
+orthogonal, these conditions are also the necessary conditions
+for total absorption. The exception for the last statement is
+the case of circularly polarized incident waves, when these
+conditions are sufﬁcient but not necessary, opening still more
+design possibilities if only circularly polarized waves should
+be absorbed totally. For circularly polarized incidence, the total
+absorption conditions read
+η0ˆαco
+ee ±ˆαcr
+em ±ˆαcr
+me − 1
+η0
+ˆαco
+mm
+= (±j)
+[
+η0ˆαcr
+ee ∓ˆαco
+em ∓ˆαco
+me − 1
+η0
+ˆαcr
+mm
+]
+1 − jω
+2S
+(
+η0ˆαco
+ee ±ˆαcr
+em ∓ˆαcr
+me + 1
+η0
+ˆαco
+mm
+)
+= (∓j)jω
+2S
+[
+η0ˆαcr
+ee ∓ˆαco
+em ±ˆαco
+me + 1
+η0
+ˆαcr
+mm
+]
+.
+(17)
+Here ±j coefﬁcients correspond to the two orthogonal polar-
+izations of the incident circularly polarized ﬁelds.
+In the following, we will use the general sufﬁcient condi-
+tions (16) which ensure total absorption for arbitrary polariza-
+tion of the incident waves. As one can see, these conditions
+connect symmetric and antisymmetric parts of the electric and
+magnetic polarizabilities to the antisymmetric and symmetric
+parts of the cross-coupling polarizabilities, respectively. This
+is a very important point because for reciprocal particles (for
+example, arbitrary shaped metal or dielectric particles) the
+antisymmetric parts of the electric and magnetic polarizabili-
+ties are zero (e.g., [14]) which limits symmetric components
+of electromagnetic coupling dyadics. Furthermore, we see
+from (16) that for zero reﬂection it is not necessary to have
+absorption inside the particles, while it is necessary for zero
+transmission (note the imaginary quantity in the right-hand
+side of the third equation).
+Let us ﬁrst analyze layers which exhibit the total absorption
+property from both sides of the sheet. In this case, conditions
+(16) should hold for both choices of the ± signs, and we ﬁnd
+that all the magnetoelectric coefﬁcients must vanish:
+ˆαcr
+em =ˆαcr
+me =ˆαco
+em =ˆαco
+me = 0. (18)
+Thus, we conclude that the only possible realization of total
+absorbers in form of a single layer of particles is the use
+of electrically and magnetically polarizable uniaxial particles
+with the polarizabilities balanced as in a Huygens’ pair:
+ˆαco
+ee = S
+jωη 0
+, ˆαco
+mm =η2
+0ˆαco
+ee (19)
+(and all the other polarizability components equal zero). The
+effective polarizabilities which include the effect of particle
+interactions in the array should be, thus, purely imaginary,
+corresponding to a resonance where the particles show purely
+absorptive properties.
+The relations between the collective polarizabilities and the
+polarizabilities of the same particles in free space (8) in this
+special case simplify to
+1
+ˆαcoee
+= 1
+αcoee
+−βe, 1
+ˆαcomm
+= 1
+αcomm
+−βm. (20)
+Using the known expression for the interaction constants in
+regular dipolar arrays [34, eq. (4.89)], we can ﬁnd the required
+particle polarizabilities in free space:
+1
+αcoee
+= Re(βe) +j k3
+6πϵ0
++jωη0
+2S , (21)
+
+=== PDF PAGE 5 ===
+RA’DI et al.: TOTAL ABSORPTION OF ELECTROMAGNETIC W A VES IN ULTIMATELY THIN LAYERS 5
+1
+αcomm
+= Re(βm) +j k3
+6πµ0
++j ω
+2Sη0
+. (22)
+We again see that the reactive response of the individual
+particles should be such that together with the reactive part
+of the interaction ﬁeld a resonance condition is satisﬁed. We
+can also check that the amplitude of the secondary plane waves
+created by the two dipolar arrays of the perfect absorber equal
+to one half of the incident ﬁeld amplitude:
+Esc = −η0
+2
+jωp
+S = −η0
+2
+jω
+S ˆαco
+eeEinc = −1
+2Einc (23)
+(we have substituted ˆαco
+ee from (19)). The ﬁeld created by the
+magnetic-dipole array has the same amplitude. In the forward
+directions, the sum of these two plane waves compensates the
+incident ﬁeld, and in the reﬂection direction these two plane
+waves are out of phase and the sum is zero.
+2) Total absorption from one side of the sheet: Next, we
+consider single-layer sheets which work as total absorbers only
+from one side and study what functionalities can be engineered
+for illumination from the opposite side. From (16), we know
+that the presence of cross-coupling polarizabilities (as well
+as the anti-symmetric parts of the electric and magnetic
+polarizabilities) causes asymmetry in interactions of the sheet
+with incident waves coming from the opposite directions. Let
+us assume that we satisfy (16) for waves incident from one of
+the two sides. This corresponds to conditions
+η0ˆαco
+ee − 1
+η0
+ˆαco
+mm = ∓(ˆαcr
+em +ˆαcr
+me)
+η0ˆαcr
+ee − 1
+η0
+ˆαcr
+mm = ±(ˆαco
+em +ˆαco
+me)
+η0ˆαco
+ee + 1
+η0
+ˆαco
+mm = 2S
+jω ∓ (ˆαcr
+em −ˆαcr
+me)
+η0ˆαcr
+ee + 1
+η0
+ˆαcr
+mm = ±(ˆαco
+em −ˆαco
+me).
+(24)
+Here, as above, the upper sign corresponds to −z0 directed
+and the lower sign to the oppositely-directed incident plane
+waves. Using the same conditions for total absorption for the
+opposite incidence direction (taking the lower signs in (16),
+(13), and (14)), we ﬁnd the reﬂected and transmitted electric
+ﬁelds for the same sheet when the incidence is from the other
+side:
+Er = jω
+S
+{
+± [ˆαcr
+em +ˆαcr
+me]I t ∓ [ˆαco
+em +ˆαco
+me]J t
+}
+· Einc
+(25)
+Et = jω
+S
+{
+± [ˆαcr
+em −ˆαcr
+me]I t ∓ [ˆαco
+em −ˆαco
+me]J t
+}
+· Einc.
+(26)
+These equations show that tuning the layer to act as a perfect
+absorber from one side, it is possible to realize some special
+properties (in reﬂection and transmission) from the other side.
+To study these properties, we begin with the case of
+reciprocal structures. In this case, the electric and magnetic
+polarizabilties are symmetric dyadics ( ˆαcr
+ee = 0 , ˆαcr
+mm = 0 )
+and the ﬁelds coupling coefﬁcients satisfy
+ˆαco
+em = −ˆαco
+me, ˆαcr
+em =ˆαcr
+me, (27)
+corresponding to chiral and omega couplings [14]. Due to the
+reciprocity, the transmission coefﬁcient is zero for waves inci-
+dent from both sides. The second equation in (24) is satisﬁed
+identically, and from the last one, we see that the chirality
+parameter ˆαco
+me = 0. Thus, if the sheet is tuned to work as a
+perfect absorber from one side, the chirality parameter is zero
+and there is no possibility to tune the reﬂection properties from
+the opposite side introducing chirality.
+On the other hand, the omega coupling coefﬁcient ˆαcr
+me is
+not ﬁxed by the total absorption condition on one side, because
+from the ﬁrst and third equations in (24) we ﬁnd
+ˆαco
+ee = S
+jωη 0
+∓ 1
+η0
+ˆαcr
+me (28)
+ˆαco
+mm = η0S
+jω ±η0ˆαcr
+me. (29)
+Comparing with (19), we see that introducing omega coupling,
+we can maintain the property of total absorption from one
+of the sides with relaxed requirements on the electric and
+magnetic polarizabilities. For instance, we can possibly en-
+gineer the omega coupling parameter ˆαcr
+me so that the required
+magnetic polarizability is much smaller than that dictated by
+(19). The reﬂection coefﬁcient from the side opposite to the
+matched one we ﬁnd from (25):
+Er = ±2jω
+S ˆαcr
+emI t · Einc. (30)
+Thus, varying the omega coupling parameter, we can control
+the co-polarized reﬂection from the opposite side of the sheet,
+maintaining the matching and total absorption properties from
+one side.
+More functionalities become available if we allow nonre-
+ciprocal response of the particles. For simplicity, let us con-
+centrate here on the cases where the magnetoelectric coupling
+is only due to nonreciprocity, assuming that the chirality and
+omega coupling coefﬁcients are zero (the effects of chirality
+and omega coupling have been considered above). In these
+cases, the coupling coefﬁcients satisfy
+ˆαco
+em =ˆαco
+me, ˆαcr
+em = −ˆαcr
+me, (31)
+corresponding to Tellegen and “moving” particles, respectively
+[14], [31]. From the ﬁrst equation in (24), we ﬁnd thatη0ˆαco
+ee =
+1
+η0
+ˆαco
+mm (Huygens’ relation). From this and the third relation
+we get
+ˆαco
+ee = S
+jωη 0
+∓ 1
+η0
+ˆαcr
+em. (32)
+The second and the last relations in (24) connect the anti-
+symmetric parts of the electric and magnetic polarizabilities
+with the Tellegen parameter:
+ˆαcr
+ee = ± 1
+η0
+ˆαco
+em, ˆαcr
+mm = ∓η0ˆαco
+em. (33)
+Thus, if the Tellegen coupling is present, its effects should
+be balanced with the nonreciprocity in both electric and
+magnetic polarizabilities. Tellegen coupling allows control of
+the reﬂection coefﬁcient from the opposite side, since
+Er = ∓2jω
+S ˆαco
+emJ t · Einc. (34)
+
+=== PDF PAGE 6 ===
+RA’DI et al.: TOTAL ABSORPTION OF ELECTROMAGNETIC W A VES IN ULTIMATELY THIN LAYERS 6
+We see that the Tellegen sheet can be designed to work as
+a perfect absorber from one side and a twist polarizer in
+reﬂection from the other side.
+Finally, the antisymmetric part of the nonreciprocal coupling
+coefﬁcient allows to control the transmission coefﬁcient from
+the opposite side (for nonreciprocal sheets the transmission
+coefﬁcient is not anymore necessarily symmetric):
+Et = ±2jω
+S ˆαcr
+emI t · Einc. (35)
+This transmission coefﬁcient equals unity if ˆαcr
+em =
+±S/(2jω), in which case equation (32) shows that all the
+polarizabilities are in balance:
+η0ˆαco
+ee = ±ˆαcr
+em = 1
+η0
+ˆαco
+mm = S
+j2ω. (36)
+Using (8), it is easy to show that the polarizabilities for each
+individual particle should also be in balance and equal to
+η0αco
+ee = ±αcr
+em = 1
+η0
+αco
+mm = η0
+2
+1
+jωη 0
+S +βe
+. (37)
+We see that the required electric and magnetic effective
+polarizabilities are twice as small as compared to the simple
+case of isotropic dipole particles (19). However, the resulting
+amplitudes of the induced dipole moments and the ampli-
+tudes of the secondary plane waves are the same, because
+both moments are generated by both incident ﬁelds. If this
+nonreciprocal array is excited from the absorbing side, these
+secondary plane waves cancel the incident wave behind the
+sheet and they cancel each other in the reﬂection direction,
+same as for the simple isotropic array. But for the excitation
+from the opposite side, the induced dipole moments are zero,
+because contributions due to the applied electric and magnetic
+ﬁelds cancel out, and the sheet is transparent. We can conclude
+that this interesting structure has the property of the ultimately
+thin (a single layer of dipole particles) isolator: from one side
+it acts as a total absorber while from the other side, the sheet is
+transparent. Moreover, it appears that this is the only possible
+conﬁguration having this property.
+III. U NIAXIAL BI -ANISOTROPIC PARTICLES AS
+COMPONENTS OF TOTALLY ABSORBING ARRAYS
+Next we will discuss some possible designs of bi-anisotropic
+particles with the properties required for single-layer perfect
+absorbers. From the reciprocal classes, the most interesting and
+practically useful property is the omega coupling, since this
+effect gives ﬂexibility in the requirements on the electric and
+magnetic polarizabilities and allows control over the reﬂection
+coefﬁcient from the back side of the absorbing sheet (see (28)–
+(30)).
+A. Wire omega particles
+The classical topology of bi-anisotropic particles with
+omega coupling is an Ω-shaped particle [14], [35], [36]. It
+is clear that for a single uniaxial omega particle made of a
+conducting wire (see picture in Table I), in approximation of
+electrically small particles, polarizabilities are such that [14],
+αco
+eeαco
+mm = −αcr
+emαcr
+me = −(αcr
+em)2. (38)
+This condition is a limitation on electromagnetic properties
+of a wire omega particle. Using (8), we ﬁnd that the effective
+polarizabilities of omega particles forming a periodical array
+satisfy the same relation
+ˆαco
+eeˆαco
+mm = −(ˆαcr
+em)2. (39)
+Let us consider the limitation (39) together with the ﬁrst con-
+dition for total absorption in (24) (which is the condition for
+zero reﬂection from an array of omega particles). Combining
+these two equations, we get
+ˆαco
+ee ± 2j
+η0
+√
+ˆαcoeeˆαcomm − 1
+η2
+0
+ˆαco
+mm = 0. (40)
+From this simple quadratic equation one can obtain the relation
+ˆαco
+ee = − 1
+η2
+0
+ˆαco
+mm (41)
+and using (8), we get the same relation between the
+polarizabilities of individual particles in free space(
+αco
+ee = − 1
+η2
+0
+αco
+mm
+)
+, but this equation does not hold for
+passive omega particles, because the different signs of the
+imaginary parts of the electric and magnetic polarizabilities
+mean that the particle should be active. On the other hand,
+it is impossible to satisfy the third condition from (24)
+taking the limitation of (41) into account. Therefore, a wire
+omega particles cannot be used for the design of perfect
+absorbers of this type. This is an interesting fact because
+earlier nearly-total absorption was predicted in structures
+which behave like omega particles [37]. However, there is
+a signiﬁcant difference between the case studied in [37]
+and wire omega particles. For a wire omega particle all the
+polarizabilities have the same resonance frequency, but for
+the structure in [37], one can tune the structural parameters
+so that different polarizabilities have different resonance
+frequencies. Thus, it appears possible to break the limitation
+of (41) using other kinds of omega particles and achieve total
+absorption with the help of the omega-coupling phenomenon.
+B. Omega-Tellegen particles
+Within the nonreciprocal classes, the most interesting prop-
+erties are the possibilities offered by nonreciprocal ﬁeld cou-
+pling phenomena in array of particles. Realization of such
+particles requires inclusions of some nonreciprocal elements.
+The known structures for the microwave frequency range [14]
+include magnetized ferrite spheres coupled to specially shaped
+metal elements, see illustrations in Table 1. However, both
+these structures exhibit also reciprocal ﬁeld coupling effects
+in addition to the desired nonreciprocal effects.
+A single uniaxial Tellegen particle shows also some omega
+ﬁeld coupling due to the asymmetrical position of the metal
+strips with respect to the center of the ferrite sphere. For this
+reason, we call it omega-Tellegen particle. Its polarizability
+
+=== PDF PAGE 7 ===
+RA’DI et al.: TOTAL ABSORPTION OF ELECTROMAGNETIC W A VES IN ULTIMATELY THIN LAYERS 7
+TABLE I: Conditions for perfect absorption
+Condition for total absorption
+Wire Omega Omega—Tellegen Chiral—Moving
+ˆαco
+ee = − 1
+η2
+0
+ˆαco
+mm
+ η0ˆαco
+ee ± 2ˆαcr
+em − 1
+η0
+ˆαco
+mm = 0
+η0ˆαcr
+ee ∓ 2ˆαco
+em − 1
+η0
+ˆαcr
+mm = 0
+η0ˆαco
+ee + 1
+η0
+ˆαco
+mm = 2S
+jω
+η0ˆαcr
+ee + 1
+η0
+ˆαcr
+mm = 0
+η0ˆαco
+ee − 1
+η0
+ˆαco
+mm = 0
+η0ˆαcr
+ee − 1
+η0
+ˆαcr
+mm = 0
+η0ˆαco
+ee ± 2ˆαcr
+em + 1
+η0
+ˆαco
+mm = 2S
+jω
+η0ˆαcr
+ee ∓ 2ˆαco
+em + 1
+η0
+ˆαcr
+mm = 0
+Reﬂected and transmitted ﬁelds from the other side of a single-sided perfect absorber
+Omega Tellegen Moving
+Er = ±2jω
+S ˆαcr
+emI t · Einc
+Et = 0
+Er = ∓2jω
+S ˆαco
+emJ t · Einc
+Et = 0
+Er = 0
+Et = ±2jω
+S ˆαcr
+emI t · Einc
+dyadics have the form
+
+
+
+ˆαee =ˆαco
+eeI t +ˆαcr
+eeJ t
+ˆαmm =ˆαco
+mmI t +ˆαcr
+mmJ t
+ˆαem =ˆαme =ˆαco
+emI t +ˆαcr
+emJ t.
+(42)
+Using relations (16) and (42), we get the following conditions
+for total absorption in omega-Tellegen arrays
+η0ˆαco
+ee ± 2ˆαcr
+em − 1
+η0
+ˆαco
+mm = 0
+η0ˆαcr
+ee ∓ 2ˆαco
+em − 1
+η0
+ˆαcr
+mm = 0
+η0ˆαco
+ee + 1
+η0
+ˆαco
+mm = 2S
+jω
+η0ˆαcr
+ee + 1
+η0
+ˆαcr
+mm = 0.
+(43)
+This shows that if we want to use the advantages offered by
+Tellegen coupling, we need to design the particle so that the
+omega coupling coefﬁcient ˆαcr
+em is properly balanced with the
+electric and magnetic polarizabilities.
+C. Chiral-moving particles
+Likewise, the known artiﬁcial moving particle [14], [38],
+[39] (picture in Table 1) exhibits reciprocal magnetoelectric
+coupling because of its chiral shape. The properties of such
+particle can be modeled by the polarizability dyadics of the
+form 
+
+
+ˆαee =ˆαco
+eeI t +ˆαcr
+eeJ t
+ˆαmm =ˆαco
+mmI t +ˆαcr
+mmJ t
+ˆαem = −ˆαme =ˆαco
+emI t +ˆαcr
+emJ t.
+(44)
+Using the relations (16) and (44), the conditions for total
+absorption in the chiral-moving slab read
+η0ˆαco
+ee − 1
+η0
+ˆαco
+mm = 0
+η0ˆαcr
+ee − 1
+η0
+ˆαcr
+mm = 0
+η0ˆαco
+ee ± 2ˆαcr
+em + 1
+η0
+ˆαco
+mm = 2S
+jω
+η0ˆαcr
+ee ∓ 2ˆαco
+em + 1
+η0
+ˆαcr
+mm = 0.
+(45)
+
+=== PDF PAGE 8 ===
+RA’DI et al.: TOTAL ABSORPTION OF ELECTROMAGNETIC W A VES IN ULTIMATELY THIN LAYERS 8
+In this case, the chirality parameter ˆαco
+em should be balanced
+with the anti-symmetric parts of the electric and magnetic
+polarizabilities. Implementation of total-absorption arrays us-
+ing omega-Tellegen or chiral-moving particles presents signif-
+icant difﬁculties. To the best of our knowledge, there are no
+analytical models to calculate the individual polarizabilities
+of these particles. The relations between the effective and
+individual polarizabilities for these particles become more
+involved. Finally, the design presupposes the use of ferrites
+and magnetic ﬁeld bias which presents practical difﬁculties.
+On the other hand, these topologies offer unique properties
+such as a thin sheet operating as an isolator, and they clearly
+deserve further studies.
+IV. C ONCLUSIONS
+We have considered possible approaches for realization
+of perfect absorbers using ultimately thin (single layers of
+particles) structures. The thickness cannot be strictly zero (in
+the electromagnetic sense) because we must allow magnetic
+response in the layer. We have demonstrated that to realize
+total absorption from both sides of the sheet, we just need
+to realize balanced electric and magnetic polarizabilities and
+all magnetoelectric polarizabilities should be zero. Further, we
+have considered single-layer sheets which operate as perfect
+absorbers only when illuminated from one of the two sides of
+the sheet and studied what functionalities can be engineered
+for illumination from the opposite side. We have shown that
+introducing omega coupling in the constituent particles makes
+it possible to realize a layer which acts as a perfect absorber
+from one side with controllable co-polarized reﬂection from
+the opposite side of the sheet. For reciprocal structures, it
+has been shown that tuning the layer to act as a perfect
+absorber from one side does not allow to have any chirality
+in the layer. We have seen that allowing nonreciprocity in
+the properties of the absorbing particles offers possibilities
+for more functionalities. A Tellegen sheet can be designed
+to work as a perfect absorber from one side and a twist
+polarizer in reﬂection from the other side. The antisymmetric
+part of the nonreciprocal coupling coefﬁcient (i.e., a layer
+of particles with the constitutive parameters of an artiﬁcial
+moving medium) makes it possible to achieve total absorption
+from one side, but controlled transmission coefﬁcient from
+the opposite side. In particular, the regime when the layer
+acts as a perfect absorber from one side, while from the other
+side the sheet is transparent, is possible. This corresponds to
+the ultimately thin isolator. Finally, we have studied some
+particular examples of possible realizations of single-layer
+perfect absorbers with the use of omega, omega-Tellegen, and
+chiral-moving particles as canonical examples of uniaxial bi-
+anisotropic particles.
+The most interesting properties are offered by nonreciprocal
+bi-anisotropic particles. They can be realized in practice as
+near-ﬁeld coupled magnetized ferrite inclusions and metal
+strips of wires, as was proposed in [31] (see pictures in
+Table I). Now we are developing analytical models of omega-
+Tellegen and chiral moving particles which are expected to
+enable design and optimization of inclusions for proposed
+nonreciprocal absorbing layers.
+REFERENCES
+[1] E. F. Knott, J. F. Shaeffer, and M. T. Tuley, “Radar absorbing materials,”
+in Radar cross section, 2 nd ed., Boston: Artech House, 1993, pp. 297-
+360.
+[2] B. A. Munk, “Jaumannand Circuit Analog Absorbers,” in Frequency-
+selective surfaces: Theory and design , New York: Wiley, 2000, pp. 315-
+335.
+[3] F. Mayer, T. Ellam, and Z. Cohn, “High frequency broadband absorp-
+tion structures,” in IEEE International Symposium on Electromagnetic
+Compatibility, vol. 2, 1998, pp. 894-899.
+[4] F. Bilotti, A. Alu, N. Engheta, and L. Vegni, “Compact microwave
+absorbers utilizing single negative metamaterial layers,” in Proc. of
+Joint IEEE AP-S/URSI Symposium , Albuquerque, USA, 2006.
+[5] F. Bilotti, A. Toscano, K. B. Alici, E. Ozbay, and L. Vegni, “Design of
+miniaturized narrowband absorbers based on resonant-magnetic inclu-
+sions,” IEEE Trans. Electromagn. Compat. , vol. 53, no. 1, pp. 63-72,
+Feb. 2011.
+[6] K. N. Rozanov, “Ultimate thickness to bandwidth ratio of radar ab-
+sorbers,” IEEE Trans. Antennas Propag., vol. 48, no. 8, pp. 1230-1234,
+Aug. 2000.
+[7] C. M. Watts, X. Liu, and W. J. Padilla, “Metamaterial electromag-
+netic wave absorbers,” Adv. Mater., vol. 24, no. 23, pp. OP98-OP120,
+June 2012.
+[8] D. Pozar, “Scattered and absorbed powers in receiving antennas,” IEEE
+Antennas Propag. Mag., vol. 46, no. 1, pp. 144-145, Feb. 2004.
+[9] D.-H. Kwon and D. M. Pozar, “Optimal characteristics of an arbitrary
+receive antenna,” IEEE Trans. Antennas Propag., vol. 57, no. 12,
+pp. 37203727, 2009.
+[10] C. L. Holloway, E. F. Kuester, J. A. Gordon, J. O’Hara, J. Booth,
+and D. R. Smith, “An overview of the theory and applications of
+metasurfaces: The two-dimensional equivalents of metamaterials,” IEEE
+Antennas Propag. Mag., vol. 54, no. 2, pp. 10-35, Apr. 2012.
+[11] A.V . Kildishev, A. Boltasseva, and V .M. Shalaev, Planar photonics with
+metasurfaces, Science, vol. 339, no. 6125, p. 1290, March 2013.
+[12] L. B. Felsen and N. Marcuvitz, Radiation and scattering of waves ,
+Piscataway, NJ: IEEE Press, 1994.
+[13] A. Solovey and R. Mittra, “Theoretical limitations on shielding and
+reﬂective properties of microwave absorbers,” European Microwave
+Conference, 2009, pp. 1614-1617.
+[14] A. N. Serdyukov, I. V . Semchenko, S. A. Tretyakov, and A. Sihvola,
+Electromagnetics of bi-anisotropic materials: Theory and applications ,
+Amsterdam: Gordon and Breach Science Publishers, 2001.
+[15] V . K. Varadan, V . V . Varadan, and A. Lakhtakia, “On the possibility
+of designing anti-reﬂection coating using chiral composites,” J. Wave-
+Mater. Interact., vol. 2, no. 1, pp. 71-81, 1987.
+[16] D. L. Jaggard, N. Engheta, “Chirosorb T M as an invisible medium,”
+Electronics Letters, vol. 25, no. 3, pp. 173-174, Feb. 1989.
+[17] J. C. Monzon, D. L. Jaggard, and N. Engheta, “Comment on chirosorb
+as an invisible medium (and reply),” Electronics Letters, vol. 25, no. 16,
+pp. 1060-1061, Aug. 1989.
+[18] C. F. Bohren, R. Luebbers, H. S. Langdon, and F. Hunsberger,
+“Microwave-absorbing chiral composites: Is chirality essential or ac-
+cidental?,” Applied Optics, vol. 31, pp. 6403-6407, Oct. 1992.
+[19] S. A. Tretyakov, A. A. Sochava, C. R. Simovski, “Inﬂuence of chiral
+shapes of individual inclusions on the absorption in chiral composite
+coatings,” Electromagnetics, vol. 16, pp. 113-127, 1996.
+[20] J. H. Cloete, M. Bingle, D. B. Davidson, “The role of chirality in
+synthetic microwave absorbers,” in Proc. of Electroomagn. in Advance
+Applications (ICEAA), Torino, Italy, 1999, pp. 55-58; M. Bingle, “The
+role of chirality in synthetic microwave absorbers,” PhD Dissertation,
+University of Stellenbosch, South Africa, 1998.
+[21] B. Wang, T. Koschny, and C. M. Soukoulis, “Wide-angle and
+polarization-independent chiral metamaterial absorber,” Phys. Rev. B ,
+vol. 28, no. 033108, 2009.
+[22] S. A. Tretyakov and A. A. Sochava, “Novel uniaxial bianisotropic
+materials: reﬂection and transmission in planar structures,” Progress In
+Electromagnetics Research, PIER 9 , pp. 157-179, 1994.
+[23] T. G. Kharina, S. A. Tretyakov, A. A. Sochava, C. R. Simovski, and
+S. Bolioli, “Experimental studies of artiﬁcial omega media,” Electro-
+magnetics, vol. 18, no. 4, pp. 423-437, 1998.
+[24] N. I. Landy, S. Sajuyigbe, J. J. Mock, D. R. Smith, and W. J. Padilla,
+“Perfect metamaterial absorber,” Phys. Rev. Lett., vol. 100, no. 207402,
+2008.
+[25] J. Hao, J. Wang, X. Liu, W. J. Padilla, L. Zhou, and M. Qiu, “High
+performance optical absorber based on a plasmonic metamaterial ,”Appl.
+Phys. Lett., vol. 96, no. 251104,2010.
+
+=== PDF PAGE 9 ===
+RA’DI et al.: TOTAL ABSORPTION OF ELECTROMAGNETIC W A VES IN ULTIMATELY THIN LAYERS 9
+[26] P. K. Singh, K. A. Korolev, M. N. Afsar, and S. Sonkusale, “Single and
+dual band 77/95/110GHz metamaterial absorbers on ﬂexible polyimide
+substrate ,” Appl. Phys. Lett. , vol. 99, no. 264101, 2011.
+[27] H. Li, L. H. Yuan, B. Zhou, X. P. Shen, Q. Cheng, and T. J. Cui,
+“Ultrathin multiband gigahertz metamaterial absorbers,” J. Appl. Phys. ,
+vol. 100, no. 014909, 2011.
+[28] X. Shen, T. J. Cui, J. Zhao, H. F. Ma, W. X. Jiang, and
+H. Li, “Polarization-independent wide-angle triple-band metamaterial
+absorber,” Optics Express, vol. 19, no. 4, pp. 9401-9407, 2011.
+[29] F. Ding, Y . Cui, X. Ge, Y . Jin, and S. He, “Ultra-broadband microwave
+metamaterial absorber,” Appl. Phys. Lett. , vol. 100, no. 103506, 2012.
+[30] C. Wu and G. Shvets, “Design of metamaterial surfaces with broadband
+absorbance,” Optics Letters, vol. 37, no. 3, 2012.
+[31] S. A. Tretyakov, A. H. Sihvola, A. A. Sochava, and C. R. Simovski,
+“Magnetoelectric interactions in bi-anisotropic media,” Journal of Elec-
+tromagnetic Waves and Applications, vol. 12, no. 4, pp. 481-497, 1998.
+[32] S. A. Tretyakov, S. I. Maslovski, I. S. Nefedov, A. J. Viitanen,
+P. A. Belov, and A. Sanmartin, “Artiﬁcial Tellegen particle,” Electro-
+magnetics, vol. 23, no. 8, pp. 665-680, 2003.
+[33] T. Niemi, A. Karilainen, and S. Tretyakov, “Synthesis of polarization
+transformers,” IEEE Trans. Antennas Propag., vol. 61, no. 6, pp. 3102-
+3111, 2013.
+[34] S. Tretyakov, Analytical modelling in applied electromagnetics, Nor-
+wood, MA: Artech House, 2003.
+[35] M. M. I. Saadoun and N. Engheta, “A reciprocal phase shifter using
+novel pseudochiral or Ω medium,” Microwave and Optical Technology
+Letters, vol. 5, pp. 184-188, Apr. 1992.
+[36] S. A. Tretyakov, A. A. Sochava, “Proposed composite material for
+nonreﬂecting shields and antenna radomes,” Electronics Letters, vol. 29,
+no. 12, pp. 1048-1049, Jun. 1993.
+[37] M. Albooyeh and C. R. Simovski, “Huge local ﬁeld enhancement in
+perfect plasmonic absorbers,” Optics Express, vol. 20, pp. 21888-21895,
+Sep. 2012.
+[38] S.A. Tretyakov, “Physical interpretation of the transparent absorbing
+boundary for the truncation of the computational domain,”IEEE Microw.
+Guided Wave Lett., vol. 8, no. 10, pp. 321-323, Oct. 1998.
+[39] S.A. Tretyakov, “Nonreciprocal composite with the material relations of
+the transparent absorbing boundary,”Microwave and Optical Technology
+Letters, vol. 19, pp. 365-368, Dec. 1998.

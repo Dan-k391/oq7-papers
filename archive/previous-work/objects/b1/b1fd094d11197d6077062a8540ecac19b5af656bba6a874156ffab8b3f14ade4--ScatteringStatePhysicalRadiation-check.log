@@ -1,0 +1,16 @@
+work/ScatteringStatePhysicalRadiation.lean:41:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+work/ScatteringStatePhysicalRadiation.lean:35:96: warning: This simp argument is unused:
+  unitSphere_norm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [norm_smul, Real.norm_eq_abs, abs_of_pos hrpos]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+work/ScatteringStatePhysicalRadiation.lean:77:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+work/ScatteringStatePhysicalRadiation.lean:69:96: warning: This simp argument is unused:
+  unitSphere_norm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [norm_smul, Real.norm_eq_abs, abs_of_pos hrpos]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

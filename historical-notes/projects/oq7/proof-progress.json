@@ -1,0 +1,105 @@
+{
+  "objective": "Kernel verify original physical Theorem 4.5, then Section 5 and Theorem51Statement",
+  "lastSuccessfulCleanMilestone": "theorem51-final",
+  "verifiedAtUTC": "2026-10-10T01:37:20.1349497Z",
+  "publicTheoremCount": 692,
+  "kernelTheoremConstantCount": 1288,
+  "baseline": {
+    "exactTypes": "verification/milestones/baseline-118/statements.log",
+    "axioms": "verification/milestones/baseline-118/axioms.log",
+    "cleanReport": "verification/milestones/baseline-118/report.json",
+    "independentlyVerifiedPublicCount": 118
+  },
+  "successfulProofs": [
+    "Original 118 theorem declarations: exact types exported and all dependencies audited",
+    "Lemma 4.4: restricted convexity, separate full-period tangent, polynomial bounds and exact sharp scalar ratio limit",
+    "Actual homogeneous Maxwell mixed flux derivative and integral Gram balance",
+    "Generic weighted 2x2 Gram determinant expansion",
+    "Finite physical partial transfer: determinant 1, both boundary transfers, continuity including zero widths",
+    "Global physical E derivative E'=ikH at every interface",
+    "Lemma4.2 capped Fourier bound: arbitrary capped integrable density, short cell, all mass endpoints and phase shifts",
+    "Sharp scalar ceiling floor and exact asymptotic coefficient; explicit positive half-period scalar floor",
+    "Global material profiles: measurability, integrability, exact integrated loss; global magnetic Maxwell derivative away from finite interfaces",
+    "True physical fundamental initial data, derivative Wronskian and two-point electric wedge normalization",
+    "Full actual finite-layer Maxwell Gram identity: absorption=kGram; det(A_J)/T=4k^4 strict-pair integral with actual fundamental solution",
+    "Actual PSD deposited absorption and PSD absorption outside selected intervals; shorter stacks padded by actual zero-loss vacuum tail",
+    "Lemma4.3 oscillatory triangle integral with exact quarter factor",
+    "PSD 2x2 determinant Minkowski including singular/zero cases and finite aggregation",
+    "Lemma4.1 actual global finite-layer fundamental solution: first-zero and origin-limit proof, all interfaces controlled",
+    "Lemma4.3 actual physical cell determinant and square-root estimates with local open-interval caps; no assumed sine-comparison premise",
+    "Physical equal-cell partition, actual deposited-absorption sum and exterior PSD remainder",
+    "Theorem4.5 finite positive half-cell floor and conditional stronger full-cell floor for original physical class",
+    "Theorem4.5 uniform eventual epsilon lower bound over every changing finite layer list and EReal sequence liminf",
+    "Exact-target class embeds into selected-resource class using actual vacuum padding and exact integrated loss",
+    "Section5 actual quarter-wave pair realization, resource accounting and repeated-block algebra",
+    "Section5 physical quarter-wave coatings: admissible ordinary dielectric layers, exact diagonal transfer up to sign, zero loss and uniform full thickness",
+    "Physical scalar-sign invariance of exact powers, mean absorptance, asymmetry and flux defect",
+    "Original exact-target universal and sequence sharp lower bounds; conditional supremum lower transfer",
+    "Actual homogeneous Maxwell transfer equals its matrix exponential, derived from the differential equation and initial data",
+    "Concrete symmetric physical core factorization into genuine Maxwell exponentials and the exact finite-layer scalar sign",
+    "Concrete nilpotent core coefficients H,K4,J and exact leading determinant coefficient",
+    "Normed algebra exponential Taylor remainder, direct finite insertion recurrence and quartic double-insertion error",
+    "Exact matching response is smooth in all eight real matrix coordinates and agrees with physical scattering on determinant-one matrices",
+    "Triangular limiting-sheet exact response formula",
+    "All real thickness budget index, exact physical thickness fit and correct limiting ratio",
+    "Conditional final supremum squeeze on an actual physical construction sequence, with both outstanding construction hypotheses explicit",
+    "Sharp scalar tangent-remainder asymptotic reduction",
+    "Genuine repeated physical core: controlled Taylor remainder and sharp determinant invariant asymptotic",
+    "Exact physical response matching from the invertible real parameter implicit theorem",
+    "Actual ordinary dielectric layer sequence: admissibility, exact M,T,a and all coating/core thickness",
+    "Sharp phase-corrected constructed asymmetry sequence",
+    "Unconditional OQ7.theorem51 : Theorem51Statement for every original PhysicalParameters value"
+  ],
+  "compiledAwaitingNextCleanMilestone": [],
+  "exactRemainingBlockers": [],
+  "mathematicalDefectsFound": [],
+  "successCriterionMet": true,
+  "allowedFoundationAxioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "resolvedFormalizationIssues": [
+    {
+      "resolution": "Use Ioo caps and prove endpoint modifications preserve all interval integrals. Original physical class remains unrestricted at selected boundaries.",
+      "item": "Selected cell endpoints",
+      "classification": "formalization scope artifact"
+    },
+    {
+      "resolution": "Use HasDerivAt.scomp, explicit real scalar domain, and definitional transparency for normed-space instances. Actual Maxwell exponential identity now compiles.",
+      "item": "Vector-valued exponential composition",
+      "classification": "missing application/instance adaptation"
+    },
+    {
+      "resolution": "ContDiffAt.div specializes the codomain to the base field; prove the complex quotient by multiplication with a smooth inverse in the real algebra.",
+      "item": "Real-smooth complex quotient",
+      "classification": "missing library lemma"
+    },
+    {
+      "resolution": "Use the scoped matrix operator norm with submultiplicativity and norm(I)=1. The default entrywise sup norm cannot supply that estimate.",
+      "item": "Repeated-product norm",
+      "classification": "formalization norm choice"
+    },
+    {
+      "resolution": "Prove division identities eventually at positive real budgets, rather than claiming them at every real L.",
+      "item": "All-budget ratio at zero",
+      "classification": "domain bookkeeping"
+    },
+    {
+      "classification": "verification-script parsing bug",
+      "item": "Audit declaration scanner",
+      "resolution": "Unicode subscripts and theorem attributes are now preserved. The corrected clean milestone independently exports all 550 exact declarations and audits all 1012 kernel theorem constants. The Lean build itself passed before and after correction."
+    }
+  ],
+  "status": "complete",
+  "fullTheorem51Passed": true,
+  "finalProof": "OQ7.theorem51",
+  "continuation": {
+    "priorChat": "01a12262-a19c-7033-bc2b-9c2cad330224",
+    "currentChat": "01a12368-a411-7090-b20e-cb00958e2723",
+    "originalProject": "C:\\Users\\Daniel\\Documents\\Codex\\2026-10-09\\continue-the-oq7-lean-verification-using\\outputs\\oq7",
+    "resumedProject": "C:\\Users\\Daniel\\.codex\\.chatgpt-projects\\g-p-6ac8784424248191b154eb2ed308e1f1\\outputs\\oq7",
+    "originalReferencesUnchanged": true,
+    "verifiedSourceHashesMatched": true
+  }
+}

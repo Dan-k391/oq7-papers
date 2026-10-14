@@ -1,0 +1,1078 @@
+PAGE 1
+Unit absorption asymmetry at prescribed extinction
+for compact reciprocal dielectrics
+A uniform aperture theorem and a sharper joint-resource asymptotic
+Research continuation prepared for Junjie Zheng
+AI-assisted derivation and independent AI mathematical audits; human review pending
+11 October 2026 (UTC)
+Abstract
+For any prescribed positive plane-wave extinction cross sectionE∗, we prove that the supremum
+of the extinction-normalized absorption difference of opposite time-reversed illuminations is one. This
+holds for finite compact nonmagnetic reciprocal local anisotropic dielectric bodies, already consisting
+of two homogeneous layers, at a fixed frequency and with arbitrary fixed pointwise upper bounds
+P >1 on real permittivity andQ> 0 on loss. Every selected body has strictly positive tensor loss,
+satisfiesX+ =X− =E∗ exactly, and hasΓ < 1; a sequence approaches one. Its size and material
+resources are unrestricted. The new step beyond the preceding compact-object manuscript is uniform
+aperture localization after an exact factorization by the squared sine of a physical material-rotation
+angle. This allows the angle to decrease inversely with aperture while total extinction stays fixed. A
+second intermediate-value argument restores a full positive loss tensor without changing the target
+extinction. For the different problem with an enclosing-radius bound,∥χ∥≤M and ImHχ⪰mI >0,
+we also prove a uniform sixth-order remainder and hencesup Γ = C∗(m,M )(kR)4 +Om,M((kR)6),
+where C∗ is an explicit jointly realizable electrostatic variational supremum. A reciprocal source
+Gram bound improves its upper estimate toC∗≤4M 3(1 +M)/(9
+√
+5m2). The numerical value of
+C∗ and the exact finite-resource optimum remain unresolved. No claim of scientific priority or formal
+proof-assistant verification is made.
+1
+
+PAGE 2
+OQ7: prescribed extinction 11 October 2026 (UTC)
+Contents
+1 Question, scope, and the stronger closure statement 3
+2 Exact Maxwell formulation with one active material direction 4
+2.1 Exact factorization by a physical rotation . . . . . . . . . . . . . . . . . . . . . . . . . . 5
+3 A uniform aperture localization theorem 5
+3.1 Weyl fibers and the grazing circle . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 6
+3.2 Proof of Theorem 3.1 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 6
+4 A planar design with a regular normalized zero-angle limit 7
+5 Fixing total extinction, then making the loss tensor positive 8
+5.1 An exact extinction root in the finite object . . . . . . . . . . . . . . . . . . . . . . . . . 8
+5.2 Strictly positive tensor loss with the same exact target . . . . . . . . . . . . . . . . . . . 8
+5.3 Causality and the resource interpretation . . . . . . . . . . . . . . . . . . . . . . . . . . 9
+6 Joint resource bounds and an exact asymptotic variational coefficient 9
+6.1 Admissible designs and exact operator identities . . . . . . . . . . . . . . . . . . . . . . . 9
+6.2 An exact source-overlap bound . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 10
+6.3 A sharper upper bound on the quartic coefficient . . . . . . . . . . . . . . . . . . . . . . 11
+6.4 Uniform expansion and optimization before taking the limit . . . . . . . . . . . . . . . . 12
+6.5 Equal material cap and loss floor . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 14
+6.6 Attainment and constitutive closure remain separate problems . . . . . . . . . . . . . . . 14
+7 Numerical diagnostics and their limits 15
+7.1 Stable planar evaluation and independent layer composition . . . . . . . . . . . . . . . . 15
+7.2 Full-vector finite-aperture discretization at prescribed extinction . . . . . . . . . . . . . 15
+7.3 Reciprocal operator and coefficient checks . . . . . . . . . . . . . . . . . . . . . . . . . . 17
+8 Prior work, independent audit, and the exact remaining boundary 17
+A Stable normalized planar amplitudes 18
+B Independent operator check at zero plate loss 18
+C Preservation and reproducibility 19
+2
+
+PAGE 3
+OQ7: prescribed extinction 11 October 2026 (UTC)
+1 Question, scope, and the stronger closure statement
+Miller and Monticone’s OQ7 asks for fundamental bounds on the redistribution between absorption and
+scattering under time-reversed illumination [1]. It does not specify a normalization or a resource class.
+We use free-space plane-wave cross sections, retain all radiated directions and both polarizations, and
+impose one spatial susceptibility for both experiments. This makes the statement below precise; it does
+not turn every resource-constrained version of the broad question into the same problem.
+Use e−iωt, vacuum wavenumberk> 0, relative permeabilityI, and relative permittivityε=I +χ.
+The incident electric fields are
+f±(x,y,z ) =eye±ikz, Z 0Hinc,±=±(ez×ey)e±ikz. (1)
+The electric amplitudes have modulus one throughout; their physical intensities are identical. Reciprocity
+gives the common extinctionX = X+ = X−> 0. With A±and S±denoting absorption andtotal
+scattering cross sections, define
+Γ =|A+−A−|
+X =|S+−S−|
+X , X =A±+S±. (2)
+All ofX,A,S,E ∗have units of area. No unit-power Hilbert-space normalization of an infinite plane
+wave is used.
+Theorem 1.1(Prescribed-extinction supremum). Fix k> 0, P >1, Q> 0, and an arbitraryE∗> 0.
+For every0<ϵ<1 there is a compact body consisting of two adjacent homogeneous anisotropic dielectric
+layers with a common finite square aperture, in vacuum, such that
+µ=I, εT =ε, I⪯ReHε⪯PI, 0≺ImHε⪯QI (3)
+inside both layers, and the pair(1) satisfies
+X+ =X−=E∗exactly, 1−ϵ<Γ < 1. (4)
+Consequently supX=E∗Γ = 1 in this class, andsupX=E∗|A+−A−|=E∗. Every selected dimension and
+coefficient is finite. No common upper bound on aperture, thickness, volume, or integrated material
+resources, and no common positive lower bound on loss, is imposed.
+The old compact manuscript proved the unrestricted supremum with variable extinction and explicitly
+left prescribed total extinction unresolved [10]. Simply increasing the aperture of one fixed planar
+design makes its extinction grow with area. Simply shrinking its physical response afterwards does not
+follow from that theorem. The present proof establishes the uniform estimate needed for a simultaneous
+aperture/rotation sequence.
+The conclusion is stronger than saying that a small-extinction sequence can have a large ratio. It
+realizes the same phenomenon atevery fixed positiveE∗. It remains consistent with all fixed-resource
+bounds: those resources grow along the construction.
+Lemma 1.2(Strict nonattainment). For every individual compact scatterer in Theorem 1.1,X >0
+implies Γ < 1.
+Proof. Passivity gives0≤A±≤X, soΓ≤1. Equality would require one illumination to have absorption
+X and scattering zero. The far field of a compactly supportedL2 polarization is continuous. A zero
+integral of its squared modulus therefore makes it zero in every direction. The forward optical theorem,
+X = (4π/k)ℑ(e†
+yF(±ez)), then givesX = 0, a contradiction.
+3
+
+PAGE 4
+OQ7: prescribed extinction 11 October 2026 (UTC)
+2 Exact Maxwell formulation with one active material direction
+For a bounded domainD, let
+KDp = (k2I +∇∇·)(gk∗p)
+⏐⏐⏐
+D
+, g k(x) = eik|x|
+4π|x|, (5)
+with zero extension ofp and distributional derivatives. The static contact term is included. The volume
+equation isE =f +KDp, p =χE. For any compactly supported polarization,
+Fp(n) = k2
+4πΠn
+∫
+D
+p(x)e−ikn·x dx, Πn =I−nnT, (6)
+ℑ⟨p,KDp⟩= k3
+16π2
+∫
+S2
+⏐⏐⏐⏐Πn
+∫
+D
+p(x)e−ikn·x dx
+⏐⏐⏐⏐
+2
+dΩ≥0. (7)
+The inner product is conjugate-linear in its first argument. These are exact identities, not a multipole
+truncation. Boundedness ofKD on L2(D)3 follows from the static Fourier multiplier−ξξT/|ξ|2 and the
+integrable difference-kernel estimate
+∥K0∥≤1, ∥Kk−K0∥≤3
+4k2
+(3|D|
+4π
+)2/3
+. (8)
+Forcompletenessthedynamicdifferencehasradial/tangentialeigenvalues −2b(kr)/(4πr3)and ((kr)2eikr+
+b(kr))/(4πr3), whereb(u) =eiu(iu−1) + 1and|b(u)|≤u2/2. Schur’s test andsupx
+∫
+D|x−y|−1 dy≤
+2π(3|D|/(4π))2/3 prove (8) without a geometric boundary constant.
+Choose thicknessesh,d> 0 and squareSR = (−R/2,R/ 2)2. The body isDR =SR×(0,h +d), with
+absorber DA,R below z =h and plateDW,R above it. Initially use the rank-one susceptibilities
+χA =iηexeT
+x, χ W,θ= (a +iδ)uθuT
+θ, u θ= cosθex + sinθey, η,a,δ >0. (9)
+These are intermediate passive tensors. A final step adds strictly positive loss in their null directions.
+Let Jθ:L2(DR)→L2(DR)3 multiply a scalar byex in the absorber and byuθin the plate. It is a
+real isometry. Letα=iηin the absorber andα=a +iδin the plate. Thenχ=JθαJ∗
+θand the exact
+scalar-current equation is
+LR,θq =J∗
+θf, L R,θ=α−1−J∗
+θKDRJθ, p =Jθq. (10)
+The scalar unknown expresses a rank-onelocal electric constitutive law. The electric and magnetic fields
+reconstructed from it are still three-dimensional Maxwell fields, with all radiation channels retained.
+Lemma 2.1(Uniform inverse and physical solutions). Put
+w =−ℑα−1, c 0 = min
+{
+η−1, δ
+a2 +δ2
+}
+> 0. (11)
+For every finiteR and every realθ, LR,θis invertible and∥L−1
+R,θ∥≤c−1
+0 . Its solution reconstructs the
+unique outgoing-scattered-field weak Maxwell solution. The inverse bound is independent of aperture and
+angle.
+Proof. By (7),
+−ℑ⟨q,LR,θq⟩=⟨q,wq⟩+ℑ⟨Jθq,KDRJθq⟩≥c0∥q∥2.
+The complex Lax–Milgram theorem applied toiLR,θgives the inverse, including surjectivity. Reconstruct
+E =f + (k2I +∇∇·)(gk∗p) and Z0H = (ik)−1∇×E. The scalar volume potential belongs locally to
+H2, so the fields lie inHloc(curl) and solve Maxwell’s equations distributionally. The scattered field
+is outgoing. Conversely, a weak solution has this volume representation by uniqueness of an entire
+outgoing vacuum field, and its current lies in the range ofJθ; hence it satisfies(10). The incident field
+itself is not outgoing.
+4
+
+PAGE 5
+OQ7: prescribed extinction 11 October 2026 (UTC)
+2.1 Exact factorization by a physical rotation
+For (1) the projected drives satisfy
+J∗
+θf±= sinθg±, g ±= 1(h,h+d)(z)e±ikz. (12)
+Define the normalized auxiliary responses
+r±
+R,θ=L−1
+R,θg±, p ±
+R,θ= sinθJθr±
+R,θ. (13)
+The second equality is the actual physical polarization. The first remains well defined atθ= 0, where
+the physical object is transparent to the incidenty polarization. For all angles,
+X±
+R,θ= sin2θYR(θ), Y ±
+R (θ) =kℑ⟨g±,r±
+R,θ⟩, (14)
+A±
+R,θ= sin2θB±
+R(θ), B ±
+R(θ) =k⟨r±
+R,θ,wr±
+R,θ⟩, (15)
+S±
+R,θ= sin2θC±
+R(θ), C ±
+R(θ) =kℑ⟨Jθr±
+R,θ,KDRJθr±
+R,θ⟩. (16)
+Reciprocity of the bilinear pairing givesY +
+R = Y−
+R = YR > 0 even for the auxiliary problem, since
+g−=g+. The energy identity isYR =B±
+R +C±
+R. At sinθ̸= 0,
+ΓR(θ) =|B+
+R(θ)−B−
+R(θ)|
+YR(θ) . (17)
+Thus the rotation cancels from the ratio while it controls total extinction. No incident intensity has
+been changed.
+3 A uniform aperture localization theorem
+WriteL =h +d andH =L2((0,L )). The symbolsJθ,α,walso denote their one-dimensional versions.
+Let Kκbe the transverse Fourier fiber of the vector Green operator, and set
+Bκ,θ=J∗
+θKκJθ, r ±
+∞,θ= (α−1−B0,θ)−1g±. (18)
+The subscript zero here denotes zero transverse wavevector at the fixed nonzero vacuum frequency; it
+is not the electrostatic operator. The planar powersY∞,B±
+∞,C±
+∞are given by the same normalized
+formulas over(0,L ), per unit area. Their definitions are auxiliary atθ= 0 and are physical powers
+divided bysin2θaway from zero.
+Theorem 3.1(Uniform normalized aperture limit). Fix k,h,d,η,a,δ >0 and a compact interval of
+angles Iθ. Then, asR→∞,
+sup
+θ∈Iθ
+∥r±
+R,θ−r±
+∞,θ∥L2(DR)
+R −→0, (19)
+where the planar solution is extended constantly in the transverse coordinates. Uniformly onIθ,
+YR(θ)
+R2 →Y∞(θ), B±
+R(θ)
+R2 →B±
+∞(θ), C±
+R(θ)
+R2 →C±
+∞(θ). (20)
+In particular, if the interval includes zero, these estimates hold for arbitrary sequencesθR∈Iθwith
+θR→0. The planarY∞is positive and continuous, so the auxiliary ratios also converge uniformly on
+that interval.
+5
+
+PAGE 6
+OQ7: prescribed extinction 11 October 2026 (UTC)
+3.1 Weyl fibers and the grazing circle
+With transverse Fourier variableκ∈R2 put
+β(κ) =
+√
+k2−|κ|2, G κ(z) = i
+2β(κ)eiβ(κ)|z|,
+using the outgoing/decaying branch. Fora,b∈{1, 2},
+(Kκ)ab = (k2δab−κaκb)Gκ∗, (21)
+(Kκ)a3 = (Kκ)3a =iκa∂zGκ∗, (22)
+(Kκ)33 =|κ|2Gκ∗−I. (23)
+The last local term follows from∂2
+zGκ=−β2Gκ−δ0. Schur estimates on the finite interval give
+∥Kκ∥≤C
+(
+1 +|κ|+ k2 +|κ|2
+|β(κ)|
+)
+, (24)
+∥Kκ−K0∥≤C1|κ|, |κ|≤k/2. (25)
+The constants depend onk,L only. In particular the grazing singularity has order||κ|−k|−1/2 and is
+locally integrable in two dimensions; its square need not be integrable. SinceJθis an isometry,(24)–(25)
+hold for the projected fibers uniformly inθ.
+Atκ= 0 all active directions are transverse and the kernel is(ik/2)eik|z−z′|times their dot product.
+Its imaginary part is positive by the sum of the two outgoing plane-wave fluxes. Thus the same loss
+coercivity gives∥r±
+∞,θ∥≤c−1
+0 ∥g±∥uniformly.
+3.2 Proof of Theorem 3.1
+Choose any fixedv∈C∞
+c ((−1/2, 1/2)2) and putvR(x) =v(x/R). For an arbitraryr∈Hthe projected
+commutator has Fourier form
+ˆHR,θ(κ) =R2ˆv(Rκ)(Bκ,θ−B0,θ)r. (26)
+For|κ| ≤k/2, Hilbert-valued Plancherel and (25) bound its inverse transform in global L2 by
+C∥r∥∥∇vR∥2 = C∥r∥∥∇v∥2. For |κ|> k/2 choose N > 3. Schwartz decay gives R2|ˆv(Rκ)| ≤
+Cv,NR2−N|κ|−N, while ∫
+|κ|>k/2
+|κ|−N(∥Kκ∥+∥K0∥) dκ<∞.
+The inverse FourierL1 estimate bounds the high-frequency part in transverseL∞(H) byCv,NR2−N∥r∥,
+and onDR in L2 byCv,NR3−N∥r∥. Therefore
+∥HR,θ∥L2(DR)≤Cv∥r∥+o(1)∥r∥ (27)
+uniformly in angle. The formula first follows for smoothr; density and boundedness of the finite-domain
+Green operator extend it to allr∈H. Only the low-frequency piece uses global Plancherel.
+Forr =r±
+∞,θ, the trial currentvRr has exact residual(vR−1)g±−HR,θ. Apply Lemma 2.1, compare
+with the constant transverse extension, and use the uniform planar norm bound:
+sup
+θ∈Iθ
+∥r±
+R,θ−r±
+∞,θ∥
+R ≤C∥1−v∥L2((−1/2,1/2)2) + Cv
+R +o(R−1).
+First letR→∞at fixedv, and then approximate one inL2. This proves(19). Both exact and planar
+current norms areO(R) uniformly in angle. Cauchy–Schwarz for the work and boundedness ofw for its
+6
+
+PAGE 7
+OQ7: prescribed extinction 11 October 2026 (UTC)
+quadratic form prove the first two limits in(20). The third follows from the exact identitiesC =Y−B
+for the finite and planar systems. All-angle scattering is therefore controlled through its exact integrated
+norm, even if the far field develops a narrowing forward peak. No pointwise angular convergence or
+discarded edge radiation is assumed.
+Finally B0,θvaries continuously in operator norm withθ; the inverse bound proves continuity of the
+normalized planar current and powers. Positivity ofw and nonzerog±giveY∞(θ)> 0. Its minimum on
+the compact interval is positive, justifying the uniform quotient limit. □
+4 A planar design with a regular normalized zero-angle limit
+GivenP >1, choose an integerj≥1 such that
+pj =
+( 2j
+2j−1
+)2
+≤P, a =pj−1> 0, kd = (2j−1)π. (28)
+At δ= 0 the plate index alonguθhas phase 2jπand the orthogonal transverse direction has phase
+(2j−1)π. Exact interface matching makes it reflectionless with boundary-plane Jones transmission
+Hθ= 2uθuT
+θ−I2. (29)
+The vacuum reference phase of the plate iseikd =−1. The absorber hasx permittivity 1 +iηand is
+exactly vacuum fory.
+Let Ax be the exact scalar slab absorptance for thex polarization. Writing n =√1 +iη, r0 =
+(1−n)/(1 +n) and p =einkh gives
+rA = r0(1−p2)
+1−r2
+0p2 , t A = (1−r2
+0)p
+1−r2
+0p2 , A x = 1−|rA|2−|tA|2. (30)
+For finiteh,η >0, 0< Ax < 1. The flux identityAx =kη
+∫h
+0|Ex|2 dz gives strict positivity, and the
+finite nonzero slab transmission gives strictness below one.
+Lemma 4.1(Exact normalized planar powers). For the lossless plate,δ= 0, and sinθ̸= 0,
+X∞= 4 sin2θ, A +
+∞= 0, A −
+∞= 4 sin2θcos2θAx. (31)
+Consequently the normalized values areY∞= 4, B+
+∞= 0, B−
+∞= 4 cos2θAx. They extend continuously
+to θ= 0. For fixed finiteh,η,j, the normalized powers and their ratio are jointly continuous in(δ,θ) at
+(0, 0); in particular
+Y∞,δ(0)−→4, γ ∞,δ(0) :=
+|B+
+∞,δ(0)−B−
+∞,δ(0)|
+Y∞,δ(0) −→Ax. (32)
+Proof. From the absorber side, they wave crosses the absorber without loss and then the lossless plate.
+From the plate side, the plate produces anx component of magnitude|sin 2θ|, whose absorptance is
+Ax. In either direction the co-polar transmission relative to vacuum iscos 2θ. The exact planar optical
+theorem isX∞= 2(1−ℜtco), proving (31).
+Continuity cannot be inferred merely by dividing vanishing physical powers. Here is an explicit
+nonsingular formula. LetrW,tW denote the scalar slab coefficients of permittivitypj +iδand thickness
+d, letvW =eikd =−1, and put
+D = 1−rArW cos2θ, Y ∞,δ(θ) = 2ℜ
+{1−tW/vW
+D
+}
+. (33)
+7
+
+PAGE 8
+OQ7: prescribed extinction 11 October 2026 (UTC)
+Composition of the two slab scattering matrices gives the co-polar transmissiontco = 1 + (tW/vW−
+1) sin2θ/D. At δ= 0, rW = 0,tW = 1,D = 1. Every scattered amplitude issinθtimes a function
+continuous in(δ,θ) near (0, 0); explicit expressions are given in Appendix A. Their squared norms give
+continuous normalized scattering, andB =Y−C gives continuous normalized absorption. This proves
+(32) with no division by a vanishing quantity.
+Takingη= 1/n and kh = n2 makes Ax→1: the interface reflection tends to zero, while|p|=
+exp[−n2ℑ
+√
+1 +i/n]→0. The integerj remains fixed for the prescribed capP. The absorber thickness
+increases, but is finite at every chosen accuracy.
+5 Fixing total extinction, then making the loss tensor positive
+5.1 An exact extinction root in the finite object
+First choose a finite absorber withη <Q/3 andAx> 1−ϵ/4. By Lemma 4.1, choose a fixed0<δ <Q/3
+such thatγ∞,δ(0)> 1−ϵ/2. By continuity there isθ0> 0 such that the normalized planar ratio exceeds
+1−5ϵ/8 for 0≤θ≤θ0. Nowfreeze these material parameters and thicknesses. PutY0 =Y∞,δ(0)> 0
+and set
+θlo(R) =
+√
+E∗
+2R2Y0
+, θ hi(R) =
+√
+2E∗
+R2Y0
+. (34)
+For sufficiently large finiteR this bracket lies in(0,θ0]. Theorem 3.1 and (14) give
+XR(θlo(R))→E∗/2, X R(θhi(R))→2E∗. (35)
+The same uniform limit makesΓR > 1−3ϵ/4 throughout the bracket, for sufficiently largeR. At each
+finiteR,LR,θdepends continuously on angle in operator norm, soXR(θ) is continuous. The intermediate
+value theorem supplies at least one angleθR in the bracket withXR(θR) =E∗exactly. No monotonicity
+or nonzero derivative is required.
+Every such root for the rank-one family obeys
+RθR−→
+√
+E∗/Y0, ΓR(θR)−→γ∞,δ(0). (36)
+This is the simultaneous limit missing from a fixed-angle aperture theorem.
+5.2 Strictly positive tensor loss with the same exact target
+For the selected large but finiteR, add a common isotropic loss
+χA,ν=iηexeT
+x +iνI, χW,θ,ν= (a +iδ)uθuT
+θ+iνI, ν >0. (37)
+There is no appeal to an unspecified continuity result at a singular tensor. The unperturbedfull vector
+electric-field operator has the exact inverse
+(I−KDRJθαJ∗
+θ)−1 =I +KDRJθL−1
+R,θJ∗
+θ. (38)
+To check the ordering, useLR,θ= α−1−J∗
+θKDRJθand multiply either side by the operator being
+inverted. Its norm is at most1 +∥KDR∥/c0, uniformly over the angle bracket.
+The added loss changes this electric-field operator by−iνKDR. A Neumann series therefore proves
+uniform continuity of its inverse asν↓0, for this fixed finiteR. Current and absorption/extinction
+quadratic forms are consequently continuous, uniformly over the compact angle bracket. The rank-one
+common extinction is bounded away from zero on that bracket, so the ratio is also uniformly continuous.
+8
+
+PAGE 9
+OQ7: prescribed extinction 11 October 2026 (UTC)
+Choose 0<ν <Q/3 sufficiently small that the two strict extinction endpoint inequalities still bracket
+E∗and that Γ > 1−ϵthroughout the bracket. A second application of the intermediate value theorem
+gives a possibly adjusted angle with extinction exactlyE∗. The tensor loss eigenvalues are{η+ν,ν,ν}
+and{δ+ν,ν,ν}, so(3) holds. The real eigenvalues are1 in the absorber and{pj, 1, 1}in the plate.
+This proves the existence part of Theorem 1.1; Lemma 1.2 proves nonattainment.
+Order of choices. For each accuracy, choose a finite absorber, fix positive active-direction plate
+loss, establish an angle interval, enlarge the aperture, and only then choose the final isotropic loss and
+solve the second scalar existence problem. There is no estimate uniform in vanishing loss or diverging
+thickness. If the scaling in(36) is also desired after isotropic regularization, choose its raw extinction
+perturbation to beo(1) on the bracket. Mere preservation of the bracket suffices for the main theorem.
+5.3 Causality and the resource interpretation
+The selected principal-axis values are compatible with passive causal dispersion. A target scalar
+susceptibilitya +ib, a≥0,b> 0, atωcan be realized by
+χ(ζ) = F
+ω2
+0−ζ2−iγζ, ω 2
+0−ω2 = a
+bγω, F=γωa2 +b2
+b > 0,
+for anyγ >0. Independent oscillators along real principal axes preserve reciprocity and passivity. No
+bandwidth result follows.
+At fixedE∗, passivity makes1−Γ = (Sh +Aℓ)/E∗, whereh denotes the more absorbing illumination.
+Thus along a sequence withΓ→1, the more absorbing direction hasAh→E∗and Sh→0, while the
+opposite direction hasAℓ→0 and Sℓ→E∗. There is no optical-theorem contradiction: its forward
+radiation peak can narrow as the footprint grows. The co-polar forward-directivity inequality from the
+preceding paper reads
+Γ≤1−k2E∗
+4πDco,h
+.
+The construction allowsDco,h to diverge. It gives no size-independent bound on the resources required
+for a selected tolerance.
+6 Joint resource bounds and an exact asymptotic variational coeffi-
+cient
+The unrestricted construction does not determine the optimum when material resources remain fixed.
+This section retains the same local susceptibility for both illuminations and sharpens the bounded-loss
+result in two ways: a source-overlap factor in an exact Maxwell bound, and a remainder uniform over
+the entire design class. The latter justifies optimizing before taking the small-object limit. The resulting
+leading coefficient is characterized by an electrostatic variational problem; its numerical optimum is not
+evaluated.
+6.1 Admissible designs and exact operator identities
+Fix real unit vectorse,d∈R3 withe·d = 0, and0<m ≤M <∞. Let Am,M consist of positive-volume
+measurable sets Ω⊂B1(0) and measurable tensorsχ∈L∞(Ω; C3×3) satisfying, almost everywhere,
+χT =χ, ∥χ∥op≤M, ImHχ⪰mI. (39)
+The physical body isRΩ, with susceptibilityχ(x/R), vacuum outside, and relative permeabilityI.
+Writet =kR and v =|Ω|. Both experiments use this one susceptibility, with incident electric fields
+9
+
+PAGE 10
+OQ7: prescribed extinction 11 October 2026 (UTC)
+e exp(±ikd·x). Their common extinction is positive. Denote their extinction-normalized absorption
+difference, equivalently their normalized total-scattering difference, byΓt(Ω,χ).
+All operators below act onH =L2(Ω; C3), with inner product conjugate-linear in the first argument.
+Currents are extended by zero before applying the distributional volume potential. Define
+Ktp = (t2I +∇∇·)(gt∗p)|Ω, g t(x) = eit|x|
+4π|x|, (40)
+Tt = (χ−1−Kt)−1, W =−ImHχ−1, (41)
+(Ftp)(n) = (I−nnT )
+∫
+Ω
+p(y)e−itn·ydy, Q t = F∗
+tFt
+16π2, n ∈S2. (42)
+Thus ImHKt =t3Qt includes every radiation direction. Letρ=M 2/m. The bounded volume-potential
+and loss estimates give
+∥K0∥≤1, ∥Kt−K0∥≤3
+4t2, W ⪰ρ−1I, ∥Tt∥≤ρ,∥Qt∥≤v
+6π. (43)
+These are uniform over measurable supports; the static contact term is part ofK0. In particular, they
+require no lower bound on volume, component separation, feature size, or boundary regularity. The
+inverse in (41) is the outgoing weak Maxwell solution operator.
+Define the exact work and radiation operators
+Ht = ImHTt =T∗
+t (W +t3Qt)Tt, B t =T∗
+tt3QtTt. (44)
+Reciprocity makesTt complex symmetric for the bilinear pairing[u,v ] =
+∫
+Ω u·v. ConsequentlyHt is
+real: it commutes with pointwise complex conjugation. This property is essential below.
+Lemma 6.1(A uniform lower bound for the work operator). For everyt≥0,
+dtI⪯Ht⪯ρI, d t = m
+[1 +M(1 + 3t2/4)]2. (45)
+Proof. For an arbitrary inputf, putp =Ttf andE =χ−1p. The volume equation givesf = (I−Ktχ)E.
+Therefore
+∥f∥≤[1 +M(1 + 3t2/4)]∥E∥, ⟨f,Htf⟩≥⟨E, (ImHχ)E⟩≥m∥E∥2.
+This proves the lower bound; the upper bound follows from⟨f,Htf⟩= Im⟨f,Ttf⟩≤ρ∥f∥2.
+6.2 An exact source-overlap bound
+Put z =d·y, ct =e cos(tz), andst =e sin(tz). Introduce
+Gt =
+(
+⟨ct,Htct⟩ ⟨ct,Htst⟩
+⟨st,Htct⟩ ⟨st,Htst⟩
+)
+, η t =∥W−1/2t3QtW−1/2∥, r t = ηt
+1 +ηt
+. (46)
+The matrixGt is real symmetric and positive semidefinite; its positive trace is the common extinction
+divided bykR3.
+Theorem 6.2(Reciprocal Maxwell source overlap). For every admissible design andt> 0,
+Γt≤2rt
+√detGt
+trGt
+. (47)
+10
+
+PAGE 11
+OQ7: prescribed extinction 11 October 2026 (UTC)
+An upper bound depending only on material resources and a geometric Fourier moment is obtained by
+defining
+µt =
+⏐⏐⏐⏐
+1
+v
+∫
+Ω
+e2itzdy
+⏐⏐⏐⏐, q t = 1−µt
+1 +µt
+, κ t = ρ
+dt
+, ηt = ρvt3
+6π, (48)
+Ψ(x) =
+{
+2√x/(1 +x), 0≤x≤1,
+1, x ≥1. (49)
+Then
+Γt≤ηt
+1 +ηt
+Ψ(κtqt). (50)
+Proof. The definition ofηt gives t3Qt⪯ηtW, hence 0⪯Bt⪯rtHt. The exact two-source power
+difference is
+Γt = 4|Im⟨ct,Btst⟩|
+trGt
+. (51)
+Set C =H−1/2
+t BtH−1/2
+t . Since 0⪯C⪯rtI, its real skew-symmetric imaginary partJ = (C−C)/(2i)
+has norm at mostrt/2. Indeed −rtI⪯C−C⪯rtI. For real vectorsa,b, subtracting fromb its
+projection ona gives
+|aTJb|≤rt
+2
+√
+∥a∥2∥b∥2−(a·b)2.
+Apply this toa = H1/2
+t ct and b = H1/2
+t st to prove(47). This is the standard effect-operator distin-
+guishability inequality for a pair of pure states, applied to the Maxwell work inner product; the abstract
+operator inequality itself is not claimed as new.
+For the explicit bound, the ordinaryL2 Gram matrix ofct,st has eigenvaluesv(1 +µt)/2 and
+v(1−µt)/2. Lemma 6.1 bounds the smaller-to-larger eigenvalue ratio ofGt byκtqt whenever that is at
+most one. For a positive2×2 matrix with eigenvalue ratioq∈[0, 1], 2
+√
+detG/ trG = 2√q/(1 +q), an
+increasing function ofq. Finallyηt≤ηt. Degenerate Gram matrices follow by continuity.
+The common inverse and local constitutive law are retained in(47). Neither this theorem nor its
+explicit estimate asserts that a current pair saturating the associated operator inequalities is realizable
+by a local dielectric.
+6.3 A sharper upper bound on the quartic coefficient
+For each admissible design define
+q0 =T0e, q 1 =T0(ze), p j =
+∫
+Ω
+qj(y)dy, (52)
+D0 = Im(e·p0)> 0, C(Ω,χ) = 2|Im(p∗
+0p1)|
+3πD0
+. (53)
+The affine inputze is an arbitraryL2 input to the static inverse; it need not be curl-free. Letz =v−1 ∫
+Ω z
+and σ2
+z =v−1 ∫
+Ω (z−z)2.
+Theorem 6.3(Coefficient bound). Every admissible design satisfies
+C(Ω,χ)≤M 3(1 +M)
+3πm2 vσz. (54)
+Consequently
+sup
+Am,M
+C≤4M 3(1 +M)
+9
+√
+5m2 . (55)
+11
+
+PAGE 12
+OQ7: prescribed extinction 11 October 2026 (UTC)
+Proof. Att = 0, H0 =T∗
+0WT 0 is real. Moreover,
+0⪯T∗
+0Q0T0⪯ηstat
+0 H0, η stat
+0 =∥W−1/2Q0W−1/2∥≤ρv
+6π.
+Apply the same skew-part argument to real sourcese,ze. WritingD1 =⟨ze,H 0ze⟩andD01 =⟨e,H 0ze⟩∈
+R yields
+C≤2ηstat
+0
+√
+D1−D2
+01/D0
+D0
+.
+The numerator under the square root is the minimum of⟨ze−ae,H 0(ze−ae)⟩over reala. Takinga =z
+bounds it byρvσ2
+z. The denominator obeysD0≥d0v, whered0 =m/(1 +M)2. This gives(54). Finally
+v2σ2
+z =v
+∫
+Ω
+z2−
+(∫
+Ω
+z
+)2
+≤4π
+3
+4π
+15,
+which proves (55).
+The new upper constant is at most1/(2
+√
+5) times the earlier8M 4(1 +m)/(9m3) coefficient bound.
+It is not asserted to be the optimal prefactor.
+6.4 Uniform expansion and optimization before taking the limit
+Theorem 6.4(Uniform sixth-order remainder). Define constants depending only onm,M by
+v∗= 4π
+3 , d 0 = m
+(1 +M)2, d 1 = m
+(1 + 7M/4)2, (56)
+AD = 2ρ+ 3
+4ρ2, A N = ρ3 + (44/45)ρ2
+π , K m,M = v∗
+d1
+(
+AN + 2ρ2AD
+3πd0
+)
+. (57)
+For every(Ω,χ)∈Am,M and 0<t ≤1,
+⏐⏐⏐Γt(Ω,χ)−C(Ω,χ)t4
+⏐⏐⏐≤Km,Mt6. (58)
+The constant is uniform even when the support and susceptibility depend ont, and even when|Ω|→0.
+Proof. The resolvent identity and(43) give∥Tt−T0∥≤(3/4)ρ2t2. Put u =Ttct, w =Ttst. Taylor’s
+inequalities yield
+∥u−q0∥≤Ut 2√v, U = ρ
+2 + 3
+4ρ2, (59)
+∥w/t−q1∥≤Vt 2√v, V = ρ
+6 + 3
+4ρ2. (60)
+Each ofu,w/t,q 0,q 1 has norm at mostρ√v.
+The kernel ofQt is real and even int. Withr =x−y, the identity
+∫
+S2
+(I−nnT )(n·r)2dΩn = 16π
+15|r|2I−8π
+15rrT
+and 1−cosa≤a2/2 imply
+∥Qt(x,y )−Q0(x,y )∥op≤t2|x−y|2
+30π .
+12
+
+PAGE 13
+OQ7: prescribed extinction 11 October 2026 (UTC)
+Since|x−y|≤2, Schur’s test gives
+∥Qt−Q0∥≤2v
+15πt2, ⟨q0,Q 0q1⟩= p∗
+0p1
+6π. (61)
+Define
+Nt =−4 Im⟨u,Qt(w/t)⟩, N 0 =−4 Im⟨q0,Q 0q1⟩.
+Telescoping the three factors, using (59)–(61), gives
+|Nt−N0|≤ANv2t2, |N0|≤2ρ2
+3πv2. (62)
+The numerator constant is explicitly4[ρ(U +V )/(6π) + 2ρ2/(15π)] =AN.
+By bilinear reciprocity the dimensionless common extinction is exactly
+Dt = Im{[ct,Ttct] + [st,Ttst]}.
+The same vector estimates give
+|Dt−D0|≤ADvt2, D t≥d1v, D 0≥d0v (0<t ≤1). (63)
+The exact dimensional scaling of full Maxwell powers isΓt =t4|Nt|/Dt. Therefore
+⏐⏐⏐⏐
+|Nt|
+Dt
+−|N0|
+D0
+⏐⏐⏐⏐≤|Nt−N0|
+Dt
++|N0||Dt−D0|
+DtD0
+≤v
+d1
+(
+AN + 2ρ2AD
+3πd0
+)
+t2.
+Since v≤v∗and|N0|/D0 =C, this proves the claim. The displayed volume factors explain why no
+lower volume fraction is required. The absolute-value inequality also coversN0 = 0.
+Corollary 6.5(Exact leading variational coefficient). Let
+Fm,M(t) = sup
+(Ω,χ)∈Am,M
+Γt(Ω,χ), C∗(m,M ) = sup
+(Ω,χ)∈Am,M
+C(Ω,χ). (64)
+Then ⏐⏐⏐Fm,M(t)−C∗(m,M )t4
+⏐⏐⏐≤Km,Mt6 (0<t ≤1), (65)
+and, in particular,
+lim
+t↓0
+Fm,M(t)
+t4 =C∗(m,M )≤4M 3(1 +M)
+9
+√
+5m2 . (66)
+Proof. The class in(64) is independent oft, and(58) is uniform on that class. Apply|supf−supg|≤
+sup|f−g|and then Theorem 6.3.
+The earlier finite homogeneous unequal-sphere certificate shows thatC∗(m,M ) > 0 for every
+0<m ≤M. For everyε>0, one fixed admissible rescaled pattern hasC >C∗−εand hence approaches
+the leading optimum to that accuracy ast↓0. Conversely, iftj↓0 and admissible designs satisfy
+Fm,M(tj)−Γtj(Ωj,χj) = o(t4
+j), thenC(Ωj,χj)→C∗. These statements do not require a maximizing
+pattern to exist.
+13
+
+PAGE 14
+OQ7: prescribed extinction 11 October 2026 (UTC)
+6.5 Equal material cap and loss floor
+Corollary 6.6(A homogeneous-material improvement). When M =m, the susceptibility is necessarily
+χ=imI on its support, and
+C(Ω,imI )≤m2
+3πvσz, C∗(m,m )≤4m2
+9
+√
+5. (67)
+Proof. The equality case ofm∥x∥2≤Im(x∗χx)≤|x∗χx|≤m∥x∥2 for all x forces χ= imI. Put
+A =−K0, so 0⪯A⪯I and A is real self-adjoint. Let
+F = (I +m2A2)−1, U = (I +imA)−1F−1/2.
+Then U is unitary, with phases in[−arctanm, 0], T0 =imUF 1/2, andH0 =mF. Hence
+H−1/2
+0 T∗
+0Q0T0H−1/2
+0 =mU∗Q0U.
+BecauseA,Q 0 are real, the norm of its skew imaginary part is(m/2)∥[Q0,U 2]∥. Setqmax =v/(6π). The
+norm ofQ0−(qmax/2)I is at mostqmax/2. The spectrum ofU 2 lies in a disk of radiusm/
+√
+1 +m2, since
+its arc has angular width2 arctanm<π. Centering both operators before estimating the commutator
+gives
+∥[Q0,U 2]∥≤qmaxm√
+1 +m2.
+Repeat the real-source Gram argument, now usingm/(1 +m2)I⪯H0⪯mI. The square root of
+this condition-number bound cancels
+√
+1 +m2 above, givingC≤2m2qmaxσz. The same ball moment
+estimate proves the second inequality.
+6.6 Attainment and constitutive closure remain separate problems
+The variational characterization is exact, but none of the explicit upper bounds above is proved physically
+sharp. In particular, a direct weak-compactness argument does not establish thatC∗is attained. Even
+without vacuum mixing, the susceptibility cap need not survive a simple laminate effective response.
+ForM >1 and m<M , take equal layers of scalar susceptibilitiesχ±=±
+√
+M 2−m2 +im. Continuity
+of normal displacement and averaging the normal electric field give
+χeff,⊥=im−M 2−m2
+1 +im , |χeff,⊥|2−M 2 = (M 2−1)(M 2−m2)
+1 +m2 > 0.
+Thus an elementary homogenized tensor can lie outside the original cap. This calculation does not prove
+non-attainment; it identifies a concrete obstruction to assuming constitutive closure. DeterminingC∗
+numerically with certified error, establishing attainment or a precisely described relaxation, and finding
+the exact finite-t fixed-resource optimum remain unresolved.
+Independent algebraic checks. The accompanying scriptcheck_operator_bounds.py tests the
+conjugations, factors, source Gram formulas, coefficient bounds, and remainder estimate on 240 reciprocal
+coercive matrix systems, including volumes spanning eight orders of magnitude. It separately checks
+120 homogeneous-material systems, the phase-arc commutator, the spherical fourth moment, and the
+laminate calculation. All checks passed. These finite-dimensional tests corroborate the operator algebra;
+they are not a Maxwell discretization or a numerical proof of the continuum statements.
+14
+
+PAGE 15
+OQ7: prescribed extinction 11 October 2026 (UTC)
+7 Numerical diagnostics and their limits
+The proofs above do not rely on a numerical optimizer or discretization. Three distinct numerical checks
+test the exact planar algebra, finite-aperture implementation, and operator inequalities. Source scripts,
+raw outputs, and independent audit notes are included in the reproducibility archive.
+7.1 Stable planar evaluation and independent layer composition
+The expressions in Appendix A evaluate the normalized powers directly, including their auxiliary value
+at zero angle. A separate four-port cascade solve, performed for 100 randomly selected finite parameters
+and nonzero angles, agrees in normalized extinction, absorption, and scattering to a maximum absolute
+discrepancy of8.04×10−14. Its largest reciprocity norm is2.50×10−16. An independent implementation
+checks 20 additional layered cases, including real-permittivity caps of4 and 1.01; in the lossless-plate
+cases its maximum discrepancy from the analytic ratio is1.41×10−14.
+Table 1 illustrates near-unit values of the normalized zero-angle planar ratio. These entries use
+j = 1, η= 1/n, kh =n2, and the small positive plate lossδ= 10−6. Each is a finite-thickness planar
+calculation. At this fixed positiveδ, the large-n ratio has a plate-loss-limited value strictly below one.
+The unit supremum uses arbitrarily small positive plate loss as well as an increasingly effective absorber,
+in the order stated in the proof. At physical angle zero the incidenty wave induces no current; these
+are the regular auxiliary limits of powers divided bysin2θ, not positive-extinction compact objects.
+Theorem 3.1 and the two intermediate-value arguments provide the analytic passage to compact bodies
+at E∗.
+Table 1: Exact normalized planar values at the auxiliary angleθ= 0 and δ= 10−6. These are
+dimensionless per-area quantities.
+n η kh Y ∞(0) γ∞(0)
+5 0.20000 25 3.99999805 0.9906314552
+10 0.10000 100 3.99999804 0.9993308547
+20 0.05000 400 3.99999804 0.9998434035
+40 0.02500 1600 3.99999804 0.9999604558
+80 0.01250 6400 3.99999804 0.9999897441
+7.2 Full-vector finite-aperture discretization at prescribed extinction
+For a tractable finite-object diagnostic, set the vacuum wavelength to one,h =λ, d =λ/2, η= 0.8,
+a = 3, andδ= 0.02. Use the intermediate rank-one tensors of(9). A discrete-dipole volume model
+with cubic cells, the full retarded vector Green interaction, the Clausius–Mossotti self term, and the
+electric-dipole radiation reaction solves for the scalar active-direction current. The scalar unknown
+follows from the local rank-one tensor; the propagator and radiation are vectorial. An FFT accelerates
+finite-domain convolution, with zero padding rather than periodic boundary conditions. The Green-kernel
+implementation is preserved unchanged from the preceding compact-Maxwell archive.
+The rotation angle is tuned until thediscrete extinction equals 0.1λ2 within the reported residual.
+Normalized solves avoid numerical cancellation at small angle. Absorption uses the material-loss
+quadratic form. Scattering uses the exact all-angle radiation Gram matrix of the discrete electric
+dipoles, including their self terms. Thus the diagnostic retains radiation outside specular directions.
+The analytical existence proof uses continuity and the intermediate value theorem, independent of the
+iteration used for these numerical roots.
+15
+
+PAGE 16
+OQ7: prescribed extinction 11 October 2026 (UTC)
+Table 2: Finite-grid prescribed-extinction diagnostics. No continuum-error or near-unit optimality
+certificate is asserted.
+R/λ Cell width Cells θ(rad) X/λ2 Γ
+1 λ/12 2,592 0.14698137 0.1000000000 0.6072573
+2 λ/12 10,368 0.07650792 0.1000000000 0.7572978
+2 λ/16 24,576 0.07594797 0.1000000000 0.7769269
+4 λ/12 41,472 0.03913265 0.1000000000 0.8442437
+Across the completed rows, the largest relative extinction-target error is1.52×10−10, the largest
+relative opposite-incidence extinction discrepancy is5.95×10−11, and the largest normalized linear-
+system residual is2.40×10−10. The largest relative optical-theorem closure error is9.04×10−11. For
+the one-wavelength aperture, independent far-field integration with36×72 and 48×96 polar–azimuthal
+nodes agrees with the radiation Gram quadratic form with maximum relative discrepancy approximately
+3.30×10−14 over both incidences. These checks establish consistency within the discretization, not its
+error relative to the continuum.
+For the two-wavelength aperture, refining the cell width fromλ/12 toλ/16 changes Γ from 0.7572978
+to 0.7769269, a relative change of 2.59%. This visible discretization dependence precludes treating the
+tabulated digits as a continuum-converged cross section. For this fixed material and thickness choice
+the exact continuum planar auxiliary limit isγ∞(0) = 0.9492609017; these particular finite material
+parameters are not intended to approach one arbitrarily closely. The table also uses zero loss in the
+inactive tensor directions: the final positive isotropic-loss perturbation is established analytically in
+Section 5, and is not simulated here.
+5 10 20 40 80
+Absorber parameter n; η = 1/n, kh = n2
+10−5
+10−4
+10−3
+10−2
+Normalized planar deficit 1 − γ∞(0)
+(a) Exact auxiliary planar limit
+δ = 0
+δ = 10−6
+1 2 4
+Square aperture width R/λ
+0.5
+0.6
+0.7
+0.8
+0.9
+1.0Finite-grid Γ at X = 0.1λ2
+(b) Finite-aperture DDA diagnostic
+Grid spacing λ/12
+Grid spacing λ/16
+Continuum planar auxiliary limit
+Figure 1: Two separate diagnostics. Left: the lossless-plate auxiliary planar ratio approaches one as
+the absorber becomes weakly reflecting and thick; fixed positive plate loss leaves a nonzero limiting
+deficit. Right: finite-grid aperture calculations keep dimensional extinction fixed by adjusting a physical
+material angle. The isolated refinement point shows visible mesh dependence. The dashed planar line is
+an analytical reference, not an extrapolation of the finite-grid data.
+16
+
+PAGE 17
+OQ7: prescribed extinction 11 October 2026 (UTC)
+7.3 Reciprocal operator and coefficient checks
+The independent resource-bound script tests 240 reciprocal coercive matrix models for the exact source
+Gram bound, its geometric estimate, the quartic coefficient inequality, and the stated uniform remainder
+constants. It also tests 120 homogeneous-corner matrix models for theM =m phase-arc bound, verifies
+the angular second-moment tensor to maximum error6.22×10−15, and checks the laminate algebra.
+All assertions passed. The models retain the reciprocal and positivity identities used by the proof, but
+they are algebraic checks: no local-Maxwell realization of arbitrary matrix entries or optimization over
+actual shapes is inferred from them.
+8 Prior work, independent audit, and the exact remaining boundary
+Extinction symmetry is established by Sounas and Alù [2]; neither that identity nor asymmetric
+absorption by reciprocal objects is new. Hopkins and coauthors [3] and the direct small-particle
+expansions discussed in the supplied adversarial audit [13] predate the unequal-sphere mechanism and
+fixed-smooth-shape quartic upper order. The present manuscript does not rebrand those effects as
+discoveries.
+There are also close layered and metasurface precedents. The reciprocal polarizer component of
+Kononchuk et al. [8], Sections II–III, has strongly different absorption and reflection from opposite sides;
+finite-wafer measurements use Gaussian beams. Its polarization extinction ratio is not the dimensional
+optical-theorem extinctionX used here. Máñez-Espina et al. [9], Section 4, derive a maximum directional-
+absorptance difference in a specified two-port coupled-mode metasurface model without polarization
+conversion. These results do not state Theorem 1.1. A scalar plate with transmission tending to zero and
+absorptance difference tending to one has planar extinction density tending to two in the present vacuum
+reference, and thereforeΓ tending to 1/2. The polarization construction and normalized finite-aperture
+limit address a different extremal ratio.
+Shared-structure constraints also have explicit precedents. Molesky et al. [4], Section II.3, equations
+(16)–(19), derive off-diagonal source constraints and discuss pointwise enforcement of one geometry.
+Shim et al. [5] formulate related cross-correlation constraints for multifunctional response. The source
+Gram inequality used here is a standard positive-operator distinguishability estimate, applied to the
+exact Maxwell response metric. Its matrix lemma is not claimed new.
+The mathematical additions relative to the six supplied manuscripts are: the uniformnormalized
+aperture limit, exact positive-extinction tuning and restoration of full tensor loss; and the uniform
+optimal small-size variational asymptotic with tighter coefficient bounds. The former closes an explicitly
+outstanding issue of [10]. The latter strengthens [12] but leaves its coefficient optimization genuinely
+infinite-dimensional.
+Two independent AI reviewers rederived the new prescribed-extinction argument, including the
+zero-angle normalized problem, grazing-circle estimate, inverse identity(38), and both intermediate-value
+steps. A separate independent check rederived the source Gram and coefficient bounds; the parent
+independently recalculated the sixth-order constants and volume cancellation. The audit notes and
+numerical scripts are preserved. These are ordinary mathematical audits, not proof-assistant certificates
+or independent human peer review. Literature priority is not established by failure to locate an identical
+theorem.
+17
+
+PAGE 18
+OQ7: prescribed extinction 11 October 2026 (UTC)
+Precisely specified question Status of this continuation
+Compact local reciprocal dielectricΓ at
+prescribed E∗> 0; fixed pointwise upper
+caps; unrestricted dimensions
+Exact supremum1, no individual
+positive-extinction equality; two-layer finite
+Maxwell construction proved.
+Bounded M, positive full tensor floorm,
+kR→0, real linear time-reversed
+polarization
+sup Γ =C∗t4 +O(t6) uniformly; 0<C∗<∞; an
+explicit improved upper estimate onC∗.
+Numerical value and physical maximizer of
+C∗(m,M )
+Unresolved; the variational characterization is not
+an evaluated optimum.
+Exact finite-size resource-constrained
+optimum, or a common positive loss floor in
+the Γ→1 construction
+Unresolved; not implied by the
+prescribed-extinction theorem.
+All-isotropic compact realization of the
+prescribed-extinction construction;
+finite-bandwidth sharpness
+Not established here. The construction is locally
+anisotropic and single-frequency.
+A Stable normalized planar amplitudes
+Let s = sinθ, c = cosθ, vA =eikh, vW =eikd, ∆ = tW−vW, andD = 1−rArWc2. Order scattered
+amplitudes as (Lx,Ly,Rx,Ry ), subtract the vacuum transmitted wave, and divide bys. The resulting
+vectors are
+b+ =
+
+
+rWvAtAc/D
+rWv2
+As/D
+cvA(∆ + vWrArW )/D
+svA∆/D
+
+, (68)
+b−=
+
+
+ctA∆/D
+svA∆/D
+c{rA∆(vW + ∆c2)/D +rW}
+s{rA∆ 2c2/D +rW}
+
+. (69)
+They are continuous ats = 0. The normalized scattered powers areC±
+∞=∥b±∥2, and the normalized
+absorbed powers areB±
+∞=Y∞−∥b±∥2, with(33). For the exact lossless plate,rW = 0,tW = 1,vW =−1;
+substitution yields the normalized powers in Lemma 4.1 directly. These formulas avoid floating-point
+subtraction of a weak response from unit transmission in the numerical validation.
+B Independent operator check at zero plate loss
+An alternate audit of(32) uses no scattering formula. Atδ= 0 the active scalarαis still nonzero in
+each layer. All active directions are transverse, soJ∗
+θK0Jθhas a bounded kernel on a finite interval
+and is Hilbert–Schmidt. Thusα−1−J∗
+θK0Jθis Fredholm with index zero. A nullvector reconstructs
+an outgoing source-free passive one-dimensional Maxwell field. Its flux identity forces both outgoing
+amplitudes to zero, henceE =E′= 0 at an exterior interface. Uniqueness of the finite-layer ordinary
+differential equation forces the field and current to vanish. The inverse therefore exists, and operator-
+norm perturbation gives joint continuity in(δ,θ) at (0, 0). Applied to the fixed auxiliary drivesg±, this
+independently establishes the regular normalized limit.
+18
+
+PAGE 19
+OQ7: prescribed extinction 11 October 2026 (UTC)
+C Preservation and reproducibility
+The six uploaded PDF manuscripts are preserved byte-for-byte in the source archive, with a SHA-256
+manifest. The previously released compact-Maxwell reproducibility archive and quartic adversarial-audit
+source archive were recovered and retained unchanged. The finite-aperture FFT Green kernel used by
+the new diagnostic is an unchanged copy from the former, with provenance recorded; the active-direction
+solver, exact normalized planar formulas, new checks, and this manuscript are separate files. No older
+proof or claimed formal verification was edited or silently strengthened.
+The supplied reproduction runner executes fresh copies of the stable planar and reciprocal-operator
+checks by default. An optional archive-verification mode checks the preserved audit inputs, and an
+explicit DDA option runs a selected finite-aperture diagnostic. A separate figure/table generator reads
+saved JSON evidence without rerunning the numerical solvers. The runner records commands, logs,
+environment information, validation summaries, and input identities. The full prescribed-extinction
+result is analytic: mesh truncation and floating-point computations provide diagnostics, not an error
+certificate for a continuum object arbitrarily close to one.
+References
+[1] O. D. Miller and F. Monticone, Fundamental limits in photonics and electromagnetics: a tutorial ,
+arXiv:2605.24738v1 (2026), Section 4.1, OQ7.https://arxiv.org/html/2605.24738v1.
+[2] D. L. Sounas and A. Alù, “Extinction symmetry for reciprocal objects and its implications on cloaking and
+scattering manipulation,” Optics Letters39, 4053–4056 (2014).https://doi.org/10.1364/OL.39.004053.
+[3] B. Hopkins, A. E. Miroshnichenko, A. N. Poddubny, and Y. S. Kivshar, “Fano resonance enhanced non-
+reciprocal absorption and scattering of light,” Photonics2, 745–757 (2015).https://doi.org/10.3390/
+photonics2020745.
+[4] S. Molesky, P. Chao, J. Mohajan, W. Reinhart, H. Chi, and A. W. Rodriguez, “T-operator limits on optical
+communication: Metaoptics, computation, and input–output transformations,” Physical Review Research4,
+013020 (2022). https://arxiv.org/html/2102.10175v1.
+[5] H. Shim, Z. Kuang, Z. Lin, and O. D. Miller, “Fundamental limits to multi-functional and tunable nanopho-
+tonic response,” Nanophotonics13, 2107–2116 (2024).https://doi.org/10.1515/nanoph-2023-0630.
+[6] O. D. Miller et al., “Fundamental limits to optical response in absorptive systems,” Optics Express24,
+3329–3364 (2016).https://doi.org/10.1364/OE.24.003329.
+[7] K. Schab, A. Rothschild, K. Nguyen, M. Capek, L. Jelinek, and M. Gustafsson, “Trade-offs in absorption
+and scattering by nanophotonic structures,” Optics Express28, 36584–36599 (2020).https://doi.org/10.
+1364/OE.410520.
+[8] R. Kononchuk, C. Pfeiffer, I. Anisimov, N. I. Limberopoulos, I. Vitebskiy, and A. A. Chabanov, “Wide-
+Aperture Layered-Sheet Faraday Isolator,” Physical Review Applied12, 054046 (2019). The reciprocal
+polarizer component is discussed in Sections II–III of the accepted manuscript.https://doi.org/10.1103/
+PhysRevApplied.12.054046.
+[9] L. M. Máñez-Espina, B. Amrahi, V. S. Asadchy, and A. Díaz-Rubio, “Strong Mode Coupling and Maximum
+Directional Absorption in Reciprocal Bianisotropic Metasurfaces,” Nanophotonics15, e70145 (2026).https:
+//doi.org/10.1002/nap2.70145.
+[10] Compact reciprocal Maxwell scatterers can approach unit absorption asymmetry, supplied OQ7 research
+manuscript, 10 October 2026. Preserved original:OQ7_compact_Maxwell_cross_sections_2026-10-10(1)
+.pdf.
+[11] Resource-dependent bounds on reciprocal absorption–scattering asymmetry, supplied OQ7 research manuscript,
+10 October 2026. Preserved original:OQ7_fixed_resource_bounds_2026-10-10(1).pdf.
+[12] Sharp quartic absorption–scattering asymmetry for bounded-loss reciprocal Maxwell scatterers, supplied OQ7
+research manuscript, 10 October 2026. Preserved original:OQ7_quartic_Maxwell_2026-10-10(1).pdf.
+[13] Adversarial verification of the quartic Maxwell theorem, supplied OQ7 audit, 10 October 2026. Preserved
+original: OQ7_quartic_adversarial_audit_2026-10-10(1).pdf.
+19

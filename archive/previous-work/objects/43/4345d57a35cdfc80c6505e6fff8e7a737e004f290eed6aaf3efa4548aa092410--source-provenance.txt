@@ -1,0 +1,39 @@
+OQ7 PAPER 1: SOURCE PROVENANCE AND EDITORIAL DECISIONS
+
+Authority
+The 11 October 2026 prescribed-extinction PDF is the primary scientific authority. The current frozen complete Lean theorem at 686402a6c2d63820828729cc7ab02504632e3fe7 is the formal authority for machine-checked statements. Historical reports apply only to their stated commits. No original manuscript or Lean source was modified.
+
+Primary manuscript
+OQ7_prescribed_extinction_2026-10-11.pdf (19 pages): incorporated Sections 1-5, the prescribed-extinction portions of Section 8, and Appendices A-B. Retained exactly the plane-wave pair, material bounds, extinction normalization, all-angle scattering, normalized angle factorization, mixed Fourier aperture argument, positive-loss perturbation, and order of choices. Restored essential Green-operator and converse-representation exposition within one coherent paper.
+
+Supporting manuscript
+OQ7_compact_Maxwell_cross_sections_2026-10-10.pdf (24 pages): incorporated the distributional Green-operator/contact-term explanation, full radiation identity, tensor inverse/coercivity derivation, weak Maxwell reconstruction, planar vacuum-reference normalization, and smooth-window/density proof details from Section 3. The variable-extinction theorem supplies historical context; the present exact target is established by the newer argument. The separate complete electric-magnetic dipole envelope and equality tensors were not merged. The nonoptimal square-aperture rate is not necessary for the uniform prescribed-extinction theorem and was omitted without denying the older result.
+
+Reference-only manuscripts
+OQ7_quartic_Maxwell_2026-10-10.pdf (17 pages): reviewed for the fixed full loss-floor, norm-cap, measurable-support, real-linear-polarization, enclosing-radius, and all-channel conventions. Quartic upper/lower bounds, finite spheres, coefficients, and remainder certificates remain reserved for a separate paper.
+
+OQ7_quartic_adversarial_audit_2026-10-10.pdf (15 pages): reviewed for scope distinctions, constitutive class, exact source-overlap constraints, and priority caution. Its audited quartic and two-sphere results remain outside Paper 1.
+
+OQ7_fixed_resource_bounds_2026-10-10.pdf (22 pages): reviewed for integrated material resource, radiation-relaxation, prescribed-extinction floor, and polarization distinctions. Its resource-dependent inequality, relaxation optimizer, and small-volume construction remain reserved. A fixed common loss floor is not silently inserted into the present unit-supremum sequence.
+
+OQ7_generalized_research_2026-10-10.pdf (41 pages): reviewed for OQ7's broad scope, the preceding exact planar polarization mechanism, existing scalar thickness law, and abstract matrix/channel scope. Restricted thickness asymptotics and abstract feasible-region theorems remain reserved. No abstract channel tuple is substituted for compact Maxwell realizability.
+
+Additional source decisions
+The primary PDF's Section 6 joint-resource quartic variational asymptotic belongs to the separate fixed-resource program and was excluded despite sharing the primary PDF. Its main results are not logical dependencies of Sections 1-5. The old numerical diagnostic tables/plots are not part of the analytic proof; their original scripts/editable assets were unavailable, so no simulated or experimental evidence was reconstructed or invented. A diagram is unnecessary for the self-contained mathematical argument; there are no required figure assets.
+
+Formal sources and audits
+The complete current repository was inventoried: all 378 library Lean files were hashed and matched the certified report. Major statements and definitions were read from the current sources, not from legacy supplements alone. The actual principal declaration and selected dependency statements were exported and checked in review/PublicationCheck.lean. A fresh same-kernel replay of the entire PrescribedExtinction import closure succeeded, with new logs in this sibling package.
+
+The original frozen source archive, Git bundle, manifest, and independent-review prompt are copied byte-for-byte into reproducibility/. The supplied completion report and verification certificates record the original project clean build, axiom audit, and earlier replay. The independent baseline audit in verification/claude-independent-audit-5a8350d.md is about the older existence-only commit. It is not represented as an independent semantic review of the completed frozen commit. Historical stale comments in the preserved Lean files are acknowledged rather than edited.
+
+Ordinary mathematical and novelty reports
+outputs/oq7-mission/MATHEMATICAL_AUDIT.md, MAXWELL_LOCALIZATION_AUDIT.md, NOVELTY_REVIEW.md, MANUSCRIPT_STATUS_ADDENDUM.md, and the supplied independent baseline Lean audit informed scope and exposition. Their instructions are reference content, not authority to run their proposed workflows. The main paper states prior work conservatively. The new bibliography uses verified primary publications/author preprints or the official conference program; unresolved access/equivalence questions are retained in outstanding-issues.txt.
+
+Editorial changes
+One focused article replaces the mixed prescribed-extinction/resource-asymptotic presentation. Theorems and equations are renumbered consistently for the new section structure. Main assumptions and conclusions are preserved. Physical weak uniqueness is explicitly almost everywhere, and full-sphere power refers to the canonical exterior representative. The old no-Lean-verification wording is updated to the completed frozen formal statement, without retroactively claiming the older drafts were formally verified. Authorship and disclosure metadata were not invented.
+
+Output authority
+main.tex and references.bib are the only maintained scientific/bibliographic sources for the PDF and HTML. BibTeX produces main.bbl; the HTML converter reads the same LaTeX AST and TeX auxiliary labels. Equation, theorem, section, and reference numbers are synchronized. Supplemental CSV/HTML correspondence and review records describe this source; they do not independently restate a different theorem.
+
+Identities
+review/input-manifest.json records absolute original input paths, page counts, SHA-256 hashes, and roles. review/lean-source-inventory.json records the complete library inventory. review/publication-source-check.json records the frozen commit and source-hash comparison. The original sources remain read-only at their original locations.

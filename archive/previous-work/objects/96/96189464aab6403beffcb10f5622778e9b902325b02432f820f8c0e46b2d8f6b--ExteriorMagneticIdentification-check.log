@@ -1,0 +1,31 @@
+warning: mathlib: repository 'C:/Users/Daniel/Documents/Codex/2026-10-09/set-up-a-local-ai-mathematical/outputs/math-research-lab/lean/.lake/packages\mathlib' has local changes
+warning: plausible: repository 'C:/Users/Daniel/Documents/Codex/2026-10-09/set-up-a-local-ai-mathematical/outputs/math-research-lab/lean/.lake/packages\plausible' has local changes
+warning: LeanSearchClient: repository 'C:/Users/Daniel/Documents/Codex/2026-10-09/set-up-a-local-ai-mathematical/outputs/math-research-lab/lean/.lake/packages\LeanSearchClient' has local changes
+warning: importGraph: repository 'C:/Users/Daniel/Documents/Codex/2026-10-09/set-up-a-local-ai-mathematical/outputs/math-research-lab/lean/.lake/packages\importGraph' has local changes
+warning: proofwidgets: repository 'C:/Users/Daniel/Documents/Codex/2026-10-09/set-up-a-local-ai-mathematical/outputs/math-research-lab/lean/.lake/packages\proofwidgets' has local changes
+warning: aesop: repository 'C:/Users/Daniel/Documents/Codex/2026-10-09/set-up-a-local-ai-mathematical/outputs/math-research-lab/lean/.lake/packages\aesop' has local changes
+warning: Qq: repository 'C:/Users/Daniel/Documents/Codex/2026-10-09/set-up-a-local-ai-mathematical/outputs/math-research-lab/lean/.lake/packages\Qq' has local changes
+warning: batteries: repository 'C:/Users/Daniel/Documents/Codex/2026-10-09/set-up-a-local-ai-mathematical/outputs/math-research-lab/lean/.lake/packages\batteries' has local changes
+warning: Cli: repository 'C:/Users/Daniel/Documents/Codex/2026-10-09/set-up-a-local-ai-mathematical/outputs/math-research-lab/lean/.lake/packages\Cli' has local changes
+work/ExteriorMagneticIdentification.lean:71:6: warning: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [PiLp.smul_apply, smul_eq_mul, Matrix.cons_val_one, Matrix.cons_val_two]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+work/ExteriorMagneticIdentification.lean:71:28: warning: This simp argument is unused:
+  Matrix.cons_val_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [PiLp.smul_apply, smul_eq_mul, Matrix.cons_val_zero, Matrix.cons_val_two]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+work/ExteriorMagneticIdentification.lean:71:49: warning: This simp argument is unused:
+  Matrix.cons_val_two
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [PiLp.smul_apply, smul_eq_mul, Matrix.cons_val_zero, Matrix.cons_val_one]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+work/ExteriorMagneticIdentification.lean:141:29: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead

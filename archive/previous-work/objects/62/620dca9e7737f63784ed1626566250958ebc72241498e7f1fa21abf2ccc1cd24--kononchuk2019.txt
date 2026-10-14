@@ -1,0 +1,664 @@
+=== PDF PAGE 1 ===
+Wide-aperture layered-sheet Faraday isolator
+R. Kononchuk, 1 C. Pfeiﬀer, 2 I. Anisimov,2 N.I. Limberopoulos, 2 I. Vitebskiy, 2 and A. A. Chabanov 1
+1Department of Physics and Astronomy, University of Texas at San Antonio, San Antonio, TX 78249, USA
+2Air Force Research Laboratory, Sensors Directorate, Wright-Patterson AFB, OH 45433, USA
+(Dated: October 9, 2019)
+We introduce the ﬁrst conceptual design of a free-space thin-sheet isolator with unlimited aperture
+and the possibility of a broadband omnidirectional rejection of the backward propagating light.
+The proposed design involves a multilayered resonant cavity incorporating subwavelength magnetic
+layers, dichroic nanolayers, and an optional metallic nanolayer. The cavity resonance enhances
+the Faraday rotation produced by the subwavelength magnetic layers, while providing nearly total
+absorption of the backward-propagating light by the dichroic nanolayers. The latter is a necessary
+and the most challenging condition for a thin-sheet isolator with unlimited aperture to function.
+The (optional) metallic nanolayer provides rejection of the obliquely incident light, which otherwise
+would be partially transmitted in either direction. Our numerical simulations and quasi-optical
+measurements at millimeter-wave frequencies illustrate how the key elements of the layered-sheet
+isolator work. Our approach can be scaled down to long- and mid-infrared wavelengths.
+I. INTRODUCTION
+Optical isolators are nonreciprocal devices transmit-
+ting light in only one direction [1]. They are indispens-
+able for eliminating adverse eﬀects of back reﬂection in
+optical systems. A typical free-space isolator consists of a
+45-degree Faraday rotator placed between two polarizers
+making a 45-degree angle with each other, as schemati-
+cally shown in Fig. 1. A properly polarized input light
+propagating in the forward direction, passes through the
+front polarizer P1, the Faraday rotator 45FR, and then
+the back polarizer P2, as shown in Fig. 1a. By con-
+trast, the backward-propagating light, after passing the
+back polarizer P2 and the Faraday rotator 45FR, will be
+blocked by the front polarizer P1, as shown in Fig. 1b.
+This simple isolation scheme essentially requires that the
+backward-propagating light is either totally absorbed by
+the polarizer P1 or diverted away from the system. In-
+deed, if the backward-propagating light in Fig. 1b were
+even partially reﬂected from the polarizer P1 towards the
+Faraday rotator, it would bounce back and force between
+the two polarizers, each time passing through the Fara-
+day rotator and acquiring an additional 45-degree rota-
+tion. After one round trip, the light would acquire an ad-
+ditional 90-degree polarization rotation and thus would
+not be blocked by the polarizer P1, resulting in isolation
+failure. This presents a major challenge in realizing a
+thin-sheet isolator, because all existing sheet polarizers
+(such as absorptive ﬁlm polarizers, metal nanoparticles-
+embedded glass plates, wire grids, etc.) are at least par-
+tially reﬂective. In the existing free-space isolators, the
+problem of polarizer reﬂectivity is dealt with by either
+using beam-splitting polarizers or by tilting the sheet po-
+larizers at an angle to the light beam [2, 3]. Neither of
+these approaches, however, is applicable to a thin-sheet
+isolator. Indeed, if the free-space isolator is a thin mul-
+tilayer (as is the case here), one can only tilt the entire
+multilayered structure, not just the polarizer layers. Tilt-
+ing the entire multilayer, however, would not prevent the
+backward-propagating light from bouncing between the
+FIG. 1. Schematics and operating principle of the opti-
+cal isolator composed of a 45-degree Faraday rotator (45FR)
+positioned between two polarizers (P1 and P2) making a 45-
+degree angle with each other. (a) forward-propagating wave
+(red arrow) passes through; (b) backward-propagating wave
+(green arrow) is blocked by the isolator.
+sheet polarizers, causing the isolation failure. It thus ap-
+pears that after entering the sheet isolator, the backward-
+propagating light must be completely absorbed by the
+isolator. This strict requirement is unique to the case of
+a sheet isolator with unlimited aperture, and its fulﬁll-
+ment is the main focus of our study.
+In the next two Sections, we describe the design and
+experimental realization of layered-sheet (LS) polarizers
+providing nearly perfect resonant absorption of the light
+with unwanted linear polarization, while not aﬀecting the
+light with the desired linear polarization. According to
+Fig. 1, a pair of such LS polarizers in combination with
+a thin-sheet Faraday rotator will act as a sheet isola-
+tor with unlimited aperture. Away from the cavity res-
+onance, the proposed resonant LS polarizers, as well as
+the entire sheet isolator, are highly reﬂective regardless of
+the input light polarization. The latter implies that away
+from the cavity resonance, the isolator reﬂects both the
+forward- and the backward-propagating input light.
+In Section 2 we present two qualitatively diﬀerent de-
+signs of resonant LS polarizers compatible with the sheet
+isolator. The ﬁrst design is symmetric – it provides the
+total absorption of the unwanted polarization regardless
+of the direction of incidence. The second (preferable)
+arXiv:1903.01507v4  [physics.app-ph]  8 Oct 2019
+
+=== PDF PAGE 2 ===
+2
+design is highly asymmetric – it provides the total ab-
+sorption of the unwanted polarization for one direction
+of incidence, while providing a nearly perfect reﬂection of
+the unwanted polarization for the opposite direction of in-
+cidence. In the case of sheet isolator, the absorptive sides
+of the polarizers must face the Faraday rotator, while the
+opposite (outer) sides of the polarizers can be reﬂective.
+Our designs involve high-Q resonant cavity with embed-
+ded dichroic nanolayers (metal-grid polarizers). Taken
+out of the cavity, the dichroic nanolayers are mostly re-
+ﬂective for the unwanted light polarization and, there-
+fore, could not be used as components of the sheet isola-
+tor. Both, symmetric and asymmetric designs are based
+on the same high-Q resonant cavity; the only diﬀerence is
+in the number and the location of the dichroic nanolayers
+inside the cavity. We have also fabricated and success-
+fully tested such polarizers at millimeter-wave (MMW)
+frequencies. The results of the quasi-optical MMW mea-
+surements are described in Section 3.
+The above solution for the sheet isolator with unlim-
+ited aperture involves at least two resonant cavities (one
+for each of the two polarizers in Fig. 1) with perfectly
+matched resonant frequencies. In Section 4, we put for-
+ward a qualitatively diﬀerent design of the LS isolator.
+The idea is to incorporate the magnetic and dichroic lay-
+ers in a single resonant cavity, to avoid any impedance
+mismatch between the three constitutive components of
+the isolator in Fig. 1. The role of the high-Q dielectric
+cavity in this case is two-fold. Firstly, it provides a nearly
+total resonant absorption of the backward-propagating
+light by the dichroic nanolayers, while not aﬀecting the
+forward-propagating light. Secondly, the cavity enhances
+the nonreciprocal circular birefringence associated with
+the subwavelength magnetic layers, thereby drastically
+reducing the total thickness of the multilayered struc-
+ture. Furthermore, a metallic nanolayer can be added
+to multilayered cavity to achieve omnidirectional rejec-
+tion of the light incident on the back surface of the sheet
+isolator, following the scheme of [4, 5]. The location of
+metallic nanolayer should coincide with an asymmetric
+nodal plane of the resonant ﬁeld distribution. According
+to [5], at normal propagation, such a metallic nanolayer is
+“invisible for the resonant mode inside the cavity. How-
+ever, at oblique incidence, the nodal plane of the electric
+ﬁeld distribution shifts away from the metallic nanolayer
+and the entire multilayered structure becomes highly re-
+ﬂective [5]. In this paper, though, we focus on the case
+of normal incidence.
+The numerical simulations of the scattering parameters
+for the LS polarizers and the integrated LS isolator, as
+well as the quasi-optical proof-of-concept measurements,
+have been carried out in the W-band (75-110 GHz). The
+presented approach, though, is highly scalable and can
+be replicated for any frequency range from microwave to
+mid-infrared.
+II. LA YERED-SHEET POLARIZERS
+The design of the LS polarizers involves dichroic
+nanolayers incorporated into a resonant multilayer di-
+electric cavity. In our numerical simulations using 4 ×4
+Transfer-Matrix formalism, the dichroic nanolayers have
+a highly anisotropic sheet resistance: Rx = ∞ and
+Ry = 2.54 Ω/sq. At MMW frequencies, the dichroic
+nanolayers fully transmit thex-polarization (hereinafter,
+the TM polarization) component of the incident wave in
+thez-direction while mostly reﬂecting the y-polarization
+(hereinafter, the TE polarization) component. The cor-
+responding transmittance and reﬂectance values at a fre-
+quency of 95 GHz are Tx = 1, Rx = 0 and Ty =
+1.79× 10−4, Ry = 0 .973. Thus, the high value of
+Ry would not allow the use of the stand-alone dichroic
+nanolayers as polarizers in the isolator in Fig. 1.
+The multilayer cavity is shown in Fig. 2a, and it is de-
+signed to operate at 95 GHz. It consists of quarter-wave
+layers of sapphire ( H, dark blue) and quartz ( L, light
+blue), with the corresponding refractive indicesnH = 9.5
+and nL = 3.8 and negligible absorption in the W-band.
+The transmittance and reﬂectance spectra of the multi-
+layer cavity are shown in Fig. 2b. The half-wave de-
+fect layer in the middle of the periodic layered structure
+provides a quasi-localized mode associated with the res-
+onant transmittance at the mid-gap frequency f0 = 95
+GHz. The spatial intensity distribution of the electric
+ﬁeld component within the multilayer at the resonance
+frequency f0 is shown in Fig. 2c. Since the half-wave
+defect layer has the lower refractive index, the resonant
+ﬁeld distribution has an antinodal plane in the middle
+of the defect layer, where the amplitude of the quasi-
+localized resonant mode reaches its maximum value. In
+the absence of the dichroic layers, the results presented
+in Figs. 2b and 2c are polarization independent. These
+results will still apply to the TM polarization, after the
+dichroic layers have been incorporated into the multi-
+layer. The inclusion of the dichroic nanolayers in the
+multilayer cavity provides a broadband, omnidirectional
+and strongly enhanced transmittance suppression for the
+TE polarization. What happens to the TE polarization
+strongly depends on the number and the location of the
+dichroic nanolayers in the cavity.
+We start with the symmetric LS conﬁguration in
+Fig. 3a, where the only dichroic nanolayer coincides with
+the symmetry plane of the cavity. Our simulations show
+that the resonant transmittance of the TE polarization is
+∼ 10−7 (as seen in Fig. 3c), which is three orders of mag-
+nitude lower than for the stand-alone dichroic layer. The
+reﬂectance approaches unity (as seen in Fig. 3b), while
+the absorptance, A = 1−T−R, drops an order of mag-
+nitude lower than that of the stand-alone dichroic layer.
+The physical reason for the reduced absorption is that
+the TE polarization is mostly reﬂected from the Bragg-
+reﬂector part of the LS polarizer and that the electric
+ﬁeld intensity at the dichroic layer is only ∼ 10−3 of the
+incident wave intensity, as seen in Fig. 3c. The decreased
+
+=== PDF PAGE 3 ===
+3
+ 
+90 95 100Frequency (GHz)
+-30
+-20
+-10
+0T,R (dB)
+TR
+y z
+x
+ 
+012345Spatial location (mm)
+-30
+-20
+-10
+0
+10
+20I/I0 (dB)
+01234Spatial location (mm)
+-30
+-20
+-10
+0
+10
+20I/Iin (dB)
+01234Spatial location (mm)
+-30
+-20
+-10
+0
+10
+20I/Iin (dB)
+b ca
+90 95 100Frequency (GHz)
+-30
+-20
+-10
+0T,R (dB)
+FIG. 2. (a) Schematics of the resonant multilayer cavity of
+quarter-wave sapphire (deep blue) and quartz (light blue)
+layers, utilized as a host structure for the LS polarizers in
+Figs. 3–5; (b) simulated spectral transmittance (dashed line)
+and reﬂectance (solid line), and (c) spatial intensity distribu-
+tion, |E(z)|2, at the cavity resonance frequency 95 GHz. The
+plots (b) and (c) are polarization independent. In the case of
+LS polarizers, they still apply to the TM polarization.
+FIG. 3. (a) Schematics of the reﬂective LS polarizer involving
+a dichroic nanolayer (black) incorporated in the host multi-
+layer structure of Fig. 2a; (b) simulated spectral reﬂectance
+(solid line) and absorptance (dotted line), and (c) spatial
+intensity distribution, |E(z)|2, at the cavity resonance fre-
+quency 95 GHz, for the TE polarization in the forward prop-
+agation direction.
+absorption can drastically reduce the absorption-related
+heating and, thereby, signiﬁcantly increase the power-
+handling capability of the LS polarizer. However, its high
+reﬂectance for the TE polarization makes it impossible to
+use it as a component of the LS isolator.
+If, on the other hand, the dichroic layer is positioned
+at the nodal plane of the resonant electric ﬁeld distri-
+bution, resonant absorption of the TE polarization can
+be signiﬁcantly enhanced. Although the absorptance of
+an ultrathin homogeneous layer is known not to exceed
+0.5 (see, for example, [6]), this absorptance limit can be
+overcome in a thin ﬁlm with an intrinsic resonance [7],
+such as a plasmonic resonance, in a metasurface [8], or
+by using the Salisbury screen [9, 10], which is a highly
+reﬂective surface positioned a quarter-wave distance be-
+hind an absorbing layer. Perfect absorption can also be
+achieved by critical coupling of a lossy thin layer to a
+resonator [11–13] or ideal impedance matching between
+a lossy slab and the free space [14, 15].
+In the LS conﬁguration in Fig. 4a, we utilize, as a re-
+ﬂecting screen, the second dichroic nanolayer positioned
+a quarter-wave distance from the ﬁrst one, resulting in
+nearly perfect absorption of the TE polarization at the
+resonance frequency. The third dichroic nanolayer is
+FIG. 4. (a) Schematics of the absorptive LS polarizer in-
+volving three dichroic nanolayers (black) incorporated in the
+host multilayer structure of Fig. 2a; (b) simulated spectral
+reﬂectance (solid line) and absorptance (dotted line), and (c)
+spatial intensity distribution, |E(z)|2, at the cavity resonance
+frequency 95 GHz, for the TE polarization in the forward
+propagation direction.
+added for symmetric operation, so that the LS polarizer
+equally absorbs the TE-polarization component of the
+incident wave in either direction. The resonant trans-
+mittance for the TE polarization is ∼ 10−8 (as seen in
+Fig. 4c), implying a huge enhancement of the polariza-
+tion extinction ratio. The reﬂectance and absorptance
+spectra are shown in Fig. 4b. The nearly perfect absorp-
+tance is narrowband, due to its resonant nature. Away
+from the resonance frequency, the LS polarizer is highly
+reﬂective, regardless of the incident polarization. Thus
+in the vicinity of the cavity resonance, the LS polarizer
+of Fig. 4a can be used as a component of the LS isolator.
+Furthermore, if the left dichroic nanolayer of the LS
+polarizer in Fig. 4a is removed, the layered structure
+becomes asymmetric, as shown in Fig. 5a. Despite the
+structural asymmetry, the transmittance of the LS polar-
+izer remains identical for the opposite incident directions,
+due to the reciprocity principle. In particular, the reso-
+nant transmittance for the TE polarization is less than
+10−7 (as seen in Fig. 5c), still implying an enormous
+enhancement of the polarization extinction ratio. By
+contrast, the reﬂectance and absorptance are extremely
+asymmetric about the direction of incidence, as seen in
+Fig. 5b. At the frequency of the cavity resonance, the
+wave with the TE polarization traveling from left to right
+is almost totally reﬂected by the asymmetric LS polar-
+izer, while the wave with the TE polarization traveling
+in the opposite direction is almost totally absorbed, pri-
+marily by the right dichroic nanolayer. Note that the
+Salisbury screen, which is inherently asymmetric, can
+also produce, at the resonance frequency, strongly asym-
+metric absorption/reﬂection of the incident wave [9]. It
+will, however, have the polarization extinction ratio and
+power limitation of a common dichroic-sheet polarizer.
+By comparison, in the case of the asymmetric LS po-
+larizer of Fig. 5a, the polarization extinction ratio and
+power-handling capability are greatly enhanced.
+
+=== PDF PAGE 4 ===
+4
+FIG. 5. (a) Schematics of the asymmetric absorp-
+tive/reﬂective LS polarizer involving two dichroic nanolay-
+ers (black) incorporated in the host multilayer structure of
+Fig. 2a; (b) simulated spectral reﬂectance (solid line) and ab-
+sorptance (dotted line), and (c) spatial intensity distribution,
+|E(z)|2, at the cavity resonance frequency 95 GHz, for the
+TE polarization in the forward (red) and backward (green)
+propagation directions.
+III. QUASI-OPTICAL MEASUREMENTS OF
+THE LA YERED-SHEET POLARIZER
+The proof-of-concept measurements of the LS polariz-
+ers introduced in Section 2 have been carried out in the
+W-band. The asymmetric LS polarizer was fabricated
+using 5-cm-diameter C-cut sapphire and quartz wafers
+and aluminum (Al) wire grids to produce the layer stack
+(H1L1)2(H1L2)(GH2)2(L2H1)(L1H1)2, whereL1 andL2
+are 404-µm and 442-µm thick quartz, respectively, H1 is
+a 256-µm thick sapphire, and (GH2) is a 40-nm thick Al
+wire grid with a duty cycle of 0.3 and period of 20 µm,
+deposited on a 246- µm thick sapphire wafer. The layer
+structure was mainly determined by the wafers on hand,
+and the wire grid was designed to ﬁt to the fabricated
+multilayer.
+First, quasi-optical measurements of the wire grid on
+a double-thick sapphire (GH 2
+2) were carried out with the
+use of Gaussian beams (beam waist diameter of ∼ 0.5
+cm) normally incident to the grid. The S-parameters of
+(GH 2
+2) were measured as a function of frequency with the
+use of a vector network analyzer. No signiﬁcant diﬀer-
+ence was noticed, within experimental error, between the
+measurements for the two (opposite) incident directions.
+The transmittance and reﬂectance spectra of ( GH 2
+2) for
+the TM and TE polarizations are shown in Figs. 6a and
+6b, respectively. The sharp dip in the reﬂectance for
+the TM polarization at 94.1 GHz indicates the position
+of the Fabry-P´ erot resonance of the substrate. At the
+resonance frequency, the polarization extinction ratio of
+(GH 2
+2) is 33 dB. For the TE polarization, the reﬂectance
+is 0.86, implying that ( GH 2
+2) has a signiﬁcant absorp-
+tance of 0.14.
+The S-parameter measurements were then performed
+on the layer stack. For the TM polarization, the dif-
+ference between the measurements for the two incident
+directions was negligible, similarly to the case of ( GH 2
+2).
+The transmittance and reﬂectance spectra for the TM
+polarization are shown in Fig. 7a. The layer stack has a
+nearly perfect resonant transmittance (with a resonance
+ 
+90 95 100Frequency (GHz)
+-40
+-30
+-20
+-10
+0T,R (dB)
+TR
+90 95 100Frequency (GHz)
+-40
+-30
+-20
+-10
+0T,R (dB)
+TR
+90 95 100Frequency (GHz)
+-40
+-30
+-20
+-10
+0T,R (dB)
+TR
+TM TE
+TM
+90 95 100Frequency (GHz)
+-40
+-30
+-20
+-10
+0T,R (dB)
+TR
+TE
+90 95 100Frequency (GHz)
+-30
+-20
+-10
+0T,R (dB)
+90 95 100Frequency (GHz)
+-30
+-20
+-10
+0T,R (dB)
+ba
+FIG. 6. Quasi-optical spectral measurements of the aluminum
+wire grid on sapphire: transmittance (dashed line) and re-
+ﬂectance (solid line) of the (a) TM- and (b) TE-polarized
+Gaussian beam.
+Q-factor of 92) at 94.4 GHz and high reﬂectance away
+from the cavity resonance, indicating that the TM polar-
+ization does not interact with the wire grids. For the TE
+polarization, the transmittance is suppressed down to -50
+dB within the entire band gap, being identical for the two
+incident directions (Figs. 7b and 7c). By comparison, the
+absorptance and reﬂectance are highly asymmetric about
+the direction of incidence. For the Gaussian beam inci-
+dent from the left (Fig. 7b), the reﬂectance is 0.99 in the
+vicinity of the resonance frequency, implying that the ab-
+sorptance is less than 0.01. By contrast, for the Gaussian
+beam incident from the right (Fig. 7c), the reﬂectance has
+a sharp dip of -38 dB at 94.03 GHz, indicating that the
+TE polarization is almost totally absorbed at the cavity
+resonance. The red-shift of the resonance frequency for
+the TE polarization is attributed to parasitic reactances
+of the wire grids, which eﬀectively increase the cavity
+thickness. According to our simulations, this eﬀect can
+be reduced by decreasing the period of the wire grid.
+Notwithstanding the diﬀerent frequencies of the cavity
+resonance for the TM and TE polarizations (in Figs. 7a
+and 7c), our experimental results check well with those
+presented in Fig. 5b. The polarization extinction ratio
+as high as 50 dB and strong asymmetry of the absorp-
+tance/reﬂectance about the direction of incidence, in the
+vicinity of the resonance frequency, have both been ex-
+perimentally demonstrated. In addition, the extinction
+ratio of the LS polarizer was not adversely aﬀected when
+it was tilted at an angle as large as 40 degrees to the
+incoming beam. The oblique incidence, though, resulted
+in a blue-shift of the resonant frequency.
+IV. INTEGRA TED LA YERED-SHEET
+ISOLA TOR
+A direct way to assemble a LS isolator is by placing
+a thin-sheet 45-degree Faraday rotator between a pair of
+the absorbing LS polarizers (such as in Figs. 4a or 5a),
+following the scheme of Fig. 1. A thin-sheet 45-degree
+Faraday rotator in the form of a resonant multilayer cav-
+
+=== PDF PAGE 5 ===
+5
+  
+90 95 100Frequency GHz
+-60
+-40
+-20
+0T,R (dB)
+TR
+90 95 100Frequency GHz
+-60
+-40
+-20
+0T,R (dB)
+TR
+90 95 100Frequency GHz
+-60
+-40
+-20
+0T,R (dB)
+TR
+90 95 100Frequency GHz
+-60
+-40
+-20
+0T,R (dB)
+TR
+TM TE TE
+b ca
+FIG. 7. Quasi-optical spectral measurements of the asymmet-
+ric LS polarizer: transmittance (dashed line) and reﬂectance
+(solid line) of (a) the TM-polarized Gaussian beam, (b) the
+TE-polarized Gaussian beam incident to the right and (c) to
+the left.
+ity incorporating subwavelength magnetic layers was dis-
+cussed for the X-band in Ref. [4]. Thus the isolator as-
+sembly can include three resonant components operating
+at the same resonance frequency.
+Here we present a design of LS isolator based on a sin-
+gle multilayer cavity, which we coin ‘integrated LS iso-
+lator’. The integrated LS isolator, designed for the W-
+band, is shown in Fig. 8. It still involves magnetic and
+dichroic layers incorporated in a sapphire/quartz mul-
+tilayer, but the polarizers cannot be identiﬁed as sepa-
+rate parts of the isolator. The multilayer includes two
+symmetric half-wave defect layers, providing a pair of
+resonant cavity-localized modes which enable a low-loss
+Faraday rotator [16]. The magnetic layers are a 11.65-
+µm thick strontium ferrite (SrFe 12O19) with the permit-
+tivity ε = 36 + i0.1 [17, 18], diagonal elements of the
+permeability tensor µii = 1 and speciﬁc Faraday rota-
+tion α = 700 deg/cm [18], and the dichroic nanolay-
+ers are characterized by the sheet resistances Rx =∞
+andRy = 15.6 Ω/sq. The position of the magnetic lay-
+ers is determined by the following. Note that at MMW
+frequencies, the nonreciprocal response is usually asso-
+ciated with the magnetic permeability tensor, whereas
+absorption is often caused by electrical conductivity of
+the magnetic material [19]. This implies that the mag-
+netic component of the electromagnetic wave is respon-
+sible for the nonreciprocal eﬀects (such as Faraday rota-
+tion), while the electric component for the losses. Also
+note that at the cavity resonance, the nodal planes of
+the electric ﬁeld component coincide with the antinodal
+planes of the magnetic ﬁeld component, and vice versa.
+Therefore, when a subwavelength magnetic layer (such
+as strontium ferrite) is positioned at the antinodal plane
+of the magnetic ﬁeld (also the nodal plane of the electric
+ﬁeld), the Faraday rotation is enhanced and the losses
+are suppressed at the same time [4]. This approach can
+be utilized for any lossy magnetic material of consider-
+able magnetic gyrotropy, provided that the gyrotropy is
+predominantly associated with the permeability tensor
+while the losses are caused by the electric conductivity.
+Such magnetic materials are available from microwave to
+long- and mid-infrared frequencies [19, 20].
+The two pairs of the (aligned) dichroic nanolayers,
+making a 45-degree angle with each other, each act as
+FIG. 8. (a) Schematics of the integrated LS isolator composed
+of the resonant sapphire/quartz (dark/light blue) multilayer
+incorporating two magnetic layers (red) and two pairs of the
+(aligned) dichroic nanolayers (black) making a 45-degree an-
+gle with each other; (b) simulated spectral transmittance in
+the forward (red) and backward (green) propagation direc-
+tions in the vicinity of the cavity resonance; (c,d) the corre-
+sponding spatial intensity distributions, |E(z)|2, at the reso-
+nance frequency 94.20 GHz.
+the asymmetric polarizer. They reﬂect the TE-polarized
+component of the incoming wave and resonantly absorb
+the TE-polarized component of the wave passed the mag-
+netic layers, in either direction (Figs. 8c and 8d). Note
+that the dichroic nanolayers can adversely aﬀect the Fara-
+day rotation when positioned very close to the magnetic
+layer. On the other hand, placing them at the edges of
+the multilayer degrades their polarization contrast and
+power-handling capability.
+The integrated LS isolator, at normal incidence,
+achieves insertion loss of 0.04 dB and return loss of 33
+dB at the resonance frequency 94.20 GHz (Fig. 8b). The
+return loss can be further increased by increasing the
+number of sapphire/quartz bi-layeres. Away from the
+resonance, the LS isolator is highly reﬂective in either di-
+rection. At oblique incidence, the degree of isolation pro-
+gressively deteriorates with increasing angle of incidence,
+in the same way as for conventional free-space isolators.
+One way to address this problem is by adding a metal-
+lic nanolayer to the LS isolator [5]. The position of the
+metallic nanolayer should coincide with a nodal plane
+of the electric component of the resonant ﬁeld distribu-
+tion at normal incidence, to avoid a signiﬁcant increase
+in the insertion loss [21]. At oblique incidence, though,
+the nodal plane of the electric ﬁeld distribution can shift
+away from the metallic nanolayer thus making the LS
+isolator highly reﬂective at any frequency. For this to
+
+=== PDF PAGE 6 ===
+6
+happen, the nodal plane location must not coincide with
+the symmetry plane (if any) of the multilayered struc-
+ture. This approach is discussed in greater detail in Ref.
+[22].
+V. CONCLUSION
+We have developed the wide-aperture LS isolators for
+use in optical and quasi-optical systems. Our design
+is based on a resonant multilayer dielectric cavity host-
+ing subwavelength magnetic layers and dichroic nanolay-
+ers. The role of the cavity resonance is essential and
+multifold. Firstly, the resonance enhances the magnetic
+Faraday rotation produced by the subwavelength mag-
+netic layers thus allowing to make the LS isolator rather
+thin – its total thickness does not exceed a few wave-
+lengths. Secondly, the resonant conditions allow the
+use of dichroic nanolayers by enhancing/modifying their
+dichroic properties. In particular, the resonant condi-
+tions provide a nearly total (resonant) absorption of the
+backward-propagating light by the dichroic nanolayers.
+The dichroic nanolayers taken out from the resonant
+multilayer cavity would be partially absorptive/reﬂective
+and, thus, could not be used in a sheet isolator. Finally,
+the resonant conditions are necessary for the formation
+of quasi-nodal planes in the oscillating electric ﬁeld dis-
+tribution. Placing a metallic nanolayer at the location
+of an asymmetric nodal plane results in the rejection of
+the obliquely incident light and rendering the LS isolator
+omnidirectional [5].
+ACKNOWLEDGMENTS
+This research was supported by AFOSR via grants
+FA9550-16-1-0058, FA8650-17-C-1026, FA9550-15-F-
+0001, and LRIR 18RYCOR013.
+[1] Handbook of Optical Components and Engineering ,
+edited by K. Chang (Wiley-Interscience, New York,
+2003).
+[2] D. H. Martin and R. J. Wylde, IEEE Trans. Microw.
+Theory Tech. 57, 99 (2009).
+[3] R. I. Hunter and D. A. Robertson, IEEE Trans. Microw.
+Theory Tech. 55, 890 (2007).
+[4] K. Smith, T. Carroll, J. D. Bodyfelt, I. Vitebskiy, and A.
+A. Chabanov, J. Phys. D: Appl. Phys.46, 165002 (2013).
+[5] A. A. Chabanov, K. Smith, T. Carroll, and I. Vitebskiy,
+in 2014 8th International Congress on Advanced Elec-
+tromagnetic Materials in Microwaves and Optics (IEEE,
+New York, 2014), p. 79.
+[6] C. H¨ agglund, S. P. Apell, and B. Kasemo, Nano Lett.
+10, 3135 (2010).
+[7] J. Zhang, K. F MacDonald, and N. I. Zheludev, Light
+Sci. Appl. 1, e18 (2012).
+[8] S. Huang, Z. Xie, W. Chen, J. Lei, F. Wang, K. Liu, and
+L. Li, Opt. Express 26, 7066 (2018).
+[9] W. Salisbury, U.S. Patent No. 2,599,944, 1952.
+[10] R. L. Fante and M. T. McCormack, IEEE Trans. Anten-
+nas Propag. 36, 1443 (1988).
+[11] J. R. Tischler, M. S. Bradley, and V. Bulovi´ c, Opt. Lett.
+31, 2045 (2006).
+[12] J. R. Piper and S. Fan, ACS Photonics, 1, 347 (2014).
+[13] Y. Liu, A. Chadha, D. Zhao, J. R. Piper, Y. Jia, Y. Shuai,
+L. Menon, H. Yang, Z. Ma, S. Fan, F. Xia, and W. Zhou,
+Appl. Phys. Lett. 105, 181105 (2014).
+[14] I. S. Nefedov, C. A. Valagiannopoulos, S. M. Hashemi,
+and E. I. Nefedov, Sci. Rep. 3, 2662 (2013).
+[15] D. G. Baranov, J. H. Edgar, T. Hoﬀman, N. Bassim, and
+J. D. Caldwell, Phys. Rev. B 92, 201405(R) (2015).
+[16] H. Kato, T. Matsushita, A. Takayama, M. Egawa, K.
+Nishimura, and M. Inoue, IEEE Trans. Magn. 38, 3246
+(2002).
+[17] H. Liu, Z. Lou, H. Wang, and J. Miao, J. Infrared Millim.
+Terahertz Waves 30, 401 (2009).
+[18] M. Shalaby, M. Peccianti, Y. Ozturk, and R. Morandotti,
+Nat. Commun. 4, 1558 (2013).
+[19] A. G. Gurevich and G. A. Melkov, Magnetization Oscil-
+lations and Waves (CRC Press, Boca Raton, 1996).
+[20] A. K. Zvezdin, and V. A. Kotov, Modern Magnetooptics
+and Magnetooptical Materials (Taylor & Francis, New
+York, 1997).
+[21] P. H. Berning and A. F. Turner, J. Opt. Soc. Am. 47,
+230 (1957).
+[22] E. Makri, K. Smith, A. A. Chabanov, I. Vitebskiy, and
+T. Kottos, Sci. Rep. 6, 22169 (2016).

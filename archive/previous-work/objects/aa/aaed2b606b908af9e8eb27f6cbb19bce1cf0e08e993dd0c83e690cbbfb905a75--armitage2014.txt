@@ -1,0 +1,1684 @@
+=== PDF PAGE 1 ===
+arXiv:1311.5556v4  [cond-mat.str-el]  22 May 2014
+Constraints on Jones transmission matrices from time-reve rsal invariance and discrete
+spatial symmetries
+N.P. Armitage 1
+1The Institute for Quantum Matter, Department of Physics and Astronomy,
+Johns Hopkins University, Baltimore, MD 21218, USA
+(Dated: May 23, 2014)
+Optical spectroscopies are most often used to probe dynamic al correlations in materials, but
+they are also a probe of symmetry. Polarization anisotropie s are of course sensitive to structural
+anisotropies, but have been much less used as a probe of more e xotic symmetry breakings in ordered
+states. In this paper a Jones transfer matrix formalism is di scussed to infer the existence of exotic
+broken symmetry states of matter from their electrodynamic response for a full complement of
+possible broken symmetries including reﬂection, rotation , rotation-reﬂection, inversion, and time-
+reversal. A speciﬁc condition to distinguish the case of mac roscopic time-reversal symmetry breaking
+is particularly important as in a dynamical experiment like optics, one must distinguish reciprocity
+from time-reversal symmetry as dissipation violates stric t time-reversal symmetry of an experiment.
+Diﬀerent forms of reciprocity can be distinguished, but onl y one is a suﬃcient (but not necessary)
+condition for macroscopic time-reversal symmetry breakin g. I show the constraints that a Jones
+matrix develops under the presence or absence of such symmet ries. These constraints typically
+appear in the form of an algebra relating matrix elements or o verall constraints (transposition,
+unitarity, hermiticity, normality, etc.) on the form of the Jones matrix. I work out a number of
+examples including the trivial case of a ferromagnet, and th e less trivial cases of magnetoelectrics
+and vector and scalar spin “chiral” states. I show that the fo rmalism can be used to demonstrate
+that Kerr rotation must be absent in time-reversal symmetri c chiral materials. The formalism here
+is discussed with an eye towards its use in time-domain THz sp ectroscopy in transmission, but with
+small modiﬁcations it is more generally applicable.
+I. INTRODUCTION
+Optical spectroscopies are used to study a wide range
+of phenomena in the ﬁeld of correlated materials 1. Gen-
+erally, they have been used to probe the dynamical con-
+sequences of broken symmetry states of matter, ﬂuctua-
+tions of an ordered state, and interactions between elec-
+trons. Experiments like optical conductivity allow one to
+probe the relevant time and energy scales that charac-
+terize a state. Typical examples of its use in the corre-
+lated electron ﬁeld include it as a probe of the pseudo-
+gap state of high-temperature cuprate superconductors 2,
+mass renormalizations in heavy-fermion compounds 3,4,
+spectral weight redistribution in Mott insulators 5,6, elec-
+tron spin resonance of quantum magnets 7,8, and super-
+conducting ﬂuctuations 9–12.
+Although techniques like Raman scattering 13 and
+second-harmonic generation 14 have been applied to de-
+termining broken symmetries in ordered exotic states of
+matter, optical spectroscopies - where one is measuring
+the dipole excitations in linear response - have not been
+as commonly applied to directly determine broken sym-
+metries. Of course it is obvious that response functions of
+materials that depend on electronic structure are sensi-
+tive to structural anisotropies and so generally structural
+features manifest themselves as anisotropies in dynami-
+cal response. Obvious examples are the c-axis transverse
+Josephson plasmon observed in the high temperature
+cuprate superconductors 15 or the strongly anisotropic in-
+plane response in quasi-2D organic superconductors 16.
+In these cases the states exhibit anisotropies that are
+mirrored in structural features. However, it can also be
+the case that symmetries are broken in ordered systems,
+which are not directly tied to lattice anisotropies or struc-
+ture. In this case it can be a delicate matter in determin-
+ing exactly what symmetries are broken in a particular
+ordered state. A prominent example of this is the hidden
+ordered state in URu 2Si2 compound whose resolution has
+withstood 20 years of measurements despite the fact it
+shows a dramatic signature in the heat capacity 17. The
+community should be motivated to develop new exper-
+imental tools to probe broken symmetries in correlated
+states of matter.
+The use of optical probes for determining new broken
+symmetries has recently become more prominent with
+the observation of a spontaneous Kerr rotation (rota-
+tion of reﬂected light) in a number of superconducting
+and correlated systems 18. These experiments build on
+those from the early days of the cuprate superconduc-
+tor ﬁeld where proposed parity (P) and time-reversal
+symmetry (TRS) violating “anyon” phases for the pseu-
+dogap would have speciﬁc optical anisotropies 19–27. In
+recent experiments, the Kerr rotation in Sr 2RuO4 that
+onsets at the superconducting T c has been interpreted
+as being consistent with a TRS breaking p + ip′ super-
+conducting order parameter 28. In the cuprates, a small
+but signiﬁcant signal was seen at a temperature close to
+(but slightly below) that where the enigmatic pseudo-
+gap state of the cuprates onsets 29–31. It was originally
+attributed to a ferromagnetic-type time-reversal symme-
+try (TRS) breaking 29, and later proposed to be consis-
+tent with a chiral gyrotropic (TRS preserving) or mag-
+
+=== PDF PAGE 2 ===
+2
+netoelectric (TRS breaking) eﬀects 32–35. As discussed
+below and elsewhere, it is a matter of current debate
+whether or not a chiral material as such can exhibit a
+Kerr rotation 26,36–41. Another case where optics have
+been used to ﬁnd new correlated states of matter is in the
+case of La 2− xSrxCuO4, where a factor of two diﬀerence
+in the a and b direction optical conductivities was found
+in an underdoped crystal that had only a 1% diﬀerence
+in the in-plane lattice constants 42. Although this ma-
+terial was orthorhombic to start with (so additional 1D
+correlations broke no additional symmetries) this elec-
+tronic anisotropy was interpreted as being due to the
+occurrence of unidirectional “stripe” correlations on top
+of orthorhombicity because the conductivity anisotropy
+onset was at approximately 80K despite the fact that the
+compound was orthorhombic at room temperature, the
+spectral weight along the more conductive direction was
+actually suppressed relative to the other (in contrast to
+expectations from the overlap integral), and the large
+scale of the eﬀect. Even more recently, Lubashevsky
+et al. 43 has found a small but signiﬁcant polarization ro-
+tation that derives from an anomalous linear dichroism
+in thin ﬁlms whose principle axes are not aligned along
+those of the crystal symmetry directions. In YBa 2Cu3Oy
+the eﬀect has a temperature onset that mirrors the pseu-
+dogap temperature T ∗ and is enhanced in magnitude in
+underdoped samples. In x = 1 / 8 La 2− xBaxCuO4, the
+eﬀect onsets above room temperature, but shows a dra-
+matic enhancement near a temperature scale known to
+be associated with spin and charge ordered states. These
+features are consistent with a loss of both C 4 rotation and
+mirror symmetry in the electronic structure of the CuO 2
+planes in the pseudogap state.
+In the use of optical spectroscopies to determine broken
+symmetry states of matter, it is important to have a well
+developed formalism for extracting the relevant informa-
+tion as it is easy for one symmetry to masquerade as an-
+other. For instance, strong linear dichroism (absorption)
+can eﬀectively rotate the plane of polarization of light,
+in a manner that could superﬁcially be confused with a
+magnetic state with circular birefringence (phase retarda-
+tion). Both broken mirror and time-reversal symmetries
+can give circular birefringence. It is important to pre-
+cisely determine what aspects of the optical anisotropy
+correspond to TRS breaking as various kinds of chiral
+and gyrotropic orders can give similar experimental sig-
+natures. The frequency scale of the optical experiment is
+also an important consideration. Ordered states are gen-
+erally deﬁned in the ω → 0 limit. This means that low
+frequency optical measurements may be very useful in de-
+termining the onset of a broken symmetry. In this regard
+time-domain THz spectroscopy (TDTS) is a growing and
+important area of investigation, with important recent
+advances in THz polarimetry 44–50. This technique gen-
+erally satisﬁes the constraint in which these probes have
+frequency scales lower than the many frequency scales of
+interest. It has the ability to measure complex response
+functions directly without needing to resort to Kramers-
+Kronig transform. The fact that complex transmission
+functions are measured and radiation with well-deﬁned
+polarization states used means that the simpler Jones
+matrix formalism can be used to analyze data. A chal-
+lenge with TDTS is performing it in reﬂectance where
+phase information is diﬃcult to recover reliably.
+In this paper a formalism is discussed for inferring
+the existence of exotic broken symmetry states of mat-
+ter from their electrodynamic response. This formal-
+ism is discussed within the Jones transfer matrix ap-
+proach and so is directly applicable to time-domain THz
+spectroscopy in transmission, but is more broadly ap-
+plicable. I discuss the consequences of discrete broken
+symmetries on ordered states of matter including the
+presence and absence of reﬂections, rotations, inversion,
+rotation-reﬂections and time-reversal symmetry and the
+constraints they give on Jones matrices. These con-
+straints typically appear in the form of an algebra relat-
+ing matrix elements or overall constraints (transposition,
+unitarity, hermiticity, normality, etc.) on the form of ma-
+trix. This formalism is applied to other more exotic sym-
+metry breakings such as various forms of time-reversal
+symmetry breaking. As usual, the utility of symmetries
+is that one can still deduce quantitative and qualitative
+information even when the underlying equations of mo-
+tion are unknown.
+II. GENERAL PROPER TIES OF JONES
+MATRICES
+Due to its phase sensitivity, in TDTS one typically
+measures the complex transmission function and uses
+the Jones calculus to understand the interaction of light
+with a material system being investigated. The com-
+plex amplitudes of the incident Ei ﬁeld to the transmit-
+ted ﬁelds Et for propagation in a particular propagation
+direction can be related through a frequency-dependent
+2× 2 “J ones” matrix. In the most general case, the Jones
+matrix is comprised of 4 independent complex values. In
+the basis of x − y linear polarization it is
+ˆT =
+[
+Txx Txy
+Tyx Tyy
+] [ Ei
+x
+Ei
+y
+]
+=
+[ Et
+x
+Et
+y
+]
+. (1)
+The above equation forms an eigenvalue-eigenvector
+problem, where the Jones matrix has eigenvalues
+κ ± = 1
+2 (Txx + Tyy ±
+√
+(Txx − Tyy )2 + 4TxyTyx) (2)
+and (unnormalized) eigenvectors
+[ 1
+κ+− Txx
+Txy
+]
+,
+[ 1
+κ− − Txx
+Txy
+]
+. (3)
+
+=== PDF PAGE 3 ===
+3
+If light is sent through the system under test with
+a well-deﬁned linear polarization state in, for instance,
+the x direction, then the Faraday rotation (rotation of
+transmitted light) may be measured through the rela-
+tion tan( θF ) = Txy/T xx. In principle, this is a complex
+quantity with real part of arctan( θF ) equal to the Fara-
+day rotation itself and the imaginary part of arctan( θF )
+equal to the ellipticity. See Ref. 45 for further details.
+For plane waves, the spatial and temporal dependence
+of the waves in free space is given in the usual way by
+multiplying these complex ﬁeld amplitudes by a factor
+ei(kz− ωt). More complicated cases but still within the
+paraxial approximation can be treated by letting the
+complex amplitudes acquire a dependence on x and y.
+We envision a plane wave incident on a slab made of a
+particular material. This slab has various symmetries
+that it inherits from both the particular point groups
+of the material as well the slab’s macroscale structure.
+For most of our analysis I assume the slab itself has the
+most generic shape that can be assumed without losing
+generality, which is a ﬂat cylindrical solid with rotation
+ˆRz(θ), ˆRy(π ) and mirror Mxy, Myz, and Mzx symme-
+tries. Where speciﬁed I will also address the case where
+Mxy symmetry is lost by additional features such as in
+the presence of a thin ﬁlm on a substrate. The presence
+of a substrate does not eﬀect the consideration of sym-
+metries that include only a single surface, such as Mxz or
+ˆRz(π/ 2) , but can be important with symmetry consider-
+ations that involve “backside” transmission (for example
+Mxy).
+Alternative to the Jones formalism the 4 × 4 matrix for-
+malism of Berreman can be used 51. In this method one
+explicitly treats the time and spatially varying magnetic
+ﬁeld as well. Although there are disadvantages of the
+expanded dimensionality of the matrix, such a method
+can be useful in computing explicit optical properties
+of materials as one does not have to resurrect the two
+suppressed ﬁeld variables with auxiliary equations when
+matching ﬁelds at boundaries. It is particularly useful in
+calculating the properties of stratiﬁed media. Still when
+only matters of symmetry are concerned the Jones matrix
+formalism is suﬃcient and I rely on it almost exclusively
+in the below discussion.
+In TDTS a time limited pulse is sent through this slab
+and its amplitude and phase measured. The electric ﬁeld
+of a time-domain pulse Ex(t) can be written as a super-
+position of Fourier components in the usual way. For x
+polarized light
+Ex(t) = 1
+√
+2π
+∫ ∞
+−∞
+dωe iωtEx(ω ). (4)
+Here, Ex(t) is the purely real electric ﬁeld propagating
+through the system, and Ex(ω ) describes the amplitude
+of the complex Fourier components that comprise Ex(t).
+One can apply the Jones calculus to each of these Fourier
+components separately. Going forward I will mostly re-
+place the entries Tij in Eq. 1 with entries A, B, C, D for
+convenience e.g.
+[
+Txx Txy
+Tyx Tyy
+]
+=
+[
+A B
+C D
+]
+. (5)
+It is useful to be able to transform the ˆT matrix into
+bases of diﬀerent polarization states. Let ˜Ei and ˜Et be
+the electric ﬁeld vectors in a transformed basis. They are
+related to the electric ﬁelds in the original basis through
+the transformation matrix Ei = ˆΛ ˜Ei and Et = ˆΛ ˜Et.
+The transmission matrix in the transformed basis is then˜
+ˆT = ˆΛ− 1 ˆT ˆΛ.
+One such matrix of practical importance is that of the
+transformation to a circular base in terms of left and right
+circularly polarized light
+ˆΛ = 1
+√
+2
+[
+1 1
+i − i
+]
+, ˆΛ− 1 = 1√
+2
+[
+1 − i
+1 i
+]
+. (6)
+The transmission matrix in the circular basis in terms
+of the x − y matrix elements is then
+ˆTcirc = 1
+2
+[
+A + D + i(B − C) A − D − i(B + C)
+A − D + i(B + C) A + D − i(B − C)
+]
+(7)
+which connects the transmission amplitudes of R− and
+L− hand polarized light. Other transformation matrices
+exist which represent other symmetry operations. These
+will be discussed below.
+III. CONSTRAINTS ON JONES MATRICES
+FROM POINT SYMMETRIES
+Neumann’s principle states that the symmetry trans-
+formations of any intrinsic physical property of the crys-
+tal must include at least the symmetry transformations
+of the point group of that crystal 52. Therefore the sym-
+metries that states of matter possess impose symmetry
+requirements on their Jones matrices and hence an al-
+gebraic relations among their elements. Conversely, ob-
+served symmetries of Jones matrices and the algebraic
+relations between their elements (or the lack thereof) can
+tell us about symmetries that states of matter possess or
+break. In this discussion, it is important to keep in mind
+that since Neumann’s principle is usually only applied
+to intrinsic properties, its application to a macroscopic
+property like a Jones matrix formally requires that the
+system has a generic shape that itself has all relevant
+symmetries. For the most general case, one can con-
+sider a ﬂat cylindrical solid with rotation ˆRz(θ), ˆRy(π )
+and mirror Mxy, Myz, and Mzx symmetries. In practice,
+since in a TDTS measurement one measures a normal-
+ized transmission (e.g. transmission through a sample
+mounted to an aperture divided by transmission through
+a bare aperture), sample shape does not matter appre-
+ciably. It may be appreciable only for samples where one
+
+=== PDF PAGE 4 ===
+4
+lateral dimension is smaller or of order the wavelength
+and near ﬁeld eﬀects become relevant.
+An advantage of the present approach is that it con-
+siders only symmetries and the directly measured experi-
+mental quantities e.g. ratios of transmitted electric ﬁelds
+to reference ﬁelds. The diﬃculty with applying symme-
+try constraints to the intrinsic material constants (for
+instance the dielectric function) and then calculating the
+transmission is that this may involve a number of compli-
+cations and model dependent assumptions. If one were
+to calculate from the material constants, then for a par-
+ticular symmetry one must write down the constrained
+form of the dielectric tensor ˆǫ, the magnetic permeability
+tensor ˆµ , and the magnetoelectric susceptibility tensor
+ˆα . Then one must apply the boundary conditions and
+Fresnel equations properly in their full generality (e.g.
+accounting for magnetoelectric eﬀects) to get the trans-
+mission matrix. This is obviously much more involved
+than in the current approach. Moreover for many com-
+plex materials the precise issue of electromagnetic bound-
+ary conditions can be complicated. For instance, there
+is still ongoing discussion about the proper extension of
+the Fresnel equations to chiral materials 26,36–41. In the
+present approach, one avoids all this and concentrates
+on the experimentally measured quantities directly. The
+precise form of ˆǫ, ˆµ , or ˆα does not matter, nor does the na-
+ture of the boundary conditions. The approach here bor-
+rows in part from a formalism for quasi-2D meta-material
+structures53. Important diﬀerences to the present case of
+bulk broken symmetry states of matter will be discussed.
+In general, the simplest examples come from rotation
+and reﬂection symmetries. Rotation by an angle φ is
+represented by the transformation matrix
+ˆRz(φ) =
+[
+cosφ sinφ
+− sinφ cosφ
+]
+. (8)
+If a material possesses a ˆRz(π/ 2) rotation symmetry
+(C4) around the z axis, its Jones matrix will be invari-
+ant under a π
+2 rotation. Applying the relevant rotation
+matrix to Eq. 5 gives
+ˆRz(π/ 2) =
+[
+0 1
+− 1 0
+]
+,
+˜
+ˆT = ˆR− 1
+z (π/ 2) ˆT ˆRz(π/ 2) =
+[
+D − C
+− B A
+]
+. (9)
+Hence the Jones matrix for a material with ˆRz(π/ 2) sym-
+metry must have the form
+C4(z) = ⇒ ˆT =
+[
+A B
+− B A
+]
+. (10)
+If the material has a ˆRz(2π/ 3) rotation symmetry ( C3)
+as for instance encountered in rotations of cubic struc-
+tures along their [111] direction or in the corundum struc-
+ture of materials like Cr 2O3 around the c axis, one has a
+Jones matrix of the form
+C3(z) = ⇒ ˆT =
+[
+A B
+− B A
+]
+. (11)
+ˆRz(π ) rotation symmetry ( C2) imposes no constraints
+on the Jones matrix
+ˆRz(π ) =
+[
+− 1 0
+0 − 1
+]
+,
+C2(z) = ⇒ ˜
+ˆT = ˆRz(π )− 1 ˆT ˆRz(π ) =
+[
+A B
+C D
+]
+. (12)
+If an mirror symmetry exists with respect to the xz
+plane
+ˆMxz =
+[
+1 0
+0 − 1
+]
+,
+˜
+ˆT = ˆM − 1
+xz ˆT ˆMxz =
+[
+A − B
+− C D
+]
+, (13)
+and therefore the Jones matrix for a material with ˆMxz
+reﬂection symmetry (where ˆMxz is the matrix for reﬂec-
+tions across the xz plane) must be
+ˆMxz,yz =⇒ ˆT =
+[
+A 0
+0 D
+]
+. (14)
+An identical form of the Jones matrix arises from Myz
+reﬂection symmetry as indicated above. The ˆT matrix
+is diagonal if there exists any mirror plane parallel to
+the z axis and either the ˆ x or y axes. One can see by
+the constraints in Eqs. 10 and 14 that if a state has
+both ˆRz(π/ 2) rotation symmetry and a mirror symmetry
+along x or y axes then oﬀ-diagonal elements vanish and
+diagonal elements must be equal.
+By simple rotation of Eq. 14 one can show that if a
+mirror plane exists in any direction that contains the z
+axis then the ˆT matrix will have the form
+ˆMnz =⇒ ˆT =
+[
+A′ B′
+B′ D′
+]
+, (15)
+where the elements are not independent, but are related
+by the trigonometric relations A′ = Acos2φ + Dsin2φ,
+D′ = Asin2φ + Dcos2φ, and B′ = (A− D)sinφ cosφ where
+φ is the rotation of the mirror plane with respect to the
+laboratory axes. Eq. 14 is a special case of 15 when a
+mirror plane is aligned along either x or y principle axes
+and the oﬀ-diagonal elements are zero.
+Additional constraints can be made for materials that
+possess time-reversal symmetry such that their optical
+response can be said to be reciprocal. Eﬀects are non-
+reciprocal if they have opposite signs for the two states of
+a crystal that are related to each other by time-reversal.
+
+=== PDF PAGE 5 ===
+5
+Reciprocity and time-reversal symmetry is discussed in
+detail below. In the remainder of this section I assume
+reciprocity which should be valid for all non-magnetic
+materials. As will be shown below the backwards trans-
+mission through a Jones matrix for a reciprocal material
+is equal to transpose of the Jones matrix through the
+forward direction e.g.
+ˆT
+b,− z
+=
+[
+A C
+B D
+]
+, (16)
+where the ˆT
+b,− z
+refers to transmission through the “back-
+side” of the materials with wave propagation in the − z
+direction and the underline here and below represents
+the presence of TRS. Most useful for the typical experi-
+mental situation is the case where instead of considering
+backwards transmission through the sample, one consid-
+ers forward transmission, but through a sample that has
+been rotated by π around the y axis. In this case the
+Jones matrix is
+ˆT
+b,+z
+=
+[
+A − C
+− B D
+]
+, (17)
+where now ˆT
+b,+z
+refers to transmission through the back-
+side of the materials with wave propagation in the + z
+direction. The minus signs in the oﬀ-diagonal part ac-
+counts for the fact that in the reference plane of the sam-
+ple x → − x when performing the ˆRy(π ) rotation. Note
+that this expression is true only for reciprocal systems.
+We denote time-reversal invariance in this sense by the
+symbol 1
+. For the most generic case, the forward going
+Jones matrix does not carry enough information to con-
+strain the backwards propagation of the material com-
+pletely. I will discuss non-reciprocal and time-reversal
+symmetry broken systems in more detail below. But for
+materials which are reciprocal, mirror symmetry in the
+xy plane and Eq. 17 gives important constraints on the
+Jones matrices. A mirror operation across the xy plane
+is equivalent to a ˆRy(π ) rotation followed by a mirror
+reﬂection across the yz plane. Therefore
+˜
+ˆT
+= ˆM − 1
+yz ˆRy(π )− 1 ˆT ˆRy(π ) ˆMyz =
+[
+A C
+B D
+]
+, (18)
+which gives a form for the ˆT matrix that is
+1, ˆMxy =⇒ ˆT =
+[
+A B
+B D
+]
+. (19)
+Note that this expression is strictly invalid for thin
+ﬁlms mounted to substrates as the substrate will violate
+the ˆMxy symmetry. In principle, the breaking of mirror
+symmetry by a substrate can be weak, but speciﬁc cases
+have to be analyzed individually. Comparing Eqs. 15 and
+19 one can see that the presence of a mirror symmetry
+along any direction gives the same symmetric form for
+the Jones matrix (for a system with a TRS symmetric
+reciprocal response).
+If a crystal has a 3D center of inversion ( P symmetry)
+and TRS then the Jones matrix also has the form of
+Eq. 19 as inversion is equivalent to a reﬂection across
+the xy plane and ˆRz(π ) rotation around z. However,
+I have already shown in Eq. 12 that symmetry under
+ˆRz(π ) does not constrain the Jones matrix, therefore the
+constraint that reﬂection symmetry across xy gives is the
+same as inversion.
+Rotation-reﬂection symmetry with an improper axis z
+can be handled through a combination of normal rotation
+(Eq. 9 for ˆRz(π/ 2)) and the ˆMxy operation (Eq. 18). For
+S4 and 1
+one gets the completely isotropic matrix
+1, S 4(z) = ⇒ ˆT =
+[
+A 0
+0 A
+]
+. (20)
+Rotation-reﬂections with an in-plane improper axis ( x
+or y) and 1 give
+1, S 2(x) = ⇒ ˆT =
+[
+A B
+B D
+]
+. (21)
+Structures that cannot be mapped onto their mirror
+images by rotations and translations are chiral 54,55. Chi-
+rality itself generally does not put constraints on Jones
+matrices, but states that are chiral can be consistent with
+other symmetries that constrain the Jones matrices. For
+instance, chiral reciprocal materials with TRS can have
+a ˆRx(π ) symmetry
+˜
+ˆT
+= ˆR− 1
+x (π ) ˆT ˆRx(π ) =
+[
+A − C
+− B D
+]
+, (22)
+such that
+1, C 2(x) = ⇒ ˆT =
+[
+A B
+− B D
+]
+. (23)
+Note that Eqs. 19 and 23 are only compatible with
+each other for vanishing oﬀ-diagonal elements. There-
+fore considering that circular optical activity is only pos-
+sible when oﬀ-diagonal elements of the ˆT matrix are anti-
+symmetric, one can see that to generate circular optical
+activity it is insuﬃcient to break reﬂection symmetries
+only in the xz and yz planes, one must also break reﬂec-
+tion symmetry in the xy plane. TRS chiral material can
+also exhibit a ˆRz(π/ 2) symmetry giving the constraint
+on the Jones matrix in Eq. 10. Chirality typically intro-
+duces anti-symmetric components to the dielectric tensor
+through an expansion ﬁrst order in the light wavevector
+k. This is consistent with the fact that in these TRS ma-
+terials one can switch the sign of the oﬀ-diagonal com-
+ponents by considering transmission through the back-
+side in which k → − k. Also note that no reference to
+
+=== PDF PAGE 6 ===
+6
+the “screw axis” direction was made to derive Eq. 23,
+showing that even when transmission is perpendicular to
+the screw axis, chiral materials can show optical activ-
+ity (although it will be of a complicated elliptical variety
+without C4(z) symmetry).
+Note that translational invariance itself imposes no
+constraints on Jones matrices. In the context of our cur-
+rent treatment, this must be the case because plane waves
+are invariant in the direction perpendicular to their prop-
+agation direction. But more generally it is only the point
+groups (crystallographic or magnetic) that determine the
+macroscopic symmetries properties of materials 56. Al-
+though at ﬁrst glance trivial, this point is important when
+considering the properties of materials with space groups
+that have more complicated symmetries with glide or
+screw symmetries. In these cases it is only the magnetic
+point group part of the global symmetry that imposes a
+constraint.
+Note that domain structures can average out polar-
+ization anisotropies. In order to see a broken symmetry
+optically, the symmetries must be broken globally over
+the entire beam spot. Residual strain or stray ﬁeld may
+provide an eﬀective aligning ﬁeld. Alternatively, exter-
+nal ﬁelds need to be used to create monodomain samples.
+These issues may be more pronounced in TDTS with its
+inherently long wavelengths and larger beam size.
+IV. TIME-REVERSAL AND RECIPROCITY
+In any discussion on the constraints on Jones matri-
+ces from time-reversal symmetry it is important to de-
+ﬁne exactly what is meant by time-reversal symmetry as
+fortunately (or not) time marches inexorably in a single
+direction in all real experiments. For plane waves trav-
+eling in the + z direction the electric ﬁeld can be written
+as E0ei(kz− ωt) where E0 is the two component vector in
+the x and y directions. Time-reversal is trivially accom-
+plished letting t → − t in this expression. One can alter-
+natively accomplish the equivalent of the time-reversal
+operation by the dual operation of complex conjugation
+of the amplitude E → E∗ and letting k → − k. This can
+be seen simply by the fact that the physical electric ﬁeld
+is E0 cos(ωt ) = 1
+2 (E0eiωt + E∗
+0 e− iωt). Reversing the sign
+of the time ( t → − t) in this real physical electric ﬁeld is
+mathematically equivalent to taking the complex conju-
+gation of E0. That complex conjugation is necessary for
+the eﬀective time-reversal operation can alternatively be
+see in the fact that it takes both it and the inversion of
+the wavevector to reverse the sign of Poynting’s vector
+describing energy ﬂow in an optical system. Heuristi-
+cally, conjugation can also be seen to be necessary to
+phase advance a time reversed wave suﬃciently such the
+phase accumulated during time-reversed propagation is
+exactly canceled to reconstruct the initial wave with its
+initial phase relation.
+Even time reversed waves from the dual operation of
+complex conjugation and wavevector inversion will not
+exactly reconstruct an original wavefront if a system has
+absorption or scattering (e.g. reﬂection). Absorption
+and the generation of heat violates time-reversal invari-
+ance through the 2nd law of thermodynamics. Since all
+real materials will show some dissipation (or reﬂection)
+at frequencies of interest, a strict form of time-reversal
+symmetry breaking of an optical process is generally not
+of interest to us. This demonstrates that one must formu-
+late a more applicable deﬁnition to be sensitive to time-
+reversal symmetry breaking in the state of matter itself.
+This can be found in the concept of reciprocity 27,57–61.
+A system may be reciprocal if one can switch source and
+detector (with the possibility of additional constraints)
+and get the same result. The importance of the reci-
+procity condition is in the fact that it is applicable even
+in the presence of absorption or scattering when other
+treatments lack “true” time-reversal symmetry. As in
+our discussion on point group symmetries, discrete time-
+reversal invariance (formulated in terms of reciprocity)
+puts certain important constraints on Jones matrices.
+These were already exploited above in the discussion of
+how the Jones matrix behaves under ˆRx(π ) or ˆMxy op-
+erations in non-magnetic materials.
+A system can be said to be reciprocal if a response has
+the same sign for the two states of a material that are
+related to each other by time-reversal (e.g. time even).
+A system is non-reciprocal if a response or component
+of the ˆT matrix has the opposite sign for the time re-
+versed state (time odd). For further analysis we need a
+relation for the Jones matrix of a system in which the
+sense of time is reversed. Although related formulations
+have been made previously 27,59,61, a particularly simple
+treatment exists for the case of coherent polarized waves
+that can be treated with this Jones formalism. Consider
+the situation when a wave Ei is incident on a sample
+with a Jones matrix ˆT . The resulting wave must be ana-
+lyzed by its projection on a reference wave Er. Channel-
+ing Onsager 62, microscopic time-reversal invariance man-
+dates that if both the sense of time in the experiment and
+the sample are reversed then the result must be the same
+e.g.
+Er† ˆT Ei = Ei∗† (
+ˆT
+b,− z
+)Er∗ , (24)
+where now the initial wave is the time-reversed Er∗ ,
+ˆT
+b,− z
+is the Jones matrix for light propagation in the
+− z direction through the backside of a time-reversed sys-
+tem, and the wave is analyzed by its projection on the
+time-reversed wave Ei∗ . Here † signiﬁes the Hermitian
+adjoint and the overbar represents the operation of time-
+reversal. One can reverse the order of the inner product
+on the right side of this equation and take its complex
+conjugate to get
+Er† ˆT Ei = Er†(
+ˆT
+b,− z
+)T Ei. (25)
+
+=== PDF PAGE 7 ===
+7
+Relabeling the sense of time of the system on both
+sides of this equation one gets
+ˆT = ( ˆT b,− z)T . (26)
+This gives the general result that the time-reversed Jones
+matrix equals the transpose of the Jones matrix for light
+propagating through the system’s backside. If the system
+has macroscopic TRS, then ˆT =
+ˆT and one arrives at
+the result used in Sec. III that for a system that has a
+reciprocal response and hence macroscopic TRS (1
+) the
+backside transmission is the transpose of the front side
+transmission
+1
+=⇒ ˆT = ( ˆT
+b,− z
+)T . (27)
+where again the underline reminds us that this is a rela-
+tion for the Jones matrix of sample that has TRS.
+A condition related to the above for interaction of an
+electromagnetic wave on a ﬁnite size scatterer based on a
+deﬁnition with incoming wave and a projection on a ref-
+erence wave was ﬁrst formulated by de Hoop 59,61 and is
+the most general expression of reciprocity. The condition
+above is a representation in the Jones matrix formalism.
+This de Hoop reciprocity distinguishes a form of time-
+reversal symmetry most applicable to real systems and
+experiments. It is a suﬃcient (but not necessary) con-
+dition to say a state breaks TRS if it violates de Hoop
+reciprocity. Not all TRS breaking states will show optical
+non-reciprocity. It is necessary to break TRS macroscop-
+ically, which generally means that the combination of the
+time-reversal operation and a lattice translation is not a
+symmetry operation 22.
+Considering the above condition for de Hoop reci-
+procity, a measure of time-reversal symmetry breaking
+is then the quantity |Txy − T b,− z
+yx | where T b,− z
+yx refers
+to transmission through the backside of the materials
+with wave propagation in the − z direction. As discussed
+above, more relevant to the usual experimental situation
+is the case where the waves are propagating in the + z di-
+rection, but through a ﬁlm that has been rotated around
+the y axis by π . In that case the measure of symmetry
+breaking becomes |Txy + T b,+z
+yx | where the T b,+z
+yx refers
+to backside transmission but in a sample that has been
+ﬂipped. Examples of states that violate this condition of
+de Hoop reciprocity are discussed in Sec. VI.
+In some systems it is possible to control the sense of the
+direction of time by cooling in a magnetic ﬁeld (for a state
+like a ferromagnet) or dual magnetic and electric ﬁelds
+(for a magnetoelectric-like Cr 2O3). It is then a suﬃcient
+condition to say a state violates TRS if the equality
+Er† ˆT Ei = Er†
+ˆT Ei (28)
+is not satisﬁed. One can see that with this expression and
+Eq. 26 that a necessary, but not suﬃcient condition for
+TRS will be an invariance of the oﬀ-diagonal components
+of ˆT with the time-reversal operation.
+It is instructive to consider more restricted deﬁnitions
+of reciprocity. For instance, consider the constraints im-
+plied by the hypothetical case where a time-reversed wave
+exactly reconstructs the initial wave. Considering incom-
+ing and outgoing waves related by
+ˆT Ei = Et. (29)
+If time-reversed version of the ﬁnal wave can exactly re-
+construct the initial wave and de Hoop reciprocity holds
+then
+ˆT T Et∗ = Ei∗ (30)
+is true where the complex conjugation of Ei and Et time
+reverses the wave amplitudes ` a la the discussion above.
+Taking the complex conjugate of Eq. 30 and substituting
+Eq. 29 into it for Et gives
+[ ˆT T ]∗ ˆT Ei = Ei (31)
+which can only be true if ˆT is unitary. This form of
+reciprocity is not particularly signiﬁcant from a practical
+perspective because unitary matrices are norm preserv-
+ing and hence preclude absorption or reﬂections. Even
+purely dielectric media will induce reﬂections at inter-
+faces, which destroys the unitary condition. However,
+this condition does satisfy the simplest considerations for
+time-reversal symmetry and hence is important from a
+conceptual point of view. One can call this form of time-
+reversal symmetry unitary reciprocity 61.
+Another form of reciprocity can be determined by con-
+sidering a situation where the initial wave Ei is time-
+reversed, but made to propagate through the system from
+the “backside.” The system could be said to be reciprocal
+in a restricted sense when the ﬁnal waves in either case
+are time reversed versions of each other. If the system is
+reciprocal in the sense of de Hoop and also reciprocal in
+this more restricted sense then a time reversed wave with
+polarization state Ei∗ results in a backside transmitted
+wave Et∗ via
+ˆT T Ei∗ = Et∗ . (32)
+Taking the complex conjugate of this expression gives
+[ ˆT T ]∗ Ei = Et. (33)
+Eqs. 29 and 33 can only both be true if ˆT = ˆ(T T )∗
+e.g. ˆT is Hermitian. Hence one can call this kind of trans-
+mission properties Hermitian reciprocity 61. Note that
+
+=== PDF PAGE 8 ===
+8
+one should not confuse non-Hermiticity in the transmis-
+sion matrix (or scattering matrices in general) with non-
+Hermiticity in the dielectric function. Non-Hermitian di-
+electric tensors are generally associated with bulk ab-
+sorption, whereas non-Hermiticity in the ˆT matrix (or
+scattering matrices more generally) are associated with
+phase delay. The most obvious example of an optical
+component that violates Hermitian reciprocity is a quar-
+ter wave plate that turns linearly polarized light into cir-
+cularly polarized light.
+Very asymmetric transmissions for forward and back-
+ward transmission will be obtained in the case where
+eigenpolarizations are non-orthogonal and the Jones ma-
+trix is non-diagonalizable 63–65. For this to be the case the
+Jones matrix needs to be non-normal e.g. ˆT ˆT † ̸= ˆT † ˆT
+where † signiﬁes the Hermitian adjoint. A diagonalizable
+ˆT matrix for a sample that obeys de Hoop reciprocity will
+be similar for forward and backward going transmissions
+with identical transmission eigenvalues. In contrast, one
+can see by inspection of Eqs. 2 and 3 that although
+the eigenvalues of a non-diagonalizable transposed back-
+wards going Jones matrix are not diﬀerent from the for-
+ward ones, the eigenvector associated with a particular
+eigenvalue will change its character. It is a suﬃcient con-
+dition for the ˆT matrix to be normal that Txy = ± Tyx.
+Symmetric transmission of the kind found in normal
+Jones matrices we can call diagonal reciprocity .
+A simple example of an optical component that breaks
+diagonal reciprocity and results in such very asymmet-
+ric transmission is the composite optical component of a
+linear polarizer combined with a quarter-wave plate that
+is at 45 ◦ to the axis of the polarizer. Independent of the
+initial polarization such a device produces linearly polar-
+ized light in transmission in one direction and circularly
+polarized light in the other. The Jones matrix for such a
+composite device with the linear polarizer on the input
+side would be
+1
+√
+2
+[
+1 i
+1 i
+]
+. (34)
+Using Eqs. 1 and 2 one can see that this matrix is non-
+normal with non-orthogonal eigenpolarizations that are
+linear (45 ◦) and circular (L) polarized light associated
+with eigenvalues 1 + i and 0 respectively. Note that upon
+consideration of the backwards going ˆT matrix one has
+the same pair of eigenvalues 1 + i and 0, but that their
+association has in a sense swapped e.g. they are associ-
+ated with circular (R) and linearly (45 ◦ ) polarized light
+respectively. Such a device is still reciprocal in the sense
+of de Hoop as the forward going transmission matrix is
+equal to the transpose of the backwards going one. This
+shows the central importance of the de Hoop condition
+as such a device obviously does not break time-reversal
+symmetry deﬁned in any useful sense.
+Based on our considerations of Sec. III the highest
+symmetry materials that break diagonal reciprocity can
+have is C2 around z. Generally one ﬁnds that axes of
+dominant dichroism and birifrigence have to be non-
+aligned so that this kind of asymmetry may be most
+apparent in very anisotropic materials at frequencies of
+strong absorption. Wave propagation of polarized light,
+but not the explicit symmetry properties, in crystals
+with nonorthogonal eigenpolarizations has been investi-
+gated previously 66–69. Non-reciprocity of this kind has
+been also called eigenwave non-reciprocity in the liter-
+ature and identiﬁed with a TRS breaking of a certain
+fashion70. However, it is important to emphasize that
+although materials that are non-reciprocal in this sense
+may have very asymmetric interaction with light in time
+and space, they don’t themselves violate TRS. For in-
+stance eﬀects of this kind are purported to exist in zinc-
+blende type semiconductors, which break inversion, but
+obviously not TRS 71. Because they are not constrained
+by any useful symmetry, materials that show a violation
+of diagonal reciprocity will typically have eigenstates that
+depend strongly on frequency.
+Yet another (very) restricted form of reciprocity en-
+countered in a typical experimental geometry when one
+“ﬂips” a sample to perform a transmission experiment
+from the backside. If again de Hoop reciprocity is obeyed
+then the transmission matrix can be arrived at by us-
+ing Eq. 27 for backside transmission and performing
+a x → − x transformation from the π rotation around
+around the y axis a la Eq. 17.
+ˆR− 1
+x (π ) ˆT ˆRx(π ) =
+[
+A − C
+− B D
+]
+. (35)
+If this Jones matrix is identical to the forward going
+one then one will have the following constrained form for
+the forward going Jones matrix.
+[
+A B
+− B D
+]
+. (36)
+A comparison with Eq. 23 shows that chiral states
+that obey de Hoop reciprocity are also reciprocal in this
+sense. Materials which have only a mirror symmetry (Eq.
+15) will only be considered reciprocal in this sense if they
+are “ﬂipped” along a mirror axis. I call this reciprocity
+naive reciprocity .
+Although these more restrictive formulations such as
+unitary, Hermitian, and diagonal reciprocity may have
+utility in analyzing experimental results, the most in-
+teresting cases of non-reciprocity will occur in situa-
+tions when the most generic condition of de Hoop reci-
+procity is violated. This will be the case for instance
+in situations where time-reversal symmetry is broken in
+the form of ferromagnetism, p-wave superconductivity
+(likely present in Sr 2RuO472), magnetoelectrics 34,73–75,
+chiral spin liquids 76,77 or in some proposed recent 33–35or
+older19–27,78 models for the pseudogap state of the high-
+temperature superconductors.
+
+=== PDF PAGE 9 ===
+9
+V. BREAKING OF SYMMETRIES
+As established in Secs. III and IV, particular symme-
+tries establish algebraic properties of or constraints on
+the Jones matrices. It it is then straightforward to deter-
+mine what combination of matrix elements are a measure
+of what particular symmetry breaking. The methodology
+is clear. Given a symmetry and the set of constrained
+Jones matrices for forward and reversed propagation that
+results from it, by inspection one establishes what sum or
+diﬀerence of matrix elements will yield identically zero if
+a particular symmetry is present. If one establishes that
+the particular quantity is non-zero, this is a suﬃcient
+condition to establish that that symmetry is broken.
+As a ﬁrst example of this consider a tetragonal ini-
+tially non-magnetic material that goes undergoes a sym-
+metry breaking transition. In the high symmetry state,
+the material has all mirror symmetries and symmetry
+under ˆRz(π/ 2) rotation. The Jones matrix is then the
+simplest possible e.g.
+ˆT =
+[
+A 0
+0 A
+]
+. (37)
+If the phase transition is to a non-magnetic orthorhom-
+bic phase such that ˆRz(π/ 2) symmetry is broken, but
+the x and y mirror planes are maintained the Jones ma-
+trix will have the form of Eq. 14 with diagonal com-
+ponents unequal and oﬀ-diagonal components still zero.
+Therefore a measure of the orthorhombic order param-
+eter is the quantity |Txx − Tyy |. This relation rests on
+the assumption that the laboratory x − y frame coin-
+cides with the orthorhombic axes. It is useful to have a
+more general relation. Inspection of Eq. 15 and the rela-
+tions that follow for the matrix elements in an arbitrary
+primed reference frame x′ − y′, show that the quantity
+|Tx′x′ − Ty′y′ + 2iTx′y′|will be sensitive to the symmetry
+breaking |Txx − Tyy|in the orthorhombic reference frame.
+If the phase transition is to a non-magnetic chiral phase
+such that all mirror symmetries are broken, but ˆRz(π/ 2)
+symmetry is preserved then the Jones matrix will have
+the form of Eq. 10 with equal diagonal components and
+oﬀ-diagonal components of identical magnitude and op-
+posite sign. Therefore a measure of the chiral order pa-
+rameter is the quantity |Txy − Tyx|. This quantity will be
+ﬁnite if a diﬀerent transmission coeﬃcient is experienced
+for R and L circularly polarized light, but zero otherwise.
+For instance it will be zero for a linearly birefringent ma-
+terial that gives an eﬀective rotation of a plane of po-
+larized light if the polarized light is not incident along a
+mirror symmetry.
+If the transition is to a state that breaks macroscopic
+time-reversal symmetry (for instance to a ferromagnetic
+or magnetoelectric phase) the measure of macroscopic
+symmetry breaking and the order parameter becomes
+|Txy − T b,+z
+xy | where again the T b,+z
+yx refers to backside
+transmission but in a sample that has been ﬂipped. Al-
+though it will also have a Faraday rotation, this quantity
+will be zero for a TRS chiral system.
+VI. COMBINED SYMMETRIES AND
+EXAMPLES
+The various point group symmetries (reﬂection, ro-
+tation, rotation-reﬂection, inversion) and time reversal
+symmetry can be combined to get more insight into var-
+ious broken symmetry states. The simplest example of
+a TRS breaking state is a ferromagnet with its magne-
+tization vector pointing along the propagation direction.
+Both the time reversal operation and a ˆRx(π ) rotation
+give the same state with the magnetization reversed. Us-
+ing Eq. 26, the time reversed Jones matrix is
+¯
+ˆT +z =
+[ T b,− z
+xx T b,− z
+yx
+T b,− z
+xy T b,− z
+yy
+]
+. (38)
+The Jones matrix under ˆRx(π ) rotation is
+ˆT b,+z = ˆR− 1
+x (π ) ˆT b,− z ˆRx(π ) =
+[ T b,− z
+xx − T b,− z
+xy
+− T b,− z
+yx T b,− z
+yy
+]
+.
+(39)
+In order that these expressions are equivalent, the
+Jones matrix must have the form
+ˆT =
+[
+A B
+− B D
+]
+. (40)
+If the material is cubic or tetragonal with A = D, the
+matrix is diagonalizable in the circular representation,
+otherwise the polarization eigenstates are elliptical. In
+either case, this is consistent with a rotation of transmit-
+ted linearly polarized light e.g. a Faraday rotation.
+A very interesting application of these methods is to
+the case of magnetoelectrics. Consider the case of Cr 2O3
+which is a material that forms in the corundum structure
+with space group D6
+3d. Below T N = 306 K it becomes
+an commensurate antiferromagnet with the spins of the 4
+Cr+3 atoms per unit cell pointing along a three fold axis
+in an up-down-up-down alternating manner with mag-
+netic point group ¯
+3′m′. This structure breaks both in-
+version (P) and TRS (T), but the product of the two
+is a symmetry. There are two degenerate ground states
+that are related to each other by either inversion or time-
+reversal. As pointed out originally by Dzyaloshinskii 56
+the magnetic symmetry of Cr 2O3 allows linear magneto-
+electric eﬀects 73–75,79–82 e.g. an electric ﬁeld can cause a
+magnetization (with proportionality α ij) and a magnetic
+ﬁeld can cause a polarization. Such nonzero magneto-
+electric coeﬃcients are a consequence of so-called “ P T”
+symmetry. They are indicative of inversion ( P ) and TRS
+(T ) symmetries broken separately, but preserved under
+the combined P T symmetry. P T symmetric situations
+where the P symmetry breaking is such as to support a
+chiral state, have been called “false chiral” by Barron 54.
+
+=== PDF PAGE 10 ===
+10
+Magnetoelectrics can admit a number of very inter-
+esting phenomenon including non-reciprocal gyrotropic
+birefringence, whereby there is a symmetric contribution
+to the dielectric tensor that rotates the axes of birefrin-
+gence away from the crystal symmetry directions 73,80.
+The sign of this contribution depends on the propagation
+vector and therefore the speeds of propagation can be dif-
+ferent for counter-propagating beams. Some evidence for
+this eﬀect has been seen in transmission in continuous
+wave THz-range spectroscopy in Cr 2O383 and related ef-
+fects in reﬂection at higher optical frequencies 74,75. The
+case of transmission is easier to analyze. Consider the
+transmission along a direction perpendicular to the 3-fold
+axis and with the x− y reference frame of the linearly po-
+larized light aligned to the structural axes. The ˆT matrix
+transformed under inversion ˆP is
+ˆT b,+z = ˆP − 1 ˆT b,− z ˆP =
+[ T b,− z
+xx T b,− z
+xy
+T b,− z
+yx T b,− z
+yy
+]
+. (41)
+The same state should be obtained under time-reversal
+ˆT =
+[ T b,− z
+xx T b,− z
+yx
+T b,− z
+xy T b,− z
+yy
+]
+. (42)
+The ˆT matrix must therefore have the form
+ˆT =
+[
+A B
+B D
+]
+. (43)
+No other symmetries further constrain this matrix and
+so only equal oﬀ-diagonal entries are admitted, and hence
+it can be diagonalized by a rotation. As I have already
+assumed in my analysis that the coordinate axes them-
+selves are aligned along the principle structural axes of
+the system this shows that the optical axes of the linear
+dichroism/birefringence can be rotated from the coordi-
+nate system. This is consistent with the phenomena of
+gyrotropic birefringence. We can get further insight into
+this system by realizing that the material is invariant un-
+der a ˆRy(π ) rotation. The form of the Jones matrix is
+then of Eq. 39, which determines that the oﬀ-diagonal
+components for forward and backwards propagation are
+opposite to each other showing the sense of rotation of
+the optical axes is opposite for front and back surfaces,
+giving evidence for the non-reciprocal nature of this ef-
+fect. Moreover, since the ˆT matrix has the form of Eq. 43
+ˆRx(π ) symmetry one can probe the non-reciprocal nature
+of the state by measuring Txy on a single surface alone.
+Note that presence of TRS in the paramagnetic state
+constrains (through the reciprocal condition Eq. 27) the
+oﬀ-diagonal components of the ˆT matrix to be zero above
+TN .
+For transmission along the c-axis the form of Eq. 43 is
+still valid because it was based on the combined symme-
+try P T without regards to propagation direction. How-
+ever Cr 2O3 has a three fold axis along z and hence its ˆT
+matrix must be compatible with the constraints of the C3
+symmetry given in Eq. 11 for propagation along z. This
+gives a ˆT matrix with zero oﬀ-diagonal components and
+identical diagonal ones. Although its been shown that
+magnetoelectrics like Cr 2O3 show a non-reciprocal Kerr
+rotation eﬀect in reﬂection 73–75, symmetry constraints
+determine that the transmission of a single crystal slab
+is invisible to such non-reciprocal eﬀects e.g. no Faraday
+eﬀect is exhibited 84. Microscopically one can consider
+that the light suﬀers a rotation of order α (where α is
+the mangetoelectric coeﬃcient) upon crossing the front
+surface in transmission, propagates through the sample
+with E and H ﬁelds at a small angle deviating from 90 ◦
+by α , and then undergoes a rotation with the same mag-
+nitude at the back surface, but in the opposite direction.
+Note that inversion symmetry breaking by a substrate
+will invalidate this cancelation and it should be possible
+to see a Faraday rotation φ F ∝ (ns − 1)α in transmission
+for Cr 2O3 on a substrate of index of refraction ns85. An
+analysis of the reﬂection coeﬃcient (discussed below) for
+a TRS breaking state such as this one show that it can
+exhibit a Kerr rotation.
+Even more exotic states in the form of various chi-
+ral spin liquid states can be analyzed 55. A “vector spin
+chiral” state is said to be exhibited when the quantity
+⟨Si × Sj⟩ ̸= 0, while ⟨Si⟩ = 0 86,87. Such a state does not
+break TRS and despite its accepted name, is not neces-
+sarily chiral in a rigorous sense. By itself the ﬁnite expec-
+tation value is not enough to determine whether such a
+state is chiral and hence specify its electrodynamics. The
+related quantity ⟨eij ·Si × Sj⟩ ̸= 0, where eij is a unit vec-
+tor connecting sites i and j, does break inversion and all
+mirror symmetries and so such an order parameter has
+a deﬁnite handedness. By the considerations of section
+III this state should have the transmission properties of
+other chiral systems and can exhibit a Faraday rotation
+(but not a Kerr rotation, see Sec. VII).
+Other vector spin chiral states may or may not ex-
+hibit polarization anisotropies depending on the details
+of their ordering. For instance, a magnetic cycloid chain,
+consisting of coplanar spins that rotate around a perpen-
+dicular axis as one moves along an axis parallel to the
+spin plane has ⟨Si × Sj⟩ ̸ = 0, but is achiral. Two diﬀer-
+ent senses of rotations of the spins can be generated by
+the inversion operation, but these states are not uniquely
+speciﬁed by ⟨Si × Sj⟩, as they can be interconverted by
+a ˆRz(π ) rotation. Since we have already shown that a
+ˆRz(π ) rotations have no eﬀect on transmission, a cycloid
+order of this form cannot be detected optically.
+A “scalar spin chiral” state is said to be exhibited when
+the quantity ⟨Si ·Sj × Sk⟩ ̸ = 0, while ⟨Si⟩ = 0 76–78. A
+state which exhibits this order with the same sign on a
+line along the propagation direction (e.g. “ferro” order-
+ing) breaks time-reversal symmetry, but not inversion. It
+will show both Kerr and Faraday reﬂection. As pointed
+out in Ref. 22 states which exhibit an “antiferro” order-
+ing (between say CuO 2 planes in the cuprates as con-
+sidered historically 26,78) and break inversion structurally
+
+=== PDF PAGE 11 ===
+11
+will show a Kerr rotation (but not Faraday) in a manner
+very similar to the case of Cr 2O3.
+VII. EXTENSION OF JONES MATRIX
+FORMALISM TO OTHER GEOMETRIES AND
+EXPERIMENTS
+With some modiﬁcations the above arguments can be
+extended to other geometries and experiments. In reﬂec-
+tion the loss of symmetry across the free surface means
+particular consideration must be given. Although the
+point group symmetry constraints applied to the trans-
+mission matrix when only a single surface is considered
+apply equally to the normal incidence reﬂection matrix,
+there can be additional issues that arise due to the lack of
+symmetry at the interface 88. Moreover the de Hoop reci-
+procity relation for TRS I found above was derived specif-
+ically for the case of transmission. Similar constraints on
+reﬂection require diﬀerent consideration.
+A practical matter that arises when considering reﬂec-
+tion, is the long standing controversy regarding whether
+or not a Kerr-like rotation can occur in reﬂection from
+a chiral TRS media 26,37–41. A straightforward applica-
+tion of Fresnel’s equation using the bulk (antisymmetric)
+dielectric constant predicts that a Kerr rotation should
+be observed if there is ﬁnite dissipation 36. However it
+is clear that one cannot simply export the bulk dielec-
+tric constants to the surface as their antisymmetry arises
+from an expansion of the dielectric constant in odd pow-
+ers in the photon wavevector k. Such an expansion can-
+not be strictly valid at a surface and one must retain the
+full spatial dependence of the dielectric constant. More-
+over, in chiral systems, the issue of boundary conditions
+is complicated by a certain freedom in choice of ǫ and
+µ . Gyrotropy (e.g. dependence of dielectric constant on
+k) can be included only in ǫ or in µ or both. There
+is a disagreement within diﬀerent calculational schemes,
+as some observable quantities, such as reﬂectivity, turn
+out to be dependent on these choices. For instance an
+alternative treatment using essentially magnetoelectric-
+like “Casimir” material relations 37, ﬁnds that no rotation
+should be occur. Other work says that both approaches
+are essentially valid and correctly applying terms involv-
+ing derivatives of the non-local susceptibilities gives ro-
+tation in reﬂection 38. Even more recent work concludes
+that the diﬀerential reﬂection upon normal incidence
+should vanish 39.
+The present formalism however provides a simple proof
+that materials that preserve TRS cannot exhibit a Kerr
+rotation. First, one realizes that in the simplest normal
+incidence reﬂection geometry with source and detector
+spatially coincident, the “forward” going reﬂection ma-
+trix must be the same as the “backward” going reﬂection
+matrix. Switching the source and the detector gives no
+change to any physical quantity, because “forward” going
+and “backward” going are the same thing. Therefore a
+similar treatment of de Hoop reciprocity leading to Eq.
+26 applied to the reﬂection matrix shows that the time-
+reversed reﬂection matrix will be the transpose of the
+reﬂection matrix for the forward direction in time e.g.
+ˆR = ˆRT . (44)
+It follows that if the material has TRS and hence the
+reﬂection matrix doesn’t change under the time-reversal
+operation (e.g. ˆR =
+ˆR), then the oﬀ-diagonal compo-
+nents of the reﬂection matrix must be equal. There-
+fore a material with TRS cannot exhibit a Kerr rotation
+as that necessitates anti-symmetric oﬀ-diagonal compo-
+nents in the reﬂection matrix. A somewhat related, but
+much more involved proof, for generic geometry can be
+found in Ref. 26. The absence of a Kerr eﬀect except
+in the presence of TRS breaking is relevant for the in-
+terpretation of recent experiments on cuprate supercon-
+ductors that have seen a Kerr rotation onset in under-
+doped compounds 29–31. Such experiments have been in-
+terpreted as being consistent with the onset of a chiral
+phase, but this appears to not be a possible explanation
+(at least at the level of linear response and in thermal
+equilibrium). See also Hosur et al. 32,40 , Cho et al. 41 for
+further discussion.
+Most optical experiments do not measure complex
+transmission coeﬃcients directly. For experiments like
+Fourier transform infrared reﬂectivity (FTIR) 1,2, Sagnac
+interferometry18, or spectroscopic ellipsometry 89 the
+light intensity is detected. In this case one has to make
+use of the Mueller-Stokes matrix formalism, where the
+optical resonse is given by a real 4 × 4 “Mueller” ma-
+trix operating on a real 4 component “Stokes” vector.
+The Stokes vector is given in terms of the electric ﬁeld
+intensities in diﬀerent directions and polarizations e.g.
+
+
+
+|Ex|2 + |Ey|2
+|Ex|2 − |Ey|2
+|E45◦ |2 − |E− 45◦ |2
+|El|2 − |Er|2
+
+
+ . (45)
+The Mueller matrix represents the intra- and intercon-
+version of these polarization states. The Mueller ma-
+trix formalism is more general than the Jones formal-
+ism as its reliance on measured intensities means that
+it can characterize non-coherent unpolarized light. Most
+relevant experiments however can utilize polarized light
+and in this case it is possible to convert from the Jones
+to Mueller matrices for analysis. This then suggests a
+method for analyzing the symmetry properties of ma-
+terials being probed by such a technique; analyze their
+symmetry properties and apply the relevant constraints
+to the simpler 2 × 2 Jones matrices ﬁrst and then convert
+the Jones matrices to Mueller matrices. This method
+should be completely valid as long as the sample under
+test is not depolarizing (which is typically the case).
+The Jones-to-Mueller matrix conversion is performed
+by calculating the light intensities from the electric ﬁelds.
+
+=== PDF PAGE 12 ===
+12
+Following Azzam and Bashara 89 and starting from the
+Jones formalism, which gives ˆT Ei = Et I begin by calcu-
+lating
+Et ⊗ E∗
+t = ˆT Ei ⊗ ˆT ∗E∗
+i = ( ˆT ⊗ ˆT ∗)(Ei ⊗ E∗
+i ). (46)
+where the Et ⊗ E∗
+t and ˆT ⊗ ˆT ∗ are the direct products
+yielding a 4 row vector and a 4 × 4 matrix respectively.
+The E ﬁeld products yields the “coherence” vector.
+C = E ⊗ E =
+
+
+
+
+ExE∗
+x
+ExE∗
+y
+EyE∗
+x
+EyE∗
+y
+
+
+
+ . (47)
+Therefore
+Ct = ( ˆT ⊗ ˆT ∗ )Ci. (48)
+By inspection of Eq. 45 and Eq. 47 one can express
+the Stokes vector in terms the coherency vector as
+S = ˆAC (49)
+where
+ˆA =
+
+
+
+1 0 0 1
+1 0 0 − 1
+0 1 1 0
+0 i − i 0
+
+
+ . (50)
+Substituting into Eq. 48 the inverse of Eq. 49, we get
+St = ˆA( ˆT ⊗ ˆT ∗) ˆA− 1Si. (51)
+So therefore in the Mueller matrix expression St =
+ˆM Si the Mueller matrix ˆM is given by ˆM = ˆA( ˆT ⊗
+ˆT ∗) ˆA− 1. Using the direct product expression for ˆT ⊗ ˆT ∗
+and the transformation ˆA and its inverse one can express
+the Mueller matrix ˆM in terms of the components of the
+Jones matrix (as deﬁned in Eq. 5) as
+
+
+
+
+1
+2 (AA∗ + BB ∗ + CC ∗ + DD∗ ) 1
+2 (AA∗ − BB ∗ + CC ∗ − DD∗ ) Re(AB∗ ) + Re(CD ∗ ) − Im(AB∗ ) − Im(CD ∗ )
+1
+2 (AA∗ + BB ∗ − CC ∗ − DD∗ ) 1
+2 (AA∗ − BB ∗ − CC ∗ + DD∗ ) Re(AB∗ ) − Re(CD ∗ ) − Im(AB∗ ) + Im(CD ∗ )
+Re(AC∗ ) + Re(BD ∗ ) Re(AC∗ ) − Re(BD ∗ ) Re(AD∗ ) + Re(BC ∗ ) − Im(AD∗ ) − Im(BC ∗ )
+Im(AC∗ ) + Im(CD ∗ ) Im(AC∗ ) − Im(CD ∗ ) Im(AD∗ ) + Im(BC ∗ ) Re(AD∗ ) − Re(BC ∗ )
+
+
+
+ .
+(52)
+The symmetry constraints on the Jones matrices dis-
+cussed in Secs. III and IV can be directly applied to Eq.
+52 and with a great deal of algebra give constraints on
+the Mueller matrices.
+VIII. CONCLUSIONS
+In this work I discuss a Jones transfer matrix formal-
+ism for inferring the existence of exotic broken symme-
+try states of matter from their electrodynamic response.
+This formalism is directly applicable to time-domain THz
+spectroscopy in transmission, but is more broadly ap-
+plicable. I discussed the consequences of discrete bro-
+ken symmetries on ordered states of matter including
+the presence and absence of reﬂections, rotations, inver-
+sion, rotation-reﬂections and time-reversal symmetries
+and the constraints they give on Jones matrices. These
+constraints typically appear in the form of an algebra
+relating matrix elements or overall constraints (transpo-
+sition, unitarity, hermiticity, normality, etc.) on the form
+of matrix. As usual, the utility of symmetries is that one
+can still deduce quantitative and qualitative information
+even when the underlying equations of motion are un-
+known. A number of explicit examples were given that
+are of current relevance to the study of correlated broken
+symmetry states of matter. One important consequence
+of this formalism is the demonstration that Kerr rotation
+must be absent in time-reversal symmetric chiral mate-
+rials.
+IX. ACKNOWLEDGMENTS
+I would like to thank R. Valdes Aguilar, N. Drichko,
+A. Fried, A. Kapitulnik, S. Kivelson, Y. Lubashevsky, C.
+Morris, L. Pan, S. Raghu, O. Tchernyshyov, A. Turner,
+C. Varma, and V. Yakovenko for useful discussions on re-
+lated topics. This research was supported by the Gordon
+and Betty Moore Foundation through Grant GBMF2628
+and the DOE-BES through DE-FG02-08ER46544.
+
+=== PDF PAGE 13 ===
+13
+1 D. N. Basov, R. D. Averitt, D. van der Marel, M. Dressel,
+and K. Haule, Rev. Mod. Phys. 83, 471 (2011).
+2 D. N. Basov and T. Timusk, Rev. Mod. Phys. 77, 721
+(2005).
+3 L. Degiorgi, Rev. Mod. Phys. 71, 687 (1999).
+4 G. Boss´ e, L. S. Bilbro, R. V. Aguilar, L. Pan, W. Liu,
+A. V. Stier, Y. Li, L. H. Greene, J. Eckstein, and N. P.
+Armitage, Phys. Rev. B 85, 155105 (2012).
+5 H. Molegraaf, C. Presura, D. Van Der Marel, P. Kes, and
+M. Li, Science 295, 2239 (2002).
+6 A. Boris, N. Kovaleva, O. Dolgov, T. Holden, C. Lin,
+B. Keimer, and C. Bernhard, Science 304, 708 (2004).
+7 K. Katsumata, Journal of Physics: Condensed Matter 12,
+R589 (2000).
+8 C. Morris, R. Vald´ es Aguilar, A. Ghosh, S. Koohpayeh,
+J. Krizan, R. Cava, O. Tchernyshyov, T. McQueen, and
+N. Armitage, Phys. Rev. Lett. 112, 137403 (2014).
+9 J. Corson, R. Mallozzi, J. Orenstein, J. N. Eckstein, and
+I. Bozovic, Nature 398, 221 (1999).
+10 L. Bilbro, R. Aguilar, G. Logvenov, O. Pelleg, I. Boovi´ c,
+and N. P. Armitage, Nature Physics 7, 298 (2011).
+11 L. S. Bilbro, R. Vald´ es Aguilar, G. Logvenov, I. Bozovic,
+and N. P. Armitage, Phys. Rev. B 84, 100511 (2011).
+12 W. Liu, M. Kim, G. Sambandamurthy, and N. P. Ar-
+mitage, Phys. Rev. B 84, 024511 (2011).
+13 T. P. Devereaux and R. Hackl, Rev. Mod. Phys. 79, 175
+(2007).
+14 A. Kumar, R. C. Rai, N. J. Podraza, S. Denev,
+M. Ramirez, Y.-H. Chu, L. W. Martin, J. Ihlefeld, T. Heeg,
+J. Schubert, et al., Applied Physics Letters 92, 121915
+(2008).
+15 A. Tsvetkov, D. van der Marel, K. Moler, J. Kirt-
+ley, J. de Boer, A. Meetsma, Z. Renk, N. Koleshnikov,
+D. Dulic, A. Damascelli, et al., NATURE 395, 361 (1998).
+16 S. Kaiser, M. Dressel, Y. Sun, A. Greco, J. A. Schlueter,
+G. L. Gard, and N. Drichko, Phys. Rev. Lett. 105, 206402
+(2010).
+17 D. A. Bonn, J. D. Garrett, and T. Timusk, Phys. Rev.
+Lett. 61, 1305 (1988).
+18 A. Kapitulnik, J. Xia, E. Schemm, and A. Palevski, New
+Journal of Physics 11, 055060 (2009).
+19 J. March-Russell and F. Wilczek, Physical Review Letters
+61, 2066 (1988).
+20 B. I. Halperin, J. March-Russell, and F. Wilczek, Physical
+Review B 40, 8726 (1989).
+21 B. G. Levi, Physics Today 44, 17 (1991).
+22 I. E. Dzyaloshinskii, Physics Letters A 155, 62 (1991).
+23 T. W. Lawrence, A. Sz¨ oke, and R. B. Laughlin, Phys. Rev.
+Lett. 69, 1439 (1992).
+24 G. S. Canright and A. G. Rojo, Phys. Rev. Lett. 68, 1601
+(1992).
+25 G. S. Canright and A. G. Rojo, Phys. Rev. B 46, 14078
+(1992).
+26 B. Halperin, in The Physics and Chemistry of Oxide Su-
+perconductors (Springer, 1992), pp. 439–450.
+27 A. L. Shelankov and G. E. Pikus, Phys. Rev. B 46, 3326
+(1992).
+28 J. Xia, Y. Maeno, P. Beyersdorf, M. Fejer, and A. Kapit-
+ulnik, Physical Review Letters 97, 167002 (2006).
+29 J. Xia, E. Schemm, G. Deutscher, S. A. Kivelson, D. A.
+Bonn, W. N. Hardy, R. Liang, W. Siemons, G. Koster,
+M. M. Fejer, et al., Phys. Rev. Lett. 100, 127002 (2008).
+30 H. Karapetyan, M. H¨ ucker, G. D. Gu, J. M. Tranquada,
+M. M. Fejer, J. Xia, and A. Kapitulnik, Phys. Rev. Lett.
+109, 147001 (2012).
+31 H. Karapetyan, J. Xia, M. H¨ ucker, G. Gu, J. Tranquada,
+M. Fejer, and A. Kapitulnik, Phys. Rev. Lett. 112, 047003
+(2014).
+32 P. Hosur, A. Kapitulnik, S. A. Kivelson, J. Orenstein, and
+S. Raghu, Phys. Rev. B 87, 115116 (2013).
+33 S. S. Pershoguba, K. Kechedzhi, and V. M. Yakovenko,
+Phys. Rev. Lett. 111, 047005 (2013).
+34 J. Orenstein, Phys. Rev. Lett. 107, 067002 (2011).
+35 V. Aji, Y. He, and C. M. Varma, Phys. Rev. B 87, 174518
+(2013).
+36 L. D. Landau and E. Lifshitz, Electrodynamics of continu-
+ous media (Pergamon Press, 1960).
+37 H. B. G. Casimir, Philips Res. Rep. 21, 417 (1966).
+38 A. Bungay, Y. P. Svirko, and N. Zheludev, Physical Review
+B 47, 11730 (1993).
+39 E. Bahar, JOSA A 26, 1834 (2009).
+40 P. Hosur, A. Kapitulnik, S. Kivelson, J. Orenstein,
+S. Raghu, W. Cho, and A. Fried, arXiv preprint
+arXiv:1405.0752 (2014).
+41 W. Cho, A. Fried, and A. Kapitulnik, unpublished (2014).
+42 M. Dumm, S. Komiya, Y. Ando, and D. Basov, Physical
+Review Letters 91, 77004 (2003).
+43 Y. Lubashevsky, L. Pan, T. Kirzhner, G. Koren, and N. Ar-
+mitage, Phys. Rev. Lett. 112, 147001 (2014).
+44 E. Castro-Camus, J. Lloyd-Hughes, M. Johnston,
+M. Fraser, H. Tan, and C. Jagadish, Applied Physics Let-
+ters 86, 254102 (2005).
+45 C. Morris, R. Aguilar, A. Stier, and N. P. Armitage, Optics
+Express 20, 12303 (2012).
+46 M. Neshat and N. P. Armitage, Optics Letters 37, 1811
+(2012).
+47 D. Aschaﬀenburg, M. Williams, D. Talbayev, D. San-
+tavicca, D. Prober, and C. Schmuttenmaer, Applied
+Physics Letters 100, 241114 (2012).
+48 E. Castro-Camus, Journal of Infrared, Millimeter and Ter-
+ahertz Waves pp. 1–13 (2012).
+49 D. George, A. Stier, C. Ellis, B. McCombe, J. ˇCerne, and
+A. Markelz, JOSA B 29, 1406 (2012).
+50 T. Nagashima, M. Tani, and M. Hangyo, Journal of In-
+frared, Millimeter, and Terahertz Waves 34, 740 (2013),
+ISSN 1866-6892.
+51 D. W. Berreman, JOSA 62, 502 (1972).
+52 J. Nye, Physical Properties of Crystals,Their Representa-
+tion by Tensors and Matrices (Oxford University Press,
+1985).
+53 C. Menzel, C. Rockstuhl, and F. Lederer, Phys. Rev. A
+82, 053811 (2010).
+54 L. D. Barron, Molecular light scattering and optical activity
+(Cambridge University Press, 2004).
+55 V. Simonet, M. Loire, and R. Ballou, The European Phys-
+ical Journal Special Topics 213, 5 (2012).
+56 I. Dzyaloshinsky, Journal of Physics and Chemistry of
+Solids 4, 241 (1958).
+57 H. Lorentz, III (Nijhoﬀ, Den Haag, The Netherlands, 1936)
+(1936).
+58 F. Perrin, The Journal of Chemical Physics 10, 415 (1942).
+59 A. T. de Hoop, Applied Scientiﬁc Research, Section B 8,
+
+=== PDF PAGE 14 ===
+14
+135 (1960).
+60 S. Chandrasekhar, Radiative transfer (Courier Dover Pub-
+lications, 1960).
+61 R. Potton, Reports on Progress in Physics 67, 717 (2004).
+62 L. Onsager, Phys. Rev. 37, 405 (1931).
+63 S.-Y. Lu and R. A. Chipman, JOSA A 11, 766 (1994).
+64 T. Tudor, JOSA A 23, 1513 (2006).
+65 C. Menzel, C. Helgert, C. Rockstuhl, E.-B. Kley,
+A. T¨ unnermann, T. Pertsch, and F. Lederer, Phys. Rev.
+Lett. 104, 253902 (2010).
+66 S. Pancharatnam, Proceedings Mathematical Sciences 42,
+86 (1955).
+67 S. Pancharatnam, in Proceedings of the Indian Academy of
+Sciences, Section A (Indian Academy of Sciences, 1957),
+vol. 46, pp. 280–302.
+68 O. S. Kushnir and O. G. Vlokh, in International Con-
+ference on Optical Diagnostics of Materials and Devices
+for Opto-, Micro-, and Quantum Electronics (International
+Society for Optics and Photonics, 1995), pp. 585–595.
+69 M. Berry and M. Dennis, Proceedings of the Royal Society
+of London. Series A: Mathematical, Physical and Engineer-
+ing Sciences 459, 1261 (2003).
+70 A. Malinowski, Y. P. Svirko, and N. Zheludev, JOSA B
+13, 1641 (1996).
+71 N. I. Zheludev, S. V. Popov, Y. P. Svirko, A. Malinowski,
+and D. Y. Paraschuk, Phys. Rev. B 50, 11508 (1994).
+72 A. P. Mackenzie and Y. Maeno, Rev. Mod. Phys. 75, 657
+(2003).
+73 R. M. Hornreich and S. Shtrikman, Phys. Rev. 171, 1065
+(1968).
+74 B. Krichevtsov, V. Pavlov, R. Pisarev, and V. Gridnev,
+Journal of Physics: Condensed Matter 5, 8233 (1993).
+75 B. Krichevtsov, V. Pavlov, R. Pisarev, and V. Gridnev,
+Physical Review Letters 76, 4628 (1996).
+76 Y. Machida, S. Nakatsuji, S. Onoda, T. Tayama, and
+T. Sakakibara, Nature 463, 210 (2009).
+77 W.-H. Ko and P. A. Lee, Phys. Rev. B 84, 125102 (2011).
+78 X. G. Wen and A. Zee, Phys. Rev. Lett. 62, 2873 (1989).
+79 D. Astrov, Zh. Eksp. Teor. Fiz 38, 984 (1960).
+80 W. Brown Jr, S. Shtrikman, and D. Treves, Journal of
+Applied Physics 34, 1233 (1963).
+81 R. Pisarev, B. Krichevtsov, and V. Pavlov, Phase Transi-
+tions: A Multinational Journal 37, 63 (1991).
+82 M. Fiebig, Journal of Physics D: Applied Physics 38, R123
+(2005).
+83 A. Mukhin, V. Travkin, and S. Lebedev, Ferroelectrics
+204, 261 (1997).
+84 I. Dzyaloshinskii and E. Papamichail, Physical Review Let-
+ters 75, 3004 (1995).
+85 A. L. Shelankov, Physical Review Letters 69, 3132 (1992).
+86 H. Katsura, N. Nagaosa, and A. V. Balatsky,
+Phys. Rev. Lett. 95, 057205 (2005), URL
+http://link.aps.org/doi/10.1103/PhysRevLett.95.057205.
+87 M. Kenzelmann, A. B. Harris, S. Jonas, C. Bro-
+holm, J. Schefer, S. B. Kim, C. L. Zhang,
+S.-W. Cheong, O. P. Vajk, and J. W. Lynn,
+Phys. Rev. Lett. 95, 087206 (2005), URL
+http://link.aps.org/doi/10.1103/PhysRevLett.95.087206.
+88 R. Vernon and B. Huggins, JOSA 70, 1364 (1980).
+89 R. Azzam and N. Bashara, Ellipsometry and Polarized
+Light (North Holland, 1978).

@@ -1,0 +1,15 @@
+name = "oq7_prescribed_extinction"
+version = "0.1.0"
+packagesDir = "C:/Users/Daniel/Documents/Codex/2026-10-09/set-up-a-local-ai-mathematical/outputs/math-research-lab/lean/.lake/packages"
+defaultTargets = ["OQ7", "PrescribedExtinction"]
+
+[[require]]
+name = "mathlib"
+git = "https://github.com/leanprover-community/mathlib4.git"
+rev = "d13f23b723b8a846827a245b89c10fc7d3f11612"
+
+[[lean_lib]]
+name = "OQ7"
+
+[[lean_lib]]
+name = "PrescribedExtinction"

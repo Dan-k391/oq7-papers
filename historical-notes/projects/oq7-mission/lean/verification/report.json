@@ -1,0 +1,662 @@
+{
+  "verifiedAtUTC": "2026-10-10T16:54:35.2839529Z",
+  "lean": "Lean (version 4.34.1, x86_64-w64-windows-gnu, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)",
+  "mathlibCommit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "lakeBuildPassed": true,
+  "cleanProjectBuild": true,
+  "authoredTheoremCount": 35,
+  "authoredTheoremNames": [
+    "OQ7Mission.norm_lower_bound_of_imaginary_coercivity",
+    "OQ7Mission.current_error_le_residual",
+    "OQ7Mission.current_error_isLittleO_of_uniform_coercivity",
+    "OQ7Mission.quadraticWork_difference_bound",
+    "OQ7Mission.incidentWork_difference_bound",
+    "OQ7Mission.quadraticWork_difference_isLittleO_square",
+    "OQ7Mission.incidentWork_difference_isLittleO_square",
+    "OQ7Mission.area_normalized_work_errors_tendsto_zero",
+    "OQ7Mission.RationalOverlap.sqrt21_sq",
+    "OQ7Mission.RationalOverlap.lyapunov_identity",
+    "OQ7Mission.RationalOverlap.determinant_Z",
+    "OQ7Mission.RationalOverlap.H_identity",
+    "OQ7Mission.RationalOverlap.B_square",
+    "OQ7Mission.RationalOverlap.complement_identity",
+    "OQ7Mission.RationalOverlap.complementary_slackness",
+    "OQ7Mission.RationalOverlap.weighted_trace",
+    "OQ7Mission.RationalOverlap.contrast",
+    "OQ7Mission.RationalOverlap.B_quadratic_form",
+    "OQ7Mission.RationalOverlap.B_posSemidef",
+    "OQ7Mission.RationalOverlap.Z_quadratic_form",
+    "OQ7Mission.RationalOverlap.Z_posSemidef",
+    "OQ7Mission.RationalOverlap.H_quadratic_form",
+    "OQ7Mission.RationalOverlap.H_posSemidef",
+    "OQ7Mission.RationalOverlap.complement_quadratic_form",
+    "OQ7Mission.RationalOverlap.B_square_contraction",
+    "OQ7Mission.RationalOverlap.B_square_posSemidef",
+    "OQ7Mission.RationalOverlap.exact_certificate",
+    "OQ7Mission.RationalOverlap.trace_Z_mul",
+    "OQ7Mission.RationalOverlap.trace_Z_mul_nonneg",
+    "OQ7Mission.RationalOverlap.trace_H_mul",
+    "OQ7Mission.RationalOverlap.trace_H_mul_nonneg",
+    "OQ7Mission.RationalOverlap.dual_trace_identity",
+    "OQ7Mission.RationalOverlap.rational_SDP_upper_bound",
+    "OQ7Mission.RationalOverlap.rational_SDP_attainment",
+    "OQ7Mission.RationalOverlap.rational_square_upper_bound"
+  ],
+  "privateAuthoredTheoremCount": 3,
+  "sourceDeclarationCount": 47,
+  "sourceDeclarations": [
+    {
+      "name": "OQ7Mission.norm_lower_bound_of_imaginary_coercivity",
+      "file": "OQ7Mission/Coercivity.lean",
+      "private": false,
+      "kind": "theorem"
+    },
+    {
+      "name": "OQ7Mission.current_error_le_residual",
+      "file": "OQ7Mission/Coercivity.lean",
+      "private": false,
+      "kind": "theorem"
+    },
+    {
+      "name": "OQ7Mission.current_error_isLittleO_of_uniform_coercivity",
+      "file": "OQ7Mission/Coercivity.lean",
+      "private": false,
+      "kind": "theorem"
+    },
+    {
+      "name": "OQ7Mission.quadraticWork",
+      "file": "OQ7Mission/Observables.lean",
+      "private": false,
+      "kind": "def"
+    },
+    {
+      "name": "OQ7Mission.incidentWork",
+      "file": "OQ7Mission/Observables.lean",
+      "private": false,
+      "kind": "def"
+    },
+    {
+      "name": "OQ7Mission.quadraticWork_difference_bound",
+      "file": "OQ7Mission/Observables.lean",
+      "private": false,
+      "kind": "theorem"
+    },
+    {
+      "name": "OQ7Mission.incidentWork_difference_bound",
+      "file": "OQ7Mission/Observables.lean",
+      "private": false,
+      "kind": "theorem"
+    },
+    {
+      "name": "OQ7Mission.quadraticWork_difference_isLittleO_square",
+      "file": "OQ7Mission/Observables.lean",
+      "private": false,
+      "kind": "theorem"
+    },
+    {
+      "name": "OQ7Mission.incidentWork_difference_isLittleO_square",
+      "file": "OQ7Mission/Observables.lean",
+      "private": false,
+      "kind": "theorem"
+    },
+    {
+      "name": "OQ7Mission.area_normalized_work_errors_tendsto_zero",
+      "file": "OQ7Mission/Observables.lean",
+      "private": false,
+      "kind": "theorem"
+    },
+    {
+      "name": "OQ7Mission.RationalOverlap.Mat2",
+      "file": "OQ7Mission/RationalOverlap.lean",
+      "private": false,
+      "kind": "abbrev"
+    },
+    {
+      "name": "OQ7Mission.RationalOverlap.B",
+      "file": "OQ7Mission/RationalOverlap.lean",
+      "private": false,
+      "kind": "def"
+    },
+    {
+      "name": "OQ7Mission.RationalOverlap.W",
+      "file": "OQ7Mission/RationalOverlap.lean",
+      "private": false,
+      "kind": "def"
+    },
+    {
+      "name": "OQ7Mission.RationalOverlap.Z",
+      "file": "OQ7Mission/RationalOverlap.lean",
+      "private": false,
+      "kind": "def"
+    },
+    {
+      "name": "OQ7Mission.RationalOverlap.E",
+      "file": "OQ7Mission/RationalOverlap.lean",
+      "private": false,
+      "kind": "def"
+    },
+    {
+      "name": "OQ7Mission.RationalOverlap.nu",
+      "file": "OQ7Mission/RationalOverlap.lean",
+      "private": false,
+      "kind": "def"
+    },
+    {
+      "name": "OQ7Mission.RationalOverlap.H",
+      "file": "OQ7Mission/RationalOverlap.lean",
+      "private": false,
+      "kind": "def"
+    },
+    {
+      "name": "OQ7Mission.RationalOverlap.sqrt21_sq",
+      "file": "OQ7Mission/RationalOverlap.lean",
+      "private": false,
+      "kind": "theorem"
+    },
+    {
+      "name": "OQ7Mission.RationalOverlap.lyapunov_identity",
+      "file": "OQ7Mission/RationalOverlap.lean",
+      "private": false,
+      "kind": "theorem"
+    },
+    {
+      "name": "OQ7Mission.RationalOverlap.determinant_Z",
+      "file": "OQ7Mission/RationalOverlap.lean",
+      "private": false,
+      "kind": "theorem"
+    },
+    {
+      "name": "OQ7Mission.RationalOverlap.H_identity",
+      "file": "OQ7Mission/RationalOverlap.lean",
+      "private": false,
+      "kind": "theorem"
+    },
+    {
+      "name": "OQ7Mission.RationalOverlap.B_square",
+      "file": "OQ7Mission/RationalOverlap.lean",
+      "private": false,
+      "kind": "theorem"
+    },
+    {
+      "name": "OQ7Mission.RationalOverlap.complement_identity",
+      "file": "OQ7Mission/RationalOverlap.lean",
+      "private": false,
+      "kind": "theorem"
+    },
+    {
+      "name": "OQ7Mission.RationalOverlap.complementary_slackness",
+      "file": "OQ7Mission/RationalOverlap.lean",
+      "private": false,
+      "kind": "theorem"
+    },
+    {
+      "name": "OQ7Mission.RationalOverlap.weighted_trace",
+      "file": "OQ7Mission/RationalOverlap.lean",
+      "private": false,
+      "kind": "theorem"
+    },
+    {
+      "name": "OQ7Mission.RationalOverlap.contrast",
+      "file": "OQ7Mission/RationalOverlap.lean",
+      "private": false,
+      "kind": "theorem"
+    },
+    {
+      "name": "_private.OQ7Mission.RationalOverlap.0.OQ7Mission.RationalOverlap.B_hermitian",
+      "file": "OQ7Mission/RationalOverlap.lean",
+      "private": true,
+      "kind": "theorem"
+    },
+    {
+      "name": "_private.OQ7Mission.RationalOverlap.0.OQ7Mission.RationalOverlap.Z_hermitian",
+      "file": "OQ7Mission/RationalOverlap.lean",
+      "private": true,
+      "kind": "theorem"
+    },
+    {
+      "name": "_private.OQ7Mission.RationalOverlap.0.OQ7Mission.RationalOverlap.H_hermitian",
+      "file": "OQ7Mission/RationalOverlap.lean",
+      "private": true,
+      "kind": "theorem"
+    },
+    {
+      "name": "OQ7Mission.RationalOverlap.B_quadratic_form",
+      "file": "OQ7Mission/RationalOverlap.lean",
+      "private": false,
+      "kind": "theorem"
+    },
+    {
+      "name": "OQ7Mission.RationalOverlap.B_posSemidef",
+      "file": "OQ7Mission/RationalOverlap.lean",
+      "private": false,
+      "kind": "theorem"
+    },
+    {
+      "name": "OQ7Mission.RationalOverlap.Z_quadratic_form",
+      "file": "OQ7Mission/RationalOverlap.lean",
+      "private": false,
+      "kind": "theorem"
+    },
+    {
+      "name": "OQ7Mission.RationalOverlap.Z_posSemidef",
+      "file": "OQ7Mission/RationalOverlap.lean",
+      "private": false,
+      "kind": "theorem"
+    },
+    {
+      "name": "OQ7Mission.RationalOverlap.H_quadratic_form",
+      "file": "OQ7Mission/RationalOverlap.lean",
+      "private": false,
+      "kind": "theorem"
+    },
+    {
+      "name": "OQ7Mission.RationalOverlap.H_posSemidef",
+      "file": "OQ7Mission/RationalOverlap.lean",
+      "private": false,
+      "kind": "theorem"
+    },
+    {
+      "name": "OQ7Mission.RationalOverlap.complement_quadratic_form",
+      "file": "OQ7Mission/RationalOverlap.lean",
+      "private": false,
+      "kind": "theorem"
+    },
+    {
+      "name": "OQ7Mission.RationalOverlap.B_square_contraction",
+      "file": "OQ7Mission/RationalOverlap.lean",
+      "private": false,
+      "kind": "theorem"
+    },
+    {
+      "name": "OQ7Mission.RationalOverlap.B_square_posSemidef",
+      "file": "OQ7Mission/RationalOverlap.lean",
+      "private": false,
+      "kind": "theorem"
+    },
+    {
+      "name": "OQ7Mission.RationalOverlap.exact_certificate",
+      "file": "OQ7Mission/RationalOverlap.lean",
+      "private": false,
+      "kind": "theorem"
+    },
+    {
+      "name": "OQ7Mission.RationalOverlap.trace_Z_mul",
+      "file": "OQ7Mission/RationalOverlap.lean",
+      "private": false,
+      "kind": "theorem"
+    },
+    {
+      "name": "OQ7Mission.RationalOverlap.trace_Z_mul_nonneg",
+      "file": "OQ7Mission/RationalOverlap.lean",
+      "private": false,
+      "kind": "theorem"
+    },
+    {
+      "name": "OQ7Mission.RationalOverlap.trace_H_mul",
+      "file": "OQ7Mission/RationalOverlap.lean",
+      "private": false,
+      "kind": "theorem"
+    },
+    {
+      "name": "OQ7Mission.RationalOverlap.trace_H_mul_nonneg",
+      "file": "OQ7Mission/RationalOverlap.lean",
+      "private": false,
+      "kind": "theorem"
+    },
+    {
+      "name": "OQ7Mission.RationalOverlap.dual_trace_identity",
+      "file": "OQ7Mission/RationalOverlap.lean",
+      "private": false,
+      "kind": "theorem"
+    },
+    {
+      "name": "OQ7Mission.RationalOverlap.rational_SDP_upper_bound",
+      "file": "OQ7Mission/RationalOverlap.lean",
+      "private": false,
+      "kind": "theorem"
+    },
+    {
+      "name": "OQ7Mission.RationalOverlap.rational_SDP_attainment",
+      "file": "OQ7Mission/RationalOverlap.lean",
+      "private": false,
+      "kind": "theorem"
+    },
+    {
+      "name": "OQ7Mission.RationalOverlap.rational_square_upper_bound",
+      "file": "OQ7Mission/RationalOverlap.lean",
+      "private": false,
+      "kind": "theorem"
+    }
+  ],
+  "kernelTheoremConstantCount": 61,
+  "kernelTheoremNames": [
+    "_private.OQ7Mission.RationalOverlap.0.OQ7Mission.RationalOverlap.B_hermitian",
+    "_private.OQ7Mission.RationalOverlap.0.OQ7Mission.RationalOverlap.H_hermitian",
+    "_private.OQ7Mission.RationalOverlap.0.OQ7Mission.RationalOverlap.Z_hermitian",
+    "OQ7Mission.area_normalized_work_errors_tendsto_zero",
+    "OQ7Mission.current_error_isLittleO_of_uniform_coercivity",
+    "OQ7Mission.current_error_le_residual",
+    "OQ7Mission.incidentWork_difference_bound",
+    "OQ7Mission.incidentWork_difference_isLittleO_square",
+    "OQ7Mission.incidentWork.eq_1",
+    "OQ7Mission.norm_lower_bound_of_imaginary_coercivity",
+    "OQ7Mission.quadraticWork_difference_bound",
+    "OQ7Mission.quadraticWork_difference_bound._abel_1_1",
+    "OQ7Mission.quadraticWork_difference_isLittleO_square",
+    "OQ7Mission.quadraticWork.eq_1",
+    "OQ7Mission.RationalOverlap.B_posSemidef",
+    "OQ7Mission.RationalOverlap.B_quadratic_form",
+    "OQ7Mission.RationalOverlap.B_square",
+    "OQ7Mission.RationalOverlap.B_square_contraction",
+    "OQ7Mission.RationalOverlap.B_square_posSemidef",
+    "OQ7Mission.RationalOverlap.B._proof_1",
+    "OQ7Mission.RationalOverlap.B._proof_2",
+    "OQ7Mission.RationalOverlap.B._proof_3",
+    "OQ7Mission.RationalOverlap.B._proof_4",
+    "OQ7Mission.RationalOverlap.B._proof_5",
+    "OQ7Mission.RationalOverlap.B.eq_1",
+    "OQ7Mission.RationalOverlap.complement_identity",
+    "OQ7Mission.RationalOverlap.complement_quadratic_form",
+    "OQ7Mission.RationalOverlap.complementary_slackness",
+    "OQ7Mission.RationalOverlap.contrast",
+    "OQ7Mission.RationalOverlap.determinant_Z",
+    "OQ7Mission.RationalOverlap.dual_trace_identity",
+    "OQ7Mission.RationalOverlap.E._proof_1",
+    "OQ7Mission.RationalOverlap.E.eq_1",
+    "OQ7Mission.RationalOverlap.exact_certificate",
+    "OQ7Mission.RationalOverlap.H_identity",
+    "OQ7Mission.RationalOverlap.H_posSemidef",
+    "OQ7Mission.RationalOverlap.H_quadratic_form",
+    "OQ7Mission.RationalOverlap.H.eq_1",
+    "OQ7Mission.RationalOverlap.lyapunov_identity",
+    "OQ7Mission.RationalOverlap.nu._proof_1",
+    "OQ7Mission.RationalOverlap.nu._proof_2",
+    "OQ7Mission.RationalOverlap.nu.eq_1",
+    "OQ7Mission.RationalOverlap.rational_SDP_attainment",
+    "OQ7Mission.RationalOverlap.rational_SDP_upper_bound",
+    "OQ7Mission.RationalOverlap.rational_square_upper_bound",
+    "OQ7Mission.RationalOverlap.sqrt21_sq",
+    "OQ7Mission.RationalOverlap.trace_H_mul",
+    "OQ7Mission.RationalOverlap.trace_H_mul_nonneg",
+    "OQ7Mission.RationalOverlap.trace_Z_mul",
+    "OQ7Mission.RationalOverlap.trace_Z_mul_nonneg",
+    "OQ7Mission.RationalOverlap.W._proof_1",
+    "OQ7Mission.RationalOverlap.W._proof_2",
+    "OQ7Mission.RationalOverlap.W.eq_1",
+    "OQ7Mission.RationalOverlap.weighted_trace",
+    "OQ7Mission.RationalOverlap.Z_posSemidef",
+    "OQ7Mission.RationalOverlap.Z_quadratic_form",
+    "OQ7Mission.RationalOverlap.Z._proof_1",
+    "OQ7Mission.RationalOverlap.Z._proof_2",
+    "OQ7Mission.RationalOverlap.Z._proof_3",
+    "OQ7Mission.RationalOverlap.Z._proof_4",
+    "OQ7Mission.RationalOverlap.Z.eq_1"
+  ],
+  "kernelConstantCount": 70,
+  "kernelConstantNames": [
+    "_private.OQ7Mission.RationalOverlap.0.OQ7Mission.RationalOverlap.B_hermitian",
+    "_private.OQ7Mission.RationalOverlap.0.OQ7Mission.RationalOverlap.H_hermitian",
+    "_private.OQ7Mission.RationalOverlap.0.OQ7Mission.RationalOverlap.Z_hermitian",
+    "OQ7Mission.area_normalized_work_errors_tendsto_zero",
+    "OQ7Mission.current_error_isLittleO_of_uniform_coercivity",
+    "OQ7Mission.current_error_le_residual",
+    "OQ7Mission.incidentWork",
+    "OQ7Mission.incidentWork_difference_bound",
+    "OQ7Mission.incidentWork_difference_isLittleO_square",
+    "OQ7Mission.incidentWork.eq_1",
+    "OQ7Mission.norm_lower_bound_of_imaginary_coercivity",
+    "OQ7Mission.quadraticWork",
+    "OQ7Mission.quadraticWork_difference_bound",
+    "OQ7Mission.quadraticWork_difference_bound._abel_1_1",
+    "OQ7Mission.quadraticWork_difference_isLittleO_square",
+    "OQ7Mission.quadraticWork.eq_1",
+    "OQ7Mission.RationalOverlap.B",
+    "OQ7Mission.RationalOverlap.B_posSemidef",
+    "OQ7Mission.RationalOverlap.B_quadratic_form",
+    "OQ7Mission.RationalOverlap.B_square",
+    "OQ7Mission.RationalOverlap.B_square_contraction",
+    "OQ7Mission.RationalOverlap.B_square_posSemidef",
+    "OQ7Mission.RationalOverlap.B._proof_1",
+    "OQ7Mission.RationalOverlap.B._proof_2",
+    "OQ7Mission.RationalOverlap.B._proof_3",
+    "OQ7Mission.RationalOverlap.B._proof_4",
+    "OQ7Mission.RationalOverlap.B._proof_5",
+    "OQ7Mission.RationalOverlap.B.eq_1",
+    "OQ7Mission.RationalOverlap.complement_identity",
+    "OQ7Mission.RationalOverlap.complement_quadratic_form",
+    "OQ7Mission.RationalOverlap.complementary_slackness",
+    "OQ7Mission.RationalOverlap.contrast",
+    "OQ7Mission.RationalOverlap.determinant_Z",
+    "OQ7Mission.RationalOverlap.dual_trace_identity",
+    "OQ7Mission.RationalOverlap.E",
+    "OQ7Mission.RationalOverlap.E._proof_1",
+    "OQ7Mission.RationalOverlap.E.eq_1",
+    "OQ7Mission.RationalOverlap.exact_certificate",
+    "OQ7Mission.RationalOverlap.H",
+    "OQ7Mission.RationalOverlap.H_identity",
+    "OQ7Mission.RationalOverlap.H_posSemidef",
+    "OQ7Mission.RationalOverlap.H_quadratic_form",
+    "OQ7Mission.RationalOverlap.H.eq_1",
+    "OQ7Mission.RationalOverlap.lyapunov_identity",
+    "OQ7Mission.RationalOverlap.Mat2",
+    "OQ7Mission.RationalOverlap.nu",
+    "OQ7Mission.RationalOverlap.nu._proof_1",
+    "OQ7Mission.RationalOverlap.nu._proof_2",
+    "OQ7Mission.RationalOverlap.nu.eq_1",
+    "OQ7Mission.RationalOverlap.rational_SDP_attainment",
+    "OQ7Mission.RationalOverlap.rational_SDP_upper_bound",
+    "OQ7Mission.RationalOverlap.rational_square_upper_bound",
+    "OQ7Mission.RationalOverlap.sqrt21_sq",
+    "OQ7Mission.RationalOverlap.trace_H_mul",
+    "OQ7Mission.RationalOverlap.trace_H_mul_nonneg",
+    "OQ7Mission.RationalOverlap.trace_Z_mul",
+    "OQ7Mission.RationalOverlap.trace_Z_mul_nonneg",
+    "OQ7Mission.RationalOverlap.W",
+    "OQ7Mission.RationalOverlap.W._proof_1",
+    "OQ7Mission.RationalOverlap.W._proof_2",
+    "OQ7Mission.RationalOverlap.W.eq_1",
+    "OQ7Mission.RationalOverlap.weighted_trace",
+    "OQ7Mission.RationalOverlap.Z",
+    "OQ7Mission.RationalOverlap.Z_posSemidef",
+    "OQ7Mission.RationalOverlap.Z_quadratic_form",
+    "OQ7Mission.RationalOverlap.Z._proof_1",
+    "OQ7Mission.RationalOverlap.Z._proof_2",
+    "OQ7Mission.RationalOverlap.Z._proof_3",
+    "OQ7Mission.RationalOverlap.Z._proof_4",
+    "OQ7Mission.RationalOverlap.Z.eq_1"
+  ],
+  "exactStatements": "verification/statements.log",
+  "proofAndTypeDependencies": "verification/dependencies.json",
+  "originalTheorem51Dependencies": "verification/theorem51-dependencies.json",
+  "fullMainResultDependencies": "verification/full-dependencies.json",
+  "fullOriginalTheorem51Dependencies": "verification/full-theorem51-dependencies.json",
+  "dependencyClosureScope": "All own-namespace/private constants have namespace closures; the eight generic results, rational certificate/SDP upper bound/attainment/square corollary and original theorem51 additionally have full recursive kernel type/proof expression closures including Mathlib/Lean.",
+  "transitiveAxiomCoverage": "Every actual OQ7Mission kernel constant, including private helpers, definitions and generated constants.",
+  "declaredMathematicalAxiomCount": 0,
+  "allowedFoundationAxioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "dependencyRevisions": [
+    {
+      "name": "mathlib",
+      "revision": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+      "trackedSourceClean": true
+    },
+    {
+      "name": "plausible",
+      "revision": "118aa17ee84656b8bd727fef7c458ee8c833385c",
+      "trackedSourceClean": true
+    },
+    {
+      "name": "LeanSearchClient",
+      "revision": "ddf04cf3949fa556442341e87d47f9f6e6074707",
+      "trackedSourceClean": true
+    },
+    {
+      "name": "importGraph",
+      "revision": "e928b72544873815af278d38681b31c0293588e3",
+      "trackedSourceClean": true
+    },
+    {
+      "name": "proofwidgets",
+      "revision": "106ff4fafc74ef4ac99d81dbf3ab399118f497a5",
+      "trackedSourceClean": true
+    },
+    {
+      "name": "aesop",
+      "revision": "355695d523e41d0554926416cba2a2b3544fbbc9",
+      "trackedSourceClean": true
+    },
+    {
+      "name": "Qq",
+      "revision": "6a489d9af5d0c47e5b259e2e8bcdfc1811b5a259",
+      "trackedSourceClean": true
+    },
+    {
+      "name": "batteries",
+      "revision": "f2effa3d803fda822b1f97b806c47cf2adfbcbc2",
+      "trackedSourceClean": true
+    },
+    {
+      "name": "Cli",
+      "revision": "e92c9f15fdfacc8536f31cfb3b7ad26c3c8cd204",
+      "trackedSourceClean": true
+    }
+  ],
+  "sourceHashes": [
+    {
+      "sha256": "125F97425F48F7511480DE69439A8DDBCF924B44E9DB06702B474E2F69B63354",
+      "file": "OQ7Mission/Coercivity.lean"
+    },
+    {
+      "sha256": "B9832197F958B9F40D8275A19E71D7DDDFC7841079D0F3C0A5798260A8B85EC0",
+      "file": "OQ7Mission/Observables.lean"
+    },
+    {
+      "sha256": "A7F217F2E75F5E8EC22D000CD681D908E6603EC02BC56FB6E2A71A5E940F55CD",
+      "file": "OQ7Mission/RationalOverlap.lean"
+    }
+  ],
+  "configurationHashes": [
+    {
+      "sha256": "721BF5854125CD09B27F81966D362DC9136F9A7A79C86E57A2019B540C5163A1",
+      "file": "OQ7Mission.lean"
+    },
+    {
+      "sha256": "0501555FAAEC0FDC57AC6F7A2C252FC170F78450DDF631CB32A600D17B4B46CA",
+      "file": "lakefile.toml"
+    },
+    {
+      "sha256": "0477D73027B82EAAF6467C39A56E5E52DA9D446AA6455F046142B1694F6B9586",
+      "file": "lake-manifest.json"
+    },
+    {
+      "sha256": "D5EDBA4E4B8FAAD9C1BAEADB265716D20D03BE4D1A2647DC5E35B0C0325BEA7B",
+      "file": "lean-toolchain"
+    },
+    {
+      "sha256": "4CCE738C8C72B0540A0BABCD9871D27D2C4BFAF5CD05D59090ACED50A4D423FF",
+      "file": "verify.ps1"
+    },
+    {
+      "sha256": "874B1AE969C5CF49A18290AF965A3DFACD36CA6E402C87449BA7AE3CF154FF24",
+      "file": "bootstrap-cache.ps1"
+    },
+    {
+      "sha256": "9F47658C7EC4CD6D9D3491FE6DED55F81EC57375D5E9DC42C34775B76BD9E1E5",
+      "file": "verification/Inventory.lean"
+    },
+    {
+      "sha256": "DFA33C17D48CE90147588403506BAEDFE5BBEAD8B8E01BB88505FF5C7586FFE1",
+      "file": "verification/ExistingDependencies.lean"
+    },
+    {
+      "sha256": "3FA48A30488BF33162385BAFD2C9C019464FBC15D0AB9EDEF0B97C678496E4B4",
+      "file": "verification/export-dependencies.py"
+    },
+    {
+      "sha256": "3B627EF9653A99D8BB5F5A574CE0DB2F9F59BDB539FF5C5422B679108A2CB300",
+      "file": "verification/Statements.lean"
+    },
+    {
+      "sha256": "067178997181651F2ED118B8D8E1811B1444C517963A50D5258FEFC98B835625",
+      "file": "verification/Audit.lean"
+    },
+    {
+      "sha256": "557BD6CC97EBB2ED50222B49B6ADCA6B7802F80F9CC1BD86BF809B8346ABB441",
+      "file": "verification/FullDependencies.lean"
+    },
+    {
+      "sha256": "56A37D6931DA2FE4770EEEC1C19AC6F09B3E9E8BC3B07F8AE8DBE883C2F48C58",
+      "file": "verification/FullExistingDependencies.lean"
+    }
+  ],
+  "evidenceHashes": [
+    {
+      "sha256": "3C943A734510780FAD9FBA4C476198F32DA8EF603635B81EA99219401E036F24",
+      "file": "verification/build.log"
+    },
+    {
+      "sha256": "E1F53E3522BF1B6028503634DF803AA94678C119D6B3B91E2DE1D5C8F4F18273",
+      "file": "verification/inventory.log"
+    },
+    {
+      "sha256": "CF146BC5A667E82CCD1A90656065F100347D4FC51A39BC8A74219B136351CE89",
+      "file": "verification/statements.log"
+    },
+    {
+      "sha256": "7ECAB351132314C2D0FE27AB0CA184A533B4B33A3C269531A6668C3579A0324C",
+      "file": "verification/axioms.log"
+    },
+    {
+      "sha256": "067178997181651F2ED118B8D8E1811B1444C517963A50D5258FEFC98B835625",
+      "file": "verification/Audit.lean"
+    },
+    {
+      "sha256": "3B627EF9653A99D8BB5F5A574CE0DB2F9F59BDB539FF5C5422B679108A2CB300",
+      "file": "verification/Statements.lean"
+    },
+    {
+      "sha256": "D85D0D4E160E8F9A337644E02941E067E917CEEE05E683CEFF22BBBAA06220C3",
+      "file": "verification/existing-dependencies.log"
+    },
+    {
+      "sha256": "EC8F017A2F58FDD918CA2F86EBA38767A02FD44E67C2BFF40AFC23A7CF437713",
+      "file": "verification/dependencies.json"
+    },
+    {
+      "sha256": "269A5B09064583A95163047E25C73AE1CB504C762CFE8A5AF94CD96E7F9EDE8F",
+      "file": "verification/theorem51-dependencies.json"
+    },
+    {
+      "sha256": "39661F63D2EC5DC8F3E3AF4D0C0F306E61EB3DDD3DD3AAE89ABD217D4292654B",
+      "file": "verification/dependency-export.log"
+    },
+    {
+      "sha256": "D8F3992D7F584BFC4B66E4D4FDFD232E198EEDBB86BCBED0D31204E053E511F4",
+      "file": "verification/full-dependencies.log"
+    },
+    {
+      "sha256": "71FD09184F7E7AFCEC22BC1E1484EF5F0DEBE28D3EBC4E9FC2E91AD901E7FDF5",
+      "file": "verification/full-existing-dependencies.log"
+    },
+    {
+      "sha256": "DA6BFCB00AD3D6C32191FD99EF5DB9229A3409E0D621F2AB7CA55A23BC5F0307",
+      "file": "verification/full-dependencies.json"
+    },
+    {
+      "sha256": "29F3D780CF9A1EE3B4E360CB75B510CC8C3040A855D9009793A770DBA792C797",
+      "file": "verification/full-theorem51-dependencies.json"
+    },
+    {
+      "sha256": "7EB70257593DA06F682A3DDDA54A9D260D4FC514F645237F5CA74B08F8DA61A6",
+      "file": "verification/clean.log"
+    }
+  ],
+  "originalProjectSourceAndConfigurationHashCount": 83,
+  "originalProjectSourceAndConfigurationUnchanged": true,
+  "originalSuccessfulReportSHA256": "47DCAFC292DEF31C71340A98AD264D8D14B63B61C83AB24A5770C07AFE12E99C",
+  "manuscriptStatus": "PARTIALLY FORMALIZED: algebraic localization/work components and exact finite-dimensional rational certificate only; physical Maxwell operator estimates, global A7.1 and compact cross-section theorems are not proved here."
+}

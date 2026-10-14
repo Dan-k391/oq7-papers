@@ -1,0 +1,161 @@
+warning: mathlib: repository 'C:/Users/Daniel/Documents/Codex/2026-10-09/set-up-a-local-ai-mathematical/outputs/math-research-lab/lean/.lake/packages\mathlib' has local changes
+warning: plausible: repository 'C:/Users/Daniel/Documents/Codex/2026-10-09/set-up-a-local-ai-mathematical/outputs/math-research-lab/lean/.lake/packages\plausible' has local changes
+warning: LeanSearchClient: repository 'C:/Users/Daniel/Documents/Codex/2026-10-09/set-up-a-local-ai-mathematical/outputs/math-research-lab/lean/.lake/packages\LeanSearchClient' has local changes
+warning: importGraph: repository 'C:/Users/Daniel/Documents/Codex/2026-10-09/set-up-a-local-ai-mathematical/outputs/math-research-lab/lean/.lake/packages\importGraph' has local changes
+warning: proofwidgets: repository 'C:/Users/Daniel/Documents/Codex/2026-10-09/set-up-a-local-ai-mathematical/outputs/math-research-lab/lean/.lake/packages\proofwidgets' has local changes
+warning: aesop: repository 'C:/Users/Daniel/Documents/Codex/2026-10-09/set-up-a-local-ai-mathematical/outputs/math-research-lab/lean/.lake/packages\aesop' has local changes
+warning: Qq: repository 'C:/Users/Daniel/Documents/Codex/2026-10-09/set-up-a-local-ai-mathematical/outputs/math-research-lab/lean/.lake/packages\Qq' has local changes
+warning: batteries: repository 'C:/Users/Daniel/Documents/Codex/2026-10-09/set-up-a-local-ai-mathematical/outputs/math-research-lab/lean/.lake/packages\batteries' has local changes
+warning: Cli: repository 'C:/Users/Daniel/Documents/Codex/2026-10-09/set-up-a-local-ai-mathematical/outputs/math-research-lab/lean/.lake/packages\Cli' has local changes
+structure OQ7Prescribed.TwoLayerBody : Type
+number of parameters: 0
+fields:
+  OQ7Prescribed.TwoLayerBody.aperture : ℝ
+  OQ7Prescribed.TwoLayerBody.absorberThickness : ℝ
+  OQ7Prescribed.TwoLayerBody.plateThickness : ℝ
+  OQ7Prescribed.TwoLayerBody.absorberPermittivity : Tensor
+  OQ7Prescribed.TwoLayerBody.platePermittivity : Tensor
+  OQ7Prescribed.TwoLayerBody.aperture_pos : 0 < self.aperture
+  OQ7Prescribed.TwoLayerBody.absorberThickness_pos : 0 < self.absorberThickness
+  OQ7Prescribed.TwoLayerBody.plateThickness_pos : 0 < self.plateThickness
+constructor:
+  OQ7Prescribed.TwoLayerBody.mk (aperture absorberThickness plateThickness : ℝ)
+    (absorberPermittivity platePermittivity : Tensor) (aperture_pos : 0 < aperture)
+    (absorberThickness_pos : 0 < absorberThickness) (plateThickness_pos : 0 < plateThickness) : TwoLayerBody
+def OQ7Prescribed.MaterialAdmissible : ℝ → ℝ → Tensor → Prop :=
+fun P Q ε =>
+  Matrix.transpose ε = ε ∧
+    (∀ (v : OQ7Prescribed.Vector), squareNorm v ≤ (quadratic ε v).re ∧ (quadratic ε v).re ≤ P * squareNorm v) ∧
+      (∀ (v : OQ7Prescribed.Vector), v ≠ 0 → 0 < (quadratic ε v).im) ∧
+        ∀ (v : OQ7Prescribed.Vector), (quadratic ε v).im ≤ Q * squareNorm v
+structure OQ7Prescribed.ScatteringState (k : ℝ) (B : TwoLayerBody) (σ : Direction) : Type
+number of parameters: 3
+fields:
+  OQ7Prescribed.ScatteringState.electric : OQ7Prescribed.Field
+  OQ7Prescribed.ScatteringState.magnetic : OQ7Prescribed.Field
+  OQ7Prescribed.ScatteringState.maxwell : WeakMaxwell k B self.electric self.magnetic
+  OQ7Prescribed.ScatteringState.outgoing : Outgoing (fun x => self.electric x - incidentElectric k σ x) fun x =>
+      self.magnetic x - incidentMagnetic k σ x
+  OQ7Prescribed.ScatteringState.current_memLp : MeasureTheory.MemLp (polarization B self.electric) 2
+      MeasureTheory.volume
+constructor:
+  OQ7Prescribed.ScatteringState.mk {k : ℝ} {B : TwoLayerBody} {σ : Direction} (electric magnetic : OQ7Prescribed.Field)
+    (maxwell : WeakMaxwell k B electric magnetic)
+    (outgoing : Outgoing (fun x => electric x - incidentElectric k σ x) fun x => magnetic x - incidentMagnetic k σ x)
+    (current_memLp : MeasureTheory.MemLp (polarization B electric) 2 MeasureTheory.volume) : ScatteringState k B σ
+def OQ7Prescribed.WeakMaxwell : ℝ → TwoLayerBody → OQ7Prescribed.Field → OQ7Prescribed.Field → Prop :=
+fun k B E H =>
+  LocallySquareIntegrable E ∧
+    LocallySquareIntegrable H ∧
+      (HasWeakCurl E fun x => (Complex.I * ↑k) • H x) ∧
+        HasWeakCurl H fun x => (-Complex.I * ↑k) • tensorApply (B.permittivity x) (E x)
+def OQ7Prescribed.HasWeakCurl : OQ7Prescribed.Field → OQ7Prescribed.Field → Prop :=
+fun F G =>
+  ∀ (φ : OQ7Prescribed.Field),
+    ContDiff ℝ (↑⊤) φ →
+      HasCompactSupport φ → ∫ (x : Position), bilinear (F x) (curl φ x) = ∫ (x : Position), bilinear (G x) (φ x)
+def OQ7Prescribed.Outgoing : OQ7Prescribed.Field → OQ7Prescribed.Field → Prop :=
+fun Es Hs =>
+  ∀ (ε : ℝ), 0 < ε → ∃ ρ, 0 < ρ ∧ ∀ (x : Position), ρ ≤ ‖x‖ → ‖x‖ * ‖cross (Hs x) (complexify (‖x‖⁻¹ • x)) - Es x‖ < ε
+def OQ7Prescribed.extinction : ℝ → TwoLayerBody → Direction → OQ7Prescribed.Field → ℝ :=
+fun k B σ E => k * (∫ (x : Position) in B.domain, pairing (incidentElectric k σ x) (polarization B E x)).im
+def OQ7Prescribed.absorption : ℝ → TwoLayerBody → OQ7Prescribed.Field → ℝ :=
+fun k B E => k * ∫ (x : Position) in B.domain, (quadratic (B.permittivity x) (E x)).im
+def OQ7Prescribed.scattering : ℝ → TwoLayerBody → OQ7Prescribed.Field → ℝ :=
+fun k B E =>
+  ∫ (θ : ℝ) in 0..Real.pi,
+    ∫ (φ : ℝ) in 0..2 * Real.pi, squareNorm (currentFarField k B E (sphereDirection θ φ)) * Real.sin θ
+def OQ7Prescribed.currentFarField : ℝ → TwoLayerBody → OQ7Prescribed.Field → Position → OQ7Prescribed.Vector :=
+fun k B E n =>
+  ↑(k ^ 2 / (4 * Real.pi)) •
+    transverseProjection n
+      (∫ (x : Position) in B.domain, Complex.exp (-Complex.I * ↑(k * realDot n x)) • polarization B E x)
+def OQ7Prescribed.Theorem11Statement : Prop :=
+∀ (k P Q target : ℝ),
+  0 < k →
+    1 < P →
+      0 < Q →
+        0 < target →
+          ∀ (ε : ℝ),
+            0 < ε →
+              ε < 1 →
+                ∃ B,
+                  B.admissible P Q ∧
+                    ∃ sp sm,
+                      extinction k B Direction.plus sp.electric = target ∧
+                        extinction k B Direction.minus sm.electric = target ∧
+                          1 - ε < normalizedAsymmetry k B sp.electric sm.electric ∧
+                            normalizedAsymmetry k B sp.electric sm.electric < 1
+def OQ7Prescribed.PhysicalTheorem11Statement : Prop :=
+Theorem11Statement ∧
+  ∀ (k P Q target : ℝ),
+    0 < k →
+      1 < P →
+        0 < Q →
+          0 < target →
+            sSup (prescribedExtinctionAsymmetryValues k P Q target) = 1 ∧
+              sSup (prescribedExtinctionDifferenceValues k P Q target) = target ∧
+                (∀ (B : TwoLayerBody),
+                    B.admissible P Q →
+                      ∀ (σ : Direction),
+                        (∃ s,
+                            ∀ (t : ScatteringState k B σ),
+                              s.electric =ᵐ[MeasureTheory.volume] t.electric ∧
+                                s.magnetic =ᵐ[MeasureTheory.volume] t.magnetic) ∧
+                          ∀ (s : ScatteringState k B σ), FullPhysicalOpticalStatement k B σ s) ∧
+                  (∀ (B : TwoLayerBody),
+                      B.admissible P Q →
+                        ∀ (sp : ScatteringState k B Direction.plus) (sm : ScatteringState k B Direction.minus),
+                          extinction k B Direction.plus sp.electric = extinction k B Direction.minus sm.electric ∧
+                            0 ≤ normalizedAsymmetry k B sp.electric sm.electric ∧
+                              normalizedAsymmetry k B sp.electric sm.electric ≤ 1 ∧
+                                (0 < extinction k B Direction.plus sp.electric →
+                                    normalizedAsymmetry k B sp.electric sm.electric < 1) ∧
+                                  normalizedAsymmetry k B sp.electric sm.electric =
+                                    |scattering k B sp.electric - scattering k B sm.electric| /
+                                      extinction k B Direction.plus sp.electric) ∧
+                    ∀ (s : PrescribedExtinctionPair k P Q target), s.asymmetry < 1 ∧ s.absorptionDifference < target
+def OQ7Prescribed.FullPhysicalOpticalStatement : (k : ℝ) →
+  (B : TwoLayerBody) → (σ : Direction) → ScatteringState k B σ → Prop :=
+fun k B σ s =>
+  (s.electric =ᵐ[MeasureTheory.volume] fun x => incidentElectric k σ x + scatteringStateRadiatingElectric s x) ∧
+    (s.magnetic =ᵐ[MeasureTheory.volume] fun x => incidentMagnetic k σ x + scatteringStateRadiatingMagnetic s x) ∧
+      extinction k B σ s.electric = absorption k B s.electric + scattering k B s.electric ∧
+        extinction k B σ s.electric =
+            4 * Real.pi / k * (pairing (basisC 1) (currentFarField k B s.electric (incidentForwardDirection σ))).im ∧
+          scattering k B s.electric = ∫ (n : ↑UnitSphere), ‖currentFarField k B s.electric ↑n‖ ^ 2 ∂sphereArea ∧
+            Filter.Tendsto (scatteringStateSphereFlux s) Filter.atTop (nhds (scattering k B s.electric)) ∧
+              have p := physicalCompactPolarization B s.electric ⋯;
+              ∀ (r : ℝ),
+                2 * p.radius + 2 ≤ r →
+                  ∀ (n : ↑UnitSphere),
+                    ‖(↑r * Complex.exp (-Complex.I * ↑(k * r))) • scatteringStateRadiatingElectric s (r • ↑n) -
+                          currentFarField k B s.electric ↑n‖ ≤
+                      farFieldKernelConstant k p.radius / r * ∫ (y : Position), ‖p.current y‖
+'OQ7Prescribed.theorem11_complete' depends on axioms: [propext, Classical.choice, Quot.sound]
+OQ7Prescribed.outgoing_dyadic_contact_identity (k : ℝ) (i j : Fin 3) :
+  dyadicGreenDistribution k i j =
+    newtonPVDistribution i j - ((if i = j then 1 else 0) / 3) • newtonDirac +
+      Distribution.ofFun ⊤ (fun x => ((dyadicRemainder k x) (basisC j)).ofLp i) MeasureTheory.volume ⊤
+OQ7Prescribed.compactOutgoingOperator_norm_le (k R : ℝ) (hR : 0 ≤ R) :
+  ‖compactOutgoingOperator k R hR‖ ≤ 1 + compactRemainderConstant k R
+OQ7Prescribed.vacuum_outgoing_weak_unique_zero (k : ℝ) (hk : 0 < k) (E H : OQ7Prescribed.Field)
+  (hE : LocallySquareIntegrable E) (hH : LocallySquareIntegrable H) (he : HasWeakCurl E fun x => (Complex.I * ↑k) • H x)
+  (hh : HasWeakCurl H fun x => (-Complex.I * ↑k) • E x) (hout : Outgoing E H) :
+  E =ᵐ[MeasureTheory.volume] 0 ∧ H =ᵐ[MeasureTheory.volume] 0
+OQ7Prescribed.electricVolumeField_L2_slab_uniform_error (k : ℝ) (hk : 0 < k) (w : ℂ → ℂ) (hw : ContDiff ℝ (↑⊤) w)
+  (hwc : HasCompactSupport w) (A X L : ℝ) (hA0 : 0 ≤ A) (hX : 0 ≤ X) (hL : 0 ≤ L)
+  (hA : tsupport w ⊆ Metric.closedBall 0 A) :
+  ∃ K,
+    0 < K ∧
+      ∀ (R : ℝ) (hR : 1 ≤ R) (u v : ℂ),
+        ‖u‖ ≤ 1 →
+          ‖v‖ ≤ 1 →
+            ∀ (q : ↥(HeightSupportedL2 L)),
+              ∫ (x : Position) in slabObservationRegion (X * R) (L + 2),
+                  ‖axisCoupling (slabPosition v 0)
+                          (electricVolumeField k (scaledSlabPolarization w hw hwc A X L hA0 hX hL hA R hR u q) x) -
+                        planarSlabTransverse k (scaledApertureWindow w R) (↑↑↑q) (slabHorizontalCoordinate x) (x.ofLp 2)
+                          u v‖ ^
+                    2 ≤
+                K ^ 2 * ‖q‖ ^ 2

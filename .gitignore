@@ -1,7 +1,14 @@
-.lake/
+# Local tools, dependencies, scratch files and newly generated build products.
+.local/
+work/
+**/.lake/
+**/__pycache__/
+**/node_modules/
+**/.publication-work/
+**/manuscript/build/
 *.olean
 *.ilean
-*.c
-work/
-.publication-work/
-publication/manuscript/build/
+*.pyc
+*.obj
+*.o
+# Already tracked frozen evidence remains tracked regardless of these patterns.

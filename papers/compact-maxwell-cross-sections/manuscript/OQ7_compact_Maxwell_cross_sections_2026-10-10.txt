@@ -1,0 +1,1310 @@
+
+--- PAGE 1 ---
+Compact reciprocal Maxwell scatterers can approach unit absorption
+asymmetry
+Free-space cross sections, radiation-consistent dipoles, and a finite-aperture localization proof
+OQ7 research continuation
+Mathematical proof, numerical diagnostics, and independent review
+10 October 2026
+Abstract
+We study the extinction-normalized absorption difference of opposite time-reversed plane
+waves incident on a finite compact reciprocal Maxwell scatterer. For every fixed vacuum frequency
+and every prescribed upper permittivity and loss capsP > 1 and Q >0, we prove that the
+supremum of Γ = |σabs,+−σabs,−|/σext is one, already within local, nonmagnetic, piecewise
+homogeneous anisotropic dielectric bodies withI⪯ReHε⪯PI and 0≺ImHε⪯QI. Every body
+is compact and every coefficient finite; the sequence has no common size or total material-resource
+bound. The value one is unattainable by any individual regular compact object with positive
+extinction. The main analytic step proves that cross sections of finite-aperture truncations of a
+fixed strictly absorbing planar stack, divided by aperture area, converge to the exact planar values.
+A volume integral equation supplies aperture-independent coercivity, and mixed Fourier estimates
+control the grazing-radiation singularity. All-angle scattering follows from the exact optical
+theorem. For square apertures we give a nonoptimalO((kR)−1/3) convergence estimate at fixed
+material parameters. We also derive the sharp complete electric–magnetic dipole cross-section
+bound, provide exact radiation-damped equality tensors, and test finite objects with a full-vector
+retarded discrete-dipole solver. Known dipolar and finite-plate precedents are distinguished from
+the present ordinary mathematical proof. Priority is not certified, and no Lean claim is made in
+this phase.
+1 The precise question and the main conclusion
+Miller and Monticone’s Section 4.1 asks for fundamental bounds on absorption–scattering asymmetry
+under time-reversed illumination [1]. Extinction equality is established reciprocal scattering theory
+[2]; separate absorption and scattering equality does not follow. The present addendum answers one
+precise resource-free plane-wave version of that question. It does not replace the earlier restricted
+thickness theorem or its hypotheses.
+Use the time conventione−iωtand a real vacuum wave numberk = ω/c >0. For a unit
+transverse electric polarizatione and a real unit propagation vectord, the two incident waves are
+E+
+inc(x) =eeikd·x, Z 0H+
+inc(x) = (d×e)eikd·x,
+E−
+inc(x) = ¯ee−ikd·x, Z 0H−
+inc(x) =−(d×¯e)e−ikd·x. (1)
+They have equal incident intensity, and the magnetic minus sign is essential. For a compact object,
+each cross section is a total power divided by that incidentintensity; it has units of area. In
+particular,
+σext =σabs +σsca, σ sca =
+∫
+S2
+|F (n)|2 dΩ(n), (2)
+1
+
+--- PAGE 2 ---
+OQ7: compact Maxwell cross sections Research addendum
+where Esca(rn) = eikrF(n)/r +O(r−2) for unit electric incident amplitude. This includes every
+outgoing direction and polarization. It is not reflected power alone or a finite numerical collection
+cone. Reciprocity givesσext,+ =σext,−=E. WhenE >0, set
+Γ =|σabs,+−σabs,−|
+E =|σsca,+−σsca,−|
+E . (3)
+Theorem 1.1(Unrestricted compact dielectric supremum). Fix k >0, P >1, andQ >0. For
+every ϵ >0 there is a finite compact body consisting of two adjacent homogeneous anisotropic
+dielectric layers with a square transverse aperture, surrounded by vacuum, such that
+µ=I, ε T =ε, I ⪯ReHε⪯PI, 0≺ImHε⪯QI
+inside the body, and opposite plane waves with the same real linear polarization have positive common
+extinction and Γ > 1−ϵ. Every dimension and material coefficient is finite. Consequently
+sup Γ = 1
+over this class. For each individual regular compact scatterer with positive extinction and the complete
+optical theorem,Γ < 1.
+The upper bound and its strictness are proved below. The constructive lower bound follows
+from the finite-aperture localization theorem and the exact two-layer planar construction, with an
+ordered positive-loss regularization. The proof is supplied in full in the subsequent sections. No
+finite-dimensional matrix is assumed to have a dielectric completion.
+What is and is not fixed. Frequency and both pointwise upper material caps can be fixed
+throughout. The theorem does not impose a common diameter, footprint, thickness, volume,
+integrated loss, or bandwidth. Every finite member has a positive loss floor, but no common positive
+lower bound is required along the sequence. These quantifiers are part of the conclusion, rather
+than omitted resources.
+Relation to the preceding study.The earlier Theorem 6.4 is an exact infinite-planar Maxwell
+construction. Its finite-power beam extension still used a laterally infinite body. The present
+proof supplies the missing compact-material, plane-wave cross-section limit. The earlier scalar
+inverse-square thickness law and its Lean supplement are preserved without modification. They are
+not used as a formal verification of the present result.
+1.1 Strictness and a useful resource-dependent inequality
+Passivity gives0≤σabs,±≤E, so Γ≤1. If Γ = 1, the more-absorbing experiment has absorption
+E and zero scattering. The far-field amplitude of a regular compact scatterer is continuous onS2,
+hence its zero squared integral makes it identically zero. Its forward optical theorem,
+E = 4π
+k Im{e†F(d)}, (4)
+then givesE = 0, a contradiction. Exact equality at positive extinction is therefore impossible even
+though the supremum is one.
+2
+
+--- PAGE 3 ---
+OQ7: compact Maxwell cross sections Research addendum
+There is a precise familiar obstruction if forward directivity is controlled. For the more-absorbing
+experiment h, define its co-polar forward directivity by
+Dco,h = 4π|e†
+hFh(dh)|2
+σsca,h
+.
+At positive extinction its numerator and denominator are nonzero. Squaring(4) and using|ℑz|≤|z|
+gives
+σsca,h≥k2E2
+4πDco,h
+= πE2
+λ2Dco,h
+.
+Since|∆σabs|=E−σsca,h−σabs,ℓ,
+Γ≤1−πE
+λ2Dco,h
+. (5)
+This is a direct consequence of established optical-theorem/directivity tradeoffs [9, 10], not a novelty
+claim. At a fixed nonzeroE, approaching one requires unbounded forward directivity. The large-
+aperture construction permits that growth. No hard multipole cutoff is silently inferred from finite
+diameter.
+2 Complete electric–magnetic dipole models
+2.1 Radiation, reciprocity, and the dimensional normalization
+Letf = (E,Z 0H) anddp = (p/ε0,Z 0m), and writedp =αf. Define the dimensionless polarizability
+and its dissipative defect by
+A = k3
+6πα, Q A = A−A†
+2i −A†A. (6)
+Complete dipolar passivity isQA⪰0 for every incident six-vector. Reciprocity is
+AT =DAD, D = diag(I3,−I3). (7)
+Thus the electric and magnetic blocks are symmetric and the magnetoelectric blocks have the
+reciprocal minus-transpose relation.
+For incident electric amplitude one, the full dipole cross sections are
+σext = 6π
+k2 Im(f†Af),
+σsca = 6π
+k2∥Af∥2,
+σabs = 6π
+k2f†QAf. (8)
+For example, the exact electric far-field amplitude of this model is
+F(n) = 3
+2k
+[
+(I−nnT )(Af)E−n×(Af)M
+]
+.
+Integrating its squared norm over the entire sphere gives(8). Electric–magnetic interference
+integrates to zero in the total radiated power but is retained in its angular distribution. The forward
+3
+
+--- PAGE 4 ---
+OQ7: compact Maxwell cross sections Research addendum
+projection gives the same extinction through(4). These are the established magnetoelectric optical
+theorem and radiation dressing framework [3]. The full matrix inequality is necessary: an orthogonal
+eigenpolarizability assumption excludes nonnormal responses relevant here.
+Put J = diag(I3,iI 3), ˜A =J†AJ, andS =I + 2i ˜A. Then
+ST =S, I −S†S = 4J†QAJ⪰0.
+For the paired plane waves,f−=D ¯f+ and∥f+∥2 = 2. The vectorsu =J†f+/
+√
+2 and ¯u are unit
+and orthogonal:
+uTu = 1
+2{e·e−(d×e)·(d×e)}= 0.
+WritingX = 2−2 Re(u†Su),
+(σext,σabs,σsca) = 3π
+k2
+(
+X, 1−∥Su∥2,∥(S−I)u∥2)
+. (9)
+The area factor is derived from the dipole cross sections. It is not a normalization of an infinite
+free-space plane wave as a unit finite-power state in the full Maxwell channel space.
+Theorem 2.1(Sharp complete dipole bound; established passivity consequence). For a reciprocal
+passive electric–magnetic dipole model,
+0≤σext≤12π
+k2 , |∆σabs|≤σext−k2σ2
+ext
+12π.
+Every permitted extinction value has an equality model. For positive extinction,
+Γ≤1−k2σext
+12π< 1, sup Γ = 1. (10)
+Proof. Reciprocity equates the complex forward overlaps, hence the two extinctions. By Cauchy–
+Schwarz,∥Su∥2≥[Re(u†Su)]2 = (1−X/2)2. Both outputs also have norm at most one. Thus
+the absorption difference is at mostX−X2/4, and(9) gives the result. Equality in the interior
+occurs precisely when, after exchanging the experiments,Su = (1−X/2)u and∥S¯u∥= 1. The next
+explicit family supplies equality for everyX; the endpoints follow by continuity.
+The same coefficient has a direct radiation interpretation. The dipole far-field formula and
+Cauchy–Schwarz give|e†F(d)|2≤9∥Af∥2/(2k2), so every such dipole hasDco≤3. Substituting
+this into(5) recovers (10). This dipolar directivity restriction is not a bound for arbitrary large
+compact Maxwell objects.
+2.2 Exact equality tensors and radiation removal
+On the active physical coordinates(Ex,Z 0Hy,Ey), choose−1< t <1 and b =
+√
+(1−t2)/2. Set
+every other six-dimensional entry to zero and put
+A = i
+2
+
+
+1−t 0 −b
+0 1 −t −b
+−b b 1
+
+. (11)
+It obeys the reciprocal signs, and direct multiplication gives
+QA = 1
+4qqT, q = (b,b,−t)T.
+4
+
+--- PAGE 5 ---
+OQ7: compact Maxwell cross sections Research addendum
+Forf+ = (1, 1, 0)T and f−= (1,−1, 0)T,
+σext,+ =σext,−= 6π
+k2 (1−t),
+σabs,+ = 3π
+k2 (1−t2), σabs,−= 0,
+σsca,+ = 3π
+k2 (1−t)2, σsca,−= 6π
+k2 (1−t).
+(12)
+Hence Γ = (1 +t)/2→1 as t↑1. In this dipole sequence the total extinction tends to zero.
+Radiation reaction has not been dropped. Leta =
+√
+2(1−t)/(1 +t) and, on the same active
+subspace, define
+A0 =i
+
+
+a2 −a2/2 −a
+a2/2 0 −a
+−a a 1
+
+.
+Both relevant inverses exist for−1<t< 1, and
+A = (A−1
+0 −iI)−1, A0−A†
+0
+2i =vvT⪰0, v = (a, 0,−1)T.
+Thus (11) is exactly radiation-dressed from a passive bare response, with the inactive subspace
+treated separately.
+An instructive identity for every reciprocal polarizability is
+σabs,+−σabs,−= 6π
+k2f†
++(AA†−A†A)f+. (13)
+Indeed∥Af−∥2 =f†
++AA†f+ by (7), while extinction is equal. Every normal reciprocal dipole tensor
+therefore has zero asymmetry. This is consistent with established nonorthogonal-mode explanations
+[5].
+Restrictions and realization gaps. Restricting the response to one electric and one mag-
+netic coordinate gives the earlier scalar two-port feasible set and its established constantΓ≤√
+10
+√
+5−22≃0.6005662120. A third radiating coordinate removes that restriction. For real linear
+polarization, a purely electric point response has identical local incident electric fields and zero
+asymmetry. For conjugate circular polarizations, an electric-only three-coordinate example exists; its
+exact formulas are retained in the research archive. None of these radiation-consistent point tensors
+alone proves realization by a local finite dielectric. Inverting a quasistatic sphere polarizability
+near a resonance leaves dynamic-depolarization and higher-multipole errors to control [15, 16]. The
+following compact-object proof avoids that completion assumption.
+3 Finite-aperture localization and compact dielectric realizations
+This section passes from an exact planar dielectric construction to ordinary compact three-
+dimensional Maxwell scatterers. The decisive estimate is a volume-current estimate for each
+fixed strictly absorbing stack. Scattered power is then obtained from the complete optical theorem,
+so all radiation directions, polarization conversion, and the forward diffraction peak remain included.
+The argument is analytical; no finite-dimensional matrix completion or numerical convergence
+assumption enters it. No claim of priority is made.
+5
+
+--- PAGE 6 ---
+OQ7: compact Maxwell cross sections Research addendum
+3.1 Geometry, conventions, and the localization statement
+Fix a real vacuum wave numberk >0 and the time conventione−iωt. Write a spatial point as
+r = (x,z )∈R2×R. Let Ω⊂R2 be bounded, open, and Lipschitz, with|Ω|> 0, and letL >0.
+Suppose that the measurable electric susceptibilityχ: (0,L )→C3×3 satisfies
+χ(z)T =χ(z), Imχ(z)⪰δI3, ∥χ(z)∥≤K for almost everyz, (14)
+where K <∞and δ >0 are fixed. For matrices,ImB = (B−B†)/(2i) and ReB = (B +B†)/2;
+inequalities between Hermitian matrices are in the quadratic-form sense.
+ForR> 0, set
+DR = (RΩ)×(0,L ), µ R =I3, ϵ R(r) =
+{
+I3 +χ(z), r∈DR,
+I3, r /∈DR. (15)
+Values on the boundary do not affect the weak problem. Each material support is compact. The
+aperture is sharp; smooth windows introduced below modify only a trial polarization, never the
+material or incident field.
+Let e∈C3 satisfy e·ez = 0 and|e|= 1. The two incident electric fields are
+f+(z) =eeikz, f −(z) =ee−ikz =f+(z). (16)
+These are time-reversed incident vacuum waves. Their corresponding magnetic fields transform with
+the usual additional minus sign. Cross sections are divided by the incident intensity; with electric
+amplitude one this gives the formulas below without an impedance factor. The planar scattered
+power is always defined relative to propagation through vacuum over the same distance.
+Theorem 3.1(Localization of exact Maxwell cross sections). Under (14)–(16), letσ±
+ext,R, σ±
+abs,R,
+and σ±
+sca,R be the exact plane-wave cross sections of(15). Let X±
+∞, A±
+∞, andC±
+∞be the normal-
+incidence extinction, absorption, and scattered-power densities of the infinite planar stack with the
+same χand L. Then
+σ±
+ext,R
+R2|Ω|−→X±
+∞,
+σ±
+abs,R
+R2|Ω|−→A±
+∞,
+σ±
+sca,R
+R2|Ω|−→C±
+∞. (17)
+The scattering limit includes the entire sphere of outgoing directions and both transverse polarizations.
+All constants may depend on the fixed stack, includingL, K, andδ; uniformity asδ↓0 is not
+asserted.
+We prove this theorem through the current estimate(52). A separate square-aperture estimate
+will give anO((kR)−1/3) upper error bound at fixed material and thickness.
+3.2 The volume equation and the complete optical theorem
+All Hilbert-space inner products are conjugate-linear in their first argument. Extend a polarization
+P∈L2(DR; C3) by zero toR3, and define
+gk(r) = eik|r|
+4π|r|, T P = (k2I3 +∇div)(gk∗P ), T RP = (T P )|DR. (18)
+The derivatives in this formula are distributional. HereP =χEis the electric polarization divided
+byϵ0, not the physical electric current−iωϵ0P. The standard electric volume-integral formulation
+[11, 12] gives the exact equation
+LRPR =f|DR, LR =χ−1−TR, f =f+ or f−. (19)
+6
+
+--- PAGE 7 ---
+OQ7: compact Maxwell cross sections Research addendum
+Lemma 3.2(Bounded Green operator and all-angle radiation identity). For every fixed finiteR,
+TR is bounded onL2(DR; C3). For every polarization in this space,
+Im⟨P,TRP⟩= k3
+16π2
+∫
+S2
+⏐⏐⏐⏐(I3−ˆnˆnT )
+∫
+DR
+P (y)e−ikˆn·ydy
+⏐⏐⏐⏐
+2
+dˆn≥0. (20)
+The continuous electric far-field amplitude is
+FP (ˆn) = k2
+4π(I3−ˆnˆnT )
+∫
+DR
+P (y)e−ikˆn·ydy. (21)
+Proof. Put g0(r) = 1 /(4π|r|). The distributional operator ∇div(g0∗·) has Fourier multiplier
+−ξξT/|ξ|2, so it is bounded on all ofL2(R3; C3). This multiplier includes its local distributional
+term. Near the origin,
+gk−g0 = ik
+4π+O(|r|),
+and the second derivatives of this difference areO(|r|−1). The kernels ofk2gkI3 and∇div(gk−g0)
+are therefore locally integrable weakly singular kernels. On the bounded difference setDR−DR,
+their absolute row and column integrals are finite. Schur’s estimate, together with the Newtonian
+Fourier-multiplier bound, proves boundedness. Its constant need not be uniform inR.
+The smooth identity
+Imgk(r) = k
+16π2
+∫
+S2
+eikˆn·rdˆn (22)
+follows by integrating the exponential on the sphere. The Green tensor is reciprocal, so its Hermitian
+imaginary kernel is obtained by applyingk2I3 +∇div to Imgk. Differentiating the smooth angular
+integral in (22) supplies the factork2(I3−ˆnˆnT ). Fubini’s theorem gives(20), first for smooth
+polarizations and then byL2(DR) density. The real local distributional term makes no contribution
+to this imaginary quadratic form.
+Since DR has finite measure, every such polarization is inL1. The outgoing large-distance
+expansion of(18) gives (21); the sameL1 fact gives continuity inˆn. The transverse projector and the
+full sphere in these formulas include both physical polarizations and every radiative direction.
+Proposition 3.3(Uniform solvability, energy balance, and reciprocity). Equation (19) has a unique
+solution, and
+∥L−1
+R∥≤c−1, c = δ
+K2, (23)
+independently ofR. Define
+W =−Imχ−1 =χ−†(Imχ)χ−1⪰cI3. (24)
+The exact cross sections satisfy
+σext,R =k Im⟨f, PR⟩, σ abs,R =k⟨PR,W PR⟩, (25)
+σsca,R =k Im⟨PR,TRPR⟩=
+∫
+S2
+|FP R(ˆn)|2dˆn, σ ext,R =σabs,R +σsca,R. (26)
+For the paired illuminations(16),
+σ+
+ext,R =σ−
+ext,R > 0. (27)
+7
+
+--- PAGE 8 ---
+OQ7: compact Maxwell cross sections Research addendum
+Proof. Forv∈C3, δ|v|2≤Im(v†χv)≤|v||χv|. Thusχis invertible and∥χ−1∥≤δ−1. Multiplica-
+tion ofχ−χ†by the two inverses proves the factorization in(24). In addition,|χ−1v|≥|v|/K,
+which proves its lower bound. In particularW is bounded.
+By Lemma 3.2,
+−Im⟨P,LRP⟩=⟨P,W P⟩+ Im⟨P,TRP⟩≥c∥P∥2
+2. (28)
+The bounded sesquilinear form a(Q,P ) = i⟨Q,LRP⟩has Rea(P,P ) ≥c∥P∥2
+2. The complex
+Lax–Milgram theorem gives existence and uniqueness for everyL2 right-hand side. Applying
+Cauchy–Schwarz to (28) yieldsc∥P∥2≤∥LRP∥2, proving (23). Only coercivity, whose constant is
+independent ofR, enters this inverse estimate.
+The fieldE =f +T PR obeys E =χ−1PR in DR and
+∇×∇×E−k2E =k2PR
+distributionally. It is therefore the outgoing Maxwell solution with the coefficient(15). To make
+its regularity explicit,gk∗PR is locallyH2 by the scalar Helmholtz equation and local elliptic
+regularity. ConsequentlyE∈L2
+loc and∇×E = k2∇×(gk∗PR) +∇×f∈H1
+loc. The H(curl)
+weak formulation and the interface conditions are well defined even at aperture edges and corners.
+Conversely, an outgoing solution has this Green representation, so the volume-equation uniqueness
+also gives Maxwell uniqueness.
+The absorption density iskE†(Imχ)E =kP†
+RW PR. The far-field flux is the sphere integral in
+(26), and(20) proves its volume expression. Taking the imaginary part of⟨PR,LRPR⟩=⟨PR,f⟩=
+⟨f, PR⟩gives the displayed energy balance with the stated extinction sign. For a plane wave
+f(r) =eeikd·r, (21) also gives the usual forward optical theorem
+σext,R = 4π
+k Im
+(
+e†FP R(d)
+)
+. (29)
+Finally, define the complex bilinear pairing[u,v ] =
+∫
+DRuTv, without conjugation. The symmetry
+of χ−1 and the distributional reciprocity of the Green kernel imply[u,LRv] = [LRu,v ]. It follows,
+by substituting inverse images, that[u,L−1
+R v] = [v,L−1
+R u]. Sincef−=f+,
+⟨f+,L−1
+R f+⟩= [f−,L−1
+R f+]
+= [f+,L−1
+R f−] =⟨f−,L−1
+R f−⟩.
+This proves exact equality of extinction. Neither current is zero, since its right-hand side is nonzero,
+and W⪰cI3; hence both absorptions, and therefore their common extinction, are positive.
+3.3 The planar problem and the outgoing Weyl fibers
+Let H =L2((0,L ); C3). For the transverse Fourier transform use
+ˆu(κ) =
+∫
+R2
+e−iκ·xu(x)dx, u (x) = 1
+(2π)2
+∫
+R2
+eiκ·x ˆu(κ)dκ.
+Set
+β(κ) =
+√
+k2−|κ|2,
+with positive real value below|κ|=k and positive imaginary part above it. Values on the light
+circle itself will be irrelevant to integration. The outgoing scalar Weyl kernel is
+Gκ(s) = i
+2β(κ)eiβ(κ)|s|. (30)
+8
+
+--- PAGE 9 ---
+OQ7: compact Maxwell cross sections Research addendum
+It can be derived by Fourier transforming(−∆−k2)gk =δinx, and imposing outgoing or decaying
+solutions on the two half-lines ins.
+Lemma 3.4(Fiber formula and estimates). For almost everyκ, the electric Green fiber onH has
+blocks, witha,b∈{1, 2},
+(Tκ)ab = (k2δab−κaκb)Gκ∗, (31)
+(Tκ)a3 = (Tκ)3a =iκa∂zGκ∗, (Tκ)33 =|κ|2Gκ∗−I. (32)
+Convolutions in these formulas integratez′over (0,L ). There are finite constants depending only on
+k,L such that
+∥Tκ∥H→H≤C
+(
+1 +|κ|+ k2 +|κ|2
+|β(κ)|
+)
+, (33)
+∥Tκ−T0∥H→H≤C0|κ|, |κ|≤k/2. (34)
+Proof. The first derivative ofGκaway from zero is−1
+2 sgn(s)eiβ|s|. Its jump is−1, so
+∂2
+zGκ=−β(κ)2Gκ−δ0. (35)
+Fourier transforming the transverse derivatives in(18) and usingk2−β2 =|κ|2 proves (31)–(32).
+In particular the longitudinal local term is exactly−I; it is not discarded or replaced by a pointwise
+Hessian.
+Because Imβ≥0,|Gκ(s)|≤(2|β|)−1 and|∂zGκ(s)|≤1/2 off the diagonal. Schur’s estimate on
+an interval of lengthL, including the explicit local term, gives(33). For|κ|≤k/2, βstays away
+from zero and all the operator-valued kernels are differentiable with bounded derivatives on the
+finite interval. The mean-value estimate gives (34).
+The bound(33) has at most linear growth at large|κ|. Near the light circle its possible singularity
+is of order
+⏐⏐|κ|−k
+⏐⏐−1/2, which is locally integrable in two transverse dimensions. Its square is not
+generally locally integrable. This is why a global transverse Plancherel estimate across the light
+circle is not used.
+Proposition 3.5 (The exact planar solution and its power densities). For eitherf = f±, the
+equation
+(χ−1−T0)q =f in H (36)
+has a unique solution satisfying∥q∥H≤c−1∥f∥H. Its exact planar power densities are
+X∞=k Im⟨f,q⟩H, A ∞=k⟨q,Wq⟩H, C ∞=k Im⟨q,T 0q⟩H, X ∞=A∞+C∞. (37)
+Proof. Atκ= 0, the transverse kernel ofT0 is (ik/2)eik|z−z′|I2, the mixed entries vanish, and the
+longitudinal component is the real multiplication operator−I. The Hermitian imaginary transverse
+kernel is precisely
+k
+2 cos
+(
+k(z−z′)
+)
+I2.
+Consequently, writingq⊥= (q1,q 2),
+Im⟨q,T 0q⟩H = k
+4
+
+
+⏐⏐⏐⏐⏐
+∫ L
+0
+eikzq⊥(z)dz
+⏐⏐⏐⏐⏐
+2
++
+⏐⏐⏐⏐⏐
+∫ L
+0
+e−ikzq⊥(z)dz
+⏐⏐⏐⏐⏐
+2
+≥0. (38)
+9
+
+--- PAGE 10 ---
+OQ7: compact Maxwell cross sections Research addendum
+The longitudinal term contributes−
+∫L
+0 |q3|2dz, which is real. Thus exactly the coercivity and
+Lax–Milgram argument of Proposition 3.3 applies toχ−1−T0 on H. This establishes planar
+well-posedness without treating an infinite plane wave as anL2(R3) incident field.
+Extend q by zero outside the interval and reconstruct the planar field by the one-dimensional
+Green formula. The transverse scattered waves outside the stack have amplitudes
+b+ = ik
+2
+∫ L
+0
+e−ikzq⊥(z)dz, b −= ik
+2
+∫ L
+0
+eikzq⊥(z)dz (39)
+in the+z and−z directions, respectively. HenceC∞=|b+|2 +|b−|2, in agreement with(38). Forf+,
+the forward total amplitude in the global vacuum reference ise +b+, so its co-polarized transmission
+is
+tco = 1 +ik
+2
+∫ L
+0
+e−ikze†q(z)dz, 2(1−Retco) =k Im⟨f+,q⟩H. (40)
+Forf−, the same statement usese +b−and the opposite propagation direction. A boundary-plane
+transmission coefficient must be divided byeikL to obtain this reference.
+Inside the stack,E = χ−1q; thus⟨q,Wq⟩H =
+∫L
+0 E†(Imχ)Edz . This is the one-dimensional
+Poynting-flux loss divided by the incident intensity. Taking the imaginary part of(36) gives
+X∞=A∞+C∞, proving(37) with the physical reference phase and both output polarizations.
+3.4 Mixed Fourier estimates and the localization proof
+Lemma 3.6(Smooth-window commutator). Fix g∈C∞
+c (Ω), putgR(x) =g(x/R), and letq∈H.
+Define, on R2×(0,L ),
+HR =T (gRq)−gRT0q. (41)
+Its transverse Fourier representation is
+ˆHR(κ) = ˆgR(κ)(Tκ−T0)q, ˆgR(κ) =R2ˆg(Rκ). (42)
+For each fixedg, asR→∞,
+∥HR∥L2(DR) =Og(1) =o(R). (43)
+Proof. First takeq∈C∞
+c ((0,L ); C3), extend it by zero, and Fourier transform(18) in the transverse
+variables as a tempered-distribution identity. Lemma 3.4 gives(42). Split its inverse transform into
+|κ|≤k/2 and|κ|>k/ 2. For the low-frequency part, Hilbert-valued Plancherel and (34) give
+∥Hlow
+R ∥L2(R2;H)≤C0∥q∥H∥∇gR∥L2(R2) =C0∥q∥H∥∇g∥L2(R2). (44)
+The equality of the gradient norms uses exactly two transverse dimensions.
+For the high-frequency part, fix an integerN > 3. Schwartz decay gives, forR≥1 in fixed
+length units,
+|ˆgR(κ)|≤Cg,NR2−N|κ|−N, |κ|≥k/2. (45)
+The fiber bound implies
+IN :=
+∫
+|κ|≥k/2
+|κ|−N (
+∥Tκ∥+∥T0∥
+)
+dκ<∞. (46)
+Indeed, the light-circle singularity is locallyL1. At infinity the operator bound isO(|κ|), and
+including the two-dimensional radial measure the integrand isO(ρ2−N)dρ, whereρ=|κ|. This
+10
+
+--- PAGE 11 ---
+OQ7: compact Maxwell cross sections Research addendum
+radial upper bound is integrable whenN >3, as assumed. The inverse FourierL1-to-L∞estimate,
+rather than Plancherel, now gives
+sup
+x
+∥Hhigh
+R (x,·)∥H≤C′
+g,NR2−N∥q∥H, (47)
+∥Hhigh
+R ∥L2(DR)≤C′′
+g,NR3−N∥q∥H. (48)
+The latter inequality uses|RΩ|1/2 =R|Ω|1/2. Equations (44) and (48) prove (43).
+For completeness, the same formulas hold for everyq∈H. Choose qn∈C∞
+c ((0,L ); C3) with
+qn→q in H. On every bounded transverse region, boundedness of the restricted three-dimensional
+Green operator givesT(gRqn)→T (gRq) in localL2. The low-frequency inverse transform converges
+in L2(R2;H) by (44), while the high-frequency inverse transform converges inL∞(R2;H) by (46)
+and Schwartz decay. AlsogRT0qn→gRT0q in localL2. Thus the inverse Fourier representation
+converges to the same outgoing Green field as in the volume equation, proving(42) and its bounds
+for q∈H. No separate grazing-angle regularization is introduced.
+Proof of Theorem 3.1.Work with either sign, fixed once throughout the argument. Letq be the
+solution of (36) and PR the exact current of(19). Forg∈C∞
+c (Ω), the trial currentgRq lies in
+L2(DR) and satisfies the exact residual identity
+LR(gRq)−f = (gR−1)f−HR in DR. (49)
+Applying (23) and then comparinggRq with the transversely constantq inside DR gives
+∥PR−q∥L2(DR)≤R
+(
+c−1∥f∥H +∥q∥H
+)
+∥1−g∥L2(Ω) +c−1∥HR∥L2(DR). (50)
+For each fixedg, divide byR and use Lemma 3.6:
+lim sup
+R→∞
+∥PR−q∥L2(DR)
+R ≤
+(
+c−1∥f∥H +∥q∥H
+)
+∥1−g∥L2(Ω). (51)
+The left-hand side does not depend ong. Density ofC∞
+c (Ω) in L2(Ω) therefore proves
+∥PR−q∥L2(DR) =o(R). (52)
+The order of limits is essential: fix the material and a smoothg, takeR→∞, and only then
+approximate 1 in L2(Ω). No uniform derivative bound for a sequence of increasingly sharp windows
+has been assumed.
+The incident norm is∥f∥L2(DR) =R|Ω|1/2∥f∥H, and∥q∥L2(DR) =R|Ω|1/2∥q∥H. Moreover(23)
+gives∥PR∥L2(DR) =O(R). Consequently Cauchy–Schwarz yields
+⏐⏐⏐σext,R−kR2|Ω|Im⟨f,q⟩H
+⏐⏐⏐≤k∥f∥L2(DR)∥PR−q∥L2(DR) =o(R2). (53)
+Because W is bounded,
+⏐⏐⏐⟨PR,W PR⟩DR−R2|Ω|⟨q,Wq⟩H
+⏐⏐⏐
+≤∥W∥∞∥PR−q∥L2(DR)
+(
+∥PR∥L2(DR) +∥q∥L2(DR)
+)
+=o(R2). (54)
+Equations (53), (54), and Proposition 3.5 prove the first two limits. Subtract the exact finite-body
+identityσsca,R =σext,R−σabs,R and the exact planar identityC∞=X∞−A∞to obtain the third.
+In particular, the scattering conclusion does not require convergence of the far field pointwise or
+uniformly in direction. It follows from its full integrated squared norm in(26), and thus retains a
+narrowing forward peak and any edge or grazing radiation.
+11
+
+--- PAGE 12 ---
+OQ7: compact Maxwell cross sections Research addendum
+3.5 A quantitative rate for a square aperture
+The following square hasside lengthR, so its area isR2. This convention avoids confusing a side
+length with a half-width.
+Lemma 3.7 (An interior square cutoff). Let SR = (−R/2,R/ 2)2. There are smooth functions
+gR,w∈C∞
+c (SR), 0≤gR,w≤1, defined for0<w ≤R/8, and constants independent ofR,w, such
+that
+∥1−gR,w∥L2(SR)≤C(Rw)1/2, ∥∇gR,w∥L2(R2)≤C(R/w)1/2, (55)
+∥∂αgR,w∥L1(R2)≤CαRw−4 (|α|= 5), |ˆgR,w(κ)|≤CRw−4|κ|−5 (κ̸= 0). (56)
+Proof. Fix a smootha : R→[0, 1] with a(u) = 0 for u≤0 and a(u) = 1 for u≥1. Set
+aR,w(s) =a
+(R/2−w/4−|s|
+w
+)
+, g R,w(x1,x 2) =aR,w(x1)aR,w(x2).
+The absolute-value cusp is harmless becauseaR,w is identically one near the origin. Its support lies
+a distancew/4 inside the two endpoints, and it equals one when|s|≤R/2−5w/4. HencegR,w is
+genuinely compactly supported insideSR, and the area where it differs from one isO(Rw). This
+gives the first estimate in (55).
+For every integern≥1,
+∥a(n)
+R,w∥L1(R)≤Cnw1−n, ∥a′
+R,w∥2
+L2(R)≤Cw−1, ∥aR,w∥p
+Lp(R)≤R (p = 1, 2).
+The product rule and these one-dimensional estimates give the gradient bound. A pure fifth
+derivative hasL1 norm at mostCRw−4. For a mixed derivativeα= (α1,α2) with both entries
+positive and total order five, its norm is at mostCw1−α1w1−α2 = Cw−3≤CRw−4. Thus the
+derivative estimate holds for every|α|= 5. For anyκ̸= 0, select a coordinatej with|κj|≥|κ|/
+√
+2.
+Integrating by parts five times in that coordinate gives
+|ˆgR,w(κ)|≤|κj|−5∥∂5
+jgR,w∥1≤CRw−4|κ|−5,
+which proves the last estimate.
+Proposition 3.8(Square-aperture error bound). Fix the stack in(14), its thicknessL, and one
+of the incidences(16). ForDR =SR×(0,L ), let PR and q denote the exact compact and planar
+currents. There are finite constants independent ofR such that, for sufficiently largekR,
+∥PR−q∥L2(DR)≤Ccur(kR)2/3, (57)
+and
+⏐⏐⏐⏐
+σext,R
+R2 −X∞
+⏐⏐⏐⏐≤Cext(kR)−1/3,
+⏐⏐⏐⏐
+σabs,R
+R2 −A∞
+⏐⏐⏐⏐≤Cabs(kR)−1/3, (58)
+⏐⏐⏐⏐
+σsca,R
+R2 −C∞
+⏐⏐⏐⏐≤Csca(kR)−1/3.
+At fixedk, (57) is equivalentlyO(R2/3) in fixed length units. The rate is a valid upper bound;
+optimality of the exponent is not claimed. Constants need not remain bounded asδ↓0 or L→∞.
+12
+
+--- PAGE 13 ---
+OQ7: compact Maxwell cross sections Research addendum
+Proof. Use the cutoff from Lemma 3.7 and putHR,w =T(gR,wq)−gR,wT0q. The Fourier represen-
+tation and itsH-valued density justification are the same as in Lemma 3.6, withR,w fixed during
+that justification. At low frequencies,
+∥Hlow
+R,w∥L2(R2;H)≤C∥q∥H(R/w)1/2. (59)
+At high frequencies, apply(46) with N = 5 and the last bound of(56). Inverse FourierL1-to-L∞
+control gives
+sup
+x
+∥Hhigh
+R,w (x,·)∥H≤C∥q∥HRw−4,
+∥Hhigh
+R,w∥L2(DR)≤C∥q∥HR2w−4. (60)
+The second line uses|SR|1/2 =R. In particular, no square of the grazing singularity is integrated.
+The residual identity (49), uniform coercivity, and comparison ofgR,wq with q now yield
+∥PR−q∥L2(DR)≤C
+(
+(Rw)1/2 + (R/w)1/2 +R2w−4
+)
+, (61)
+where all factors involving the fixedf,q,k,L,δ,K have been included inC. To specify length units
+correctly, take the fixed reference lengthℓ= 1/k and choose
+w =ℓ(R/ℓ)1/3 =k−1(kR)1/3. (62)
+For sufficiently largekR, w≤R/8. If ρ=kR, the three terms in(61) have ordersk−1ρ2/3, ρ1/3,
+and k2ρ2/3, respectively. Sincek is fixed, this proves (57).
+The incident, planar-current, and exact-current norms onDR are allO(R). The extinction
+difference is thereforeO(R(kR)2/3), by its linear volume formula. The bounded quadratic formW
+gives the same bound for absorption, as in(54). Division byR2 givesO((kR)−1/3), with the fixed
+factors ofk absorbed into the constants. Subtracting the exact extinction and absorption identities
+gives the full scattering error in (58).
+3.6 An exact planar pair with arbitrary fixed upper material caps
+We next give the finite dielectric construction used before truncation. The tensors are ordinary local
+volume coefficients.
+Lemma 3.9(Two exact dielectric layers). Fix k >0, P >1,−1<t< 1, η >0, andh> 0. There
+is a two-layer, nonmagnetic, reciprocal planar dielectric withI3⪯Reϵ⪯PI 3 and Imϵ⪰0 for
+which oppositey-polarized incidences obey
+A+ = 0, A −= (1−t2)Ax, X + =X−= 2(1−t), |A+−A−|
+X+
+= 1 +t
+2 Ax. (63)
+Here 0< Ax < 1 is the exact absorptance of a scalar slab of permittivity1 +iηand thicknessh.
+Takingηm = 1/m, khm =m2, andtm = 1−1/m gives a ratio tending to one, with finite coefficients
+and finite thickness for every integerm≥2.
+Proof. Choose once and for all a positive integerj such that
+pj =
+( 2j
+2j−1
+)2
+≤P, d = (2j−1)π
+k .
+13
+
+--- PAGE 14 ---
+OQ7: compact Maxwell cross sections Research addendum
+Such aj exists becausepj↓1. Lets =
+√
+1−t2 and
+V =
+(
+−t s
+s t
+)
+, V T =V, V 2 =I2.
+The first layer, on0<z <h, is
+ϵA = diag(1 +iη,1, 1). (64)
+The second layer, onh<z <h +d, has zero transverse–longitudinal entries and
+ϵW,⊥= (pj + 1)I2−(pj−1)V
+2 , ϵ W,zz = 1. (65)
+It is real symmetric, with transverse eigenvalues1 andpj. For the eigenvectors ofV with eigenvalues
++1 and−1, its optical phases are respectively(2j−1)πand 2jπ.
+For a scalar slab of indexn, continuity of the tangential electric and magnetic fields is equivalent
+here to continuity ofE and E′. Propagation by a distanced acts on (E,E′/k)T as
+(
+cos(nkd) sin( nkd)/n
+−n sin(nkd) cos( nkd)
+)
+.
+At phasemπ, this is(−1)mI2; between vacuum exteriors the reflection is zero and the boundary-
+plane transmission is(−1)m. Thus the exact plate is reflectionless for both polarizations and has
+boundary-plane Jones transmission
+H =−V, e −ikdH =V. (66)
+This also proves the required vacuum-reference phase for every prescribed capP >1.
+The absorber’sy polarization sees vacuum. For itsx polarization letn =√1 +iηwith positive
+real and imaginary parts. MatchingE,E′at its two interfaces gives
+r0 = 1−n
+1 +n, p =einkh, r A = r0(1−p2)
+1−r2
+0p2 , τ A = (1−r2
+0)p
+1−r2
+0p2 , A x = 1−|rA|2−|τA|2.
+(67)
+Since Ren >0 and Imn >0,|r0|< 1 and|p|< 1. The denominator in(67) cannot vanish and
+τA̸= 0, soAx< 1. The exact flux identity
+Ax =kη
+∫ h
+0
+|Ex(z)|2dz
+givesAx> 0: a zero integral would forceEx and E′
+x to vanish inside, whereas the incident interface
+would require both1 +rA = 0 and 1−rA = 0.
+For clarity, the full four-port scattering matrix, with boundary planes atz = 0,h +d and
+channels ordered as(Lx,Ly,Rx,Ry ), is
+S =
+(
+RA DAH
+HDA HRAH
+)
+, RA = diag(rA, 0), DA = diag(τA,eikh). (68)
+There is no omitted multiple-reflection denominator because the plate has exactly zero reflection from
+either side. A+z incidenty field passes through the absorber without loss; the plate then rotates
+it without absorption. A−z incidenty field crosses the plate first, producingHey =−sex−tey,
+and its absorber loss iss2Ax. The co-polarized boundary-plane transmission in either direction is
+14
+
+--- PAGE 15 ---
+OQ7: compact Maxwell cross sections Research addendum
+−teikh. Dividing by the vacuum propagationeik(h+d) gives exactlyt, by(66). The planar extinction
+formula (40) now proves(63). All four output channels are retained, so polarization conversion is
+included in scattering.
+Finally, forηm = 1/m and khm =m2,
+nm−→1, r 0,m−→0, m Imnm = 1
+2 Renm
+−→1
+2.
+Hence|pm|= exp[−m2 Imnm]→0. Equation (67) givesrA,m→0, τA,m→0, andAx,m→1. With
+tm = 1−1/m, the last ratio in(63) therefore tends to one. The real permittivity eigenvalues in
+both layers stay in[1,P ].
+Lemma 3.10(Positive-loss regularization at a fixed finite stack). Fix one finite stack in Lemma 3.9,
+with−1<t< 1. Replace its two tensors by
+ϵA,δ=ϵA +iδI3, ϵ W,δ=ϵW +iδI3. (69)
+Its planar scattering amplitudes, power densities, and asymmetry ratio are continuous asδ↓0. For
+every fixedδ >0, the susceptibility satisfies(14) for a finiteK and that positive loss floorδ.
+Proof. This continuity statement is proved in the finite-dimensional one-dimensional differential
+equation, not by evaluatingχ−1 at δ= 0, whereχmay be singular. The transverse fields obey
+d
+dz
+(
+E⊥
+E′
+⊥/k
+)
+=k
+(
+0 I2
+−ϵ⊥(δ) 0
+) (
+E⊥
+E′
+⊥/k
+)
+.
+At fixed finite layer thickness, each propagation matrix is a matrix exponential analytic inδ. Their
+product, and the finite boundary-matching system for reflection and transmission, are therefore
+continuous at zero.
+The matching matrix is invertible at zero. Indeed, a homogeneous outgoing solution would, by
+the passive one-dimensional flux identity, satisfy
+|left outgoing amplitude|2 +|right outgoing amplitude|2 +k
+∫ h+d
+0
+E†
+⊥Imϵ⊥E⊥dz = 0.
+All three terms are nonnegative, so the exterior amplitudes vanish. ThenE⊥= E′
+⊥= 0 at an
+interface, and uniqueness for the ordinary differential equation makes the field identically zero. Thus
+the matching system has trivial kernel and remains invertible for sufficiently smallδ. The scattering
+amplitudes and their power expressions are continuous. Since the unregularized common extinction
+is 2(1−t)> 0, the ratio is also continuous in a neighborhood of zero.
+AddingiδI3 makes Im(ϵ−I3)⪰δI3 in each layer, without changing its real part or complex
+symmetry. The two finite tensors have a finite common norm bound. This proves the last assertion
+and permits application of Theorem 3.1 afterδhas been fixed.
+15
+
+--- PAGE 16 ---
+OQ7: compact Maxwell cross sections Research addendum
+3.7 The compact supremum and its order of limits
+Theorem 3.11 (Compact local nonmagnetic dielectric supremum). Fix k > 0, an upper real-
+permittivity capP > 1, and an upper loss capQ > 0. For every ε >0, there is a compact
+three-dimensional scatterer made of two finite homogeneous dielectric layers, withµ=I3, vacuum
+exterior, and
+ϵT =ϵ, I 3⪯Reϵ⪯PI 3, 0≺Imϵ⪯QI3 inside both layers, (70)
+such that oppositey-polarized plane waves have common positive extinctionE and
+Γ =|σ+
+abs−σ−
+abs|
+E > 1−ε. (71)
+Thus the unrestricted compact-class supremum ofΓ under these fixed upper caps is one. Every
+individual regular compact passive reciprocal scatterer with positive common extinction satisfies
+Γ < 1.
+Proof. It suffices to consider0<ε<1. First choose a finite member(η,h,t) of Lemma 3.9 such
+that
+Γplanar> 1−ε/3, η <Q/ 2.
+The same fixed integerj realizes the prescribed capP for all members. Next use Lemma 3.10 to
+choose a fixed finite0<δ <Q/2 sufficiently small that
+Γplanar,δ> 1−2ε/3.
+The two loss eigenvalue sets are{η+δ,δ,δ}and{δ,δ,δ}, so(70) holds. The selected regularized
+planar stack has fixed thicknessL =h +d, fixed positive loss floor, and positive common extinction
+densityXδ.
+Truncate these two fixed layers to the side-R square (−R/2,R/ 2)2. Apply Theorem 3.1, or the
+quantitative estimate of Proposition 3.8, to each incident direction. Exact reciprocity gives equal
+extinction for every finiteR. Since its area-normalized limitXδis positive, the ratio of compact
+cross sections converges:
+|σ+
+abs,R−σ−
+abs,R|
+σ+
+ext,R
+−→
+|A+
+∞,δ−A−
+∞,δ|
+Xδ
+= Γplanar,δ.
+Thus a sufficiently large but finiteR makes the ratio exceed1−ε. For a fixed selected stack, the
+square estimate also gives a ratio errorO((kR)−1/3): once σ+
+ext,R/R2≥Xδ/2, ordinary quotient
+estimates apply. The constant can depend onX−1
+δ and on the fixed-stack constants.
+The upper bound and its strictness follow from the complete optical theorem. For any such
+reciprocal pair with common extinctionE >0, passivity gives0≤A±≤E, hence|A+−A−|/E≤
+1. If equality held, the more absorbing illumination would have absorption E and therefore
+zero scattering. Its continuous far-field amplitude would have zero integrated squared norm
+and would vanish in every direction. The forward optical theorem(29) would then giveE = 0, a
+contradiction. Together with the finite examples just constructed, this proves the asserted supremum
+and nonattainment.
+The limiting choices are ordered: first choose a finite planar member, then fix its positive
+regularization loss, and only then enlarge its aperture. Repeating this finite selection for a sequence
+16
+
+--- PAGE 17 ---
+OQ7: compact Maxwell cross sections Research addendum
+of tolerances is a diagonal construction, not an interchange of a lossless limit with an infinite-aperture
+limit. In particular, no estimate uniform inδ, L, or the vanishing planar extinction has been used.
+Every coefficient and dimension is finite for every resulting compact body. The sequence has no
+common bound on thickness, footprint, diameter, volume, or integrated material loss; its positive loss
+floor may decrease from one member to the next. The theorem therefore establishes the supremum
+with fixed frequency and fixed upper material caps, without asserting a fixed-resource gap law or a
+bandwidth result.
+4 Causal material interpretation and resource accounting
+For each constructed layer, its Hermitian real and imaginary parts commute and have a common
+real orthogonal eigenbasis at the working frequency. A target eigenvalue1 +a +ib witha≥0,b> 0
+has a causal passive Lorentz extension. Choose any dampingγ >0, set
+∆ = a
+bγω, ω2
+0 =ω2 + ∆, F =γωa2 +b2
+b > 0,
+and define, for a variable frequencyζ,
+εeig(ζ) = 1 + F
+ω2
+0−ζ2−iγζ. (72)
+Atζ=ωthis is exactly1+a+ib. Its poles lie in the lower half-plane, its loss is nonnegative at positive
+real frequency, and its oscillator strength is positive. Independent principal-axis oscillators and real
+rotations give local reciprocal tensor dispersion. Thus the selected single-frequency coefficients do
+not require gain or a noncausal point response. No finite-bandwidth performance statement follows.
+Passivity also has a direct time-domain proof. Each real principal-axis polarization obeys
+¨p +γ˙p +ω2
+0p =FE and
+d
+ds
+˙p2 +ω2
+0p2
+2F =E ˙p−γ
+F ˙p2,
+where dots denote physical time derivatives. The stored oscillator energy and the damping dissipation
+are nonnegative. Summing this identity in the real orthogonal principal axes proves passivity of the
+tensor extension.
+The compact examples need not have smalltotal cross sections whenΓ approaches one. For
+each fixed planar member,σext∼R2X∞. Although the selected planar extinction density can
+tend to zero, the aperture is chosen afterward and may grow much faster. The product can grow.
+Transferring the dipole conclusion “Γ→1 requires σext→0” to unrestricted compact objects would
+be incorrect.
+The pointwise capsP,Q remain fixed. Total volume, footprint, and integrated loss can grow,
+and the coercive loss floor can decrease. The proof does not optimize that cost. The square-aperture
+error bound controls a fixed stack; its constants depend on the stack, including its thickness and
+loss floor, and are not uniform along the final three-parameter sequence.
+5 Numerical tests and independent verification
+5.1 Radiation-consistent dipolar checks
+The exact six-coordinate model was tested with independent spherical quadrature, direct radiation
+removal and reapplication, and 2,000 randomly generated reciprocal contractions. These are checks
+17
+
+--- PAGE 18 ---
+OQ7: compact Maxwell cross sections Research addendum
+on the stated dipole model; they are not a local dielectric completion theorem. The largest absolute
+full-sphere radiation discrepancy was7.11×10−15 in units ofk−2; the largest Frobenius-norm error
+in recovering the dimensionless dressed polarizability from its bare response was5.05×10−16. No
+random sample exceeded the proved envelope. The final equality-family sample,t = 0.99999999, gave
+Γ = 0.999999995. Tiny negative computed null-eigenvalue or zero-absorption values at floating-point
+roundoff are retained in the JSON.
+The exploratory constrained SciPy SLSQP runs are also retained: of 16 starts, 8 reported failure
+or an iteration limit, and 2 successful exits were visibly below the proved optimum. Optimizer
+success is not a global optimality certificate. The sharp envelope and the exact equality family have
+algebraic proofs independent of these attempts.
+5.2 Finite-aperture full-vector experiments
+We implemented a nonperiodic three-dimensional retarded tensor discrete-dipole approximation
+(DDA), using the established radiation-reaction formulation [13, 14]. A cubic cell of side∆ has
+α0 = 3∆ 3(ϵ−I)(ϵ+ 2I)−1, α −1 =α−1
+0 −ik3
+6πI.
+Every cell is reciprocal and passive. The interaction contains the full electric dyadic Green tensor
+with its retarded near, intermediate, and far terms. All three electric components are solved; their
+retarded current distribution generates the full magnetic field. FFT padding is at least2n−1 in
+each dimension and implements ordinary finite-domain convolution, not transverse periodicity. The
+physical object is the entire finite square prism, including its vertical edges and corners.
+For solved cell momentspi and off-diagonal Green interactionG, the scattering calculation uses
+the exact complete-sphere radiation Gram form
+σsca =k
+[
+k3
+6π
+∑
+i
+|pi|2 +ℑ(p†Gp)
+]
+.
+It is not calculated by collecting only transmitted and reflected specular waves. Absorption uses
+k ∑
+ip†
+i[−ℑα−1
+0,i ]pi; extinction useskℑ∑
+iE†
+inc,ipi. An independent full-sphere angular quadrature
+checks the same radiation.
+The exact planar comparison uses4×4 homogeneous Maxwell matrix exponentials and boundary
+matching, with the vacuum reference phase retained. The supplied tensors have zero transverse–
+longitudinal coupling. The code explicitly rejects other tensors because a general planar tensor
+requires longitudinal-field elimination before constructing that generator.
+Parameter set A hast = 0.7, η= 0.8, δ= 0.002, h =λ, and plate depthλ/2, with real plate
+eigenvalues 1, 4. Parameter set B hast = 0.9, η= 0.3, δ= 5×10−5, h = 2λ, and the same plate
+depth. The tabulated grid parameter isλ/∆ .
+Set A’s exact planar ratio is0.782117503. Set B’s exact planar ratio is0.918059609. The solver
+reached its iteration limit in 2 cases. It used at most 30 restarted GMRES cycles of 35 steps for
+each incidence; its requested preconditioned relative tolerance was2×10−8. The complete residual
+histories and exit codes are preserved. These exits identify a numerical linear-solver limit, not a
+failure of the physical construction or of the localization proof. At fixedR = 2λ, changing the mesh
+from λ/12 to λ/24 changes Γ from 0.639717 to 0.660781. This measures discretization sensitivity;
+it does not supply a certified continuum error bar or establish a fitted convergence order. Among
+converged production cases, the largest optical-theorem relative discrepancy is1.03×10−8 and the
+largest opposite-extinction relative discrepancy is1.17×10−8. For the separateR = 0.75λcheck,
+independent angular integration of the complete radiated field agrees with the radiation Gram form
+within 5.11×10−15λ2.
+18
+
+--- PAGE 19 ---
+OQ7: compact Maxwell cross sections Research addendum
+Set R/λ λ/∆ Cells Γ Residual Status
+A 1 16 6,144 0.558592 1 .5×10−8 converged
+A 2 16 24,576 0.653536 1 .9×10−8 converged
+A 4 16 98,304 0.715552 5 .2×10−9 converged
+A 6 16 221,184 0.731455†1.4×10−7 limit
+A 2 12 10,368 0.639717 1 .9×10−8 converged
+A 2 24 82,944 0.660781 1 .4×10−8 converged
+B 4 16 163,840 0.826085 2 .6×10−9 converged
+B 8 12 276,480 0.861586†2.0×10−5 limit
+Table 1: Actual finite-system calculations. The residual is the norm of the unpreconditioned Maxwell
+dipole equation divided by the incident-field norm. A dagger marks a solver that reached its iteration
+limit and is retained as a diagnostic, not counted as a converged calculation.
+1 2 3 4 5 6
+Square side R/
+0.45
+0.50
+0.55
+0.60
+0.65
+0.70
+0.75
+0.80
+Finite objects; fixed mesh /16
+Converged discrete system
+Iteration-limit diagnostic
+Exact infinite planar stack
+12 16 24
+Cells per vacuum wavelength /
+0.635
+0.640
+0.645
+0.650
+0.655
+0.660
+0.665
+0.670
+0.63972
+0.65354
+0.66078
+Mesh sensitivity; fixed side R = 2
+Figure 1: Finite-aperture and mesh diagnostics for parameter set A. The dashed line is the exact
+planar value. The finite-mesh data are not assigned continuum error bars, and the analytical
+aperture exponent is not fitted to these curves. Hollow squares denote iteration-limit diagnostics.
+19
+
+--- PAGE 20 ---
+OQ7: compact Maxwell cross sections Research addendum
+5.3 Exact infinite-planar limiting cases
+An additional exact scattering calculation tests the regularized planar construction atη= 1/m,
+kh = m2, t = 1 −1/m, and the positive sampled regularizationδ= m−6. It composes the
+two polarization scattering matrices using only decaying slab propagation factors. This avoids
+exponentially growing transfer-matrix entries at large optical thickness. These data areinfinite-
+planar power densities, not compact-body cross sections.
+m kh δ Exact planar Γ (P = 4)
+4 16 2.4×10−4 0.845238489
+10 100 1.0×10−6 0.948826698
+20 400 1.6×10−8 0.974783327
+50 2500 6.4×10−11 0.989971210
+100 10000 1.0×10−12 0.994993279
+The samem = 100 sample with upper real capP = 1.01 uses j = 101 and givesΓ = 0.994993247.
+All sampled maximum losses are below the common capQ = 0.3. At three moderate-thickness
+comparison points, the stable scattering calculation and the independent4×4 matrix-exponential
+calculation agree in all absorption, extinction, and scattering densities within1.12×10−15. The
+complete four-port passivity defect and reciprocal matrix symmetry are also checked. These finite
+samples do not replace the analytic slab limit or establish uniform aperture estimates forδ=m−6.
+5.4 Independent audits and their limits
+Separate AI-agent mathematical reviews checked the Green operator, coercivity, grazing-frequency
+estimate, square cutoff, exact plate phases, loss regularization, and ordered limits. A further
+transcription review rederived the complete extinction reciprocity and the passage from smooth
+longitudinal profiles toL2 profiles. These are ordinary mathematical reviews, not a proof-assistant
+certificate or external peer review. Their written findings are included separately in the archive.
+An independently coded solver audit assembles the dense nonperiodic dyadic Green matrix
+and its complete radiation Gram matrix, then compares them with the FFT implementation. It
+includes genuinely nonnormal complex symmetric tensors with positive material loss, as well as
+FFT dimensions larger than the minimum nonperiodic padding. Its recorded maximum errors are:
+Check Maximum relative discrepancy
+Dense versus FFT interaction 6.76×10−16
+Full-sphere radiation Gram 2.85×10−15
+Optical-theorem energy balance 4.78×10−14
+Dense versus FFT solutions 8.75×10−14
+Opposite-incidence extinction 6.31×10−16
+The DDA is a finite Maxwell discretization with exact radiation consistency for its point moments.
+It is not the exact local continuum body at a finite mesh spacing. The compact-continuum conclusion
+rests on the analytic proof in Section 3; no numerical agreement or optimizer status is used to
+discharge an unproved Maxwell realization step.
+20
+
+--- PAGE 21 ---
+OQ7: compact Maxwell cross sections Research addendum
+6 Prior results and the novelty boundary
+Closest source Exact relevance and difference of scope
+Sounas–Alù (2014) [2] Extinction reciprocity and distinct absorption/scattering for
+reciprocal objects are established. Neither their existence nor that
+symmetry is a new contribution here.
+Sersic et al. (2011) [3] The full magnetoelectric quadratic optical theorem and
+inverse-polarizability radiation dressing are established. The later
+orthogonal-eigenvector reduction in that work does not cover
+arbitrary nonnormal matrices.
+Mann–Alù (2023) [4] The official conference abstract explicitly states maximal absorption
+for one incident direction and zero absorption for the opposite
+direction in reciprocal dipolar particles. Its full equations were not
+retrieved, so equivalence to the normalized optimum cannot be ruled
+out. No novelty claim is made for the dipole equality family.
+Andersen–Frandsen
+(2005) [9]
+The institutional abstract explicitly states that receiving-antenna
+absorption efficiencyσabs/σext can approach one, with a 93%
+endfire-array example. That single-incidence objective does not by
+itself establish negligible absorption under the opposite illumination;
+the full-text comparison remains incomplete.
+Hopkins et al. (2015) [5] Reciprocal finite-particle absorption asymmetry and its
+nonorthogonal-mode mechanism are established. The present
+compact supremum is not inferred from a numerical example of that
+phenomenon.
+Gao–Yang–Kattawar
+(2013) [6]
+Infinite-plate extinction formulas and ADDA evidence of finite-plate
+convergence are established. The publisher text retrieved here
+describes numerical convergence. Our stated theorem instead proves
+all three cross-section limits for strictly absorbing tensor multilayers,
+with an explicit square-aperture error estimate. Full-text priority
+comparison is still incomplete.
+Windowed Green
+functions [7, 8]
+Smooth-window treatment of unbounded interfaces is established.
+These methods retain the infinite physical background; numerical
+truncation of an integral is not automatically truncation of the
+material body. Our trial window is used to estimate the exact
+sharp-boundary finite object.
+2017/2022/2026 bounds
+[17, 18, 19]
+Time-reversal field bounds, reciprocal reflection feasibility, and
+coupled-mode metasurface optima retain their specified assumptions.
+They do not by themselves give the finite-aperture Maxwell
+completion used here.
+The search covers accessible primary literature through 10 October 2026. The exact compact
+localization proof and its normalized-supremum application have passed independent mathematical
+review, but theirpriority is not certified. In particular, the missing full Mann–Alù contribution
+and the incomplete full-text comparison with Gao et al. prevent an unconditional NEW label.
+Mathematical proof and a priority claim are separate judgments.
+21
+
+--- PAGE 22 ---
+OQ7: compact Maxwell cross sections Research addendum
+7 Implications for OQ7 and remaining obligations
+For the question stated in Theorem 1.1, there is a definite answer: no uniform numberc < 1
+bounds Γ across all compact local reciprocal dielectrics of unrestricted size, even with fixed positive
+frequency and fixed upper real-permittivity and loss caps. Equality is approached by finite objects
+and is unattainable at positive extinction. This closes the normalized resource-free compact-body
+supremum problem posed for this phase.
+It does not establish a complete catalogue of the resource-dependent bounds suggested by the
+broader original OQ7. The following remain open here:
+1. Sharp laws at fixed diameter, volume, thickness, aperture, integrated loss, or a prescribed
+positive tensor-loss floor.
+2. A sharp cost of approachingΓ = 1. The proved aperture rate is an upper estimate for each
+fixed regularized stack, not an optimal global resource law.
+3. The supremum at prescribed nonzero total extinction, particularly with a bounded footprint,
+and finite-bandwidth dispersion constraints.
+4. An exact local finite-particle realization theorem for every radiation-consistent dipolar equality
+tensor, including uniform control of resonant small-sphere asymptotics. This is unnecessary
+for the large-aperture counterexample, but remains an independent realization question.
+5. Certified finite-mesh continuum error bars for the particular DDA geometries, and a full
+prior-theorem comparison sufficient for priority.
+The general normalized supremum, the optical theorem, and the all-angle localization limit have
+ordinary mathematical proofs in this report. No Lean formalization was attempted, no prior Lean
+source was changed, and no existing formal theorem is cited as proving these new analytic steps.
+A Reproducibility and preservation
+The archive contains the exact proof sources, separate independent reviews, all numerical programs
+and JSON outputs, and the failed exploratory dipole optimizations. It also includes the unchanged
+preceding manuscript and its complete source archive, together with a before/after hash audit of the
+preceding mathematical and numerical sources. It does not overwrite the earlier research version.
+Use Python 3.12, NumPy 2.3.5, SciPy 1.17.0, and Matplotlib 3.10.8. From the new research
+root, the numerical entry points are
+python3 numerics/dipole_checks.py
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=2 \
+python3 numerics/aperture_sweep.py
+python3 numerics/aperture_independent_check.py
+python3 numerics/planar_limit_checks.py
+python3 numerics/make_figures.py
+The aperture sweep saves each completed calculation before beginning the next and reuses existing
+checkpoints. The README explains how to run a fresh reproduction in a separate directory. No
+solver output is used as a replacement for the analytic localization proof.
+22
+
+--- PAGE 23 ---
+OQ7: compact Maxwell cross sections Research addendum
+Build this document with
+cd report
+latexmk -pdf -interaction=nonstopmode -halt-on-error \
+oq7_compact_cross_sections.tex
+The theorem statements and their complete hypotheses, rather than an informal summary or a
+solver success flag, determine the proved scope.
+References
+[1] O. D. Miller and F. Monticone,Fundamental limits in photonics and electromagnetics: a
+tutorial (2026), Section 4.1. arXiv:2605.24738.
+[2] D. L. Sounas and A. Alù, Extinction symmetry for reciprocal objects and its implications on
+cloaking and scattering manipulation, Optics Letters39, 4053–4056 (2014).
+doi:10.1364/OL.39.004053.
+[3] I. Sersic, C. Tuambilangana, T. Kampfrath, and A. F. Koenderink, Magnetoelectric point
+scattering theory for metamaterial scatterers, Physical Review B83, 245102 (2011).
+doi:10.1103/PhysRevB.83.245102; arXiv:1012.3671.
+[4] S. A. Mann and A. Alù, Maximum asymmetric absorption and scattering in bianisotropic
+particles, Metamaterials 2023, oral contribution, 14 September 2023. Official conference
+program and abstract. Full equations were not retrieved in this audit.
+[5] B. Hopkins, A. E. Miroshnichenko, A. N. Poddubny, and Y. S. Kivshar, Fano resonance
+enhanced nonreciprocal absorption and scattering of light, Photonics2, 745–757 (2015).
+doi:10.3390/photonics2020745. The analyzed constituent materials are reciprocal.
+[6] M. Gao, P. Yang, and G. W. Kattawar, Polarized extinction properties of plates with large
+aspect ratios, Journal of Quantitative Spectroscopy and Radiative Transfer131, 72–81 (2013).
+doi:10.1016/j.jqsrt.2013.03.010.
+[7] O. P. Bruno, M. Lyon, C. Pérez-Arancibia, and C. Turc, Windowed Green function method for
+layered-media scattering, SIAM Journal on Applied Mathematics76, 1871–1898 (2016).
+doi:10.1137/15M1033782.
+[8] R. Arrieta and C. Pérez-Arancibia, Windowed Green function MoM for second-kind surface
+integral equation formulations of layered media electromagnetic scattering problems, IEEE
+Transactions on Antennas and Propagation70, 11978–11989 (2022).
+doi:10.1109/TAP.2022.3209245.
+[9] J. B. Andersen and A. Frandsen, Absorption efficiency of receiving antennas, IEEE
+Transactions on Antennas and Propagation53, 2843–2849 (2005).
+doi:10.1109/TAP.2005.854532. Institutional abstract inspected; full PDF access was
+unavailable.
+[10] I. Liberal, I. Ederra, R. Gonzalo, and R. W. Ziolkowski, Upper bounds on scattering processes
+and metamaterial-inspired structures that reach them, IEEE Transactions on Antennas and
+Propagation 62, 6344–6353 (2014). doi:10.1109/TAP.2014.2359206.
+23
+
+--- PAGE 24 ---
+OQ7: compact Maxwell cross sections Research addendum
+[11] M. A. Yurkin and M. I. Mishchenko, Volume integral equation for electromagnetic scattering:
+Rigorous derivation and analysis for a set of multilayered particles with piecewise-smooth
+boundaries in a passive host medium, Physical Review A97, 043824 (2018).
+doi:10.1103/PhysRevA.97.043824.
+[12] M. I. Mishchenko and M. A. Yurkin, Impressed sources and fields in the
+volume-integral-equation formulation of electromagnetic scattering by a finite object: a
+tutorial, Journal of Quantitative Spectroscopy and Radiative Transfer214, 158–167 (2018).
+doi:10.1016/j.jqsrt.2018.04.023; Open full text.
+[13] B. T. Draine, The discrete-dipole approximation and its application to interstellar graphite
+grains, Astrophysical Journal333, 848–872 (1988). doi:10.1086/166795.
+[14] B. T. Draine and P. J. Flatau, Discrete-dipole approximation for scattering calculations,
+Journal of the Optical Society of America A11, 1491–1499 (1994).
+doi:10.1364/JOSAA.11.001491.
+[15] S. Albaladejo et al., Radiative corrections to the polarizability tensor of an electrically small
+anisotropic dielectric particle, Optics Express18, 3556–3567 (2010). doi:10.1364/OE.18.003556.
+[16] M. Durach, Electromagnetic scattering by bianisotropic spheres, Applied Sciences13, 5169
+(2023). doi:10.3390/app13085169.
+[17] D. L. Sounas and A. Alù, Time-reversal symmetry bounds on the electromagnetic response of
+asymmetric structures, Physical Review Letters118, 154302 (2017).
+doi:10.1103/PhysRevLett.118.154302.
+[18] C. Guo and S. Fan, Reciprocity constraints on reflection, Physical Review Letters128, 256101
+(2022). doi:10.1103/PhysRevLett.128.256101.
+[19] L. M. Máñez-Espina et al., Strong mode coupling and maximum directional absorption in
+reciprocal bianisotropic metasurfaces, Nanophotonics15, e70145 (2026).
+doi:10.1002/nap2.70145.
+24

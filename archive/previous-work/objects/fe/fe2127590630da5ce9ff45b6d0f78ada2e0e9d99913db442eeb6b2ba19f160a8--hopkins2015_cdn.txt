@@ -1,0 +1,572 @@
+=== PDF PAGE 1 ===
+Photonics 2015, 2, 745-757; doi:10.3390/photonics2020745
+OPEN ACCESS
+photonics
+ISSN 2304-6732
+www.mdpi.com/journal/photonics
+Article
+Fano Resonance Enhanced Nonreciprocal Absorption and
+Scattering of Light
+Ben Hopkins 1,*, Andrey E. Miroshnichenko 1, Alexander N. Poddubny 2,3 and
+Yuri S. Kivshar 1,3
+1 Nonlinear Physics Centre, Australian National University, Canberra ACT 2601, Australia;
+E-Mails: andrey.miroshnichenko@anu.edu.au (A.E.M.); ysk@internode.on.net (Y .S.K.)
+2 Ioffe Physical-Technical Institute of the Russian Academy of Sciences, St. Petersburg 194021,
+Russia; E-Mail: poddubny@coherent.ioffe.ru
+3 ITMO University, St. Petersburg 197101, Russia
+* Author to whom correspondence should be addressed; E-Mail: ben.hopkins@anu.edu.au.
+Received: 17 May 2015 / Accepted: 18 June 2015 / Published: 22 June 2015
+Abstract: We reveal that asymmetric plasmonic nanostructures can exhibit signiﬁcantly
+different absorption and scattering properties for light that propagates in opposite directions,
+despite the conservation of total extinction. We analytically demonstrate that this is a
+consequence of nonorthogonality of eigenmodes of the system. This results in the necessity
+for modal interference with potential enhancement via Fano resonances. Based on our theory,
+we propose a stacked nanocross design whose optical response exhibits an abrupt change
+between absorption and scattering cross-sections for plane waves propagating in opposite
+directions. This work thereby proposes the use of Fano resonances to employ nanostructures
+for measuring and distinguishing optical signals coming from opposite directions.
+Keywords: fano resonance; plasmonics; stereometamaterials; nanophotonics; reciprocity
+1. Introduction
+Reciprocity is one of the key concepts in optics because it is related to the equal transmission of
+oppositely-propagating plane waves through any structure or medium; a manifestation of the total optical
+loss being conserved [1–4]. Indeed, to induce a difference in transmission from oppositely-propagating
+
+=== PDF PAGE 2 ===
+Photonics 2015, 2 746
+light requires optical elements that are driven by magnetic ﬁelds or materials to break the conditions of
+reciprocity [5–8]. Such nonreciprocal optical behavior is widely utilized in optical communications
+devices, and particularly optical isolators and circulators. There has subsequently been signiﬁcant
+interest in miniaturizing these devices for incorporation into nanophotonic chips and the broader
+realization of integrated optics systems. However, there remain limitations on the minimum propagation
+length or interaction time that is needed to produce sufﬁcient reciprocity breaking. Promising avenues
+exist to utilize gyromagnetic response [9] or engineered nonlinearity [10] to inherently break reciprocity,
+but here we instead present a way to produce nonreciprocal optical behavior in a linear system without
+breaking reciprocity. We begin by acknowledging that nanoantennas and metasurfaces, in general, have
+two separate loss channels: the radiative loss (scattering cross-section) and the dissipative material loss
+(absorption cross-section), both of which can be associated with distinct and measurable quantities.
+In particular, we show that the reciprocity constraint is not directly applicable to these independent
+loss channels. Indeed, this freedom has recently been demonstrated to allow circular dichroism in the
+absorption of planar structures [11] (arXiv). Here, we extend this approach to investigate nonreciprocal
+absorption and scattering cross-sections of three-dimensional nanostructures and stereometamaterials.
+First, we show that existence of nonorthogonal eigenmodes, in general, results in resonant interference
+phenomena associated with the Fano resonances. We then demonstrate that this nonorthogonality
+permits the absorption and scattering cross-section of an optical device to distinguish between opposite
+propagation directions, such as depicted in Figure 1.
+Figure 1. A schematic representation of different optical loss channels: radiative (scattering)
+and dissipative (absorption). A planewave propagating in one direction will be channeled
+into far ﬁeld scattering, while (simultaneously) an identical plane wave propagating in the
+opposite direction will be channeled into material absorption.
+It suggests that absorption and scattering provide us with the independent measurements on
+oppositely-propagating signals in the vicinity of a Fano resonance. We further show that such a
+nonreciprocal optical device can be designed in a way to have optical response being independent of
+polarization. This behavior demonstrates that direction-isolating measurements are widely achievable
+
+=== PDF PAGE 3 ===
+Photonics 2015, 2 747
+in passive optical nanodevices. Indeed, this proposes a new approach for ultrathin optical isolation
+of signal.
+2. Eigenmodes, Interference, and Fano Resonances
+It was recently demonstrated that Fano resonances can lead to circular dichroism in the absorption
+cross-section of planar chiral nanostructures [11]. The existence of such circular dichroism means
+that the absorption in the nanostructure was not constrained by reciprocity. In this article, we
+investigate further Fano resonances and their role in producing nonreciprocal absorption and scattering
+cross-sections of ﬁnite nanostructures. Below, we outline our approach and establish why Fano
+resonances can be associated with nonorthogonal eigenmodes. The existence of such nonorthogonal
+eigenmodes is then used to predict and demonstrate propagation-dependent absorption and scattering
+cross-sections.
+The ﬁelds inside nanostructures can be associated with the induced currents and polarizations, which
+determine the complete near- and far-ﬁelds produced by the given conﬁguration. In this approach
+all eigenmodes are deﬁned within ﬁnite volumes. However, importantly, there is also a one-to-one
+correspondence between such eigenmodes and resonances [12], which provides an intuitive basis to
+capture the optical features of resonant nanostructures. The relationship between induced current,J, and
+an arbitrary applied ﬁeld,E0, is expressible in terms of dyadic Green’s functions [13]:
+−iω[ϵ−ϵ0] E0(x) =J(x)−k2[ϵ(x)−ϵ0]
+∫
+V
+ˆG0(x, x′)J(x′) d 3x′ (1)
+wherek is the wavenumber,ω is the angular frequency,V is the volume of the scatterer (assumed ﬁnite),
+and ˆG0 is the free space dyadic Green’s function:
+ˆG0(x, x′) = P.V.
+[
+¯I + 1
+k2 ∇∇
+] eik|x−x′|
+4πϵ0|x− x′|− ˆLδ(x− x′)
+k2ϵ0
+(2)
+where ˆL is the source dyadic [13] and P.V. implies a principal value exclusion of x′ = x when
+performing the integration in Equation (1). We have also deﬁned permittivity ( ϵ) in terms of both the
+conductivity (σ) and the electric susceptibility (χ) to deﬁne the current (J) as the sum of both polarization
+and conduction current, which is related to the total electric ﬁeld as:
+ϵ≡ (χ + 1)ϵ0− σ
+iω ⇒ J(x) =−iω [ϵ(x)−ϵ0] E(x) (3)
+Equation (1) is therefore a general expression for modeling the complete optical response of an
+arbitrary scattering geometry. An eigenmode, vi, of any given structure can then be deﬁned such that it
+will satisfy Equation (1) as:
+−iω[ϵ−ϵ0]λivi(x) =J(x)−k2[ϵ−ϵ0]
+∫
+V
+ˆG0(x, x′)vi(x′) d 3x′ (4)
+
+=== PDF PAGE 4 ===
+Photonics 2015, 2 748
+whereλi is the eigenvalue of vi. Because the full set of these eigenmodes form a complete basis for
+the optical response, they allow us to model the entire range of bright and dark resonances in any given
+system. However, recently, it was demonstrated that such a basis of eigenmodes is not necessarily
+orthogonal [14]. The origin of such nonorthogonal eigenmodes can be understood as a consequence of
+the inherent radiation losses, where the Equation (1) corresponds to a non-Hermitian system. To consider
+the effect of this nonorthogonality, and its relation to the Fano resonances, we can refer to the extinction
+cross-section, which can be written in terms of the near-ﬁeld overlap of induced current and incident
+ﬁeld [11,15].
+σext = 1
+|E0|2
+√µ0
+ϵ0
+Re
+[ ∫
+Vs
+E∗
+0· J dV
+]
+(5)
+Additionally, an arbitrary applied ﬁeld and the induced currents can be deﬁned in terms of a linear
+superposition of the eigenmodes:
+E0 =
+∑
+i
+aiλivi ⇒ J =
+∑
+i
+aivi (6)
+Using these expressions, we are able to rewrite the total extinction (Equation 5) in terms of
+eigenmodes and eigenvalues:
+σext = 1
+|E0|2
+√µ0
+ϵ0
+∑
+i
+(
+Re[λi]
+(∫
+Vs
+|ai|2|vi|2 dV
+)
+  
+direct terms
++
+∑
+j̸=i
+Re
+[
+a∗
+iajλ∗
+i
+(∫
+Vs
+v∗
+i· vj dV
+)]
+  
+interference terms
+)
+(7)
+Notably, we have two sets of terms contributing to extinction: direct terms that provide contributions
+to extinction from individual eigenmodes, and also interference terms coming from the overlap between
+different eigenmodes. For orthogonal eigenmodes the interference term vanishes. Moreover, the
+presence of nonorthogonal eigenmodes leads to existence of the Fano resonances in this model. To
+demonstrate this, we ﬁrst rule out any dependency of a given eigenmode’s excitation ( i.e., the ai
+coefﬁcients of Equation (6)) on the excitations of other eigenmodes. This can be done very directly,
+because the dyadic Greens function is complex symmetric
+ˆG0(x, x′) = ˆG0(x′, x), ˆG0 = ˆG0
+T
+(8)
+Due to this symmetry, it is possible to write the overall operator of the eigenvalue equation
+(Equation (4)) as a complex symmetric matrix and in the normal form shown by Gantmacher [16].
+Thus, such nondegenerate eigenmodes must be orthogonal under unconjugated projections [17].
+∫
+V
+vα· vβ dV = 0 when λα̸=λβ (9)
+
+=== PDF PAGE 5 ===
+Photonics 2015, 2 749
+Subsequently, the excitation of any given eigenmode is deﬁned entirely by the eigenmode itself and
+the incident ﬁeld:
+λiai =
+∫
+V vi· E0 dV∫
+V vi· vi dV (10)
+It shows that the excitation of any given eigenmode is independent from the excitations of any
+other eigenmode. This means that the only way an interaction between two or more eigenmodes
+affects the extinction is due to nonorthogonality of these eigenmodes resulting in the interference terms
+seen Equation (5). This is indeed the conclusion of earlier work for the Fano resonances arising in
+nanoparticle oligomers [14]. In particular, we have established that the excitation of eigenmodes is
+determined entirely from the eigenmode itself and the excitation ﬁeld. As such, the unambiguous
+conclusion is thatall optical Fano resonances can be considered as a consequence of interference between
+so-called “bright" eigenmodes. This is in good accordance with the bright mode Fano resonances
+that have been proposed and observed in recent years [14,18–20]. Furthermore, the existence of
+nonorthogonal eigenmodes allows us to describe nonreciprocal absorption and scattering cross-sections
+of lossy nanoscale structures.
+3. Nonreciprocal Absorption and Scattering
+We begin this section by considering three-dimensional geometries that have at least 3-fold discrete
+rotational symmetry and are excited by plane waves at normal incidence in order to utilize derivations
+provided in Ref. [11]. However, the use of such symmetry also prevents any circular cross polarization in
+transmission [21], which is often observed as circular conversion dichroism [22–24], and not of interest
+here. Using more formal notation, we focus on structures with Cn symmetry forn≥ 3. Notably, unlike
+the case of planar structures considered in Ref. [11], we do not have a plane of reﬂection symmetry
+perpendicular to the propagation direction and we, therefore, cannot relate the excitations of plane waves
+propagating in opposite directions. As such, we are automatically driven to account for the role of
+propagation direction. So, we begin by deﬁning the current distribution, J, induced by a plane wave
+E0, and a current distribution, J′, induced by the reciprocal plane wave, E0
+∗, where the * indicates a
+complex conjugate. These are source and response distributions satisfying Equation (1).
+However, we can now acknowledge that a normally-incident plane wave can only excite eigenmodes
+that transform according to the two-dimensional, E irreducible representations of the rotational
+symmetry point group (e.g., see Table 1). A result from Ref. [11] then follows directly: if we assume
+the eigenmodes are orthogonal, then the total current intensity is conserved in the structure between
+reciprocal plane waves.
+∫
+V
+J∗· J dV =
+∫
+V
+J′∗· J′ dV (11)
+
+=== PDF PAGE 6 ===
+Photonics 2015, 2 750
+Table 1. Character table for the 4-fold rotational symmetry group ( C4). Rows are
+irreducible representations, columns are symmetry operations, and each element denotes the
+trace of the associated symmetry operation’s matrix representation in the given irreducible
+representation.
+C4 E C 4 C2 C 3
+4
+A 1 1 1 1
+B 1 −1 1 −1
+E
+{
+1
+1
+i
+−i
+−1
+−1
+−i
+i
+If we have a uniform material loss throughout our geometry, this result means that the absorption
+cross-section is conserved for reciprocal planewaves. Thus, due to the fact that the extinction is already
+conserved by reciprocity, the scattering cross-section must too be conserved, as it is simply the difference
+between extinction and absorption. In other words, this result shows that nonorthogonal eigenmodes are
+necessary to permit nonreciprocal behavior in the absorption and scattering cross-sections. In practical
+terms, we need a structure that can exhibit a Fano resonance under plane wave excitation. Now, if we
+are considering a single, isotropic and homogeneous material, the eigenmodes of the Green’s function
+operator (depicted in Equation (1)) are the eigenmodes of the total system. The eigenmodes are therefore
+independent of material properties, which instead affect only the eigenvalues. Notably, ˆG0 is a complex
+symmetric operator, which means that, when ˆG0 is real, the whole operator is actually real symmetric
+and therefore Hermitian; making all its eigenmodes orthogonal. As the source dyadic ( ˆL) is real, this
+means that retardation of coupling within the structure has to be nontrivial ( eik|x−x′|̸→ 1) in order to
+have nonorthogonal eigenmodes. This retardation condition provides a design guideline for generation
+of the Fano resonances. Nanoparticle oligomers were used as planar chiral geometries to satisfy this
+retardation condition in Ref. [11], but for nonplanar geometries we can instead look to the work done
+in the area of stereometamaterials [25]; three-dimensional structures commonly, albeit not always [26],
+constructed from stacked elements [27–29]. Here, the distance between stacked elements is able to
+guarantee nontrivial retardation in coupling.
+To demonstrate that this indeed provides nonorthogonal eigenmodes, we consider a simple dimer
+model of two electric dipoles, p1 and p2, with isotropic polarizabilities, α1 andα2, at locations, r1 and
+r2, along a principal axis, separated by a distance, |r1− r2| = d. For such a system, we can use the
+relation between current and polarization in Equation (3), to simplify Equation (1) down to the known
+dipole model.
+α1ϵ0E0(r1) = p1−α1k2 ˆG0(r1, r2)p2 (12)
+α2ϵ0E0(r2) = p2−α2k2 ˆG0(r2, r1)p1 (13)
+Given the reﬂection symmetry of the structure about the principal axis, there will be one set of
+eigenmodes with dipole moments polarized parallel to the principal axis and a separate (orthogonal) set
+
+=== PDF PAGE 7 ===
+Photonics 2015, 2 751
+of eigenmodes that have dipole moments polarized perpendicular to the principal axis. This orthogonal
+separation is a result of the eigenmodes that are affected by such symmetric reﬂection operations being
+orthogonal to those that are not affected. More formally, it is a consequence of the eigenmodes being
+associated with different irreducible representations of the C∞v point group. In any case, we are able
+to consider exclusively the dipole moments that are perpendicular to the principal axis, because they
+correspond to those that can be excited by a plane wave propagating along the principal axis. Moreover,
+the relationship between these dipole moments and the applied ﬁeld can be written in a simpliﬁed form:
+E0(r1) = (α1ϵ0)−1p1−Gdp2 (14)
+E0(r2) = (α2ϵ0)−1p2−Gdp1 (15)
+where Gd≡ eikd
+4πϵ0d
+(
+k2 + ik
+d − 1
+d2
+)
+From this, we can deduce analytical expressions for the two nondegenerate eigenmodes that are
+excitable by a planewave in this system:
+|v1,2⟩≡
+[ p1
+p2
+]
+=
+[ α2−α1±δ
+2α1α2ϵ0Gd
+]
+(16)
+where δ≡
+√
+(α2−α1)2 + (2α1α2ϵ0Gd)2
+Importantly, these two eigenmodes are not necessarily orthogonal provided thatα1̸=α2 andGd̸= 0,
+⟨ v1|v2⟩ =
+⏐⏐2α1α2ϵ0Gd
+⏐⏐2
++ (α2−α1 +δ)∗· (α2−α1−δ) (17)
+Therefore, these results demonstrate that nonorthogonal eigenmodes exist even in the dimer model,
+but only if there is coupling between the dipoles and the dipole polarizabilities are different. In other
+words, Equation (17) suggests that even an asymmetric dimer should be able to realize nonorthogonal
+eigenmodes and, therefore, nonreciprocal absorption and scattering. To demonstrate this, we consider
+an idealized dimer made from two nanoparticles of 200 nm diameter. We also assume that the material
+properties of nanoparticles are described by Drude model with a plasma frequency of 2.07 PHz. The
+particles are separated by a gap of 200 nm and excited with a plane wave along the dimer’s principal axis.
+This structure is illustrated in Figure 2a. The nonreciprocal absorption can be obtained by making one
+particle lossless and the other particle lossy with a damping factor of 600 THz (a very large damping).
+Importantly, because we deﬁne one nanosphere to be lossless, the absorption cross-section will only
+be related to the dipole moment intensity in the lossy particle, and not the integral over the complete
+geometry that we originally considered for continuous systems made from a single material, such as in
+Equation (11).
+
+=== PDF PAGE 8 ===
+Photonics 2015, 2 752
+lossless
+500 800 11000
+0.1
+0.2
+1
+0
+0.5
++z-z
+z-+
++z-z
+Extinction
+Absorption
+Scattering
+,
+,
+k=+z k=-z
+Modal Overlap,
+lossy
+|v1
+|v2
+Eigenmodes
+|v2 v1| |
+a
+b
+c
+Figure 2. (a) Schematic of the system under consideration: a dimer consisting of lossy and
+lossless nanoparticles excited by plane waves propagating in opposite directions along the
+dimer’s principal axis. The parameters are in the text. We plot ( b) the absolute value of
+the projection (Equation (17)) between the two normalized eigenmodes (Equation (16)) of
+this geometry. The simulated extinction, absorption and scattering cross-sections show the
+associated difference for oppositely-propagating plane waves.
+In Figure 2b, we show that the dipole model eigenmodes of this dimer (Equation (16)) are
+nonorthogonal across the majority of the visible frequency range. The extinction, absorption and
+scattering cross-sections of this dimer are then shown in Figure 2c. It demonstrates the difference
+in the scattering and absorption between oppositely-propagating planewaves at wavelengths where
+two resonances appear to overlap. Thus, even such a simple dual-layer geometry is able to provide
+strongly nonorthogonal eigenmodes and the nonreciprocal behavior. Notably, while we utilized different
+materials to produce nonorthogonal eigenmodes for this dimer, the coupling between dipoles is still
+a necessity for nonorthogonal eigenmodes ( i.e., consider Gd → 0 in Equation (17)). However, to
+consider a realistic dimer nanostructure, we have to acknowledge that material properties are largely
+ﬁxed by fabrication and that we must instead consider geometry. On the simplest level, different sizes
+and shapes of nanoparticles will be associated with different dipole polarizabilities and thereby produce
+the same effect as material change did in Figure 2. Ultimately, the dipole responses in a nanoparticle
+
+=== PDF PAGE 9 ===
+Photonics 2015, 2 753
+dimer do not provide sufﬁcient freedom to induce signiﬁcant modal interference with realistic material
+parameters. We can optimize the response by considering pairs of stacked, symmetric nanocrosses as
+seen in Figure 3 (similar in concept to the stereometamaterial in Ref. [27]). Arrays of such stacked
+nanocross geometries have previously exhibited a difference in effective impedance and hence reﬂection
+for opposite propagation directions [30]. For our analysis, a relative twist in the orientations of the
+nanocrosses also provides chirality and allows us to consider the lowest symmetry conditions that our
+earlier theoretical arguments applied to (i.e. theCn point groups).
++z-z
+z-+
++z-z
+Extinction
+Absorption
+Scattering
+30
+ 0o
+o
+30o 0o
+,
+,
+Figure 3. Simulated nonreciprocal scattering and absorption cross-sections in stacked gold
+nanocrosses from linearly-polarized plane waves propagating in opposite directions ( ±z)
+along the rotational symmetry axis. Simulation results are shown to be the same for both
+chiral (C4) and achiral ( C4v) structures, and both are indepedent of polarization. The
+calculation parameters are given in the text.
+The dimensions of the stacked nanocrosses were chosen as to produce nonorthogonal eigenmodes
+and a Fano resonance by pushing the independent resonances of each nanocross together. This is done
+in Figure 3 using a pair of gold crosses separated by a 120 nm gap, and with dimensions: total length
+equal to 150 nm, arm width equal to 40 nm and thickness equal to 30 nm. We then reduced the arm
+width, w, of one cross to 25 nm in order to provide the necessary asymmetry. In Figure 3, we can
+clearly see that the absorption and scattering cross-sections differ dramatically between reciprocal plane
+waves, and independently of whether the structure is chiral or not. Interestingly, the lack of chirality
+tells us that the difference in scattering and absorption cannot be attributed to bianisotropic coupling,
+which was the mechanism for the impedance difference in Ref. [30]. In this regard, the symmetry of
+the individual crosses ensures that, in isolation, their optical responses are isotropic, yet notably: the
+optical response of the stacked crosses remains independent to the relative twist, which suggests that
+there is isotropic coupling between the two crosses. Such isotropic coupling would exist if the dominant
+
+=== PDF PAGE 10 ===
+Photonics 2015, 2 754
+interaction between crosses was dipolar, as it would make the situation analogous to the coupled isotropic
+dipoles considered for Figure 2. Dipolar coupling would be expected to dominate with increasing
+separation between crosses, and, therefore, the twist-independent optical response we observe will be
+a consequence of the larger distance between the two crosses. Additionally, as is also suggested by the
+negligible effect of chirality, the choice of linear or circular polarization of the incident plane wave has
+no effect on any of the cross-sections. Indeed, in the chiral geometry, there appears to be negligible
+circular dichroism between oppositely-handed plane waves that propagate in the same direction for
+any of the cross-sections, simply because the associated curves are separated by less than 0.001 µm2.
+Similarly, in regard to linear polarizations, the angle of linear polarization is of no signiﬁcance because
+the discrete rotational symmetry is separately known to prevent any such angular dependence in all of
+the cross-sections [31]. Figure 3 therefore demonstrates that Fano resonances and modal interference
+in stacked nanocross geometries allow for signiﬁcant variation in optical response depending on the
+propagation direction and irrespective of any polarization. All simulations were performed using CST
+Microwave Studio and gold data was taken from Johnson and Christy [32].
+To ﬁnally provide an investigation into the role of the asymmetry about the z-axis for these stacked
+nanocrosses, we can consider varying the arm width, w, of one nanocross while holding the other
+constant. The absorption, scattering and extinction cross-sections of the stacked nanocrosses through this
+parameter sweep are shown in Figure 4. Notably, when the two nanocrosses are identical ( w = 40 nm),
+the geometry hasD4 symmetry and is, thereby, invariant under aπ-rotation perpendicular to the principal
+rotation axis, which makes reciprocal planewaves equivalent under geometric symmetry operations.
+In other words, we cannot have Dn symmetry if we want to produce nonreciprocal absorption and
+scattering. However, we can see that this invariance is related to direction of scattering and absorption
+splitting interchanging either side of Dn symmetry. Therefore, Figure 4 ultimately shows us that the
+difference in scattering and absorption is widely achievable in systems such as stacked nanocrosses that
+support closely overlapped and coupled resonances, and therefore modal interference. As such, this
+demonstrates that signiﬁcant nonreciprocal measurements can be performed with stereometamaterial
+geometries.
+4. Conclusions
+We have shown that the distinct absorption and scattering cross-sections of nonplanar nanostructures
+can distinguish between reciprocal planewaves, provided the system has nonorthogonal eigenmodes.
+The relation of this effect to nonorthogonal eigenmodes was derived rigorously, and subsequently we
+established that the nonreciprocal absorption and scattering could be realized and enhanced through
+the Fano resonances. We have proposed that two stacked nanocrosses would provide the necessary
+retarded coupling to produce nonorthogonal eigenmodes and, thus, Fano resonances, while also
+providing sufﬁcient design freedom for optimization. It was subsequently demonstrated that this
+geometry produces substantial differences in absorption and scattering cross-sections for plane waves
+that propagate in opposite directions. It was additionally shown that this difference would be independent
+of the plane wave’s polarization. This work subsequently establishes that modal interference and
+
+=== PDF PAGE 11 ===
+Photonics 2015, 2 755
+Fano resonances enable a passive nanostructure to simultaneously measure and distinguish signal from
+reciprocal plane waves.
+Cross Sections,
+Absorption Scattering Extinction
+w=60nm
+w=55nm
+w=50nm
+w=45nm
+w=40nm
+w=35nm
+w=30nm
+w=25nm
+w=20nm
++z-z
++z-z z-+
+20nm
+40nm
+60nm
+30nm
+50nm
+Figure 4. Simulation results for stacked gold nanocrosses, under excitation from circularly
+polarized plane waves given by propagation in either the +z or−z direction. The variation
+between right and left circular polarizations in the same propagation direction is negligible
+(< 0.001µm2) and making the associated curves overlapped here. The arm width, w, of one
+nanocross arm is varied from 20 to 60 nm, showing a signiﬁcant difference in the absorption
+and scattering cross-section of reciprocal planewaves, provided the system does not haveD4
+symmetry. The calculation parameters are given in text.
+Acknowledgments
+This work was supported by the Australian Research Council. ANP acknowledges support of the
+Russian Foundation for Basic Research and the Deutsche Forschungsgemeinschaft in the frame of
+International Collaborative Research Center TRR 160. BH would like to acknowledge the productive
+discussions with David A. Powell on eigenmodes, complex symmetric operators and bianisotropy in
+twisted crosses.
+
+=== PDF PAGE 12 ===
+Photonics 2015, 2 756
+Author Contributions
+BH, AEM and ANP developed the theory. AEM and YSK supervised the research. BH, AEM and
+YSK wrote the manuscript.
+Conﬂicts of Interest
+The authors declare no conﬂict of interest.
+References
+1. Saxon, D.S. Tensor Scattering Matrix for the Electromagnetic Field. Phys. Rev. 1955,
+100, 1771–1775.
+2. Mishchenko, M.I.; Travis, L.D.; Lacis, A.A. Scattering, Absorption, and Emission of Light by
+Small Particles; Cambridge University Press: Cambridge, UK, 2002.
+3. Raab, R.E.; de Lange, O.L. Multipole Theory in Electromagnetism ; Oxford University Press:
+Oxford, UK, 2005.
+4. Zhao, R.; Koschny, T.; Soukoulis, C.M. Chiral metamaterials: Retrieval of the effective
+parameters with and without substrate. Opt. Express 2010, 18, 14553–14567.
+5. Wen, C.P. Coplanar Waveguide: A Surface Strip Transmission Line Suitable for Nonreciprocal
+Gyromagnetic Device Applications. IEEE Trans. Microw. Theory Techn. 1969, 17, 1087–1090.
+6. Figotin, A.; Vitebsky, I. Nonreciprocal magnetic photonic crystals. Phys. Rev. E 2001,
+63, 066609.
+7. Potton, R.J. Reciprocity in optics. Rep. Prog. Phys. 2004, 67, 717–754.
+8. Bi, L.; Hu, J.; Jiang, P.; Kim, D.H.; Dionne, G.F.; Kimerling, L.C.; Ross, C.A. On-chip optical
+isolation in monolithically integrated non-reciprocal optical resonators. Nat. Photon. 2011,
+5, 758–762.
+9. Mousavi, S.H.; Khanikaev, A.B.; Allen, J.; Allen, M.; Shvets, G. Gyromagnetically Induced
+Transparency of Metasurfaces. Phys. Rev. Lett. 2014, 112, 117402.
+10. Kim, J.; Kuzyk, M.C.; Han, K.; Wang, H.; Bahl, G. Non-reciprocal Brillouin scattering induced
+transparency. Nat. Phys. 2015, 11, 275–280.
+11. Hopkins, B.; Hwang, Y .; Poddubny, A.N.; Miroshnichenko, A.E.; Davis, T.J.; Kivshar, Y .S.
+Circular dichroism induced by Fano resonances in planar chiral oligomers. arXiv 2014.
+12. Powell, D.A. Resonant dynamics of arbitrarily shaped meta-atoms. Phys. Rev. B 2014,
+90, 075108.
+13. Yaghjian, A.D. Electric Dyadic Green’s Functions in the Source Region. Proc. IEEE 1980,
+68, 248–263.
+14. Hopkins, B.; Poddubny, A.N.; Miroshnichenko, A.E.; Kivshar, Y .S. Revisiting the physics of
+Fano resonances for nanoparticle oligomers. Phys. Rev. A 2013, 88, 053819.
+15. Merchiers, O.; Moreno, F.; Gonzalez, F.; Saiz, J.M. Light scattering by an ensemble of interacting
+dipolar particles with both electric and magnetic polarizabilities. Phys. Rev. A 2007, 76, 043834.
+16. Gantmacher, F. The Theory of Matrices ; Chelsea Publishing Company: New York, NY , USA,
+1959.
+
+=== PDF PAGE 13 ===
+Photonics 2015, 2 757
+17. Craven, B. Complex Symmetric Matrices. J. Austral. Math. Soc. 1969, 10, 341–354.
+18. Frimmer, M.; Coenen, T.; Koenderink, A.F. Signature of a Fano Resonance in a Plasmonic
+Metamolecule’s Local Density of Optical States. Phys. Rev. Lett. 2012, 108, 077404.
+19. Lovera, A.; Gallinet, B.; Nordlander, P.; Martin, O.J. Mechanisms of Fano Resonances in
+Coupled Plasmonic Systems. ACS Nano 2013, 7, 4527–4536.
+20. Forestiere, C.; Negro, L.D.; Miano, G. Theory of coupled plasmon modes and Fano-like
+resonances in subwavelength metal structures. Phys. Rev. B 2013, 88, 155411.
+21. Fernandez-Corbaton, I. Forward and backward helicity scattering coefﬁcients for systems with
+discrete rotational symmetry. Opt. Express 2013, 21, 29885.
+22. Schwanecke, A.S.; Fedotov, V .A.; Khardikov, V .V .; Prosvirnin, S.L.; Chen, Y .; Zheludev, N.I.
+Nanostructured metal ﬁlm with asymmetric optical transmission.Nano Lett. 2008, 8, 2940–2943.
+23. Plum, E.; Zheludev, N.I. Chirality and anisotropy of planar metamaterials. In Structured Surfaces
+as Optical Metamaterials; Cambridge University Press: Cambridge, UK, 2011; pp. 94–157.
+24. Plum, E.; Fedotov, V .A.; Zheludev, N.I. Asymmetric transmission: A generic property of
+two-dimensional periodic patterns. J. Opt. 2011, 13, 024006.
+25. Liu, N.; Liu, H.; Zhu, S.; Giessen, H. Stereometamaterials. Nat. Phot. 2009, 3, 157–162.
+26. Frank, B.; Yin, X.; Schäferling, M.; Zhao, J.; Hein, S.M.; Braun, P.V .; Giessen, H. Large-Area
+3D Chiral Plasmonic Structures. ACS Nano 2013, 7, 6321–6329.
+27. Decker, M.; Ruther, M.; Kriegler, C.E.; Zhou, J.; Soukoulis, C.M.; Linden, S.; Wegener, M.
+Strong optical activity from twisted-cross photonic metamaterials. Opt. Lett. 2009,
+34, 2501–2503.
+28. Decker, M.; Zhao, R.; Soukoulis, C.M.; Linden, S.; Wegener, M. Twisted split-ring-resonator
+photonic metamaterial with huge optical activity. Opt. Lett. 2010, 35, 1593–1595.
+29. Hentschel, M.; Schaeferling, M.; Metzger, B.; Giessen, H. Plasmonic Diastereomers: Adding up
+Chiral Centers. Nano Lett. 2012, 13, 600–606.
+30. Hannam, K.; Powell, D.A.; Shadrivov, I.V .; Kivshar, Y .S. Broadband chiral metamaterials with
+large optical activity. Phys. Rev. B 2014, 89, 125105.
+31. Hopkins, B.; Liu, W.; Miroshnichenko, A.E.; Kivshar, Y .S. Optically isotropic responses induced
+by discrete rotational symmetry of nanoparticle clusters. Nanoscale 2013, 5, 6395–6403.
+32. Johnson, P.B.; Christy, R.W. Optical Constants of the Noble Metals. Phys. Rev. B 1972,
+6, 4370–4379.
+c⃝ 2015 by the authors; licensee MDPI, Basel, Switzerland. This article is an open access article
+distributed under the terms and conditions of the Creative Commons Attribution license
+(http://creativecommons.org/licenses/by/4.0/).

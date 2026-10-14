@@ -1,0 +1,973 @@
+=== PDF PAGE 1 ===
+-
+6
+/
+%
+
+6
+/
+*
+7
+&
+3
+4
+*
+5
+:
+1
+0
+
+#
+P
+Y
+
+
+
+
+
+
+
+
+
+
+
+-
+V
+O
+E
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Optical theorem and forward scattering sum rule for periodic structures
+Gustafsson, Mats; Vakili, Iman; Bayer Keskin, Sena Esen; Sjöberg, Daniel; Larsson, Christer
+Published in:
+IEEE Transactions on Antennas and Propagation
+DOI:
+10.1109/TAP.2012.2201113
+2012
+Document Version:
+Peer reviewed version (aka post-print)
+Link to publication
+Citation for published version (APA):
+Gustafsson, M., Vakili, I., Bayer Keskin, S. E., Sjöberg, D., & Larsson, C. (2012). Optical theorem and forward
+scattering sum rule for periodic structures. IEEE Transactions on Antennas and Propagation, 60(8), 3818-3826.
+https://doi.org/10.1109/TAP.2012.2201113
+Total number of authors:
+5
+General rights
+Unless other specific re-use rights are stated the following general rights apply:
+Copyright and moral rights for the publications made accessible in the public portal are retained by the authors
+and/or other copyright owners and it is a condition of accessing publications that users recognise and abide by the
+legal requirements associated with these rights.
+ • Users may download and print one copy of any publication from the public portal for the purpose of private study
+or research.
+ • You may not further distribute the material or use it for any profit-making activity or commercial gain
+ • You may freely distribute the URL identifying the publication in the public portal
+Read more about Creative commons licenses: https://creativecommons.org/licenses/
+Take down policy
+If you believe that this document breaches copyright please contact us providing details, and we will remove
+access to the work immediately and investigate your claim.
+
+=== PDF PAGE 2 ===
+Download date: 13. Oct. 2026
+
+=== PDF PAGE 3 ===
+Electromagnetic Theory
+Department of Electrical and Information Technology
+Lund University
+Sweden 
+CODEN:LUTEDX/(TEAT -7213)/1-17/(2011)
+Optical theorem and forward
+scattering sum rule for periodic
+structures
+Mats Gustafsson, Iman Vakili, Sena E. Bayer, Daniel Sj ¨oberg,
+Christer Larsson
+
+=== PDF PAGE 4 ===
+Mats Gustafsson, Iman Vakili, Daniel Sjöberg
+{mats.gustafsson,iman.vakili,daniel.sjoberg}@eit.lth.se
+Department of Electrical and Information Technology
+Electromagnetic Theory
+Lund University
+P.O. Box 118
+SE-221 00 Lund
+Sweden
+Sena E. Bayer
+senabayer@kocaeli.edu.tr
+Sena Esen.Bayer Keski@eit.lth.se
+Department of Mechatronics Engineering
+Kocaeli University
+41380 Kocaeli
+Turkey
+Christer Larsson
+Christer.Larsson@saabgroup.com
+Christer.Larsson@eit.lth.se
+Saab Bofors Dynamics AB
+SE-581 88 Linköping
+Sweden
+Department of Electrical and Information Technology
+Electromagnetic Theory
+Lund University
+P.O. Box 118
+SE-221 00 Lund
+Sweden
+Editor: Gerhard Kristensson
+c⃝ Mats Gustafsson et al. , Lund, November 28, 2011
+
+=== PDF PAGE 5 ===
+1
+Abstract
+Based on energy conservation, an optical theorem is constructed for a slab
+having an arbitrary periodic microstructure in a plane. A sum rule for low
+pass structures is derived using analytic properties of Herglotz functions based
+on causality and passivity. The sum rule relates the extinction cross section to
+the static polarizability per unit cell, and quanties the interaction between
+the slab and electromagnetic elds possible over all wavelengths. The results
+are illustrated with several numerical and experimental examples.
+1 Introduction
+The optical theorem relates the forward scattering from an object to the extinc-
+tion (or total) cross section [22]. It was rst discussed more than a century ago
+by Rayleigh [36] and later extended to quantum mechanics, acoustics, and elasto-
+dynamics. There are also formulations of the optical theorem for inhomogeneous
+backgrounds [19, 20], waveguides [24], corrugated surfaces [39], and in the time do-
+main [16]. The corresponding forward scattering sum rule shows that the extinction
+cross section integrated over all wavelengths is proportional to the polarizability of
+the object. It was introduced for dielectric spheroids by Purcell [27] and generalized
+to arbitrary objects in [6, 34].
+The forward scattering sum rule shows that the all-spectrum interaction between
+the electromagnetic eld and an object is proportional to the (static) polarizability
+of the object. This identity is useful since the solution of a relatively simple static
+problem provides physical insight in the dynamic scattering over a bandwidth. It
+also gives physical limitations on the extinction cross section bandwidth product
+expressed in the polarizability of the object. The sum rule has recently been used to
+derive an antenna identity and several physical bounds on antennas [79, 33]. It has
+also been used to show bounds on metamaterial scatterers [35] and extraordinary
+transmission [10].
+In this paper, the optical theorem and the forward scattering sum rule are gen-
+eralized to periodic structures. This version of the optical theorem shows that
+the extincted power from an incident plane wave is proportional to Imh(k), where
+h(k) = i2(1 −T (k))A is a Herglotz function [1], A denotes the cross section area
+of the unit cell and T the co-polarized part of the lowest order transmission coe-
+cient. The low-frequency asymptotic expansion of h(k) is used to derive the forward
+scattering sum rule according to the general procedure in [1]. The derivation is
+solely based on the assumptions that the periodic structure does not support global
+currents in the low-frequency limit and that the micro structure is made of linear,
+passive, and time-translational invariant materials.
+Moreover, we show that the forward scattering sum rule for isolated objects is
+retrieved by extending the unit cell length to innity. An intermediate forward
+scattering sum rule for two dimensional objects and objects that are periodic in
+one dimension by letting the unit cell increase in one direction is also derived. The
+theoretical results are illustrated by numerical simulations and measurements for
+
+=== PDF PAGE 6 ===
+2
+x y
+z
+E E
+E(t)
+d
+x
+y
+(r)
+(i)
+`
+`
+Figure 1 : Illustration of a screen with a periodic microstructure. The incident,
+reected, and transmitted electric elds are denoted by E(i), E(r), and E(t), respec-
+tively. The lattice lengths in the xy-plane are denoted by ℓx and ℓy, and d is the
+thickness of the supporting dielectric substrate. The entire structure is assumed to
+be in the half space z≤ 0.
+the scattering of a periodic sheet of split ring resonators (SRR) in free space and for
+a cylinder of SRRs in a parallel plate waveguide.
+The new sum rule is instrumental in the understanding of interaction between
+electromagnetic eld and periodic structures with applications for frequency selective
+surfaces [21], electromagnetic band gap structures [40], and metamaterials [3, 32]. It
+also provides new insight about the forward scattering sum rule for nite scatter-
+ers [6, 34] and its associated antenna identity [8, 9].
+This paper is organized as follows. The optical theorem for periodic structures is
+presented in Sec. 2. A Herglotz function and its high and low-frequency asymptotic
+expansions are presented in Sec. 3. The forward scattering sum rule is derived in
+Sec. 4. In Sec. 5, we present numerical and experimental verications of the sum
+rule. The paper is concluded in Sec. 6.
+2 Optical theorem for periodic structures
+We consider a planar periodic structure in otherwise free space. The material and
+microstructure are modeled with arbitrary linear and temporally dispersive consti-
+tutive relations, restricted to causal and passive dispersion models such as, e.g. , the
+Debye, Lorentz, and Drude models [14]. The array is also assumed to not support
+currents in the low-frequency limit and be suciently large to be modeled as an
+innite array [12]. This is, e.g. , the case for arrays with disjoint metallic inclusions
+printed on a bulk material with negligible static conductivity.
+The array lattice is described by two basis vectors ℓxˆx and ℓyˆy, and the entire
+heterogeneous structure is contained in the interval −d≤ z≤ 0, with a unit cell
+lying in the xy-plane, see Fig. 1. Consider a time harmonic linearly polarized plane
+
+=== PDF PAGE 7 ===
+3
+wave impinging at normal incidence on the array, i.e. , E(i)(r) = E0eikz, where
+E0 = E0ˆe, ˆe is a real valued unit vector along the polarization direction of the
+incident eld, r = xˆx +yˆy +zˆz = ρ +zˆz is the position vector, k denotes the
+wavenumber, and time convention e−iωt is used.
+A spectral decomposition of the transmitted eld, E(t), in Floquet modes is used
+outside the array
+E(t)(k;r) =
+∞∑
+m=−∞
+∞∑
+n=−∞
+E(t)
+mn(k)eikmn·ρeikz,mnz, (2.1)
+for z ≥ 0, where kmn = m2π/ℓxˆx +n2π/ℓyˆy, and kz,mn =
+√
+k2−|kmn|2 is the
+wavenumber in the z direction for the mn mode. For m or n large enough, kz,mn is
+an imaginary number indicating an evanescent wave. The expansion coecients are
+expressed in the electric eld behind the structure as
+E(t)
+mn(k) = 1
+ℓxℓy
+ℓy/2∫
+−ℓy/2
+ℓx/2∫
+−ℓx/2
+E(t)(k;x,y, 0)e−ikmn·ρ dx dy. (2.2)
+The reected eld, E(r)(k;r), is similarly expanded in the region z≤−d. The ex-
+pansion coecients of the transmitted and reected elds are related to the incident
+eld via the linear mappings E(t)
+mn = Tmn·E0 and E(r)
+mn = Rmn·E0. It is only
+a nite number of modes that propagate for a xed frequency, and, specically, it
+is only the zeroth order modes ( m = n = 0) that propagate for frequencies below
+the rst grating lobe [21], i.e. , f < c0/ max{ℓx,ℓ y}. In the following we use the
+short-hand notation T = ˆe· T00· ˆe for the co-polarized transmission coecient T .
+We use energy conservation to show an optical theorem for periodic structures,
+see also [24]. The incident power per unit cell is Pi =A|E0|2/(2η0), where A =ℓxℓy
+is the cross section area of the unit cell. The reected power, Pr, can be written as
+a square sum of the expansion coecients. The corresponding transmitted power,
+Pt =|T|2Pi +Pt1, is decomposed into the contributions from the co-polarized part
+of the lowest order mode, |T|2Pi, and from the remaining modes, Pt1. The absorbed
+power, Pa, is the dierence between the incident and the sum of the reected and
+transmitted powers, i.e. ,
+Pa =Pi−Pr−Pt =Pi−Pr−|T|2Pi−Pt1. (2.3)
+The scattered power, Ps, is the sum of the reected power, Pr, and the power in the
+scattered part of the transmitted eld. This scattered power consists of the power
+in the co-polarized forward scattered eld, i.e. the dierence between the total eld
+and the incident eld, |1−T|2Pi, and transmitted power in the remaining modes,
+Pt1, i.e. ,
+Ps =Pr +|1−T|2Pi +Pt1. (2.4)
+The extincted power is nally the sum of the absorbed and scattered powers
+Pext =Pa +Ps =Pi−Pr−|T|2Pi−Pt1 +Pr +|1−T|2Pi +Pt1
+= 2 Re{1−T}Pi (2.5)
+
+=== PDF PAGE 8 ===
+4
+that after normalization with the incident power ux, |E0|2/(2η0), gives the extinc-
+tion cross section
+σext =σa +σs = 2 Re{1−T}A. (2.6)
+This is the optical theorem for the periodic structure. The derivation is based
+only on energy conservation and the use of a power orthogonal mode decomposition
+outside the structure, where one mode is singled out and considered fundamental.
+This calls for two remarks: 1) Since nothing in the derivation changes if we choose
+an arbitrary Floquet mode Emn instead of E00, the optical theorem (2.6) is valid
+for any Floquet mode. 2) The optical theorem is valid for any structure where a
+similar mode decomposition can be made, for instance in a waveguiding system.
+3 Low- and high-frequency expansions
+We use causality and passivity of T (k) to dene a Herglotz function that is used
+to construct sum rules. The transmission coecient T (k) is holomorphic in k for
+Imk > 0 due to causality, and bounded in magnitude by unity due to passivity,
+i.e. , |T|≤ 1. The logarithm [4, 12, 28], the Cayley transform [5] and many other
+combinations of T can be used to construct Herglotz functions [1, 11]. Here, we
+follow the extinction cross section (2.6) and use
+h(k) = i2
+(
+1−T (k)
+)
+A (3.1)
+This is a Herglotz function [1, 25], i.e. , h(k) is holomorphic and Im{h(k)}≥ 0 for
+Imk >0.
+It is illustrative to use the mode expansion (2.1) and (2.2) in the free space
+z≥ 0 and express h(k) in the electromagnetic elds. The expansion coecients (2.2)
+simplify for the transmission coecient, which is given by the average of the electric
+eld behind the structure. This gives the explicit expression
+h(k) = i2
+(
+1− ˆe·E(t)
+00 (k)
+E0
+)
+ℓxℓy =−2i
+E0
+∫ ℓy/2
+−ℓy/2
+∫ ℓx/2
+−ℓx/2
+ˆe·E(s)(k;x,y, 0) dx dy
+=−i
+E0
+∫ ℓy/2
+−ℓy/2
+∫ ℓx/2
+−ℓx/2
+ˆe·E(s)(k;x,y, 0) +η0(ˆz× ˆe)·H(s)(k;x,y, 0) dx dy, (3.2)
+where the scattered eld E(s) =E(t)−E(i) is used. The last line is obtained by using
+the fact that the zeroth order modes are plane waves propagating in the positive z
+direction, and all higher modes integrate to zero.
+For a low-pass structure, the low-frequency asymptote of T is obtained from
+the Maxwell equations by an expansion of the elds in powers of k as discussed
+in [12, 17, 30], i.e. ,
+h(k)∼kγ =k
+(ˆe·γe· ˆe + (ˆk× ˆe)·γm· (ˆk× ˆe)
+)
+(3.3)
+as k → 0. The electric and magnetic static polarizabilities γe and γm provide
+the induced electric and magnetic dipole moments per unit cell, p = ϵ0γe·E and
+
+=== PDF PAGE 9 ===
+5
+m = γm·H, when the structure is subjected to constant electric and magnetic
+elds E and H, respectively. More precisely, γe is dened as [34, 35]
+ˆe·γe· ˆe = 1
+E0
+∫
+Ω×[−d,0]
+ˆe· (ϵ(0;r)/ϵ0− I)·E(0;r) dV, (3.4)
+where the zero-frequency eld E(0;r) has the prescribed mean value ˆe and satises
+the electrostatic equations
+∇× E(0;r) = 0, ∇·
+(
+ϵ(0;r)·E(0;r)
+)
+= 0, (3.5)
+in the unit cell Ω× R, with periodic boundary conditions in the xy-plane. Here,
+ϵ(0;r) is the static permittivity dyadic (which is real-valued, symmetric, and positive-
+denite), and ϵ0 is the free space permittivity. This system of partial dierential
+equations can be solved using the Finite Element Method, typically by representing
+the electric eld with a scalar potential as E(0;r) = ˆeE0−∇ϕ(r) and solving the
+elliptic equation ∇· [ϵ· (ˆeE0−∇ϕ)] = 0 , where the scalar potential ϕ is periodic
+in the plane and decays to zero as z→±∞ if ˆe is in the plane. The elliptic na-
+ture of the problem means this numerical solution provides an upper bound to the
+polarizability; solving the problem with a vector potential instead provides a lower
+bound [31]. Integral equation solvers such as the method of moments (MoM) are
+sometimes preferred, particularly due to their eciency in model problems involving
+only metal structures and no materials.
+The static problem (3.5) possesses some variational properties, which can be used
+to show that the polarizability dyadic is monotone in ϵ in the respect that if ϵ is
+increased anywhere in Ω×[−d, 0], then the quadratic form ˆe·γe·ˆe (simply referred to
+as the polarizability throughout this paper) does not decrease [15, 31]. The magnetic
+polarizability dyadic, γm, is dened analogously, by substituting (E,ϵ)→ (H,µ).
+The high-frequency asymptotic is h(k) =O(1) as k ˆ→∞, where ˆ→ denotes limits
+taken inside the upper half complex plane. This follows from passivity |T (k)|≤ 1
+and hence |h(k)|≤ 4A for all k.
+4 Forward scattering sum rules
+Sum rules are equations stating that the sum or integral of a certain quantity has a
+given value. In particular, a large variety of sum rules can be derived for Herglotz
+functions [1], where typically the integrand is the imaginary part of the Herglotz
+function weighted by some function of frequency k, and the integral is related to
+the low- and high frequency expansions of the function. In the present case where
+the Herglotz function is given by the extinction cross section (3.1), the asymptotic
+expansions are
+h(k)∼
+{
+kγ as k ˆ→0
+O(1) as k ˆ→∞ (4.1)
+and the relevant sum rule is [1]
+2
+π
+∫ ∞
+0
+σext(k; ˆk, ˆe)
+k2 dk = ˆe·γe· ˆe + (ˆk× ˆe)·γm· (ˆk× ˆe), (4.2)
+
+=== PDF PAGE 10 ===
+6
+)c)b)a
+`y
+`x`x
+Figure 2 : Scattering geometries. a) periodic in two directions. b) periodic in one
+direction. c) single object.
+where σext = Imh is used. It is convenient to rewrite the sum rule in the wavelength
+variable, λ = 2π/k, that transforms (4.2) into
+1
+π2
+∫ ∞
+0
+σext(λ; ˆk, ˆe) dλ = ˆe·γe· ˆe + (ˆk× ˆe)·γm· (ˆk× ˆe), (4.3)
+where the symbol σext(k; ˆk, ˆe) is reused as the extinction cross section as a function
+of the wavelength. We observe that (4.2) is identical to the forward scattering sum
+rule with σext being the extinction cross section for an object in free space [6, 34].
+The identity (4.3) is bounded to derive a physical limitation on the product between
+the bandwidth and extinction cross section
+λ2−λ1
+π2 min
+λ∈[λ1,λ2]
+σext(λ)≤ ˆe·γe· ˆe + (ˆk× ˆe)·γm· (ˆk× ˆe). (4.4)
+The sum rule is valid for arbitrary periodic structures that do not support cur-
+rents in the static limit and is composed by linear and passive materials. In the
+following, we show that the forward scattering sum rule [6, 34] for isolated objects is
+obtained by extending the unit cell in two directions, i.e. , by letting ℓx =ℓy→∞ ,
+see Fig. 2c. We also obtain an intermediate sum rule for two-dimensional objects
+and for objects that are periodic in one direction, see Fig. 2b.
+As ℓx = ℓy = ℓ→∞ , the low-frequency limit is obtained by replacing Ω with
+R2 in (3.4) and (3.5) and observing that the potential ϕ(r) vanish as |r|→∞ . The
+decay of the potential follows from the expression of the potential as a sum over the
+induced dipole moments, i.e. ,
+ϕ(r) =
+∞∑
+m=−∞
+∞∑
+n=−∞
+r−rmn
+4π|r−rmn|3·γe·E0 (4.5)
+where rmn =mℓxˆx+nℓyˆy+ζˆz. Note, that the monopole term vanishes as the objects
+are uncharged. The sum is convergent for r̸=rmn and it shows that the potential
+
+=== PDF PAGE 11 ===
+7
+between the objects decay, e.g. , for r =r11/2, to zero as ℓ→∞ . The polarizability
+dyadic γe approximates hence the free space polarizability dyadic [17, 34] as ℓ→∞ .
+The entire periodic structure contributes to the scattered eld for a nite unit
+cell. However, the contributions from the neighboring objects decrease as ℓ →
+∞. The integral representation (3.2) is used to express h in the elds behind the
+structure as
+h(k)→h3(k) =−i
+E0
+∫
+R2
+ˆe·E(s)(k;x,y, 0) +η0(ˆz× ˆe)·H(s)(k;x,y, 0) dx dy (4.6)
+in the limit ℓ→∞ . The right-hand side of (4.6) is recognized as the surface integral
+representation of the electromagnetic eld expressing the far eld in the scattered
+eld on the surface z = 0, i.e. , h3(k) = 4π limz→∞ze−ikzˆe·E(s)(k,z ˆz)/(kE0), see [6].
+This shows that Imh3(k) =σext(k), where σext denotes the extinction cross section
+for an object in free space. This forward scattering sum rule has been extensively
+veried [6, 34, 35] and is useful in the analysis of small antennas [8, 9].
+The case with ℓy →∞ corresponds to a situation with periodicity in the x-
+direction, see Fig. 2b. This scattering conguration is found in scattering of elon-
+gated objects that can be approximated by two dimensional scattering. Following
+the analysis above, we let ℓy→∞ in (3.2), to get the Herglotz function
+h(k) = i2ℓxℓy
+(
+1−T (k)
+)
+→h2(k)ℓx
+=−i
+E0
+∫
+R
+∫ ℓx/2
+−ℓx/2
+ˆe·E(s)(k;x,y, 0) +η0(ˆz× ˆe)·H(s)(k;x,y, 0) dx dy (4.7)
+After dividing with ℓx, we recognize the rst term in the right-hand side of (4.7)
+as the mean electric eld on the line described by z = 0 and −∞ < y <∞, and
+correspondingly for the magnetic eld. The right hand side is then seen to be the
+line integral representation of the electromagnetic eld expressing the 2D far eld in
+the scattered eld at z = 0, i.e. , h2(k) = limz→∞(i8πkz)1/2e−ikzˆe·E(s)(k,z ˆz)/(kE0),
+see [2, p. 6] and [29, p. 207]. This shows that Imh2(k) = σext,2D(k), where σext,2D
+denotes the extinction cross section per unit length of an innite cylindrical object.
+5 Examples
+We demonstrate the sum rule (4.3) in four applications: transmission through di-
+electric slabs, arrays of lossy split ring resonators, perfectly conducting split ring
+resonators on a dielectric substrate, and a resonant cylinder structure.
+5.1 Dielectric slabs
+The transmission and reection coecients of a homogeneous isotropic slab with
+thickness d are
+T = (1−r2
+0)ei(n−1)kd
+1−r2
+0e2inkd and R =r0
+1− e2inkd
+1−r2
+0e2inkd, (5.1)
+
+=== PDF PAGE 12 ===
+8
+02468 1 0
+0
+1
+2
+3
+4
+02468 1 0
+0
+1
+2
+3
+4
+¾(¸)/A
+¾    ext
+¾    s
+¾    a
+¸/d
+¾(¸)/A
+¸/d
+¾    ext
+¾    s
+¾    a
+b)a)
+E (i)
+E (t)
+E (r) ²
+d
+E (i)
+E (t)
+E (r) ²
+d
+Figure 3 : Simulated values for the absorption σa, scattering σs, and extinction σext
+cross sections of dielectric slabs with the Lorentz models ϵr(k) = 1 + 1/(1− i0.1k−
+0.2k2) and ϵr(k) = 2 + 1/(1− i0.1k− 0.2k2) in a) and b), respectively.
+respectively, where n =√ϵrµr is the refractive index, r0 = (1−ηr)/(1 +ηr), and
+ηr =
+√
+µr/ϵr is the relative impedance. The generalized scattering, absorption, and
+extinction cross sections are σs = A(|R|2 +|1−T|2), σa = A(1−|R|2−|T|2), and
+σext = 2A Re{1−T}, respectively, see also the optical theorem (2.6).
+Consider a dielectric slab with thickness d = 1 and the permittivity modeled by
+the Lorentz model ϵr(k) = ϵ∞ + (ϵs−ϵ∞)/(1− 0.1ik− 0.2k2), where d and k are
+dimensionless quantities. The absorption, scattering, and extinction cross sections
+are depicted in Fig. 3 for {ϵ∞ = 1,ϵ s = 2} and {ϵ∞ = 2,ϵ s = 3}. The left hand sides
+of the sum rule (4.3) are determined numerically to A and 2A. This agrees with the
+polarizability (ϵs− 1)dA and conrms the sum rule (4.3). Note the oscillations at
+low λ/d for the case {ϵ∞ = 2,ϵ s = 3}, corresponding to the positive insertion delay
+with respect to the background in the high-frequency limit for this case.
+An experimental demonstration is obtained as follows. Transmission is measured
+from 20 MHz to 20 GHz using an Agilent E8363B network analyzer and a coaxial x-
+ture with length 50.81 mm, and inner and outer diameters of 3.05 mm and 6.97 mm,
+respectively. Two material samples lling the cross section are used, having lengths
+d1 = 9.11 mm and d2 = 8.94 mm, and relative permittivities ϵ1r≈ 2.1 + 0.01i and
+ϵ2r≈ 2.7 + 0.02i almost constant throughout the band, respectively. The transmis-
+sion coecient T is calculated as the insertion loss S21 for the xture with a sample
+present normalized by the insertion loss for the empty xture, T =S(sample)
+21 /S(empty)
+21 .
+Two dierent congurations are investigated: 1) with the two dielectric sam-
+ples adjacent to each other, and 2) separated by a distance of 8.77 mm. These two
+congurations are chosen since they have the same static polarizability per unit
+area, γ/A = (ϵ1r− 1)d1 + (ϵ2r− 1)d2, but dierent frequency dependence due to
+their dierent geometric structure. The polarizability for each case is calculated
+from measurement data by determining the eective permittivity for the two con-
+gurations using the Nicolson-Ross-Weir algorithm [23, 38] at 20 MHz, and using
+γ = (Re(ϵeﬀ)− 1)Ad.
+
+=== PDF PAGE 13 ===
+9
+0 2 4 6 8 10
+0
+1
+2
+3
+4
+Samples together
+Samples separate
+¸/d
+¾ext(¸)/A
+Figure 4 : Measured values (solid curves) and simulated values (dashed curves) of
+extinction cross sections for two dierent congurations of layered slabs. The length
+d = 26.82 mm is chosen as the total length of conguration 2, i.e. , where the two
+dielectric slabs are separated by air. The theoretical curves are computed using
+lossless slabs with ϵ1r = 2.1 and ϵ2r = 2.7.
+The resulting extinction cross sections are depicted in Figure 4, where the mea-
+sured polarizabilities are γ1 = 3.14 cm3 and γ2 = 3.13 cm3 for the two congurations,
+respectively. The left hand side of (4.3) is estimated to 2.98 cm3 and 2.94 cm3 re-
+spectively for two cases, which shows that the right hand side and the left hand side
+of (4.3) are essentially the same for the two cases.
+5.2 Array of lossy split ring resonators
+Consider a quadratic split ring resonator (SRR) with unit cell length ℓ = 2.5 mm.
+The design of the microstructure is similar to the split ring resonators discussed
+in [32]. The line width and distances in the SRR are ℓ/10, see also [12] and Sec. 5.3.
+The SRRs are modeled as a resistive sheet having sheet resistance Rs = 1/(ςd0) =
+1 Ω, where ς and d0 denote the bulk conductivity and thickness of the SRR [37]. The
+supporting dielectric structure is d = 0.3 mm thick and has the relative permittivity
+ϵr = 2.
+The transmission and reection coecients are simulated using CST Microwave
+Studio for 0.1 GHz≤ f≤ 200 GHz. The absorption, σa, and scattering, σs, cross
+sections are determined from the transmission and reection coecients in analogy
+with (2.3) and (2.4), see Fig. 5. The extinction cross section is determined both as
+the sum σext =σa +σs and from the optical theorem (2.6), see Fig. 5.
+The integrated extinction (4.3) is determined to 1.6ℓ3, which is close to the low-
+frequency limit σext(k)/k ≈ 1.7ℓ3 for k ≈ 0 and the polarizability γ ≈ 1.7ℓ3 as
+determined using Comsol multiphysics, see also [12].
+
+=== PDF PAGE 14 ===
+10
+¾(¸)/`2
+¾    ext
+¾    s
+¾    a
+¸/`
+d=0.12`
+` ` 1Ω
+² =2r
+e^
+0 5 10 15 20
+0
+0.5
+1
+1.5
+2
+Figure 5 : Simulated values for the absorption σa, scattering σs, and extinction σext
+cross sections of an array of 1 Ω split ring resonators on a dielectric slab with ϵr = 2
+using CST.
+5.3 Array of split ring resonators on a FR4 substrate
+A nite periodic array of split ring resonators composed of 240× 240 split ring res-
+onators etched in 18µm thick copper and supported by a 0.6× 0.6 m2 and 0.3 mm
+thick dielectric substrate is used, see Fig. 6b. The experimental setup consists of
+a pair of wideband ridged horn antennas facing each other at a distance of 0.70 m
+with the sample placed at the midpoint, see also [12]. The sample measurement is
+divided into two frequency intervals motivated by the necessity to use two dier-
+ent antenna pairs for the frequency bands [1, 22] GHz and [16, 40] GHz. The sample
+measurement is normalized with a free space measurement and the resulting trans-
+mission coecient is gated with a 2.3 ns window in the time domain. The size of
+the window is chosen to minimize the inuence of the background, and it reduces
+the useful frequency range to [2.5, 38] GHz.
+The transmission coecient is also determined numerically using the nite ele-
+ment solver in CST Microwave Studio for the horizontal and vertical polarizations.
+Since the sheet resistance of the copper layer is very low, Rs = 1/(ςd)≈ 1 mΩ, the
+copper is modeled as an innitely thin perfect electric conductor, and the dielectric
+substrate is modeled with an isotropic temporally dispersive relative permittivity
+decreasing from 4.45 at 0.1 GHz to 4.30 at 10 GHz. The overall loss factor is 0.02
+according to the technical data sheet from the manufacturer. Fig. 6a depicts the real
+and imaginary parts of h = i2A(1−T ), and the results from numerical simulations
+are in good agreement with the measured values.
+The polarizability per unit area, ˆe·γe·ˆe/A, is estimated by solving (3.4) and (3.5)
+using the nite element solver from Comsol Multiphysics, where the static relative
+permittivity ϵr = 4.35 is used. The result is ˆe·γe· ˆe/A = 7.2 mm and ˆe·γe·
+ˆe/A = 7.1 mm for the horizontal and vertical polarizations, respectively, see [12].
+By numerically integrating the curves in Fig. 6, this integral is estimated to 6.3 mm
+and 6.0 mm for the horizontal and vertical polarizations, respectively. These values
+
+=== PDF PAGE 15 ===
+11
+5 1 01 52 02 53 03 54 0
+−1
+−0.5
+0
+0.5
+1
+1.5
+2
+h/A
+f/GHz
+ReRe
+Im
+Im
+e^ e^
+e^e^
+2.50 mm
+2.22 mm
+1.74 mm
+0.27mm
+0.75mm
+1.20 mm
+Copper
+Copper
+Dielectric substrate
+b)a)
+Figure 6 : a) Measured values (solid curves) and simulated values (dashed curves)
+for the forward scattering of an array of split ring resonators on a FR4 substrate. b)
+Geometry of the split ring resonators on a 0.3mm thick FR4 substrate with ϵr = 4.35.
+are comparable with the right-hand side of (4.3) normalized by the cross section
+area of the unit cell. From (4.3) the slope of the real part at low frequencies is the
+static polarizability.
+5.4 Resonant cylinder structure in a parallel plate waveguide
+The forward scattering is determined for a set of SRRs on a cylindrical structure in
+a parallel plate waveguide [18]. The cylindrical structure is constructed by rolling
+up a 21.3× 63.9 mm2 and 0.51 mm thick Arlon CLTE-XT sheet with 4× 12 split
+ring resonators around an expanded polystyrene cylinder. The SRRs are etched in
+18µm thick copper as in Fig. 6b, but here with a unit cell length of ℓ = 5.32 mm (the
+line width and distances are ℓ/10) giving a resonance frequency around f = 5 GHz.
+The outer radius of the cylinder is 10.2 mm. The experimental setup consists of a
+pair of TEM horn antennas facing each other at a distance 0.98 m with the sample
+placed in the center of the waveguide [18]. The sample measurement is normalized
+with a free space measurement [18]. The uctuations at low frequencies in Fig. 7 are
+due to noise and interferences introduced in the measurement setup [18]. It is also
+noted that the setup is too small to use the time gating as used in the free space
+measurements in Fig. 6.
+The forward scattered eld is also determined numerically using the nite element
+solver in CST Microwave Studio as in Sec. 5.3 with the Arlon substrate modeled by
+the relative permittivity ϵr = 2.94 and loss tangent 0.0025. The boundary conditions
+are modeled with periodic boundaries at the top and bottom of the cylinder and open
+boundaries for the other directions. It is observed that the numerical results resemble
+the measured values, see Fig. 7. The right hand side of (4.3) from simulations is
+calculated to 17.8 cm3 which is the slope of the real part of the h function at low
+frequencies and the left hand side is estimated to 13 cm3 over the frequency range
+
+=== PDF PAGE 16 ===
+12
+0 2 4 6 8 10
+0
+5
+10
+15
+20
+25
+30
+Im
+Re
+h/cm2
+f/GHz
+ 
+20.4 mm
+21.3 mm 
+Figure 7 : Measured values (solid curves) and simulated values (dashed curves) for
+the forward scattering of a resonant structure on an ARLON CLTE-XT substrate
+supported by an expanded polystyrene cylinder.
+f = [1− 10] GHz. The measurement is noisy at low frequencies and not reliable
+to calculate the integral value in (4.3). Therefore the left hand side of sum rule
+is integrated from 2 GHz to 20 GHz and this value is estimated to 13.8 cm3. The
+measured values follow the simulated values and the areas under the σext = Imh
+curves are almost the same. The dierence between the resonance frequencies is
+probably due to errors in the material modeling.
+5.5 Periodicity in one direction
+The one-dimensional periodic case in Fig. 2b and its corresponding sum rule is
+illustrated with the scattering of square PEC patches. The square patches have
+side lengths ℓ and are repeated periodically in the ˆx-direction with inter-element
+distances ℓx = nℓ, for n = 2, 5, 10, 20. An in house method of moments (MoM)
+code is used to compute the forward scattering (4.7) for the incident wave E(i)(r) =
+ˆeE0eikz, see also App. A. The resulting extinction cross sections for the polarizations
+ˆe = ˆx and ˆe = ˆy are depicted in Fig. 8. The extinction cross sections σext,n for the
+periodic structures ( n = 2, 5, 10, 20) are compared with the extinction cross section
+for a single square patch ( n =∞).
+The curves for n = 10, 20,∞ are indistinguishable for the copolarized case, ˆe =
+ˆx, depicted in Fig. 8a illustrating that σext,n approaches σext,∞ fast as n increases.
+This fast convergence follows from the weak mutual coupling due to the null of the
+scattering pattern from the patches in the ˆe = ˆx-direction. It is also observed that
+σext≈ 2ℓ2 for short wavelength in agreement with the extinction paradox [26].
+The convergence is much slower for the cross polarized case ˆe = ˆy as depicted
+in Fig. 8b, where interference patterns are seen for inter-element distances equal to
+an integer number of wavelengths, i.e. , nℓ = mλ, m = 1, 2,... . This is similar to
+Wood's anomaly [13] and can be explained by the logarithmic singularity in the one
+dimensional periodic Green's function, see App. A. However, the inuence of the
+
+=== PDF PAGE 17 ===
+13
+0 1 2 3 4 5 6
+0
+1
+2
+3
+4
+5
+6
+¾   /`ext
+¸/`
+2
+2 5
+1
+10
+20
+`
+`
+n`
+e
+n=2
+n=5
+n=10
+n=20
+n=1
+0 1 2 3 4 5 6
+0
+1
+2
+3
+4
+¾   /`ext
+¸/`
+2
+2
+5
+10,20,1
+`
+`
+n`
+e
+n=2
+n=5
+n=10
+n=20
+n=1
+a) b)
+^ ^
+^
+x^
+y
+^z
+^
+x^
+y
+^z
+Figure 8 : Extinction cross section for one dimensional repetitions of square PEC
+patches with side lengths ℓ and inter-element distances nℓ for n = 2, 5, 10, 20. The
+incident eld is E(i) =E0ˆeeikz with λ = 2π/k. a) polarization ˆe = ˆx. b) polarization
+ˆe = ˆy.
+singularities decay with the inter-element distance, ℓx =nℓ, due to the division with
+ℓx in (A.2) and therefore σext,n approaches σext,∞ as n→∞ .
+The sum rule (4.3) is veried using MoM calculations for the electric polarizabil-
+ity dyadic giving γe≈ (1.08ˆxˆx + 1.00ˆyˆy)ℓ3 for n = 2, γe≈ (1.03ˆxˆx + 1.02ˆyˆy)ℓ3
+for n = 5, and γe≈ (1.03ˆxˆx + 1.03ˆyˆy)ℓ3 for n = 10, 20. There is no contribution
+from the magnetic polarizability dyadic in the ˆz direction. Numerical integrations
+of the left-hand side of the sum rule (4.3) over the nite range λ/ℓ∈ [0.2, 30] give
+approximately 97% of the corresponding right-hand side.
+6 Conclusions
+We have presented an optical theorem for an arbitrary structure being periodic in
+a plane, which relates the extinction cross section per unit cell to the co-polarized
+transmission coecient. For low pass structures this is used to derive a sum rule,
+which restricts the integral of the extinction cross section over all wavelengths by
+the static polarizability per unit cell. Sum rules for scatterers bounded in three and
+two dimensions (cylinders) are obtained as limits when the unit cell is taken to be
+very large in both or one directions, respectively. The theoretical results are shown
+to be in good agreement with numerical and experimental tests.
+Acknowledgments
+This work was supported in part by Swedish Research Council (VR) and the Swedish
+Foundation for Strategic Research (SSF).
+
+=== PDF PAGE 18 ===
+14
+Appendix A One dimensional periodic Green's func-
+tions
+The free-space Green's function is G = eikR/(4πR), where R denotes the distance
+between the source and observation point. Consider a one-dimensional periodic array
+in the ˆx-direction with inter-element distance ℓx. Here, we sum over all distances
+Rn = ((x−x′−nℓx)2 + (y−y′)2 + (z−z′)2)1/2 for integers n. The distance is
+asymptotically Rn∼|x−x′−nℓx| and R−1
+n ∼ 1/(|n|ℓx) as |n|→∞ . Use that
+∞∑
+n=1
+eik(nℓx+x′−x)
+nℓx
+=−e−ik(x−x′)
+ℓx
+ln(1− eikℓx) (A.1)
+to rewrite the periodic Green's function as
+G = eikR0
+4πR0
+− 2cos (k(x−x′))
+4πℓx
+ln(1− eikℓx) +
+∑
+n̸=0
+( eikRn
+4πRn
+− eik|x−x′−nℓx|
+4π|n|ℓx
+)
+, (A.2)
+where the logarithmic singularities for kℓx = m2π or equivalently ℓx = mλ, m =
+1, 2,.. are observed.
+References
+[1] A. Bernland, A. Luger, and M. Gustafsson. Sum rules and constraints on
+passive systems. J. Phys. A: Math. Theor. , 44 (14), 145205, 2011.
+[2] J. J. Bowman, T. B. A. Senior, and P. L. E. Uslenghi. Electromagnetic and
+Acoustic Scattering by Simple Shapes . North-Holland, Amsterdam, 1969.
+[3] F. Capolino, editor. Theory and Phenomena of Metamaterials . CRC Press,
+2009.
+[4] R. M. Fano. Theoretical limitations on the broadband matching of arbitrary
+impedances. Journal of the Franklin Institute , 249 (1,2), 5783 and 139154,
+1950.
+[5] M. Gustafsson. Sum rules for lossless antennas. IET Microwaves, Antennas &
+Propagation , 4 (4), 501511, 2010.
+[6] M. Gustafsson. Time-domain approach to the forward scattering sum rule.
+Proc. R. Soc. A , 466 , 35793592, 2010.
+[7] M. Gustafsson, M. Cismasu, and S. Nordebo. Absorption eciency and phys-
+ical bounds on antennas. International Journal of Antennas and Propagation ,
+(Article ID 946746), 17, 2010.
+[8] M. Gustafsson, C. Sohl, and G. Kristensson. Physical limitations on antennas
+of arbitrary shape. Proc. R. Soc. A , 463 , 25892607, 2007.
+
+=== PDF PAGE 19 ===
+15
+[9] M. Gustafsson, C. Sohl, and G. Kristensson. Illustrations of new physical
+bounds on linearly polarized antennas. IEEE Trans. Antennas Propagat. ,
+57 (5), 13191327, May 2009.
+[10] M. Gustafsson. Sum rule for the transmission cross section of apertures in thin
+opaque screens. Opt. Lett. , 34 (13), 20032005, 2009.
+[11] M. Gustafsson and D. Sjöberg. Physical bounds and sum rules for high-
+impedance surfaces. IEEE Trans. Antennas Propagat. , 59 (6), 21962204, 2011.
+[12] M. Gustafsson, C. Sohl, C. Larsson, and D. Sjöberg. Physical bounds on the
+all-spectrum transmission through periodic arrays. EPL Europhysics Letters ,
+87 (3), 34002 (6pp), 2009.
+[13] A. Hessel and A. A. Oliner. A new theory of Wood's anomalies on optical
+gratings. Applied Optics , 4 (10), 12751297, 1965.
+[14] J. D. Jackson. Classical Electrodynamics . John Wiley & Sons, New York, third
+edition, 1999.
+[15] D. S. Jones. Scattering by inhomogeneous dielectric particles. Quart. J. Mech.
+Appl. Math. , 38 , 135155, 1985.
+[16] A. Karlsson. On the time domain version of the optical theorem. Am. J. Phys ,
+68 (4), 344349, 2000.
+[17] R. E. Kleinman and T. B. A. Senior. Rayleigh scattering. In V. V. Varadan
+and V. K. Varadan, editors, Low and high frequency asymptotics , volume 2 of
+Handbook on Acoustic, Electromagnetic and Elastic Wave Scattering , chapter 1,
+pages 170. Elsevier Science Publishers, Amsterdam, 1986.
+[18] C. Larsson, S. E. Bayer, M. Gustafsson, G. Kristensson, D. Sjöberg, C. Sohl,
+and I. Vakili. Scattering measurements in a parallel plate waveguide  rst
+results. In Proceedings of the XXXth URSI General Assembly , page B06.6,
+2011.
+[19] D. Lytle, P. Carney, J. Schotland, and E. Wolf. Generalized optical theorem
+for reection, transmission, and extinction of power for electromagnetic elds.
+Phys. Rev. E , 71 (5), 056610, 2005.
+[20] E. A. Marengo. A new theory of the generalized optical cross-section theorem
+for electromagnetic elds. In Antennas and Propagation Society International
+Symposium, 2009. APSURSI'09. IEEE , pages 14. IEEE.
+[21] B. Munk. Frequency Selective Surfaces: Theory and Design . John Wiley &
+Sons, New York, 2000.
+[22] R. Newton. Optical theorem and beyond. Am. J. Phys , 44 , 639642, 1976.
+
+=== PDF PAGE 20 ===
+16
+[23] A. M. Nicolson and G. F. Ross. Measurement of the intrinsic properties of
+materials by time-domain techniques. IEEE Trans. Instrumentation and Mea-
+surement , 19 , 377382, 1970.
+[24] A. Nosich. Radiation conditions, limiting absorption principle, and general
+relations in open waveguide scattering. Journal of electromagnetic waves and
+applications , 8 (3), 329353, 1994.
+[25] H. M. Nussenzveig. Causality and dispersion relations . Academic Press, Lon-
+don, 1972.
+[26] R. E. Peierls. Surprises in Theoretical Physics . Princeton University Press,
+1979.
+[27] E. M. Purcell. On the absorption and emission of light by interstellar grains.
+J. Astrophys. , 158 , 433440, 1969.
+[28] K. N. Rozanov. Ultimate thickness to bandwidth ratio of radar absorbers.
+IEEE Trans. Antennas Propagat. , 48 (8), 12301234, August 2000.
+[29] G. T. Ruck, D. E. Barrick, W. D. Stuart, and C. K. Krichbaum. Radar Cross-
+Section Handbook , volume 1 and 2. Plenum Press, New York, 1970.
+[30] D. Sjöberg. Low frequency scattering by passive periodic structures for oblique
+incidence: low pass case. J. Phys. A: Math. Theor. , 42 , 385402, 2009.
+[31] D. Sjöberg. Variational principles for the static electric and magnetic polar-
+izabilities of anisotropic media with perfect electric conductor inclusions. J.
+Phys. A: Math. Theor. , 42 , 335403, 2009.
+[32] D. R. Smith, S. Schultz, P. Markos, and C. M. Soukoulis. Determination of
+eective permittivity and permeability of metamaterials from reection and
+transmission coecients. Phys. Rev. B , 65 , 195104195108, 2002.
+[33] C. Sohl and M. Gustafsson. A priori estimates on the partial realized gain of
+Ultra-Wideband (UWB) antennas. Quart. J. Mech. Appl. Math. , 61 (3), 415
+430, 2008.
+[34] C. Sohl, M. Gustafsson, and G. Kristensson. Physical limitations on broadband
+scattering by heterogeneous obstacles. J. Phys. A: Math. Theor. , 40 , 11165
+11182, 2007.
+[35] C. Sohl, C. Larsson, M. Gustafsson, and G. Kristensson. A scattering and
+absorption identity for metamaterials: experimental results and comparison
+with theory. J. Appl. Phys. , 103 (5), 054906, 2008.
+[36] J. W. Strutt. On the light from the sky, its polarization and colour. Phil.
+Mag. , 41 , 107120 and 274279, April 1871. Also published in Lord Rayleigh,
+Scientic Papers, volume I, Cambridge University Press, Cambridge, 1899.
+
+=== PDF PAGE 21 ===
+17
+[37] J. van Bladel. Electromagnetic Fields . IEEE Press, Piscataway, NJ, second
+edition, 2007.
+[38] W. B. Weir. Automatic measurement of complex dielectric constant and per-
+meability at microwave frequencies. Proc. IEEE , 62 , 3336, 1974.
+[39] H. Xu, D. Huber, and E. Heller. Cross section and optical theorem for defects
+on a corrugated surface. The Journal of chemical physics , 89 , 2550, 1988.
+[40] F. Yang and Y. Rahmat-Samii. Electromagnetic band gap structures in antenna
+engineering . Cambridge University Press, 2009.

@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OQ7 Paper 1 - supplement index</title>
+  <style>
+    :root { color-scheme: light; }
+    body { max-width: 980px; margin: 0 auto; padding: 2rem 1.2rem 3rem; color: #172536; background: #fafbfc; font: 17px/1.6 system-ui, sans-serif; }
+    h1 { font-size: 2rem; line-height: 1.2; margin-bottom: .5rem; }
+    h2 { font-size: 1.4rem; margin-top: 2.2rem; border-bottom: 1px solid #cbd4df; padding-bottom: .3rem; }
+    h3 { font-size: 1.1rem; }
+    a { color: #064e9b; text-underline-offset: .15em; }
+    a:focus-visible { outline: 3px solid #d48d00; outline-offset: 3px; }
+    nav { display: flex; flex-wrap: wrap; gap: .6rem 1.4rem; padding: .8rem 0; }
+    .status { background: #edf3f9; border-left: 4px solid #3c648c; padding: .8rem 1rem; }
+    code { font-size: .88em; overflow-wrap: anywhere; }
+    pre { background: #edf0f4; padding: 1rem; overflow-x: auto; font-size: .9rem; line-height: 1.5; }
+    pre code { overflow-wrap: normal; }
+    .table-wrap { overflow-x: auto; }
+    table { border-collapse: collapse; width: 100%; font-size: .95rem; }
+    th, td { text-align: left; vertical-align: top; padding: .65rem; border-bottom: 1px solid #d8dfe7; }
+    th { background: #edf0f4; }
+    li { margin-bottom: .4rem; }
+    footer { margin-top: 2.3rem; font-size: .9rem; color: #465366; }
+    @media print { body { max-width: none; background: white; font-size: 11pt; padding: 0; } h2 { break-after: avoid; } tr, li { break-inside: avoid; } a { color: inherit; } pre { white-space: pre-wrap; } }
+  </style>
+</head>
+<body>
+<header>
+  <h1>OQ7 Paper 1: supplement index</h1>
+  <p>Unit Absorption Asymmetry at Prescribed Extinction for Compact Reciprocal Dielectrics</p>
+  <p class="status"><strong>Local review package, 12 October 2026.</strong> These files accompany the review manuscript. No public archival URL is specified. This index supplies access within the package and checking instructions; it does not certify publication readiness, scientific priority, or independent human review.</p>
+  <nav aria-label="Supplement navigation">
+    <a href="#s1">S1 Correspondence</a><a href="#s2">S2 Frozen source</a><a href="#s3">S3 Verification</a><a href="#s4">S4 Audit provenance</a><a href="#reproduce">Checking instructions</a>
+  </nav>
+  <p><a href="../paper.pdf">Manuscript PDF</a> &middot; <a href="../paper.html">Manuscript HTML</a> &middot; <a href="../main.tex">Authoritative LaTeX</a></p>
+</header>
+<main>
+<section id="s1" aria-labelledby="s1-title">
+  <h2 id="s1-title">S1. Theorem correspondence</h2>
+  <p><a href="../theorem-correspondence.html">Readable theorem correspondence table</a> and <a href="../theorem-correspondence.csv">CSV table</a> map manuscript statements to frozen Lean declarations and distinguish direct statements, consequences, ordinary exposition, and differently organized proofs.</p>
+  <p>The principal declaration is <code>OQ7Prescribed.theorem11_complete : OQ7Prescribed.PhysicalTheorem11Statement</code>, at <code>PrescribedExtinction/PhysicalTheorem11.lean:31</code> in S2. It includes the existence core, both prescribed-extinction suprema, the stated two-layer class's weak Maxwell well-posedness almost everywhere, physical optical identities, reciprocity, universal bounds, and strict nonattainment. It is not a formal theorem over every compact geometry.</p>
+  <ul>
+    <li><a href="../review/CorrespondenceCheck.lean">Correspondence declaration checks</a> and <a href="../review/correspondence-lean-check.log">their recorded output</a>.</li>
+    <li><a href="../review/PublicationCheck.lean">Principal publication declaration checks</a> and <a href="../review/publication-lean-check.log">their recorded output</a>.</li>
+  </ul>
+</section>
+<section id="s2" aria-labelledby="s2-title">
+  <h2 id="s2-title">S2. Frozen Lean source and Git history</h2>
+  <p>Frozen commit: <code>686402a6c2d63820828729cc7ab02504632e3fe7</code>. The accompanying <a href="manifest.json">frozen manifest</a> and <a href="copy-manifest.json">copy manifest</a> identify the supplied artifacts.</p>
+  <div class="table-wrap"><table>
+    <caption>Frozen source artifacts and recorded SHA-256 digests</caption>
+    <thead><tr><th scope="col">Artifact</th><th scope="col">SHA-256</th></tr></thead>
+    <tbody>
+      <tr><td><a href="OQ7-complete-physical-theorem11-source.zip">Frozen source ZIP</a></td><td><code>d141a3ded8c2d9fe520c0c92ef82601f4e1b7ca3a5eb1580d018e33a8f4fd258</code></td></tr>
+      <tr><td><a href="OQ7-complete-physical-theorem11.bundle">Git bundle</a></td><td><code>5a4e3a4623a910ee1f5993bc43b10da38d70125ef4aa74a22653b540b2db8479</code></td></tr>
+    </tbody>
+  </table></div>
+  <p>The ZIP contains source and verification records. Names such as <code>verification/report.json</code> below refer to actual files <em>inside the ZIP after extraction</em>; they are not links to an already extracted directory. Use a new disposable directory for checking.</p>
+  <h3>Toolchain and dependency pins</h3>
+  <p>The ZIP's <code>lean-toolchain</code> pins <strong>Lean 4.34.1</strong>. Its <code>README.md</code> records compiler commit <code>5045d0056413266e57c625dcd7c365b10e377c52</code>. Its <code>sources/pinned-lake-manifest.json</code> is the authority for the following dependency revisions.</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th scope="col">Package</th><th scope="col">Pinned revision</th></tr></thead>
+    <tbody>
+      <tr><td>mathlib</td><td><code>d13f23b723b8a846827a245b89c10fc7d3f11612</code></td></tr>
+      <tr><td>plausible</td><td><code>118aa17ee84656b8bd727fef7c458ee8c833385c</code></td></tr>
+      <tr><td>LeanSearchClient</td><td><code>ddf04cf3949fa556442341e87d47f9f6e6074707</code></td></tr>
+      <tr><td>importGraph</td><td><code>e928b72544873815af278d38681b31c0293588e3</code></td></tr>
+      <tr><td>proofwidgets</td><td><code>106ff4fafc74ef4ac99d81dbf3ab399118f497a5</code></td></tr>
+      <tr><td>aesop</td><td><code>355695d523e41d0554926416cba2a2b3544fbbc9</code></td></tr>
+      <tr><td>Qq</td><td><code>6a489d9af5d0c47e5b259e2e8bcdfc1811b5a259</code></td></tr>
+      <tr><td>batteries</td><td><code>f2effa3d803fda822b1f97b806c47cf2adfbcbc2</code></td></tr>
+      <tr><td>Cli</td><td><code>e92c9f15fdfacc8536f31cfb3b7ad26c3c8cd204</code></td></tr>
+    </tbody>
+  </table></div>
+</section>
+<section id="s3" aria-labelledby="s3-title">
+  <h2 id="s3-title">S3. Kernel, build, and source-identity evidence</h2>
+  <p>The <a href="manifest.json">frozen verification manifest</a>, exported at <code>2026-10-12T07:41:05.5569062Z</code>, reports a clean project build, an exhaustive axiom audit of 5,654 project constants, source-identity checks for 378 certified Lean files, and a successful fresh aggregate replay. The recorded foundations for the final theorem are <code>propext</code>, <code>Classical.choice</code>, and <code>Quot.sound</code>.</p>
+  <p>The complete records are in the <a href="OQ7-complete-physical-theorem11-source.zip">S2 source ZIP</a>:</p>
+  <ul>
+    <li><code>verification/report.json</code>: completed project certificate.</li>
+    <li><code>verification/clean-build.log</code> and <code>verification/complete-physical-theorem11-clean-verification.log</code>: archived clean-build evidence.</li>
+    <li><code>verification/axioms.log</code> and <code>verification/final-complete-theorem.log</code>: axiom and exact final declaration/type output.</li>
+    <li><code>verification/clean-build-source-hashes.json</code>: certified source hashes.</li>
+    <li><code>verification/fresh-kernel-report.json</code>, <code>verification/leanchecker-fresh.log</code>, and <code>verification/complete-physical-theorem11-fresh-kernel-verification.log</code>: full archived fresh-replay evidence.</li>
+    <li><code>verification/milestones/</code>: separate obligation-level declaration, build, and axiom checks.</li>
+  </ul>
+  <p>The fresh replay uses the same Lean kernel implementation, starting from an empty environment. It does not constitute an independently implemented kernel check or a semantic audit of the Maxwell interpretation. A clean project build also does not, by itself, establish that every dependency was rebuilt from source rather than taken from a build cache.</p>
+  <p>Additional publication-package records:</p>
+  <ul>
+    <li><a href="../review/publication-source-check.json">Publication source-identity result</a> and <a href="../review/lean-source-inventory.json">source inventory</a>.</li>
+    <li><a href="../review/publication-lean-check.log">Publication declaration/type output</a> and <a href="../review/correspondence-lean-check.log">correspondence output</a>.</li>
+    <li><a href="../review/publication-fresh-kernel.log">Publication fresh-replay invocation trace</a>. This concise trace is not a replacement for the full archived report and replay log listed above.</li>
+  </ul>
+</section>
+<section id="s4" aria-labelledby="s4-title">
+  <h2 id="s4-title">S4. Audit provenance and historical-source erratum</h2>
+  <p><a href="AUDIT_PROVENANCE.md">Audit provenance and historical-source erratum</a> identifies the located independent AI audit, its older commit, the unavailable named final report, and the completed declarations that supersede stale source comments. The <a href="INDEPENDENT_REVIEW_PROMPT.md">independent-review prompt</a> is a request for a review, not a completed audit.</p>
+  <p>The located baseline audit is <code>verification/claude-independent-audit-5a8350d.md</code> in the S2 ZIP. It covers commit <code>5a8350d5408c38e333c9f6b6d8a94816c794120b</code> and the earlier existence-only declaration. It is not an independent all-PASS audit of the frozen complete commit. The final report named <code>OQ7_Final_Lean_Audit_686402a6.txt</code> has not been located in the review evidence. Its absence from these materials does not prove it does not exist.</p>
+  <p>The frozen manifest records independent semantic review as pending at export. The publication audit and correction work used AI assistance. Kernel checking, AI-assisted semantic review, human scientific review, physical-model assessment, and priority assessment are separate forms of evidence; this package does not claim completed independent human certification.</p>
+</section>
+<section id="reproduce" aria-labelledby="reproduce-title">
+  <h2 id="reproduce-title">Checking the frozen formalization</h2>
+  <p>Requirements: Git (for the bundle route), Python 3, the pinned Lean toolchain with Lake, and the pinned dependency sources/build artifacts. Fetching the toolchain or dependencies may require network access. Preserve the supplied ZIP and bundle; configure and check a disposable extraction or clone.</p>
+  <ol>
+    <li>Verify the two SHA-256 digests against S2 and <a href="copy-manifest.json">the copy manifest</a>. For example, from the publication directory in PowerShell:
+      <pre><code>Get-FileHash -Algorithm SHA256 reproducibility/OQ7-complete-physical-theorem11-source.zip
+Get-FileHash -Algorithm SHA256 reproducibility/OQ7-complete-physical-theorem11.bundle</code></pre>
+    </li>
+    <li>From the publication directory, create a new clone and select the exact commit:
+      <pre><code>git clone reproducibility/OQ7-complete-physical-theorem11.bundle oq7-replay
+cd oq7-replay
+git checkout --detach 686402a6c2d63820828729cc7ab02504632e3fe7</code></pre>
+      Alternatively, extract the source ZIP into a new directory. The ZIP's paths are relative to its root; inspect <code>README.md</code>, <code>lean-toolchain</code>, and <code>sources/pinned-lake-manifest.json</code> there.
+    </li>
+    <li>In that disposable directory, configure portable package paths without upgrading dependency revisions or changing Lean sources:
+      <pre><code>python configure.py
+lake resolve-deps
+lake build OQ7 PrescribedExtinction
+lake env leanchecker --fresh --verbose PrescribedExtinction</code></pre>
+      <code>configure.py</code> rewrites only the build configuration and restores the pinned manifest. Its optional <code>--packages-directory</code> argument accepts an existing clean cache at the exact recorded revisions. For a dependency-from-source audit, separately verify dependency source revisions and rebuild dependency artifacts in the disposable environment; cache reuse is a different procedure.
+    </li>
+    <li>On Windows, the archived scripts also reproduce the documented checks when the pinned Lean <code>bin</code> directory is supplied:
+      <pre><code>./verify.ps1 -LeanBin 'C:/path/to/lean-4.34.1-windows/bin' -Clean -BuildThreads 2
+./verify-milestones.ps1 -LeanBin 'C:/path/to/lean-4.34.1-windows/bin' -Only obligation-1-universal-passivity,outgoing-weak-uniqueness,obligation-3-full-physical-optics,obligation-4-universal-nonattainment,obligation-5-complete-physical-theorem
+./verify-kernel.ps1 -LeanBin 'C:/path/to/lean-4.34.1-windows/bin'</code></pre>
+      These scripts write evidence in the disposable checkout. The project verifier's <code>-Clean</code> option cleans the project; it does not certify a full rebuild of shared dependency caches.
+    </li>
+    <li>For exact publication declaration exports, run <code>lake env lean</code> on the accompanying <a href="../review/PublicationCheck.lean">PublicationCheck.lean</a> and <a href="../review/CorrespondenceCheck.lean">CorrespondenceCheck.lean</a>, using their absolute paths from the configured disposable checkout. Compare the output with S1 and S3. Recheck the 378 certified library-file hashes against <code>verification/clean-build-source-hashes.json</code>; the build-configuration changes are distinct from Lean-source identity.</li>
+  </ol>
+  <p>The ZIP's <code>README.md</code>, <code>configure.py</code>, and verification scripts are the detailed procedural sources. Results of a new run should be retained as new evidence with their own date and environment, without rewriting the frozen records.</p>
+</section>
+</main>
+<footer><p>All document links in this index use relative paths within the accompanying publication review package. The source ZIP's internal paths are listed as extraction instructions. This index introduces no public availability commitment or author declaration.</p></footer>
+</body>
+</html>

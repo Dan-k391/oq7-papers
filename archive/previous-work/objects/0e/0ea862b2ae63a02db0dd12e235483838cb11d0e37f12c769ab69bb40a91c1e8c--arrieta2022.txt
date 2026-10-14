@@ -1,0 +1,1499 @@
+=== PDF PAGE 1 ===
+Windowed Green Function MoM for Second-Kind
+Surface Integral Equation Formulations of Layered
+Media Electromagnetic Scattering Problems
+Rodrigo Arrieta 1 and Carlos Pérez-Arancibia 2
+1Department of Electrical Engineering, PUC Chile ( riarrieta@uc.cl)
+2Department of Applied Mathematics, University of Twente ( c.a.perezarancibia@utwente.nl)
+Abstract—This paper presents a second-kind surface integral
+equation method for the numerical solution of frequency-domain
+electromagnetic scattering problems by locally perturbed layered
+media in three spatial dimensions. Unlike standard approaches,
+the proposed methodology does not involve the use of layer Green
+functions. It instead leverages an indirect Müller formulation in
+terms of free-space Green functions that entails integration over
+the entire unbounded penetrable boundary. The integral equation
+domain is effectively reduced to a small-area surface by means
+of the windowed Green function method, which exhibits high-
+order convergence as the size of the truncated surface increases.
+The resulting (second-kind) windowed integral equation is then
+numerically solved by means of the standard Galerkin method of
+moments (MoM) using RWG basis functions. The methodology
+is validated by comparison with Mie-series and Sommerfeld-
+integral exact solutions as well as against a layer Green function-
+based MoM. Challenging examples including realistic structures
+relevant to the design of plasmonic solar cells and all-dielectric
+metasurfaces, demonstrate the applicability, efﬁciency, and accu-
+racy of the proposed methodology.
+Index Terms—layered media, layer Green function, Sommer-
+feld integrals, method of moments, dielectric cavities, solar cells,
+metasurfaces
+I. I NTRODUCTION
+Problems of electromagnetic (EM) scattering and radiation
+in the presence of planar layered media have played an
+important role in the development of electromagnetics since
+the beginning of the 20th century, when the seminal works
+of Zenneck and Sommerfeld on the propagation of radio
+waves over the surface of the earth appeared [1]. Their
+relevance lies in that in many application areas it is crucial
+to determine the scattering from localized perturbations (e.g.,
+surface roughness, small-size inclusions, meta-atoms) and/or
+the ﬁeld produced by localized sources (e.g., antenna feeds)
+embedded within physically large structures that, away from
+a certain region of interest, can be effectively assumed as
+planar and inﬁnite (e.g., the surface of the earth, silicon
+substrates). This is often the case in numerous problems
+in radio communications [2], remote subsurface sensing [3],
+microwave circuits [4], [5], nano-optical metamaterials [6],
+photonics [7], and plasmonics [8].
+Popular numerical approaches to layered media scattering
+include differential equation-based methods, such as the ﬁnite
+difference [9] and ﬁnite element methods [10], and surface in-
+z
+Ω 1, ǫ 1, µ 1
+Γ
+ˆn
+Σ
+Ω 2, ǫ 2, µ 2
+yx
+(E1, H1)
+(E2, H2)
+(Esrc, Hsrc)
+(Esrc, Hsrc)
+Fig. 1: Illustration of the scattering of a plane electromag-
+netic wave by a locally perturbed penetrable half-space. The
+boundary Γ and the planar surface Σ coincide for (x,y, 0) far
+enough from the bounded local perturbation.
+tegral equation (SIE) methods, such as the method of moments
+(MoM) [11] (also known as the boundary element method)
+and Nyström methods [12]. Unlike differential equation-based
+methods, SIE methods do not suffer from dispersion errors,
+and they can easily handle unbounded domains and radiation
+conditions at inﬁnity without recourse to perfectly matched
+layers or approximate absorbing/transparent boundary condi-
+tions for truncation of the computational domain. Additionally,
+SIE methods rely on discretization of the relevant physical
+boundaries, and they therefore give rise to linear systems
+of reduced dimensionality which, although dense, can be
+efﬁciently solved by means of iterative solvers in conjunction
+with fast algorithms [13].
+In classical layered media SIE formulations [14]–[19], how-
+ever, all these attractive features come at the price of employ-
+ing the dyadic Green function for layered media, also known
+as the layer Green function (LGF), which naturally enforces
+the exact transmission conditions at planar unbounded physical
+boundaries. The use of the LGF poses difﬁculties in view of
+the LGF evaluation cost (there is vast literature on this subject,
+for which we refer the reader to the review articles [20]–[22]).
+Moreover, problems involving localized perturbations (e.g.,
+open cavities and bumps) give rise to additional challenges
+to LGF-SIE formulations, as artiﬁcial/transparent interfaces
+need to be introduced in order to properly represent the ﬁelds
+surrounding the perturbations [23].
+1
+arXiv:2210.02565v1  [math.NA]  15 Aug 2022
+
+=== PDF PAGE 2 ===
+This work presents a fully 3D EM layered-media windowed
+Green function (WGF) method. The WGF method, which was
+originally developed for scalar layered media problems [24]–
+[26] and later extended to waveguides in the frequency and
+time domains [27]–[30], completely bypasses the use of Som-
+merfeld integrals or other problem-speciﬁc Green functions.
+This is here achieved by ﬁrst deriving an indirect Müller
+SIE [31], [32] given in terms of free-space Green functions and
+featuring only weakly-singular kernels, which is posed on the
+entire unbounded penetrable interface (see Secs. III and IV).
+The unbounded SIE domain is then effectively truncated to
+a bounded surface containing the localized perturbations by
+introducing (in the surface integrals) a smooth windowing
+function that effectively acts like a reﬂectionless absorber
+for the surface currents leaving the windowed region (see
+Sec. V). As in the case of the Helmholtz SIEs [26], the
+ﬁeld errors introduced by the windowing approximation decay
+faster than any negative power of the diameter of the truncated
+region. A straightforward (Galerkin) MoM discretization using
+Rao-Wilton-Glisson (RWG) functions is used to discretize
+the resulting windowed SIE (see Sec. VI), although any
+other Maxwell SIE method could be employed. A limitation
+of the proposed approach is that transmission conditions at
+unbounded penetrable interfaces need to be enforced via
+second-kind SIEs such as Müller’s. First-kind SIEs, such as
+the more popular Poggio–Miller–Chang–Harrington–Wu–Tsai
+(PMCHWT) [33]–[35], could be considered provided they
+are converted into equivalent second-kind SIEs by means of
+Calderón preconditioners [36].
+Compared to LGF-SIE formulations, the WGF formulation
+involves additional unknown surface currents on planar por-
+tions of the unbounded dielectric interfaces that eventually lead
+to larger linear systems. In many cases this additional cost is
+compensated by the fact that the associated matrix coefﬁcients
+involve evaluations of the inexpensive free-space Green func-
+tions and that the resulting linear system can be efﬁciently
+solved iteratively by means of GMRES (see Sec. VII-C).
+For problems involving multiple dielectric layers and/or small
+size PEC inclusions, however, LGF formulations that leverage
+the discrete complex images method (DCIM) [37]–[39] for
+the evaluation of the LGF, may well outperform the WGF
+methodology.
+The proposed approach amounts to a ﬂexible and easy-
+to-implement MoM for layered media EM problems, in the
+sense that only minor modiﬁcations to existing electromag-
+netic SIE solvers are needed to deliver the WGF capabilities.
+The method is thoroughly validated (see Sec. VII) against
+the exact Mie series scattering solution for a hemispherical
+bump on a perfectly electrically conducting (PEC) half-space
+(using a windowed MFIE formulation), and also against
+the open-source LGF code [40]. A performance compari-
+son against a LGF-MoM based on the state-of-the-art C++
+library Strata [41] is presented in Sec. VII-C. Finally, the
+proposed methodology is showcased by means of a variety of
+challenging examples including EM scattering by a large open
+cavity (Sec. VII-D), an all-dielectric metasurface (Sec. VII-E),
+and a three-layer plasmonic solar cell (Sec. VII-F).
+II. L AYERED MEDIA SCATTERING
+We consider here the problem of time-harmonic electro-
+magnetic scattering of an incident ﬁeld (Einc, Hinc) by a
+penetrable locally perturbed half-space Ω2, with boundary
+Γ = ∂Ω2, as depicted in Fig. 1. Letting Ω1 = R3\ Ω2, we
+express the total electromagnetic ﬁeld as
+(Etot, Htot) = (Esrc, Hsrc) + (Ej, Hj) in Ωj (1)
+for j = 1, 2. The known auxiliary source ﬁeld (Esrc, Hsrc)
+which is given in terms of the incident ﬁeld(Einc, Hinc) under
+consideration, is constructed so that the ﬁelds (Ej, Hj), j =
+1, 2, satisfy the homogeneous Maxwell equations
+∇× Ej−iωµjHj = 0 and∇× Hj +iωϵjEj = 0 in Ωj (2)
+for j = 1, 2, where ω > 0 is the angular frequency, and ϵj
+and µj are respectively the permittivity and the permeability
+within the subdomain Ωj. (We have assumed here that the
+time dependence of the EM ﬁelds is given by e−iωt.) For
+planewave incidences, for instance, (Esrc, Hsrc) is taken as
+the exact total ﬁeld solution of the problem of scattering of the
+planewave by the ﬂat lower half-space with planar boundary
+Σ ={(x,y, 0)∈ R3} and constants ϵ2 and µ2 (see Fig. 1).
+The rationale for introducing (Esrc, Hsrc) lies in ensuring that
+(Ej, Hj),j = 1, 2, are outgoing waveﬁelds propagating away
+from the localized perturbations or, more precisely, that they
+satisfy the Silver-Müller radiation condition:
+lim
+|r|→∞
+(√µj Hj× r−| r|√ϵj Ej
+)
+= 0 in Ωj, j= 1, 2, (3)
+uniformly in all directions r/|r|. The explicit expressions of
+the source ﬁelds utilized throughout the paper are provided in
+Sec. III below.
+The transmission conditions at the material interfaces,
+meaning that the tangential components of (Etot, Htot) are
+continuous across Γ, lead to the jump conditions
+ˆn×{ E2|−− E1|+} = M src (4a)
+ˆn×{ H2|−− H1|+} = Jsrc (4b)
+on Γ, with
+M src := ˆn×{ Esrc|+− Esrc|−} (5a)
+Jsrc := ˆn×{ Hsrc|+− Hsrc|−} (5b)
+where we have adopted the notation F(r)|± = limδ→0+ F(r±
+δˆn(r)) for r∈ Γ. As usual, the unit normal vector at r∈ Γ is
+denoted as ˆn(r) and is assumed directed from Ω2 to Ω1 (see
+Fig.1). Existence and uniqueness of solutions of the resulting
+EM transmission problem are established in [42].
+III. I NCIDENT AND SOURCE FIELDS
+Two types of incident ﬁelds(Einc, Hinc) and corresponding
+auxiliary source ﬁelds (Esrc, Hsrc) are considered in this
+paper, namely planewaves and electric dipoles.
+Upon impinging on the planar surface Σ at the interface
+between the half spaces D1 ={z >0} and D2 ={z <0}
+2
+
+=== PDF PAGE 3 ===
+with wavenumbers k1 and k2 (kj = ω√µjϵj, for j = 1, 2),
+respectively, the incident planewave
+Einc(r) = (p× k)eik·r and Hinc(r) = 1
+ωµ1
+k× Einc(r) (6)
+with p = (px,py,pz) and k = (0,k 1y,−k1z) where k1z≥ 0
+and |k| =
+√
+k2
+1y +k2
+1z = k1, gives rise to a reﬂected
+ﬁeld (Eref, Href) in D1 and a transmitted ﬁeld (Etrs, Htrs)
+in D2. The resulting x-independent total ﬁeld, given by
+(Einc + Eref, Hinc + Href) in D1 and (Etrs, Htrs) in D2,
+is completely determined by the transverse component of the
+ﬁelds [43]:
+{Einc
+x (r)
+Hincx (r)
+}
+=
+{E0
+H0
+}
+exp(ik1yy−ik1zz)
+{Eref
+x (r)
+Hrefx (r)
+}
+=
+{E0RTE
+H0RTM
+}
+exp(ik1yy +ik1zz)
+{Etrs
+x (r)
+Htrsx (r)
+}
+=
+{E0T TE
+H0T TM
+}
+exp(ik2yy−ik2zz)
+depending on the reﬂection coefﬁcients:
+RTE = µ2k1z−µ1k2z
+µ2k1z +µ1k2z
+, R TM = ϵ2k1z−ϵ1k2z
+ϵ2k1z +ϵ1k2z
+the transmission coefﬁcients:
+T TE = 2µ2k1z
+µ2k1z +µ1k2z
+, T TM = 2ϵ2k1z
+ϵ2k1z +ϵ1k2z
+the amplitudes:
+E0 =−pzk1y−pyk1z, H 0 = k2
+1
+ωµ1
+px
+and the propagation constants k2y = k1y and k2z =√
+k2
+2−k2
+2y with the complex square root deﬁned so that
+Imk2z≥ 0. The EM ﬁeld can be retrieved from the transverse
+components via
+E = Exˆx− 1
+iωϵ
+∂Hx
+∂z ˆy + 1
+iωϵ
+∂Hx
+∂y ˆz
+H = Hxˆx + 1
+iωµ
+∂Ex
+∂z ˆy− 1
+iωµ
+∂Ex
+∂y ˆz.
+With these expressions at hand we deﬁne the auxiliary
+planewave source ﬁeld as
+(Esrc, Hsrc) =
+{
+(Einc, Hinc) + (Eref, Href) in Ω1
+(Etrs, Htrs) in Ω2. (7)
+Since by construction the source ﬁeld (7) satisﬁes the exact
+transmission conditions at Σ, it holds that the current sources
+M src and Jsrc deﬁned in (5) are supported on the (bounded)
+local perturbation Γ\ Σ.
+In the special case when Ω2 is occupied by a PEC, in
+which the boundary condition ˆn× Etot = 0 holds on the
+interface Γ, we have that (Esrc, Hsrc) takes the form (7) with
+(Etrs, Htrs) = ( 0, 0) and (Eref, Href) given in terms of the
+reﬂection coefﬁcients RTE =−RTM =−1.
+Finally, we take
+Hinc = 1
+iωµj
+∇×{ Gj(·, r0)p}, Einc = −1
+iωϵj
+∇× Hinc (8)
+with
+Gj(r, r′) := eikj|r−r′|
+4π|r− r′| (9)
+being the (Helmholtz) free-space Green function, as the in-
+cident ﬁeld produced by an electric dipole at r0∈ Ωj. The
+corresponding source ﬁeld is thus selected as
+(Esrc, Hsrc) =
+{
+(Einc, Hinc) in Ωj
+(0, 0) otherwise (10)
+for j = 1, 2.
+IV. S ECOND -KIND INTEGRAL EQUATION FORMULATION
+In order to approximate the unknown EM ﬁelds (Ej, Hj),
+j = 1, 2, we resort to a second-kind indirect Müller formula-
+tion. We start by introducing the off-surface integral operators
+(Sjϕ)(r) :=
+∫
+Γ
+Gj(r, r′)ϕ(r′) ds′+
+1
+k2
+j
+∇
+∫
+Γ
+Gj(r, r′)∇′
+s· ϕ(r′) ds′
+(11)
+(Djϕ)(r) :=∇×
+∫
+Γ
+Gj(r, r′)ϕ(r′) ds′ (12)
+for r∈ R3\Γ, with ϕ being a vector ﬁeld tangential to Γ. (In
+what follows the surface integrals overΓ must be interpreted as
+conditionally convergent.) The unknown EM ﬁelds (Ej, Hj)
+are thus sought as
+Ej(r) := k2
+j (Sjv)(r) +iωµj(Dju)(r) (13a)
+Hj(r) := k2
+j (Sju)(r)−iωϵj(Djv)(r) (13b)
+for r∈ Ωj, j = 1, 2, in terms of unknown surface currents u
+and v that are to be determined by means of a SIE posed on Γ.
+Clearly, the ﬁeld deﬁned in (13) satisfy Maxwell equations (2),
+in view of the fact that ∇×S j =Dj and∇×D j =k2
+jSj.
+In order to derive a SIE for the currents we make use of
+the well-known jump relations:
+ˆn× (Sjϕ)|± =Tjϕ and ˆn× (Djϕ)|± =Kjϕ± ϕ
+2 (14)
+on r∈ Γ, where
+(Tjϕ)(r) := ˆn(r)×
+∫
+Γ
+Gj(r, r′)ϕ(r′) ds′+
+1
+k2
+j
+ˆn(r)×∇
+∫
+Γ
+Gj(r, r′)∇′
+s· ϕ(r′) ds′ (15)
+and
+(Kjϕ)(r) := ˆn(r)×∇×
+∫
+Γ
+Gj(r, r′)ϕ(r′) ds′. (16)
+Evaluating the integral representation formulae (13) on Γ
+and using (14) we obtain
+ˆn× Ej|± =k2
+jTjv +iωµj
+{
+± u
+2 +Kju
+}
+(17a)
+3
+
+=== PDF PAGE 4 ===
+for the electric ﬁelds, and
+ˆn× Hj|± =k2
+jTju−iωϵj
+{
+± v
+2 +Kjv
+}
+(17b)
+for the magnetic ﬁelds. Therefore, enforcing the transmission
+conditions (4) by taking the appropriate linear combination
+of the relations (17), we arrive at the following SIE for the
+unknown vector of current densities [u, v]⊤:
+iω
+2
+[
+−(µ1 +µ2)u
+(ϵ1 +ϵ2)v
+]
++ T
+[
+u
+v
+]
+=
+[
+M src
+Jsrc
+]
+on Γ (18)
+where the block operator T is given by
+T =
+[iω (µ2K2−µ1K1) k2
+2T2−k2
+1T1
+k2
+2T2−k2
+1T1 −iω (ϵ2K2−ϵ1K1)
+]
+. (19)
+We emphasize that the rationale underlying expressing the
+EM ﬁelds as in (13) lies in making the strongly singular
+operatorsTj, j = 1, 2, appear in the resulting SIE (18) as
+the linear combination k2
+2T2−k2
+1T1. Indeed, as shown in [32],
+[44] and in Sec. VI below, this linear combination can be cast
+into a bounded integral kernel tractable by standard off-the-
+shelf quadrature rules.
+Finally, it is worth mentioning that the two-layer media
+scattering problem considered in this section can as well be
+recast as the classical direct Müller integral equation involving
+the same operator T, but with a different right-hand-side that
+entails evaluation of the singular T1 operator [26, Sec. 6.2].
+V. W INDOWED GREEN FUNCTION METHOD
+The fact that the SIE (18) is posed on an unbounded
+surface Γ introduces the salient issue of having to suitably
+truncate the computational domain to numerically approximate
+the SIE solution via the MoM. Therefore, instead of solv-
+ing (18) on the entire material interface Γ, we make use of a
+windowed SIE to obtain approximations of the surface current
+densities [u, v]⊤ over the relevant portion of Γ containing
+the localized perturbations. In order to do so we introduce
+a slow-rise inﬁnitely smooth window function wA : R3→ R
+which vanishes with all its derivatives outside the cylinder
+{
+√
+x2 +y2 < A}× R. More precisely, the window function
+is selected as wA(r) = η(
+√
+x2 +y2,cA,A ) for A > 0,
+0<c< 1, and
+η (s,s 0,s 1) :=
+
+
+1 if|s|<s 0
+exp
+(2e−1/b
+b− 1
+)
+,b =|s|− s0
+s1−s0
+if s0 <|s|<s 1
+0 if|s|≥ s1.
+(20)
+The parameter value c = 0.7 is used in all the numerical
+examples presented in Sec. VII. (Other deﬁnitions of the
+window function, such as wA(r) = η(x,cA,A )η(y,cA,A )
+or wA(r) = η(x,cAx,Ax)η(y,cAy,Ay) with Ax,Ay > 0,
+for instance, can also be employed so as to suitably adjust ˜ΓA
+to the particular shape of the localized perturbations.)
+We then consider the following windowed SIE:
+iω
+2
+[−(µ1 +µ2)uA
+(ϵ1 +ϵ2)vA
+]
++ TA
+[uA
+vA
+]
+=
+[M src
+Jsrc
+]
+on ΓA (21)
+where ΓA ={r∈ Γ :wA(r)̸= 0} and where the windowed
+operator TA is deﬁned as T in (19) but with the windowed
+Green function
+GA,j(r, r′) =wA(r′)Gj(r, r′) (22)
+replacing the free-space Green function Gj appearing in the
+deﬁnition ofTj andKj in (15) and (16), respectively.
+Existence and uniqueness of solutions of the windowed
+SIE (21) can be established (under reasonable smoothness
+assumptions on ΓA and up to a countable set of frequencies ω)
+by invoking the Fredholm alternative, which holds true in this
+case by virtue of the compactness of TA (in an appropriate
+function space). Alternatively, for sufﬁciently small contrasts
+ϵ1/ϵ2 and µ1/µ2, existence and uniqueness could be estab-
+lished following a Neumann series approach.
+As it turns out, [uA, vA]⊤ provides an excellent approxi-
+mation of the exact currents [u, v]⊤ within ˜ΓA ={r∈ Γ :
+wA(r) = 1}. Indeed, as in the two-dimensional electromag-
+netic case [24], [26], [28], [29], we have that the errors in the
+approximation [u, v]⊤≈ [uA, vA]⊤ decay super-algebraically
+fast in˜ΓA0 for a ﬁxedA0 > 0, as the window sizeA increases.
+With the surface current densities [uA, vA]T at hand, the
+approximate EM ﬁelds can be easily obtained by, respectively,
+substituting u and v by uA and vA in the representation
+formula (13), and by replacing Gj by the WGF (22) in the
+off-surface operatorsSj andDj deﬁned in (11) and (12), re-
+spectively. These substitutions produce the approximate ﬁelds
+˜Ej(r) :=k2
+j (SA,jvA)(r) +iωµj(DA,juA)(r) (23a)
+˜Hj(r) :=k2
+j (SA,juA)(r)−iωϵj(DA,jvA)(r) (23b)
+for r∈ Ωj, j = 1, 2, where SA,j andDA,j are the resulting
+windowed off-surface operators.
+We note that although formula (23) does not directly yield
+accurate far-ﬁelds, they can still be obtained from the accurate
+near-ﬁelds produced by (23) within {r∈ R3 :wA(r) = 1} in
+a manner akin to [24, Sec. 3.6] for the corresponding scalar
+problem (which in this case would involve the leading-order
+asymptotic approximation of the dyadic LGF, G(r, r′), as
+|r|→∞ [43, Sec. 2.6]).
+As mentioned above, a limitation of the proposed ap-
+proach is that ﬁrst-kind SIEs, such as the PMCHWT formu-
+lation [33]–[35], which has been the preferred approach for
+electromagnetic transmission problems [45], is not directly
+compatible with the WGF approach. In a nutshell, windowed
+kernels decay exponential fast near the edges of the truncated
+surface, thus allowing surface currents near those edges to lie
+in the approximate nullspace of the PMCHWT WGF-MoM
+matrices. Such matrices have then eigenvalues very close to
+the origin making the linear system too ill-conditioned to be
+accurately solved by either direct or iterative methods. In
+contrast, second-kind SIEs, like the ones employed in this
+contribution, do not suffer from this problem because the
+identity term shifts the spectrum sufﬁciently far away from
+the origin (see Fig. 4 in Sec. VII-B). A possible remedy to
+4
+
+=== PDF PAGE 5 ===
+this issue is the use of Calderón preconditioners [36], which
+take advantage of the operators’ self-regularizing properties
+to convert ﬁrst-kind SIEs into equivalent well-conditioned
+second-kind SIEs.
+VI. M OM DISCRETIZATION
+We start off this section by considering a triangulation of
+the truncated surface ΓA which lies within the support of the
+window function wA. We then expand [uA, vA]⊤ in terms
+of the standard div-conforming RWG basis functions [46]. In
+detail, we let
+uA(r)≈
+N∑
+n=1
+unfn(r) and vA(r)≈
+N∑
+n=1
+vnfn(r) (24)
+for r ∈ ΓA, where N is the total number of edges in the
+triangular mesh, and fn are the RWG basis functions [47].
+As in [44], we apply the Galerkin scheme to determine
+the coefﬁcients un and vn in the approximations (24) by
+replacing (24) in the windowed SIE (21) and then testing
+the resulting equations against the same div-conforming basis
+functions fn. We thus obtain the following linear system for
+the coefﬁcients:
+M x = b (25)
+where x = [u1,...,u N,v 1,...,v N]⊤∈ C2N ,
+M =
+[M(1,1) M(1,2)
+M(2,1) M(2,2)
+]
+∈ C2N×2N (26)
+with blocks M(p,q), p,q = 1, 2 deﬁned as
+M(p,q)
+m,n =
+∫
+ΓA
+fm(r)· (M(p,q)fn)(r) ds, n,m = 1...,N,
+in terms of the operators:
+M(1,1)ϕ =− iω(µ1 +µ2)
+2 ϕ +iω (µ2KA,2−µ1KA,1) [ϕ]
+M(1,2)ϕ =M(2,1)ϕ = (k2
+2TA,2−k2
+1TA,1)[ϕ]
+M(2,2)ϕ =iω(ϵ1 +ϵ2)
+2 ϕ +iω (ϵ1KA,1−ϵ2KA,2) [ϕ].
+On the other hand, the right-hand-side vector b ∈ C2N is
+given by bm =
+∫
+ΓA
+fm· Msrc ds for m = 1,...,N , and
+bm =
+∫
+ΓA
+fm· Jsrc ds for m =N + 1,..., 2N.
+Evaluation of the matrix entries boils down to compute
+integrals of the form
+I(1)
+m,n =
+∫
+ΓA
+fm(r)·
+{
+ˆn(r)×∇×
+∫
+ΓA
+GA,j(r, r′)fn(r′) ds′
+}
+ds
+in the case of diagonal blocksM(1,1) andM(2,2), and integrals
+of the form
+I(2)
+m,n =
+∫
+ΓA
+fm(r)·
+{
+ˆn(r)×
+∫
+ΓA
+GA,j(r, r′)fn(r′) ds′
+}
+ds
+I(3)
+m,n =
+∫
+ΓA
+fm(r)·
+{
+ˆn(r)×
+∫
+ΓA
+∇ [GA,2(r, r′)−GA,1(r, r′)]∇′
+s· fn(r′) ds′
+}
+ds,
+in the case of the off-diagonal blocks M(1,2) and M(2,1),
+where GA,j, j = 1 , 2, are deﬁned in (22). Note that the
+integrands above become singular whenever the supports of fn
+and fm intercept each other. However, given that
+∇[G2(r, r′)−G1(r, r′)] =−(k2
+2−k2
+1)
+2
+(r− r′)
+|r− r′| +o(1)
+as|r− r′|→ 0, we have that the integrand in the deﬁnition of
+I(3)
+m,n remains bounded. In the numerical examples considered
+in the next section, we utilize the Duffy-like singularity can-
+cellation technique presented in [48] to render these weakly-
+singular integrands into smooth functions that we integrate by
+means of standard Gauss quadrature rules.
+Finally, we brieﬂy discuss the selection of the parameter A
+and the mesh size h associated with the discretization of ΓA.
+Since the WGF truncation errors in TA,j andKA,j, j = 1, 2,
+decay faster than any power of |kjA|−1 as A increases [26],
+A should be selected such that A > max{k−1
+1 ,|k2|−1}. It
+was found in practice that A >16π max{k−1
+1 ,|k2|−1} +R,
+where R> 0 is the radius of the smallest ball containing the
+perturbations, is more than enough to suppress any error stem-
+ming from the windowing approximation, making the overall
+WGF-MoM error of order O(h2) for any reasonable small
+mesh size h (see Figs. 2 and 3). Regarding the discretization
+of ΓA, on the order hand, it has to be such that the spatial
+oscillations of the surface integrands in the integral operators
+are well resolved, i.e., h < πmax{k−1
+1 , (Rek2)−1} so that
+Nyquist criterion is not violated.
+VII. V ALIDATION AND EXAMPLES
+A variety of numerical examples are presented in this
+section to validate and demonstrate the accuracy, efﬁciency
+and applicability of the proposed methodology.
+A. PEC hemispherical bump
+First, in order to validate the proposed WGF-MoM ap-
+proach, we consider the problem of scattering of an incident
+EM planewave (6) of wavelength λ = 2π/k1 = 1 , by a
+PEC hemispherical bump of radius λ placed on top of the
+PEC half-space {z < 0} (see inset in Fig. 2). We thus
+compare the exact solution Eref (see Appendix A) with the
+numerical WGF-MoM solution, which is obtained using an
+indirect windowed MFIE formulation. We note that since the
+exact PEC half-space Green function can be computed in
+closed form (via the method of images), this as well as more
+general PEC obstacle and bump-like scattering problems can
+be directly cast into the classical MFIE and EFIE posed on
+the obstacle/bump’s surface. There is therefore no particular
+advantage of employing the WGF method in these cases. The
+reason why this problem is here considered is that, to the
+best of the authors’ knowledge, this is the only problem of
+scattering by a locally perturbed inﬁnite planar surface that
+admits an exact Mie series solution.
+In detail, the approximate total electric ﬁeld takes the form
+˜Etot = ˜Es + Esrc, where Esrc is given in Sec. III and
+5
+
+=== PDF PAGE 6 ===
+λ A
+ΓA
+Fig. 2: Errors (27) in the windowed MFIE-MoM solution of
+the PEC hemispherical bump problem for various approxi-
+mately uniform meshes of sizeh> 0 and window sizesA> 0,
+plotted in log-log scale. The incident ﬁelds correspond to a
+planewave with grazing angle of π/32 in both TE and TM
+polarizations. The dashed line marks the second-order slope.
+˜Es =DA,1[uA] with the currents uA being the solution of
+the windowed MFIE:
+uA
+2 +KA,1[uA] =−ˆn× Esrc on ΓA,
+which is solved using the standard MoM discretization [47].
+(The corresponding total magnetic ﬁeld can be retrieved from
+uA via ˜Htot = ˜Hs + Hsrc with ˜Hs =−iωϵ1S1[wAuA].)
+Figure 2 displays the electric ﬁeld errors
+error = max
+r∈Θ
+⏐⏐⏐˜Etot(r)− Eref(r)
+⏐⏐⏐/ max
+r∈Θ
+⏐⏐Eref(r)
+⏐⏐ (27)
+obtained by evaluating both solutions at a ﬁxed target point
+set Θ on a hemispherical surface of radius 2λ concentric to
+the PEC bump, for various mesh (h> 0) and window (A> 0)
+sizes. TE- and TM-polarized planewave incident ﬁelds (6) at
+the grazing angle π/32 = arctan(k1z/k1y) were used in these
+examples. The respective linear systems (25) were iteratively
+solved by means of GMRES [49] which converged in about
+20 iterations using a relative tolerance of 10−5 and the Jacobi
+(diagonal) preconditioner. Almost identical results are obtained
+for incidences closer to normal.
+There are two types of errors present in these results;
+the error stemming from the WGF approximation, which
+decreases super-algebraically as A → ∞, and the MoM
+error, which decreases as h2 as h→ 0. The former becomes
+dominant for small A values, as can be seen in the ﬂattening
+of the error curves for small h values, while the latter becomes
+dominant for sufﬁciently largeA values, as can be seen in the
+quadratic error decay ash decreases. These results validate the
+convergence of the our windowed MoM-solver, which is not
+affected by the planewave incidence angle and polarization.
+We mention in passing that this simple windowed MFIE
+formulation can as well be employed to tackle the rather
+2λ
+Aλ
+λ
+ΓA
+Fig. 3: Errors (27) in the WGF-MoM solution of the Som-
+merfeld half-space problem for various approximately uniform
+meshes of size h > 0 and window sizes A > 0, plotted in
+log-log scale. Ten electric dipole sources uniformly randomly
+placed within the boundary of the cylinder shown in the inset
+ﬁgure, were used as the incident ﬁeld. The dashed line marks
+the second-order slope.
+classical PEC open cavity problem (cf. [10, Ch. 10]). Standard
+SIE formulations for this problem [50]–[52] entail introducing
+an artiﬁcial transparent surface to close the open cavity, which
+is not needed by the windowed MFIE formulation.
+B. Sommerfeld half-space problem
+Our next example deals with the classical Sommerfeld half-
+space problem [1]. We consider an incident electric ﬁeld Einc
+produced by the superposition of ten randomly placed (at the
+points rℓ, ℓ = 1,..., 10) electric dipoles sources (8). The
+dipole sources are uniformly distributed within the boundaries
+of a cylinder of radius λ, height 2λ, and centered at (0, 0, 2λ)
+(see inset in Fig. 3), where λ = 2π/k1 = 1 m in this case.
+The incident ﬁeld impinges on a dielectric half-space Ω2 =
+{z <0} with k2 =
+√
+2k1 (ϵ2 = 2ϵ1). The exact total electric
+ﬁeld takes the form Eref(r) = ∑10
+ℓ=1 G(r, rℓ)pℓ where G
+is the dyadic LGF [43] and pℓ, ℓ = 1,..., 10, are random
+polarization unit vectors.
+The approximate total electric ﬁeld, on the other hand, is
+given by ˜Etot = ˜E1 + Esrc in Ω1, where ˜E1 is obtained
+from (23a) with currents ( uA, vA) produced by means of the
+MoM applied to the windowed SIE (21), and where the source
+ﬁeld Esrc is given in (10).
+Figure 3 displays the errors (27) in the total ﬁeld ˜Etot for
+various mesh and window sizes. The target point set Θ used
+to compute the errors encompasses 2,332 points lying on the
+surface of the cylinder containing the dipole sources (see inset
+in Fig. 3). The reference (total) ﬁeld in this example, was
+produced by the LGF FORTRAN code [40]. The particular
+source-target point conﬁguration of Fig. 3 intentionally avoids
+6
+
+=== PDF PAGE 7 ===
+TABLE I: Errors in Fig. 3 for the seven window sizes A used,
+which are indexed by n = 1,... 7, corresponding to h≈ 0.1.
+The log-log slope of the error (as a function of A) is computed
+as σn =− log (errorn/errorn−1)/ log (An/An−1) for n =
+2,..., 7. The increasing σn values for n≥ 4 demonstrate the
+super-algebraic convergence of the WGF-MoM achieved for
+sufﬁciently small mesh sizes (when the windowing error is
+dominant).
+n 1 2 3 4 5 6 7
+A n/λ 3 3.5 4 4.5 5 5.5 6
+error n × 10 2 17 7.2 5.2 4.4 3.6 2.4 1.0
+σ n − 5.8 2.4 1.2 1.9 4.2 10.7
+dealing with difﬁcult cases that could affect the accuracy of
+the LGF evaluations.
+Once again, fast convergence is observed as the window size
+A> 0 increases while the expected second-order convergence
+is attained as the mesh size h > 0 decreases. The smallest
+errors reported in Fig. 3 (forh≈ 0.1) are reproduced in Table I
+for the various window sizes used in this example. In view of
+the fact that the log-log slope σn grows (in magnitude) as A
+increases, we have that the error decays super-algebraically
+fast as A increases (algebraic convergence of any ﬁxed order
+would produce an approximately constant slope σn).
+Interestingly, as in the PEC hemispherical bump example
+and in all the examples presented in this work, the Jacobi
+diagonal preconditioner signiﬁcantly reduces the number of
+GMRES iterations required to approximately solve the result-
+ing WGF-MoM algebraic linear system (25). To examine this
+fact in more detail we present Fig. 4 which shows the eigenval-
+ues of the non-preconditioned and the Jacobi-preconditioned
+matrices corresponding to the Sommerfeld dipole problem
+using window sizes A = 3 λ and A = 6 λ and meshes
+of similar size ( h ≈ 0.3). Clearly, and unlike the spectra
+of the non-preconditioned matrices (left), the spectra of the
+preconditioned matrices (right) are tightly bounded away from
+the origin, which explains the excellent performance of the
+preconditioner which reduces from 72 to 13 (resp. 78 to 16)
+the number of GMRES iterations to achieve the tolerance10−5
+in the A = 3λ (resp. A = 6λ) case.
+Finally, we mention that the LGF code [40] took ∼8.2 min
+to carry out the 23320 LGF evaluations needed to produce the
+reference ﬁeld Eref, while our (non-accelerated) FORTRAN
+implementation of the WGF-MoM took just ∼5.8 min to
+produce ˜Etot with a relative error (27) smaller than 5%. The
+calculations were performed on the same machine using one
+thread in both cases. The runtime difference is more signiﬁcant
+when larger numbers of source/target points are considered.
+Using for instance 9,378 target points (on the surface of the
+cylinder) and the same 10 sources, the LGF runtime was ∼32
+min versus just ∼7 min of the WGF-MoM. A performance
+comparison of the WGF-MoM against the more efﬁcient LGF
+Strata library [41] is presented in next section for the solution
+of a PEC scattering problem. Unfortunately, Strata does not
+-2 -1 0 1
+10-4
+-160
+-140
+-120
+-100
+-80
+-60
+-40
+-20
+0
+0 0.5 1 1.5
+-0.4
+-0.3
+-0.2
+-0.1
+0
+0.1
+0.2
+0.3
+-3 -2 -1 0 1 2
+10-4
+-180
+-160
+-140
+-120
+-100
+-80
+-60
+-40
+-20
+0
+0 0.5 1 1.5
+-0.5
+-0.4
+-0.3
+-0.2
+-0.1
+0
+0.1
+0.2
+0.3
+0.4
+Fig. 4: Eigenvalues of the WGF-MoM matrices (26) (left)
+and corresponding diagonally preconditioned matrices (right)
+for the solution of the Sommerfeld half-space problem of
+Sec. VII-B using A = 3λ (top) and A = 6λ (bottom).
+directly produce the entire dyadic LGF, so it could not be used
+in the examples presented in this section.
+C. PEC obstacle above a dielectric half-space
+In order to assess the efﬁciency of the proposed WGF-MoM
+in this section we compare its performance against a LGF-
+MoM for the solution of a planewave scattering problem by a
+PEC object embedded in the two-layer medium considered in
+Sec. VII-B above. Letting SS
+1 andDS
+1 denote the off-surface
+operators (11) and (12) where integration is performed over
+the PEC surface S, our WGF formulation of the problem is
+derived from the ﬁeld representation
+Ej(r) := k2
+j (Sjv)(r) +iωµj{(Dju)(r) +δ1j(DS
+j w)(r)}
+Hj(r) := k2
+j{(Sju)(r) +δ1j(SS
+j w)(r)}− iωϵj(Djv)(r)
+for r∈ Ωj, j = 1, 2, where δ11 = 1 and δ12 = 0, of the EM
+ﬁeld scattered byS. This representation leads to a second-kind
+SIE system consisting of a MFIE block that enforces the PEC
+boundary condition ˆn× E1 =−ˆn× Esrc onS, that is coupled
+to a windowed Müller block that accounts for the transmission
+condition at the planar dielectric interface Γ.
+The LGF-MoM, on the other hand, is based on the mixed-
+potential EFIE formulation put forth in [18], [19], whereby
+the scattered ﬁeld is expressed as E(r) =
+∫
+S G(r, r′)J(r′) ds′
+everywhere in R3\S in terms of the LGF. The singularity can-
+cellation technique [48] is used to treat the singular (static) part
+of the resulting dyadic and scalar EFIE kernels. The remaining
+smooth (dyadic and scalar) parts, which are evaluated using the
+highly efﬁcient DCIM option in Strata [41], are numerically
+integrated using the standard three-node quadrature rule. A
+7
+
+=== PDF PAGE 8 ===
+small-size scattererS placed well above the interface is herein
+used so as to maintain the accuracy and robustness of the
+DCIM, which is initialized only once during the whole EFIE
+matrix assembly. The actual surface used consists of four well
+separated spheres of equal radiusλ/4 centered at (λ,±λ,λ )/2
+and (±λ,λ,λ )/2 (see inset in Fig. 5).
+669 1386 2832 5046 9219 19281
+102
+103
+104
+Fig. 5: WGF- and LGF-MoM full matrix assembly and linear
+system solution times in a planewave scattering problem by
+a PEC obstacle ( S) above a dielectric half-space for various
+obstacle discretizations (NS). The LGF-MoM is based on the
+mixed-potential EFIE formulation [18], [19] with the LGF
+potentials evaluated by means of the Strata library [41] through
+its DCIM option.
+Figure 5 displays the time (in seconds) required by each
+method to assemble the corresponding full system matrices
+and solve the linear systems for various mesh reﬁnements ofS,
+which are characterized by the number of mesh edges NS.
+The WGF-MoM system is solved iteratively by diagonally
+preconditioned GMRES with a tolerance of 10−4, which
+converged in less than 27 iterations in all the examples
+considered. The LGF-MoM system is in turn solved by direct
+LU factorization (no speed-up is gained in this case employing
+GMRES). The effect of the lower dielectric half-space is
+accounted for with a precision of about 7% in both cases,
+which is achieved by suitably selecting the relevant DCIM and
+WGF parameters. In the latter case the valueA = 5λ is used in
+the deﬁnition of ΓA which is discretized using a mesh of size
+h = 6.5× 10−2λ consisting of 7,238 edges. The WGF-MoM
+matrices considered in this comparison have then dimensions
+(NS +14,476)×(NS +14,476) while the LGF-MoM matrices
+are much smaller, of dimensions NS×NS. Both WGF- and
+LGF-MoM codes were ran in the same computer using no
+parallelization of any kind. For the sake of fairness, both codes
+were written in FORTRAN 90 so that they could share the
+largest possible number of source code lines. A wrapper of
+Strata was developed in order to make that possible.
+These results show that, even in this simple setting where
+no dielectric interface perturbations are considered, the pro-
+posed WGF-MoM outperforms the LGF-MoM for moderately
+reﬁned (or large) surfaces S. This difference in performance
+between the two methods is mainly explained by the fact that
+one free-space Green function evaluation costs signiﬁcantly
+less than one LGF evaluation, even when the efﬁcient DCIM
+is employed (that difference is orders of magnitude larger
+when the LGF is directly evaluated via numerical integration
+techniques). It so much so that the LGF evaluation cost quickly
+rises above the cost associated with enforcing the transmission
+conditions on ΓA in the WGF approach, which dominates for
+coarsely reﬁned (or small) surfaces S.
+An even better relative performance of the WGF-MoM is
+expected when considering, for instance, structures having
+localized surface perturbations, like the ones considered in
+Secs. VII-D and VII-E, which are particularly cumbersome
+to deal with LGF-based methods. In this case the enforcement
+of the continuity of the total tangential electric and magnetic
+ﬁelds at dielectric interfaces entails evaluation not only of
+the dyadic LGF itself but also of its curl, further affecting
+the overall performance of LGF-MoMs. Moreover, in such
+cases the evaluation of the LGF is hindered by the lack of
+exponential decay of the spectral LGF when both source and
+target points lie on the interface between two layers. Despite
+the above mentioned drawbacks, LGF-based SIEs possess
+remarkable advantages over the WGF approach in certain
+cases. For instance, structures having several ﬂat layers can
+be easily handled by the LGF at almost no additional cost,
+whereas the WGF approach requires the use of additional
+surface currents at each one of the interfaces, even when they
+do not contain any perturbation. Similarly, problems involving
+moderate numbers of small-area inclusions entail few LGF
+evaluations, and hence can be easily treaded by this approach.
+D. Cavity in a dielectric half-space
+Next, we consider the problem of scattering of a TE-
+polarized planewave (6) that impinges from Ω1 on a large
+spherical-shaped cavity in a dielectric half-space (see Fig. 6).
+Once again we use dimensionless physical parameters, with
+k1 = 1.4,k2 = 1, and λ = 2π/k2. The radius of the spherical
+sector embedded in the lower half-space is 2λ, giving rise
+to a disk aperture of radius λ. A grazing angle of π/5 was
+used in this example, so that, in absence of the spherical
+cavity, total internal reﬂection would have taken place at the
+planar interface. The truncated locally-perturbed surface ΓA,
+as well as the real part of the of x-component of the total
+electric ﬁeld ( Ex), are shown in Fig. 6. Figures 6(b) and
+6(c) display the real part of electric ﬁeld on the yz- and xy-
+planes, respectively, within the region {wA(r) = 1} where
+formula (23) (used to the produce the ﬁelds) yields an accurate
+ﬁeld evaluations. The approximately uniform triangular mesh
+of ΓA used in the MoM-produced ﬁelds displayed in Fig. 6,
+corresponds to A = 8.5λ, h = 0.15λ, and consists of a total
+of N = 97321 edges. The linear system (25) was solved
+by a Jacobi-preconditioned GMRES solver which converged
+in 50 iterations to the prescribed 10−4 tolerance. Note that
+the ﬁeldEx plotted in Fig. 6(b) looks continuous across the
+material interface, as it should be, and that transmission to the
+8
+
+=== PDF PAGE 9 ===
+−20 20
+Re(Ex)
+(a) (b)
+(c)
+k
+p
+Γ A
+8. 5λ
+6λ λ
+y
+z
+x
+y
+Fig. 6: Real part of the x-component of the total electric ﬁeld
+solution of the problem of scattering of a TE-polarized incident
+planewave impinging on a spherical cavity in a dielectric half-
+space, produced by the proposed WGF-MoM with A = 8.5λ.
+Truncated surface (grey) and ﬁeld view on the yz-plane (a),
+yz-plane (b), andxy-plane (c) within the region{wA(r) = 1}.
+lower half-space takes place only within the cavity, due to the
+total internal reﬂection incidence.
+0 10−30 10−2
+|˜Etot − Eref|/|Einc| |˜Htot − Href|/|Hinc|
+8. 4λ
+(a) (b)
+y
+z
+z
+8. 4λ
+Fig. 7: Absolute errors in the total electric (a) and magnetic (b)
+ﬁelds, normalized by the corresponding (constant) incident-
+ﬁeld amplitude, in the WGF-MoM solution of the cavity
+problem using A = 6λ. The reference EM ﬁeld (Eref, Href)
+was produced using a larger window size of A = 8.5λ and a
+similar mesh size. The dashed red lines mark the boundary of
+{r∈ R3 :w6λ(r) = 1}.
+In order to assess the ﬁeld errors in the solution of the cavity
+(a)
+(c) 150 350
+x
+y
+z
+y
+6λ
+λ
+Γ A
+SiO2 Air
+k
+I II III IV
+IV
+III
+II
+I
+z
+x
+y
+Γ A
+λ
+|˜Etot|2
+(b)
+Fig. 8: Refraction of a normally incident plane EM wave
+by an all-silica metasurface. (a) Top view of the metasurface
+consisting of a 10× 10 array of sub-wavelength nano-rods of
+variable radii. (b)-(c) Two different views of the total electric
+ﬁeld intensity |˜Etot|2 obtained by means of the proposed
+WGF-MoM, demonstrating the light focusing effect of the
+metasurface. The dashed red lines in (c) mark the location
+of the surfaces where |˜Etot|2 is plotted in (b).
+problem, we solve the same cavity problem using a slightly
+smaller window size, A = 6λ, and compare it to the solution
+shown in Fig. 6 corresponding to A = 8.5λ. Both surface
+meshes have approximately the same size h = 0.15λ and an
+almost identical number of GMRES iterations were needed
+to achieve the 10−4 tolerance. The (normalized) absolute
+errors in the total electric and magnetic ﬁelds are displayed
+in Figs. 7(a) and (b), respectively, in a portion of the xy-
+plane. The boundary of the strip [−6λ, 6λ]× R contained in
+{wA(r) = 1} is marked by the red vertical dashed lines. The
+severe loss of accuracy occurring outside {wA(r) = 1 } is
+clearly observed in those ﬁgures, specially near the interfaceΓ.
+In particular, this example shows that the WGF-MoM does not
+directly produce correct far ﬁelds. As mentioned in Sec. V,
+a simple remedy to this problem is to map the correct near
+ﬁelds, produced by the WGF-MoM, to the far ﬁeld. This
+can be done by means of Stratton-Chu formula based on the
+LGF integrating over a surface enclosing the perturbation, and
+then replacing the kernels by their leading-term asymptotic
+expansion as|r|→∞ .
+E. All-silica metasurface
+Our next example presents the full 3D solution of a problem
+of scattering by an all-silica ( SiO2) metasurface (cf. [53])
+consisting of an array of 10×10 nano-rods of sub-wavelength
+radii, ranging from 36.7 nm to 77.5 nm, and a ﬁxed height of
+364 nm, which is illuminated from Ω2 by a normally incident
+9
+
+=== PDF PAGE 10 ===
+plane EM wave (6) with p = (1, 1, 1) and k = k2(0, 0, 1).
+Figure 8(a) displays the surface ΓA utilized in this example,
+where the window size A = 6λ = 3.9 µm (λ = 650 nm )
+is used. (The nano-rods are shown in various colors for
+visualization purposes.) The nano-rod radii follow a parabolic
+proﬁle that effectively steers the direction of the transmitted
+light by controlling the phase change as it penetrates ΓA,
+thus achieving the focusing effect demonstrated in Figs. 8(b)
+and (c), that display the electric ﬁeld intensity at surfaces
+parallel to the yz- and xy-plane, respectively. The surface
+mesh employed in this example, which was properly reﬁned so
+as to account for the numerous small-scale features, comprised
+a total of 17,822 nodes and 53,335 edges. The corresponding
+SIE solution was produced using a Jacobi-preconditioned GM-
+RES solver, which converged in 45 iterations to a tolerance of
+10−4. Our (unaccelerated) FORTRAN OpenMP-parallelized
+WGF-MoM implementation took ∼6 min in constructing the
+system matrix, ∼15 min in solving the linear system, and
+∼35 min in producing the high-ﬁdelity ﬁelds shown in Fig. 8
+using a workstation with 48 cores (96 threads, dual Xeon Gold
+6240R) and 500 GB of memory.
+F . Plasmonic solar cell
+In the last example of this paper we consider a plasmonic
+solar cell structure [54] consisting of 10 gold nanoparticles
+of diameter 100 nm lying on top of a 500 nm thick silicon
+nitride ( Si3N4) ﬁlm backed by a silicon (Si) substrate (see
+Fig. 9(a)). The structure is illuminated by a normally incident
+planewave (6) coming from above at λ = 572 nm and
+polarized according to p = (1, 1, 1). The total electric ﬁeld in-
+tensity|˜Etot|2 produced by the proposed WGF-MoM is shown
+in Fig. 9. The frequency used in this example excites plasmon
+resonances in the metallic nanoparticles leading to a strong
+local ﬁeld enhancement around the metallic nanoparticles [8],
+as can be observed in the zoomed inset ﬁgure in Fig. 9(b).
+The presence of multiple penetrable interfaces made it
+necessary to generalize the SIE formulation presented above
+in Sec. IV. In detail, letting Ω1, Ω2, Ω3 and Ω4 denote
+the subdomains occupied by air ( ϵ1 = ϵ0), silicon nitride
+(ϵ2 = 2 .0483ϵ0), silicon ( ϵ3 = (4 .0191 + 0.031373i)ϵ0),
+and the gold nanoparticles ( ϵ4 = (0 .33221 + 2.74i)ϵ0),
+respectively, we express the EM ﬁelds (Ej, Hj) in Ωj as
+in (13) but in terms of the off-surface operators Sj (11)
+andDj (12) deﬁned by integrals over ∂Ωj, j = 1,..., 4.
+Enforcing then the continuity of the total tangential ﬁelds
+n×(Ej +Esrc, Hj +Hsrc) at each of the interfaces∂Ωj, using
+as source ﬁeld (Esrc, Hsrc) the total EM ﬁeld solution of the
+problem of scattering by the three-layer structure (without the
+nanoparticles) (see [43, Sec. 2.1.3]), we arrive at a 3×3 block
+second-kind SIE system that is windowed and discretized
+using the MoM presented in Sec. VI. The approximate total
+ﬁelds(˜Etot,˜Htot) = (˜Ej+Esrc,˜Hj+Hsrc),j = 1,..., 4, are
+retrieved by windowing the corresponding ﬁeld representation
+formulae.
+The two planar triangular meshes used in this example
+comprise 35,785 edges each while the total number of edges in
+Si
+(a)
+(b)
+100 200
+(c)
+|˜Etot|2
+50 nm
+Si3N4
+x
+y
+x
+y
+y
+z
+500 nm
+Air
+I II
+I
+II
+Au
+Fig. 9: Planewave illumination of a plasmonic solar cell
+structure consisting of 10 gold nanoparticles randomly placed
+on top of a silicon nitride ﬁlm backed by a silicon substrate. (a)
+Electric ﬁeld intensity |˜Etot|2 cross-section plot obtained by
+means of the proposed WGF-MoM. (b)-(c) Plots of |˜Etot|2 on
+the planes marked by the dashed red lines in (a). The plasmon
+resonance ﬁeld enhancement around a gold nanoparticle is
+clearly visible in the zoomed inset ﬁgure in (b).
+the spherical meshes amounted to 11,337. The planar meshes
+were suitably reﬁned near the bottom tip of the spheres
+to properly account for possible nearly singular integration
+issues. The linear system was solved by means of GMRES,
+which converged in 28 iterations to the prescribed tolerance
+(10−4). The overall time needed by our OpenMP-parallelized
+WGF-MoM implementation to produce the three plots of
+|˜Etot|2 presented in Fig. 9, on the horizontal planes at z =
+50 nm andz =−250 nm in (b) and (c), respectively, as well
+as on the vertical plane {x = 0} in (a), was around 64 min
+on the aforementioned 48-core machine.
+VIII. C ONCLUSIONS AND DISCUSSION
+This paper presents a SIE method for EM scattering by
+locally perturbed planar layered media. The proposed method-
+ology, which extends the WGF method put forth in [24]–[26]
+for the (scalar) Helmholtz equation, does not entail evaluation
+of any Sommerfeld integrals thus avoiding their inherent costs
+and challenges that they pose, but at the expense of adding new
+unknowns on the planar interfaces and requiring a larger linear
+system that must be solved. The method leverages an indirect
+second-kind Müller SIE formulation featuring weakly-singular
+integral operators expressed in terms of free-space Green
+functions. Upon windowing the integral kernels and applying
+a standard Galerkin-MoM discretization based on RWG basis
+functions, well-conditioned linear systems amenable to be
+10
+
+=== PDF PAGE 11 ===
+solved iteratively by GMRES, are obtained. The resulting
+methodology exhibits both second-order convergence (in the
+near ﬁelds) as the mesh size in decreased, and high-order
+convergence (super-algebraic) as the window size is increased,
+as demonstrated by a thorough set of comparative examples.
+A number of challenging problems including scattering by
+cavities, metasurfaces, and plasmonic solar cell structures,
+further validate and showcase the capabilities of the proposed
+WGF-MoM. It is worth mentioning, however, that larger-scale
+and more realistic metasurface and solar cells conﬁgurations
+than the ones considered here, inevitably require use of fast
+algorithms such as the fast multipole method [55] or H-
+matrices [56].
+This work certainly opens up a number of possible follow-
+up research directions. For example, an accurate SIE solver
+capable of handling more general metasurface designs requires
+proper handling of multi-material junctions. As in the 2D
+case [57], [58], this could be accomplished within our 3D
+WGF-MoM framework by employing a second-kind single-
+trace formulation [59]. The robust low-frequency behavior
+of Müller’s formulation reported in [44], on the other hand,
+brings about the idea of extending the proposed methodology
+to the time domain by suitably combining it with convolution
+quadrature schemes, as was done in the 2D case in [30].
+APPENDIX A
+HEMISPHERICAL BUMP PROBLEM : M IE SERIES SOLUTION
+We here make use of the classical Mie series solution and
+the theory of images, to produce the exact solution of the
+problem of scattering of a plane EM wave by a hemispherical
+PEC bump on top of a PEC half-space. Consider an incident
+plane EM wave, with grazing angle α, given by
+Einc
+α (r) =E0 eik(y cosα−z sinα)
+
+
+
+ˆx if TE polarized,
+ˆy sinα + ˆz cosα
+if TM polarized.
+Using the theory of images we have that the resulting total
+electromagnetic ﬁeld, which satisﬁes ˆn× Etot = 0 on Γ, can
+be expressed as
+Etot = Einc
+α + EMie +˜Einc +˜EMie
+where
+˜Einc =
+{
+−Einc
+−α if TE polarized
+Einc
+−α if TM polarized
+and where EMie and˜EMie are the well-known Mie series solu-
+tion of the problem of scattering of an entire PEC sphere, with
+the same radius as the bump, by Einc and ˜Einc, respectively.
+ACKNOWLEDGMENT
+The authors gratefully acknowledge the support by FONDE-
+CYT (Fondo Nacional de Desarrollo Cientíﬁco y Tecnológico)
+Chile, through Grant No. 11181032. Rodrigo Arrieta thanks
+ANID (Agencia Nacional de Investigación y Desarrollo), Sub-
+dirección de Capital Humano/Magíster Nacional/año 2021/fo-
+lio 22211890, for funding his postgraduate studies.
+REFERENCES
+[1] K. A. Michalski and J. R. Mosig, “The Sommerfeld half-space problem
+revisited: From radio frequencies and Zenneck waves to visible light
+and Fano modes,” Journal of Electromagnetic Waves and Applications ,
+vol. 30, no. 1, pp. 1–42, 2016.
+[2] T. Tamir, “On radio-wave propagation in forest environments,” IEEE
+Transactions on Antennas and Propagation , vol. 15, no. 6, pp. 806–
+817, 1967.
+[3] L.-P. Song, Q. H. Liu, F. Li, and Z. Q. Zhang, “Reconstruction of three-
+dimensional objects in layered media: Numerical experiments,” IEEE
+Transactions on Antennas and Propagation , vol. 53, no. 4, pp. 1556–
+1561, 2005.
+[4] F. Ling, D. Jiao, and J.-M. Jin, “Efﬁcient electromagnetic modeling
+of microstrip structures in multilayer media,” IEEE Transactions on
+Microwave Theory and Techniques, vol. 47, no. 9, pp. 1810–1818, 1999.
+[5] J. R. Mosig and F. E. Gardiol, “General integral equation formulation for
+microstrip antennas and scatterers,” IEE Proceedings H - Microwaves,
+Antennas and Propagation , vol. 132, no. 7, pp. 424–432, 1985.
+[6] N. Yu and F. Capasso, “Flat optics with designer metasurfaces,” Nature
+Materials, vol. 13, no. 2, pp. 139–150, 2014.
+[7] B. E. Saleh and M. C. Teich, Fundamentals of Photonics . John Wiley
+& Sons, 2019.
+[8] S. A. Maier and H. A. Atwater, “Plasmonics: Localization and guiding of
+electromagnetic energy in metal/dielectric structures,” Journal of applied
+physics, vol. 98, no. 1, p. 10, 2005.
+[9] A. Taﬂove and S. H. Hagness, Computational Electrodynamics: The
+Finite-Difference Time-Domain Method. Artech House, 2005.
+[10] J.-M. Jin, The Finite Element Method in Electromagnetics . John Wiley
+& Sons, 2015.
+[11] R. Harrington, Field Computation by Moment Methods . Wiley-IEEE
+Press, 1993.
+[12] M. S. Tong and W. C. Chew, The Nyström Method in Electromagnetics .
+Wiley Online Library, 2020.
+[13] W. C. Chew, E. Michielssen, J. Song, and J.-M. Jin, Fast and Efﬁcient
+Algorithms in Computational Electromagnetics . Artech House, Inc.,
+2001.
+[14] P. E. Wannamaker, G. W. Hohmann, and W. A. SanFilipo, “Electro-
+magnetic modeling of three-dimensional bodies in layered earths using
+integral equations,” Geophysics, vol. 49, no. 1, pp. 60–74, 1984.
+[15] D. Chen, M. H. Cho, and W. Cai, “Accurate and efﬁcient Nyström
+volume integral equation method for electromagnetic scattering of 3-D
+metamaterials in layered media,” SIAM Journal on Scientiﬁc Computing,
+vol. 40, no. 1, pp. B259–B282, 2018.
+[16] K. Yang and A. E. Yilmaz, “A three-dimensional adaptive integral
+method for scattering from structures embedded in layered media,” IEEE
+Transactions on Geoscience and Remote Sensing , vol. 50, no. 4, pp.
+1130–1139, 2011.
+[17] K. A. Michalski and J. R. Mosig, “Multilayered media Green’s functions
+in integral equation formulations,” IEEE Transactions on Antennas and
+Propagation, vol. 45, no. 3, pp. 508–519, 1997.
+[18] K. A. Michalski and D. Zheng, “Electromagnetic scattering and radiation
+by surfaces of arbitrary shape in layered media. I. Theory,” IEEE
+Transactions on Antennas and Propagation , vol. 38, no. 3, pp. 335–
+344, 1990.
+[19] ——, “Electromagnetic scattering and radiation by surfaces of arbitrary
+shape in layered media. II. Implementation and results for contiguous
+half-spaces,” IEEE Transactions on Antennas and Propagation , vol. 38,
+no. 3, pp. 345–352, 1990.
+[20] K. A. Michalski and J. R. Mosig, “Efﬁcient computation of Sommer-
+feld integral tails-methods and algorithms,” Journal of Electromagnetic
+Waves and Applications, 2016.
+[21] K. A. Michalski, “Extrapolation methods for Sommerfeld integral tails,”
+IEEE Transactions on Antennas and Propagation , vol. 46, no. 10, pp.
+1405–1418, Oct. 1998.
+[22] M. I. Aksun, A. Alparslan, and K. A. Michalski, Current status of
+closed-form Green’s functions in layered media composed of natural and
+artiﬁcial materials. 2009 International Conference on Electromagnetics
+in Advanced Applications, 2009.
+[23] C. Pérez-Arancibia and O. P. Bruno, “High-order integral equation
+methods for problems of scattering by bumps and cavities on half-
+planes,” Journal of the Optical Society of America A , vol. 31, no. 8,
+pp. 1738–1746, 2014.
+11
+
+=== PDF PAGE 12 ===
+[24] O. P. Bruno, M. Lyon, C. Pérez-Arancibia, and C. Turc, “Windowed
+Green function method for layered-media scattering,” SIAM Journal on
+Applied Mathematics, vol. 76, no. 5, pp. 1871–1898, 2016.
+[25] O. P. Bruno and C. Pérez-Arancibia, “Windowed Green function method
+for the Helmholtz equation in the presence of multiply layered media,”
+Proceedings of the Royal Society A: Mathematical, Physical and Engi-
+neering Sciences, vol. 473, no. 2202, p. 20170161, 2017.
+[26] C. Pérez-Arancibia, “Windowed integral equation methods for problems
+of scattering by defects and obstacles in layered media,” Ph.D. disser-
+tation, California Institute of Technology, 2017.
+[27] E. Garza, “Boundary integral equation methods for simulation and
+design of photonic devices,” Ph.D. dissertation, California Institute of
+Technology, 2020.
+[28] O. P. Bruno, E. Garza, and C. Pérez-Arancibia, “Windowed Green
+function method for nonuniform open-waveguide problems,” IEEE
+Transactions on Antennas and Propagation , vol. 65, no. 9, pp. 4684–
+4692, 2017.
+[29] C. Sideris, E. Garza, and O. P. Bruno, “Ultrafast simulation and
+optimization of nanophotonic devices with integral equation methods,”
+ACS Photonics, vol. 6, no. 12, pp. 3233–3240, 2019.
+[30] I. Labarca, L. M. Faria, and C. Pérez-Arancibia, “Convolution quadrature
+methods for time-domain scattering from unbounded penetrable inter-
+faces,” Proceedings of the Royal Society A: Mathematical, Physical and
+Engineering Sciences, vol. 475, no. 2019.0029, pp. 1–18, 2019.
+[31] C. Müller, Foundations of the Mathematical Theory of Electromagnetic
+Waves. Springer-Verlag, 1969.
+[32] J. C. Chao, Y . J. Liu, F. J. Rizzo, P. A. Martin, and L. Udpa, “Regularized
+integral equations and curvilinear boundary elements for electromagnetic
+wave scattering in three dimensions,” IEEE Transactions on Antennas
+and Propagation, vol. 43, no. 12, pp. 1416–1422, 1995.
+[33] T.-K. Wu and L. L. Tsai, “Scattering from arbitrarily-shaped lossy
+dielectric bodies of revolution,” Radio Science, vol. 12, no. 5, pp. 709–
+718, 1977.
+[34] Y . Chang and R. Harrington, “A surface formulation for characteristic
+modes of material bodies,” IEEE Transactions on Antennas and Propa-
+gation, vol. 25, no. 6, pp. 789–795, 1977.
+[35] A. J. Poggio and E. K. Miller, Integral Equation Solutions of Three-
+Dimensional Scattering Problems . MB Assoc., 1970.
+[36] K. Cools, F. P. Andriulli, and F. Olyslager, “A Calderón preconditioned
+PMCHWT equation,” in 2009 International Conference on Electromag-
+netics in Advanced Applications , 2009, pp. 521–524.
+[37] M. Yuan, T. K. Sarkar, and M. Salazar-Palma, “A direct discrete complex
+image method from the closed-form green’s functions in multilayered
+media,” IEEE transactions on microwave theory and techniques, vol. 54,
+no. 3, pp. 1025–1032, 2006.
+[38] A. Alparslan, M. I. Aksun, and K. Michalski, “Closed-form Green’s
+functions in planar layered media for all ranges and materials,” IEEE
+Transactions on Microwave Theory and Techniques , vol. 58, no. 3, pp.
+602–613, 2010.
+[39] F. Ling and J.-M. Jin, “Discrete complex image method for Green’s
+functions of general multilayer media,” IEEE microwave and guided
+wave letters, vol. 10, no. 10, pp. 400–402, 2000.
+[40] G. Y . Panasyuk, J. C. Schotland, and V . A. Markel, “New freely
+available FORTRAN library for evaluating Sommerfeld integrals,”
+SPIE Newsroom , 2009. [Online]. Available: http://whale.seas.upenn.
+edu/vmarkel/CODES/GF.html
+[41] S. Sharma and P. Triverio, “Strata: An open-source C++ library for
+computing Green’s functions for layered media,” in 2021 IEEE Interna-
+tional Symposium on Antennas and Propagation and USNC-URSI Radio
+Science Meeting (APS/URSI) . IEEE, 2021, pp. 209–210.
+[42] P. M. Cutzach and C. Hazard, “Existence, uniqueness and analyticity
+properties for electromagnetic scattering in a two-layered medium,”
+Mathematical Methods in the Applied Sciences , vol. 21, no. 5, pp. 433–
+461, 1998.
+[43] W. C. Chew, Waves and Fields in Inhomogeneous Media . IEEE Press,
+1995, vol. 522.
+[44] P. Yla-Oijala and M. Taskinen, “Well-conditioned Müller formulation
+for electromagnetic scattering by dielectric objects,” IEEE Transactions
+on Antennas and Propagation , vol. 53, no. 10, pp. 3316–3323, 2005.
+[45] A. Zhu and S. Gedney, “Comparison of the Müller and PMWCHT
+surface integral formulations for the locally corrected Nyström method,”
+in IEEE Antennas and Propagation Society Symposium , vol. 4. IEEE,
+2004, pp. 3871–3874.
+[46] S. Rao, D. Wilton, and A. Glisson, “Electromagnetic scattering by
+surfaces of arbitrary shape,” IEEE Transactions on Antennas and Prop-
+agation, vol. 30, no. 3, pp. 409–418, 1982.
+[47] W. C. Gibson, The Method of Moments in Electromagnetics . CRC
+press, 2014.
+[48] S. A. Sauter and C. Schwab, Boundary Element Methods . Springer,
+2010.
+[49] Y . Saad and M. H. Schultz, “Gmres: A generalized minimal residual
+algorithm for solving nonsymmetric linear systems,” SIAM Journal on
+Scientiﬁc and Statistical Computing, vol. 7, no. 3, pp. 856–869, 1986.
+[50] H. Ammari, G. Bao, and A. W. Wood, “An integral equation method for
+the electromagnetic scattering from cavities,” Mathematical Methods in
+the Applied Sciences , vol. 23, no. 12, pp. 1057–1072, 2000.
+[51] W. D. Wood and A. W. Wood, “Development and numerical solution
+of integral equations for electromagnetic scattering from a trough in
+a ground plane,” IEEE Transactions on Antennas and Propagation ,
+vol. 47, no. 8, pp. 1318–1322, 1999.
+[52] C. Pérez-Arancibia and O. P. Bruno, “High-order integral equation
+methods for problems of scattering by bumps and cavities on half-
+planes,” Journal of the Optical Society of America A , vol. 31, no. 8,
+pp. 1738–1746, Aug. 2014.
+[53] Q.-T. Li, F. Dong, B. Wang, W. Chu, Q. Gong, M. L. Brongersma, and
+Y . Li, “Free-space optical beam tapping with an all-silica metasurface,”
+ACS Photonics, vol. 4, no. 10, pp. 2544–2549, 2017.
+[54] H. A. Atwater and A. Polman, “Plasmonics for improved photovoltaic
+devices,” Nature Materials, vol. 9, pp. 205–213, 2010.
+[55] J. Song, C.-C. Lu, and W. C. Chew, “Multilevel fast multipole algorithm
+for electromagnetic scattering by large complex objects,” IEEE Trans-
+actions on Antennas and Propagation , vol. 45, no. 10, pp. 1488–1493,
+1997.
+[56] W. Hackbusch, Hierarchical Matrices: Algorithms and Analysis .
+Springer, 2015, vol. 49.
+[57] R. Pestourie, C. Pérez-Arancibia, Z. Lin, W. Shin, F. Capasso, and S. G.
+Johnson, “Inverse design of large-area metasurfaces,” Optics Express ,
+vol. 26, no. 26, pp. 33 732–33 747, 2018.
+[58] C. Jerez-Hanckes, C. Pérez-Arancibia, and C. Turc, “Multi-
+trace/singletrace formulations and domain decomposition methods
+for the solution of Helmholtz transmission problems for bounded
+composite scatterers,” Journal of Computational Physics , vol. 350, pp.
+343–360, 2017.
+[59] X. Claeys, R. Hiptmair, and E. Spindler, “Second-kind boundary integral
+equations for electromagnetic scattering at composite objects,” Comput-
+ers & Mathematics with Applications , vol. 74, no. 11, pp. 2650–2670,
+2017.
+12

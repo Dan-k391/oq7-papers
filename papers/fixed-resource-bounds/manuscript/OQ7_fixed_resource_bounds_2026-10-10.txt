@@ -1,0 +1,1316 @@
+
+--- PAGE 1 ---
+Resource-dependent bounds on reciprocal
+absorption–scattering asymmetry
+Full-vector Maxwell estimates, an exact current relaxation,
+and physical small-volume scaling
+Research continuation prepared for Junjie Zheng
+AI-assisted mathematical research; independent human review pending
+10 October 2026
+Abstract
+We establish a strictly positive resource-dependent gap below unit extinction-normalized
+directional absorption asymmetry for arbitrary compact reciprocal dielectric bodies in vacuum.
+The sufficient material resource is the integrated loss-weighted responseM =
+∫
+Dη, where
+|χv|2≤ηv†(ImHχ)v. A direct all-angle energy estimate gives Γ ≤k3M/(6π+k3M). For
+bounded local responseη≤¯ηand support in a radius-a ball, the complete electric-current
+radiation spectrum satisfies∥Ra∥≤ka at every frequency, without a multipole cutoff. This
+improves the efficiency parameter tomin{k3M/(6π), ¯η∥Ra∥}. At any positive required extinction
+a resolvent of this full radiation operator supplies an additional strictly positive scattering
+floor. Its value is the exact minimum of a stated current relaxation, proved by an explicit
+optimizer. A homogeneous, strictly lossy, reciprocal anisotropic sphere has the exact-Maxwell
+expansion Γ = (160 /2071)(ka)3 +O((ka)4), establishing the small-volume exponent for the
+allowed polarization class. The elementary response and efficiency ingredients have substantial
+prior art. The optimal fixed-resource Maxwell supremum, simultaneous attainability by one local
+material object, and the class with only a one-sided real permittivity cap remain unresolved.
+These distinctions prevent a claim that the original Open Question 7 is fully closed.
+1
+
+--- PAGE 2 ---
+OQ7: fixed resources Research draft, 10 October 2026
+Contents
+1 Main statement, admissible class, and units 3
+2 Exact Maxwell identities and well-posedness 4
+3 The response budget and an all-angle efficiency bound 5
+4 The complete ball radiation spectrum and a linear size estimate 6
+5 Positive extinction: an exact all-mode current relaxation 8
+5.1 A closed angular-cap correction . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 10
+5.2 What these proofs do about resonances and superdirectivity . . . . . . . . . . . . . . 11
+6 A physical Maxwell construction with sharp small-volume order 11
+7 Broader physical classes and unresolved hypotheses 12
+7.1 Isotropic and anisotropic dielectrics . . . . . . . . . . . . . . . . . . . . . . . . . . . . 12
+7.2 Reciprocal electric–magnetic constitutive tensors . . . . . . . . . . . . . . . . . . . . 13
+7.3 A one-sided real cap: a failed inference, not a counterexample . . . . . . . . . . . . . 14
+7.4 Removing a full tensor loss floor . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 14
+7.5 Multiple channels, other backgrounds, and bandwidth . . . . . . . . . . . . . . . . . 14
+8 Reproducible computations and certification 15
+8.1 Certified evaluation of the infinite spectrum . . . . . . . . . . . . . . . . . . . . . . . 15
+8.2 Exact algebra and retarded discrete-dipole diagnostics . . . . . . . . . . . . . . . . . 16
+9 Relation to the three preceding manuscripts 16
+9.1 Audit of the compact localization proof . . . . . . . . . . . . . . . . . . . . . . . . . 17
+9.2 Correction to the formal-verification scope . . . . . . . . . . . . . . . . . . . . . . . . 17
+10 Targeted novelty review 18
+11 Proof ledger and OQ7 verdict 19
+A Reproduction and preserved evidence 20
+2
+
+--- PAGE 3 ---
+OQ7: fixed resources Research draft, 10 October 2026
+1 Main statement, admissible class, and units
+Miller and Monticone’s OQ7 asks for fundamental bounds on the redistribution between absorption
+and scattering when a reciprocal object is illuminated by time-reversed waves with equal extinction
+[1]. The present work addresses one fixed, positive vacuum frequency. Writek = ω/c >0 and
+use thee−iωtconvention. All permittivities in this manuscript arerelative permittivities. The
+background is vacuum and the relative permeability isI until Section 7.
+LetD⊂R3 be a bounded measurable material support, with compact closure, and letχ=εr−I
+be a local, essentially bounded complex3×3 susceptibility onD. Reciprocity meansχT =χalmost
+everywhere. The Hermitian real and imaginary parts areReHχ= (χ+χ†)/2 and B = ImHχ=
+(χ−χ†)/(2i). For a unit vectord∈S2 and a complex unit polarizatione†e = 1, d·e = 0, the two
+electric incident fields are
+f+(x) =ee ikd·x, f −(x) =ee−ikd·x =f+(x). (1)
+Their magnetic fields obeyZ0H−=−Z0H+. Conjugating the electric polarization matters for
+elliptical illumination. Reciprocity equates the extinction cross sections:X =X+ =X−> 0. Set
+Γ =|A+−A−|
+X =|S+−S−|
+X . (2)
+Here A,S,X denote absorption, total scattering, and extinction cross sections, respectively; all
+have units of area. Total scattering includes both transverse polarizations and the entire sphere of
+radiation.
+Theorem 1.1(A closed fixed-resource bound). Fix k> 0, a maximum diameterR> 0, a volume
+capV >0, P≥1, and 0<δ≤Q< ∞. For every supportD with diamD≤R and|D|≤V, and
+every essentially bounded reciprocal susceptibility satisfying
+I⪯ReHεr(x)⪯PI, δI ⪯B(x)⪯QI a.e. onD, (3)
+the outgoing Maxwell scattering problem is uniquely solvable in the volume-integral formulation
+described below. For every pair(1) with X >0,
+Γ≤b0
+1 +b0
+< 1, b 0 =η0 min
+{
+k3Veff
+6π,
+√
+3
+8kR
+}
+, η 0 = (P−1)2
+δ +Q, (4)
+where Veff = min{V,πR3/6}. Consequently the same result holds after imposing any additional
+minimum extinctionX≥E0> 0. No extinction floor is needed for this strict uniform gap.
+The theorem’s lower real-part assumption is explicit. More generally it is enough to assume
+∥ReHχ∥≤c and replaceη0 byc2/δ+Q. If 0⪯ReHεr⪯PI, one may takec = max{1,|P−1|}.
+An upper real-part bound by itself allows arbitrarily negative contrast and does not imply this
+response bound; Section 7.3 states precisely what is and is not known in that enlarged class.
+For a dimensionally consistent version of the function in the research question, putκ= kR,
+v =k3V, ande0 =k2E0. One valid strictly positive function, on every nonempty class (3), is
+F (κ,v,P,Q,δ,e0) =
+[
+1 +
+(
+(P−1)2
+δ +Q
+)
+min
+{
+min{v,πκ3/6}
+6π ,
+√
+3
+8κ
+}]−1
+. (5)
+The absence ofe0 from this sufficient expression is intentional. Section 5 gives a stronger positive-
+extinction bound. If one retains dimensionalV and E0 as arguments ofF, k must also be fixed or
+supplied; kR alone does not nondimensionalize them.
+3
+
+--- PAGE 4 ---
+OQ7: fixed resources Research draft, 10 October 2026
+2 Exact Maxwell identities and well-posedness
+Divide all electric fields by the nonzero incident amplitudeEref and setp =χE. ThusE and p in
+the normalized formulas are dimensionless, and the physical polarization density isε0Erefp. The
+inner product⟨u,v⟩=
+∫
+u·v is conjugate-linear in its first argument. Forgk(x) = eik|x|/(4π|x|),
+define the outgoing distributional volume operator, restricted toD after zero extension,
+Tkp = (k2I +∇∇·)(gk∗p), E =f +Tkp. (6)
+The distributional electrostatic contact term is part ofTk throughout. Its far-field amplitude and
+exact cross sections are
+Fp(n) = k2
+4πΠn
+∫
+D
+p(x)e−ikn·x dx, Πn =I−nnT, (7)
+X =k Im⟨f,p⟩, A =k
+∫
+D
+E†BE dx, S =
+∫
+S2
+|Fp(n)|2 dΩ, (8)
+X =A +S. (9)
+The forward optical theorem isX = (4π/k) Im(e†Fp(d)). These normalizations follow by dividing
+physical powers by the incident intensity|Eref|2/(2Z0).
+Lemma 2.1 (Bounded full dyadic operator). Let vD =|D|<∞and av = (3vD/(4π))1/3. On
+L2(D; C3),
+∥T0∥≤1, ∥Tk−T0∥≤3
+4k2a2
+v. (10)
+Proof. On all ofR3, the Fourier multiplier ofT0 is−ξξT/|ξ|2 almost everywhere. Zero extension and
+restriction are contractions, so the first bound follows, including the contact term. The difference
+has an ordinary locally integrable kernel. Putr =|x|, u =kr, andb(u) =eiu(iu−1) + 1. Its radial
+and tangential eigenvalues are, respectively,
+−2b(u)
+4πr3 , u2eiu +b(u)
+4πr3 .
+Since b(0) = 0 and b′(u) =−ueiu,|b(u)|≤u2/2. The kernel norm is therefore at most3k2/(8πr).
+Radial rearrangement of a decreasing function givessupx
+∫
+D|x−y|−1 dy≤2πa2
+v; the same estimate
+holds withx and y interchanged. Schur’s test gives (10).
+The imaginary part of the outgoing Green operator is positive:
+⟨p, (ImHTk)p⟩= k3
+16π2
+∫
+S2
+⏐⏐⏐⏐Πn
+∫
+D
+p(x)e−ikn·x dx
+⏐⏐⏐⏐
+2
+dΩ = S/k. (11)
+Indeed, sin(kr)/(4πr) =k(16π2)−1 ∫
+S2eikn·x dΩ; applyingk2I +∇∇·gives the transverse plane-wave
+representation in (11). Density extends the identity from smooth compact currents toL2(D).
+Proposition 2.2(Coercivity and reciprocal extinction). If B⪰δI >0 and∥χ∥≤K <∞a.e.,
+then (6) has a unique solutionp∈L2(D; C3). If alsoχT =χ, the pair(1) has equal extinction.
+Proof. The susceptibility is invertible pointwise and its inverse is bounded by1/δ. Set W =
+−ImHχ−1 =χ−†Bχ−1. For everyv, v†Wv≥δ
+⏐⏐χ−1v
+⏐⏐2≥(δ/K2)|v|2. ForL =χ−1−Tk,
+−Im⟨p,Lp⟩=⟨p,Wp⟩+⟨p, (ImHTk)p⟩≥(δ/K2)∥p∥2
+2.
+4
+
+--- PAGE 5 ---
+OQ7: fixed resources Research draft, 10 October 2026
+The bounded complex sesquilinear form obtained by multiplication byi is coercive. The complex
+Lax–Milgram theorem yields a bounded inverse and a uniquep =L−1f. The constructed field is in
+Hloc(curl): the scalar Helmholtz volume potential is locallyH2, and∇×E =∇×f +k2∇×(gk∗p)
+is locallyH1. It solves Maxwell’s equations distributionally and satisfies the outgoing radiation
+condition. Conversely, an outgoing finite-energy weak Maxwell field has this Green representation:
+subtracting the volume potential leaves an entire outgoing source-free vacuum Maxwell field, which
+vanishes by the vacuum uniqueness theorem. The same energy identity withLp =f gives (9).
+The kernel ofTk is symmetric under simultaneous transpose and interchange of its two arguments.
+ConsequentlyL andL−1 are symmetric for the continuous bilinear pairing[u,v ] =
+∫
+u·v, when
+χT =χ. Sincef−=f+,
+⟨f+,p +⟩= [f−,L−1f+] = [f+,L−1f−] =⟨f−,p−⟩.
+Taking imaginary parts provesX+ =X−.
+This proof does not require a smooth boundary, a finite number of components, a minimum
+feature size, or a modal truncation. It does require the full tensor loss floor when used to establish
+existence for the entire essentially bounded coefficient class.
+3 The response budget and an all-angle efficiency bound
+A broader hypothesis sufficient for the elementary bounds is
+η:D→[0,∞) measurable, B (x)⪰0,
+|χ(x)v|2≤η(x)v†B(x)v for allv∈C3, 0<M :=
+∫
+D
+η(x) dx< ∞. (12)
+Hereηis dimensionless andM has units of volume. This is a loss-weighted material-response budget,
+not the integral of loss, not absorbed power, and not a frequency sum rule. In this broader class the
+statements apply to every well-posed finite-absorption Maxwell solution;(12) alone is not asserted
+to establish existence for arbitrary rough coefficients.
+When B≻0 the smallest admissible value isη=
+χB−1χ†
+. For singular B this becomesχB+χ†
+ provided kerB⊆kerχ; without that kernel condition the pseudoinverse expression is
+insufficient. The conventionη= 0,p = 0 on nonresponding material is harmless. Writingχ=A0+iB
+with A0 = ReHχgives the exact noncommuting-matrix identity
+χB−1χ†=A0B−1A0 +B. (13)
+Thus∥A0∥≤c and δI⪯B⪯QI imply η≤c2/δ+Q.
+Theorem 3.1(Integrated response bound). Under (12), each unit-amplitude plane-wave solution
+satisfies
+S≤βMA, X 2≤kMA, X ≤kM, β M = k3M
+6π. (14)
+For a reciprocal pair,
+Γ≤min
+{ βM
+1 +βM
+, 1−X
+kM
+}
+. (15)
+5
+
+--- PAGE 6 ---
+OQ7: fixed resources Research draft, 10 October 2026
+Proof. The material condition implies
+∫
+D|p|2/η≤A/k, with zero integrand whereη= 0. Weighted
+Cauchy–Schwarz yields∥p∥2
+1≤MA/k. This proof only needsp∈L1; it does not inferp∈L2 from
+η∈L1. Minkowski’s inequality, followed by
+∫
+S2 Πn dΩ = (8π/3)I, gives
+S1/2≤k2
+4π
+∫
+D
+(∫
+S2
+|Πnp(x)|2 dΩ
+)1/2
+dx = k2
+4π
+√
+8π
+3 ∥p∥1.
+This proves the first inequality in(14). Because|f|= 1,|⟨f,p⟩|≤∥p∥1, soX2≤k2∥p∥2
+1≤kMA.
+Since A ≤X, one obtains X ≤kM for X > 0. For s = S/X, the first two bounds give
+0≤s≤min{βM/(1 +βM), 1−X/(kM )}. Both reciprocal illuminations lie in that interval; its
+width bounds Γ =|s+−s−|.
+The response factor and radiation-efficiency principle have direct antecedents in material-response
+bounds and current optimization [2, 3, 4, 5]. In particular, Schab et al. explicitly identify the
+scattering–absorption boundary using the largest radiation-to-loss generalized eigenvalue [3, Sec. 3.1].
+The elementary asymmetry bound is a consequence of that established principle and reciprocal
+extinction equality.
+Corollary 3.2(Necessary costs and absolute differences). If Γ≥1−ϵ, where 0<ϵ<1, then
+M≥6π
+k3
+1−ϵ
+ϵ. (16)
+If also X ≥E0 > 0, then M ≥E0/(kϵ). For the absolute absorption or scattering difference
+∆ = XΓ,
+∆ ≤
+{
+kMβM/(1 +βM)2, βM≤1,
+kM/4, β M≥1. (17)
+Proof. Rearrange (15). For the last statement putx = X/(kM )∈[0, 1] and r = βM/(1 +βM);
+then ∆/(kM )≤min{rx,x (1−x)}. Ifr≤1/2 the maximum is atx = 1−r and equalsr(1−r). If
+r≥1/2 it is atx = 1/2 and equals 1/4.
+4 The complete ball radiation spectrum and a linear size estimate
+Assume nowD⊂Ba and 0<η(x)≤¯η <∞on responding material. Extendp by zero toBa. The
+material condition then supplies∥p∥2
+2≤¯ηA/k. Let
+(Hp)(n) = Πn
+∫
+Ba
+p(x)e−ikn·x dx, Ra = ImHTk
+⏐⏐
+Ba
+= k3
+16π2H†H.
+The operatorRa is positive, compact, and self-adjoint. Its units and eigenvalues are dimensionless.
+Lemma 4.1(All vector radiation eigenvalues). Forz =ka the positive eigenvalues ofRa are
+λM
+ℓ(z) =
+∫ z
+0
+s2jℓ(s)2 ds, (18)
+λN
+ℓ(z) =
+∫ z
+0
+[
+ℓ(ℓ+ 1)jℓ(s)2 +
+(
+(sjℓ(s))′)2]
+ds, ℓ = 1, 2,.... (19)
+Each family has multiplicity2ℓ+ 1; coincidences add multiplicities. The orthogonal complement of
+these radiating modes iskerRa. For the plane wavef =eeikd·x on Ba and α>0,
+Dα:=
+⣨
+f, (Ra +αI)−1f
+⟩
+= 2π
+k3
+∞∑
+ℓ=1
+(2ℓ+ 1)
+[
+λM
+ℓ
+λM
+ℓ+α+ λN
+ℓ
+λN
+ℓ+α
+]
+. (20)
+6
+
+--- PAGE 7 ---
+OQ7: fixed resources Research draft, 10 October 2026
+In particular,
+2π
+k3
+∞∑
+ℓ=1
+(2ℓ+ 1)(λM
+ℓ+λN
+ℓ) =∥f∥2
+2 = 4πa3
+3 . (21)
+Proof. Take scalar spherical harmonicsYℓmnormalized on S2 and the associated orthonormal
+tangent vector harmonicsXℓm=−in×∇S2Yℓm/
+√
+ℓ(ℓ+ 1) and n×Xℓm. The Rayleigh plane-wave
+expansion and angular integration give
+H†Xℓm(r) = 4πiℓjℓ(k|r|)Xℓm(ˆr), H†(n×Xℓm) = (ik)−1∇×H†Xℓm.
+Thus the adjoint sends these to4π, up to unit phases, times the regular magnetic and electric vector
+spherical waves. For the magnetic wave its squared radial integral isk−3 ∫z
+0 s2jℓ(s)2 ds. For the
+electric wave, the orthogonal radial and tangential parts givek−3 ∫z
+0 [ℓ(ℓ+ 1)jℓ(s)2 + ((sjℓ(s))′)2] ds.
+Different modes are orthogonal onBa. Multiplication byk3/(16π2) inRa gives exactly(18)–(19).
+Completeness of the two families of tangent harmonics gives all nonzero singular values ofH, hence
+all positive eigenvalues ofRa.
+If q∈kerRa, thenHq = 0 almost everywhere. BecauseBa has finite volume,q∈L1 andHq
+is continuous; therefore it vanishes atd. It follows that⟨f,q⟩=e†(Hq)(d) = 0. Thusf⊥kerRa;
+no angular delta distribution is treated as anL2 vector. The vector addition theorem gives
+∑
+m
+⏐⏐⏐e†Xℓm(d)
+⏐⏐⏐
+2
+= (2ℓ+ 1)/(8π), and the same identity for the other tangent family. For an angular
+eigenmode u with eigenvalueλthe normalized volume mode isq =k3/2H†u/(4π
+√
+λ). Consequently
+Hq = 4πk−3/2√
+λu. The squared plane-wave projection summed overm is therefore(2π/k3)(2ℓ+1)λ
+for each family. The spectral theorem proves (20) and (21).
+Spherical radiation modes and their use in material bounds are established tools [4, 5, 6, 17].
+The next elementary estimate is useful here because it is uniform over all angular orders.
+Theorem 4.2(Uniform linear bound, with no cutoff). For everyz >0,
+Λ(z) :=∥Ra∥= max
+ℓ≥1
+{λM
+ℓ(z),λN
+ℓ(z)}≤min
+{
+2z3
+9 , z
+}
+. (22)
+Hence
+S≤βA, β = min
+{
+k3M
+6π, ¯ηΛ(ka)
+}
+. (23)
+Proof. Apply the all-angleL1 estimate of Theorem 3.1 to an arbitrary current inBa, then use
+∥p∥2
+1≤|Ba|∥p∥2
+2. SinceS/k =⟨p,Rap⟩, this givesΛ(z)≤k3|Ba|/(6π) = 2z3/9.
+For the linear estimate fix any integerℓ≥1 and put u(z) = zjℓ(z), L = ℓ(ℓ+ 1), and
+Eℓ=u′2 + (1−L/z2)u2. The Bessel equation gives
+u′′+ (1−L/z2)u = 0, E′
+ℓ(z) = 2Lu(z)2/z3≥0.
+For this fixedℓ, the standard sine and cosine asymptotics yieldEℓ(z)→1 asz→∞. ThusEℓ(z)≤1
+for everyz >0 and everyℓ. Direct differentiation and the zero limits atz = 0 show
+λM
+ℓ= zEℓ−uu′
+2 , λ N
+ℓ= zEℓ+uu′
+2 .
+Both are nonnegative by their integral definitions and their sum iszEℓ≤z. Taking the supremum
+proves the bound. This argument proves the estimate separately for everyℓand then takes a
+supremum; it does not interchange a nonuniform asymptotic limit with an infinite supremum.
+Finally S =k⟨p,Rap⟩≤kΛ∥p∥2
+2≤¯ηΛA, which combines with Theorem 3.1 to give (23).
+7
+
+--- PAGE 8 ---
+OQ7: fixed resources Research draft, 10 October 2026
+The linear order is sharp for the radiationoperator. Forℓ= 1,
+E1(z) = 1−z−2 + sin(2z)z−3−sin2(z)z−4,
+so the larger of the two eigenvalues is at least
+zE1(z)
+2 ≥z
+2−1
+2z−1
+2z2−1
+2z3.
+Together with(22), this provesΛ(z) = Θ(z) as z→∞. It does not proveΛ∼z/2 or a matching
+physical asymmetry construction. Equation (23) also implies the necessary size cost
+Γ≥1−ϵ =⇒ ¯ηka≥1−ϵ
+ϵ. (24)
+Completion of Theorem 1.1.Equation (13) gives ¯η≤η0 andM≤η0|D|. The isodiametric inequal-
+ity gives|D|≤πR3/6. For completeness, from a radius-a smallest enclosing ball one can select at
+most four contact pointsyi and nonnegative weightsµi with ∑
+iµi = 1, ∑
+iµiyi = 0, and|yi|=a,
+after centering. The center lies in the convex hull of the contact set, since otherwise a separating
+hyperplane would permit moving it to decrease the maximal distance. Carathéodory’s theorem
+supplies four contact points. Consequently
+2a2 =
+∑
+i,j
+µiµj|yi−yj|2≤R2
+(
+1−
+∑
+i
+µ2
+i
+)
+≤3
+4R2.
+Thusa≤
+√
+3/8R. Using (22) in (23) givesβ≤b0, and the interval argument of Theorem 3.1 proves
+(4). The susceptibility is bounded under (3), so Proposition 2.2 supplies well-posedness.
+An arbitrary diameter-R body need not fit in a radius-R/2 ball. The volume inequality and
+enclosing-ball inequality used above are different statements. Takinga =R would also be valid, but
+weaker.
+5 Positive extinction: an exact all-mode current relaxation
+The optical theorem alone controls a forward amplitude, whereasS is an angular integral. Bounding
+their ratio by a heuristic directivity or by a finite multipole count would leave a superdirectivity
+loophole. The following argument instead retains the entire radiation operator and the loss-controlled
+norm of the polarization. Leta> 0, 0< ¯η <∞, w = 1/¯η, andt =X/k. The quantityt and the
+function Dαin (20) have units of volume;α,ware dimensionless. Every physical current extended
+to Ba obeys
+Im⟨f,p⟩=t, ⟨p, (Ra +wI)p⟩≤t. (25)
+The first equality is the optical theorem, and the second follows fromw∥p∥2
+2≤A/k andX =A +S.
+Theorem 5.1(Strict scattering floor and its exact relaxed value). For 0<t ≤Dw, define
+ρa,w(t) = sup
+0<α<w
+wt/Dα−α
+w−α . (26)
+This function is nondecreasing int and strictly positive fort> 0. It is the exact minimum of
+⟨p,Rap⟩
+t over p∈L2(Ba; C3) subject to(25). (27)
+The feasible set is empty fort>D w. In particular every physical solution satisfiesS/X≥ρa,w(X/k).
+8
+
+--- PAGE 9 ---
+OQ7: fixed resources Research draft, 10 October 2026
+Proof. For 0<α<w, Cauchy–Schwarz in the positive metricRa +αIgives
+t2≤|⟨f,p⟩|2≤Dα⟨p, (Ra +αI)p⟩
+≤Dα
+[(
+1−α
+w
+)
+⟨p,Rap⟩+ α
+wt
+]
+.
+Rearranging proves the lower bound(26). Withα=w it givest≤Dw. Every term in the supremum
+is increasing int.
+By Lemma 4.1,f⊥kerRa. The spectral theorem and dominated convergence therefore give
+αDα=
+⣨
+f,α(Ra +αI)−1f
+⟩
+−→0 ( α↓0).
+For any fixedt> 0 choose a sufficiently smallαso thatαDα<wt . The corresponding quotient in
+(26) is positive. This proves strict positivity, with no finite-rank assumption.
+It remains to prove attainment and exactness. Put
+Hα=
+⣨
+f, (Ra +αI)−2f
+⟩
+=−D′
+α, K α=
+⣨
+f, (Ra +αI)−3f
+⟩
+,
+Jα=Dα+ (w−α)Hα, T (α) =D2
+α/Jα.
+Differentiation, usingH′
+α=−2Kα, gives
+T′(α) = 2Dα(w−α)(DαKα−H2
+α)
+J2α
+> 0. (28)
+Cauchy–Schwarz proves nonnegativity of the numerator. It is strictly positive sincef has nonzero
+aggregate projections onto every positive magnetic and electric order, and hence onto infinitely
+many distinct positive eigenvalues of the compact operator. The equality case of Cauchy–Schwarz
+would require support on a single eigenvalue.
+Asα↑w,T(α)→Dw. Asα↓0, the positive series(20) givesDα→∞. AlsoHα≥D2
+α/∥f∥2
+2→
+∞. The unit vectorsvα= (Ra +αI)−1f/√Hαconverge weakly to zero: their coordinate along each
+fixed positive eigenvector tends to zero, their kernel coordinates vanish, and the spectral eigenvectors
+together with the kernel span the Hilbert space. Approximation by a finite span then proves weak
+convergence for every test vector. In particularDα/√Hα=⟨f,vα⟩→0. Sincew−αstays positive
+near zero,T(α)→0.
+For every0<t<D w there is therefore a uniqueα∈(0,w ) with T(α) =t. Define
+pα= i t
+Dα
+(Ra +αI)−1f. (29)
+Direct substitution yields Im⟨f,pα⟩= t and⟨pα, (Ra +wI)pα⟩= t2Jα/D2
+α= t. The Cauchy–
+Schwarz step is an equality for this current, so it attains the lower bound. Its value is
+ρa,w(t) = Dα−αHα
+Dα+ (w−α)Hα
+, t = D2
+α
+Dα+ (w−α)Hα
+. (30)
+Att =Dw, equality in thew-metric Cauchy–Schwarz inequality forces the unique feasible current
+p = i(Ra +wI)−1f. Its scattering fraction is1−wHw/Dw. This is the limit of(26) as α↑w. The
+endpoint t = 0 may be assignedρ(0) = 0.
+9
+
+--- PAGE 10 ---
+OQ7: fixed resources Research draft, 10 October 2026
+Corollary 5.2(Uniform positive-extinction asymmetry bound). SupposeD⊂Ba, η≤¯η, M≤
+M0<∞, and the reciprocal pair hasX≥E0> 0. Set
+β0 = min{k3M0/(6π), ¯ηΛ(ka)}.
+For a nonempty admissible class,
+Γ≤min
+{ β0
+1 +β0
+, 1−E0
+kM0
+}
+−ρa,1/¯η(E0/k). (31)
+In particularE0≤kD1/¯ηis necessary for feasibility. A negative right-hand side proves that the
+stated class is empty.
+Proof. For each illumination the scattering fraction is at leastρ(X/k)≥ρ(E0/k). Theorem 3.1
+and (23) bound it above by the minimum in(31), after replacingM byM0 and X byE0 in the
+monotone directions. The width of this common interval bounds the difference.
+For the class in Theorem 1.1, takea =
+√
+3/8R, ¯η=η0, andM0 =η0Veff. The ball and material
+bounds thus define a completely specified function of the dimensionless resources. A smaller known
+enclosing ball or a tighter integrated response budget improves it.
+5.1 A closed angular-cap correction
+There is also a simple explicit correction that only needsM <∞and an enclosing radius. It can be
+combined with (31).
+Proposition 5.3(Forward cap bound). For every solution withD⊂Ba, M <∞, andX >0,
+SA≥ kX 4
+96πM(1 +ka)2. (32)
+Proof. Put g(n) = e†Fp(n) and h = kX/(4π) > 0. The optical theorem gives|g(d)|≥h. The
+inequalities∥Πn−Πd∥=|sinθ|≤|n−d|and
+⏐⏐⏐e−ikn·x−e−ikd·x
+⏐⏐⏐≤ka|n−d|imply
+|g(n)−g(d)|≤L|n−d|, L = k2
+4π(1 +ka)
+√
+MA/k.
+Coordinates are centered on the enclosing ball and the incident amplitude is rephased to one there.
+This leaves all cross sections and the forward optical theorem in the stated normalization unchanged.
+Moreoverh≤k2∥p∥1/(4π), soh/L≤1/(1 +ka)≤1. Using chord distancer =|n−d|, the sphere
+area element of a radial cap is2πrdr. Since|Fp(n)|≥|g(n)|,
+S≥2π
+∫ h/L
+0
+r(h−Lr)2 dr = πh4
+6L2 = kX 4
+96πMA(1 +ka)2.
+For fixed resources let
+C0 = kE2
+0
+96πM0(1 +ka)2, r 0 = 1−√1−4C0
+2 . (33)
+10
+
+--- PAGE 11 ---
+OQ7: fixed resources Research draft, 10 October 2026
+If C0 > 1/4, there is no feasible object. Otherwise each scattering fraction belongs to[r0, 1−r0].
+Before usingρ, also checkE0≤kD1/¯η; failure means the class is empty andρneed not be evaluated.
+Intersecting all proved intervals gives the strongest combined envelope established in this manuscript:
+Γ≤U0−L0,
+U0 = min
+{ β0
+1 +β0
+, 1−E0
+kM0
+, 1−r0
+}
+,
+L0 = max
+{
+ρa,1/¯η(E0/k), r0
+}
+.
+(34)
+If U0 < L0, the resources are incompatible with positive extinction. The cap coefficient is not
+claimed optimal. The resolvent result is exact only for(25)–(27), not for the combined physical
+asymmetry problem.
+5.2 What these proofs do about resonances and superdirectivity
+All positive radiation eigenvalues, including the arbitrarily small high-order values, remain in(20).
+Superdirective currents have small radiation relative to their norm. The loss metric charges that
+norm in(25), and the optical theorem fixes the forward work at positive extinction. These are the
+quantitative restrictions behindρ>0. The bounded-loss Maxwell inverse in Proposition 2.2 also
+controls resonant amplification for the stated class. No assumption of a finite number of contributing
+multipoles, no angular cone approximation, and no exclusion of grazing radiation appears in these
+arguments. This complements established directivity–efficiency and antenna absorption results
+[7, 8].
+6 A physical Maxwell construction with sharp small-volume order
+The current optimizer(29) need not be generated by a local reciprocal susceptibility, much less by
+the same susceptibility under the opposite wave. A distinct physical construction can, however,
+settle one scaling exponent.
+Theorem 6.1(Exact small-sphere asymmetry). LetD =Ba be a homogeneous sphere and fix
+χ=A0 + iB, A 0 = diag(1, 2, 1), B =
+
+
+1/2 1 /5 0
+1/5 1 /2 0
+0 0 1 /2
+
+. (35)
+Illuminate it withd = (0, 0, 1)T, e = (1, i, 0)T/
+√
+2, and the time-reversed pair(1). For the exact
+outgoing Maxwell solution, aska↓0 at fixedk,
+Γa = 160
+2071(ka)3 +O((ka)4) = 120
+2071πk3|Ba|+O
+(
+k3|Ba|ka
+)
+. (36)
+The material eigenvalue bounds are fixed:ReHεr has eigenvalues 2, 3, 2 and B has eigenvalues
+0.3, 0.5, 0.7.
+Proof. Rescalex =ay to the unit sphere and writeκ=ka. The equation becomes(χ−1−Tκ)pκ=fκ.
+Lemma 2.1 gives∥Tκ−T0∥≤3κ2/4. The loss coercivity in Proposition 2.2 gives a uniform inverse
+bound asκ→0, because the fixed tensor(35) has a positive loss floor. For a constant vector in a
+ball,T0p =−p/3 inside the ball. Thus the static solution is the constant vectorLe, where
+L = 3χ(χ+ 3I)−1.
+11
+
+--- PAGE 12 ---
+OQ7: fixed resources Research draft, 10 October 2026
+The incident wave satisfiesfκ= e +O(κ) in L2(B1). The resolvent identity and the operator
+estimate implypκ=Le +O(κ) in L2(B1), and similarly fore. All constants depend only on the
+displayed fixed tensor. After returning to physical coordinates,(7) then gives uniformly inn∈S2,
+with va =|Ba|,
+F±(n) = k2va
+4πΠnLe±+O(k2vaκ), e + =e, e −=e.
+The estimate usesL2(B1)⊂L1(B1) and e−iκn·y = 1 +O(κ) uniformly onB1×S2. Integrating the
+complete far field and using the optical work gives
+S±= k4v2
+a
+6π∥Le±∥2 +O(k4v2
+aκ),
+X =kva Im(e†Le) +O(kvaκ).
+The equality of the two exact extinctions follows independently from reciprocity.
+For explicit verification, putd0 = (4 + i/2)(5 + i/2) + 1/25 = (1979 + 450i)/100. The transverse
+entries ofL are
+L11 = 3−9(5 + i/2)
+d0
+, L 22 = 3−9(4 + i/2)
+d0
+, L 12 =L21 = 9i
+5d0
+.
+Direct rational algebra gives
+Im(e†Le) = 931950
+4118941 > 0, ∥Le∥2−∥Le∥2 = 324000
+4118941.
+Their ratio is720/2071. Divide|S+−S−|byX, then useva = 4πa3/3 to obtain (36).
+This is an asymptotic theorem about the exact Maxwell solution, not an assumption that only
+dipoles exist. The higher multipoles are included in the uniformly controlled error. SinceΓa is a
+positive constant timesk3va, the general small-volume exponent in Theorem 3.1 cannot be improved
+uniformly over this polarization and anisotropy class. No optimality is claimed for the uniform
+coefficient. Nor does this family establish sharpness at fixedE0 > 0, becauseXa→0. For real
+linear polarization a homogeneous centrosymmetric sphere has equal opposite-direction absorption;
+the present example specifically uses the allowed complex time-reversed polarization pair. The
+underlying role of nonorthogonal modes in reciprocal anisotropic or inhomogeneous lossy media has
+precedent [10, 9].
+The tensor value can be embedded in a passive causal frequency response. For example, with
+Ω >ω0 and γ >0,
+χ(ω) = (Ω 2−ω2
+0)A0
+Ω 2−ω2 + γω0B
+ω2
+0−ω2−iγω,
+where the first term is interpreted as the lossless causal oscillator limit, satisfiesχ(ω0) =A0 + iB.
+Both oscillator-strength tensors are positive semidefinite. This observation establishes compatibility
+of the specified single-frequency tensor with passivity and causality; it supplies no finite-bandwidth
+asymmetry theorem.
+7 Broader physical classes and unresolved hypotheses
+7.1 Isotropic and anisotropic dielectrics
+The response theorem applies to arbitrary local reciprocal anisotropic tensors and, as a special case,
+isotropic scalar media. For a scalar susceptibility withImχ>0, η=|χ|2/ Imχ. No restriction to
+12
+
+--- PAGE 13 ---
+OQ7: fixed resources Research draft, 10 October 2026
+layers, a scalar wave equation, a principal polarization, or finitely many spatial regions was used.
+The physical exponent construction in Section 6 is anisotropic. We have not supplied a matching
+isotropic construction, nor proved that isotropy changes the optimal exponent or coefficient.
+7.2 Reciprocal electric–magnetic constitutive tensors
+With the same incident-amplitude normalization, let
+Ψ = (Ephys,Z 0Hphys)/Eref, q = (Pphys/ε0,Z 0Mmag)/Eref =χ6Ψ.
+HereMmag is physical magnetization, defined byBphys =µ0(Hphys +Mmag). ThusDphys/(ε0Eref) =
+ΨE +qE and cBphys/Eref = ΨH +qM. Assume the exterior is vacuum, the solution is well posed,
+B6 = ImHχ6⪰0, and the reciprocal constitutive relation is
+χT
+6 =Jχ6J, J = diag(I,−I).
+Suppose a measurable nonnegativeη6 satisfies|χ6v|2≤η6v†B6v for all six-vectors, and0<M 6 =∫
+Dη6<∞.
+Proposition 7.1(Six-component response bound). For unit incident electric amplitude and opposite
+time-reversed waves,
+S≤k3M6
+6πA, X 2≤2kM6A, Γ≤ k3M6
+6π+k3M6
+< 1. (37)
+If alsoη6≤¯η6 and D⊂Ba, thenS≤¯η6kaA.
+Proof. The normalized cross sections areA =k
+∫
+Ψ†B6Ψ and X =k Im⟨Ψ inc,q⟩. WritingE = ΨE,
+elimination of Maxwell’s equations gives(∇×∇×−k2)E =k2qE + ik∇×qM, hence
+F(n) = k2
+4π
+∫
+D
+[ΠnqE(x)−n×qM(x)]e−ikn·x dx.
+For fixedu,v∈C3, ∫
+S2
+|Πnu−n×v|2 dΩ = 8π
+3 (|u|2 +|v|2).
+The cross term vanishes because it is odd inn. Minkowski and weighted Cauchy–Schwarz now give
+the first inequality exactly as in Theorem 3.1. The incident six-vector has squared norm2, which
+supplies the factor two in the extinction inequality. Lorentz reciprocity withΨ−=JΨ + equates the
+forward work and hence the extinctions. Energy conservation and the common-interval argument
+give (37).
+For the radius bound, the six-component angular operator is the electric-current angular operator
+together with its magnetic copy composed with the tangent rotationv(n)↦→−n×v(n). This
+rotation exchanges the two vector-harmonic families. Thus the nonzero radiation eigenvalues are
+λM
+ℓ+λN
+ℓ, each with multiplicity2(2ℓ+ 1). The sum identity in Theorem 4.2 bounds every such
+eigenvalue byka. Use∥q∥2
+2≤¯η6A/k.
+The electric-only spectrum must not be reused unchanged in a magnetic or bianisotropic
+calculation. The elementary six-component response framework also has prior precedent [2]. We
+have not asserted a general six-component rough-coefficient well-posedness theorem under(37)’s
+response hypothesis.
+13
+
+--- PAGE 14 ---
+OQ7: fixed resources Research draft, 10 October 2026
+7.3 A one-sided real cap: a failed inference, not a counterexample
+If the only real-part constraint isReHεr⪯PI, then the material values
+εn = (1−n + iδ)I, n = 1, 2,..., (38)
+obey that upper cap forP≥1, the same loss floorδ, and a fixed imaginary upper capQ≥δ. Their
+response factor isηn = (n2 +δ2)/δ→∞. They can be realized atω0 by passive Drude permittivities
+εn(ω) = 1− ω2
+p,n
+ω(ω+ iγn), γ n = δω0
+n , ω 2
+p,n =n(ω2
+0 +γ2
+n).
+Substitution gives exactly (38) atω0, and the imaginary part is positive forω >0.
+This family rigorously disproves the inference that the stated one-sided caps bound susceptibility
+or the loss-weighted response. It doesnot disprove existence of every possible positiveF for that
+enlarged class: a homogeneous isotropic sphere in this family hasΓ = 0. No sequence with fixed
+R,V,Q,δ,E0 and Γ→1 in the enlarged class has been established here. Its existence question
+remains open, with neither a valid universal proof nor a physical counterexample supplied.
+7.4 Removing a full tensor loss floor
+The integrated condition(12) permits nonuniform and vanishing loss when responding directions
+remain controlled. It excludes a lossless direction with nonzero susceptibility. Positive trace loss,
+positive total integrated loss, or positivity only on one polarization does not imply that condition.
+The earlier planar vector construction exploits precisely such polarization structure; its scalar
+determinant lower bound cannot be transferred to general tensors.
+If one merely fixes size and bounded positive real contrast while allowing arbitrary vanishing loss,
+the current proof need not have a boundedM. A replacement argument based on compactness would
+need uniform Maxwell resolvent estimates, a specified topology for the coefficients and geometry,
+a justified homogenization closure, and uniqueness for the limiting class. Weak convergence of
+coefficients alone supplies none of these automatically. Uniqueness results for piecewise regular
+anisotropic coefficients [21] should not be cited as a theorem for an arbitrary enlarged essentially
+bounded class. We leave that sharper loss-free-resource question unresolved.
+7.5 Multiple channels, other backgrounds, and bandwidth
+The radiation-efficiency inequality is independent of the incident plane wave once its induced current
+is given. For a general incident electric fieldf, the extinction estimate uses
+∫
+Dη|f|2 in place ofM.
+If the selected reciprocal pair has the same positive extracted power under a common normalization,
+the same interval-width argument applies. Finite-power channel fractions and plane-wave cross
+sections have different units and cannot be interchanged without that normalization.
+In a waveguide, a substrate, or another background, the complete positive radiation operator
+includes every open and guided channel. A bound on that operator and a compatible loss metric
+can reproduce the abstract reasoning, but the vacuum constants and vacuum ball spectrum are not
+automatically valid. Uncounted outgoing channels cannot be called absorption.
+All main results here are single-frequency statements. Uniform hypotheses over an interval give
+corresponding pointwise bounds, but a genuinely sharper bandwidth tradeoff requires constraints
+on dispersion, oscillator strength, static response, or other causal resources. No finite-bandwidth
+optimum is proved here.
+14
+
+--- PAGE 15 ---
+OQ7: fixed resources Research draft, 10 October 2026
+8 Reproducible computations and certification
+The analytical theorems do not depend on an optimizer or a discretized Maxwell model. Computa-
+tions serve three separate purposes: exact coefficient checking, evaluation of an infinite-dimensional
+bound, and diagnostics of a physical discretization.
+8.1 Certified evaluation of the infinite spectrum
+For 0≤s≤z, the integral representation ofjℓgives|jℓ(s)|≤sℓ/(2ℓ+ 1)!!. The recurrence
+(sjℓ)′= (ℓ+ 1)jℓ−sjℓ+1 then gives
+λM
+ℓ≤ z2ℓ+3
+(2ℓ+ 3)((2ℓ+ 1)!!)2,
+λN
+ℓ≤
+
+ℓ(ℓ+ 1) +
+(
+ℓ+ 1 + z2
+2ℓ+ 3
+)2
+ z2ℓ+1
+(2ℓ+ 1)((2ℓ+ 1)!!)2. (39)
+For an integerL≥1 put
+CL = 2 + 2z2
+(L + 2)2 + z4
+(2L + 5)2(L + 2)2, r L =
+(L + 3
+L + 2
+)2 z2
+(2L + 5)2.
+Combining the positive terms of (39) shows, forℓ≥L + 1,
+(2ℓ+ 1)(λM
+ℓ+λN
+ℓ)≤CL
+(ℓ+ 1)2z2ℓ+1
+((2ℓ+ 1)!!)2 .
+For clarity, after factoring(ℓ+ 1)2, the leading term is(2ℓ+ 1)/(ℓ+ 1)≤2; the two quadratic-in-z
+terms together are(4ℓ+3)z2/((2ℓ+3)(ℓ+1) 2)≤2z2/(L+2) 2; and the fourth-order term is bounded
+by that inCL. Successive majorants have ratio at mostrL. IfrL< 1,
+∑
+ℓ>L
+(2ℓ+ 1)(λM
+ℓ+λN
+ℓ)≤TL := CL(L + 2)2z2L+3
+((2L + 3)!!)2(1−rL). (40)
+The omitted Dαand Hαtails are consequently at most2πTL/(k3α) and 2πTL/(k3α2). Every
+omitted radiation eigenvalue is at mostTL/(2L + 3). This is a certified remainder estimate, not a
+physical multipole cutoff.
+The script agents/bound_derivation/certified_ball_bounds.py uses exact rational alter-
+nating series for finite Bessel values and 100-digitDecimal interval arithmetic with directed rounding.
+Its analytic inequalities and the implemented signs were independently audited. NumPy and SciPy
+choose an initial candidateα; the subsequent certificate does not trust that candidate. An explicit
+feasible current of the form(29), evaluated at a slightly largerα, gives an upper enclosure of the
+relaxed minimum; the dual inequality gives a lower enclosure.
+The calculations explicitly evaluateℓ≤60, with every higher order included by(40). The largest
+omitted Dαtail in Table 1 is below1.1×10−76. All four interval Parseval checks contain zero.
+These are computational certificates of the formulas, not Lean proofs and not substitutes for the
+analytical derivations.
+15
+
+--- PAGE 16 ---
+OQ7: fixed resources Research draft, 10 October 2026
+ka k 2X Certified interval forρ Certified Γ upper bound
+1 10 [0.1193053312818, 0.1193053312839] 0 .5260508725652
+3 80 [0.2107489289841, 0.2107489289869] 0 .7236130760010
+5 200 [0.2416386685242, 0.2416386685268] 0 .7211975977659
+10 800 [0.3203603686451, 0.3203603686476] 0 .6607668654842
+Table 1: All-mode certificates for¯η= 10. The last column uses only¯ηΛ/(1 + ¯ηΛ)−ρ; adding the
+integrated-budget and cap constraints can improve it. Entries are rounded outward. They bound
+physical objects but are not physical realizability examples.
+8.2 Exact algebra and retarded discrete-dipole diagnostics
+The independent scriptchecks/maxwell_checks.py verifies the sphere’s displayed rational coeffi-
+cients and tests(13) for 1,000 reproducibly seeded noncommuting real symmetric matrix pairs. It
+then solves a retarded, radiation-damped discrete-dipole model for both incident waves. For cubic
+cells of volumeh3 the inverse static polarizability is(χ−1 +I/3)/h3; the self radiation correction is
+−ik3I/(6π). All off-diagonal interactions use the complete retarded dyadic kernel. Absorption is
+computed from−ImHχ−1/h3, and scattering is independently integrated over the full sphere using
+transverse fields.
+For a cube of side2 at k = 1 with two anisotropic halves and real incident polarization, the
+results are: Extinction reciprocity and independently integrated radiation-energy balance agree to
+Grid per side Cells X Γ
+4 64 1.6628669012 0.0607360786
+6 216 1.6933783436 0.0593898585
+8 512 1.7050488784 0.0589698540
+10 1000 1.7105119509 0.0588035214
+Table 2: A reciprocal retarded point-dipole discretization. Tensor values, quadrature, mesh
+construction, residuals, and both illuminations are in the script and JSON output.
+approximately 2.4×10−15 relative error. The last two asymmetry values differ by about0.28%.
+These residuals check the finite dipole system, not a certified continuum discretization error.
+The voxel approximation of the sphere illustrates that distinction. Atka = 0.1, normalizing
+by actual voxel material volume givesΓ/(k3Vvoxel)≈0.018558 and 0.018567 on the two reported
+grids, versus the exact continuum coefficient120/(2071π)≈0.01844384. The persistent roughly
+0.6–0.7% offset is compatible with boundary shape and discretization error. Shrinking a fixed-index
+voxelization preserves a faceted shape; it does not constitute convergence to a sphere. No continuum
+sharpness claim rests on these numerical values.
+9 Relation to the three preceding manuscripts
+The recovered source archives and PDFs were copied into a separate research directory and left
+unmodified. Their SHA-256 hashes are recorded inprior_source_checksums.json. The supplied
+ordinary proofs were treated as claims to audit. The principal conclusions of the targeted re-
+examination are as follows.
+16
+
+--- PAGE 17 ---
+OQ7: fixed resources Research draft, 10 October 2026
+Previous result Quantifiers and normalization Present relation
+Restricted scalar
+multilayers
+A sharp inverse-square thickness
+asymptotic in a specified scalar
+layered setting with its material
+and target assumptions.
+Preserved. It is not a bound for
+arbitrary vector compact bodies.
+The general response inequalities do
+not recover its sharp coefficient.
+Reciprocal channel
+and planar-vector
+manuscript
+Sharp abstract channel envelopes,
+including the scalar two-port
+normalized cap
+√
+10
+√
+5−22;
+exact laterally infinite vector
+dielectric constructions.
+Port power fractions and
+finite-power reference extinction
+differ from free-space cross sections.
+Additional polarization and channels
+invalidate a universal extrapolation
+of the two-port cap.
+Compact Maxwell
+manuscript
+At fixedk, P >1, andQ> 0, a
+sequence of compact reciprocal
+dielectric bodies hasΓ→1; each
+member has finite size and
+positive loss, but there is no
+common volume, diameter, or
+loss floor.
+No fatal error was found in the
+targeted aperture/coercivity audit.
+The present bounds quantify
+necessary resource divergence and
+explain why that sequence does not
+contradict a fixed-resource gap.
+9.1 Audit of the compact localization proof
+The key analytic steps reviewed were the fixed-stack coercivity, distributional contact term, finite-
+aperture localization, treatment of the grazing light circle, ordered positive-loss regularization, and
+recovery of total scattering throughX−A. The Weyl fiber singularity is locally integrable in
+L1 near grazing, but not globally square integrable there. The proof uses the appropriate mixed
+estimates rather than asserting the false globalL2 bound. Smooth aperture windows and rapidly
+decreasing Fourier tails supply the stated localization control. The stack and its loss floor are fixed
+before the aperture limit is taken. Constants are not uniform when loss vanishes or thickness grows.
+No fatal proof error was identified in those reviewed steps. This finding is an AI-led mathematical
+audit, not independent human peer review or a formalized Maxwell proof. The prior supremum
+conclusion remains a research result with priority uncertain. Conditional on its ordinary proof as
+audited, it resolves the unrestricted compact-object version of the normalized problem:sup Γ = 1,
+while each positive-extinction compact object hasΓ < 1 by continuity of its far field and the forward
+optical theorem. It does not give a fixed-resource optimum.
+9.2 Correction to the formal-verification scope
+The recovered OQ7_Lean4_verified_supplement/README.md states that it contains43 explic-
+itly authored mathematical theorems. It also explicitly states that it does not prove
+the physical thickness theorem identified there as Theorem 5.1. The generalized manuscript’s
+formal_correspondence.tex separately lists the physical thickness asymptotic as unverified in
+Lean. The recovered release reports no declarationOQ7.theorem51 and no recovered 692-theorem
+project.
+Accordingly, the claim that the entire restricted physical thickness theorem is fully Lean-verified
+could not be corroborated from these available files. The verified algebraic subset should not be
+relabeled as a formal proof of its missing Maxwell, material, and asymptotic premises. This is a
+statement about the recovered release; it does not establish that a different, later archive cannot
+17
+
+--- PAGE 18 ---
+OQ7: fixed resources Research draft, 10 October 2026
+exist. No prior Lean project or log was changed, and no new Lean formalization was undertaken for
+the present theorem-discovery phase.
+10 Targeted novelty review
+The review used actual primary publications and author manuscripts, with precise access limitations
+recorded in agents/literature/targeted_novelty_review.md. It is a targeted comparison, not
+an exhaustive proof of priority.
+Prior publication Closest established ingredient Consequence for positioning
+Miller et al. (2016) [2] Geometry-independent
+absorption/scattering bounds and
+the loss-weighted susceptibility
+figure of merit, including general
+tensor electric–magnetic
+formulations.
+Neither the response budget
+concept nor its tensor/volume
+extension should be advertised
+as a new general principle.
+Schab et al. (2020) [3] Prescribed-illumination
+absorption–scattering tradeoffs;
+the radiation-to-loss eigenvalue
+bounds scattering efficiency.
+The elementaryΓ bound is an
+OQ7 consequence of an
+established efficiency inequality.
+This is the closest antecedent.
+Gustafsson et al. (2020);
+Kuang et al. (2020) [4, 5]
+Full-current power constraints,
+spherical radiation modes, and
+single-frequency material/size
+response bounds.
+The operator framework and
+sphere decomposition require
+attribution. The explicit
+all-order linear estimate and
+ensuing paired bound should be
+compared at the formula level.
+Molesky et al. (2020,
+2022); Shim et al. (2024)
+[14, 15, 16]
+T-operator constraints, local
+conservation, and cross-source
+constraints enforcing a common
+structure.
+The present separate-current
+relaxation omits exactly the
+same-device compatibility
+needed for physical joint
+sharpness.
+Gustafsson–Capek (2019);
+Andersen–Frandsen (2005)
+[7, 8]
+Directivity, gain,
+receiving-antenna absorption, and
+efficiency costs.
+Forward-directivity reasoning is
+established. The current norm
+and infinite tail must remain
+controlled to address
+superdirectivity.
+Hopkins et al. (2015, 2016)
+[10, 9]
+Reciprocal absorption/scattering
+dichroism and nonorthogonal
+modes; anisotropic or
+inhomogeneous lossy media can
+exhibit this mechanism even
+without retarded coupling.
+The qualitative mechanism of
+the tensor sphere is not new. Its
+role here is a complete Maxwell
+proof of a scaling exponent.
+Sounas–Alù (2014, 2017);
+Ma et al. (2025)
+[11, 12, 13]
+Extinction symmetry,
+time-reversal field constraints,
+loss-channel extensions, and
+weak-loss asymmetry results.
+Different loss and normalization
+hypotheses must remain distinct;
+one cannot apply a lossless field
+theorem unchanged to all lossy
+bodies.
+18
+
+--- PAGE 19 ---
+OQ7: fixed resources Research draft, 10 October 2026
+Prior publication Closest established ingredient Consequence for positioning
+Gustafsson (2024); Kuang
+et al. (2025) [6, 17]
+Modal bounds and synthesis, and
+geometry-dependent vector-wave
+channel spectra without arbitrary
+finite-channel cutoffs.
+Optimized incoming waves or a
+different propagation operator
+do not by themselves give this
+fixed plane-wave-pair optimum.
+Wang et al. (2018);
+Máñez-Espina et al. (2026)
+[18, 19]
+Angularly asymmetric
+metasurfaces and a two-mode
+model of directional absorption in
+reciprocal bianisotropic
+metasurfaces.
+Same-side opposite angles,
+periodic structures, and
+model-specific two-mode limits
+are not identical to arbitrary
+compact time-reversed
+plane-wave scattering.
+A particularly important unresolved priority lead is Mann and Alù’s 2023 conference contribution,
+Maximum Asymmetric Absorption and Scattering in Bianisotropic Particles[20]. Its official abstract
+discusses dipolar bianisotropic conditions for critical coupling under one illumination and zero
+absorption under the opposite illumination. Only the official abstract was recovered; the complete
+derivation and any subsequent journal version were not. Its normalization, resource assumptions,
+attainable tensors, and relation to the earlier compact manuscript’s dipolar claims must be checked
+before asserting originality. An abstract is sufficient to identify a serious priority lead, but insufficient
+to attribute an unexamined theorem to it.
+The plausible contribution of this continuation is therefore the precisely quantified compact-
+Maxwell OQ7 resource theorem, the uniform all-order size estimate, the exact positive-extinction
+current minimum with its explicit proof and infinite-tail certificates, and the physical small-volume
+scaling theorem. Some or all may be reformulations or consequences of earlier optimization
+frameworks. No claim of established scientific novelty is made.
+11 Proof ledger and OQ7 verdict
+Claim Status and remaining obligation
+Positive gap for bounded response;
+explicit P,Q,δ,V,Rtheorem
+Complete ordinary proof above. Full tensor loss supplies
+well-posedness for the essentially bounded capped class.
+Independent AI adversarial rederivations found no fatal
+error.
+All-order Λ(ka)≤ka and
+Λ = Θ( ka) at large size
+Complete proof for the radiation operator. The latter
+statement is operator-order sharpness only.
+Positive scattering floor and exact
+ρ
+Complete proof and explicit optimizer for the exact stated
+current relaxation. Physical constitutive realizability is not
+proved.
+Strongest physicalΓ bound at
+fixed resources
+Equations (31) and (34) are valid upper bounds. Equality,
+optimal coefficients, and joint two-illumination attainment
+are unresolved.
+Small-volume exponent Exact-Maxwell anisotropic sphere proves orderk3V in the
+allowed circular time-reversal class. Isotropic/real-linear
+matching and a fixed-positive-extinction analogue remain
+open.
+19
+
+--- PAGE 20 ---
+OQ7: fixed resources Research draft, 10 October 2026
+Claim Status and remaining obligation
+One-sided real cap with
+unbounded negative contrast
+Response-budget inference is false. The proposed
+asymmetry theorem for that enlarged class is unresolved;
+no physical counterexample approaching one was proved.
+Lossless responding sectors and
+weaker loss assumptions
+Not covered unless a finite response inequality remains
+available. Uniform resolvent/closure or a physical
+counterexample is required.
+General constitutive media and
+other backgrounds
+Elementary reciprocal six-component bound and vacuum
+linear-radius bound proved for well-posed solutions. Other
+backgrounds need their complete radiation operator and
+appropriate normalization.
+Finite bandwidth and
+causality-limited optimum
+No new bandwidth optimum. The single-frequency tensor
+examples are compatible with passive causal dispersion.
+Novelty and formal/human
+verification
+Primary-source review completed with the Mann–Alù
+access gap explicit. No priority certification, complete
+Lean proof, or independent human peer review is claimed.
+The fixed-resource existence question is answered affirmatively for a broad, physically explicit
+class, without a minimum feature size or multipole cutoff. An arbitrarily small deficit1−Γ forces
+divergence of the integrated response and of the product¯ηkaunder the derived necessary-cost
+inequalities. At positive extinction the exact radiation resolvent yields an additional obstruction.
+These statements make the resource-free supremum compatible with a quantitative physical cost.
+They do not identify the sharp resource-constrained supremum. The main next mathematical
+task is a joint optimization for the two currents that enforces the same local reciprocal constitutive
+operator, including the reactive Maxwell constraints, followed by a physical construction or a proof
+of a residual gap. Cross-sourceT-operator methods provide a concrete prior framework for that
+step [15, 16]. The absence of a lower real-part bound is a separate theorem-or- counterexample
+problem and should not be silently folded into the proved capped class. The original OQ7 is thus
+substantially narrowed, but not fully closed across its resource, constitutive, normalization, and
+bandwidth interpretations.
+A Reproduction and preserved evidence
+The accompanying archive contains this standalone LATEX source, the compiled PDF, the two
+numerical scripts and their JSON outputs, the independent derivation/audit notes, the targeted
+literature review, and the original-file checksum inventory. The earlier manuscripts and archives
+themselves remain unchanged and are not duplicated into the new research release. External
+publications are referenced by their primary URLs rather than redistributed as full texts.
+To compile the manuscript, runpdflatex twice on the supplied.tex file. It has an embedded
+bibliography and no external figure or data-file dependency. To reproduce computations from the
+archive root:
+python agents/bound_derivation/certified_ball_bounds.py
+python checks/maxwell_checks.py
+The first script writes its certificates next to itself. The second writesresults/maxwell_checks.
+json. The interval arithmetic uses Python’s standard library; NumPy/SciPy are used for candidate
+20
+
+--- PAGE 21 ---
+OQ7: fixed resources Research draft, 10 October 2026
+selection and the independent discrete-dipole computation. Exact dependency versions, instructions,
+and scope distinctions appear inREADME.txtand verification/release_checks.json. Numerical
+reruns are not required to validate the ordinary proofs.
+References
+[1] O. D. Miller and F. Monticone, Fundamental limits in photonics and electromagnetics: a
+tutorial, arXiv:2605.24738 (2026).https://arxiv.org/abs/2605.24738. Author manuscript:
+https://millergroup.yale.edu/sites/default/files/files/2026_5-MillerSubm.pdf.
+[2] O. D. Miller, A. G. Polimeridis, M. T. H. Reid, C. W. Hsu, B. G. DeLacy, J. D. Joannopoulos,
+M. Soljačić, and S. G. Johnson, Fundamental limits to optical response in absorptive systems,
+Optics Express24, 3329–3364 (2016).https://doi.org/10.1364/OE.24.003329.
+[3] K. Schab, A. Rothschild, K. Nguyen, M. Čapek, L. Jelínek, and M. Gustafsson, Trade-offs in
+absorption and scattering by nanophotonic structures,Optics Express28, 36584–36599 (2020).
+https://doi.org/10.1364/OE.410520. https://arxiv.org/abs/2009.08502.
+[4] M. Gustafsson, K. Schab, L. Jelínek, and M. Čapek, Upper bounds on absorption and scattering,
+New Journal of Physics22, 073013 (2020).https://doi.org/10.1088/1367-2630/ab83d3.
+https://arxiv.org/abs/1912.06699.
+[5] Z. Kuang, L. Zhang, and O. D. Miller, Maximal single-frequency electromagnetic response,Op-
+tica 7, 1746–1757 (2020).https://doi.org/10.1364/OPTICA.398715. https://arxiv.org/
+abs/2002.00521.
+[6] M. Gustafsson, Modes, bounds, and synthesis of optimal electromagnetic scatterers,New
+Journal of Physics26, 103039 (2024).https://doi.org/10.1088/1367-2630/ad73fb. https:
+//arxiv.org/abs/2405.11499.
+[7] M. Gustafsson and M. Čapek, Maximum gain, effective area, and directivity,IEEE Transactions
+on Antennas and Propagation67, 5282–5293 (2019).https://doi.org/10.1109/TAP.2019.
+2916760. https://arxiv.org/abs/1812.07058.
+[8] J. B. Andersen and A. Frandsen, Absorption efficiency of receiving antennas, IEEE
+Transactions on Antennas and Propagation 53, 2843–2849 (2005). https://doi.org/
+10.1109/TAP.2005.854532. Institutional record: https://vbn.aau.dk/en/publications/
+absorption-efficiency-of-receiving-antennas/.
+[9] B. Hopkins, A. N. Poddubny, A. E. Miroshnichenko, and Y. S. Kivshar, Circular dichroism
+induced by Fano resonances in planar chiral oligomers,Laser & Photonics Reviews10, 137–146
+(2016). https://doi.org/10.1002/lpor.201500222. https://arxiv.org/abs/1412.1120.
+[10] B. Hopkins, A. E. Miroshnichenko, A. N. Poddubny, and Y. S. Kivshar, Fano resonance
+enhanced nonreciprocal absorption and scattering of light,Photonics 2, 745–757 (2015).https:
+//doi.org/10.3390/photonics2020745.
+[11] D. L. Sounas and A. Alù, Extinction symmetry for reciprocal objects and its implications on
+cloaking and scattering manipulation,Optics Letters39, 4053–4056 (2014).https://doi.org/
+10.1364/OL.39.004053.
+21
+
+--- PAGE 22 ---
+OQ7: fixed resources Research draft, 10 October 2026
+[12] D. L. Sounas and A. Alù, Time-reversal symmetry bounds on the electromagnetic response
+of asymmetric structures,Physical Review Letters118, 154302 (2017).https://doi.org/10.
+1103/PhysRevLett.118.154302. Accepted manuscript: https://link.aps.org/accepted/
+10.1103/PhysRevLett.118.154302.
+[13] W. Ma, R. Pestourie, and S. G. Johnson, Time-reversal-symmetry bounds on electromagnetic
+fields, Physical Review A111, 063518 (2025).https://doi.org/10.1103/8bcn-796c. https:
+//arxiv.org/abs/2503.03342.
+[14] S. Molesky, P. Chao, W. Jin, and A. W. Rodriguez, GlobalT operator bounds on electromagnetic
+scattering: Upper bounds on far-field cross sections, Physical Review Research2, 033172
+(2020). https://doi.org/10.1103/PhysRevResearch.2.033172. https://arxiv.org/abs/
+2001.11531.
+[15] S. Molesky, P. Chao, J. Mohajan, W. Reinhart, H. Chi, and A. W. Rodriguez,T-operator
+limits on optical communication: Metaoptics, computation, and input-output transformations,
+Physical Review Research4, 013020 (2022).https://doi.org/10.1103/PhysRevResearch.4.
+013020. https://arxiv.org/abs/2102.10175.
+[16] H. Shim, Z. Kuang, Z. Lin, and O. D. Miller, Fundamental limits to multi-functional and
+tunable nanophotonic response,Nanophotonics 13, 2107–2116 (2024).https://doi.org/10.
+1515/nanoph-2023-0630. Author copy: https://millergroup.yale.edu/sites/default/
+files/files/2024_1-Shim.pdf.
+[17] Z. Kuang, D. A. B. Miller, and O. D. Miller, Bounds on the coupling strengths of communication
+channels and their information capacities,IEEE Transactions on Antennas and Propagation
+73, 3959–3974 (2025).https://doi.org/10.1109/TAP.2025.3533263. Author copy:https:
+//millergroup.yale.edu/sites/default/files/files/2025_6-Kuang.pdf.
+[18] X. Wang, A. Díaz-Rubio, V. S. Asadchy, G. Ptitcyn, A. A. Generalov, J. Ala-Laurinaho,
+and S. A. Tretyakov, Extreme asymmetry in metasurfaces via evanescent fields engineering:
+Angular-asymmetric absorption,Physical Review Letters121, 256802 (2018).https://doi.
+org/10.1103/PhysRevLett.121.256802. https://arxiv.org/abs/1801.09397.
+[19] L. M. Máñez-Espina, B. Amrahi, V. S. Asadchy, and A. Díaz-Rubio, Strong mode coupling
+and maximum directional absorption in reciprocal bianisotropic metasurfaces,Nanophotonics
+15, e70145 (2026).https://doi.org/10.1002/nap2.70145.
+[20] S. Mann and A. Alù, Maximum asymmetric absorption and scattering in bian-
+isotropic particles, conference presentation, Metamaterials 2023 (2023). Official program
+abstract: https://congress2023.metamorphose-vi.org/index.php/component/svisor/
+?Itemid=156&task=showScheduleSvisor. Access limitation: only the official conference ab-
+stract was examined; a complete paper or subsequent journal version was not recovered.
+[21] John M. Ball, Yves Capdeboscq, and Basang Tsering Xiao, On uniqueness for time har-
+monic anisotropic Maxwell’s equations with piecewise regular coefficients,Mathematical
+Models and Methods in Applied Sciences22, 1250036 (2012). https://doi.org/10.1142/
+S0218202512500364. https://arxiv.org/abs/1201.2006.
+22

@@ -1,0 +1,743 @@
+{
+  "python": "3.12.15 (main, Oct  3 2026, 01:05:37) [MSC v.1944 64 bit (AMD64)]",
+  "numpy": "2.5.3",
+  "scipy": "1.18.1",
+  "sympy": "1.14.0",
+  "mpmath": "1.3.0",
+  "authorship": "Independently written for audit B; no paper's numerical program imported.",
+  "symbolic": {
+    "middle_certificate_sylvester": {
+      "is_zero": true,
+      "exact_remainder": "Matrix([[0, 0], [0, 0]])"
+    },
+    "middle_determinant": {
+      "is_zero": true,
+      "exact_remainder": "0"
+    },
+    "middle_support_lower_right": {
+      "is_zero": true,
+      "exact_remainder": "0"
+    },
+    "middle_support_offdiagonal": {
+      "is_zero": true,
+      "exact_remainder": "0"
+    },
+    "middle_support_identity": {
+      "is_zero": true,
+      "exact_remainder": "Matrix([[0, 0], [0, 0]])"
+    },
+    "middle_lambda_identity": {
+      "is_zero": true,
+      "exact_remainder": "0"
+    },
+    "middle_r_derivative": {
+      "is_zero": true,
+      "exact_remainder": "0"
+    },
+    "rational_sylvester": {
+      "is_zero": true,
+      "exact_remainder": "Matrix([[0, 0], [0, 0]])"
+    },
+    "rational_det_Z": {
+      "is_zero": true,
+      "exact_remainder": "0"
+    },
+    "rational_support": {
+      "is_zero": true,
+      "exact_remainder": "Matrix([[0, 0], [0, 0]])"
+    },
+    "rational_r": {
+      "is_zero": true,
+      "exact_remainder": "0"
+    },
+    "rational_delta": {
+      "is_zero": true,
+      "exact_remainder": "0"
+    },
+    "rational_eigen_polynomial": {
+      "is_zero": true,
+      "exact_remainder": "0"
+    },
+    "rational_delta_decimal": "0.543815907955424337623911196064564774703861828",
+    "centered_insertion_cubic": {
+      "exact_matrix": "Matrix([[0, -Q/12], [P*Q/12 + I*Q**2/6, 0]])",
+      "matches_paper": true
+    }
+  },
+  "random_symmetric_contractions": {
+    "samples": 12000,
+    "seed": 7462026,
+    "largest_delta_minus_bound": -0.0005690262814089691,
+    "closest_sample": {
+      "sample": 10339,
+      "dimension": 6,
+      "rho": 0.999999,
+      "r": 0.3140238705401313,
+      "delta": 0.0008451869274388457,
+      "bound": 0.0014142132088478148
+    },
+    "claim": "Finite floating-point falsification search only."
+  },
+  "grazing": {
+    "precision_digits": 80,
+    "model": "Exact leading TE singularity, k=L=1, Gaussian frequency weight; truncated integrals.",
+    "rows": [
+      {
+        "grazing_excision_in_rho_squared": "0.01",
+        "weighted_L1": "3.2595550470850896500267649889127988192620185480028896677504819948784960504321319",
+        "weighted_squared_L2": "2.6341275594021435267647430850098534413368404432076240184649576001128462487519667"
+      },
+      {
+        "grazing_excision_in_rho_squared": "0.0001",
+        "weighted_L1": "3.6025410074642297469261109739758953777022607960176587998102223273341199158631487",
+        "weighted_squared_L2": "5.2953025718036424405721799128150528952630612004256177892289320942282022016958313"
+      },
+      {
+        "grazing_excision_in_rho_squared": "0.000001",
+        "weighted_L1": "3.6368395082389002518413564992754303207002224279709979690980957638554670719274847",
+        "weighted_squared_L2": "7.9564631404422486110540767296566621448204058094764655604255400552382076331529467"
+      },
+      {
+        "grazing_excision_in_rho_squared": "0.00000001",
+        "weighted_L1": "3.6402693583154146710004275154799840972912649036742958535470839213378512710751178",
+        "weighted_squared_L2": "10.617623707636484511086235941042567663796223138512671159882982963041290636857057"
+      },
+      {
+        "grazing_excision_in_rho_squared": "0.0000000001",
+        "weighted_L1": "3.6406123433230661033900212936676697954066290640048430722573482945133317510257267",
+        "weighted_squared_L2": "13.278784274830575974091410366780125556956148969274809994999152417674015979300247"
+      },
+      {
+        "grazing_excision_in_rho_squared": "0.000000000001",
+        "weighted_L1": "3.6406466418238312466288854083532040386239636170268512287807979080377272124627952",
+        "weighted_squared_L2": "15.939944842024667422652882094039720496475338905097022655646865292429667728069251"
+      }
+    ],
+    "observed_log_slope": "0.57786367489546085895536026404259677878560798122301962529029930852236374674826643",
+    "exact_asymptotic_log_slope": "0.57786367489546085895504659165634814956042551158220791024985326766364431592045847",
+    "stronger_global_L2_claim": "False analytically, as proved separately in the audit; not a claim of Paper B."
+  },
+  "grazing_Green_operator_growth": {
+    "k": 1,
+    "L": 1,
+    "patch_halfwidth": 0.2,
+    "rows": [
+      {
+        "R": 1.0,
+        "positive_patch_Rayleigh_lower_bound": 0.0010110733145684862,
+        "lower_bound_divided_by_sqrt_R": 0.0010110733145684862
+      },
+      {
+        "R": 4.0,
+        "positive_patch_Rayleigh_lower_bound": 0.002026139425265458,
+        "lower_bound_divided_by_sqrt_R": 0.001013069712632729
+      },
+      {
+        "R": 16.0,
+        "positive_patch_Rayleigh_lower_bound": 0.0040496208657322804,
+        "lower_bound_divided_by_sqrt_R": 0.0010124052164330701
+      },
+      {
+        "R": 64.0,
+        "positive_patch_Rayleigh_lower_bound": 0.008097330501835238,
+        "lower_bound_divided_by_sqrt_R": 0.0010121663127294048
+      },
+      {
+        "R": 256.0,
+        "positive_patch_Rayleigh_lower_bound": 0.01619363249456336,
+        "lower_bound_divided_by_sqrt_R": 0.00101210203091021
+      },
+      {
+        "R": 1024.0,
+        "positive_patch_Rayleigh_lower_bound": 0.03238674161840957,
+        "lower_bound_divided_by_sqrt_R": 0.001012085675575299
+      }
+    ],
+    "claim": "Exact finite-source radiation integrand evaluated numerically on a positive patch; the analytic sqrt(R) lower bound is proved in the audit. Paper B does not claim ||T_R|| is uniform."
+  },
+  "planar": {
+    "sets": [
+      {
+        "set": "A",
+        "stable": {
+          "plus": {
+            "A": 0.01832547071003776,
+            "X": 0.6135218140231371,
+            "C": 0.5951963433130993
+          },
+          "minus": {
+            "A": 0.49817161972519824,
+            "X": 0.6135218140231371,
+            "C": 0.11535019429793884
+          },
+          "Gamma": 0.7821175026664408
+        },
+        "independent_exponential": {
+          "plus": {
+            "A": 0.01832547071003965,
+            "X": 0.6135218140231384,
+            "C": 0.5951963433130988
+          },
+          "minus": {
+            "A": 0.4981716197251973,
+            "X": 0.6135218140231358,
+            "C": 0.11535019429793844
+          },
+          "Gamma": 0.7821175026664344
+        },
+        "maximum_power_discrepancy": 1.887379141862766e-15
+      },
+      {
+        "set": "B",
+        "stable": {
+          "plus": {
+            "A": 0.0007821467524540271,
+            "X": 0.20070972561771083,
+            "C": 0.19992757886525683
+          },
+          "minus": {
+            "A": 0.18504563890834647,
+            "X": 0.20070972561771105,
+            "C": 0.015664086709364516
+          },
+          "Gamma": 0.9180596086651859
+        },
+        "independent_exponential": {
+          "plus": {
+            "A": 0.0007821467524513626,
+            "X": 0.2007097256177086,
+            "C": 0.1999275788652572
+          },
+          "minus": {
+            "A": 0.18504563890834946,
+            "X": 0.20070972561771439,
+            "C": 0.01566408670936483
+          },
+          "Gamma": 0.9180596086652243
+        },
+        "maximum_power_discrepancy": 3.3306690738754696e-15
+      }
+    ],
+    "limiting_sequence": [
+      {
+        "m": 4,
+        "delta": 0.000244140625,
+        "Gamma": 0.8452384892976066,
+        "plus": {
+          "A": 0.0046265396529056035,
+          "X": 0.5035372375464997,
+          "C": 0.498910697893594
+        },
+        "minus": {
+          "A": 0.4302355936217991,
+          "X": 0.5035372375464995,
+          "C": 0.07330164392470036
+        }
+      },
+      {
+        "m": 10,
+        "delta": 1e-06,
+        "Gamma": 0.9488266984769606,
+        "plus": {
+          "A": 0.00010307737479975376,
+          "X": 0.2000928840808418,
+          "C": 0.19998980670604188
+        },
+        "minus": {
+          "A": 0.18995654796595807,
+          "X": 0.20009288408084136,
+          "C": 0.010136336114883278
+        }
+      },
+      {
+        "m": 20,
+        "delta": 1.5625e-08,
+        "Gamma": 0.9747833274230433,
+        "plus": {
+          "A": 6.298607354793262e-06,
+          "X": 0.10000598458406529,
+          "C": 0.09999968597671068
+        },
+        "minus": {
+          "A": 0.09749046502242753,
+          "X": 0.10000598458406551,
+          "C": 0.002515519561637982
+        }
+      },
+      {
+        "m": 50,
+        "delta": 6.4e-11,
+        "Gamma": 0.9899712095675477,
+        "plus": {
+          "A": 1.6020029514063339e-07,
+          "X": 0.04000015699778858,
+          "C": 0.039999996797493435
+        },
+        "minus": {
+          "A": 0.03959916400628771,
+          "X": 0.04000015699778858,
+          "C": 0.0004009929915008408
+        }
+      },
+      {
+        "m": 100,
+        "delta": 1e-12,
+        "Gamma": 0.9949932788539454,
+        "plus": {
+          "A": 1.0003135764158344e-08,
+          "X": 0.020000009903116123,
+          "C": 0.019999999899980407
+        },
+        "minus": {
+          "A": 0.019899885433748654,
+          "X": 0.020000009903116123,
+          "C": 0.00010012446936740519
+        }
+      }
+    ],
+    "cap_P_1_01_m100_j101": {
+      "plus": {
+        "A": 1.0631444169462156e-08,
+        "X": 0.020000010525161427,
+        "C": 0.01999999989371723
+      },
+      "minus": {
+        "A": 0.019899886049573712,
+        "X": 0.020000010525161427,
+        "C": 0.00010012447558770575
+      },
+      "Gamma": 0.9949932472832498
+    },
+    "claim": "Exact planar formulas, evaluated numerically. Finite-precision equality is not proof."
+  },
+  "thickness_benchmark": {
+    "precision_digits": 80,
+    "targets": {
+      "T": "12/25",
+      "a": "8/25",
+      "P": 4,
+      "Q": 2,
+      "kM": 1
+    },
+    "rows": [
+      {
+        "m": 4,
+        "T_error": "0.0",
+        "mean_a_error": "0.0",
+        "m_squared_deficit": "0.050205221820929030411839138055095241782436260945188714965314473010223059677986938",
+        "m_squared_invariant": "0.082675526345745265564696975020855691401040016636341298694739541254400416464264023",
+        "m_squared_left_log_correction": "-0.04305064655424814861047821323484196262165977452585621750210499933430524827413217",
+        "m_squared_right_log_correction": "0.022514000140358991522811209388170874162281142357523492114615231944597875346475684"
+      },
+      {
+        "m": 8,
+        "T_error": "0.0",
+        "mean_a_error": "0.0",
+        "m_squared_deficit": "0.050052252679832059998348106853909321594681881957890059424459126866585432063222597",
+        "m_squared_invariant": "0.083168792268438348983601188015759017984525110224633063012948264085103968943679299",
+        "m_squared_left_log_correction": "-0.043314253229475361426393955956585272076913806108089255230506538097608890516350421",
+        "m_squared_right_log_correction": "0.022555664637368509425034289483068115337956873413017925238635332321020497531827866"
+      },
+      {
+        "m": 16,
+        "T_error": "-2.8845668986576244295782859573901435802023664862767624511035587377298093128210718e-66",
+        "mean_a_error": "-1.976643280746917329388008363622319422120556938507531381392774607858032907704012e-66",
+        "m_squared_deficit": "0.050013122932542585821346369019816575883959968980718662985977193372462286675722273",
+        "m_squared_invariant": "0.083292192831168519673069689724216248121032761358533309666916566419443444695736202",
+        "m_squared_left_log_correction": "-0.043380615749750308995182589185504708711914266998221274597380666905635162075155613",
+        "m_squared_right_log_correction": "0.022566004742277954198946876251083704038497608550686310930322494840686065678597163"
+      },
+      {
+        "m": 32,
+        "T_error": "-6.8909498543844044276883428229088530044656470974307044341385301124140389483695472e-76",
+        "mean_a_error": "-4.7002073263954990880061386950365841645304631524448519856795204114553908076959944e-76",
+        "m_squared_deficit": "0.050003284477127706148043693943429407146493587708770344970176983948702703231118586",
+        "m_squared_invariant": "0.083323047886001960976343556061121099664838050373023893466747497217366685001170979",
+        "m_squared_left_log_correction": "-0.043397235337598400579852385196440081964065953956946016663828355461290034814183318",
+        "m_squared_right_log_correction": "0.022568584849684561511176506566949763450032215977893232060901658224622404855703857"
+      },
+      {
+        "m": 64,
+        "T_error": "0.0",
+        "mean_a_error": "0.0",
+        "m_squared_deficit": "0.050000821353419660429159180321173604221529114091466688168448692063393138190464273",
+        "m_squared_invariant": "0.083330761951474025666569399724435880299613024094133959578303401125340710370436",
+        "m_squared_left_log_correction": "-0.043401392046870641723803110006598227390944284830242626305174393051675058936772585",
+        "m_squared_right_log_correction": "0.02256922956647031439944374349535428961580197699991492831019872977832274923372037"
+      },
+      {
+        "m": 128,
+        "T_error": "0.0",
+        "mean_a_error": "0.0",
+        "m_squared_deficit": "0.050000205352990684313530283990262278130694001056118674030376548246885239896275511",
+        "m_squared_invariant": "0.083332690486618187742482376493772275310968641002607740151921393240809602786124521",
+        "m_squared_left_log_correction": "-0.04340243133749649047315305566121903139642252179482302471239505929124930467541526",
+        "m_squared_right_log_correction": "0.022569390726246308266662216785766261976962909730174355036516562637651012156312068"
+      }
+    ],
+    "expected_limits": {
+      "m_squared_deficit": "1/20",
+      "m_squared_invariant": "1/12",
+      "left_log_correction": "-25/576",
+      "right_log_correction": "13/576"
+    },
+    "claim": "Arbitrary-precision exact-layer model plus numerical root solve; not an implicit-function proof or formal theorem."
+  },
+  "dipole_radiation": {
+    "polar_quadrature": 35,
+    "azimuthal_points": 70,
+    "samples": [
+      {
+        "t": -0.999,
+        "direction": 1,
+        "sphere_scattering": 37.66142215601239,
+        "quadratic_scattering": 37.66142215601241,
+        "difference": -1.4210854715202004e-14,
+        "extinction": 37.68026228715598,
+        "absorption": 0.018840131143576164,
+        "minimum_QA_eigenvalue": -4.177737348892737e-17,
+        "radiation_dressing_error": 2.762298838633056e-16
+      },
+      {
+        "t": -0.999,
+        "direction": -1,
+        "sphere_scattering": 37.68026228715597,
+        "quadratic_scattering": 37.68026228715598,
+        "difference": -1.4210854715202004e-14,
+        "extinction": 37.68026228715598,
+        "absorption": -1.5674971511558323e-15,
+        "minimum_QA_eigenvalue": -4.177737348892737e-17,
+        "radiation_dressing_error": 2.762298838633056e-16
+      },
+      {
+        "t": -0.4,
+        "direction": 1,
+        "sphere_scattering": 18.472564803107975,
+        "quadratic_scattering": 18.472564803107982,
+        "difference": -7.105427357601002e-15,
+        "extinction": 26.389378290154262,
+        "absorption": 7.916813487046277,
+        "minimum_QA_eigenvalue": -9.83444793992385e-18,
+        "radiation_dressing_error": 3.0531133177191805e-16
+      },
+      {
+        "t": -0.4,
+        "direction": -1,
+        "sphere_scattering": 26.38937829015425,
+        "quadratic_scattering": 26.389378290154262,
+        "difference": -1.0658141036401503e-14,
+        "extinction": 26.389378290154262,
+        "absorption": 0.0,
+        "minimum_QA_eigenvalue": -9.83444793992385e-18,
+        "radiation_dressing_error": 3.0531133177191805e-16
+      },
+      {
+        "t": 0.0,
+        "direction": 1,
+        "sphere_scattering": 9.424777960769376,
+        "quadratic_scattering": 9.42477796076938,
+        "difference": -3.552713678800501e-15,
+        "extinction": 18.84955592153876,
+        "absorption": 9.42477796076938,
+        "minimum_QA_eigenvalue": -2.7755575615628914e-17,
+        "radiation_dressing_error": 1.2412670766236366e-16
+      },
+      {
+        "t": 0.0,
+        "direction": -1,
+        "sphere_scattering": 18.84955592153875,
+        "quadratic_scattering": 18.84955592153876,
+        "difference": -7.105427357601002e-15,
+        "extinction": 18.84955592153876,
+        "absorption": -1.0463605494025895e-15,
+        "minimum_QA_eigenvalue": -2.7755575615628914e-17,
+        "radiation_dressing_error": 1.2412670766236366e-16
+      },
+      {
+        "t": 0.7,
+        "direction": 1,
+        "sphere_scattering": 0.848230016469244,
+        "quadratic_scattering": 0.8482300164692443,
+        "difference": -3.3306690738754696e-16,
+        "extinction": 5.6548667764616285,
+        "absorption": 4.806636759992384,
+        "minimum_QA_eigenvalue": -1.7952083244107398e-17,
+        "radiation_dressing_error": 1.3947004136484323e-16
+      },
+      {
+        "t": 0.7,
+        "direction": -1,
+        "sphere_scattering": 5.654866776461626,
+        "quadratic_scattering": 5.6548667764616285,
+        "difference": -2.6645352591003757e-15,
+        "extinction": 5.6548667764616285,
+        "absorption": 5.231802747012948e-16,
+        "minimum_QA_eigenvalue": -1.7952083244107398e-17,
+        "radiation_dressing_error": 1.3947004136484323e-16
+      },
+      {
+        "t": 0.99999999,
+        "direction": 1,
+        "sphere_scattering": 9.424778055483858e-16,
+        "quadratic_scattering": 9.42477805548386e-16,
+        "difference": -1.9721522630525295e-31,
+        "extinction": 1.884955601625324e-07,
+        "absorption": 1.884955592200546e-07,
+        "minimum_QA_eigenvalue": 0.0,
+        "radiation_dressing_error": 2.7555967256664395e-14
+      },
+      {
+        "t": 0.99999999,
+        "direction": -1,
+        "sphere_scattering": 1.8849556005864956e-07,
+        "quadratic_scattering": 1.8849556005864963e-07,
+        "difference": -7.940933880509066e-23,
+        "extinction": 1.884955601625324e-07,
+        "absorption": 1.0388276861720396e-16,
+        "minimum_QA_eigenvalue": 0.0,
+        "radiation_dressing_error": 2.7555967256664395e-14
+      }
+    ],
+    "claim": "Complete-sphere quadrature of actual electric-plus-magnetic far-field formula."
+  },
+  "finite_dense_DDA": [
+    {
+      "square_side_in_wavelengths": 0.5,
+      "cells_per_wavelength": 4,
+      "cells": 24,
+      "observables": [
+        {
+          "sigma_ext": 0.17261067923561565,
+          "sigma_abs": 0.01932683715580428,
+          "sigma_sca": 0.1532838420798142,
+          "relative_residual": 3.144123047030041e-14,
+          "optical_theorem_error": -2.8033131371785203e-15
+        },
+        {
+          "sigma_ext": 0.17261067923561574,
+          "sigma_abs": 0.061812874574254086,
+          "sigma_sca": 0.11079780466136437,
+          "relative_residual": 2.2414863327168292e-14,
+          "optical_theorem_error": -2.706168622523819e-15
+        }
+      ],
+      "Gamma": 0.24613794237178022,
+      "opposite_extinction_difference": -8.326672684688674e-17,
+      "sphere_checks": [
+        {
+          "quadrature_scattering": 0.1532838420798148,
+          "minus_Gram_scattering": 6.106226635438361e-16
+        },
+        {
+          "quadrature_scattering": 0.11079780466136477,
+          "minus_Gram_scattering": 4.0245584642661925e-16
+        }
+      ],
+      "claim": "Solved dense nonperiodic retarded point-dipole system, not a continuum-converged Maxwell body."
+    },
+    {
+      "square_side_in_wavelengths": 0.5,
+      "cells_per_wavelength": 6,
+      "cells": 81,
+      "observables": [
+        {
+          "sigma_ext": 0.19685480516095147,
+          "sigma_abs": 0.018089357851332036,
+          "sigma_sca": 0.1787654473096172,
+          "relative_residual": 4.397648835283697e-14,
+          "optical_theorem_error": 2.248201624865942e-15
+        },
+        {
+          "sigma_ext": 0.19685480516095147,
+          "sigma_abs": 0.07489758159701858,
+          "sigma_sca": 0.12195722356393496,
+          "relative_residual": 5.109420659044591e-14,
+          "optical_theorem_error": -2.067790383364354e-15
+        }
+      ],
+      "Gamma": 0.2885793095029572,
+      "opposite_extinction_difference": 0.0,
+      "sphere_checks": [
+        {
+          "quadrature_scattering": 0.17876544730961783,
+          "minus_Gram_scattering": 6.38378239159465e-16
+        },
+        {
+          "quadrature_scattering": 0.12195722356393537,
+          "minus_Gram_scattering": 4.163336342344337e-16
+        }
+      ],
+      "claim": "Solved dense nonperiodic retarded point-dipole system, not a continuum-converged Maxwell body."
+    },
+    {
+      "square_side_in_wavelengths": 1.0,
+      "cells_per_wavelength": 4,
+      "cells": 96,
+      "observables": [
+        {
+          "sigma_ext": 0.5090970466232807,
+          "sigma_abs": 0.1141248141692078,
+          "sigma_sca": 0.3949722324540798,
+          "relative_residual": 3.198225003480512e-14,
+          "optical_theorem_error": -6.938893903907228e-15
+        },
+        {
+          "sigma_ext": 0.5090970466232807,
+          "sigma_abs": 0.24926014033876848,
+          "sigma_sca": 0.2598369062845186,
+          "relative_residual": 3.417668214749362e-14,
+          "optical_theorem_error": -6.38378239159465e-15
+        }
+      ],
+      "Gamma": 0.2654411905664766,
+      "opposite_extinction_difference": 0.0,
+      "sphere_checks": [
+        {
+          "quadrature_scattering": 0.394972232454083,
+          "minus_Gram_scattering": 3.219646771412954e-15
+        },
+        {
+          "quadrature_scattering": 0.25983690628452044,
+          "minus_Gram_scattering": 1.8318679906315083e-15
+        }
+      ],
+      "claim": "Solved dense nonperiodic retarded point-dipole system, not a continuum-converged Maxwell body."
+    },
+    {
+      "square_side_in_wavelengths": 1.0,
+      "cells_per_wavelength": 6,
+      "cells": 324,
+      "observables": [
+        {
+          "sigma_ext": 0.5507860380128267,
+          "sigma_abs": 0.07516844190354505,
+          "sigma_sca": 0.47561759610928567,
+          "relative_residual": 7.7521129267357e-14,
+          "optical_theorem_error": -4.052314039881821e-15
+        },
+        {
+          "sigma_ext": 0.5507860380128269,
+          "sigma_abs": 0.3268596388691396,
+          "sigma_sca": 0.22392639914368423,
+          "relative_residual": 7.112068084147718e-14,
+          "optical_theorem_error": 3.0531133177191805e-15
+        }
+      ],
+      "Gamma": 0.45696727875250387,
+      "opposite_extinction_difference": -2.220446049250313e-16,
+      "sphere_checks": [
+        {
+          "quadrature_scattering": 0.4756175961092899,
+          "minus_Gram_scattering": 4.218847493575595e-15
+        },
+        {
+          "quadrature_scattering": 0.2239263991436855,
+          "minus_Gram_scattering": 1.27675647831893e-15
+        }
+      ],
+      "claim": "Solved dense nonperiodic retarded point-dipole system, not a continuum-converged Maxwell body."
+    },
+    {
+      "square_side_in_wavelengths": 1.5,
+      "cells_per_wavelength": 4,
+      "cells": 216,
+      "observables": [
+        {
+          "sigma_ext": 1.065929858402319,
+          "sigma_abs": 0.25564309000521457,
+          "sigma_sca": 0.8102867683971042,
+          "relative_residual": 5.0051944549887506e-14,
+          "optical_theorem_error": 1.1102230246251565e-16
+        },
+        {
+          "sigma_ext": 1.065929858402319,
+          "sigma_abs": 0.5131505407751797,
+          "sigma_sca": 0.5527793176271414,
+          "relative_residual": 5.182349169217784e-14,
+          "optical_theorem_error": -2.220446049250313e-15
+        }
+      ],
+      "Gamma": 0.24158010842845995,
+      "opposite_extinction_difference": 0.0,
+      "sphere_checks": [
+        {
+          "quadrature_scattering": 0.8102867683971162,
+          "minus_Gram_scattering": 1.199040866595169e-14
+        },
+        {
+          "quadrature_scattering": 0.5527793176271495,
+          "minus_Gram_scattering": 8.104628079763643e-15
+        }
+      ],
+      "claim": "Solved dense nonperiodic retarded point-dipole system, not a continuum-converged Maxwell body."
+    },
+    {
+      "square_side_in_wavelengths": 1.5,
+      "cells_per_wavelength": 6,
+      "cells": 729,
+      "observables": [
+        {
+          "sigma_ext": 1.233388008080797,
+          "sigma_abs": 0.14906419484319625,
+          "sigma_sca": 1.0843238132376065,
+          "relative_residual": 7.799693517643606e-14,
+          "optical_theorem_error": -5.773159728050814e-15
+        },
+        {
+          "sigma_ext": 1.2333880080807957,
+          "sigma_abs": 0.7603078673718682,
+          "sigma_sca": 0.47308014070893656,
+          "relative_residual": 7.38641398549067e-14,
+          "optical_theorem_error": -8.992806499463768e-15
+        }
+      ],
+      "Gamma": 0.4955810081855688,
+      "opposite_extinction_difference": 1.3322676295501878e-15,
+      "sphere_checks": [
+        {
+          "quadrature_scattering": 1.0843238132376214,
+          "minus_Gram_scattering": 1.4876988529977098e-14
+        },
+        {
+          "quadrature_scattering": 0.4730801407089421,
+          "minus_Gram_scattering": 5.551115123125783e-15
+        }
+      ],
+      "claim": "Solved dense nonperiodic retarded point-dipole system, not a continuum-converged Maxwell body."
+    },
+    {
+      "square_side_in_wavelengths": 1.0,
+      "cells_per_wavelength": 8,
+      "cells": 768,
+      "observables": [
+        {
+          "sigma_ext": 0.5980272496190787,
+          "sigma_abs": 0.0654979728659831,
+          "sigma_sca": 0.5325292767531253,
+          "relative_residual": 8.827468398078534e-14,
+          "optical_theorem_error": -2.9753977059954195e-14
+        },
+        {
+          "sigma_ext": 0.5980272496190786,
+          "sigma_abs": 0.37332680361561843,
+          "sigma_sca": 0.2247004460034821,
+          "relative_residual": 9.310060976857313e-14,
+          "optical_theorem_error": -2.1926904736346842e-14
+        }
+      ],
+      "Gamma": 0.5147404753641425,
+      "opposite_extinction_difference": 1.1102230246251565e-16,
+      "sphere_checks": [
+        {
+          "quadrature_scattering": 0.5325292767531296,
+          "minus_Gram_scattering": 4.218847493575595e-15
+        },
+        {
+          "quadrature_scattering": 0.22470044600348385,
+          "minus_Gram_scattering": 1.7486012637846216e-15
+        }
+      ],
+      "claim": "Solved dense nonperiodic retarded point-dipole system, not a continuum-converged Maxwell body."
+    }
+  ]
+}

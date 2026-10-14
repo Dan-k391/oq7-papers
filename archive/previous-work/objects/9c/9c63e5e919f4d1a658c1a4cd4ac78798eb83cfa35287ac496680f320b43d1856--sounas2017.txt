@@ -1,0 +1,452 @@
+=== PDF PAGE 1 ===
+This is the accepted manuscript made available via CHORUS. The article has been
+published as:
+Time-Reversal Symmetry Bounds on the Electromagnetic
+Response of Asymmetric Structures
+Dimitrios L. Sounas and Andrea Alù
+Phys. Rev. Lett. 118, 154302 — Published 14 April 2017
+DOI: 10.1103/PhysRevLett.118.154302
+
+=== PDF PAGE 2 ===
+1 
+ 
+Time-Reversal Symmetry Bounds on the Electromagnetic Response of 
+Asymmetric Structures 
+  Dimitrios L. Sounas and Andrea Alù * 
+Department of Electrical and Computer Engineering, The University of Texas at Austin, Austin, 
+TX 78712, USA 
+ 
+Asymmetric structures support di fferent field distribu tions and electromagne tic responses when 
+excited from different directions. Here we show that time-reversal symmetry imposes 
+fundamental constraints on their overall response, beyond those dictated by reciprocity. For 
+two-port devices, the asymmetry in  field distribution for opposite excitations is shown to be 
+fundamentally bounded by the reflection at the ports , and the fields are iden tical everywhere in 
+space in the case of full tr ansmission. In multi-port and open scenarios, these bounds have 
+implications on radiation and scattering at diffe rent ports and towards different directions. 
+Beyond their theoretical significance, these results provide relevant insights into the operation of 
+nonlinear isolators, metasurfaces and other nanophotonic devices. 
+PACS: 41.20.Jb; 42.25.Bs; 11.30.-j; 42.25.Fx 
+ 
+The symmetry of various physical laws under time reversal is at the basis of many physical 
+principles [1]. In simple terms, time-reversal symmetry implies that the response of a system 
+under a 
+tt→−  transformation satisfies the same physical laws as the original system. For 
+example, the time-reversed response of a time -reversal invariant electromagnetic system is 
+
+=== PDF PAGE 3 ===
+2 
+ 
+always a solution of Maxwell equa tions in the same system. The most important consequence in 
+classical systems is reciprocity, according to which signal transmission  between two points in 
+space is the same for both propagation directions [2]-[5], recently inspiring the realization of 
+magnet-less electromagnetic and acoustic non-reci procal devices for full-duplex communication 
+systems [6]-[24]. 
+Here, we discuss how time-reversal symmetry impos es even stricter constraints on the operation 
+of electromagnetic systems, beyon d reciprocity. In particular, we  show that in arbitrarily 
+asymmetric volumes local quantities such as the field intensity and the radiated power from point 
+sources cannot take arbitrary values when the st ructure is probed from different directions. We 
+start our analysis with the simp le scenario of a two-port lossle ss structure (Fig. 1a), and then 
+move to the case of multiport structures (Fig. 1b),  and to objects in free space (Fig. 1c). In all 
+these scenarios, we show that the degree of  asymmetry in their electromagnetic response 
+decreases as the transmission coefficient incr eases, and it vanishes in the case of perfect 
+transmission. We conclude our paper discussing several practical consequences of these findings, 
+such as in the operation of nonlinear isolators and the cloaking of directive emitters. 
+Consider an arbitrary two-port, lossless and linear network, as in  Fig. 1a, with transmission 
+coefficient T  (equal when excited from the two ports , due to reciprocity) and reflection 
+coefficients 1R  and 2R  at ports 1 and 2, respectively. Since the network is lossless, 12RRR==
+. Let the field distribution inside the structure be 1()Er  and 2 ()Er  when excited from ports 1 and 
+2 with signals of unitary amplitude, respectivel y. If we apply a time-reversal operation to the 
+case in which the structur e is excited from port 1 (top, Fig. 1a), we obtai n an inversion of the 
+propagation direction for all im pinging, reflected and transmitted waves, a complex conjugation 
+
+=== PDF PAGE 4 ===
+3 
+ 
+of the amplitudes of these waves, and a comple x conjugation of the induced field distribution, 
+leading to the scenario shown in the bottom of  Fig. 1a. Since the structure is lossless, and 
+assuming it is not biased by any quantity that is odd-symmetric under time reversal, the internal 
+field 1
+∗E  in the time-reversed scenario can be expr essed using the superposition principle as 
+11 1 2RT∗∗ ∗=+EE E . After some algebraic manipulations [25] (Sec. I), we find  
+ 2
+2
+1
+2
+11 .11
+R
+R
+R
+R
+−+ ≤+ ≤ −
+E
+E
+ (1) 
+Eq. (1) shows that the ra tio of field intensities at any point inside the structure  for excitation 
+from different ports is bounded by quantities that tend to unity as the reflection at the input ports 
+decreases (or the transmission increases). In the extreme case of perfect transmission, the internal 
+field intensity distribution for exc itation from opposite directions is exactly the same anywhere , 
+independent of the geometrical asymmetry and complexity of the structure. An analogous 
+expression to Eq. (1) was derived in [26] for th e decay rates at different ports of a two-port 
+single-resonance system. It is possible to show [25] (Sec. II) that this result is a particular case of 
+Eq. (1), and our theory extends it to generally complex asymmetric structures, without the single-
+resonance restriction, at any frequency and, quite surprisingly, to any single point in space. 
+In order to validate Eq. (1), we have simulate d an asymmetric two-port system consisting of a 
+multimodal cavity inside a parallel-plate waveguide, as in Fig. 2a. The walls of the waveguide 
+and the cavity are perfect elec tric conductors (PEC) and the cavity is filled with a high-
+permittivity dielectric (
+12rε = ). The structure’s asymmetry is  achieved through apertures of 
+different width and position at opp osite sides of the cavity. We excite at a frequency where 
+reflection is non-zero, as it can be  deduced from the standing-wave  patterns on the side of the 
+
+=== PDF PAGE 5 ===
+4 
+ 
+waveguide from which the excita tion is applied. In this case, the fields for excitation from 
+opposite sides are very different, as expected in an asymmetric multimodal cavity. Then, one 
+may wonder whether it is possible to maintain  this field asymmetry while increasing the 
+transmission coefficient through the structure. Without changing the geometrical asymmetry, we 
+add a matching layer in the form of a reactive surface, consisting of identical metallic patches on 
+either side of a thin dielectric layer, at some distance from the right-hand side of the cavity, as in 
+Fig. 2b. By controlling the geometry of the anti- reflection surface and its distance from the 
+cavity, it is possible to impedance match the asy mmetric cavity to the waveguide and achieve 
+unitary transmission (zero reflection). Due to reciprocity, the matching works for excitation from 
+either side. Despite the fact that we have not mo dified the original asymmetry of the system, the 
+field intensity profile fo r excitation from opposite directions is  now identical at any point in the 
+waveguide, in full agreement with Eq. (1) for 
+0R = , showing that the bounds in Eq. (1) are not 
+related to geometrical asymmetries, but they are a fundamental consequence of time-reversal 
+symmetry. Finally, Fig. 2c presents 
+22
+21EE  versus R  for the system in Fig. 2b, calculated at 
+25 points inside the cavity for 101 frequency poi nts over a band around the frequency of unitary 
+transmission. The width of this frequency range is chosen so that the reflection coefficient varies 
+from 0 to 1. It can be seen that in all cases and at all points 
+22
+21EE  lies within the bounds 
+predicted by Eq. (1), validating our theoretical analysis. 
+Consider now a multi-port system, as the one in  Fig. 1b. We first assume zero loss, but, as we 
+rigorously show in [25] (Sec. IV), the derived results also a pply to lossy systems, since loss can 
+be interpreted as one of the output ports of a generic multi-port network. When the system is 
+excited by a signal with unitary amplitude from port 1, assuming that all ports are matched, the 
+
+=== PDF PAGE 6 ===
+5 
+ 
+outgoing signal at the n-th port has scattering parameter 1nS . After applying a time-reversal 
+operation, we can write the field at  any point in the structure in the time-reversed scenario as a 
+superposition of the fields induced by impinging signals 1nS∗ : 11 1 1 2 1 2 1 NNSS S∗∗ ∗ ∗ …++=+EEE E , 
+where nE  is the field for excitation from the n-th port. After some algebraic manipulations [25] 
+(Sec. III), we find 
+22
+211
+21 2122 2
+2
+2
+2 12 SS+−
+∑∑ ∑
+≤
+∑
+−EE EE
+EE EE
+, where 
+222 2
+21 N∑ =+ + +…EE E E . Interestingly, 
+2
+nE  may be interpreted as the radiated power nP  
+at the n-th port from a randomly-oriented dipole s ource located at the position in which we 
+sample nE : 
+222 48nnPp ω= E , where p  is the dipole moment [ 25] (Sec. VI). The total 
+radiated power by the dipole is given by 1
+222 24
+N
+nnPP p ω=== Σ∑ E , yielding 
+ 
+2
+12 2 11 2 2 1 12,ee S e e S ≤−+−   (2) 
+where nneP P=  is the radiation efficiency at the n-th port. Eq. (2) shows that the difference in 
+radiation efficiencies between any two ports is restricted by the transmission coefficient between 
+the same ports. In the case of zer o transmission be tween the ports ( 21 0S = ), Eq. (2) becomes 
+12 1ee+≤  and it is satisfied for any value of 1e  and 2e  allowed by power conservation, 
+indicating that in such a case ra diation at different ports is in dependent. On the other hand, for 
+unitary transmission ( 21 1S = ), Eq. (2) becomes 12 1 2 20ee e e+− ≤ , and it can be satisfied only 
+for 12ee= , indicating full correlation of  radiation at the two ports. For intermediate values of 
+21S , the radiation at different ports is partially correlated, and it increases as 21S  increases. The 
+
+=== PDF PAGE 7 ===
+6 
+ 
+result in Eq. (2) has relevant im plications not only for waveguid e problems, but also in the case 
+of optical systems excited by thermal or quantum  emitters, and for the design of unidirectional 
+lasers and absorbers without back-reflecting mirro rs [27]. Indeed, our theory proves that the 
+energy emitted towards different directions by a small emitter is necessarily bound by the way 
+the two directions are coupled to gether, with relevant implications in nanophotonic engineering. 
+Furthermore, Eq. (2) can be extended to lossy sy stems [25] (Sec. IV), as it may intuitively be 
+understood from the fact that absorption can be seen as an additional output channel. 
+We validated these theoretical results using full-wave simulations of a multi-port, multi-modal 
+asymmetric cavity, as in Fig. 3a. The struct ure is two-dimensional with perfect-magnetic-
+conducting (PMC) walls and filled with air. The electric field is assumed to have a single out-of-
+plane component, and the exte rnal waveguides support propaga tion of only the fundamental 
+transverse electromagnetic mode. Fig. 3b shows the calculated S-parameters of such a structure 
+for excitation from port 1, showing the existence of multiple resonances and significant 
+asymmetry of transmission at di fferent ports. The large range of values for the transmission 
+coefficient allows validating Eq. (2) for different transmission levels and, therefore, different 
+degrees of correlation for the radiation efficien cy of an arbitrarily located point emitter at 
+different ports. Fig. 3c shows 
+1e  versus ne , with 1n ≠ , for three different values of 1nS . For 
+each value of 1nS , we determine the corresponding freque ncies from Fig. 3b and simulate the 
+structure at these frequencies assuming an emitter at different points in the cavity. In all cases the 
+radiation efficiency lies within the bounds predicted by Eq. (2) (grey regions).  
+These multi-port bounds have interesting consequences also in the case of periodic metasurfaces 
+designed to tailor thermal or optical emission. In particular, they imply that the difference 
+
+=== PDF PAGE 8 ===
+7 
+ 
+between the radiation efficiency  of a point emitter close to th e metasurface along two different 
+directions is restricted by the transmission coefficient 21S   between these directions. For random 
+directions, 21 0S =  and no restriction exists. However, if the directions belong to the set of 
+diffraction orders determined by the metasurface’s periodicity, 21S  is typically non-zero, and 1e  
+and 2e  are related to each other through Eq. (2). Consider, fo r instance, a reflective metasurface 
+with periodicity smaller than the diffracti on limit. Such a metasurface supports only one 
+diffraction order and, for zero loss, leads to unitary specular reflection for any incidence 
+direction. Then, Eq. (2) implies that a point emi tter close to this surface necessarily exhibits the 
+same radiation efficiency for symm etric directions with respect to the normal direction, i.e., the 
+emitter has a symmetric radiation pattern, rega rdless of any arbitrary asymmetry in the 
+metasurface’s unit cell. The multi- port bounds in the case of metasurfaces reveal the conditions 
+to obtain directive emission, again with several implications in nanophotonic engineering. 
+This multi-port scenario may be further generalized to the case of a system in free-space open to 
+radiation, as in Fig. 1c. Let 0()Ek  be the impinging electric field of a plane wave with unitary 
+amplitude, polarization vector 0ˆε  and wave-vector 0k . Furthermore, let 00(ˆ ,)nS kε  be the 
+amplitude of the n-th scattered spherical-wave harmonic, normalized so that 
+2
+00(,ˆ )nS ε k  is the 
+scattered power carried by the harmonic. Appl ying a time-reversal transformation to this 
+problem results in a system excited by a plane- wave of unitary amplitude, polarization vector 0ˆ∗ε  
+and wave-vector 0−k , and incoming spherical-wave harmonics with amplitudes 00ˆ(, )nS∗ ε k . 
+Similar to the case of single- and multi-port systems, we get 
+00 0 0 00()ˆˆ ,( ( , ) ˆ), nn
+n
+S∗∗ ∗ =− + ∑EkE k k Eεε ε , where nE  is the field induced by the n-th incident 
+
+=== PDF PAGE 9 ===
+8 
+ 
+harmonic. Performing some algebraic manipulations  and considering the definition of radiation 
+gain for an arbitrarily-oriented point emitter [43], as detailed in [25] (Sec. VI), yields 
+ 
+2 2
+0 0 00 e x t 0 0 e x t 00(, ) ( ) (, ) ( )ˆˆ ˆˆ
+4 ,, ,GGλ σσπ
+∗∗ ≤⎡⎤ −− = −⎣⎦ kk εε kε kε   (3) 
+where ext 0 0ˆ(, )σ ε k  is the extinction cross-section of the scatterer [1] and 0(,ˆ )G ε k  is the emitter’s 
+gain along the direction k  and for the 0ˆε  polarization of the far fiel d [28]. In Eq. (3) we used 
+ext 0 0 ext 0 0(, ) ( )ˆˆ ,σσ ∗=− εkkε , a result of reciprocity [29]. Eq. (3) represents an upper bound for the 
+difference in gain for opposite directions – a measure of the scattering directionality of the object 
+– versus the extinction cross- section, highlighting a direct relation between radiation and 
+scattering properties of an arbitrary object, st emming from time-reversal symmetry. This 
+limitation may be overcome only using active or non-reciprocal materials. 
+In order to provide furt her insights and validate Eq. (3), we  analyze the case of an infinite 
+dielectric cylinder excited by a li ne source, as in Fig. 4a. Sin ce the structure is circularly 
+symmetric, different field profile s, and subsequently different radiation gain for different 
+directions, can be induced by exciting multiple re sonant modes. For this reason, the permittivity 
+and radius of the cylinder are se lected to operate between the TM 0 and TM 1 resonances of the 
+cylinder. The corresponding radiation pattern is presented in Fig. 4b for a source at 10.5srr=  and 
+180sϕ =  deg, showing strong directi onality. We now cover the cy linder with a metamaterial 
+shell, as in Fig. 4c, aimed at suppressing its scattering cross-section for z-polarized waves ( 0ˆˆ =ε z
+) [30]-[32]. From Eq. (3), we expect 00() ( )GG =−kk , i.e., the radiation pattern becomes 
+symmetric in opposite directions. Fig. 4d shows indeed that th e radiation pattern with the 
+
+=== PDF PAGE 10 ===
+9 
+ 
+metamaterial shell for the same source as in Fig. 4b is symmetric, hi ghlighting how cloaking 
+essentially destroys radiation directivity for excitation by an internal point source. 
+In addition to their theoretical significance, the results presented in this Letter are important from 
+a practical perspective in the design of a pl ethora of linear and non linear nanophotonic devices. 
+As an example of the consequence of these resu lts in nonlinear problems, consider the case of 
+nonlinear isolators, which achieve non-reciprocal transmission based on materials with intensity-
+dependent permittivity [34]-[41]. Their operation is based on the fact that, by design, the induced 
+field distribution is asymmetrical for excita tion from different por ts, and therefore the 
+transmission coefficients for opposite excitations  can be made largely different based on the 
+different permittivity distribution in the device when excited from opposite sides. Large non-
+reciprocity is induced if, for instance, the struct ure is designed to operate in a high-intensity, 
+strongly-nonlinear regime for one propagation direction, for which the transmission coefficient is 
+very small because of the strong excitation of a resonance, and a low-intensity, quasi-linear 
+regime for the other propagation direction, for which the transmission coefficient is large 
+because the resonance is weakly excited. Th e bounds presented here show that in the low-
+intensity (linear) regime there is a fundamental trade-off between large transmission and induced 
+field asymmetry, and therefore directly impose fundamental constraints on the insertion loss and 
+transmission contrast of nonlinear isolators, a conclusion consistent with the metrics reported so 
+far in the literature for these devices. We have  discussed how the bounds  presented here have 
+also implications in the design of directive thermal, optical and quantum emitters, metasurfaces, 
+lasers and absorbers, and reveal the extent up to  which such systems can be cloaked and at the 
+same time exhibit directional emission properties.  
+This work was supported by AFOSR, NSF and the Simons Foundation. 
+
+=== PDF PAGE 11 ===
+10 
+ 
+*To whom correspondence should be addressed: alu@mail.utexas.edu 
+References 
+[1] J. D. Jackson, Classical Electrodynamics, 3rd Ed., John Wiley & Sons, 1999. 
+[2] L. Onsager, Reciprocal relations in irreversible processes. I., Phys. Rev. 37, 405 (1931). 
+[3] L. Onsager, Reciprocal relations in irreversible processes. II., Phys. Rev. 38, 2265 (1931). 
+[4] H. B. G. Casimir, On Onsager’s principle of microscopic reversibility, Rev. Mod. Phys. 17, 
+343 (1945). 
+[5] H. B. G. Casimir, Reciproc ity theorems and irreversible processes, Proc. IEEE 51, 1570 
+(1963). 
+[6] Z. Yu and S. Fan, Complete optical isolat ion created by indire ct interband photonic 
+transitions, Nature Photon. 3, 91 (2009). 
+[7] M. S. Kang, A. Butsch, and P. St. J. Russe ll, Reconfigurable light-driven opto-acoustic 
+isolators in photonic crystal fibre, Nature Photon. 5, 549 (2011). 
+[8] X. Huang and S. Fan, Complete all-optical si lica fiber isolator via stimulated Brillouin 
+scattering, J. Lightwave Technol. 29, 2267 (2011). 
+[9] H. Lira, Z. Yu, S. Fan, and M. Lipson, Electrically driven nonreciprocity induced by 
+interband photonic transition on a silicon chip, Phys. Rev. Lett. 109, 033901 (2012). 
+[10] K. Fang, Z. Yu, and S. Fan, Photoni c Aharonov-Bohm effect based on dynamic 
+modulation, Phys. Rev. Lett. 108, 153901 (2012). 
+[11] D.-W. Wang, H.-T. Zhou, M.-J. Guo, J.-X. Zha ng, J. Evers, and S.-Y. Zhu, Optical diode 
+made from a moving photonic crystal, Phys. Rev. Lett. 110, 093901 (2013). 
+[12] S. Qin, Q. Xu, and Y. E. Wang, Nonreciprocal components with distributedly modulated 
+capacitors, IEEE Trans. Microw. Theory Techn. 62, 2260 (2014). 
+
+=== PDF PAGE 12 ===
+11 
+ 
+[13] D. L. Sounas, C. Caloz, and A. Alù, Giant non-reciprocity at the subwavelength scale using 
+angular momentum-biased metamaterials, Nat. Commun. 4, 2407 (2013). 
+[14] R. Fleury, D. L. Sounas, C. F. Sieck, M. R. Haberman, and A. Alù, Sound isolation and 
+giant linear nonreciprocity in a compact acoustic circulator, Science 343, 516 (2014). 
+[15] D. L. Sounas and A. Alù, A ngular-momentum-biased nanorings to realize magnetic-free 
+integrated optical isolation, ACS Photon. 1, 198 (2014). 
+[16] N. A. Estep, D. L. Sounas, J. Soric, a nd A. Alù, Magnetic-free non-reciprocity and 
+isolation based on parametrically modulated coupled-resonator loops, Nature Phys. 10, 923 
+(2014). 
+[17] N. A. Estep, D. L. Sounas, and A. Al ù, Magnetless microwave circulators based on 
+spatiotemporally modulated rings of coupled  resonators, IEEE Tr ans. Microw. Theory 
+Techn. 64, 502 (2016). 
+[18] S. Tanaka, N. Shimimura, and K. Ohtake, K., Active circulators - The realization of 
+circulators using transistors, Proc. IEEE 53, 260 (1965). 
+[19] Y. Ayasli, Field effect transistor circulators, IEEE Trans. Magn. 25, 3242 (1989). 
+[20] T. Kodera, D. L. Sounas, and C. Caloz,  Artificial Faraday ro tation using a ring 
+metamaterial structure without static magnetic field, Appl. Phys. Lett. 99, 031114 (2011). 
+[21] T. Kodera, D. L. Sounas, and C. Caloz, Non-reciprocal magnet- less CRLH leaky-wave 
+antenna based on a ring metamaterial struct ure, IEEE Antennas Wireless Propag. Lett. 10, 
+1551–1554 (2011). 
+[22] T. Kodera, D. L. Sounas, and C. Caloz, Ma gnetless Nonreciprocal Metamaterial (MNM) 
+technology: Application to mi crowave components, IEEE Tran s. Microw. Theory Techn. 
+61, 1030 (2013). 
+
+=== PDF PAGE 13 ===
+12 
+ 
+[23] Z. Wang, Z. Wang, J. Wang, B. Zhang, J. Huangfu, J. D. Joannopoulos, M. Soljačić, and L. 
+Ran, Gyrotropic response in th e absence of a bias field, Proc. Natl. Acad. Sci. U.S.A. 109, 
+13194 (2012). 
+[24] B.-I. Popa and S. A. Cumm er, Nonreciprocal active metamaterials, Phys. Rev. B 85, 
+205101 (2012). 
+[25] See Supplemental Material [url], which includes Refs. [1],[26],[42],[43]. 
+[26] K. X. Wang, Z. Yu, S. Sandhu, and S. Fan, Fundamental bounds on decay rates in 
+asymmetric single-mode optical resonators, Opt. Lett. 38, 100 (2013). 
+[27] H. Zhou, B. Zhen, C. W. Hsu, O. D. Mill er, S. G. Johnson, J. D. Joannopoulos, and M. 
+Soljačić, “Perfect single-sided radiation a nd absorption without mirrors,” Optica 3, 1079-
+1086 (2016). 
+[28] For 2D objects, 
+2 )(4λπ  in Eq. (3) should be replaced by )(2λπ . 
+[29] D. L. Sounas and A. Alù, Extinction symmetry for reciprocal objects and its implications 
+on cloaking and scattering manipulation, Opt. Lett. 39, 4053-4056 (2014). 
+[30] A. Alù and N. Engheta, Achieving transparency with plasmonic and metamaterial coatings, 
+Phys. Rev. E 72, 016623 (2005). 
+[31] A. Alù, Mantle cloak: Invisibility induced by a surface, Phys. Rev. B 80, 245115 (2009). 
+[32] J. C. Soric, P. Y. Chen, A. Kerkhoff, D. Rainwater, K.Melin, and A. Alù, Demonstration of 
+an ultralow profile cloak for scattering suppression of a finite-length rod in free space, New 
+J. Phys. 15, 033037 (2013). 
+[33] Y. Shi, Z. Yu, and S. Fan, Limitations of  nonlinear optical isol ators due to dynamic 
+reciprocity, Nature Photon. 9, 388 (2015). 
+
+=== PDF PAGE 14 ===
+13 
+ 
+[34] X.-S. Lin, J.-H. Yan, L.-J. Wu, and S. Lan, High transmission contrast for single resonator 
+based all-optical diodes with pump-assisting, Opt. Express 16, 20949 (2008). 
+[35] S. Manipatruni, J. T. Robinson, and M. Lips on, Optical nonreciproc ity in optomechanical 
+structures, Phys. Rev. Lett. 102, 213903 (2009). 
+[36] A. Miroshnichenko, E. Brasselet, and Y. S. Kivshar, Reversible opt ical nonreciprocity in 
+periodic structures with liquid crystals, Appl. Phys. Lett. 96, 063302 (2010). 
+[37] I. V. Shadrivov, V. A. Fedotov, D. A. Powe ll, Y. S. Kivshar, and N. I. Zheludev, 
+Electromagnetic wave analogue of an electronic diode, New J. Phys. 13, 033025 (2011). 
+[38] S. Lepri and G. Casati, Asymmetric wave propagation in nonlinear systems, Phys. Rev. 
+Lett. 106, 164101 (2011). 
+[39] S. V. Zhukovsky and A. G. Smirnov, All-opt ical diode action in asymmetric nonlinear 
+photonic multilayers with perfect tran smission resonances, Phys. Rev. A 83, 023818 
+(2011). 
+[40] L. Fan, J. Wang, L. T. Varghese, H. Shen, B.  Niu, Y. Xuan, A. M. Weiner, and M. Qi, An 
+all-Silicon passive optical diode, Science 335, 447 (2012). 
+[41] Y. Xu and A. E. Miroshnich enko, Reconfigurable nonrecipro city with a nonlinear Fano 
+diode, Phys. Rev. B 89, 134306 (2014). 
+[42] F. W. J. Olver, D. W. Lozier, R. F.  Boisvert, and C. W. Clark, editors, NIST Handbook of 
+Mathematical Function, Cambridge University Press, New York, NY, 2010. 
+[43] R. E. Colin, Antennas and radiowave propagation, McGraw-Hill, 1985. 
+  
+
+=== PDF PAGE 15 ===
+14 
+ 
+Figures 
+ 
+Figure 1.  (a) Two-port asymmetric structure without  loss. The effect of time reversal is 
+presented at the bottom. (b) Multi-port asymmetric structure. (c) Asymmetric object in free space 
+illuminated by a plane wave propagating along the -axis. 
+  
+
+
+=== PDF PAGE 16 ===
+15 
+ 
+ 
+Figure 2. Numerical validation of the time-reversal -symmetry bound for two-port structures. (a) 
+Multi-modal cavity inside a parallel-plate waveguide. All the walls are PEC and the material of 
+the cavity has 12rε = . The cavity parameters are 1 0.9ha= , 2 0.7ha= , 1wa= . The operation 
+frequency is 0.35ca  and the electric field is polarized along the y-axis with amplitude 1 V/m. 
+(b) Same as in (a), but with an additional ma tching layer at the right-hand side of the cavity, 
+which consists of metallic patches on both sides of a dielectric substrate with permittivity 
+12rε = . The parameters are 1.449da= , 2 0.1wa= , and 3 0.81ha= . The colorbar scale is 
+different than in (a) in order to properly show th e details of the fields, which are stronger in this 
+case. (c) Field ratio versus reflectivity for excitation from opposite sides for the structure in (b) at 
+25 equally-distributed points insi de the cavity and 101 equally-dis tributed frequencies over a 
+band centered at frequency 0.35ca  and with width 0.03ca . The red lines correspond to the 
+upper and lower bounds in Eq. (1) for the field intensity ratio. All simulation have been 
+performed with Comsol Multiphysics. 
+  
+
+
+=== PDF PAGE 17 ===
+16 
+ 
+ 
+ 
+ 
+Figure 3. Multi-port and multi-modal asymmetric structure. (a) The structure is infinitely-
+extended along the -direction, is filled with ai r and has PMC walls. The cavity vertices are 
+1 (0,0)P =  m, 2 ( 0.1,0.28)P =−  m, 3 (0.29,0.51)P =  m, 4 (0.44,0.32)P =  m, and 5 (0.3,0)P =  m. 
+The width of the external channels is 0.03  m. (b) S-parameters for excitation from port 1. (c) 
+Radiation efficiency at different ports for a dipole source located at six different evenly 
+distributed points inside the cavit y, including the center of mass 
+5
+1 5kkOP == ∑  and the 
+midpoints between O and the cavity vertices. The shaded  regions correspond to the radiation 
+efficiencies allowed by time-reversal symmet ry. The simulations were  carried out through 
+Comsol Multiphysics for z-polarized incident waves with amplitude 1 V/m and uniform profile 
+across the waveguide cross-sections.  
+
+
+=== PDF PAGE 18 ===
+17 
+ 
+ 
+Figure 4. (a) Circular cylindrical scatterer in free-space, with permittivity 1 12ε = , permeability 
+1 1μ = , and radius 1 0.0795r λ= , where λ  is the free-space wavelength. (b) Radiation pattern for 
+a line source located at point P with polar coordinates 10.5srr=  and 180 degsϕ = . (c) The 
+cylinder in (a) covered with a metamaterial shell with permittivity 2 3ε =− , permeability 
+2 4.5μ =− , and radius 21 1.45rr= , resulting in a scattering cross-section reduction from 0.64λ  to 
+0.01λ . (d) Radiation pattern for the same source as in (b), but with the metamaterial cover. 

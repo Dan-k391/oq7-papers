@@ -1,0 +1,827 @@
+
+--- PAGE 1 ---
+Adversarial verification of the quartic Maxwell theorem
+Theorems 1.1–1.3, finite spheres, full-vector reproduction, and direct prior art
+Independent AI-assisted audit prepared for Junjie Zheng
+10 October 2026
+Result. No defined counterexample was found within the measurable, bounded, reciprocal, nonmagnetic
+dielectric class with a strictly positive tensor loss floor. The upper inequality, finite-sphere sign enclosure,
+explicit sixth-order remainder, and every-resource-class lower construction were independently rederived.
+One hypothesis is missing literally: susceptibility measurability.The literature comparison
+needs substantive correction: fixed-smooth-shape quartic upper order and the two-dipole mechanism
+follow from earlier published formulas. This audit does not certify scientific priority.
+The target is the releasedOQ7_quartic_Maxwell_2026-10-10.tex, SHA-256 beginning0f4f6167725b10c8.
+Its bytes match the source in the released archive. Neither original was edited. Three fresh reviewers
+began without previous audit verdicts; the parent independently checked calculations, wrote a second
+Maxwell solver, and inspected the cited primary equations. This is an AI mathematical and computational
+audit, not a proof-assistant certificate or independent human peer review.
+Target Audit disposition
+Theorem 1.1 Proof and constants verified for measurableχ. The algebraic class alone omits that
+necessary hypothesis. Geometry uniformity survives, including disconnected and
+irregular supports.
+Theorem 1.2 Nonzero coefficient interval and 21t6/2000 remainder reproduced for actual finite
+spheres. No dipole truncation is a premise of the proof.
+Theorem 1.3 Homogeneous unequal-sphere positivity verified, includingM =m. The supremum
+statement inherits the measurability qualification.
+Novelty Broad effect, construction mechanism, and fixed-smooth upper order have close
+antecedents. Priority for the precise uniform theorem remains unresolved.
+Contents
+1 Findings that change the assessment 2
+2 Independent geometry-uniform Maxwell derivation 2
+3 The full-vector coefficient and the missing fifth power 5
+4 Actual heterogeneous spheres: noncancellation 5
+5 Independent explicit sixth-order remainder 7
+6 Every resource class: homogeneous spheres 8
+7 Full-vector numerical reproduction and independent controls 10
+8 Direct comparison with prior small-particle theory 11
+1
+
+--- PAGE 2 ---
+OQ7 / Adversarial verification 10 October 2026
+9 Counterexample ledger and conclusion limits 13
+A Frozen target and reproducibility record 14
+1 Findings that change the assessment
+1.1 A literal missing hypothesis
+The target callsD measurable and imposes, almost everywhere onD,
+χT =χ,∥χ∥op≤M, ImHχ⪰mI, 0<m ≤M <∞. (1)
+It never explicitly requiresχto be measurable or to belong toL∞(D; C3×3). Its later statement that the
+methods need measurability and the caps does not specify the coefficient hypothesis. Bothχand χ−1
+are used asL2 multipliers; algebraic bounds do not imply measurability.
+For a positive-volume closed ballD and a non-Lebesgue-measurableN⊂D, putχ= i(1 + 1N)I on D
+and zero outside. Reciprocity,M = 2, andm = 1 hold pointwise, but multiplying a nonzero constant
+vector byχgives a nonmeasurable field. The constitutive operator and cross sections are undefined. This
+is a statement/definition gap, not a measurable medium violating the bound. The necessary hypothesis
+is explicitlyχ∈L∞(D; C3×3), with(1) almost everywhere. All proofs below use that interpretation; the
+target was not silently amended.
+The outgoing condition must apply to thescattered field. A total field containing a plane wave is not
+outgoing. The manuscript’s construction makes this clear, so its shorthand is not an additional proof
+failure.
+1.2 The prior-art comparison is incomplete
+The target already disclaims certified priority, but does not compare the improvement directly with
+the relevant old Maxwell expansions. The 2014 Ammari–Deng–Millien formula implies quartic upper
+order for a fixed smooth lossy nonmagnetic shape. The 2015 Ammari–Ruiz–Yu–Zhang report gives an
+angular-amplitude version. Section 8 derives this inference rather than attributing to those papers a
+quartic theorem they do not explicitly state.
+Hopkins et al. also contains an opposite-linear-polarization example and transverse two-dipole equations.
+Their static reduction gives the same positive homogeneous unequal-dipole interaction term as the
+manuscript. A distinction based mainly on complex polarization misses this close precedent. The exact
+uniform inequality and quantitative continuum certificates remain potentially distinct; not locating an
+identical theorem is not a priority certificate.
+2 Independent geometry-uniform Maxwell derivation
+Let D⊂BR(0) be measurable,V =|D|> 0, andχmeasurable as above. Use vacuum outside, relative
+permeability I, and time conventione−iωt. For real unite,d with e·d = 0,
+f±(x) =ee±ikd·x, Z 0Hinc,±=±(d×e)e±ikd·x.
+2
+
+--- PAGE 3 ---
+OQ7 / Adversarial verification 10 October 2026
+Both experiments use the same coefficient. OnH =L2(D; C3) let⟨u,v⟩=
+∫
+D ¯u·v and [u,v ] =
+∫
+Du·v.
+Extend p =χEby zero and set
+Kkp = (k2I +∇∇·)(gk∗p)|D, g k(x) = eik|x|
+4π|x|, (2)
+Lk =χ−1−Kk, Tk =L−1
+k . (3)
+All derivatives are distributional.
+2.1 The contact term and the dyadic estimate
+The whole-space static multiplier is−ξξT/|ξ|2, a negative orthogonal projection. Compression toD gives
+∥K0∥≤1 and self-adjointness. The distributional Hessian includes
+∂i∂j
+1
+4πr= pv 3xixj−r2δij
+4πr5 −δij
+3 δ0.
+The contact terms cancel inKk−K0. Foru =kr, putb(u) =eiu(iu−1) + 1. The radial and tangential
+kernel eigenvalues are
+−2b(u)
+4πr3 , u2eiu +b(u)
+4πr3 .
+Since b′(u) = −ueiu,|b(u)| ≤u2/2 for every u≥0. The kernel norm is at most 3k2/(8πr). For
+av = (3V/(4π))1/3, layer cake with|D∩Bs(x)|≤min{V, 4πs3/3}gives supx
+∫
+D|x−y|−1 dy≤2πa2
+v.
+Schur’s test yields
+∥Kk−K0∥≤3
+4k2a2
+v, ∥Lk∥≤Lk :=m−1 + 1 + 3
+4k2a2
+v. (4)
+There is no hidden gap, aspect-ratio, component-count, or boundary constant.
+2.2 All-angle radiation and coercivity
+Define Πn = I−nnT andFkp(n) = Π n
+∫
+Dp(x)e−ikn·x dx. The angular representation ofℑgk proves
+exactly
+ImHKk = k3
+16π2F†
+kFk⪰0, ∥Fk∥2≤8π
+3 V. (5)
+For the norm bound apply Cauchy–Schwarz at fixedn and integrate
+∫
+S2 Πn dΩ = 8πI/3. Compactly
+supported L2 currents areL1, so Fubini applies to the smooth angular kernel. No approximation by
+smooth functions supportedinside a possibly empty-interiorD is needed.
+The loss floor implies∥χ−1∥≤1/m. Put
+ρ=M 2/m, W =−ImHχ−1 =χ−†(ImHχ)χ−1⪰ρ−1I. (6)
+Then
+−ℑ⟨p,Lkp⟩=⟨p, (W + ImHKk)p⟩≥ρ−1∥p∥2. (7)
+The bounded form⟨u, iLkv⟩is complex coercive. Lax–Milgram gives surjectivity and injectivity, hence
+∥Tk∥≤ρ. Equivalently, coercivity gives closed range, and the adjoint’s same positive real part gives
+dense range. This verifies the inverse rather than just uniqueness. Negative real contrast and reciprocal
+nonnormal tensors do not defeat the estimate.
+3
+
+--- PAGE 4 ---
+OQ7 / Adversarial verification 10 October 2026
+2.3 Equivalence to weak Maxwell scattering on arbitrary measurable sets
+Forp =Tk(f|D) let Ap = gk∗p. Then (∆ + k2)Ap =−p and Ap∈H2
+loc by local constant-coefficient
+elliptic regularity. The fields
+E =f + (k2I +∇∇·)Ap, U =Z0H = (ik)−1∇×E
+lie inHloc(curl) and satisfy
+∇×E = ikU, ∇×U =−ik(E +p), p = 1DχE
+distributionally, with outgoing scattered fields. Conversely, subtracting this potential from any locally
+finite-energy scattering solution leaves an entire outgoing vacuum field, which vanishes by vacuum
+uniqueness on a containing smooth sphere. No normal, trace, finite perimeter, openness, or Lipschitz
+condition onD enters. Rough polarization divergence is allowed.
+2.4 Joint sources, reciprocity, and the denominator
+Unit-amplitude cross sections are exactly
+A =k⟨p,Wp⟩, S = k4
+16π2∥Fkp∥2, X =kℑ⟨f,p⟩=A +S. (8)
+These follow by dividing dissipated and radiated powers by incident intensity1/(2Z0) and usingE∞=
+k2Fkp/(4π). Transpose symmetry gives[u,Tkv] = [v,Tku]. Sincef−= ¯f+,
+⟨f+,Tkf+⟩= [f−,Tkf+] = [f+,Tkf−] =⟨f−,Tkf−⟩.
+ThusX+ =X−=X. The material is not conjugated. For two-columnF = (f+,f−) and P = (p+,p−)
+the same equation givesImH(F†P ) =P†(W + ImHKk)P. Because∥f+∥=
+√
+V >0,
+X≥k
+ρ∥p+∥2≥kV
+ρL2
+k
+> 0. (9)
+This derived bound vanishes with volume and imposes no fixed extinction threshold. DefineΓ =
+|A+−A−|/X =|S+−S−|/X.
+2.5 Assembling the quartic power and its constant
+The common inverse gives∥p+−p−∥≤2ρkR
+√
+V. Seth = (ρX/k)1/2. Then∥p±∥≤h and
+√
+V ≤Lkh.
+Difference of squared radiation norms gives
+|S+−S−|≤k4V
+6π∥p+−p−∥(∥p+∥+∥p−∥)
+≤k4V
+6π(2ρkR
+√
+V )(2h)≤2
+3πρ2Lkk4RVX. (10)
+Dividing by positiveX and using 0≤A±≤X proves
+Γ≤min
+{
+1, 2
+3πρ2Lkk4RV
+}
+, (11)
+Γ≤min
+{
+1, 8
+9ρ2
+(
+m−1 + 1 + 3
+4t2
+)
+t4
+}
+, t =kR. (12)
+The extra power comes from one bounded inverse acting on the incident difference. Every step holds at
+everyk,R> 0. Material patterns may vary withR; no differentiability or convergence is used. Volume
+fractions may vanish arbitrarily fast.
+4
+
+--- PAGE 5 ---
+OQ7 / Adversarial verification 10 October 2026
+3 The full-vector coefficient and the missing fifth power
+Fix a reference supportΩ and coefficient pattern, then shrinkDR =RΩ at fixed operating frequency. In
+reference coordinates useTt,Kt and set
+q0 =T0e, q 1 =T0[(d·y)e], p j =
+∫
+Ω
+qj, D 0 =ℑ(e·p0) =⟨q0,Wq 0⟩> 0.
+The affine input need not be curl free. It is a legitimate vectorL2 input to the static volume inverse;
+replacing it by a scalar-potential ansatz would need proof.
+Let c =e cos(td·y), s =e sin(td·y), u =Ttc, andv =Tts. The exact currents areq±=u±iv. The
+resolvent identity gives
+Tt−T0 =Tt(Kt−K0)T0 =O(t2), u =q0 +O(t2), v =tq1 +O(t3)
+in operator/vectorL2 norms. These constants concern the fixed pattern; the universal upper bound was
+proved separately without fixing a pattern. The exact radiation operator has kernel
+Qt(x,y ) = 1
+16π2
+∫
+S2
+Πneitn·(x−y) dΩn. (13)
+Substitution n↦→−n makes it real and even. HenceQt−Q0 =O(t2) and⟨u,Q 0v⟩= (
+∫
+u)†(
+∫
+v)/(6π).
+Exact change of physical units gives
+S±=k4R6⟨q±,Qtq±⟩, X =kR3ℑ{[c,Ttc] + [s,Tts]}.
+Reciprocity cancels the mixed forward terms. Therefore
+S+−S−
+k4R6 =−4ℑ⟨u,Qtv⟩=−2
+3πtℑ(p†
+0p1) +O(t3), (14)
+X
+kR3 =D0 +O(t2). (15)
+It follows that
+Γ(t) =Ct4 +O(t6), C = 2|ℑ(p†
+0p1)|
+3πD0
+. (16)
+No t5 error is hidden: the signed radiation form hasO(t3) error before multiplication byt3, and the
+denominator changes byO(t2). The inequality||a|−|b||≤|a−b|also covers a vanishing leading coefficient.
+Observation phase cancellation occurs after exact full-angle integration, not pointwise. Magnetic dipoles,
+electric quadrupoles, and all higher currents remain inTt and Qt.
+4 Actual heterogeneous spheres: noncancellation
+Take reference centers∓ez/2, radiia, 2a witha = 1/20, andχ1 = iI,χ2 = 2iI. Letv1 = 4πa3/3,v2 = 8v1,
+w = 12πa3 and b = 3/5. The surface gap is17/20 and|y|≤b on the support.
+4.1 Exact isolated-sphere response for arbitrary input
+On a ball,K0e =−e/3. If Aj = (χ−1
+j −K0,jj)−1, thenAje =βje, whereβj = 3χj/(3 +χj). Bilinear
+symmetry, tested against each constant real vector, yields for everyh∈L2,
+∫
+Ω j
+Ajh =βj
+∫
+Ω j
+h. (17)
+5
+
+--- PAGE 6 ---
+OQ7 / Adversarial verification 10 October 2026
+There is no conjugate onβj. An independent vector solution checks the affine input. In centered
+coordinates put
+hs = 1
+2(ξzex +ξxez), h a = 1
+2(ξzex−ξxez).
+The Newton potential ofξj1Bs is (s2/6−|ξ|2/10)ξj inside ands5ξj/(15|ξ|3) outside. Differentiating gives
+K0hs =−2
+5hs, K0ha = 0, A j(ξzex) = 5χj
+5 + 2χj
+hs +χjha.
+The antisymmetric part carries the curl and was retained. Both parts have zero moment; the antisymmetric
+part has zero exterior static field.
+4.2 Enclosing all intersphere interactions
+Between the spheres the static kernel is
+H(r) = 3rrT−|r|2I
+4π|r|5 , ∥H(r)∥= 1
+2π|r|3.
+With Ab = diag(A1,A 2), the off-diagonal block operator has norm at most
+co =
+√v1v2
+2π(17/20)3 = 4
+√
+2
+14739 < 1
+2500.
+The block norm is the maximum of the two cross-block norms, not their sum. Since∥Ab∥≤2,
+δ:=∥T0−Ab∥≤4co
+1−2co
+< 1
+600. (18)
+This is an estimate on the entire current space, including every static multipole and repeated interaction.
+It is not a dipole-ansatz error.
+The isolated moments (all parallel toex) are
+α1 = 4πa3 1 + 3i
+10 , α 2 = 32πa3 4 + 6i
+13 , p b
+0 =α1 +α2, p b
+1 = (α2−α1)/2.
+Exact rational arithmetic gives
+Ib :=ℑ((pb
+0)†pb
+1) =−8
+195w2, D b = 173
+130w.
+Integration has norm√w. Bounds on both moments, including the product of their errors, give
+|I0−Ib|≤b(4δ+δ2)w2, |D0−Db|≤δw, I 0 =ℑ(p†
+0p1).
+Substituting δ= 1/600 into the bound gives the relative-error majorant31213/320000 = 0.097540625<
+1/10. HenceI0< 0 for the actual finite spheres, and
+12
+325w2≤|I0|≤44
+975w2, 10367
+7800 w≤D0≤10393
+7800 w. (19)
+Substituting in (16) proves
+36
+1299125≤C≤ 44
+1295875 , 2.771095×10−5≤C≤3.395390×10−5. (20)
+The signed scattering difference is positive for sufficiently smallt with this ordering; the absorption
+difference is negative. This enclosure does not identify the exact value or an optimal class-wide prefactor.
+6
+
+--- PAGE 7 ---
+OQ7 / Adversarial verification 10 October 2026
+5 Independent explicit sixth-order remainder
+Use the conservative diameterL = 6/5. For t≤1, the dynamic-minus-static kernel has numerator
+eigenvalues
+A(s) =eis(s2 + is−1) + 1, B (s) = 2{eis(1−is)−1}, s =t|x−y|.
+Since A′(s) =s(1 + is)eis, B′(s) = 2seis, ands≤6/5<
+√
+3, both numerator magnitudes are at mosts2.
+The kernel norm is bounded byt2/(4π|x−y|). Schur integration in a ball of radiusL and the actual
+W⪰I/2 imply
+∥Kt−K0∥≤18
+25t2, ∥Tt−T0∥≤72
+25t2, ∥Tt∥≤2. (21)
+The last estimate retains exact outgoing radiation. Taylor inequalities then give
+∥u−q0∥≤81
+25t2√w, ∥v−tq1∥≤9
+5t3√w. (22)
+Also∥u∥≤2√w,∥v∥≤2bt√w,∥q0∥≤2√w,∥q1∥≤2b√w, and
+∥Q0∥≤w
+6π, ∥Qt−Q0∥≤wL2
+8πt2.
+For the latter bound use1−coss≤s2/2 in (13) and Schur’s test. Decompose
+⟨u,Qtv⟩−t⟨q0,Q 0q1⟩=⟨u, (Qt−Q0)v⟩+⟨u−q0,Q 0v⟩+⟨q0,Q 0(v−tq1)⟩.
+The three bounds, in unitsw2t3/π, are 54/125, 81/125, and 3/5. Their sum is 42/25. For S =
+(S+−S−)/(k4R6) and S0 =−2I0/(3π),
+|S−tS0|≤168
+25πw2t3. (23)
+The extinction constant includes both cosine and sine terms. WithD =X/(kR3),
+|[c,u ]−[e,q 0]|≤∥c−e∥∥u∥+∥e∥∥u−q0∥≤(b2 + 81/25)wt2,
+|[s,v ]|≤2b2wt2.
+Therefore
+|D−D0|≤108
+25 wt2. (24)
+Fort≤1/4, (19) and (24) give bothD0≥w and D≥w. Since|S0|≤88w2/(2925π), division gives
+|Γ−Ct4|≤w
+π
+{168
+25 + 88
+2925
+108
+25
+}
+t6
+= w
+π
+55656
+8125 t6< 7w
+πt6 = 21
+2000t6 , 0<t ≤1
+4. (25)
+The independent checker reproduces every rational comparison, including21
+2000(1/40)2< 1
+4
+36
+1299125. Hence
+Γ(t)≥27t4/1299125 for 0<t ≤1/40. This is an analytic full-Maxwell remainder, independently of Mie
+numerics.
+Radius convention. HereR is center separation and a valid enclosing radius. The minimum enclosing
+radius isRmin = 23R/40, centered atRez/40. For τ= kRmin, multiply the coefficient by(40/23)4
+and the remainder coefficient by(40/23)6. The intervals becomeτ≤23/160 for the remainder and
+τ≤23/1600 for the lower bound. The target’s coefficient conversion is correct; converting the entire
+inequality requires all these changes.
+7
+
+--- PAGE 8 ---
+OQ7 / Adversarial verification 10 October 2026
+6 Every resource class: homogeneous spheres
+Fix µ >0 and putχ= iµIon both balls, still centered at∓ez/2 with radiia, 2a, now choosing one
+sufficiently small fixeda≤1/20. Set v1 = 4πa3/3, v2 = 8v1, w = 12πa3, h = 1−3a≥4/5, and
+β= 3iµ/(3 + iµ). The isolated and full static inversesA,T satisfy∥A∥,∥T∥≤µ, and the off-diagonal
+operator satisfies∥Co∥≤4a3. Iterating the exact resolvent identity twice gives
+T =A +ACoA +ACoACoT, ∥T−A−ACoA∥≤µ3∥Co∥2. (26)
+This does not presume Neumann-series convergence.
+6.1 The leading interaction and affine source
+Harmonic mean value in each variable ofH(x−y) gives exactly
+∫
+Ω i
+∫
+Ω jH(x−y) =vivjH(ci−cj) for
+disjoint balls. Putg0 =−1/(4π) and write moments through one interaction as˜pj =pb
+j +p(1)
+j . Then
+pb
+0 =βwex, p b
+1 = 1
+2β(v2−v1)ex, p (1)
+0 = 2g0β2v1v2ex, |˜p0|≤2|β|w.
+The isolated product is real. The first constant-drive correction gives
+L :=ℑ((p(1)
+0 )†pb
+1) =−g0v1v2(v2−v1)|β|2ℑβ= 2688π2µ3
+(9 +µ2)2a9> 0. (27)
+The center terms ofp(1)
+1 cancel, but its complete affine contribution does not. On spherej let qo
+j =
+Aj[(z−zj)ex]. Then
+∫
+qo
+j = 0, ∥qo
+j∥≤µrj
+√
+vj/5,
+∫
+|y−cj||qo
+j (y)|dy≤µ
+√
+3
+5 r2
+jvj.
+Direct differentiation gives∥DH(r)[u]∥≤6/(π|r|4) for a real unitu. SubtractH(ci−cj) using the zero
+moment. The relevant segments remain at distance at leasth. Receiving-ball integration by (17) gives
+|p(1)
+1 |≤6
+√
+3|β|µ
+πh4 a2v1v2.
+It follows that
+|ℑ(˜p†
+0˜p1)−L|
+L ≤48
+√
+3
+7h4 (9 +µ2)a2< 30(9 +µ2)a2. (28)
+An additional audit calculation evaluates the exact first affine correction. Withη= 5iµ/(5 + 2iµ),
+the explicit affine sphere solution givesp(1)
+1 = (32π/5)βηa8ex. Bothℑ((pb
+0)†p(1)
+1 ) andℑ((p(1)
+0 )†p(1)
+1 ) are
+positive, since
+ℑη= 25µ
+25 + 4µ2 > 0, ℑ( ¯βη) =− 15µ3
+(9 +µ2)(25 + 4µ2) < 0.
+They reinforce the leading sign. This is not a claim that all subsequent interactions have the same sign.
+8
+
+--- PAGE 9 ---
+OQ7 / Adversarial verification 10 October 2026
+6.2 All remaining interactions and the order of limits
+Let δ2 =µ3∥Co∥2. Equation (26) gives|p0−˜p0|≤δ2w and|p1−˜p1|≤bδ2w, withb = 3/5. Using one
+exact factor in the difference of products includes all error products:
+|ℑ(p†
+0p1)−ℑ(˜p†
+0˜p1)|≤bδ2(µ+ 2|β|)w2
+≤9
+5µ4∥Co∥2w2.
+Combining with (28) and∥Co∥2≤16a6 yields
+|ℑ(p†
+0p1)−L|
+L ≤30(9 +µ2)a2 + 54
+35µ(9 +µ2)2a3. (29)
+Choose, once beforet→0,
+0<a ≤min
+{
+1
+20, [120(9 +µ2)]−1/2,
+[ 35
+216µ(9 +µ2)2
+]1/3}
+. (30)
+The relative error is at most1/2. Also µw/(1 +µ)2≤D0 = µ−1∥Tex∥2≤µw. The fixed-pattern
+coefficient theorem therefore gives
+Γ = Cht4 +O(t6), 224µ2a6
+3(9 +µ2)2≤Ch≤224µ2(1 +µ)2a6
+(9 +µ2)2 . (31)
+Set µ=m. This satisfies everyM≥m, including equality. The positive lower coefficient and(12) prove
+the claimed Θm,M(t4) class supremum in the measurable-coefficient class. There is no simultaneous
+uncontrolled separation/size limit. Theorem 1.3 need not have the heterogeneous example’s numerical
+remainder constant.
+6.3 A serious attempted cancellation: static normality
+For homogeneousχ= iµ, the static Green operator is real self-adjoint. ThusT†
+0T0 is real, and purely
+static currents have equal unweighted norms under conjugate drives. This fact is true. It does not imply
+ℑ(p†
+0p1) = 0, which usesT†
+0Q0T0: Q0 need not commute withK0.
+Retaining radiation resolves the physical absorption difference. WriteKt = Ht + it3Qt, withHt real
+self-adjoint, and putSt = (−Ht−i/µ)−1. The reactive inverse is normal, whereas
+Tt =St + it3StQtSt +O(t6)
+can makeT†
+tTt nonreal at ordert3. The exact identity
+ImHTt =T†
+t (µ−1I +t3Qt)Tt
+has real matrix elements between realc,s by transpose reciprocity. Thusµ−1ℑ⟨u,v⟩+t3ℑ⟨u,Qtv⟩= 0,
+and exactly
+A+−A−
+kR3 = 4t3ℑ⟨u,Qtv⟩, S+−S−
+kR3 =−4t3ℑ⟨u,Qtv⟩.
+These are respectively±2I0t4/(3π) +O(t6). Radiation supplies the first absorption difference. The
+radiative current correctionTt−St changes the signed scattering difference only atO(t7) in these units;
+reactive corrections can enter atO(t6). The full follow-up derivation is included in the archive.
+9
+
+--- PAGE 10 ---
+OQ7 / Adversarial verification 10 October 2026
+Material realizability. At a fixed operating frequencyω0> 0, for anyγ >0 the scalar laws
+χj(ω) = jγω0
+ω2
+0−ω2−iγω, j = 1, 2,
+are passive causal Lorentz responses and equalij at ω0. Replacing j by µrealizes the homogeneous
+example. Their poles are below the real axis, the positive-frequency imaginary part is positive, andzχ(z)
+has positive imaginary part forℑz >0. Geometry shrinks while the material functions remain fixed. No
+loss floor at all frequencies down to zero is being asserted.
+7 Full-vector numerical reproduction and independent controls
+The unmodified releasedreproduce.py completed successfully in a separate extraction, including its
+25-case sphere sweep, isolated-sphere Mie checks, algebra, and figures. The 25 recorded results reproduced
+identically. This checks replayability, not implementation independence.
+The new independent_numerics/multiparticle_mie.py imports no released solver code. It eliminates
+sphere boundary conditions analytically and projects translated fields on complete angular harmonics,
+instead of the released boundary-matching solve. Multiparticle spherical-wave methods are established;
+Xu’s sphere-aggregate formulation is a method antecedent, not a novelty claim for the new code [7].
+7.1 The independently checked formulation
+For orthonormal harmonicsΨ = ∇SY/
+√
+ℓ(ℓ+ 1) and Φ = n×Ψ, the code uses
+M =−izℓΦ, N = i
+[√
+ℓ(ℓ+ 1)zℓ(kr)
+kr Yn +
+(
+z′
+ℓ(kr) +zℓ(kr)
+kr
+)
+Ψ
+]
+.
+They satisfy∇×M = kN,∇×N = kM. Tangential Maxwell boundary conditions giveTM =−bℓ,
+TN =−aℓfor the usual Mie coefficients, evaluated through Riccati–Bessel logarithmic derivatives. All
+−ℓ≤m≤ℓ, both families, and1≤ℓ≤ℓmax are retained. Outgoing fields are projected on a sphere
+within the receiving center’s analytic neighborhood. Unknowns are balanced bykℓ+2/(2ℓ−1)!! before
+solution.
+Regular-wave flux splitting and the forward optical theorem independently give
+X =−k−2ℜ
+∑
+i
+a†
+inc,ibi, A =k−2 ∑
+i,ℓ,m,P
+(−ℜTiℓP−|TiℓP|2)|aexc,iℓmP|2.
+The scattering calculation adds full far fields with center phasese−ikn·ci before angular integration. The
+review found no missing factor two, impedance,4π, or interference term. The independent read-only
+formulation report is included separately.
+Theℓmax = 8 run att = 0.1 agrees withℓmax = 6 to the printed precision. Over the heterogeneous sweep,
+the largest normalized energy residual was8.6432×10−16 and reciprocity residual6.9107×10−16. The
+new standard-library algebra checker passed 86 checks. Exact arithmetic validates its scalar expressions;
+the preceding analysis supplies the operator proofs.
+7.2 Controls targeting concrete failure modes
+Changing translation probe fraction from0.3 to 0.2 and 0.4 while increasing angular quadrature changed
+Γ relatively by less than3×10−13 at t = 0.1. A generic rigid rotation of geometry, incidence, and
+10
+
+--- PAGE 11 ---
+OQ7 / Adversarial verification 10 October 2026
+Table 1: Independent heterogeneous finite-sphere results,R = 1 and ℓmax = 6. The first row is outside
+the explicitt≤1/4 remainder interval.
+t =kR Γ/t4 Relative difference from releasedΓ
+0.400 2.893456409632×10−5 5.98×10−13
+0.200 3.030480210012×10−5 2.74×10−12
+0.100 3.065512287396×10−5 3.49×10−13
+0.050 3.074318778290×10−5 1.11×10−11
+0.025 3.076523360320×10−5 3.71×10−11
+polarization excited formerly absent azimuthal modes and changedΓ by less than 10−12 relatively.
+Transverse-incidence mirror symmetry returned zero asymmetry. Equal identical spheres and a lossless
+unequal pair returned asymmetry at roundoff. Three isolated-sphere cases agreed with separate analytic
+Mie references to within2×10−14 relatively in both extinction and scattering.
+For a homogeneous pair with radii0.025, 0.05 and χ= i, the signed scattering asymmetry is opposite to
+the heterogeneous pair. Att = 0.2, 0.1, 0.05, and 0.025, respectively, its values are
+Γ/t4≃10−10(6.00585, 4.54880, 4.17993, 4.08742).
+The analytic coefficient enclosure is[1.8229167×10−10, 2.1875×10−9].
+These are floating-point comparisons, not interval enclosures of the infinite series. The equation residual
+tests an already assembled finite matrix, not omitted multipoles, projection quadrature, special functions,
+or subtraction of powers. Tiny Bessel denominators, internal zeros of logarithmic derivatives, and
+cancellation in the magnetic Mie coefficient are known accuracy limitations of this implementation. At
+the smallest homogeneous point,Γ≈1.60×10−16 is below the energy residual normalized by extinction
+(6.90×10−16); that point alone cannot validate the sign by global conservation residuals. The rigorous
+sign and remainder come from the analytic enclosure, not this weak numerical signal. No certified Mie
+truncation bound was produced.
+8 Direct comparison with prior small-particle theory
+8.1 Quartic upper order implicit in earlier Maxwell expansions
+Ammari–Deng–Millien’s first arXiv version is dated 11 December 2014. Its Theorem 5.8, Eq. (5.32),
+gives the leading electric and magnetic static polarization terms with anO(δ4) field remainder for a fixed
+smooth scaled body [1]. The 2015 Ammari–Ruiz–Yu–Zhang institutional report repeats the expansion in
+Theorem 4.1 and supplies angular amplitudes in Proposition 4.1, with real transverse incident polarization
+in Theorem 4.2 [2].
+The following is this audit’s inference from those formulas.Fix frequency, a smooth homogeneous
+reference B, finite scalar contrast with positive imaginary part, andDδ=δB. At zero magnetic contrast
+the leading magnetic polarization tensor vanishes: the underlying layer system is regular in the equal-
+permeability limit. Both electric incident fields have valuee at the shrinking center. Their full angular
+far fields therefore have the same leading term:
+F±(n) =δ3F0(n) +O(δ4), S +−S−=O(δ7).
+Static dissipation givesD0 =
+∫
+Bℑχ|E0|2> 0 and X =kδ3(D0 +O(δ)). Consequently
+Γ = O(δ4) =O((kδ)4) at fixedk.
+11
+
+--- PAGE 12 ---
+OQ7 / Adversarial verification 10 October 2026
+This deduction does not require the older papers to useΓ or explicitly call the order quartic. It supplies
+a fixed-smooth-shape antecedent. It does not provide the constants or geometric quantifier of(12). The
+old resonance-parameter uniformity cannot be substituted for uniformity over all measurable supports.
+No term-by-term identification of every older vector response tensor with the manuscript’s continuum
+coefficient was established here.
+8.2 Old transverse two-dipole equations give the same mechanism
+Hopkins et al., Eqs. (12)–(15), explicitly gives a retarded transverse two-electric- dipole system. Its Fig. 3,
+printed p. 753, uses opposite linearly polarized waves for same-material gold stacked crosses, reporting
+absorption, total scattering, and extinction [3]. Markel’s Eqs. (8), (42), and (44)–(49) give consistent
+coupled-dipole energy relations [4].
+Here is the audit’s algebraic reduction in volume-polarizability units. For dimensionless staticαj, unit
+center separation, and transverse couplingg =−1/(4π), let∆ = 1−g2α1α2. The uniform- and affine-drive
+total moments are
+P0 = α1 +α2 + 2gα1α2
+∆ , P 1 = α2−α1
+2∆ . (32)
+Direct multiplication gives
+ICDA =ℑ(P∗
+0P1) =ℑ(α∗
+1α2) +g(|α1|2ℑα2−|α2|2ℑα1)
+|∆|2 . (33)
+The retarded rescaled coupling has no linear term int; its reactive correction starts att2 and radiation
+at t3. The angular power is even in observation phase. The same cosine/sine algebra yields within this
+model
+Γ = CCDAt4 +O(t6), C CDA = 2|ICDA|
+3πℑP0
+.
+The full model must retain radiation reaction for energy consistency. Combining uncoupled absorption
+with coherently summed scattering is not a valid replacement.
+For one materialαj =vjβ, v2>v 1, the numerator becomes
+ICDA =−gv1v2(v2−v1)|β|2ℑβ
+|1−g2v1v2β2|2 > 0. (34)
+Forχ= iµ,v2 = 8v1, its leading small-a value is exactly2688π2µ3a9/(9 +µ2)2, matching(27). The basic
+homogeneous noncancellation is thus already a consequence of the old point model. For the heterogeneous
+parameters, the scalar static model givesCCDA = 63880/2075856051≈3.077284669×10−5. This is not
+the exact finite-sphere coefficient. Takingt small alone does not remove a fixed static multipole error
+when the radius/gap ratio is fixed; Sections 4–6 provide the continuum upgrade.
+8.3 Unresolved priority and access limits
+Sounas–Alù (2014) is a close antecedent for reciprocal extinction symmetry and lossy unequal-sphere
+asymmetry [5]. Its first page through Eq. (2), official abstract, and figure captions were inspected; the
+remaining pages and Eqs. (3)–(4) were not obtained. Ammari–Khelifi (2003) remains an abstract-only
+mathematical lead, and Mann–Alù (2023) an abstract/program lead. These are material access limits,
+not evidence of absent results. Brown et al. (2010) is earlier physical heterodimer work [6]; the inspected
+full article text uses finite collection and substrate modeling. It supports physical precedence but does
+not supply the present vacuum class theorem in the inspected material.
+12
+
+--- PAGE 13 ---
+OQ7 / Adversarial verification 10 October 2026
+A targeted counterexample lead, Ylä-Oijala et al. (2025), was also checked [8]. Its accessible first page
+states that its extinction-symmetry-breaking examples use nonreciprocal materials; Fig. 1 specifies equal
+extinction for the opposite-wave-vector, conjugate-electric-field reciprocal pair. This includes the target’s
+real polarization. The complete accepted manuscript was inaccessible, so no uninspected constitutive
+tensors are attributed to it.
+Claim component Direct comparison
+Reciprocal equal extinction and opposite
+total absorption/scattering asymmetry
+Established antecedents.
+Fixed-smooth nonmagnetic quartic upper
+order
+Follows from older full-Maxwell formulas under fixed
+positive loss.
+Two-dipole quartic mechanism and
+homogeneous unequal-dipole sign
+Derived above from the old equations.
+All-measurable-support exact inequality
+under m,M,R,V
+No matching theorem located; priority not certified.
+Actual-sphere noncancellation and
+21t6/2000 remainder
+Additional continuum certification beyond a point model;
+priority unresolved.
+Every-m,M supremum theorem Verified with the completed material definition; no
+matching prior statement located.
+The literature section needs an equation-level revision acknowledging the implicit fixed-smooth quartic
+consequence and Hopkins’s opposite-linear example. The evidence does not support a newly discovered
+asymmetry effect, unequal-sphere mechanism, or first quartic consequence of Maxwell theory. Whether
+the precise uniform quantitative theorem is new remains unresolved.
+9 Counterexample ledger and conclusion limits
+The attempts below target the advertised class without changing its resources.
+Failure mechanism Audit result
+Nonmeasurable coefficient
+obeying pointwise caps
+Exposes a missing hypothesis: the multiplier and cross sections may
+be undefined. No physical bound violation is asserted.
+Disconnected, empty-interior,
+infinitely many-component, or
+irregular support
+Zero extension, Fourier projection, Schur bounds, and whole-space
+weak Maxwell construction need no boundary regularity.
+Nearly touching components or
+vanishing volume fraction
+No separation constant enters the upper theorem; the derived
+denominator estimate controls division as volume collapses.
+Negative real contrast,
+resonance, nonnormal tensors
+W⪰m/M2 bounds the exact inverse under the fixed caps.
+Material patterns varying with
+size
+No coefficient derivative, compactness, or fixed-pattern hypothesis
+enters the upper inequality.
+Different material for opposite
+waves
+Never used: both currents are images under one exact inverse.
+Omitted magnetic or
+quadrupolar radiation
+The exact radiation map and vector inverse contain all multipoles.
+Rotation of the numerical example adds an independent mode
+check.
+Non-curl-free affine input The explicit symmetric/antisymmetric sphere solution retains its
+curl and confirms the arbitrary-input moment identity.
+13
+
+--- PAGE 14 ---
+OQ7 / Adversarial verification 10 October 2026
+Failure mechanism Audit result
+Hidden t5 correction Operator-norm O(t2) and the even radiation kernel give theO(t6)
+normalized remainder.
+Static normality forces
+homogeneous cancellation
+It constrains unweighted norms, not the radiated quadratic form.
+The radiation term supplies the absorption difference.
+Point-model sign destroyed by
+multipoles
+Full-current operator enclosures certify the sign for fixed finite
+spheres; decreasingt alone is not used to remove static errors.
+M =m prohibits heterogeneous
+choices
+The single materialχ= imI suffices with the fixed radius choice.
+2025
+extinction-symmetry-breaking
+examples
+Accessible primary text uses nonreciprocal materials and retains
+equality for the target reciprocal source pair.
+Magnetic constitutive response, bianisotropy, spatial dispersion, loss floors on only some components,
+general elliptical polarization, and material caps diverging with shrinking size are outside the theorem.
+Their behavior is not a counterexample to this class. The theorem also does not impose a fixed positive
+extinction threshold, find an optimal prefactor, or solve unrestricted OQ7.
+Mathematical disposition. With an explicit measurable susceptibility hypothesis, the three claims
+have complete derivations in this audit and no identified invalidating gap. Actual finite spheres attain
+quartic order with a rigorously nonzero coefficient and controlled remainder. The literal material
+definition is incomplete, and the prior-art discussion understates close existing formulas. Mathematical
+validity, numerical corroboration, and scientific novelty are separate conclusions.
+A Frozen target and reproducibility record
+The original source has 50,946 bytes and SHA-256
+0f4f6167725b10c8fec5479e9dfc562989a4889f13f2d9df2fd3846b422b4572
+The original ZIP has 11,487,001 bytes and SHA-256
+0e46afff09071d367c1702fd3a79f2c0c8f3cf8d7252094da6c593c1b0ec8e42
+The new source archive contains the frozen original ZIP, target source/reference tables, this report’s
+LaTeX/PDF, the new independent Maxwell implementation and controls, their data and logs, the
+86-check algebra implementation/results, fresh analytical reviews, source locators, and a hash manifest.
+Full third-party papers are not redistributed.
+After extracting the audit archive, run from its root:
+python reproduce_audit.py --verify-only
+python reproduce_audit.py --full
+The first checks provenance and saved evidence. The second replays the frozen original pipeline in a
+temporary extraction, then the independent algebra, Maxwell sweep, and controls. It preserves new run
+logs and data without modifying the package. Dependencies and commands are described inREADME.txt
+and requirements.txt. The scientific components were executed separately in this audit. The new
+14
+
+--- PAGE 15 ---
+OQ7 / Adversarial verification 10 October 2026
+wrapper passed syntax, extraction/path preflight, and an actual verification-only invocation; its assembled
+four-stage replay was not rerun end to end merely because the wrapper was added.
+The recorded original replay matched all 25 released cases. The validation summary also verifies four
+frozen files, 42 original internal checksums, and 16 evidence hashes. A small linear residual or agreement
+between implementations is not a uniform numerical error bound. No theorem rests on those numerical
+diagnostics.
+The released manuscript remains unchanged. No third party was contacted, and no scientific publication
+or priority claim was submitted.
+References
+[1] H. Ammari, Y. Deng, and P. Millien,Surface Plasmon Resonance of Nanoparticles and Applications
+in Imaging, arXiv:1412.3656v1 (11 December 2014), Theorem 5.8, Eq. (5.32); Arch. Rational Mech.
+Anal. 220 (2016), 109–153. First-version full text; version metadata.
+[2] H. Ammari, M. Ruiz, S. Yu, and H. Zhang,Mathematical analysis of plasmonic resonances for
+nanoparticles: the full Maxwell equations , ETH Research Report 2015-34; J. Differential Equations
+261 (2016), 3615–3669. Institutional full text, Section 4.
+[3] B. Hopkins, A. E. Miroshnichenko, A. N. Poddubny, and Y. S. Kivshar, Fano Resonance
+Enhanced Nonreciprocal Absorption and Scattering of Light , Photonics 2 (2015), 745–757.
+doi:10.3390/photonics2020745. Publisher-provided full text inspected through ResearchGate;
+Eqs. (12)–(15), Fig. 3.
+[4] V. A. Markel,Extinction, scattering and absorption of electromagnetic waves in the coupled-dipole ap-
+proximation, J. Quant. Spectrosc. Radiat. Transfer236 (2019), 106611. Author accepted manuscript;
+Eqs. (8), (42), (44)–(49).
+[5] D. L. Sounas and A. Alù,Extinction symmetry for reciprocal objects and its implications on cloaking
+and scattering manipulation, Opt. Lett.39 (2014), 4053–4056. doi:10.1364/OL.39.004053. Partial-text
+access only, explicitly qualified in Section 8.
+[6] L. V. Brown, H. Sobhani, J. B. Lassiter, P. Nordlander, and N. J. Halas,Heterodimers: Plasmonic
+Properties of Mismatched Nanoparticle Pairs , ACS Nano4 (2010), 819–832. doi:10.1021/nn9017312.
+Primary article text inspected on an identified third-party mirror.
+[7] Y.-L. Xu, Electromagnetic scattering by an aggregate of spheres , Appl. Opt.34 (1995), 4573–4588.
+doi:10.1364/AO.34.004573. Publisher abstract/metadata inspected as a method antecedent.
+[8] P. Ylä-Oijala, B. Kong, R. Blümel, A. Sihvola, H. Wallén, and A. Kohler,Conditions for breaking
+the extinction symmetry in electromagnetic scattering , J. Opt. Soc. Am. A42 (2025), 1155–1165.
+doi:10.1364/JOSAA.568970. Official abstract, first page, and figure captions inspected; full-text
+access failed.
+15

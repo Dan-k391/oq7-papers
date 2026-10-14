@@ -1,0 +1,37 @@
+--- latest16-page/main.tex
++++ finalminor/main.tex
+@@ -182,12 +182,6 @@
+ \end{equation}
+ with $\eta,a,\delta>0$. These intermediate tensors have loss-free null directions and are not the final admissible tensors. Their local rank-one law reduces the unknown current to a scalar, while propagation and radiation remain the full vector Maxwell problem. Figure~\ref{fig:geometry} summarizes the geometry and polarization axes.
+ 
+-\begin{figure}[tb]
+-\centering
+-\includegraphics[width=\linewidth]{figures/two-layer-geometry.pdf}
+-\caption{Finite two-layer geometry and transverse material axes, not to scale. Both incident waves have electric polarization $\ey$. The $+$ wave encounters the absorber first; the $-$ wave encounters the plate first. Each layer has square transverse aperture $R\times R$. The susceptibilities in~\eqref{eq:rankone} are intermediate; adding $i\nu I$ in~\eqref{eq:positive-loss} gives the final strictly lossy tensors.}\label{fig:geometry}
+-\end{figure}
+-
+ Let $J_\theta:L^2(D_R)\to L^2(D_R)^3$ multiply a scalar by $\ex$ in the absorber and by $\uvec$ in the plate. It is a real isometry. Let $\alpha(z)=i\eta$ below $h$ and $\alpha(z)=a+i\delta$ above $h$. The scalar operator is
+ \begin{equation}\label{eq:scalar}
+  L_{R,\theta}=\alpha^{-1}-J_\theta^*K_{D_R}J_\theta,\qquad
+@@ -226,6 +220,12 @@
+ \end{equation}
+ Only a physical material angle changes; the incident intensity stays fixed.
+ 
++\begin{figure}[tb]
++\centering
++\includegraphics[width=\linewidth]{figures/two-layer-geometry.pdf}
++\caption{Finite two-layer geometry and transverse material axes, not to scale. Both incident waves have electric polarization $\ey$. The $+$ wave encounters the absorber first; the $-$ wave encounters the plate first. Each layer has square transverse aperture $R\times R$. The susceptibilities in~\eqref{eq:rankone} are intermediate; adding $i\nu I$ in~\eqref{eq:positive-loss} gives the final strictly lossy tensors.}\label{fig:geometry}
++\end{figure}
++
+ \subsection{A reflectionless plate under any upper real-permittivity cap}
+ Given $P>1$, choose an integer $j\geq1$ such that
+ \begin{equation}\label{eq:plate-design}
+@@ -433,7 +433,7 @@
+ 
+ The machine proof of universal strictness also uses strictly positive local absorption at positive extinction, while Lemma~\ref{lem:strict} uses the far-field optical theorem. These are compatible proofs of the same conclusion within the stated class. \href{theorem-correspondence.html}{Supplement S1: theorem correspondence} distinguishes direct declarations, mathematical consequences, and exposition that is not separately formalized. The Weyl-fiber argument in Section~\ref{sec:aperture} and the Lean localization proof, which uses physical-space and $L^2$ lemmas, have different organizations. Equality of theorem statements does not require identical proof organization.
+ 
+-The repository certificates report a clean project build, an exhaustive audit of 5654 project constants, and only the standard foundations \texttt{propext}, \texttt{Classical.choice}, and \texttt{Quot.sound} for the final theorem. An empty-environment replay of the full aggregate import closure used the same Lean kernel implementation. This is kernel checking, not an independently implemented kernel. \href{reproducibility/manifest.json}{Supplement S3: frozen verification manifest} records independent semantic review as pending at its export on 12 October 2026. The archived independent audit concerns the earlier existence-only commit; \href{reproducibility/AUDIT_PROVENANCE.md}{Supplement S4: audit provenance} identifies its scope and the review evidence available for this version.
++The repository certificates report a clean project build, an exhaustive audit of 5654 project constants, and only the standard foundations \texttt{propext}, \texttt{Classical.choice}, and \texttt{Quot.sound} for the final theorem. An empty-environment replay of the full aggregate import closure used the same Lean kernel implementation. This is kernel checking, not an independently implemented kernel. \href{reproducibility/manifest.json}{Supplement S3: frozen verification manifest} records independent semantic review as pending at its export on 12 October 2026. The archived AI-assisted independent audit concerns the earlier existence-only commit; \href{reproducibility/AUDIT_PROVENANCE.md}{Supplement S4: audit provenance} identifies its scope and the available evidence. No final-commit independent audit is archived with these materials.
+ 
+ Kernel checking verifies the encoded implication. Independent AI-assisted semantic audit and human scientific review are distinct from kernel checking and from each other. Identifying the definitions with the intended Maxwell model, assessing the idealized constitutive assumptions, and establishing scientific priority remain separate tasks. Neither formalization nor absence of a retrieved equivalent publication establishes novelty.
+ 

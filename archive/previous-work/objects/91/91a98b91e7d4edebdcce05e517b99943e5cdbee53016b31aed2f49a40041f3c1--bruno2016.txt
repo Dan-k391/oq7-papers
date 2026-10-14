@@ -1,0 +1,978 @@
+=== PDF PAGE 1 ===
+arXiv:1507.04445v2  [physics.comp-ph]  3 Aug 2015
+Windowed Green Function method
+for layered-media scattering
+Oscar P. Bruno 1∗
+, Mark Lyon 2, Carlos P´ erez-Arancibia1 and Catalin Turc 3
+1Computing & Mathematical Sciences, California Institute of Techno logy
+2Department of Mathematics and Statistics, University of New Hamp shire
+3Department of Mathematics, New Jersey Institute of Technology
+October 16, 2018
+Abstract
+This paper introduces a new Windowed Green Function (WGF) method for the numerical
+integral-equation solution of problems of electromagnetic scatter ing by obstacles in presence of
+dielectric or conducting half-planes. The WGF method, which is based on use of smooth window-
+ing functions and integral kernels that can be expressed directly in terms of the free-space Green
+function, does not require evaluation of expensive Sommerfeld inte grals. The proposed approach
+is fast, accurate, ﬂexible and easy to implement. In particular, str aightforward modiﬁcations of
+existing (accelerated or unaccelerated) solvers suﬃce to incorpo rate the WGF capability. The
+mathematical basis of the method is simple: the method relies on a cer tain integral equation
+posed on the union of the boundary of the obstacle and a small ﬂat s ection of the interface
+between the penetrable media. Numerical experiments demonstra te that both the near- and
+far-ﬁeld errors resulting from the proposed approach decrease faster than any negative power
+of the window size. In the examples considered in this paper the prop osed method is up to
+thousands of times faster, for a given accuracy, than a corresp onding method based on the
+layer-Green-function.
+1 Introduction
+The solution of problems of scattering by obstacles or defec ts in presence of planar layered dielectric
+or conducting media has typically required use of Sommerfel d integrals and associated layer Green
+functions—which automatically enforce the relevant trans mission conditions on the unbounded ﬂat
+surfaces and thus reduce the scattering problems to integra l equations on the obstacles and/or
+defects. As is well known, however, the numerical evaluatio n of layer Green functions and their
+derivatives, which amounts to computation of certain chall enging Fourier integrals [8, 20], are ex-
+tremely expensive and give rise to a signiﬁcant bottleneck i n layer-media simulations (see e.g. [6]
+for details). This paper presents a novel integral-equatio n approach for problems involving layered
+media. The new approach, which is based on use of certain “win dowing” functions and considera-
+tions associated with the method of stationary phase, does not require use of expensive Sommerfeld
+∗Corresponding author: obruno@caltech.edu.
+1
+
+=== PDF PAGE 2 ===
+integrals. Numerical experiments demonstrate that both the near- and far-ﬁeld errors resulting
+from the proposed approach decrease faster than any negativ e power of the window size.
+A variety of methods have been provided for the solution of pr oblems of scattering by obstacles
+in presence of layered media. Amongst the most eﬀective such a pproaches we mention 1) Methods
+which evaluate Sommerfeld integrals on the basis of path-in tegration in the complex plane [17, 7,
+6, 18] (such approaches require numerical evaluation of int egrals of functions that oscillate, grow
+exponentially in a bounded section of the integration path a nd, depending on the relative position
+of the source and observation points to the interface betwee n the two media, may decay slowly at
+inﬁnity); 2) The complex images method reviewed in [1] (a dis cussion indicating certain instabilities
+and ineﬃciencies in this method is presented in [7, section 5 .5]); and 3) The steepest descent
+method [9, 10] which, provided the steepest descent path is k nown, reduces the Sommerfeld integral
+to an integral of an exponentially decaying function (unfor tunately, however, the determination of
+steepest descent paths for each observation point can be cha llenging and expensive). As is well
+known, in any case, all of these methods entail signiﬁcant co mputational costs [6].
+The approach proposed in this paper bears similarities with certain “ﬁnite-section” methods
+in the ﬁeld of rough-surface scattering. These methods util ize approximations based on truncated
+portions of a given unbounded rough surface [14, 22, 19] and, in some cases, they incorporate
+a “taper” [22, 21, 15] to eliminate artiﬁcial reﬂections fro m the edges of the ﬁnite sections. In
+fact the smooth taper function utilized in [15] (Figure 2 in t hat reference) resembles the smooth
+windowing function we use (Figure 2 below and reference [3]) . But as indicated in comments
+provided in section 2 below in regards to certain slow-rise w indowing functions, essential diﬀerences
+exist between the ﬁnite-section approaches and the methods proposed in this paper. In particular,
+with exception of the slow-rise windowing function method [ 3, 16], none of the previous tapered
+rough surface algorithms has demonstrated high-order conv ergence as the width of the ﬁnite sections
+tend to inﬁnity.
+In section 4 the proposed WGF method is compared against the h igh-order integral equation
+method recently introduced in [18], which is based on the acc urate and eﬃcient evaluation of the
+Sommerfeld integrals. In the examples considered in that se ction the proposed method is up to
+thousands of times faster, for a given accuracy, than a corre sponding method based on the layer-
+Green-function. A much larger improvement in the computati onal cost is expected for problems
+of electromagnetic scattering by defects and obstacles in m ulti-layer structures in two- and three-
+dimensional spaces, which will be addressed in future contr ibutions.
+The proposed methodology is presented in sections 2 and 3. A v ariety of numerical results
+presented in sections 2 and 4 demonstrate the accuracy and sp eed of the proposed approach.
+2 Windowed Green Function Method
+We consider two-dimensional TE and TM polarized dielectric transmission problems. As is well
+known, the z components u = Ez and u = Hz of the total electric and magnetic ﬁelds satisfy the
+Helmholtz equation ∆ u+k2
+j u = 0 in Ω j, j = 1, 2 (see Figure 1), where, letting ω > 0, εj > 0, µ0 > 0,
+and σj ≥ 0 denote the angular frequency, the electric permittivity, the magnetic permeability of
+vacuum, and the electrical conductivity, the wavenumber kj is deﬁned by k2
+j = ω2(εj + iσj/ω)µ0,
+j = 1, 2. In either case the total ﬁeld is given by
+u =
+{ u1 + uinc in Ω 1,
+u2 in Ω 2, (1)
+2
+
+=== PDF PAGE 3 ===
+where denoting by α ∈ (− π, 0) the incidence angle measured from the horizontal (see Fig ure 1),
+uinc(x) = e ik1(x1 cos α +x2 sin α ), u1 and u2 denote the incident plane-wave and the reﬂected and
+transmitted waves, respectively. As is known (see e.g. [11] ), the scattered and transmitted ﬁelds u1
+and u2 admit the representations
+u1 = D1 [ϕ] − S 1 [ψ] in Ω 1, (2a)
+u2 = −D 2 [ϕ] + S2 [ψ] in Ω 2, (2b)
+in terms of the total ﬁeld ϕ = u|Γ and its normal derivative ψ = ∂u
+∂n on Γ, where letting Gj(x, y) =
+iH (1)
+0 (kj|x − y|)/4, j = 1, 2 denote the free-space Green function for the Helmholtz equ ation with
+wavenumber kj, the single- and double-layer potentials in equation (2) ar e deﬁned by
+Sj[η](x) =
+∫
+Γ
+Gj(x, y)η(y) dsy, and
+Dj[η](x) =
+∫
+Γ
+∂Gj
+∂ny
+(x, y)η(y) dsy,
+(3)
+respectively. By evaluating the ﬁelds (2) and their normal d erivatives on Γ and using the transmis-
+sion conditions
+u2 − u1 = uinc, ν ∂u2
+∂n − ∂u1
+∂n = ∂uinc
+∂n on Γ ,
+(with ν = 1 and ν = ε1/ε2 in TE- and TM-polarizations respectively) we obtain the sec ond-kind
+system of integral equations [12]
+Eφ + T φ = φinc on Γ (4)
+for the surface currents φ, where
+E =
+[ 1 0
+0 1+ν
+2
+]
+, φ =
+[ u|Γ
+∂u
+∂n |Γ
+]
+, φ inc =
+[ uinc|Γ
+∂u inc
+∂n |Γ
+]
+,
+and where
+T =
+[ D2 − D1 − νS2 + S1
+N2 − N1 − νK2 + K1
+]
+(5)
+is deﬁned in terms of the boundary integral operators deﬁned by the expressions Sj[η](x) and
+Dj[η](x) as well as
+Nj[η](x) = ∂Djη
+∂n (x) and Kj[η](x) =
+∫
+Γ
+∂Gj
+∂nx
+(x, y)η(y) dsy
+for x ∈ Γ and for j = 1, 2.
+Instead of solving the problem on the entire inﬁnite plane a l ocally windowed problem could
+be used in an attempt to obtain local currents over relevant p ortions of the geometry. To pursue
+this idea we introduce a smooth windowing function wA (which is depicted in Figure 2) which
+is non-zero in an interval of length 2 A, and which has a slow rise: wA(x1) = f (x1/A) for some
+ﬁxed window function f . (Note that, with such a deﬁnition, wA rises from zero to one in a region
+of length proportional to A; see [3, 16]. As demonstrated in those references, the slow r ise of
+the window function is essential to ensure fast convergence of the approximation.) For notational
+simplicity, the subindex A will be dropped in what follows, and we will thus write w(x1) instead of
+wA(x1). The parts of the boundary Γ where w(x1) ̸= 0 and ˜w(x1) = 1 − w(x1) ̸= 0, further, will be
+3
+
+=== PDF PAGE 4 ===
+n
+Ω1
+Ω2
+Γ
+α
+ε1
+ε2 Π
+Figure 1: Description of the problem under consideration: s cattering by a defect in a dielectric or
+conducting plane. Γ denotes the interface between the two me dia while Π denotes the interface
+between the upper- and lower-half planes.
+denoted by Γ A and ˜ΓA, respectively. The width 2 A > 0 of the support of the window function w is
+selected in such a way that ˜w(x1) vanishes on any corrugations that exist on the surface Γ, as well
+as on any additional obstacles that may exist above and/or be low Γ. (For notational simplicity
+our derivations are presented for cases for which the corrug ations on the surface Γ are the only
+departures from planarity, but, as demonstrated by Figure 1 2, our algorithms are also applicable
+in cases in which additional scatterers exist.)
+ΓA
+˜ΓA
+w = wA
+˜ΓA
+Figure 2: Window function w = wA and the windowed sections Γ A and ˜ΓA of the unbounded
+curve Γ.
+Utilizing the windowing function w and letting W = w ·I, where I is the 2 × 2 identity matrix,
+we consider the preliminary approximate equation
+Eφ⋆ + T W φ⋆ = φinc on Γ A (6)
+(where the new unknown φ⋆ is deﬁned on Γ A), and, in order to assess the errors inherent in this
+approximation, the form
+Eφ + T W φ = φinc − T (I − W )φ on Γ A (7)
+of the exact equation (4). Using integration-by-parts and e mploying the method of stationary-phase,
+it follows [5] that the term T (I − W )φ is super-algebraically small (i.e., smaller than Cp(kA)−p for
+any positive integer p as kA → ∞ , where Cp is a p-dependent constant) in the region {w = 1}, and,
+thus, as shown in [5], that the solution φ⋆ of (6) is a highly accurate approximation of φ throughout
+the center region {w = 1 } of the surface Γ A provided A is large enough. However, it is easy to
+see that, to correctly take into account ﬁelds reﬂected from the planar portions of the surface, the
+needed window sizes may be very large—especially so for inci dence angles approaching grazing.
+To demonstrate this fact we use equation (6) to approximate t he solution of the TE problem
+of scattering of a plane-wave by a semi-circular bump of radi us a = 1 placed directly on top of a
+4
+
+=== PDF PAGE 5 ===
+planar dielectric surface. The problem was discretized usi ng a graded mesh over the surface of the
+bump and on the windowed portion of the planar interface, on t he basis of a direct generalization
+of the Nystr¨ om method presented in [13] with p = 3. For this example the wavenumbers k1 and k2
+in the regions above and below the plane were set to 4 π and 8 π, respectively, and approximately
+20 points per unit length of the surface of the bump and the sur rounding were used.
+As shown in Figure 3, the naive windowing approach embodied i n (6) requires large regions of
+the planar interface to be discretized as the incidence angl e decreases. For accurate calculations at
+even moderate angles, a large number of wavelengths must be p resent in the window region, well
+beyond the extent of the non-planar local geometry.
+A/λ
+0.25 1 4 16 64 256
+Relative error
+10-6
+10-4
+10-2
+100
+102
+π/4
+π/32
+π/256
+A/λ
+40 80 120 40 200 240
+Relative error
+10-6
+10-4
+10-2
+100
+102
+π/4
+π/32
+π/256
+Figure 3: Errors in the integral densities resulting from nu merical solution of (6) by means of
+a naive implementation of the WGF method for a semi-circular bump-shaped defect, for various
+window sizes and angles of incidence. Left: log-log scale. R ight: semi-log scale. Clearly, the window
+size required by the naive method to produce a given accuracy increases dramatically as the angle
+of incidence approaches grazing.
+In order to provide an insight into the source of the errors di splayed in Figure 3 we present
+Figure 4. Figure 4(a) presents rays incident on the left plan ar region as well as their reﬂection and
+transmission. Clearly, in view of the incidence angle consi dered these reﬂected ﬁelds subsequently
+illuminate the defect. The blue rays, for example, represen t the reﬂections that are correctly taken
+into account in the solution of equation (6) (since they lie w ithin the windowed region), while the
+red arrows represent reﬂections that are neglected. Figure 4(b), on the other hand, represents
+reﬂections by the defect. The color-code in the left ﬁgure ca rries over to the right ﬁgure: the blue
+(resp. red) rays in Figure 4(b) represent the ﬁelds scattere d by the defect which arise from the blue
+(resp. red) arrows in Figure 4(a). We remark that the scatter ing of the ﬁeld represented by the red
+arrows is not taken into account by (6), which gives rise to th e errors observed in Figure 3. We also
+note that the relatively fast convergence demonstrated by t he blue curves in Figure 3 is explained
+by the fact that for near normal incidence ( α ≈ − π/2) there is not much “red ﬁeld” interacting
+with the defect. In contrast, for incidence near grazing ( α ≈ 0), “red ﬁelds” from regions far away
+from the windowed area do interact with the defect. This expl ains the poor convergence properties
+demonstrated by the green and red curves in Figure 3: the ﬁeld s neglected in the naive approach
+give rise to important contributions as α decreases.
+To address this diﬃculty we consider again the exact integra l equation (7) and we substitute the
+unknown density φ on the right-hand side of this equation by the corresponding (known) density φf
+associated with the problems of scattering and transmissio n of a plane-wave by a perfectly ﬂat
+inﬁnite plane. Since a superalgebraically small portion of the ﬁeld reﬂected by the windowed region
+reﬂects back into the windowed region upon reﬂection from th e plane outside the windowed region,
+5
+
+=== PDF PAGE 6 ===
+wα (a) wα (b)
+Figure 4: Physical elements underlying the WGF method.
+we conclude that the error arising from the substitution of φ by φf results in superalgebraically
+small errors in equation (7) throughout the region {w = 1 }. We thus obtain the approximate
+equation
+Eφw + T W φw = φinc − T (I − W )φf on Γ A, (8)
+whose solution φw is a superalgebraically close approximation of the exact so lution φ throughout
+the region {w = 1 }. In order to evaluate the term T (I − W )φf we note that since ( I − W )φf is
+zero everywhere Γ A deviates from the planar boundary Π = {(x1, x2) ∈ R2 : x2 = 0 } (depicted in
+Figure 1), we have
+T (I − W )φf = TΠ(I − W )φf ,
+where letting the layer potentials S Π
+j and DΠ
+j be given by
+S Π
+j [η](x) =
+∫
+Π
+Gj(x, y)η(y) dsy, and
+DΠ
+j [η](x) =
+∫
+Π
+∂Gj
+∂ny
+(x, y)η(y) dsy,
+(9)
+the operator TΠ is deﬁned as
+TΠ =
+[ DΠ
+2 − DΠ
+1 − νS Π
+2 + SΠ
+1
+N Π
+2 − N Π
+1 − νK Π
+2 + K Π
+1
+]
+in terms of the boundary integral operators deﬁned by the exp ressions SΠ
+j [η](x) and DΠ
+j [η](x) as
+well as
+N Π
+j [η](x) =
+∂DΠ
+j η
+∂n (x)
+⏐
+⏐
+Γ and K Π
+j [η](x) =
+∫
+Π
+∂Gj
+∂nx
+(x, y)η(y) dsy
+for x ∈ Γ and for j = 1, 2. Thus equation (8) becomes
+Eφw + T W φw = φinc − TΠφf + TΠW φf on Γ A. (10)
+Clearly the expression TΠW φf can be evaluated by means of integration on the bounded regio n
+Π ∩ { (x1, x2) ∈ R2 : w(x1) ̸= 0}, and the expression TΠφf can be computed in closed form:
+TΠφf =
+
+
+
+
+
+
+
+
+
+[
+uinc − uf , ∂(uinc − uf )
+∂n
+]T
+on Γ \Π,
+[
+uinc − uf , ∂(uinc − (1 + ν)uf /2)
+∂n
+]T
+on Γ ∩ Π,
+(11)
+where uf is the total ﬁeld resulting from the solution of the problem o f scattering by the ﬂat
+dielectric plane with boundary Π [8, Chapter 2].
+6
+
+=== PDF PAGE 7 ===
+From the discussion above we see that, on the set {w = 1 }, the (superalgebraically high)
+accuracy of the solution φw of (10) does not deteriorate as the incidence angle α tends to zero.
+As shown in section 3 below, further, the solution φw can be used to produce the total ﬁeld u
+everywhere in space as well as the associated far ﬁeld patter n. To conclude this section, in Figure 5
+we demonstrate the fast and angle-independent convergence of φw to φ: clearly the value of A
+required to obtain an accurate approximation of the exact so lution has been reduced substantially
+and the errors are uniformly small as the incidence angle dec reases to zero.
+A/λ
+0.25 0.5 1 2 4 8
+Relative error
+10-6
+10-4
+10-2
+100
+π/4
+π/32
+π/256
+A/λ
+1 2 3 4 5 6 7 8
+Relative error
+10-6
+10-4
+10-2
+100
+π/4
+π/32
+π/256
+Figure 5: Errors in the integral densities φw on the surface of the defect resulting from numerical
+solution of (10), for a semi-circular bump-shaped defect, a nd for various window sizes and angles
+of incidence—including extremely shallow incidences. Lef t: log-log scale. Right: semi-log scale.
+Clearly, this version of the WGF method computes integral de nsities with super-algebraically high
+accuracy uniformly for all angles of incidence (cf. Figure 3 ).
+3 Field evaluation
+An analysis similar to the one presented in section 2 for the d ensity φw = [ ϕw, ψw]T shows that
+substitution of φ = [ϕ, ψ]T by [ wϕw + (1 − w)ϕf , wψw + (1 − w)ψf ]T in (2) produces the ﬁelds u1
+and u2 with superalgebraically high accuracy in a neighborhood of the region {w = 1} in R2, and,
+in particular, on a closed disc D such as the one depicted in Figure 7. After some manipulation s
+similar to those presented in the derivation of (11) above, t he resulting formula can be re-expressed
+into a formula for the total ﬁeld in terms of surface potentia ls deﬁned on both Γ and Π, namely
+u(x) = D1 [wϕw] (x) − S 1 [wψw] (x) − D Π
+1
+[
+wϕf
+]
+(x) + S Π
+1
+[
+wψf
+]
+(x)
++
+{
+uf (x), x ∈ { x2 ≥ 0},
+0, x ∈ { x2 < 0}
+(12a)
+for x ∈ Ω1, and
+u(x) = − D 2 [wϕw] (x) + S2 [νwψ w] (x) + DΠ
+2
+[
+wϕf
+]
+(x) − S Π
+2
+[
+νwψ f
+]
+(x)
++
+{
+0, x ∈ { x2 ≥ 0},
+uf (x), x ∈ { x2 < 0}
+(12b)
+for x ∈ Ω2.
+7
+
+=== PDF PAGE 8 ===
+Figure 6 compares the total ﬁeld obtained by means of the WGF m ethod and the layer-Green-
+function method [18] for the solution of the problem of scatt ering of a plane-wave by a semi-circular
+bump of radius a = 1 in TE-polarization for wavenumbers k1 = 10 and k2 = 15 for α = − π/2
+and α = − π/6 incidences. The WGF solution, in particular, was obtained from the solution of
+the integral equation (10) followed by evaluation of ﬁeld va lues on the basis of (12). Figures 6c
+and 6f, which display the absolute value of the diﬀerence of th e total ﬁelds computed using the
+WGF method and the layer-Green-function method on a bounded portion of the strip {w = 1 }
+demonstrate the accuracy of the computed solutions in the ne ar ﬁeld.
+(a) WGF method.
+ (b) LGF method.
+ (c) Diﬀerence.
+(d) WGF method.
+ (e) LGF method.
+ (f) Diﬀerence.
+Figure 6: Real part of the total ﬁelds produced by the WGF meth od (ﬁrst column) and the
+layer-Green-function method [18] (second column), and abs olute value of the diﬀerence of the ﬁelds
+computed using the WGF method and layer-Green-function met hod (third column) for the problem
+of scattering of plane-wave by a semi-circular bump for α = − π/2 (ﬁrst row) and α = − π/6 (second
+row) incidences. The width of the support of the selected win dow function is 2 A = 16 λ ≈ 10.053
+in all these calculations. The black lines represent the dom ains of the respective integral equation
+formulations.
+As may be expected, however, formulae (12) do not generally p rovide an accurate approximation
+8
+
+=== PDF PAGE 9 ===
+of either far ﬁelds or near ﬁelds outside a neighborhood of Γ A. In order to tackle this diﬃculty
+we consider the boundary S of the disc D mentioned above and depicted in Figure 7: S encloses
+the portion of Γ that diﬀers from the ﬂat interface Π and, as ind icated above, it lies within a ﬁxed
+region within which superalgebraic convergence of the ﬁeld s u1 and u2 takes place. Application of
+the Green identities, integrating over the region exterior to S and utilizing the layer Green function
+leads to the following integral representation of scattere d ﬁeld us = u − uf :
+us(x) =
+∫
+S
+{∂G1
+2
+∂ny
+(x, y)us(y) − G1
+2(x, y) ∂us
+∂n (y)
+}
+dsy (13)
+outside the region enclosed by S, where G1
+2 denotes the layer Green function for the Helmholtz
+equation with wavenumbers k1 in {x2 ≥ 0} and k2 in {x2 < 0} that satisﬁes homogeneous trans-
+mission conditions on the ﬂat interface Π (see Appendix A). N ote that the scattered ﬁeld us and its
+normal derivative on S can be computed directly utilizing (12) since by constructi on S lies inside
+the region where (12) provides an accurate approximation of the total ﬁeld u.w
+S
+n
+Figure 7: Surface S utilized in (13).
+The far-ﬁeld pattern u∞(ˆx), which is related to the scattered ﬁeld by the asymptotic fo rmula
+us(x) = eik1r
+√ r u∞(ˆx) + O(r−3/ 2), r = |x| → ∞ , ˆx = x
+|x|,
+can be obtained from (13) in a straightforward manner by repl acing G1
+2 by its asymptotic expansion
+as |x| → ∞ . The ﬁrst order term of the asymptotic expansion of the Somme rfeld integrals Φ 1
+and Φ 2 (equation 20) in a given direction ˆx = (cos α, sin α), 0 < α < π can be obtained by the
+method of steepest descent by taking into account the contri bution of the saddle point [9] (branch
+point singularities and poles do not contribute to the ﬁrst t erm of the asymptotic expansion of the
+two-layer Green function). Substitution of the result in eq uation (13) gives rise to the expression
+u∞(ˆx) =
+∫
+S
+{ ∂H
+∂ny
+(ˆx, y)us(y) − H(ˆx, y) ∂us
+∂n (y)
+}
+dsy (14)
+for the far ﬁeld u∞(ˆx), where
+H (ˆx, y) = ν(k2
+2 − k2
+1)√ 2πk1(1 + ν)
+e−ik1 ˆx·y e−2y2η1+iπ/ 4
+(η2 + η1) (η1 + νη2) + e−ik1 ˆx·y+iπ/ 4
+√ 8πk1
++
+(1 − ν
+1 + ν
+) e−ik1ˆ
+¯x·y+iπ/ 4√ 8πk1
+(15a)
+for y ∈ { y2 ≥ 0} and
+H (ˆx, y) = νk1√ 2πk1
+sin(α − β) e−ik1 ˆx·y ey2(η2−η1)−iπ/ 4
+η1 + νη2
+(15b)
+9
+
+=== PDF PAGE 10 ===
+for y ∈ { y2 < 0}, where ˆ
+¯x = ¯x/|x| = (cos α, − sin α), y = |y|(cos β, sin β), η1 = γ1(k1 cos(α − β))
+and η2 = γ2(k1 cos(α − β)) (see Appendix A for the deﬁnition of γ1 and γ2). Thus, unlike the
+layer Green function G1
+2 itself, the far ﬁeld associated with G1
+2 can be computed inexpensively by
+means of the explicit expressions (15). Figure 8 provides a c omparison of the far-ﬁeld patterns
+computed using the layer-Green-function method and the WGF method proposed in this paper for
+the example problem considered above in the present section 3.
+  0.1
+  0.2
+  0.3
+  0.4
+  0.5
+30 
+60 
+90 
+120
+150
+180 0
+WGFM 
+LGFM 
+  0.5
+  1
+  1.5
+30 
+60 
+90 
+120
+150
+180 0
+WGFM 
+LGFM 
+Figure 8: Far-ﬁeld patterns obtained using the layer-Green -function method [18] (red dotted curve)
+and the WGF method (continuous blue line) for the solution of the problem of scattering considered
+in this section at incidences α = − π/2 (left) and α = − π/6 (right) .
+In view of this discussion, equations (12) and (13) can be use d to accurately and eﬃciently
+evaluate near-ﬁelds and far-ﬁelds, respectively. These ar e typically the quantities of interest in
+scattering simulations involving layered media. The evalu ation of the ﬁelds in an intermediate
+region, such as a domain outside the neighborhood of Γ A where (12) yields an accurate approxi-
+mation, can also be approximated eﬃciently on the basis of eq uation (13). Indeed, in such cases,
+for which source points y lie on S and observation points x are at a certain distance away from
+S, the Sommerfeld integrals (20) and (22) (which contain high ly oscillatory and/or exponentially
+decaying integrands) can be obtained by means of asymptotic numerical methods [2, 4] based on
+localization around critical points [9, 18].
+4 Numerical Experiments
+This section illustrates the proposed methodology with a va riety of numerical results concerning
+dielectric and conducting media, including relevant eﬃcie ncy and accuracy studies.
+In our ﬁrst example we consider once again the conﬁguration a ssociated with Figure 5 (i.e. the
+problem of scattering by a semi-circular bump defect on a die lectric plane in TE-polarization). Here
+we compare the computing times required to create the system s of equations (which is the operation
+that dominates the computing time in all the examples consid ered) that stem from the discretization
+of the relevant integral equations by means of the WGF method (10) and the layer-Green-function
+method [18, Eq. 7]. Figure 9 displays the computing times for various wavenumbers k1 and k2 = 2k1
+for each method. The discretization density was held propor tional to k1 to properly resolve the
+oscillatory character of the integrands and the same discre tization was used for both methods on
+the bump, allowing for a point by point comparison of the solu tions. In all these examples the WGF
+method was optimized to produce a maximum error of approxima tely 5 × 10−5 in the computation
+of the density φw on the surface of the bump. Similarly, the key parameters in t he implementation
+of layer-Green-function method (including the parameters associated to the numerical evaluation
+of the Sommerfeld integrals) were adjusted to yield the fast est possible solution within an error
+of 5 × 10−5. Note that the last data points around k1 = 8π ≈ 25.1 in Figure 9 (which is the last data
+10
+
+=== PDF PAGE 11 ===
+point presented for the layer-Green-function method) show s that, for such frequencies the WGF is
+approximately three orders of magnitude faster than the lay er-Green-function method [18].
+k1
+101 102
+Time (s)
+10-1
+100
+101
+102
+103
+LGFM
+WGFM
+Figure 9: Computing times required by the WGF method (green l ine) and the layer-Green-function
+method [18] (blue line) to create the linear systems of equat ions resulting from the Nystr¨ om dis-
+cretization of the relevant integral equations.
+The problem of scattering by the city-like structure depict ed in Figure 10 is considered next.
+Figure 10 also displays the window function utilized in this example, which has been ampliﬁed
+by a factor 8 for visualization purposes. In contrast with th e results presented previously in this
+paper, the case of TM-polarization is considered for this te st. In order to properly account for the
+singular behavior of the ﬁelds near corners, the necessary g raded meshes were generated utilizing
+the value p = 4 in the method described in [13]. Table 1 reports the comput ing times required
+to form the relevant system matrices for both the WGF method a nd the layer-Green-function
+method. Both solvers were optimized to produce a maximum err or of 5 × 10−3 in the solutions of
+the integral equation, and the same computational grids wer e utilized to discretize the buildings
+for both methods.
+Table 1 compares the computing times required by the WGF meth od and the layer-Green-
+function method for two values of k2. In particular we note that, not only is the new method
+much faster than the previous approach, but also that the spe ed-up factor grows: a speed up
+factor in the hundreds for the value k2 = 2π is doubled as k2 is itself doubled to the value k2 = 4π.
+Additionally, application of the layer-Green-function method in this context requires use of ﬁctitious
+curves underneath each building [18] each one of which (curv es) must itself be discretized, while
+the WGF method requires discretization of the ground betwee n the buildings and in the region
+where the windowing takes place. In the present case the laye r-Green-function method produced
+a system of 2384 unknowns while the WGF method produced a near ly identical sized system of
+2406 unknowns. At higher frequencies, the WGF method requir es fewer unknowns than the layer-
+Green-function method, since, as demonstrated in Table 2, a t higher frequencies the width of the
+windowing function can be decreased while maintaining accu racy.
+As an additional example we consider once again the city-lik e structure depicted in Figure 10
+but assuming an absorbing media in the ground and buildings: here we thus take k1 = 2π and k2 =
+4π(1 + i/100). Figure 11 demonstrates the convergence of both the nai ve windowing algorithm (6)
+and the full WGF method (10). The advantages provided by the f ull WGF approach can be
+appreciated clearly in this ﬁgure: in the naive method conve rgence near grazing is extremely slow
+while for the full WGF method the convergence is actually fas ter near grazing than for non-grazing
+conﬁgurations. In particular, the WGF method requires no mo re than 5 wavelengths of ground for
+a full four digits of accuracy, independently of the inciden ce angle.
+11
+
+=== PDF PAGE 12 ===
+−6 −4 −2 0 2 4 6
+−1
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+w
+Figure 10: City-like geometry and windowing function used.
+k1 k2 LGFM time WGFM time ratio
+π 2π 588 s. 3.07 s. 192
+π 4π 3579 s. 9.10 s. 393
+Table 1: Computing times required by the layer-Green-funct ion method and the WGF method to
+produce integral equation solutions with an accuracy bette r than 5 × 10−3 for the city-like geometry
+displayed in Figure 10.
+k1 k2 A
+π 2π 6.5
+2π 4π 3.5
+4π 8π 1.75
+8π 16π 1.1875
+Table 2: Extent of the windowed region required by the WGF met hod (10) to maintain an accuracy
+of 5 × 10−5 in the approximation of the surface ﬁelds for the problem of s cattering from a semi-
+circular bump of unit radius with various wavenumbers. The a ngle of incidence was taken to equal
+α = − π/8 .
+For our last numerical example we consider an obstacle above the ground, but not connected
+to it, with a ﬁnite number of indentations under the ground le vel. Figure 12 displays the geom-
+etry under consideration, together with a selection of wind ow function which yields an error of
+approximately 1% in the integral equation solution and corr esponding near ﬁelds for a plane-wave
+illumination with incidence angle equal to α = − π/8 from the horizontal under TE polarization.
+Once again, as demonstrated in Figure 13 exponential conver gence is observed as A/λ grows.
+Acknowledgments
+The authors gratefully acknowledge support from the Air For ce Oﬃce of Scientiﬁc Research and
+the National Science Foundation.
+12
+
+=== PDF PAGE 13 ===
+A/λ
+0 50 100 150
+Relative error
+10-4
+10-3
+10-2
+10-1
+100
+101
+π/4
+π/32
+π/256
+A/λ
+1 2 3 4 5
+Relative error
+10-4
+10-3
+10-2
+10-1
+100
+π/4
+π/32
+π/256
+Figure 11: Errors in the integral densities resulting from n umerical solution by means of the layer-
+Green-function method (6) (left) and the WGF method (10) (ri ght) for the city-like structure
+depicted in Figure 10, for various window sizes and angles of incidence—including extremely shallow
+incidences. Clearly, the WGF method computes integral dens ities with super-algebraically high
+accuracy uniformly for all angles of incidence.
+Figure 12: Scattering geometry containing a kite structure above a ﬁnite rectangular grating in
+an otherwise undisturbed planar ground. A windowing functi on large enough to produce an error
+smaller than 1% in the integral equation solution is shown al ong with the corresponding near ﬁelds;
+k1 = 2π and k2 = 4π.
+A Green function for a two-layer medium
+Consider the Helmholtz equation in the regions Ω 1 = {(x1, x2) ∈ R2, x2 > 0} and Ω 2 = {(x1, x2) ∈
+R2, x2 < 0} with respective wavenumbers k1 and k2. The Green function of the problem satisﬁes:
+∆xG + k2
+j G = − δy in Ω j,
+G|x2=0+ = G|x2=0− on {x2 = 0},
+∂G
+∂x2
+⏐
+⏐
+x2=0+ = ν ∂G
+∂x2
+⏐
+⏐
+x2=0− on {x2 = 0},
+(16)
+and the Sommerfeld radiation condition at inﬁnity, where δy denotes the Dirac delta distribution
+supported at the point y. As is known G can be computed explicitly in terms of Sommerfeld
+13
+
+=== PDF PAGE 14 ===
+A/λ
+0.125 0.25 0.5 1 2 4
+Relative error
+10-6
+10-5
+10-4
+10-3
+10-2
+10-1
+π/4
+π/32
+π/256
+A/λ
+0 1 2 3 4 5 6
+Relative error
+10-6
+10-5
+10-4
+10-3
+10-2
+10-1
+π/4
+π/32
+π/256
+Figure 13: Errors in the integral densities resulting from n umerical solution of (10) for the structure
+depicted in Figure 12 by means of the full WGF method, for vari ous window sizes and angles of
+incidence—including extremely shallow incidences. Left: log-log scale. Right: semi-log scale. Once
+again we see that, the WGF method computes integral densitie s with super-algebraically high
+accuracy uniformly for all angles of incidence.
+integrals. To obtain such explicit expressions, given a ﬁxe d point y we deﬁne the functions ϕj(x) =
+G(x, y), x ∈ Ωj. Expressing ϕj as inverse Fourier transforms
+ϕj(x1, x2) = 1
+2π
+∫ ∞
+−∞
+ˆϕj(ξ, x2) eiξ(x1−y1) dξ (17)
+and replacing (17) in (16) a system of ordinary diﬀerential eq uations for the unknown functions ˆϕj
+is obtained which can be solved analytically. Two cases aris e. For y ∈ Ω1, the solution of the ODE
+system is given by
+ˆϕ1(ξ, x2) = e−γ1|x2−y2|
+2γ1
++
+(1 − ν
+1 + ν
+) e−γ1|x2+y2|
+2γ1
++ ν(k2
+2 − k2
+1)
+(γ1 + νγ2)(1 + ν)
+e−γ1(x2+y2)
+γ1(γ1 + γ2) ,
+ˆϕ2(ξ, x2) = e−γ1(y2−x2)
+(1 + ν)γ1
++
+(
+eγ2x2−γ1y2
+γ1 + νγ2
+− e−γ1(y2−x2)
+(1 + ν)γ1
+)
+,
+(18)
+where γj =
+√
+ξ2 − k2
+j . The determination of physically admissible branches of th e functions γj(ξ) =
+√
+ξ − kj
+√
+ξ + kj require selection of branch cuts for each one of the two assoc iated square root
+functions. The relevant branches are − 3π/2 ≤ arg(ξ − kj) < π/ 2 for
+√
+ξ − kj and − π/2 ≤
+arg(ξ + kj) < 3π/2 for
+√
+ξ + kj. Taking the inverse Fourier transform (17) of ˆϕj and using the
+identity ∫ ∞
+−∞
+e−γj |x2−y2|
+4πγj
+eiξ(x1−y1) dξ = i
+4 H (1)
+0 (kj|y − x|),
+we obtain
+ϕ1(x) = i
+4 H (1)
+0 (k1|x − y|) + i
+4
+(1 − ν
+1 + ν
+)
+H (1)
+0 (k1|x − y|)
++ Φ1(x, y),
+ϕ2(x) = i
+2
+1
+1 + ν H (1)
+0 (k1|x − y|) + Φ2(x, y),
+(19)
+14
+
+=== PDF PAGE 15 ===
+where the functions Φ j are given by
+Φ1(x, y) = ν(k2
+2 − k2
+1)
+π(1 + ν)
+∫ ∞
+0
+e−γ1(x2+y2) cos(ξ(x1 − y1))
+γ1(γ2 + γ1)(γ1 + νγ2) dξ,
+Φ2(x, y) = 1
+π
+∫ ∞
+0
+(
+eγ2x2−γ1y2
+γ1 + νγ2
+− eγ1(x2−y2)
+(1 + ν)γ1
+)
+cos(ξ(x1 − y1)) dξ,
+(20)
+Similarly, the solution of the ODE system for y ∈ Ω2 is given by
+ˆϕ1(ξ, x2) = ν e−γ2(x2−y2)
+(1 + ν)γ2
++
+(
+ν e−γ1x2+γ2y2
+γ1 + νγ2
+− ν e−γ2(x2−y2)
+(1 + ν)γ2
+)
+,
+ˆϕ2(ξ, x2) = e−γ2|x2−y2|
+2γ2
++
+(ν − 1
+ν + 1
+) e−γ2|x2+y2|
+2γ2
++ ν(k2
+1 − k2
+2) eγ2(x2+y2)
+(γ1 + νγ2)(1 + ν)γ2(γ2 + γ1) .
+Taking inverse Fourier transform (17) we now obtain
+ϕ1(x) = i
+2
+ν
+1 + ν H (1)
+0 (k2|x − y|) + Ψ1(x, y),
+ϕ2(x) = i
+4 H (1)
+0 (k2|x − y|) + i
+4
+(ν − 1
+ν + 1
+)
+H (1)
+0 (k2|x − y|)
++ Ψ2(x, y),
+(21)
+where the functions Ψ j are given by
+Ψ1(x, y) = ν
+π
+∫ ∞
+0
+(
+eγ2y2−γ1x2
+γ1 + νγ2
+− e−γ2(x2−y2)
+(1 + ν)γ2
+)
+cos(ξ(x1 − y1)) dξ,
+Ψ2(x, y) = ν(k2
+1 − k2
+2)
+π(1 + ν)
+∫ ∞
+0
+eγ2(x2+y2) cos(ξ(x1 − y1))
+γ2(γ1 + γ2)(γ1 + νγ2) dξ.
+(22)
+The gradient of the Green function is evaluated from the expr essions above by diﬀerentiation under
+the integral sign.
+References
+[1] M. I. Aksun, A. Alparslan, and K. A. Michalski. Current status of closed-form Green ’s functions
+in layered media composed of natural and artiﬁcial material s. 2009 International Conference
+on Electromagnetics in Advanced Applications, 2009.
+[2] A. Asheim and D. Huybrechs. Asymptotic Analysis of Numer ical Steepest Descent with Path
+Approximations. Foundations of Computational Mathematics. The Journal of the Society for
+the Foundations of Computational Mathematics , 10(6):647–671, Dec. 2010.
+[3] O. P. Bruno and B. Delourme. Rapidly convergent two-dime nsional quasi-periodic Green
+function throughout the spectrum—including Wood anomalie s. Journal of Computational
+Physics, 262:262–290, 2014.
+15
+
+=== PDF PAGE 16 ===
+[4] O. P. Bruno, C. Geuzaine, J. Monro, and F. Reitich. Prescr ibed error tolerances within ﬁxed
+computational times for scattering problems of arbitraril y high frequency: the convex case.
+Philosophical Transactions of the Royal Society of London. Series A: Mathematical, Physical
+and Engineering Sciences , 362(1816):629–645, 2004.
+[5] O. P. Bruno and C. P´ erez-Arancibia. Windowed Green Func tion method for layered-media
+scattering: Theoretical considerations. In preparation, 2015.
+[6] W. Cai. Algorithmic issues for electromagnetic scatter ing in layered media: Green’s functions,
+current basis, and fast solver. Advances in Computational Mathematics , 16:157–174, 2002.
+[7] W. Cai and T. Yu. Fast Calculations of Dyadic Green’s Func tions for Electromagnetic Scat-
+tering in a Multilayered Medium. Journal of Computational Physics , 165:1–21, 2000.
+[8] W. C. Chew. Waves and ﬁelds in inhomogeneous media , volume 522. IEEE press New York,
+1995.
+[9] T. J. Cui and W. C. Chew. Eﬃcient evaluation of Sommerfeld integrals for TM wave scattering
+by buried objects. Journal of Electromagnetic Waves and Applications , 12(5):607–657, 1998.
+[10] T. J. Cui and W. C. Chew. Fast evaluation of Sommerfeld in tegrals for EM scattering and
+radiation by three-dimensional buried objects. IEEE Transactions on Geoscience and Remote
+Sensing, 37(2):887–900, 1999.
+[11] J. A. DeSanto and P. A. Martin. On the derivation of bound ary integral equations for scattering
+by an inﬁnite one-dimensional rough surface. J. Acoust. Soc. Am , 102(1):67–77, July 1997.
+[12] R. Kittappa and R. E. Kleinman. Acoustic Scattering by P enetrable Homogeneous Objects.
+Journal of Mathematical Physics , 16(2):421–432, 1975.
+[13] R. Kress. A Nystr¨ om method for boundary integral equat ions in domains with corners. Nu-
+merische Mathematik , 58(1):145–161, 1990.
+[14] A. Meier and S. N. Chandler-Wilde. On the stability and c onvergence of the ﬁnite section
+method for integral equation formulations of rough surface scattering. Mathematical Methods
+in the Applied Sciences , 24(4):209–232, 2001.
+[15] D. Miret, G. Soriano, and M. Saillard. Rigorous Simulat ions of Microwave Scattering From
+Finite Conductivity Two-Dimensional Sea Surfaces at Low Gr azing Angles. IEEE Transactions
+on Geoscience and Remote Sensing , 52(6):3150–3158, 2014.
+[16] J. A. Monro Jr. A Super-Algebraically Convergent, Windowing-Based Approa ch to the Evalu-
+ation of Scattering from Periodic Rough Surfaces . Ph.D. Thesis, Caltech, 2008.
+[17] M. Paulus, P. Gay-Balmaz, and O. Martin. Accurate and eﬃ cient computation of the Green’s
+tensor for stratiﬁed media. Physical Review E , 62(4):5797, 2000.
+[18] C. P´ erez-Arancibia and O. P. Bruno. High-order integr al equation methods for problems of
+scattering by bumps and cavities on half-planes. Journal of the Optical Society of America A ,
+31(8):1738–1746, Aug. 2014.
+16
+
+=== PDF PAGE 17 ===
+[19] M. Saillard and G. Soriano. Rough surface scattering at low-grazing incidence: A dedicated
+model. Radio Science, 46(5), Oct. 2011.
+[20] A. Sommerfeld. ¨Uber die Ausbreitung der Wellen in der drahtlosen Telegraph ie. Annalen der
+Physik, 333(4):665–736, 1909.
+[21] P. Spiga, G. Soriano, and M. Saillard. Scattering of Ele ctromagnetic Waves From Rough Sur-
+faces: A Boundary Integral Method for Low-Grazing Angles. IEEE Transactions on Antennas
+and Propagation, 56(7):2043–2050, July 2008.
+[22] Z. Zhao, L. Li, J. Smith, and L. Carin. Analysis of scatte ring from very large three-dimensional
+rough surfaces using MLFMM and ray-based analyses. Antennas and Propagation Magazine,
+IEEE, 47(3):20–30, June 2005.
+17

@@ -1,0 +1,825 @@
+=== PDF PAGE 1 ===
+Trade-oﬀs in absorption and scattering by nanophotonic structures
+K. Schab∗, A. Rothschild∗, K. Nguyen∗, M. Capek†, L. Jelinek†, and M. Gustafsson ‡
+Abstract
+Trade-oﬀs between feasible absorption and scattering cross sections of obstacles conﬁned to an arbi-
+trarily shaped volume are formulated as a multi-objective optimization problem solvable by Lagrangian-
+dual methods. Solutions to this optimization problem yield a Pareto-optimal set, the shape of which
+reveals the feasibility of achieving simultaneously extremal absorption and scattering. Two forms of
+the trade-oﬀ problems are considered involving both loss and reactive material parameters. Numerical
+comparisons between the derived multi-objective bounds and several classes of realized structures are
+made. Additionally, low-frequency (electrically small, long wavelength) limits are examined for certain
+special cases.
+1 Introduction
+Recently, signiﬁcant eﬀort has been directed toward bounding parameters related to the performance of
+plasmonic and photonic devices, e.g., absorption and scattering cross sections of metallic particles at optical
+frequencies. These bounds quantify the feasibility of design objectives and provide concrete references
+by which to assess inverse design routines aimed at automatically synthesizing devices meeting prescribed
+performance criteria [1–3]. To this end, bounds on single-frequency nanophotonic performance have been
+developed at varying levels of design constraint speciﬁcity, with more general bounds covering broader
+scenarios and more speciﬁc methods providing tighter physical limits for stricter design constraints. This
+categorization is not binary, and previous methods of deriving such bounds increase in speciﬁcity from shape-
+independent bounds [4], shape-dependent bounds [5], and ﬁnally, shape- and material-dependent bounds [6–
+10]. Broadband performance bounds have also been established using sum rules [11] and assumptions
+regarding speciﬁc response proﬁles [12].
+One approach in the development of single-frequency shape- and material-dependent physical limits is to
+maximize or minimize a particular quantity (e.g., absorption cross section) by forming duality-based convex
+optimization problems over polarization currents conﬁned to a prescribed region and subject to physically-
+motivated constraints, e.g., conservation of power [6]. The convexity of the underlying optimization problems
+guarantees that their unique solutions are global extrema which are found with convex optimization tools [13],
+i.e., no heuristic is needed. By nature of the formulation of these optimization problems, the derived bounds
+implicitly apply to all substructures comprised of the design material within the design region, regardless
+of geometric complexity. Though the form of objectives and constraints vary from problem to problem, the
+general strategy closely resembles that used to derive broad classes of physical limitations on the eﬃciency,
+directivity, and bandwidth of microwave antennas [14–18].
+This work aims to study the coupled nature of absorption and scattering, answering the question: Are the
+best absorbers also the best scatterers? To carry this out, we adapt single-objective formulations for bounds
+on absorption and scattering cross sections into multiobjective forms [13, 19, 20] and study the resulting
+feasible objective space. In particular, this work examines the relative trade-oﬀ between optimal absorption
+∗Department of Electrical and Computer Engineering Santa Clara University, Santa Clara, CA, USA
+†Department of Electromagnetic Field, Czech Technical University in Prague, Prague, Czech Republic
+‡Department of Electrical and Information Technology, Lund University, Lund, Sweden
+1
+arXiv:2009.08502v1  [physics.optics]  17 Sep 2020
+
+=== PDF PAGE 2 ===
+I
+a
+ρ
+Ω
+radiative scattering
+Ps(I)
+thermal dissipation
+Pa(I)
+incident ﬁeld V
+Figure 1: Schematic of arbitrary electric currents represented by the vector I. The currents are conﬁned to
+a region Ω with prescribed complex resistivity ρ and arbitrary shape. The region Ω is circumscribed by a
+sphere of radius a. The power extincted from an incident electric ﬁeld represented by V is Pt(I, V) while
+the scattered and absorbed powers are Ps(I) and Pa(I), respectively.
+and scattering in cases where both measures are maximized as well as cases where one metric is maximized
+and the other is minimized, e.g., maximal absorption with minimum scattering.
+This paper is structured as follows. Multi-objective optimization problems involving scattering and
+absorption are introduced in Sec. 2, accompanied by deﬁnitions of necessary quantities and their physical
+meaning. The particular solution of optimal trade-oﬀs for prescribed material losses and for fully prescribed
+materials are examined in Secs. 3 and 4, respectively. The paper is concluded in Sec. 5.
+2 Multiobjective bounds
+Assume a steady state time-harmonic electromagnetic ﬁeld and consider a region Ω containing a (possibly
+inhomogeneous) complex resistivity 1
+ρ =ρr + iρi = η0Imχ
+k|χ|2 + iη0Reχ
+k|χ|2 , (1)
+where χ is the equivalent complex susceptibility, η0 is impedance of free space, and k is the free-space
+wavenumber. When illuminated by an incident electric ﬁeld Ei, a polarization current density J is induced
+within the region, as depicted in Fig. 1. Expanding both the induced current density and incident ﬁeld
+into an appropriate basis, Maxwell’s equations may be cast into a matrix form of the electric ﬁeld integral
+equation
+V = ZI = (R + iX)I, (2)
+where the vectors V and I contain expansion coeﬃcients describing the incident ﬁeld and induced current
+density, respectively, and Z is the matrix representation of the dyadic Green’s function for this particular
+problem, often denoted as the Method of Moments impedance matrix [21]. Furthermore, in (2) the matrices
+R and X are the real and imaginary components of Z, respectively. By virtue of the induced current density,
+some of the power carried by the incident ﬁeld is extincted via thermal losses and scattering, as shown in
+Fig. 1. Note that the cycle mean absorbed power Pa and cycle mean scattered power Ps are expressible as
+functionals of solely the induced current I [6], i.e.,
+Ps(I) = 1
+2 IHR0I, (3)
+Pa(I) = 1
+2 IHRρI, (4)
+1Notice that the “ﬁgure of merit” used in [4] is equivalent to a scaled form of the real resistivity ρr.
+2
+
+=== PDF PAGE 3 ===
+where the matrix R0 is related to the Green’s function operator in free space andRρ is an operator depending
+on the material resistivity ρ. Together, these matrices form the real part of the impedance matrix, that is,
+R = R0 + Rρ. (5)
+Functionals similar to those in (3) and (4) also exist for reactive energies, near-ﬁelds, and far-ﬁelds [6].
+In the solution of (2), the induced current I is uniquely deﬁned by the excitation ﬁeld V. However, by
+relaxing this expression and searching over all possible polarization currents, subject to some physically-
+motivated constraints, bounds on the behavior of any substructure within the region Ω may be determined
+[6]. For example, maximization of a quantity C(I) subject to real power conservation between extinction,
+scattering, and absorption processes may be written as an optimization problem
+max
+I
+C(I)
+s.t. P a(I) +Ps(I) =Pt(I, V),
+(6)
+where
+Pt(I, V) = 1
+2Re{IHV} (7)
+is the cycle mean extincted power, i.e., the average rate of work done by the incident ﬁeld upon the polar-
+ization currents. Unlike the solution to (2), currents satisfying the power constraint in (6) are not unique.
+Rather, this relaxation deﬁnes a space of currents over which an optimization procedure may search in an
+eﬀort to maximize the objective functional C(I). This freedom also allows the current to attain zero val-
+ues in subregions of Ω. This is equivalent to substituting those subregions with vacuum. In this way, the
+optimization problem (6), and all optimization problems described in this paper, naturally accounts for all
+possible structural distributions of vacuum and the material described by the resistivity ρ within the design
+region Ω.
+Because the functional governing absorbed power includes the material-dependent matrix Rρ, the con-
+straint in (6) implicitly enforces behavior based on the material losses associated with the real resistivity
+within the design region. For this reason, we denote this as the “prescribed losses” problem, with asso-
+ciated quantities in later sections marked with a subscript R. Adding an appropriate second constraint
+further restricts the optimization problem to enforce conservation of reactive power, based on the imaginary
+component of the design region resistivity,
+max
+I
+C(I)
+s.t. P a(I) +Ps(I) =Pt(I, V)
+W (I) =Wt(I, V)
+(8)
+where W and Wt are functionals associated with reactive (complex) power ﬂow, see [6] for their explicit
+forms resembling (3), (4) and (7). Because the two constraints together enforce both real and imaginary
+components of the design region’s material properties, we refer to this as the “prescribed materials” case
+and use a subscript Z to distinguish these results from the prescribed losses case.
+Though the problems in (6) and (8) are applicable to arbitrary excitation ﬁelds and a wide variety of
+objective functionals, we restrict our focus here toward the study of functionals consisting of combinations
+of absorbed and scattered powers under plane wave incidence. As such, throughout this paper we normalize
+all optimized power quantities to their respective cross section σ = P/S 0, where S0 denotes the incident
+plane wave power density.
+Under either one or two constraints, bounds on absorption, scattering, and extinction cross sections take
+the form of (6) or (8). Each of these problems optimizes a single parameter in isolation, yielding an absolute
+upper bound, see dashed lines in in Fig. 2. It is, however, unknown whether scattering and absorption can
+be simultaneously optimized, i.e., whether the intersection of the dashed lines may be reached. Additionally,
+rather than seeking simultaneous maximization of both absorption and scattering, we may pose similar
+3
+
+=== PDF PAGE 4 ===
+σmax
+a
+σmax
+s
+maximizePa
+maximizePs
+maximizePa
+minimizePs
+maximizePs
+minimizePa
+feasible
+infeasible
+σs +σa =σmax
+t
+minimizePa
+minimizePs
+(σa =σs = 0)
+σs
+σa
+Figure 2: Schematic of a Pareto front between absorption and scattering. The Pareto optimal set is formed
+by three parts, the description of which is shown along the curves. Feasible solutions may exist only on the
+front or within the shaded region. The maximal extinction cross section σmax
+t always lies on the Pareto front
+at the point with maximum L1 (||·|| 1) norm given by σa +σs.
+questions regarding the feasibility of structures maximizing absorption while minimizing scattering (and vice
+versa).
+In subsequent sections, we formulate multiobjective optimization problems [19,20] to study these problems
+in detail. The results of these analyses lead to a feasible objective space, shown as a shaded region in Fig. 2,
+where all physically realizable responses must lie. The boundary of this region, drawn as the thick curve in
+Fig. 2, is deﬁned as the set of points at which an increase in performance (deﬁned either as maximization or
+minimization) in one parameter must be accompanied by a performance decrease in the other.
+The boundary of the feasible region may be constructed by several means. Here we conceptually separate
+this boundary into three Pareto optimal sets. The ﬁrst (purple thick line in Fig. 2) is the simultaneous maxi-
+mization of both absorption and scattering. Note that maximal extinction, deﬁned as the sum of absorption
+and scattering, is always located on this portion of the feasible region boundary. The second boundary seg-
+ment (red thick line in Fig. 2) embodies minimization of scattering and maximization of absorption. Finally,
+there is a Pareto optimal set for minimum absorption and maximum scattering (blue thick line in Fig. 2).
+Minimization of both parameters (orange marker in Fig. 2) collapses to a point at the origin and does not
+represent a meaningful Pareto optimal set for this particular class of problems.
+3 Prescribed losses
+Under the constraint of real power conservation, the boundary of the feasible objective space in Fig. 2
+is formed by the union of Pareto fronts arising from two multiobjective optimization problems. The ﬁrst
+maximizes absorption while maintaining a ﬁxed scattering cross section [22], i.e.,
+max Pa
+s.t. P a +Ps−Pt = 0
+Ps∈ [min{Ps}, max{Ps}].
+(9)
+4
+
+=== PDF PAGE 5 ===
+Solution of this problem yields the red and purple curves in Fig. 2. The second problem reverses the roles
+of absorption and scattering,
+max Ps
+s.t. P a +Ps−Pt = 0
+Pa∈ [min{Pa}, max{Pa}],
+(10)
+yielding the purple and blue curve in Fig. 2. Either of the problems in (9) or (10) may be rewritten as
+minimizations by changing the sign of the objective functional.
+While these problems are straightforward to implement, they can be almost entirely replaced by a
+weighted problem [19,20] under a single constraint, i.e.,
+max waPa +wsPs
+s.t. P a +Ps−Pt = 0, (11)
+where wa and ws are arbitrary real weights. One slight disadvantage of the method of weights employed
+in (11) is that it assumes a concave / convex Pareto front [22]. Hence this method fails to produce any
+linear portions of the feasible region boundary, occurring in one special case discussed later in this section.
+Note that the portion of the boundary maximizing both absorption and scattering (purple curve in Fig. 2) is
+achieved by the weights wa =α, ws = (1−α) for α∈ [0, 1]. Additionally, the single objective optimization
+problems in absorption, scattering, and extinction are achieved by speciﬁc values of weights, speciﬁcally
+ws = 0, wa = 0, and ws = wa. For clarity, the remainder of this section keeps both weights wa and ws as
+independent parameters, though the full range of their ratios can easily be covered by their parameterization
+in a single parameter, e.g., wa = cosφ, ws = sinφ, with φ∈ [0, 2π].
+Explicitly inserting the quadratic and linear forms for each of the above quantities in (11), we obtain the
+quadratically constrained quadratic program (QCQP),
+max
+I
+IH(waRρ +wsR0)I
+s.t. IH(Rρ + R0)I− Re{IHV} = 0.
+(12)
+For any set of weights, the optimization problem is solved by minimizing the associated convex dual function
+[13, App. B], [6, App. B], i.e.,
+min
+ν∈D
+g(ν) = min
+ν∈D
+ν2VH((ν−wa)Rρ + (ν−ws)R0)−1V. (13)
+The domainD restricts the dual parameter ν to values ensuring positive deﬁniteness of the matrix inverted
+in (13),
+D ={ν : (ν−wa)Rρ + (ν−ws)R0≻ 0}. (14)
+Solution of the dual minimization problem is greatly simpliﬁed by considering the radiation mode eigen-
+value decomposition [23] [6, App. C]
+R0In =ϱnRρIn (15)
+and the basis it generates. Applying this expansion to diagonalize all matrices in (13), we ﬁnd the range of
+the dual parameter
+D = (νmin,∞], (16)
+where
+νmin = max
+n
+wsϱn +wa
+1 +ϱn
+, (17)
+and reduce the quadratic form (13) to a simple summation
+min
+ν∈D
+g(ν) = min
+ν>νmin
+ν2
+N∑
+n=1
+| ˆVn|2
+(ν−wa) + (ν−ws)ϱn
+, (18)
+5
+
+=== PDF PAGE 6 ===
+where ˜V = QHV and Q is the matrix with eigenvectors satisfying (15) as its columns. Solving (18) gives
+the optimal dual parameter value ν∗, from which the optimal current I∗ may be calculated as
+I∗ = ν∗
+2 ((ν∗−wa)Rρ + (ν∗−ws)R0)−1V. (19)
+For each set of weights wa and ws , the optimal absorbed and scattered powers Pa(I∗) and Ps(I∗) may be
+calculated, normalized to cross sections, and plotted to form the Pareto front shown in Fig. 2.
+3.1 Minimal absorption with maximal scattering
+For isotropic resistivities with positive, non-zero loss throughout the region of interest, the operator Rρ is
+not compact, leading to a full rank matrix representation. However, the scattering operator R0 is compact,
+leading to an accumulation of eigenvalues at zero in the radiation eigenmode problem (15). We can interpret
+the diﬀerence in operator structures as an indication that there exists currents which absorb arbitrarily well
+and scatter arbitrarily poorly, though the converse case is not necessarily true. Practically, this asymmetry
+leads to a slight technical diﬃculty in computing the portion of the feasible objective space boundary in the
+case where scattering is maximized while absorption is heavily penalized (see portion of blue curve in Fig. 2
+closest to the origin).
+To examine this issue in detail, we begin by noting that, because of the leadingν2 term, the dual function
+g(ν) in (13) is minimized at a value ν∗ > 0 whenνmin > 0 and is always minimized atν∗ = 0 whenνmin < 0.
+Solutions whereν∗ = 0 yield identically zero currents with zero scattering and absorption cross sections. We
+now examine the set of weights maximizing scattering while penalizing absorption where νmin→ 0+ when
+wa < 0 and ws > 0. For simplicity, consider the parameter ws to be ﬁxed. Under this set of conditions, the
+lower limit of the dual parameter domain νmin approaches zero when
+wa→ (−wsϱ1)+, (20)
+with ϱ1 being the largest radiation mode eigenvalue. By (13), the optimal dual parameter ν∗ approaches
+zero in this limit (i.e., as νmin approaches zero from above). Substituting these features into the current
+associated with the dual function using the optimal dual parameter ν∗ yields
+lim
+wa→(−wsϱ1)+
+I∗≈− wsν∗
+2
+(
+R0−ϱ−
+1 Rρ
+)−1
+V, (21)
+whereϱ−
+1 denotes a value approachingϱ1 from below. The radiation eigenmode problem simpliﬁes the matrix
+inverse, leading to
+lim
+wa→(−wsϱ1)+
+I∗≈− wsν∗
+2
+∑
+n
+In
+˜Vn
+ϱn−ϱ−
+1
+∼ I1 (22)
+where I1 is the eigenvector associated with ϱ1 and it is assumed that the incident ﬁeld has a non-zero
+projection onto this mode, i.e., ˜V1̸= 0. By the very nature of the radiation mode eigenvalue problem, the
+coordinate in σs/σa space corresponding to this current has the feature σs =ρ1σa. The solution current in
+(22) may be altered by any phase satisfying
+0≤ Re{ejθIH
+1 V}≤ Re{IH
+1 V} (23)
+while maintaining the condition σs = ρ1σa. In this way the line segment forming a straight part of the
+feasible region boundary between the point where νmin→ 0+ and the origin is formed.
+3.2 Electrically small limits
+Several simpliﬁcations can be made in the long wavelength limit. We begin by studying the low frequency
+behavior of the simultaneous maximization component of the feasible objective boundary by setting the
+6
+
+=== PDF PAGE 7 ===
+weightswa =α, ws = 1−α with α∈ [0, 1]. In the limit of vanishingly small electrical size ka≪ 1, a being
+the radius of the smallest sphere circumscribing the scatterer, the sum in (18) is dominated by the ﬁrst term2
+(largest ϱn) [6]. Keeping only the dominant n = 1 term, whose eigenvalue ϱ1 may be approximated based
+solely on frequency and the scatterer’s volume V and real resistivity
+ϱ1≈ η0k2V
+6πρr
+, (24)
+the minimization in (18) can be solved analytically, yielding the optimal dual parameter
+ν∗
+α
+ka≪1
+≈ 2(α(1−ϱ1) +ϱ1)
+1 +ϱ1
+. (25)
+From (19), the optimal current is then found to be independent of the parameter α, i.e.,
+I∗
+α
+ka≪1
+≈ I1
+˜V1
+1 +ϱ1
+. (26)
+Hence, in the electrically small limit, there is no trade-oﬀ between maximal absorption and scattering and
+both parameters are maximized by the same current density, namely the dominant radiation mode. Inserting
+this current into the quadratic forms for scattering and absorption cross-sections we see the familiar low-
+frequency forms [6]
+σa,α
+ka≪1
+≈ 6π
+k2
+ϱ1
+(1 +ϱ1)2, (27a)
+σs,α
+ka≪1
+≈ 6π
+k2
+ϱ2
+1
+(1 +ϱ1)2. (27b)
+Graphically, this result indicates that in the electrically small limit, the portion of the feasible objective
+boundary corresponding to simultaneous maximization of absorption and scattering (purple curve, Fig. 2)
+collapses to a single point. Because the dominant radiation mode represents the highest possible ratio
+of scattering relative to absorption, the portion of the boundary representing minimum absorption and
+maximum scattering (blue curve, Fig. 2) in this case becomes a straight line between the origin and the point
+described by (27). The same extreme simpliﬁcation does not apply for the case of maximizing absorption
+while minimizing scattering (red curve, Fig. 2), though by observing that in the electrically small limit
+ρn≪ρ1 for n> 2, the minimization problem in (18) may be reduced to
+min
+ν∈D
+g(ν) = min
+ν>wa
+ν2
+[∑N
+n=2| ˆVn|2
+(ν−wa) + | ˆV1|2
+(ν−wa) + (ν−ws)ρ1
+]
+, (28)
+the solution of which is obtained by ﬁnding the roots of a cubic polynomial.
+3.3 Example: maximal trade-oﬀs with prescribed losses
+As an example calculation, several Pareto fronts for maximizing scattering and absorption cross sections are
+calculated for a spherical region of radiusa over a range of electrical sizeska using several real resistivitiesρr.
+In this example and throughout the remainder of this paper, we normalize real resistivities by the dimension
+a of the design region, i.e., ρ/a. This could be further scaled by the free space impedance η0 and the unitless
+electrical size of the design region ka, to give the ﬁgure of merit [4]
+ρr
+a
+ka
+η0
+= kρr
+η0
+= Im χ
+|χ|2 . (29)
+2Numerically, the ﬁrst two or three modes may need to be included depending on dimensionality and “near” degeneracies,
+but this will not change the form of the following results.
+7
+
+=== PDF PAGE 8 ===
+10−1
+100
+101
+102
+103
+104 ka = 0.01
+ka = 0.1
+ka = 1
+ka = 1000 ρr/a = 0.01 Ω
+σa,R/(πa2)
+ka = 0.01
+ka = 1000 ρr/a = 0.1 Ω
+10−1 100 101 102 103 104
+10−1
+100
+101
+102
+103
+104
+ka = 0.01
+ka = 1000 ρr/a = 1 Ω
+σs,R/(πa2)
+σa,R/(πa2)
+10−1 100 101 102 103 104
+ka = 1000 ρr/a = 10 Ω
+σs,R/(πa2)
+Max / max Pareto front, ka = 10n
+Max scattering (wa = 0, ws > 0)
+Max absorption (wa > 0, ws = 0)
+Max extinction (ws =wa)
+Electrically small limit
+Figure 3: Trade-oﬀs between optimal absorption and scattering under a real power conservation constraint.
+The support Ω of the optimized current is a sphere of electrical size ka∈ [0.01, 1000] ﬁlled with material of
+diﬀerent real resistivities ρr/a.
+In addition to the Pareto fronts (black curves), the points of maximum absorption, extinction, and
+scattering are marked with solid green, blue, and red lines, respectively. Decade values of electrical size ka
+are marked with thicker curves to illustrate the trend of increasing electrical size. Moreover, the electrically
+small limit is plotted as a dashed line to graphically show its approximation relative to the Pareto-optimal
+set.
+As electrical size decreases, the set of optimal solutions to (12) converge to a single point, seen graphically
+by the collapse of the Pareto fronts in Fig. 3. This implies that for suﬃciently small electrical size ka, the
+Pareto optimal set contains values which simultaneously represent maximization of absorption, scattering,
+and extinction, in line with derivations provided in the previous section. Furthermore, the traces corre-
+sponding to maximum extinction (blue) and maximum scattering (red) converge to the electrically small
+limit more rapidly than that of maximal absorption. At small electric sizes, this phenomenon occurs as max-
+imum extinction is dominated by maximum scattering. For large electrical sizes, the normalized maximum
+absorption and scattering cross sections converge to 1 and 4, respectively, for all values of real resistivity.
+As resistivity increases, the Pareto-optimal set converges to a single point for increasingly larger electrical
+size ka. For suﬃciently large electrical size and small real resistivity ρr, the trade-oﬀ curve becomes more
+pronounced with a bias towards scattered power. Additionally, for small electrical size, the electrically small
+limit closely follows the maximum scattering curve.
+3.4 Example: feasible objective spaces as functions of size and loss
+To examine the entire feasible objective space under the prescribed losses constraint, several closed Pareto
+fronts are generated for two electrical sizes ka and various ﬁxed real resistivites ρr, see Fig. 4. In a similar
+8
+
+=== PDF PAGE 9 ===
+0 50 100 1500
+20
+40
+60
+80
+max{σt}
+max{σs}
+max{σa}
+ka = 0.3
+σs,R/(πa2)
+σa,R/(πa2)
+0 10 20 30 400
+5
+10
+15
+20
+25
+ka = 1
+σs,R/(πa2)
+σa,R/(πa2)
+F easible objectives
+ρr/a = 0.01 Ω
+ρr/a = 0.1 Ω
+ρr/a = 1 Ω
+ρr/a = 10 Ω
+Figure 4: Feasible sets on σs,R/(πa2), σa,R/(πa2) for obstacles composed of a material with ρr/a ∈
+{0.01, 0.1, 1, 10} Ω circumscribed by spheres with radii ka = 0.3 (left), and ka = 1 (right).
+fashion to the case investigating maximal trade-oﬀs in Fig. 3, the portions of Pareto fronts corresponding
+to maximal scattering and absorption cross-sections converge to a single point as resistivity increases. The
+feasible objective space is limited by the upper bounds on maximal absorption and scattering cross-sections,
+with the space growing as the maximal cross-sections take on larger values.
+3.5 Example: performance of simple geometries in comparison to feasible ob-
+jective spaces
+In Fig. 5, we examine the ability of simple objects to span the feasible solution region produced by a
+spherical design space of electrical size ka = 0.3 in a low-loss, ρr/a = 0.1 Ω, and high-loss, ρr/a = 10 Ω,
+conﬁgurations. In each case, the feasible solution region is denoted by a gray color, while the realized
+absorption and scattering cross-sections of various parameterized structures are denoted by blue, red, green,
+and orange colors.
+Solid spheres of radius r = a are parameterized by their imaginary resistivity ρi and trace out the
+blue locus in Fig. 5. They achieve nearly optimal performance in terms of maximizing scattering while
+minimizing absorption, though most of the feasible objective space is unreachable by this particular structure.
+Solid spherical objects parameterized by both imaginary resistivity and radius r≤a (red color) span more
+signiﬁcant portion of the feasible region in both loss scenarios, particularly in the high-loss case, where they
+achieve nearly optimal performance. This is not the case in the low resistivity case, where solid spheres span
+only a small portion of the feasible region. Core-shell structures with ﬁxed outer radius r =a, core radius
+r′ = a/2 and independently varying imaginary resistivity in both core and shell layers extend further into
+the feasible objective region, though this extension is much more signiﬁcant in the low-loss case.
+The feasible objective space in Fig. 5 bounds the performance of arbitrarily complex structures within
+the prescribed design region, not just those with spherical symmetry. As a demonstration of this feature,
+the realized scattering and absorption cross-sections of solid cube structures with varying size and imaginary
+resistivity are calculated and plotted (orange color) in both panels of Fig. 5. Solutions for this realized
+structure were obtained via volumetric method of moments [24]. In both cases, the incident ﬁeld is polarized
+along the normal of one pair of the cube’s faces. The realized cross-sections are well within the bounding
+feasible objective space, providing signiﬁcantly smaller responses than optimized spherical structures.
+9
+
+=== PDF PAGE 10 ===
+0 20 40 60 80 1000
+20
+40
+60
+80
+100
+ρr/a = 0.1 Ω
+σs /( πa2 )
+σa /( πa2 )
+0 5 10 15 200
+5
+10
+15
+20
+ρr/a = 10 Ω
+σs /( πa2 )
+σa /( πa2 )
+Feasible objectives Spherical shells Solid spheres r ≤a
+Solid spheres r =a Solid cubes
+Figure 5: Realized cross-sections for designs conﬁned to a sphere of size ka = 0.3 with real resistivity
+ρr/a = 0.1 Ω (left) and ρr/a = 10 Ω (right).
+4 Prescribed materials
+The multi-objective optimization of scattering and absorption cross sections can be extended to the prescribed
+materials case by adding a second constraint related to the reactive energy of the system. Substituting in
+the explicit forms of all objectives and constraints, the following optimization problem is obtained
+max
+I
+IH(waRρ +wsR0)I
+s.t. IH(Rρ + R0)I− Re{IHV} = 0
+IHXI− Im{IHV} = 0.
+(30)
+Using similar techniques as in previous section, the problem is solved by minimizing the dual function
+min
+ν,µ∈D
+g(ν,µ ) = min
+ν,µ∈D
+ν2 +µ2
+8S0
+VH((ν−wa)Rρ + (ν−ws)R0 +µX)−1V, (31)
+where the domain of Lagrange parameters ν and µ is restricted to
+D ={(ν,µ ) : (ν−wa)Rρ + (ν−ws)R0 +µX≻ 0}. (32)
+Because (31) involves a parameterized matrix inverse involving three matrices, it cannot be reduced to a
+summation similar to (18). An exception occurs when wa =ws, corresponding to maximization of extinction
+cross section [6].
+4.1 Example: dielectric scatterers
+As a ﬁrst example, we consider a lossy dielectric sphere with relative permittivity εr = 10 + i10−3. In Fig. 6,
+single objective bounds on scattering ( wa = 0, ws > 0), absorption ( wa > 0, ws = 0), and extinction
+(wa =ws) are plotted as functions of electrical size ka under both prescribed losses and prescribed materials
+constraints. The realized cross-sections of a homogeneous sphere driven by the incident ﬁeld are also plotted.
+We observe that the addition of the prescribed materials constraint severely restricts all maximal cross
+sections at low frequencies (small electrical size), though at high frequencies the two sets of bounds take on
+similar values.
+10
+
+=== PDF PAGE 11 ===
+100 101 102
+10−5
+10−3
+10−1
+101
+103
+(ka)−1
+σ/(πa2)
+σt,Z
+σa,Z
+σs,Z
+σt,R
+σa,R
+σs,R
+σt,sphere
+σa,sphere
+σs,sphere
+Figure 6: Example calculation highlighting impact of reactance constraint. Purple curves correspond to
+prescribed losses constraint, black curves correspond to prescribed materials constraints, and blue curves
+correspond to realized cross-sections of a homogeneous sphere ﬁlled with permittivity ϵr = 10 + i10−3.
+The realized cross sections of a homogeneous sphere are very close to the prescribed materials bounds for
+electrical sizes ka< 1, indicating that this very simple geometry is nearly ideal in the long wavelength limit.
+It is thus possible to conclude that for scattering or absorption enhancement in the low-frequency regime,
+advanced inverse design routines would provide little advantage over the simple homogeneous sphere. This
+result, however, is speciﬁc to this particular material, as seen in later examples involving metallic objects.
+Feasible regions for this conﬁguration, along with the realized cross sections of homogeneous spheres with
+swept radius (red locus) and spherical shells with swept inner and outer radii (green shaded region) are shown
+in Fig. 7. For the smaller electrical size (ka = 0.2, left panel), gains in absorption can be achieved by the use
+of a spherical shell, leading to much of the feasible region being reachable by these two simple geometries.
+We also observe that the homogeneous spheres nearly reach the individual upper bound on scattering. The
+same is not true for the larger electrical size ( ka = 1, right panel), where the response of shells lies within
+the “interior” of the locus traced by homogeneous spheres of varying radii. Note that in both cases, the
+maximum achievable scattering cross section is orders of magnitude larger than the maximum absorption
+cross section, consistent with the results seen in Fig. 6.
+In order to further explore the feasibility of the derived bounds, shape optimization (i.e., inverse design)
+was performed within a spherical design region of radius a using a gradient-based technique [25], iteratively
+updated by the NSGA-II genetic algorithm [20]. Due to the high computational complexity of inverse design
+over a large number of design variables (4173 degrees of freedom), only maximal extinction cross section σt
+(wa =ws) was optimized, see the diamond mark in Fig. 7, right. From this result, we can conclude that it may
+be possible to exceed the performance of simple structures through the use of automated synthesis methods,
+however, any improvement must be limited by the fundamental bounds deﬁning the feasible objective space.
+In addition, we hypothesize that the performance of inverse designed structures may be improved by reﬁning
+the initial discretization (increasing level of attainable details). The role of this eﬀect is a subject of ongoing
+research.
+4.2 Example: metallic scatterers
+As a second example, we consider optimal cross sections for devices constructed of gold (Au) conﬁned to
+spherical regions of radius a = 30 nm. For these calculations, the local, frequency dependent Lorentz-Drude
+permittivity model [26, 27] is used. Single-objective optimal cross sections are shown in Fig. 8 along with
+the realized cross sections from solid spheres of radius r =a and spherical shells with inner and outer radii
+optimized for maximum absorption, scattering, and extinction.
+11
+
+=== PDF PAGE 12 ===
+0 1 · 10−3 2 · 10−3 3 · 10−30
+1 · 10−5
+2 · 10−5
+3 · 10−5
+ka = 0.2
+σs /( πa2 )
+σa /( πa2 )
+Feasible objectives
+Spherical shells
+Solid spheres
+0 5 10 150
+2 · 10−3
+4 · 10−3
+6 · 10−3
+8 · 10−3
+1 · 10−2
+ka = 1
+max σt
+inverse design
+σs /( πa2 )
+σa /( πa2 )
+Figure 7: Realized cross-sections for designs conﬁned to a sphere with electrical size ka = 0.2 (left) and
+ka = 1 (right) constructed of dielectric material with relative permittivity εr = 10 + i10−3, overlaid on
+the feasible region calculated with prescribed materials constraints. Realized designs are solid spheres of
+radius r≤a (red locus) and spherical shells with radii r1,r 2≤a (green shaded region).
+Unlike in the previous example, homogeneous Au spheres of radius r<a are far from the single objective
+bounds in the low frequency regime. However, optimizing a spherical shell by sweeping over both inner and
+outer shell radii closely approaches the single objective bounds (within one order of magnitude) over all
+frequencies, suggesting that this simple geometry is capable of nearly reaching optimal performance given
+the material and geometric design constraints.
+In Fig. 9, we compare the feasible objective space for this conﬁguration at two wavelengths, λ = 500 nm
+and λ = 650 nm, against the realized behavior of solid spheres with varying radius r≤ a (red color) and
+air-core Au shells with maximum outer radius r≤ a (green color). At λ = 500 nm, we observe that the
+solid spheres and spherical shells cover comparable portions of the feasible objective space, both reaching
+nearly the maximum value of absorption and scattering cross sections. At λ = 650 nm, the situation is quite
+diﬀerent, with solid spheres covering very little of the feasible objective space compared to spherical shells.
+This indicates that, in scenarios such as this one, there are opportunities to signiﬁcantly enhance absorption
+and / or scattering through the use of geometries more complex than a solid sphere.
+5 Conclusions
+The bounds derived in Secs. 3 and 4 are general for any substructures contained with arbitrarily shaped
+design regions. The only restriction is that the substructure is formed by replacing parts of the (possibly
+inhomogeneous) resistivity of the design region with that of the background medium. Generalizations toward
+mixed-material substructures is the subject of ongoing and future work. In this paper, we focus on spherically-
+symmetric design regions, though this need not be the case. Rather, any region describable by an impedance
+matrix and its components (cf Sec. 2) may be studied. Generating these matrices for arbitrary geometries
+are straightforward using the method of moments, either by local volumetric discretization [24] or whole
+domain basis functions [28].
+The distinction between the prescribed losses and materials problems in Secs. 3 and 4 warrants close
+examination on several points. The prescribed materials case, where the complete complex resitivity of
+the design material is speciﬁed, clearly illustrates the physical limitations of single-material nanophotonic
+structures, e.g., nano-antennas constructed of gold conﬁned to a certain design volume. The multiobjective
+bounds derived here not only indicate the feasible performance property of any realized structure, they also
+indicate that, in speciﬁc cases, near-optimal performance may be obtained by extremely simple geometric
+paramterizations. In those cases, such as the metallic scatterers examined in Sec. 4.2, we conclude that
+12
+
+=== PDF PAGE 13 ===
+100 10110−3
+10−2
+10−1
+100
+101
+102
+λ, µm
+σ/(πa2)
+σt σa σs
+Figure 8: Maximal cross sections for a gold (Au) sphere of radius 30 nm (black) along with the realized cross
+sections of a homogeneous Au sphere (blue) and an optimized Au shell (green).
+0 0.05 0.1 0.150
+0.5
+1
+1.5
+2
+2.5
+3
+λ= 500 nm
+σs,R/(πa2)
+σa,R/(πa2)
+Feasible objectives
+Spherical shells
+Solid spheres
+0 0.2 0.4 0.6 0.8 10
+2
+4
+6
+8
+10
+λ= 650 nm
+σs,R/(πa2)
+σa,R/(πa2)
+Figure 9: Feasible region for Au obstacles ﬁtting within a sphere of radius a a = 30 nm and realized cross
+sections of solid spheres (red lines) and spherical shells (green region).
+13
+
+=== PDF PAGE 14 ===
+there is little performance gain to be had through computationally expensive inverse design. The exact
+quantiﬁcation of further gains must be made on a case-by-case basis, but the comparison between the
+feasible objective space and the performance of simple parameterized spherical structures is computationally
+inexpensive, requiring only the solution of the appropriate multiobjective optimization problem and a swept
+parameterization of simple test structures. If the test structures are chosen to be spherically symmetric, the
+computational overhead of computing their scattering and absorption performance via Mie theory is negligible
+[29]. While less speciﬁc than the prescribed materials bounds, the prescribed losses bounds represent limits
+on future materials that may have ﬁxed losses but tunable reactances. Tunable reactance may be possible
+through the use of metamaterials (e.g., subwavelength patterning of two or more materials). The eﬀect of
+the ﬁxed amount of loss within such a material is quantiﬁed directly by the bounds in Sec. 4, which may
+serve as a ﬁgure of merit in future nanophotonics material development. Notably, these limits on feasible
+performance are even less computationally expensive than the prescribed materials bounds and, in several
+cases, admit analytic solutions, see Secs. 3.1 and 3.2. As in the prescribed materials case, the assessment
+of parameterized simple geometries is straightforward, allowing for fast comparison of the fundamental
+bounds to the performance of simple test structures, as demonstrated in Secs. 3.5. The analysis of realized
+non-spherical structures with homogeneous resistivity can be greatly accelerated over conventional repeated
+solution of (2), allowing for their rapid evaluation in addition to Mie-based analysis of systems with spherical
+symmetry.
+Throughout the entirety of this paper, we consider only isotropic, homogeneous, bulk, linear material
+properties. The inclusion of anisotropic materials is straightforward by adapting the resistivity (or suscepti-
+bility) into a tensor form. In this case, statements regarding the dependence of certain quantities on material
+parameters, e.g., the linear real resistivity dependence of the loss matrix Rρ, must be slightly reinterpreted.
+The same holds for studying inhomogeneous material properties within the design region. Inclusion of sur-
+face eﬀects in nanoscale objects is also compatible with all formulations in this work, requiring only small
+adaptations to the calculation of the impedance matrix using a linear non-local hydrodynamic model [30],
+see [6,§D].
+In conclusion, the formulations presented in this work allow for the determination of feasible absorption
+and scattering characteristics of objects conﬁned to prescribed design regions and constructed with material
+properties of varying degrees of speciﬁcation. The example calculations demonstrate that the question “Are
+the optimal absorbers also optimal scatterers?” is nuanced and depends on the exact nature of the system
+under consideration. Nonetheless, the formulations in this work provide bounds that can inform and direct
+future work in the inverse design of optimal photonic devices. Additionally, the multiobjective framework
+presented here may be adapted to study trade-oﬀs between absorption, scattering, and other performance
+objectives, such as near-ﬁeld enhancement or Purcell factor.
+Funding
+Grantov´ a AgenturaˇCesk´ e Republiky (19-06049S); Vetenskapsr˚ adet (2017-04656); Henry Luce Foundation.
+References
+[1] S. Molesky, Z. Lin, A. Y. Piggott, W. Jin, J. Vuckovi´ c, and A. W. Rodriguez, “Inverse design in
+nanophotonics,” Nature Photonics, vol. 12, no. 11, pp. 659–670, 2018.
+[2] G. Angeris, J. Vuckovic, and S. P. Boyd, “Computational bounds for photonic design,” ACS Photonics,
+vol. 6, no. 5, pp. 1232–1239, 2019.
+[3] S. Molesky, P. Chao, and A. W. Rodriguez, “Hierarchical mean-ﬁeld T operator bounds on elec-
+tromagnetic scattering: Upper bounds on near-ﬁeld radiative Purcell enhancement,” arXiv preprint
+arXiv:2008.08168, 2020.
+14
+
+=== PDF PAGE 15 ===
+[4] O. D. Miller, A. G. Polimeridis, M. H. Reid, C. W. Hsu, B. G. DeLacy, J. D. Joannopoulos, M. Soljaˇ ci´ c,
+and S. G. Johnson, “Fundamental limits to optical response in absorptive systems,” Optics express ,
+vol. 24, no. 4, pp. 3329–3364, 2016.
+[5] S. Molesky, P. S. Venkataram, W. Jin, and A. W. Rodriguez, “Fundamental limits to radiative heat
+transfer: Theory,” Physical Review B, vol. 101, no. 3, jan 2020.
+[6] M. Gustafsson, K. Schab, L. Jelinek, and M. Capek, “Upper bounds on absorption and scattering,”
+New Journal of Physics , 2020.
+[7] R. Trivedi, G. Angeris, L. Su, S. Boyd, S. Fan, and J. Vuckovic, “Fundamental bounds for scattering
+from absorptionless electromagnetic structures,” arXiv preprint arXiv:2003.00374 , 2020.
+[8] Z. Kuang, L. Zhang, and O. D. Miller, “Maximal single-frequency electromagnetic response,” arXiv
+preprint arXiv:2002.00521, 2020.
+[9] S. Molesky, P. Chao, and A. W. Rodriguez, “T-operator limits on electromagnetic scattering: Bounds on
+extinguished, absorbed, and scattered power from arbitrary sources,” arXiv preprint arXiv:2001.11531,
+2020.
+[10] S. Molesky, P. Chao, W. Jin, and A. W. Rodriguez, “Global T operator bounds on electromagnetic
+scattering: Upper bounds on far-ﬁeld cross sections,” Physical Review Research, vol. 2, no. 3, p. 033172,
+2020.
+[11] C. Sohl, M. Gustafsson, and G. Kristensson, “Physical limitations on broadband scattering by het-
+erogeneous obstacles,” Journal of Physics A: Mathematical and Theoretical , vol. 40, no. 36, p. 11165,
+2007.
+[12] H. Shim, Z. Kuang, and O. D. Miller, “Optical materials for maximal nanophotonic response,” Optical
+Materials Express, vol. 10, no. 7, pp. 1561–1585, 2020.
+[13] S. Boyd, S. P. Boyd, and L. Vandenberghe, Convex optimization. Cambridge university press, 2004.
+[14] M. Uzsoky and L. Solymar, “Theory of super-directive linear arrays,” Acta Physica Academiae Scien-
+tiarum Hungaricae, vol. 6, no. 2, pp. 185–205, 1956.
+[15] M. Gustafsson, D. Tayli, C. Ehrenborg, M. Cismasu, and S. Nordebo, “Antenna current optimization
+using MATLAB and CVX,” FERMAT, vol. 15, no. 5, pp. 1–29, 2016.
+[16] M. Shahpari and D. V. Thiel, “Fundamental limitations for antenna radiation eﬃciency,” IEEE Trans.
+Antennas Propag., 2018.
+[17] M. Capek, M. Gustafsson, and K. Schab, “Minimization of antenna quality factor,” IEEE Transactions
+on Antennas and Propagation , vol. 65, no. 8, pp. 4115–4123, 2017.
+[18] M. Gustafsson, M. Capek, and K. Schab, “Tradeoﬀ between antenna eﬃciency and Q-factor,” IEEE
+Transactions on Antennas and Propagation , vol. 67, no. 4, pp. 2482–2493, 2019.
+[19] L. J. Cohon, Multiobjective Programming and Planning, 1st ed. Academic Press, 1978.
+[20] K. Deb, Multi-Objective Optimization using Evolutionary Algorithms. New York, United States: Wiley,
+2001.
+[21] R. F. Harrington, Field computation by moment methods . Wiley-IEEE Press, 1993.
+[22] G. Eichfelder, Adaptive Scalarization Methods in Multiobjective Optimization . Springer, 2008.
+[23] K. R. Schab, “Modal analysis of radiation and energy storage mechanisms on conducting scatterers,”
+Ph.D. dissertation, University of Illinois at Urbana-Champaign, 2016.
+15
+
+=== PDF PAGE 16 ===
+[24] A. G. Polimeridis, J. F. Villena, L. Daniel, and J. K. White, “Stable ﬀt-jvie solvers for fast analysis
+of highly inhomogeneous dielectric objects,” Journal of Computational Physics , vol. 269, pp. 280–296,
+2014.
+[25] M. Capek, L. Jelinek, and M. Gustafsson, “Shape synthesis based on topology sensitivity,” IEEE Trans.
+Antennas Propag., vol. 67, no. 6, pp. 3889 – 3901, June 2019.
+[26] A. D. Raki´ c, A. B. Djuriˇ si´ c, J. M. Elazar, and M. L. Majewski, “Optical properties of metallic ﬁlms for
+vertical-cavity optoelectronic devices,” Applied optics, vol. 37, no. 22, pp. 5271–5283, 1998.
+[27] B. Ung and Y. Sheng, “Interference of surface waves in a metallic nanoslit,” Opt. Express , vol. 15,
+no. 3, pp. 1182–1190, Feb 2007. [Online]. Available: http://www.opticsexpress.org/abstract.cfm?URI=
+oe-15-3-1182
+[28] J. R. Mautz and R. Harrington, “Radiation and scattering from bodies of revolution,” Applied Scientiﬁc
+Research, vol. 20, no. 1, pp. 405–435, 1969.
+[29] C. F. Bohren and D. R. Huﬀman, Absorption and scattering of light by small particles . John Wiley &
+Sons, 2008.
+[30] N. A. Mortensen, “Nonlocal formalism for nanoplasmonics: Phenomenological and semi-classical
+considerations,” Photonics and Nanostructures - Fundamentals and Applications , vol. 11, no. 4, pp. 303
+– 309, 2013. [Online]. Available: http://www.sciencedirect.com/science/article/pii/S1569441013000370
+16

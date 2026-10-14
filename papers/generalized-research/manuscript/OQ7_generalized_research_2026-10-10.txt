@@ -1,0 +1,2601 @@
+
+--- PAGE 1 ---
+Reciprocal absorption–scattering asymmetry:
+sharp channel bounds, exact vector dielectric
+constructions, and a restricted thickness law
+OQ7 research continuation
+Analytical, numerical, and formal verification report
+10 October 2026 — revised research manuscript
+Abstract
+We distinguish several precise formulations of Open Question 7 in the Miller–Monticone
+tutorial. With all channels included, unit incident power, and a specified lossless reference,
+the common extinctionX of reversed incident fields bounds their absorption difference by
+X−X 2/4. This is a direct consequence of established passivity inequalities. A reciprocal
+three-port attains the bound, whereas scalar two-ports have a smaller sharp envelope and
+extinction-normalized contrast at most
+√
+10
+√
+5−22. With prescribed overlap between an
+input and its time reverse, we prove a sharper three-branch joint envelope using an explicit
+positive-matrix certificate; its priority remains unestablished. We give exact two-layer,
+nonmagnetic anisotropic dielectric realizations approaching the multichannel envelope, and
+extend the construction to finite-power beams with exact prescribed extinction. One reversed
+plane wave has exactly zero absorption, demonstrating why a positive total tensor-loss budget
+does not imply the scalar determinant floor. These polarization mechanisms have clear
+prior precedents; their novelty is not claimed. We preserve the earlier scalar-multilayer
+inverse-square thickness theorem, its full ordinary proof, and its numerical record. A new
+Lean/Mathlib project verifies a precisely enumerated subset of the algebra, finite-channel
+results, and the general joint-bound certificate; the physical thickness theorem remains
+unverified in Lean. The reported 692-theorem project and declarationOQ7.theorem51 were
+absent from the available source archive. Compact-body three-dimensional plane-wave cross
+sections, coercive-loss resource bounds, and finite bandwidth remain unresolved.
+Verification and priority conventions. KNOWNmeans established or a direct conse-
+quence of earlier results.PROVED refers to the complete ordinary proofs in this manuscript,
+independently reviewed as documented below; it does not imply formal verification.LEAN-
+VERIFIED is reserved for the exact declarations listed in the source-correspondence appendix.
+CONDITIONAL concerns the priority of the restricted material-resource and joint-overlap
+theorems, not a certificate of novelty. The original manuscript and numerical files are preserved
+without replacement.
+1 Novelty check before theorem development
+The starting question is OQ7 in Section 4.1 of Miller and Monticone’s tutorial [1]. A two-port
+specialization does not by itself solve the general optical cross-section question. In Sections 2–5,
+absorption and transmission are power fractions for a pair of power-normalized ports. For
+reciprocal two-port systems,
+AL−AR =|rR|2−|rL|2.
+Thus the same difference measures the opposite imbalance in reflected power. For an extended
+free-space object, identifying all scattered power with one reflection channel would require
+additional assumptions.
+1
+
+--- PAGE 2 ---
+OQ7: directional absorption asymmetry Audited research manuscript
+1.1 Mandatory comparisons
+Prior result Statement and assumptions Consequence for this investiga-
+tion
+Sounas–Alù (2014)
+[2]
+Reciprocityandtheopticaltheoremgive
+σext(e, k) = σext(e∗,−k). The polar-
+ization is conjugated when propagation
+reverses.
+Extinction symmetry is estab-
+lished. It permits absorp-
+tion and scattering to exchange
+their directional contributions;
+it does not specify a material
+and thickness budget.
+Sounas–Alù (2017)
+[3]
+For a lossless time-reversal-symmetric
+two-port, the pointwise ratio of oppo-
+sitely excited internal intensities lies be-
+tween (1−|r|)/(1+|r|)and its reciprocal.
+A multiport radiation-efficiency inequal-
+ity incorporates loss channels.
+Internal-field asymmetry con-
+straints are established. Ap-
+plying the lossless two-port for-
+mula unchanged to an arbitrary
+lossy structure is invalid.
+Guo–Fan (2022) [4] Necessary and sufficient reflection fea-
+sibility at prescribed singular values,
+Eqs. (24)–(25). For ordered reflection
+magnitudes p≥q and singular values
+s1≥s2: p−q≤s1−s2≤p+q≤s1+s2.
+Together withs1≤1 and the
+Frobenius norm, this already
+solves the initial matrix prob-
+lem. Its explicit slice is not a
+discovery.
+Máñez-Espina et al.
+(2026) [5, 6]
+Two-mode temporal coupled-mode the-
+ory for reciprocal bianisotropic metasur-
+faces. In the balanced, equal-frequency
+specialization, the precursor’s Eq. (18)
+gives ∆A(ω±) = ∓rbg2/(γ2 +g2), for
+positive coupling convention.
+rb is a background reflection
+amplitude, not the total re-
+sponse’s reflection or transmit-
+ted power. This model-specific
+boundisnotanall-profilefinite-
+dielectric optimum.
+1.2 Additional results that restrict any novelty claim
+Rollett’s two-port invariant [7], in reciprocal scattering notation, is
+KR = 1−|rL|2−|rR|2 +|detS|2
+2|t|2 = 1 + det(I−S†S)
+2|t|2 . (1)
+Consequently, the quantityc = det(I−S†S)/|t|2, including its invariance under independent loss-
+less coatings, is established. We do not extend this invariance to arbitrary feedback embeddings.
+Ma, Pestourie and Johnson [8], Eq. (35), already derive the weak-loss relation
+|AL−AR|
+AL +AR
+≤|rlossless|+O(loss).
+Their perturbative hypothesis differs from the exact finite-loss constraints used below. Guo and
+Fan [9] provide complete abstract eigenvalue feasibility, and Li et al. [10] characterize coherent
+control for a given system. Kuang, Zhang and Miller [11] already establish material-dependent
+single-frequency absorption and thickness limits. Neither positivity of loss nor the general idea
+of a material-dependent thickness limit can be claimed as new.
+Weighted observability has further close precedents. Chitour and Sigalotti [12], Lemma 2.5,
+prove positive Gramian floors for measurable observation of fixed oscillators. Hante, Sigalotti
+and Tucsnak [13], Proposition 5.4, establish quantitative small-window observability for a fixed
+2
+
+--- PAGE 3 ---
+OQ7: directional absorption asymmetry Audited research manuscript
+skew-symmetric generator and controllable observation. More explicitly, Privat, Trélat and
+Zuazua [14], Remark 2, give, for every measurableω⊂[0,π] with|ω|=ρπ,
+ρπ−sin(ρπ)
+2 ≤inf
+j≥1
+∫
+ω
+sin2(jx) dx≤ρπ+ sin(ρπ)
+2 .
+This concerns worst-mode observation for a fixed homogeneous real wave operator. These results
+preempt a claim that the Gramian method or the local sinusoidal optimization is itself new. The
+spatial complex Helmholtz generator below is variable and has an indefinite flux form; identifying
+it with a fixed dissipative time generator does not directly transfer those theorems.
+Likewise, the optical Borrmann effect already places thin absorbing layers near standing-wave
+minima [15, 16]. The construction below uses that established physical mechanism. Its claimed
+research content is restricted to a uniform all-profile bound and a matchingexact-target leading
+coefficient, not a new multilayer architecture.
+Priority verdict.No equivalent statement of Theorem 5.1 was found in the retrieved optics,
+two-port, transmission-bound, or observability sources. This is a precise candidate contribution,
+but the search does not certify priority. Its classification remainsCONDITIONAL. The
+original search cutoff was 9 October 2026; the targeted generalization review extends it through
+10 October 2026. No coverage of the unelapsed remainder of October is claimed.
+The 2014 main theorem and proof were inspected in the publisher-provided first-page preview;
+the remaining pages were not retrieved. For the 2026 metasurface paper, published prose and
+the complete arXiv precursor were read; the publisher PDF and supplement were blocked. Older
+complex-potential bounds of Martin [17] were identified, but complete primary-text retrieval
+remained incomplete. These are explicit limitations of the novelty audit, rather than grounds to
+infer absence of prior work.
+1.3 Additional priority checks for the generalization
+The channel inequality in Section 6 follows from the optical-theorem passivity disk underlying
+absorption–scattering tradeoffs, including Fleury, Soric and Alù [18]. Its two-illumination form
+is not claimed as an independent discovery. The sharper scalar two-port optimizations are
+consequences of Guo–Fan reflection feasibility, rather than new matrix constraints.
+Polarization conversion is also an established source of directional power asymmetry. Armitage
+[19], Eq. (27), gives reversed Jones transmission as the transpose; the example around Eq. (34)
+explicitly combines a polarizer with a rotated wave plate. Potton’s earlier review [20], Section 5,
+treats reciprocal polarizing stacks. Our exact Maxwell construction supplies finite tensor coeffi-
+cients, interface matching, a limiting sequence, and fixed-extinction sharpness. It is a rigorous
+synthesis of known mechanisms. The targeted search did not locate the identical constructive
+theorem, but that does not establish novelty or warrant labeling it NEW.
+Guo and Fan’s multimode work [9] completely characterizes the joint eigenvalues of transmission,
+reflection and absorption for a specified input side through Horn inequalities. It does not impose
+reciprocity on the full two-sided system and explicitly identifies reciprocal refinements as further
+work. It should neither be rediscovered nor represented as solving all reversed-pair Maxwell
+questions. A source-by-source comparison, including the limitations of full-text retrieval for
+Sounas–Alù (2014), Potton (2004), and Martin (1962), is supplied in the reproducibility archive.
+2 The established two-port optimization
+The optimization in this section is an established consequence of passive scattering-matrix
+feasibility. In particular, Guo and Fan’s necessary and sufficient reflection conditions at prescribed
+3
+
+--- PAGE 4 ---
+OQ7: directional absorption asymmetry Audited research manuscript
+singular values [4] imply it by elimination. We supply an elementary proof, including phases and
+degeneracies, to specify the benchmark precisely; none of the results in this section is claimed as
+new.
+Let the two ports be power normalized and write
+S =
+(
+rL t
+t r R
+)
+, A =I−S†S⪰0, T =|t|2. (2)
+Define
+AL = 1−T−|rL|2, A R = 1−T−|rR|2,
+a = AL +AR
+2 , δ= AL−AR
+2 , x =|δ|, b = 1−T−a.
+(3)
+ThusAL,R =a±δand|rL,R|2 =b∓δ.
+Proposition 2.1(Established feasibility conditions). Real numbers(T,a,δ) are realized by a
+symmetric contraction if and only if
+0≤T≤1, 0≤a≤1−T, 0≤x≤min(a,b ), F (x)≥0, (4)
+where
+F(x) =a2−x2−2T
+(
+b−
+√
+b2−x2)
+. (5)
+Every pair 0 ≤T ≤1, 0 ≤a ≤1−T is feasible. For prescribed nonzero t,rL,rR, set
+θ= argrL + argrR−2 argt. In addition to the first three conditions in(4), the exact phase
+condition is
+cosθ≤a2−x2−2Tb
+2T
+√
+b2−x2 . (6)
+If T|rLrR|= 0, no phase condition is imposed; the remaining determinant condition isa2−x2−
+2Tb≥0.
+Proof. Put z =rLt +trR. Direct multiplication gives
+A =
+(
+a +δ −z
+−z a −δ
+)
+, detA =a2−x2−|z|2. (7)
+A Hermitian two-by-two matrix is positive semidefinite exactly when its diagonal entries and
+determinant are nonnegative. The reflection magnitudes and diagonal entries give the first three
+conditions in (4). When all entries are nonzero,
+|z|2 = 2T
+(
+b +
+√
+b2−x2 cosθ
+)
+,
+whose minimum is2T(b−
+√
+b2−x2). This proves necessity, the phase criterion, and its stated
+degenerate version. Conversely, the real symmetric matrix
+S0 =
+(√
+b−δ
+√
+T√
+T −
+√
+b +δ
+)
+(8)
+has nonnegative absorption diagonal and determinantF(x), proving sufficiency. Takingδ= 0
+givesS†
+0S0 = (1−a)I, proving the assertion about feasible pairs.
+Proposition 2.2(Established sharp envelope). For a feasible pair(T,a ), putac(T) = (1−T 2)/2.
+Then
+max|AL−AR|=
+
+
+
+2
+√
+b2−
+(√1−2a−T
+)2, 0≤a<a c(T),
+2b, a c(T)≤a≤1−T.
+(9)
+The formulas agree at the interface and includeT = 0 and T = 1.
+4
+
+--- PAGE 5 ---
+OQ7: directional absorption asymmetry Audited research manuscript
+Proof. Writingy =
+√
+b2−x2 yields the identity
+F(x) = (y +T )2−(1−2a). (10)
+If a≥ac(T ), then 1−2a≤T 2 and b≤a. Consequently x =b is feasible and is maximal. If
+a<a c(T ), puty0 =√1−2a−T >0. Equation (10) is nonnegative exactly wheny≥y0. Since
+F(0) = a2≥0, we haveb≥y0 and may setx∗=
+√
+b2−y2
+0. The equalityF(x∗) = 0 implies
+a2−x2
+∗= 2T(b−y0)≥0; hencex∗≤a. The matrix (8) attains this largest feasiblex.
+Complete equality characterization. Port interchange is included by allowing either sign
+of δbelow; phases of zero entries are never assigned.
+1. If T = 0, every optimizer is diagonal and satisfies
+|δ|= min(a, 1−a), |rL|=
+√
+1−a−δ, |rR|=
+√
+1−a +δ.
+All phases of nonzero reflections are arbitrary. Fora≤1/2 one absorptance vanishes;
+for a≥1/2 one reflection vanishes. In particular,a = 0 permits arbitrary unit-modulus
+diagonal entries,a = 1/2 gives one zero and one unit-modulus reflection, anda = 1 gives
+S = 0.
+2. If T >0 and 0≤a<a c(T), every optimizer hasδ=±x∗, the magnitudes in (8), and
+argrL + argrR−2 argt =π (mod 2π). (11)
+All three entries are nonzero. Necessity follows because the largest possible absorption
+determinant atx∗is alreadyF (x∗) = 0; therefore the minimizing phase is mandatory.
+These conditions are also sufficient. Equivalently, all optimizers areDS0D, withD diagonal
+unitary. Their spectra satisfy
+specA ={0, 2a}, σ (S) ={1,
+√
+1−2a}. (12)
+Fora> 0 there is exactly one lossless coherent input direction. Fora = 0, the maximum is
+zero,A = 0, andS is unitary; the same phase condition still applies.
+3. If T >0 and ac(T)≤a≤1−T, every optimizer has|δ|=b, so one reflection is zero and
+the other has magnitude
+√
+2b. All phases of nonzero entries are arbitrary, since
+detA = 2a−1 +T 2≥0. (13)
+Ata =ac(T) and T <1, the singular values are1,T ; above that interfaceA is positive
+definite. Whenb = 0, both reflections vanish and only the phase oft is free. The endpoint
+T = 1,a = 0 is therefore a perfect lossless transmitter with arbitrary transmission phase.
+Explicit elimination from Guo–Fan.For ordered reflection magnitudesp≥q≥0 and
+singular valuesσ1≥σ2≥0, Eqs. (24)–(25) of [4] specialize to
+p−q≤σ1−σ2≤p +q≤σ1 +σ2. (14)
+The Frobenius identity fixesσ2
+1 +σ2
+2 =p2 +q2 + 2T. Putd =σ1−σ2, c =σ1 +σ2. At this fixed
+sum of squares,(c +d)/2 =σ1 is nondecreasing ind on 0≤d≤c. Its smallest allowed value
+occurs atd =p−q, withc =
+√
+(p +q)2 + 4T, which satisfies every inequality in (14). Thus
+minσ1 = p−q +
+√
+(p +q)2 + 4T
+2 . (15)
+5
+
+--- PAGE 6 ---
+OQ7: directional absorption asymmetry Audited research manuscript
+Requiring this norm to be at most one is equivalent to
+0≤q≤p≤1, 0≤T≤(1−p)(1 +q). (16)
+Substitutingp =
+√
+b +x andq =
+√
+b−x recovers(4) and its sharp fixed-mean slice(9). Thus the
+matrix optimization is directly implied by previously complete reflection feasibility, independently
+of whether its particular piecewise parametrization was written explicitly before.
+3 The finite-dielectric problem
+Fix a real vacuum wavenumberk> 0. Use time dependencee−iωt, scalar relative permittivity
+ε(z) =p(z) +iq(z), relative permeability one, normal incidence, and identical vacuum exterior
+media. A finite multilayer consists of finitely many homogeneous layers with finite coefficients
+and nonnegative thicknesses; zero-thickness layers may be discarded. The electric field satisfies
+the exact equation
+E′′+k2ε(z)E = 0. (17)
+Electric field and its derivative are continuous at interfaces. No effective-medium, weak-loss,
+resonant-mode, or thin-film approximation is used in the lower bounds.
+For the sharp theorem impose
+1≤p(z)≤P, 0≤q(z)≤Q,
+∫
+q(z) dz =M, P > 1, Q,M > 0. (18)
+The total geometric thickness includes lossless spacers and matching layers. There is no prescribed
+layer count or positive minimum feature size. HereM has dimensions of length and is an
+integrated imaginary permittivity at the specified frequency; it is not absorbed power or a
+frequency-integrated material sum rule. The class allows continuously selectable permittivities
+within the stated caps, rather than a fixed catalogue of measured materials.
+3.1 Well-defined scattering and the Gram identity
+The outgoing homogeneous problem has no nonzero solution at realk: outward radiated flux plus
+nonnegative volume dissipation would otherwise sum to zero with a positive term. Finite transfer
+matrices therefore give a well-defined reciprocal passive scattering matrix. Its transmission
+amplitude is nonzero. Indeed, zero transmission for a left incident wave would make bothE and
+E′zero at the right boundary, so ODE uniqueness would make the entire field zero, contradicting
+the unit incident wave.
+Let EL,ER denote the fields for unit incidence from the left and right. With v(z) =
+(EL(z),ER(z)), flux balance gives
+A =I−S†S =k
+∫
+q(z)v(z)†v(z) dz. (19)
+For any subintervalJ, denote the same integral restricted toJ byAJ. It is positive semidefinite
+andA−AJ⪰0.
+Let s(y,x ) be the fundamental solution of(17) with s(x,x ) = 0 and ∂ys(x,x ) = 1. Constancy of
+the Wronskian gives
+EL(x)E′
+R(x)−E′
+L(x)ER(x) =−2ikt,
+and hence
+EL(x)ER(y)−ER(x)EL(y) =−2ikts (y,x ).
+6
+
+--- PAGE 7 ---
+OQ7: directional absorption asymmetry Audited research manuscript
+Expanding the determinant of the two-dimensional Gram integral now proves the exact identity
+detAJ
+T = 4k4
+∫
+x<y
+x,y∈J
+q(x)q(y)|s(y,x )|2 dx dy. (20)
+The denominator is the transmission of the complete stack, including surroundings. In particular,
+positive loss on any interval makesA positive definite: a zero quadratic form in(19) would force
+a nonzero incident combination to vanish on that interval, contradicting uniqueness. Thus no
+finite stack with positive distributed loss attains the rank-one active-branch matrix optimum.
+This qualitative observation alone gives no uniform finite-thickness gap.
+3.2 Transfer form and the established coating invariant
+For the field stateu = (E,E′/(ik))T, letF transfer the left boundary to the right boundary.
+It has determinant one. PutΣ = ( 0 1
+1 0 ). The normalized directed flux isu†Σu/2. The matrix
+mapping incident amplitudes to the left field state is
+Bin =
+(
+1 +rL t
+1−rL −t
+)
+, detBin =−2t.
+Consequently
+A = 1
+2B†
+in(Σ−F†ΣF )Bin,
+and
+c := detA
+T = det(Σ−F†ΣF ). (21)
+IfF is replaced byFRFFL, withF†
+j ΣFj = Σ and detFj = 1, the determinant is unchanged. This
+directly verifies the coating invariance used below, while (1) identifies its classical provenance.
+4 A uniform material-resource lower bound
+For this section it suffices to havep≤P, 0≤q≤Q on a selected intervalJ of lengthL >0,
+with P,Q> 0 and
+∫
+Jq =M >0. Additional finite passive layers outsideJ are allowed. Define
+K =k
+√
+P, f (u) =u2−sin2u, g (u) =
+√
+f(u). (22)
+Lemma 4.1(Complex modulus comparison). For 0≤h≤π/Kwith [x,x +h]⊆J,
+|s(x +h,x )|≥sin(Kh)
+K . (23)
+Proof. A zero at distanceh<π/K, together with integration by parts and real parts of(17),
+would imply ∫ x+h
+x
+|s′|2 =k2
+∫ x+h
+x
+p|s|2≤K2
+∫ x+h
+x
+|s|2.
+Dirichlet Poincaré gives the incompatible lower bound(π/h)2 ∫
+|s|2. Thus ρ=|s|is positive
+before π/K. Writingj = Im(¯ss′), direct differentiation away from the initial zero gives
+ρ′′+K2ρ= (K2−k2p)ρ+ j2
+ρ3≥0, ρ (0) = 0, ρ′(0) = 1.
+Near the originρ(h) = h +O(h3), so the initial conditions and the integrability needed for
+Duhamel’s formula are valid. The kernelsin(K(h−v))/K is nonnegative for0≤v≤h≤π/K.
+Duhamel’s formula proves the claim on the open interval, and continuity gives the endpoint.
+Interface continuity justifies the same argument for piecewise constant coefficients.
+7
+
+--- PAGE 8 ---
+OQ7: directional absorption asymmetry Audited research manuscript
+Lemma 4.2 (One-period capped Fourier moment). If 0≤q≤Q on an interval of length at
+most π/K, andm =
+∫
+q, then
+⏐⏐⏐⏐
+∫
+q(z)e2iKz dz
+⏐⏐⏐⏐≤Q
+K sin
+(Km
+Q
+)
+. (24)
+Proof. Extend q by zero to one period and setθ= 2Kz. For a chosen phaseϕ, maximizing∫
+q cos(θ−ϕ) dθat fixed mass fills the arc where the cosine is largest at densityQ. Indeed, ifq∗
+is this saturated arc andc∗is its endpoint cosine, then(q∗−q)(cos(θ−ϕ)−c∗)≥0 pointwise,
+and the masses ofq∗,q agree. Integrating proves optimality. The arc has angular half-width
+Km/Q; its moment isQ sin(Km/Q)/K. Chooseϕto align with the original complex moment.
+The arc may wrap across the period boundary; allowing this only enlarges the feasible class. This
+standard mass-allocation argument is included to fix constants, not as a claim of a new moment
+inequality.
+Lemma 4.3(Cell determinant and combining cells). For a cellJj of length at mostπ/K, with
+loss massmj,
+detAJj
+T ≥Q2
+P 2f(uj), u j = Kmj
+Q ∈[0,π]. (25)
+For any disjoint such cells inJ,
+√c≥Q
+P
+∑
+j
+g(uj). (26)
+Proof. The comparison and the identity
+∫
+x<y
+q(x)q(y) sin2(K(y−x)) dx dy = 1
+4
+[
+m2
+j−
+⏐⏐⏐⏐
+∫
+q(x)e2iKx dx
+⏐⏐⏐⏐
+2]
+inserted in (20) prove (25). For positive semidefinite 2×2 matrices A,B,
+√
+det(A +B)≥√
+detA +
+√
+detB. For A ≻0 this follows from tr(A−1/2BA−1/2) ≥2
+√
+det(A−1/2BA−1/2);
+continuity covers singularA. Repeated application, including any additional absorption outside
+the selected cells, proves (26).
+Lemma 4.4(Convexity and a global supporting tangent). The functiong is convex on[0,π/2].
+A tangent at any0<x ≤1/3 lies belowg on all of[0,π].
+Proof. Foru> 0,
+g′′(u) = H(u)
+f(u)3/2, H (u) = 2 sin2uf (u)−(u−sinu cosu)2, H ′(u) = 2f(u) sin(2u).
+Since H(0) = 0, convexity holds on the stated half interval; alsog(0) = g′(0) = 0 by f(u) =
+u4/3 +O(u6). The identity
+f(u) = 4
+∫ u
+0
+(u−v) sin2v dv
+and the chord inequality sinv ≥2v/πimply f(u) ≥4u4/(3π2) there. Moreover f′(u) =
+4
+∫u
+0 sin2v dv≤4u3/3. Thusg′(x)≤πx/
+√
+3. Convexity gives the nonpositive tangent intercept
+g(x)−xg′(x)≤0. Forv∈[π/2,π],
+g(v)
+v ≥
+√
+1−4
+π2 > π
+3
+√
+3≥g′(x).
+The tangent is therefore belowg on this second interval as well. In particular, using Jensen
+indiscriminately on all of[0,π] would be incorrect;g is not convex on that entire interval.
+8
+
+--- PAGE 9 ---
+OQ7: directional absorption asymmetry Audited research manuscript
+Theorem 4.5(Finite resource floor). LetU =KM/Q, and for positive integersn set
+βn = n2Q2
+P 2 f(U/n).
+Then, withnh = max{1,⌈2KL/π⌉},
+c≥βnh≥ 4k4M 4
+3Q2(π+ 2k
+√
+PL )2 > 0. (27)
+With nf = max{1,⌈KL/π⌉}, the stronger bound
+c≥βnf (28)
+holds if U ≤π/2 or U/nf ≤1/3. In particular, for fixed k,P,Q,M , (28) holds for every
+sufficiently largeL, and uniformly over the admissible stacks
+lim inf
+L→∞
+(kL)2c≥π2(kM )4
+3PQ 2 . (29)
+Precisely, every sequence of admissible stacks with budgetsLj→∞and the samek,P,Q,M
+obeys this lower limit withL =Lj.
+Proof. PartitionJ intonh equal cells. Everyuj≤π/2, so(26) and ordinary Jensen givec≥βnh.
+The lower estimate onf in Lemma 4.4 yields
+βnh≥4k4M 4
+3π2Q2n2
+h
+.
+Use nh≤1 + 2KL/πto obtain(27). Fornf, the cells have length at mostπ/K. If U≤π/2,
+every uj still lies in the convexity interval. Otherwise, whenU/nf ≤1/3, sum the global
+supporting tangent at the common meanU/nf. In either case∑g(uj)≥nfg(U/nf). Finally
+nf =KL/π+O(1) andβnf =k4M 4/(3Q2n2
+f) +O(n−4
+f ), which proves(29). A stack shorter than
+L can be enclosed in an interval of lengthL by adding zero-loss vacuum, so the same uniform
+bound applies under a thickness cap.
+Remark 4.6 (Strictness and physical equality). For positive distributed loss these finite resource
+floors are not attained. Inside any positive-loss layer,
+Im(¯ss′)(z) =−k2
+∫ z
+x
+q(v)|s(v,x )|2 dv
+is nonzero after positive propagation. The forcing in the modulus equation is then positive,
+making (23) strict on a positive-measure set of loss pairs within a cell. At least one cell has
+such pairs. This already makes the resulting determinant bound strict. No characterization of a
+finite-L minimizing profile is asserted.
+5 Sharp asymptotic thickness at exact fixed response
+Fix a target in the strict active branch:
+0<T < 1, 0<a< 1−T 2
+2 . (30)
+9
+
+--- PAGE 10 ---
+OQ7: directional absorption asymmetry Audited research manuscript
+Define
+b = 1−T−a, s =
+√
+1−2a, y 0 =s−T, x 0 =
+√
+b2−y2
+0, D 0 = 2x0, α= Ty 0
+sx0
+. (31)
+Here y0,x 0,αare strictly positive, andD0 is the established matrix optimum. LetCL be the
+finite multilayers satisfying(18), total thickness at mostL, transmitted power exactlyT, and
+mean absorptance exactlya. Define
+D∗(L) = sup
+S∈CL
+|AL−AR|
+when the class is nonempty.
+Theorem 5.1(Sharp exact-target asymptotic). For fixedk> 0, P >1, Q,M > 0, and targets
+(30),CL is nonempty for every sufficiently largeL, and
+lim
+L→∞
+(kL)2[D0−D∗(L)] = απ2(kM )4
+3PQ 2 . (32)
+Every finite admissible stack hasD<D 0. The limit is sharp within the stated ordinary dielectric
+class, with exact fixedT,a,M .
+This is the candidate contribution whose priority remains conditional. Its proof below is an
+ordinary mathematical proof, separately checked by two analytical reviewers. Numerical and
+symbolic checks in Section 8 are additional verification.
+5.1 Uniform lower bound on the deficit
+Writex =|AL−AR|/2 and
+F(x) =a2−x2−2T
+(
+b−
+√
+b2−x2
+)
+.
+For every passive matrix, the phase optimization from Section 2 givesTc = detA≤F (x), and
+x≤x0<b . Moreover,
+F (x0) = 0, F ′(x) =−2x
+(
+1 + T√
+b2−x2
+)
+, F ′′(x) =−2− 2Tb 2
+(b2−x2)3/2 < 0.
+The tangent inequality for the concave functionF gives
+F (x)≤[−F′(x0)](x0−x) = sx0
+y0
+(D0−2x).
+Thus the global, not merely local, inequality is
+D0−D≥αc. (33)
+Combine this with the full-cell floor(29) to prove the lower limiting constant in(32), uniformly
+overCL.
+There is also an explicit finite-thickness consequence. Ifβis any valid resource floor from
+Theorem 4.5, feasibility requiresa2≥Tβ, and
+D≤2
+√
+b2−
+(√
+1−2a +Tβ−T
+)2
+. (34)
+This follows by solvingF (x)≥Tβ. It is an elementary determinant-constrained matrix envelope,
+not a separate new matrix theorem and not a claimed sharp finite-thickness Maxwell optimum.
+10
+
+--- PAGE 11 ---
+OQ7: directional absorption asymmetry Audited research manuscript
+5.2 A realizable sequence with the matching coefficient
+Put g0 =kM. For a positive integerm, usem cells of common physical length
+d = π
+k
+√
+P
+.
+Each cell contains a centered lossy slice withε= P +iQ, widthw = M/(Qm), and lossless
+real-P material on both sides. For sufficiently largem, 0<w<d . The integral ofq is exactly
+M, and all material caps hold. This arrangement is a nodal-loss/Borrmann construction, an
+established physical principle [15, 16].
+To compute it exactly, use dimensionless distancekz and the matrices
+A =i
+(
+0 1
+P 0
+)
+, B =−QE21, R = exp
+( πA
+2
+√
+P
+)
+, R 2 =−I.
+Here E21 has its sole nonzero entry in row 2, column 1. Withξ=kw =g0/(Qm), define the
+algebraic factor
+D(ξ) =e−Aξ/2e(A+B)ξe−Aξ/2. (35)
+The physical cell transfer isC =RD(ξ)R, because its spacers have positive dimensionless length
+(π/
+√
+P−ξ)/2. Append one ordinary real-P quarter-wave layer at each end. Then
+RCmR = (−1)m−1D(ξ)m.
+The sign only changes transmission phase, so the stripped core may be taken as
+Fm =D(g0/(Qm))m.
+The negative exponents in(35) are an algebraic factorization; no negative-thickness layer is used.
+The logarithm is analytic nearξ= 0. SinceD(−ξ) =D(ξ)−1, it is odd, and direct multiplication
+of the exponential series gives
+logD(ξ) =ξB+ξ3C3 +O(ξ5), C 3 = 1
+12
+(
+0 −Q
+Q(P + 2iQ) 0
+)
+. (36)
+For completeness the cubic term is also[A, [A,B ]]/24 + [B, [A,B ]]/12, which evaluates to the
+displayed matrix. At fixed parameters,
+m logD(g0/(Qm)) =G +m−2H +O(m−4), G =−g0E21, H = g3
+0
+Q3C3.
+Since G2 = 0, the Fréchet derivative of the exponential yields
+Fm =F0 +m−2J +O(m−4), F 0 =I +G, J =H + 1
+2(GH +HG) + 1
+6GHG. (37)
+In particular,J12 =−g3
+0/(12Q2). Now
+Σ−F†
+0 ΣF0 = diag(2g0, 0).
+The order-m−2 term of the lower-right defect entry is−2 ReJ12 =g3
+0/(6Q2). Therefore
+cm = det(Σ−F†
+mΣFm) = g4
+0
+3Q2m2 +O(m−4). (38)
+This determines the invariant before matching the target powers.
+11
+
+--- PAGE 12 ---
+OQ7: directional absorption asymmetry Audited research manuscript
+5.3 Exact target matching with bounded-index dielectric layers
+Let p0 =√b−x0, r0 =√b +x0, andt0 =
+√
+T. The chosen real matrix optimizer is
+S0 =
+(
+p0 t0
+t0 −r0
+)
+.
+The active-branch identities imply
+r0−p0 = 1−s, T = (1−r0)(1 +p0).
+Its field transfer is triangular:
+Ftarget =
+(
+A0 0
+−h0 A−1
+0
+)
+, A 0 = 1−r0
+t0
+∈(0, 1), h 0 = r0−p0
+t0
+> 0.
+With Λ(sj) = diag(sj,s−1
+j ), choose
+s2
+L,0 = A0h0
+g0
+, s 2
+R,0 = A0g0
+h0
+. (39)
+Then Λ(sR,0)F0Λ(sL,0) =Ftarget.
+For a transformed limiting sheet, put
+A =sLsR, h =g0sL/sR, v =A +A−1.
+Its response is exactly
+T = 4
+(v +h)2, a = 2hv
+(v +h)2. (40)
+The target hasv−h = 2s/t0> 0. The Jacobian determinant of the response with respect tov,h
+is
+det∂(T,a )
+∂(v,h ) =−16(v−h)
+(v +h)5 ̸= 0.
+Also dv/dA = 1−A−2̸= 0 at A0< 1, while
+det ∂(A,h )
+∂(logsL, logsR) =−2Ah̸= 0.
+The response map is therefore locally nonsingular.
+To apply the implicit function theorem without treating the integerm as continuous, setτ= 1/m
+and analytically extend
+F(τ) = exp
+[
+τ−1 logD((g0/Q)τ)
+]
+through τ= 0. The expansion(36) makes the extension analytic, withF(0) =F0 and leading
+correction O(τ2). The real implicit function theorem supplies positive real ratios
+sL(m) =sL,0 +O(m−2), s R(m) =sR,0 +O(m−2)
+for which both actual powersT,a are exactly the targets for every sufficiently large integerm.
+These diagonal transformations are physically implementable within(18). A quarter-wave layer
+of real refractive indexn has transfer
+(
+0 i/n
+in 0
+)
+. Two consecutive such layers with indicesn1,n 2
+give
+−diag(n1/n2,n 2/n1).
+12
+
+--- PAGE 13 ---
+OQ7: directional absorption asymmetry Audited research manuscript
+For any fixed ratios> 0, choose an integerj with|logs|/j <1
+2 logP, and set
+n1 =P 1/4e(logs)/(2j), n 2 =P 1/4e−(logs)/(2j).
+Both indices lie strictly in(1,
+√
+P ). Repeating this pairj times implementsΛ(s), up to a harmless
+sign. The strict inequalities persist under the small implicit-function adjustments. Thus a fixed
+finite number of passive, lossless dielectric layers realizes both matching networks smoothly, with
+total thicknessO(1/k) uniformly inm. No ideal transformer or singular surface is left in the
+physical stack. Coating invariance preserves (38) exactly.
+5.4 Converting the invariant coefficient to the optimal deficit
+After removing the harmless transmission sign, the matched scattering matrix converges toS0
+at orderm−2. All three limiting entries are nonzero. To avoid the branch discontinuity of a
+principal complex argument, define the unit complex number
+ζ= rLrR¯t 2
+T|rLrR|.
+Then ζ+ 1 =O(m−2), and the exact determinant identity is
+detA =F(x)−2T
+√
+b2−x2(1 + Reζ).
+Since|ζ|= 1, the phase penalty equalsT|rLrR||ζ+ 1|2 =O(m−4). Taylor expansion aboutx0,
+using F′(x0) =−2x0s/y0̸= 0, and (38) therefore gives
+D0−Dm =αcm +O(m−4) = αg4
+0
+3Q2m2 +O(m−4). (41)
+Including all spacers and matching layers, the physical thickness is
+kLm = πm√
+P
++O(1). (42)
+Choose a dimensionless constantC such thatkLm−πm/
+√
+P≤C for all sufficiently largem.
+For each large budgetL, choose
+m(L) =
+⌊√
+P (kL−C)
+π
+⌋
+.
+The corresponding stack fits withinL, m(L)/(kL)→
+√
+P/π, and it realizes the exact targets.
+Equation (41) proves the upper limiting constant in(32). Together with the uniform lower
+bound, this proves Theorem 5.1 for all large thickness budgets, not only a subsequence.
+Corollary 5.2(Asymptotic minimum thickness). LetLmin(η) be the infimum of thicknesses of
+admissible stacks withD≥D0−η, keeping all material resources and target powers fixed. Then,
+as η↓0,
+kLmin(η)∼π(kM )2
+Q
+√ α
+3Pη. (43)
+Proof. The positive finite-thickness floor forcesLmin(η)→∞. The two matching asymptotic
+estimates for D0−D∗(L), with arbitrarily small relative slack, can then be inverted. The
+constructed family supplies the upper estimate even if the supremum at a particularL is not
+attained.
+There is no finite-stack equality in(32)’s underlying active matrix ceiling; equality here means
+the optimal asymptotic coefficient of a supremum. The construction usesm lossy slices and
+O(m) layers after merging adjacent identical spacers. It does not prove a minimum layer count,
+nor classify every asymptotically extremizing profile.
+13
+
+--- PAGE 14 ---
+OQ7: directional absorption asymmetry Audited research manuscript
+6 General channels, sharp extinction bounds, and a vector
+Maxwell counterexample
+6.1 The incident field and its time reverse
+At a fixed positive frequency, let the incoming and outgoing propagating channels be complete
+and power normalized. Incoming and outgoing bases are paired by physical time reversal. In
+these coordinates reciprocity isST =S, and passivity isS†S⪯I. All radiation, polarization,
+and guided channels that can carry energy away must be included; an omitted radiation channel
+is not material absorption. LetS0 be the scattering matrix of a specified lossless reciprocal
+reference background, so thatS†
+0S0 =I and ST
+0 =S0.
+For a unit incoming vectoru, the incident background solution has outgoing coefficientsS0u.
+Reversing that entire background solution therefore gives the incoming vector
+J0u =S0u =S†
+0¯u. (44)
+The antiunitaryJ0 is an involution. In general, it is not obtained by merely selecting an arbitrary
+second port. For plane waves in vacuum,(E, H) reverses to(E∗,−H∗); propagation reverses and
+electric polarization is conjugated. For a lossy reciprocal scatterer, the resulting total scattered
+field is not the time reverse of the original total field.
+Define dimensionless absorption, scattering, and extinction by
+A(u) = 1−∥Su∥2,
+C(u) =∥(S−S0)u∥2,
+X(u) = 2 Re⟨S0u, (S0−S)u⟩=A(u) +C(u). (45)
+Here the Hermitian inner product is conjugate linear in its first argument. These are powers
+dividedbytheincomingpower, notthetotaloutgoingpower ∥Su∥2, whichincludestheunscattered
+incident wave.
+Proposition 6.1(Extinction reciprocity; established). Under the preceding assumptions,
+X(J0u) =X(u), A (u)−A(J0u) =−
+[
+C(u)−C(J0u)
+]
+.
+Proof. Writingv =J0u, one hasS0v = ¯u, and transposing a scalar gives
+⟨S0v,Sv⟩=uTSS†
+0¯u =u†(S†
+0)TSTu =u†S†
+0Su =⟨S0u,Su⟩.
+The penultimate equality uses both reciprocal symmetries. Substitution into(45) proves the
+result. The same proof applies to bounded operators on a Hilbert channel space when transpose
+is defined by the channel conjugation. It is the channel form of the established optical-theorem
+argument of Sounas and Alù [2, 1].
+For finite-power wave packets or guided inputs, these normalizations apply directly. A plane
+wave on an infinite planar slab has infinite total power; there we use all powers per transverse
+area, divided by the incident flux per area. The specular plane-wave channels still obey(45). A
+cross section for a compact three-dimensional body, divided by incidentintensity, has units of
+area and is a different normalization. The dimensionless bound below must not be applied to
+such a cross section without specifying an appropriate channel normalization or effective area.
+14
+
+--- PAGE 15 ---
+OQ7: directional absorption asymmetry Audited research manuscript
+6.2 A sharp bound at fixed common extinction
+Theorem 6.2 (Channel extinction tradeoff; direct passivity consequence). For a reciprocal
+passive scattering operator, lossless reciprocal reference, and unit inputu, let v = J0u and
+X =X(u) =X(v). Then
+0≤X≤4, |A(u)−A(v)|=|C(u)−C(v)|≤X−X 2
+4 . (46)
+For everyX∈[0, 4], this is attained by an abstract reciprocal passive three-port and an orthogonal
+reversed pair. For0<X < 4, equality holds if and only if, after interchangingu,v if needed,
+Su =
+(
+1−X
+2
+)
+S0u, ∥Sv∥= 1. (47)
+AtX = 0 both inputs satisfySu =S0u; atX = 4 both satisfySu =−S0u, with the corresponding
+assertion forv. Their absorptions then vanish.
+Proof. Set z =⟨S0u,Su⟩. Since ∥S0u∥= 1 and S is a contraction,|z|≤∥Su∥≤1. Hence
+0≤X = 2(1−Rez)≤4 and
+0≤A(u) = 1−∥Su∥2≤1−|z|2≤1−(Rez)2 =X−X 2/4.
+The same upper bound holds forA(v), and two numbers in[0,B ] differ by at mostB. Equality
+for B >0 requires one number to equalB and the other to vanish. Equality in the two Cauchy–
+Schwarz steps is exactly(47); this proves necessity and sufficiency. The endpoint statements
+follow from|z|≤∥Su∥≤1.
+For sharpness sett = 1−X/2, s =
+√
+1−t2, and
+S =
+
+
+0 t 0
+t 0 s
+0 s 0
+
+, S 0 =
+
+
+0 1 0
+1 0 0
+0 0 1
+
+. (48)
+The defect is the positive semidefinite rank-one matrix
+I−S†S = (s, 0,−t)T (s, 0,−t),
+so S is reciprocal and passive. Foru =e1, v =e2 =J0u,
+A(u) = 1−t2, A (v) = 0, X (u) =X(v) = 2(1−t).
+This attains (46).
+The proof uses only the familiar single-input absorption–scattering constraint and extinction
+symmetry. It is an established consequence, not a claim of a new reciprocity inequality. Its
+usefulness here is the exact choice of normalization and the sharp comparison with a physical
+class. A symmetric unitary dilation of (48) is
+U =
+
+
+0 t 0 s
+t 0 s 0
+0 s 0 −t
+s 0 −t 0
+
+.
+Terminating its fourth port in a matched absorber yields the three-port matrix. This is an
+ideal network realization; the following subsection gives a finite-coefficient Maxwell construction
+instead.
+15
+
+--- PAGE 16 ---
+OQ7: directional absorption asymmetry Audited research manuscript
+An additional elementary restriction concerns the illumination pair itself: forρ=|⟨u,J 0u⟩|,
+|A(u)−A(J0u)|≤
+√
+1−ρ2. (49)
+Indeed B = I−S†S satisfies 0⪯B⪯I. The rank-two Hermitian operatoruu†−vv†has
+its nonzero eigenvalues equal to±
+√
+1−|⟨u,v⟩|2. Taking its trace againstB proves (49). This
+explains why a self-time-reversed incident field has zero asymmetry. No claim is made that the
+minimum of (49) and (46) is jointly sharp for every prescribed overlap.
+6.3 The scalar two-port contrast constant
+The full fixed-extinction envelope of the scalar problem is also elementary. ForX∈[0, 4], define
+τ=|1−X/2|, q X = 1 +
+√
+1 + 8τ2
+4 .
+Then the sharp scalar two-port value is
+D2(X) = 4√qX(1−qX)3/2. (50)
+To verify this, use the real contraction reduction in the proof below. For transmission magnitude
+σ, its attainable contrast is at most4(1−q)
+√
+q2−σ2, withσ≤q≤1. FixedX implies σ≥τ;
+increasing σboth reduces the integrand and shrinks the feasible interval. Therefore the best
+choice is the real transmissiont = 1−X/2. Maximizing overq∈[τ,1] yields 2q2−q−τ2 = 0,
+hence q =qX. At that pointq2−τ2 =q(1−q), proving (50). Sharpness follows from
+w = 1−qX, d =
+√
+qX(1−qX), S =
+(
+w +d 1−X/2
+1−X/2 w−d
+)
+.
+Here qX≥1/2 ensures d≥w, and the eigenvalues are1 and 1−2qX. The endpoint values
+X = 0, 4 follow by continuity or direct substitution. This envelope is another direct slice of the
+established two-port feasible set, and is symmetric underX↦→4−X.
+Theorem 6.3 (Free-resource two-port contrast; established feasible-set consequence). For a
+reciprocal passive scalar two-port in vacuum-reference coordinates,
+S =
+(
+rL t
+t r R
+)
+, S 0 =
+(
+0 1
+1 0
+)
+,
+and forX = 2(1−Ret)> 0,
+|AL−AR|
+X ≤γ2 :=
+√
+10
+√
+5−22 = 0.6005662120.... (51)
+Let q = (
+√
+5−1)/2, w = 1−q = q2, and d = q
+√
+1−q2. All equality matrices are, up to
+interchange of the two ports,
+S =
+(
+(w +d)eiϕ q2
+q2 (w−d)e−iϕ
+)
+, ϕ ∈R. (52)
+Proof. Let τ=|t|, R = max(|rL|,|rR|), andr = min(|rL|,|rR|). Passivity implies that the real
+symmetric matrix ˜S =
+(R τ
+τ−r
+)
+is also a contraction. To see this, the diagonal entries ofI−˜S2 are
+the original absorption diagonals, up to their order, while the magnitude of its off-diagonal entry
+is τ(R−r). The reverse triangle inequality bounds this by the original off-diagonal magnitude
+|¯rLt + ¯trR|. The two-by-two determinant criterion therefore preserves positive semidefiniteness.
+16
+
+--- PAGE 17 ---
+OQ7: directional absorption asymmetry Audited research manuscript
+Put w = (R−r)/2, d = (R +r)/2, andq =
+√
+d2 +τ2. The eigenvalues of ˜S are w±q, so
+w +q≤1, and|AL−AR|= 4wd. Cases with zero contrast are immediate. Otherwise0<q < 1,
+τ <1, and, writingc =τ/q,
+|AL−AR|
+X ≤2wd
+1−τ≤2q(1−q)
+√
+1−c2
+1−qc ≤2q
+√
+1−q
+1 +q.
+The last inequality follows by squaring, since
+(1−qc)2−(1−c2)(1−q2) = (c−q)2≥0.
+The square of the final expression ish(q) = 4q2(1−q)/(1 +q), and
+h′(q) = 8q(1−q−q2)
+(1 +q)2 .
+It has a unique maximum atq = (
+√
+5−1)/2, withh(q) = 10
+√
+5−22. Equality requires successively
+t =τ >0, w = 1−q, c =q, and this value ofq. At these magnitudes the positive-semidefinite
+defect has zero determinant. Thus the original reflection phases must attain reverse-triangle
+equality, namelyrLrR is negative real. This gives exactly(52). Direct substitution establishes
+sufficiency.
+This is a further optimization of the established two-port feasible region [4]; it should not be
+presented as an independent new fundamental law. Its strict difference from the multichannel
+supremum 1 is significant: permitting polarization conversion changes the resource-free answer
+even before introducing a more complicated spatial geometry.
+There is also a phase issue when using dielectric stacks to approach this constant. Letˆt be
+transmission between the two physical boundary planes of a stack of thicknessL. The coefficient in
+Theorem 6.3 ist =e−ikLˆt. Appending a vacuum spacer cannot change this reference-normalized
+phase. It can instead be adjusted with bounded thickness as follows. For any index capP >1,
+choose a positive integerm satisfying m(1−1/
+√
+P )≥2. An isotropic lossless slab with
+1≤n≤
+√
+P, d = mπ
+kn
+is reflectionless at the working frequency, has port transmission(−1)m, and multiplies normalized
+transmission by
+eimπ(1−1/n).
+Asn varies, this phase covers a full circle;d≤mπ/k. The slab adds no absorption and preserves
+absorbed, reflected, and transmitted powers. It can change reference-relative scattered power
+and extinction; that phase-sensitive change is its purpose here. Consequently the ordinary
+mathematical dielectric construction of Theorem 5.1, applied to the interior target
+T =q4, a = 4q−2,
+and followed by this phase adjustment, approaches(51) with the same fixed material caps and
+loss budget. The target is in the strict active branch:a >0 and 1−T 2−2a =q7 > 0. This
+physical sharpness statement depends on the full physical hypotheses and proof of Theorem 5.1,
+not merely on any declaration with a similar name in Lean.
+17
+
+--- PAGE 18 ---
+OQ7: directional absorption asymmetry Audited research manuscript
+6.4 An exact two-layer vector Maxwell construction
+Theorem 6.4 (Finite-coefficient planar realization and limiting sharpness). Fix k >0. For
+every−1 < t <1, η >0, and h > 0, there is a normal-incidence reciprocal nonmagnetic
+planar structure comprising two homogeneous anisotropic dielectric layers, with identical vacuum
+exteriors, such that oppositey-polarized plane waves satisfy
+AL = 0, A R = (1−t2)Ax(η,kh)> 0, X L =XR = 2(1−t). (53)
+The real permittivity eigenvalues lie in[1, 4]; the imaginary permittivity is positive semidefinite,
+with its nonzero eigenvalue equal toηin the first layer. Every layer has finite thickness and
+finite coefficients. Moreover, choosingηm = 1/m and khm =m2 gives Ax(ηm,khm)→1. Thus
+for every prescribed0<X < 4, the supremum of|AL−AR|over this physical class is exactly
+X−X 2/4. The supremum of|AL−AR|/X, withX >0 free, is1.
+Proof. Use the time conventione−iωt, relative permeabilityµ=I, and transverse coordinates
+(x,y ). The first, absorbing layer has thicknessh and relative permittivity
+ϵA = diag(1 +iη,1, 1).
+Its two transverse polarizations decouple. They polarization sees exact vacuum, whereas thex
+polarization sees a scalar slab of indexn =√1 +iη, with Ren> 0 and Imn> 0.
+Fors =
+√
+1−t2, set
+V =
+(
+−t s
+s t
+)
+, ϵ W,⊥= 5I2−3V
+2 , ϵ W,zz = 1,
+with zero transverse–longitudinal entries. The second, lossless layer has thicknessd =π/k. Since
+VT =V andV 2 =I2, its transverse permittivity eigenvalues are4 and 1, with eigenindices2 and
+1. Their optical phases are2πand π. A finite isotropic slab between identical vacuum media
+has zero reflection at each integer multiple ofπ, independently of its impedance. Diagonalizing
+this anisotropic slab therefore gives zero reflection for every transverse polarization and port
+transmission
+H =−V.
+Its vacuum-reference transmission ise−ikdH =V. This is an exact Fabry–Pérot half-wave plate,
+not a zero-reflection approximation.
+For completeness, the scalar absorbing-slab coefficients are
+r0 = 1−n
+1 +n, p =einkh, r A = r0(1−p2)
+1−r2
+0p2 , τA = (1−r2
+0)p
+1−r2
+0p2 , A x = 1−|rA|2−|τA|2. (54)
+These follow by continuity ofE and E′at the two interfaces. SinceRen> 0, one has|r0|< 1;
+also|p|< 1. The denominator in(54) is therefore nonzero, andτA̸= 0. The exact flux identity is
+Ax =kη
+∫ h
+0
+|Ex(z)|2dz.
+It impliesAx> 0: if the integral were zero, continuity would giveEx = 0 throughout the layer,
+and interface continuity would require both1 +rA = 0 and 1−rA = 0 for a unit incident wave,
+a contradiction. AlsoAx< 1, sinceτA̸= 0.
+There are four accessible channels, ordered as(Lx,Ly,Rx,Ry ). Put
+R = diag(rA, 0), D = diag(τA,eikh).
+18
+
+--- PAGE 19 ---
+OQ7: directional absorption asymmetry Audited research manuscript
+Because the wave plate is exactly reflectionless, composing the two layers produces the exact
+four-port scattering matrix
+S =
+(
+R DH
+HD HRH
+)
+, S 0 =eik(h+d)
+(
+0 I2
+I2 0
+)
+. (55)
+The symmetry of this matrix is explicit, and passivity follows either from layerwise flux balance
+or from the Maxwell flux identity withℑϵ⪰0.
+A left incidenty wave is unchanged in the absorbing layer, and the lossless plate only changes
+its polarization: AL = 0. A right incident y wave first crosses the plate, which produces
+Hey =−sex−tey. Only itsx component is absorbed, soAR =s2Ax. The co-polarized boundary-
+plane transmission in both directions is−teikh. Relative to vacuum propagation throughh +d,
+this is
+e−ik(h+d)(−teikh) =t.
+Consequently both extinctions are exactly2(1−t), proving(53). This calculation retains the
+incident reference phase; treating the port transmission as the normalized transmission would be
+incorrect.
+It remains to establish the limit without replacing the slab by an ideal polarizer. Asm→∞,
+nm =
+√
+1 +i/m→1, r 0,m→0, m ℑnm = 1
+2 Renm
+−→1
+2.
+The middle identity follows from2 Renmℑnm = 1/m. Hence|pm|= exp[−m2ℑnm]→0. In
+(54), the denominator tends to1, whilerA,m→0 and τA,m→0. Thus Ax,m→1. For fixed
+t = 1−X/2, equation (53) now gives
+|AL−AR|−→1−t2 =X−X 2/4,
+which matches the universal upper bound. Finally taketm = 1−1/m, withm≥2. Then
+|AL−AR|
+X = 1 +tm
+2 Ax,m−→1.
+Every member of either sequence is a finite-thickness Maxwell system with finite, passive,
+reciprocal material coefficients.
+This example supplies a rigorous realization of the multichannel envelope with ordinary anisotropic
+electric permittivity and two finite layers. The basic use of a polarizer followed by a reciprocal
+polarization transformer is established polarization optics; no priority claim for that mechanism
+is made. The construction is a useful exact synthesis and a counterexample to overgeneralizing
+the scalar theorem. Its transverse extent is infinite; it does not establish the same sharpness for
+compact three-dimensional bodies.
+The real-permittivity ceiling 4 is not essential. For any prescribedP > 1, choose a positive
+integerj such thatpj = [2j/(2j−1)]2≤P, and instead set
+ϵW,⊥= pj + 1
+2 I2−pj−1
+2 V, d = (2j−1)π
+k .
+Its eigenindices are2j/(2j−1) and 1, with phases2jπand (2j−1)π. It has exactly the same
+port transmission−V, zero reflection, and normalized transmissionV. All preceding observables
+and limits remain valid with real permittivity eigenvalues in[1,P ]. The increased plate thickness
+is a fixed cost depending onP, independent of the approximation indexm.
+19
+
+--- PAGE 20 ---
+OQ7: directional absorption asymmetry Audited research manuscript
+The point values used here admit passive causal dispersion. At the working frequencyω0, the
+absorber valueϵx = 1 +iηis obtained from
+ϵx(ω) = 1 + F
+ω2
+0−ω2−iγω, F =ηγω0, γ >0.
+For the wave plate, an ideal lossless Lorentz oscillator with a poleΩ >ω0 and positive strength
+F = 3(Ω 2−ω2
+0) gives the eigenvalue4 atω0; the other eigenvalue is vacuum. Thus the construction
+does not require assigning a constant complex permittivity over all frequencies. The material
+bounds and sharpness asserted here hold at the working frequency, not over a finite band or at
+the separate lossless oscillator pole.
+6.5 Finite-power beams: retaining the same sharp supremum
+Corollary 6.5(Finite-power version of the planar construction). For every0<X < 4, laterally
+infinite stacks of the preceding form admit unit-power incident beams and their background
+time reverses with exactly that common extinction and with absorption difference approaching
+X−X 2/4. Consequently their relative absorption contrast has supremum1 when extinction is
+also free. This statement concerns finite incident power, while retaining the laterally infinite
+material geometry.
+Proof. We give the continuity argument explicitly, since a plane wave is not a unit vector in a
+finite-power channel space. A planar stack conserves transverse wavevectorκ= (κx,κy). For
+|κ|< k, putkz =
+√
+k2−|κ|2, κ⊥= (−κy,κx), andBκ=I2−κκT/k2. Since our tensors have
+ϵzz = 1, no transverse–longitudinal coupling, andµ= I, Maxwell’s equations for the state
+(Ex,Ey,Hy,−Hx)T reduce within each layer to
+d
+dz
+(
+Et
+Ht
+)
+=ik
+(
+0 Bκ
+ϵ⊥−κ⊥κT
+⊥/k2 0
+) (
+Et
+Ht
+)
+.
+Each layer transfer is therefore a finite matrix exponential, continuous inκand in the plate
+angle. Vacuum admits the positive admittance matrixYκ= (kz/k)B−1
+κ. The bases
+Et =
+√
+2Y−1/2
+κ a, H t =±
+√
+2Y 1/2
+κ a
+give power∥a∥2 and depend smoothly onκnear zero. They use fixed laboratory axes; an
+azimuth-dependent TE/TM basis, which is singular at normal incidence, is unnecessary.
+The transfer-to-scattering denominator is invertible for real|κ|<k . Indeed, a nonzero null vector
+would give a solution with no incoming waves and only outgoing waves. Flux balance says its
+outgoing power plus nonnegative dissipated power is zero, so both outgoing amplitudes vanish.
+The zero boundary state and uniqueness of the finite-dimensional linear ODE then force the
+whole solution to vanish. Thus the four-port scattering matricesS(κ,θ), their lossless references,
+and their power observables are continuous near normal incidence. They are contractions. Here
+t = cos 2θ, with 0<θ<π/2.
+Choose f∈L2(R2), supported in the unit disk, with
+∫
+|f|2 = 1, and take the left incoming
+angular spectrumfσ(κ)ey = σ−1f(κ/σ)ey, with 0 < σ < k. Its background time reverse has
+right incident spectrum
+e−ikz(h+d)fσ(−κ)ey.
+The sign reversal ofκand the background phase are part of time reversal. Parseval’s identity
+and transverse translation invariance express each power as the integral of its fiber power against
+|fσ|2. Changing variablesκ= σpand using the continuity just proved shows that the beam
+observables converge to(53) as σ↓0. For each fixedη,h, this convergence is uniform over any
+20
+
+--- PAGE 21 ---
+OQ7: directional absorption asymmetry Audited research manuscript
+compact plate-angle interval, by uniform continuity on a compact neighborhood ofκ= 0. No
+uniform estimate in growingh or vanishingηis used.
+For exact target matching, writeX = 2(1−cos 2θ0), where 0 < θ0 < π/2. Choose shrinking
+intervals [θ0−δm,θ0 +δm] inside that open interval. Their normal-incidence extinctions strictly
+bracket X, because the derivative is4 sin 2θ >0. For each fixed slabηm = 1/m,khm = m2,
+chooseσm> 0 small enough that the beam extinctions retain these endpoint inequalities and the
+three power observables are within1/m of their normal values uniformly over the angle interval.
+Continuity and the intermediate value theorem giveθm in the interval with beam extinction
+exactly X. Extinction reciprocity supplies the same value for the reversed beam. Sinceθm→θ0
+and Ax,m→1, the absorption difference tends toX−X 2/4. A diagonal sequence over fixed
+targetsXj↓0, choosing the absolute approximation erroro(Xj), proves that the relative contrast
+has supremum1.
+6.6 Resource accounting and what the counterexample rules out
+For the sequence in Theorem 6.4, the resources per transverse area are
+λmin(Reϵ)≥1, λmax(Reϵ)≤4, ∥ℑϵ∥≤1
+m, kL m =m2 +π, k
+∫
+tr(ℑϵ)dz =m. (56)
+For the arbitrary-cap variant, replace the upper real-permittivity bound4 by P and kLm by
+m2 + (2j−1)π. Thus material magnitudes are uniformly bounded, while both thickness and
+integrated loss grow. Any fixed positive loss capQ is respected for all sufficiently largem.
+The construction does not contradict a theorem that fixes the integrated loss and thickness
+simultaneously.
+A different obstruction already occurs atone fixed finiteη,h,t, without taking any limit. The
+absorption matrix restricted to the two reversedy-polarized inputs is
+(
+0 0
+0 (1 −t2)Ax
+)
+.
+The off-diagonal entries vanish because the full absorption matrix is positive semidefinite and its
+left y diagonal is zero. Its determinant is exactly zero despite a positive amount of dissipative
+material, positive absorption in one direction, and finite geometry and coefficients. Indeed for
+any prescribedM >0, choose a finiteη >0 and h =M/η, giving
+∫
+tr(ℑϵ)dz =M. Therefore a
+direct vector analogue of the scalar positive Gram-determinant floor is false under a mere upper
+bound on material loss and a positive total loss budget. The missing hypothesis is control of
+loss-free field subspaces and their coupling to the illumination, not just more careful thickness
+accounting.
+For these same finite structuresAL = 0<A R. Consequently no finite universal absorption ratio
+AR/AL exists under the stated general semidefinite-loss assumptions. If a ratio is defined only
+when its denominator is positive, add arbitrarily small loss in they permittivity of the first layer.
+Continuous dependence of the explicit slab coefficients makesAL↓0 while AR tends to the
+positive value above; hence the ratio is still unbounded among systems with both absorptions
+positive. Each perturbed system remains reciprocal and passive.
+When common extinction is fixed, the bound|AL−AR|/X≤1−X/4 is nontrivial and sharp in
+the multichannel planar class. The supremum1 without a fixed extinction is approached above
+as X↓0; it must not be described as near-unit absolute absorption at simultaneously negligible
+extinction. Att = 0, by contrast, the absolute absorption difference approaches1, with fixed
+extinction X = 2 and normalized difference approaching1/2.
+21
+
+--- PAGE 22 ---
+OQ7: directional absorption asymmetry Audited research manuscript
+Scope of the resolution. The dimensionless fixed-extinction problem is completely resolved
+for abstract reciprocal channels and is sharply realizable in the full-vector planar class just
+described. A uniform improvement over the trivial relative contrast1, or a finite absorption-ratio
+bound, is ruled out for any class containing these systems. This does not establish compact-body
+three-dimensional cross-section bounds, a uniform result for strictly coercive loss with fixed
+resources, or a finite-bandwidth law. The scalar inverse-square result in Section 5 is not asserted
+to survive those changes.
+Numerical validation, not a substitute for proof.The scriptvector_counterexample.py
+evaluates(54)–(55) with NumPy and SciPy. For moderate thicknesses it independently constructs
+theexactfour-by-fourMaxwellfundamentalmatrixas exp[ikd
+(
+0 I
+ϵ⊥ 0
+)
+]andconvertsittoscattering
+coefficients. Eight comparisons give a maximum matrix-entry discrepancy below10−15. Large-
+thickness limits use the exact stable slab formulas to avoid the ill-conditioning of exponentially
+growing transfer solutions. Atm = 128,t = 1/2, it findsX = 1, AL = 0, AR = 0.7499971390,
+against the sharp upper value0.75. Atm = 128,t = 1−1/m, the relative contrast is0.9960899503.
+The proof above, rather than these floating-point calculations, establishes the inequalities, exact
+zeros, and limits.
+7 A sharp joint bound with prescribed time-reversal overlap
+The separate inequalities∆ ≤X−X 2/4 and ∆ ≤
+√
+1−ρ2, whereρ=|⟨u,J 0u⟩|, do not give
+the sharp joint bound when0<ρ<1. We solve the resulting abstract operator problem below.
+The proof is an explicit positive-matrix certificate and makes no Maxwell-realizability claim for
+its equality operators. Priority of this particular joint tradeoff remains unestablished; it must
+not be described as new on the strength of a limited literature search.
+Theorem 7.1(Prescribed-overlap channel tradeoff). Fix 0<ρ<1, 0≤X≤4, and put
+dρ=
+√
+1−ρ2, r =|1−X/2|.
+Consider all reciprocal passive scattering operators on channel spaces of arbitrary dimension, all
+lossless reciprocal reference operators, and all unit inputs satisfying|⟨u,J 0u⟩|=ρand common
+extinction X. The maximum absorption difference is
+∆ ρ(X) =
+
+
+
+dρ, 0≤r≤ρ/2,
+dρ(1−λ2)
+√
+1−c2, ρ/2<r<ρ,
+1−r2, ρ ≤r≤1,
+(57)
+where, in the middle branch,c is the unique number in(0,ρ) satisfying
+r = ρ+c−2ρc2
+2−ρc−c2 , λ = c(ρ−c)
+2−ρc−c2. (58)
+Two channels suffice in the first and middle branches; three suffice in the last branch. The
+formulas agree continuously at both transitions.
+7.1 Canonical coordinates and a valid compression
+First take referenceS0 =I, so the reverse is complex conjugation. A unit input and its conjugate
+can, after a global phase and a real orthogonal basis change, be written
+u =pe1 +iqe2, ¯u =pe1−iqe2, p 2 = (1 +ρ)/2, q 2 = (1−ρ)/2.
+22
+
+--- PAGE 23 ---
+OQ7: directional absorption asymmetry Audited research manuscript
+Indeed a phase makesuTu =ρreal and nonnegative; writingu =x +iy then givesx·y = 0,
+∥x∥2 =p2, and∥y∥2 =q2. For a general lossless reciprocal reference, an orthonormal basis fixed
+by its antiunitary involutionJ0 gives this same form. Equivalently, in finite dimensions, Takagi
+factorization changesS0 to identity by a unitary congruence. These basis changes preserve
+reciprocity, powers, extinction, and overlap.
+Apply the further unitary congruence withP = diag(1,i, 1,...). In the new coordinates the
+reference on the input plane isJ = diag(1,−1), and the two incident vectors are real:
+a = (p,q )T, b = (p,−q)T =Ja.
+Let ˆS denote the full scattering operator in these coordinates, and letι: R2 →Hbe the
+coordinate inclusion. Define real symmetric two-by-two matrices
+B = Re(ι†ˆSι), Q = Re(ι†ˆS†ˆSι), W =
+(
+(1 +ρ)/2 0
+0 −(1−ρ)/2
+)
+. (59)
+The transpose symmetry ofˆS makesB symmetric. For every real vectorx,
+∥Bx∥2≤∥ι†ˆSιx∥2≤∥ˆSιx∥2 =xTQx≤∥x∥2.
+The first inequality follows by discarding the imaginary part of the output. Consequently
+B2⪯Q⪯I2. (60)
+This is a necessary relaxation for every number of channels; no claim that every such pair admits
+a reciprocal completion is needed.
+Symmetry cancels the off-diagonal term in the forward overlap:
+1−X/2 = Re⟨Ja, ˆSa⟩= tr(WB ), |A(a)−A(b)|= 4pq|Q12|= 2dρ|Q12|.
+Replacing ˆS by−ˆS changes the sign of the first quantity and leavesQ fixed. Congruence by
+diag(1,−1) interchanges a,b, preservesW, and changes the sign ofQ12. Thus it suffices to
+analyze
+r = tr(WB )≥0, h =Q12≥0, ∆ = 2dρh. (61)
+7.2 A sum-of-squares certificate for the middle branch
+Fix 0<c<ρ, and abbreviate
+s =
+√
+1−c2, D = 2−ρc−c2, λ = c(ρ−c)
+D .
+HereD> 0 and 0<λ<1. LetO be the real rotation byθ∈(0,π/4) with cos 2θ=c, sin 2θ=s,
+and set
+B0 =O
+(
+1 0
+0 λ
+)
+OT, Q 0 =B2
+0, r 0 = tr(WB 0), h 0 = (Q0)12. (62)
+Direct calculation gives
+r0 = ρ+c−2ρc2
+D , h 0 = 1−λ2
+2 s.
+To prove optimality over the full relaxation(60), defineE =
+( 0 1 /2
+1/2 0
+)
+, so tr(EQ) =Q12, and
+defineZ in the eigenbasis ofB0 by
+OTZO =
+(
+(ρ+c)/4 −s/[2(1 +λ)]
+−s/[2(1 +λ)] ( ρ−c)/(4λ)
+)
+, ν =− s
+(1 +λ)c < 0. (63)
+23
+
+--- PAGE 24 ---
+OQ7: directional absorption asymmetry Audited research manuscript
+All ingredients of the certificate can be checked explicitly:
+detZ = D(ρ−c)
+16c(1−c2) > 0, Z ≻0,
+B0Z +ZB0 =W,
+H :=Z−νE=δO
+(
+1 0
+0 0
+)
+OT⪰0, δ = ρ+c
+4 + s2
+2(1 +λ)c > 0. (64)
+For example, the lower-right entry of the last identity uses exactly
+(ρ−c)(1 +λ)c = 2λ(1−c2),
+which is equivalent to the definition ofλ. The off-diagonal entry follows fromOTEO having
+off-diagonalc/2.
+For any feasible real symmetricB,Q, expand a nonnegative square:
+0≤tr
+[
+(B−B0)Z(B−B0)
+]
+= tr(ZB 2)−tr(WB ) + tr(ZB 2
+0).
+Since B2⪯Q⪯I, Z⪰0, andH⪰0,
+tr(WB )≤tr(ZQ) + tr(ZB 2
+0)
+= tr(HQ) +νh+ tr(ZB 2
+0)
+≤tr(H) +νh+ tr(ZB 2
+0) =r0 +ν(h−h0). (65)
+The final equality holds becauseH(I−Q0) = 0 and tr(WB 0) = 2 tr(ZB 2
+0). If r = r0, the
+negativity ofνforcesh≤h0. The reciprocal contractionˆS =B0 in two channels attains equality.
+Transforming back byP−1 gives a complex symmetric contraction with reference identity.
+It remains to verify that the parameter covers the middle strip once. Withr0(c) = (ρ+c−2ρc2)/D,
+r0(0) =ρ/2, r 0(ρ) =ρ, r′
+0(c) = 2 +ρ2−6ρc+ (1 + 2ρ2)c2
+D2 > 0.
+The numerator decreases on[0,ρ] and its value atρis 2(1−ρ2)2> 0. Thus everyρ/2<r<ρ
+has a uniquec∈(0,ρ), proving the middle branch of (57). An explicit stable expression is
+c = 2(2r−ρ)
+1 +ρr+
+√
+(1 +ρr)2−4(2ρ−r)(2r−ρ).
+Middle-branch equality. For the fixed sign conventionsr> 0,h> 0, equality in(65) implies
+B = B0 because Z≻0, andQ = B2
+0 because Q−B2⪰0 has zero trace againstZ. Writing
+the compressed scattering block asB +iC, withC real symmetric, and its columns into the
+auxiliary space asF, gives
+Q−B2 =C2 + Re(F†F).
+Its zero trace forcesC = 0 andF = 0. Reciprocity also removes the reverse coupling from auxiliary
+channels. Therefore every middle-branch equality operator, in these canonical coordinates and
+after the two stated sign changes, has the form
+ˆS =B0⊕Saux,
+where Saux is an arbitrary reciprocal contraction. This identifies all equality cases rather than
+merely one example.
+24
+
+--- PAGE 25 ---
+OQ7: directional absorption asymmetry Audited research manuscript
+7.3 The two outer branches and their transition conditions
+The effect bound0⪯Q⪯I implies|Q12|≤1/2, hence ∆ ≤dρ. Equality requires
+Q = 1
+2
+(
+1 ±1
+±1 1
+)
+=:P±.
+This follows, for example, by evaluatingQ in the orthonormal vectors (e1±e2)/
+√
+2: their
+quadratic values lie in[0, 1], and their difference is2Q12. Endpoint equality forces them to be
+the eigenvectors with eigenvalues1 and 0.
+If B2⪯P±and B is symmetric, the kernel ofP±lies in the kernel ofB, soB =αP±,|α|≤1.
+Thus|tr(WB )|≤ρ/2. Conversely, for every0≤r≤ρ/2, the symmetric contraction
+ˆS =eiϕP+, cosϕ= 2r/ρ,
+has this value ofr and ∆ = dρ. This proves the first branch, including necessity of its transition
+condition. Its full equality condition is the compressionQ = P+ or P−, together with the
+prescribed forward overlap; the displayed matrix is a two-channel witness.
+The general extinction bound gives∆ ≤1−r2. For 0<r < 1, equality requires one reversed
+input, say b, to satisfy ˆSb = ra, while∥ˆSa∥= 1. Saturation of contractivity on a implies
+ˆS†ˆSa =a. Therefore
+ρ=⟨a,b⟩=⟨ˆSa, ˆSb⟩=r⟨ˆSa,a⟩,
+so ρ≤r. This proves necessity of the last-branch transition.
+For sufficiency, work inR3. Letw be a unit vector in the input plane orthogonal toa, chosen so
+that b =ρa+dρw. Lete3 be orthogonal to that plane and set
+α=
+√
+1−r2
+dρ
+, β =
+√
+r2−ρ2
+dρ
+, f =αw+βe3, g =βw−αe3.
+Forρ≤r≤1, these are well-defined and(a,g,f ) is an orthonormal basis. Define the real
+symmetric contraction by its matrix in that basis:
+ˆS =
+
+
+ρ/r
+√
+r2−ρ2/r 0√
+r2−ρ2/r −ρ/r 0
+0 0 0
+
+.
+Its two nonzero eigenvalues are1 and−1. Since
+b =ρa+
+√
+r2−ρ2g +
+√
+1−r2f,
+it satisfies ˆSb =ra,∥ˆSa∥= 1, and common forward overlapr. Hence ∆ = 1−r2, proving the
+third branch. Atr = 1, the difference is zero, as required. Atr =ρ, the input plane reduces to
+the rank-one projectionaaT, and atr =ρ/2, the middle branch reduces toP+. These agree with
+both outer formulas. For negative signed overlap1−X/2, use−ˆS. This completes the proof of
+Theorem 7.1.
+For completeness,ρ= 0 recovers the sharp parabola of Theorem 6.2, with orthogonal reversed
+inputs. For ρ= 1, the two inputs differ only by a scalar phase, and their absorptions agree.
+EveryX∈[0, 4] is still feasible, for example withS = (1−X/2)S0.
+25
+
+--- PAGE 26 ---
+OQ7: directional absorption asymmetry Audited research manuscript
+7.4 An exact counterexample to taking the minimum of separate bounds
+Let ρ= 4/5, dρ= 3/5, andr = 59/95, soX = 72/95. The middle-branch parameter isc = 2/5,
+λ= 2/19. The exact optimal real matrix in theJ = diag(1,−1) reference coordinates is
+B0 = 1
+190
+(
+139 17
+√
+21
+17
+√
+21 71
+)
+.
+Its eigenvalues are1 and 2/19, and
+∆ 4/5(72/95) = 1071
+√
+21
+9025 = 0.5438159079...,
+whereas the minimum of the separate bounds is3/5. A compact independently checkable upper
+certificate is
+W = diag(9/10,−1/10), Z =
+(
+7/8 −17
+√
+21/168
+−17
+√
+21/168 3 /8
+)
+, ν=−19
+√
+21
+42 .
+Here detZ = 19/168> 0, B0Z +ZB0 =W, and
+Z−νE= 1
+8
+(
+7
+√
+21√
+21 3
+)
+⪰0, (Z−νE)(I−B2
+0) = 0.
+Equation (65) therefore certifies the stated strict improvement without any numerical optimizer.
+0.0 0.2 0.4 0.6 0.8 1.0
+Magnitude of real forward overlap r = |1 − X/2|
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0Maximum absorption difference
+Exact certificate: 0.543816…
+Joint optimum, ρ = 0.4
+Minimum of separate bounds, ρ = 0.4
+Joint optimum, ρ = 0.8
+Minimum of separate bounds, ρ = 0.8
+Figure 1: The joint theorem is stricter than taking the minimum of the two separate inequalities in the
+intermediate interval. Curves directly evaluate(57); they are not fits to optimization output. The marked
+point has the exact positive-matrix certificate displayed above. Both signs of1−X/2 have the same
+bound.
+Prior results and verification status. The plateau is the familiar pure-state trace-
+distance/Helstrom bound; the outer parabola is the single-input extinction inequality. The joint
+problem also resembles quantum information–disturbance tradeoffs. Buscemi and Sacchi [23],
+Eqs. (1)–(3) and (22), optimize average postmeasurement fidelity at prescribed discrimination
+success over quantum instruments. Their disturbance is not the coherent forward amplitude
+fixed here, and their optimization does not impose complex transpose symmetry on one
+26
+
+--- PAGE 27 ---
+OQ7: directional absorption asymmetry Audited research manuscript
+scattering contraction. D’Ariano et al. [24], Eqs. (12)–(13) and (26), instead optimize worst-case
+transformation probability and conditional-output fidelity. Their permitted output-unitary
+adjustments generally change our phase-sensitive forward overlap. These are exact differences in
+the statements, not proof that an equivalent reformulation is impossible.
+Guo–Fan reflection feasibility [4] prescribes singular values and characterizes diagonal reflection
+coefficients. The joint problem here constrainsRe⟨S0u,Su⟩and the difference of two quadratic
+output powers at prescribed reversed-input overlap. The retrieved reflection theorem does not
+state (57); a reduction establishing equivalent prior coverage was not found. Our proof requires
+no assumed reciprocal completion, because its upper relaxation has explicit equality scattering
+matrices.
+The complete ordinary proof, including all three branches and the equality conditions, survived
+an independent mathematical review. The general PSD trace certificate has also been verified in
+Lean, as specified in Appendix B. The canonical channel compression, parameter identities, and
+full theorem are not claimed Lean-verified. The priority classification isCONDITIONAL: this
+is a nontrivial proved joint refinement, but the retrieved comparisons do not establish a NEW
+result. No Maxwell equality realization at prescribed nonzeroρis asserted.
+8 Numerical and independent verification
+8.1 A rational benchmark
+Choose
+P = 4, Q = 2, kM = 1, T = 12
+25, a = 8
+25.
+Then
+b = 1
+5, s = 3
+5, y 0 = 3
+25, x 0 = 4
+25, D 0 = 8
+25, α= 3
+5,
+and the limiting optimizer is
+S0 =
+(
+1/5 2
+√
+3/5
+2
+√
+3/5 −3/5
+)
+, (AL,AR) = (12/25, 4/25).
+Theorem 5.1 becomes
+lim
+L→∞
+(kL)2
+[ 8
+25−D∗(L)
+]
+= π2
+80. (66)
+For any admissible thickness, letn = max{1,⌈2kL/π⌉}. HereU = 1<π/2, so the full-cell floor
+always applies:
+c≥1
+4
+[
+1−n2 sin2(1/n)
+]
+, 8
+25−D≥3
+20
+[
+1−n2 sin2(1/n)
+]
+. (67)
+The simpler universal consequence is
+8
+25−D≥ 1
+5(π+ 4kL)2.
+For the construction, the core expansion is exactly
+Fm =
+(
+1 0
+−1 1
+)
++ 1
+m2
+(
+1/96 −1/48
+(23 + 24i)/288 1 /96
+)
++O(m−4).
+27
+
+--- PAGE 28 ---
+OQ7: directional absorption asymmetry Audited research manuscript
+The matching ratios tend tosL = 1/
+√
+3,sR = 1. At these limiting ratios the response Jacobian
+with respect to(logsL, logsR) is
+(
+24/125 72 /125
+36/125 −12/125
+)
+, det =−576/3125̸= 0.
+Their exact-target corrections satisfy
+log(sL
+√
+3) =−25
+576m2 +O(m−4), logsR = 13
+576m2 +O(m−4).
+Consequentlycm = 1/(12m2) +O(m−4) and D0−Dm = 1/(20m2) +O(m−4).
+Lossy slicesm D 0−Dm m2(D0−Dm) m2cm cm/βfull
+4 3.13782636 10−3 0.0502052218 0.0826755263 1.000405918
+8 7.82066448 10−4 0.0500522527 0.0831687923 1.000106739
+16 1.95363761 10−4 0.0500131229 0.0832921928 1.000027016
+32 4.88313325 10−5 0.0500032845 0.0833230479 1.000006775
+64 1.22072318 10−5 0.0500008214 0.0833307619 1.000001695
+Limit 1/20 1 /12 1
+Table 2:Exact homogeneous-layer computations for the fixed-target family. The final column uses the
+interval from the first to the last lossy endpoint, with all lossless matching layers outside that interval, as
+permitted by Theorem 4.5. That interval is not the total stack thickness.
+The calculation usesk = 2π, so lengths are in vacuum wavelengths. Form = 4, 8, 16, 32, 64, total
+thicknesses are approximately 2.643598, 3.644152, 5.644291, 9.644326, and 17.644335 wavelengths.
+These include all matching layers and an optional half-wave vacuum phase correction. The
+selected lossy spans are(m−1)/4 + 1/(4πm); theirO(1) difference from total thickness does not
+change the limit (66).
+Actual dielectric cascade powers differ from the specifiedT,a by less than5×10−15, and the
+physical cascade agrees with the matched field-transfer calculation within3.5×10−15. These
+residuals are floating-point checks, not a substitute for the implicit-function proof of exact target
+satisfaction.
+8.2 Cross-checks, adversarial searches, and limiting cases
+The Python/SciPy implementation uses stable scattering cascades, independent interface linear
+solves, characteristic transfer matrices, and analytic absorption integrals checked by numerical
+quadrature. In 250 random stacks with one to seven layers, the largest discrepancies were:
+Check Maximum discrepancy
+Scattering cascade versus interface solve 8.4×10−16
+Characteristic matrix versus interface solve 7.9×10−16
+Absorption Gram integral versusI−S†S 1.3×10−15
+Analytic absorption integral versus quadrature 1.0×10−15
+Lossless unitarity 2.3×10−15
+Local determinant identity, relative error 8.8×10−14
+Separate SLSQP optimization of the abstract matrix envelope agreed within8.0×10−11, including
+both branches and zero-transmission and perfect-transmission limits.
+The finite resource floor was challenged with 1200 random profiles, half embedded in additional
+passive surroundings. None violated the strengthened half-cell floor; the minimum ratioc/βnh
+28
+
+--- PAGE 29 ---
+OQ7: directional absorption asymmetry Audited research manuscript
+4 8 16 32 64
+Loss-slice count m
+10−5
+10−4
+10−3
+Δ0 − Δm
+(a) Asymmetry gap
+Exact layer calculation
+1/(20m2)
+4 8 16 32 64
+Loss-slice count m
+10−5
+10−4
+10−3
+10−2
+Positive normalized deviation
+(b) Deviations from the limiting coefficients
+20m2(Δ0 − Δm) − 1
+1 − 12m2cm
+Fixed-target convergence in finite dielectric multilayers
+T = 0.48 A = 0.32 Δ0 = 0.32
+Figure 2: Fixed-target convergence from the existing numerical data. (a) The calculated asymmetry gap
+follows 1/(20m2). (b) The positive normalized deviations20m2(D0−Dm)−1 and 1−12m2cm approach
+zero. Here m is the number of lossy slices, not thickness. The homogeneous-layer propagators were
+checked against an independent scattering cascade.
+was 1.10173643. A separate set of 2000 complex-ODE comparisons at distances at mostπ/(2K)
+gave minimum ratio 1.00001279. The extension of the comparison to the full distanceπ/Kis
+justified by the proof, not inferred from that shorter-distance random sample.
+For a uniform layer withP = 4, L = 0.08 vacuum wavelengths, andM = QL, the ratios
+c/β1 at Q = 1, 0.1, 0.01 were respectively 1.0001588848, 1.0000015888, and 1.0000000159. Thus
+the short-cell bound has the correct weak-loss limiting coefficient. An eight-cell constrained
+SLSQP search atP = 4,Q = 2,L = 0.1,M = 0.1 found c = 0.0123243316840, above the floor
+0.0123231683078. This nonconvex optimizer provides an adversarial check; it does not certify the
+finite-thickness optimum.
+8.3 What was independently verified
+One analytical agent solved and audited the matrix problem, then checked the full-cell refinement,
+exact matching, and all-L passage. A second independently reviewed the entire Maxwell argument
+and the general sharp constant. A separate numerical branch constructed actual dielectric stacks
+and checked them by independent exact layer formulations. The final LaTeX transcription
+received a further focused check for changed signs, constants, and assumptions.
+The cubic logarithm and the general coefficientg4
+0/(3Q2) were also verified with exact SymPy
+polynomial arithmetic. The supplied script checks the general symbolic parameters, not only the
+rational benchmark. Analytic remainder estimates, uniform quantifiers, and the implicit function
+theorem remain parts of the written proof.
+8.4 Reproduction and independent tests of the generalization
+All four original JSON outputs reproduced byte for byte in the current environment. This
+preserves the original random-profile tests and limiting sequences. The separate generalization
+tests use independent implementations; the strongest cross-check solves a12×12 modal interface-
+continuity system for all incident channels, with bounded internal propagation amplitudes. It
+does not import the implementation used to derive the closed formulas.
+29
+
+--- PAGE 30 ---
+OQ7: directional absorption asymmetry Audited research manuscript
+New independent check Result
+Normal-incidence vector systems 42
+Largest full 4×4 scattering discrepancy 1.32×10−15
+Largest absorption/extinction discrepancy 8.89×10−16
+Largest interface-continuity residual 9.69×10−16
+Fixed-extinction complex optimizations 10 targets, 12 starts each
+Largest discrepancy from scalar envelope 7.24×10−10
+Numerical normalized scalar maximum 0.6005662120015551
+Exact-radical value, rounded 0.6005662120015561
+Retuned finite-power beam checks 8
+The optimizer’s small discrepancies track its passivity-constraint tolerance; it is not a certified
+global optimizer. The beam quadrature retunes the plate angle and then checks the target at
+a finer quadrature order. Its small positive left absorption is consistent with convergence to
+the zero-absorption normal plane wave, not an assertion of exact zero for a finite-width beam.
+Complete numerical values are inresearch/independent_checks.json.
+The overlap theorem received a separate exact symbolic check of sixteen parameter identities,
+including the positive certificate determinant and the monotone parameter derivative. Tests
+covered 42 middle-branch parameter pairs, 1,890 full complex symmetric contractions, and 42
+outer equality matrices. A second implementation checked the exact rational example and 2,000
+further complex contractions. The largest discrepancy from the independently optimized real
+equality family was1.45×10−15. The upper bound itself follows from the nonnegative-trace
+certificate, including a separately kernel-checked generic version, rather than from these numerical
+samples.
+0 1 2 3 4
+Common extinction X
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0Maximum absorption difference
+(a) Fixed extinction, unit incoming power
+General reciprocal channels
+Scalar two ports
+0 1 2 3 4
+Common extinction X
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0Maximum difference / extinction
+0.600566…
+(b) Extinction-normalized contrast
+Figure 3:Direct evaluation of the proved formulas, without fitted curves. The general-channel envelope is
+sharp for reciprocal matrices and is approached by the vector planar Maxwell family. The scalar two-port
+envelope is smaller away from its common maximum. The normalized scalar contrast has the stated
+golden-ratio maximum; general reciprocal channels have supremum one asX↓0. In that latter limit the
+absolute absorption difference also tends to zero.
+8.5 Recovered formal sources and the executed Lean audit
+The available earlier source archive contains an explicitly unverified file with eleven real-algebra
+theorem statements. It contains neither a Lake project nor a declaration namedOQ7.theorem51.
+Searches of the available original files and retained research record did not locate the separately
+reported project containing 692 public theorems. This is an availability finding: it does not show
+30
+
+--- PAGE 31 ---
+OQ7: directional absorption asymmetry Audited research manuscript
+that such a project cannot exist elsewhere. Its claims cannot be credited or audited without its
+source. All actually recovered originals are preserved, including the eleven-statement draft and
+the four numerical JSON files, which reproduced byte for byte.
+A separate Lean supplement now provides an executed, kernel-checked baseline of 43 authored
+theorems. Its exhaustive census has 55 theorem constants, including twelve generated equations
+or auxiliary proofs. The precise statements and their boundaries are listed in Appendix B.
+In particular, the two-port matrix is an actual complex matrix, its absorption operator is
+actually I−S†S, and the finite-port theorem uses Mathlib’s positive-semidefinite predicate.
+Extinction reciprocity and nonnegative absorbed power are derived from these definitions and
+hypotheses. The desired asymmetry inequality is not inserted as an assumption. The construction
+proving matrix sharpness also establishes complex positive semidefiniteness by an exact Gram
+factorization.
+The verified scope does not include a Helmholtz solution, a dielectric admissibility predicate,
+a material-loss integral, the capped Fourier lemma, the uniform resource theorem, physical
+matching, or the limit of a thickness-constrained supremum. Consequently, neither Theorem 4.5
+nor Theorem 5.1 is Lean-verified. The complete ordinary proofs and the analytic bridges in
+Appendix A specify the remaining work; they are not substitutes for it.
+Toolchain and executed build. The project pins Lean 4.19.0 [21] and Mathlib commit
+c44e0c8ee63ca166450922a373c7409c5d26b00b [22]. All transitive revisions are recorded in
+lean/lake-manifest.json. The unmodified standalone Lean executable could not discover its
+installation path in the managed Linux environment; the official Lake executable did run. The
+source-visible default Lake target uses the supportedLean.Elab.runFrontend API with trust
+level zero, checks its success result, and writes genuine compiled modules. Separate sequential
+frontend processes keep memory bounded. No compiler or kernel was modified. The default
+lake build elaborates every supplied proof module and executes the axiom audit; it is not an
+empty build target.
+After selecting the pinned toolchain, the clean commands are
+lake clean oq7Audit
+lake build
+The qualified clean removes this project’s compiled artifacts while retaining the pinned upstream
+dependency cache. The setup script in lean/scripts/bootstrap-linux.sh downloads and
+checksums the official compiler, resolves the pinned dependencies, obtains their upstream cache,
+and runs these commands on Linux or WSL2. The tested default target differs from invoking
+the standalone-compiler lake build OQ7 target.
+Axioms and failure controls. Every authored theorem has an explicit #print axioms
+command. An additional command enumerates allOQ7 theorem constants from the elaborated
+environment, records their full types and transitive axiom dependencies, and rejects an empty
+census or an axiom outside propext, Classical.choice, and Quot.sound. These are the
+standard classical Lean/Mathlib foundations; no additional mathematical axiom,sorryAx, or
+native-decision proof axiom is accepted. The archived negative controls demonstrate that an
+invalid proof, an empty audit, and an admitted false theorem injected into a temporary copy of
+the full project each fail with a nonzero exit code. The admitted theorem is detected specifically
+through sorryAx. Invalid control sources are not part of the proof modules.
+The clean log, per-module logs, negative controls, source hashes, and complete machine-readable
+theorem census are included in the reproducibility package. The exact declarations and observed
+logs take precedence over a prose description of their scope.
+31
+
+--- PAGE 32 ---
+OQ7: directional absorption asymmetry Audited research manuscript
+9 Obstructions, scope, and final verdict
+9.1 Failed shortcuts and why they fail
+A layer-by-layer bound loses the required information.For a homogeneous slab, write√p +iq =ν+iκ, soq = 2νκ. Substituting its exact homogeneous-layer propagator into(21)
+gives
+cslab = 4
+ν2 +κ2
+[
+ν2 sinh2(kκℓ)−κ2 sin2(kνℓ)
+]
+.
+Expansion at small thicknessℓgives
+clayer = q2(kℓ)4
+3 +O(ℓ6)
+at fixed material coefficients. Dividing the same material intoN artificial sublayers and using
+only (∑
+j
+√cj)2 produces a bound proportional toN−2, which collapses under refinement at fixed
+physical profile. The continuum pair identity retains the cross-location field information that
+this shortcut discards.
+Unrestricted full-period Jensen is false.The functiong(u) =
+√
+u2−sin2u is not convex
+throughout [0,π]. The small-mean global tangent in Lemma 4.4 is necessary for the full-period
+proof at arbitrary fixed total mass.
+Loss amount alone gives no positive uniform gap.If the loss-density cap is removed, take
+a single slabε=P +iq of widthM/q, and letq→∞. Its exact transfer approaches
+( 1 0
+−kM 1
+)
+;
+hence c→0, whileT →4/(2 +kM )2 > 0. More precisely c∼k4M 4/(3q2). If thickness is
+unrestricted whileP,Q,M remain fixed, the family in Section 5 also hasc→0 and reaches the
+desired matrix response asymptotically. If the real-permittivity cap is removed, a homogeneous
+slab with fixedq,ℓand p→∞has c∼q2(kℓ)2/p→0; this last bare-slab example does not hold
+arbitrary T,a fixed. These distinguish essential resources from mere passivity.
+Positive absorption does not exclude every matrix optimizer.In the high-mean branch,
+an optimizer with one zero reflection hasdetA = 2a−1 +T 2 > 0 above the interface. The
+strict gap derived here concerns(30); positive definiteness alone does not exclude all high-mean
+optimizers.
+9.2 What remains unresolved
+The exact optimal envelope at every finiteL, the complete set of asymptotically optimizing
+profiles, and a necessary minimum layer count remain open in this investigation. The strict
+limits T = 0, a = 0, anda = (1−T 2)/2, as well as the material caseP = 1, are excluded from
+Theorem 5.1; its Jacobian or envelope arguments can degenerate there. A bound valid with
+a fixed positive minimum feature size or a finite catalogue of dispersive materials would be a
+different realizability problem.
+The present result is monochromatic. The hypotheses prescribe material values at one frequency
+and do not specify dispersion over a frequency interval, so they do not establish a nontrivial
+finite-bandwidth or causality tradeoff. The resource-free vector planar and finite-power channel
+formulations are addressed in Section 6. Sharp compact-body three-dimensional plane-wave
+cross-section bounds, controlled finite apertures, and quantitative coercive-loss bounds remain
+unresolved.
+32
+
+--- PAGE 33 ---
+OQ7: directional absorption asymmetry Audited research manuscript
+Verdict Precise scope
+KNOWN Fixed-T,a two-port feasibility and optimum; the Rollett invariant; the
+channel passivity envelope; scalar contrast optimizations; polarization-
+filter mechanisms.
+PROVED, ordi-
+nary
+Exact finite-coefficient vector dielectric construction and its finite-power
+beam limit, with exact target extinction; counterexamples to an un-
+restricted finite absorption-ratio bound and a tensor-loss determinant
+floor. Physical statements are not Lean-verified.
+CONDITIONAL
+priority
+The restricted scalar Theorem 5.1 and prescribed-overlap Theorem 7.1,
+each with a complete independently reviewed ordinary proof. No equiv-
+alent theorem was located; priority is not certified, and complete Lean
+verification is absent.
+LEAN-VERIFIED
+subset
+Only the exact algebraic and finite-channel declarations and generic
+PSD certificate in Appendix B; the formal model and its hypotheses are
+part of each claim.
+UNRESOLVED Compact-body three-dimensional cross-section sharpness, finite-
+bandwidth tradeoffs, coercive tensor-loss resource bounds, exact finite-
+thickness scalar optima, Maxwell equality realization for prescribed
+nonzero illumination overlap, and the unavailable full Lean project.
+The broad tutorial question is not declared closed. The present results resolve precise channel
+and planar formulations and identify the constraints missing from broader resource statements.
+The reproducibility package contains unchanged original artifacts, a separate source revision, full
+numerical records, independent audits, the pinned Lean project, and its actual build and axiom
+logs. It does not contain a proof of the missing declarationOQ7.theorem51.
+A Detailed analytic bridges for the restricted theorem
+This appendix records ordinary proofs of the steps most relevant to a future complete formalization
+of Theorem 5.1. None of the arguments in this appendix is represented as already verified in
+Lean. They preserve the original theorem and replace avoidable analytic complications by explicit
+identities. The earlier manuscript remains unchanged in the source archive.
+A.1 A first-zero proof of the complex comparison
+Fix the initial point at zero, and writes =s(h, 0), ρ=|s|, andj = Im(¯ss′). Sinces(0) = 0 and
+s′(0) = 1, one hass(h)/h→1 and s′(h)→1 as h↓0. In particular,ρ>0 initially and
+ρ(h)→0, ρ ′(h) = Re(¯s(h)s′(h))
+|s(h)|→1.
+On any interval before its first positive zero, differentiation ofρ2 = ¯ss and the Helmholtz equation
+give
+ρ′′+K2ρ= (K2−k2p)ρ+ j2
+ρ3≥0.
+These equations hold inside every homogeneous layer;ρ,ρ′are continuous at interfaces as long
+as ρ>0.
+Suppose a first zeroh0 existed in (0,π/K). For 0<δ <h<h0, variation of constants, with its
+nonnegative sine kernel, yields
+ρ(h)≥ρ(δ) cosK(h−δ) +ρ′(δ)
+K sinK(h−δ).
+33
+
+--- PAGE 34 ---
+OQ7: directional absorption asymmetry Audited research manuscript
+Only bounded, piecewise continuous coefficients on[δ,h] are used here; there is no division by the
+initial zero. Lettingδ↓0 givesρ(h)≥sin(Kh)/K. Thenh↑h0 contradictsρ(h0) = 0. There
+is consequently no such first zero, and the same argument proves the comparison throughout
+(0,π/K). The two endpoints follow by continuity. This proof avoids both a Poincaré theorem for
+complex fields and an estimate of the singular-looking forcing at the initial point.
+A.2 A positive-part proof of the capped Fourier bound
+Extend q by zero to a full period of lengthπ/K, letµ=
+∫
+q, and putλ=Kµ/Q∈[0,π]. For
+any phaseϕand c = cosλ, the pointwise inequality
+q(z) cos(2Kz−ϕ)≤cq(z) +Q max{cos(2Kz−ϕ)−c, 0}
+follows separately on the sets where the expression in braces is positive and nonpositive. The
+positive arc has half-widthλ; its integral over one period is
+∫
+max{cos(2Kz−ϕ)−cosλ,0}dz = sinλ−λcosλ
+K .
+Integration cancels the mass term becauseµ=Qλ/K, giving
+Re
+(
+e−iϕ
+∫
+q(z)e2iKz dz
+)
+≤Q
+K sinλ.
+Choose ϕto align a nonzero moment with the positive real axis; the zero moment is immediate.
+This proves Lemma 4.2, including the zero-mass and full-period endpoints, without an existence
+theorem for an optimizing measurable density.
+A.3 Finite products with an explicit remainder
+All norms in this subsection are submultiplicative operator norms, with∥I∥= 1. FixP,Q,g 0> 0.
+LetA,B,D (ξ),C 3 be as in Section 5. Taylor’s theorem for the three matrix exponentials, followed
+by finite multiplication, gives
+D(ξ) =I +ξB+ξ3C3 + ξ4
+2 (BC3 +C3B) +O(ξ5). (68)
+The quadratic coefficient vanishes becauseB2 = 0. The cubic coefficient is the displayed matrix
+in (36); it can equally be obtained from
+[A, [A,B ]] =
+(
+0 −2Q
+2PQ 0
+)
+, [B, [A,B ]] =
+(
+0 0
+2iQ2 0
+)
+.
+For the quartic coefficient, write the first four unknown coefficients and compare powers in the
+exact identityD(−ξ)D(ξ) =I. The order-four equation is precisely twice that coefficient minus
+BC3 +C3B. Matrix exponential series converge absolutely, so the remainder in(68) has a norm
+bound C|ξ|5 on a sufficiently small fixed interval.
+Set
+G =−g0E21, H = g3
+0
+Q3C3, K 4 = GH +HG
+2 , A m =I + G
+m, D m =D
+( g0
+Qm
+)
+.
+Then G2 = 0, and
+Dm =Am +Wm, W m = H
+m3 + K4
+m4 +Em, ∥Em∥≤CE
+m5.
+34
+
+--- PAGE 35 ---
+OQ7: directional absorption asymmetry Audited research manuscript
+There are fixed constantsC0,CW such that∥Am∥,∥Dm∥≤1 +C0/m and∥Wm∥≤CW/m3 for
+all sufficiently largem. Telescoping twice gives the exact noncommutative identity
+Dm
+m−Am
+m−
+m−1∑
+j=0
+Am−1−j
+m WmAj
+m
+=
+m−2∑
+j=0
+m−2−j∑
+ℓ=0
+Dm−2−j−ℓ
+m WmAℓ
+mWmAj
+m.
+There arem(m−1)/2 terms on the right. Its norm is therefore at most
+C2
+WeC0
+2m4 .
+For an arbitrary matrixY, nilpotence gives the exact single-insertion sum
+m−1∑
+j=0
+Am−1−j
+m YAj
+m =mY + m−1
+2 (GY +YG ) + (m−1)(m−2)
+6m GYG. (69)
+Since GK4 +K4G = GHG and GK4G = 0, substitution ofH/m3 +K4/m4 into (69) gives
+exactly
+1
+m2
+[
+H + GH +HG
+2 + GHG
+6
+]
+−GHG
+6m4 .
+The contribution fromEm has norm at mostCEeC0/m4. AlsoAm
+m =I +G. Thus
+Dm
+m−I−G−J
+m2
+≤∥GHG∥/6 +CEeC0 +C2
+WeC0/2
+m4 , J =H + GH +HG
+2 + GHG
+6 .
+This proves(37) with its required uniform remainder at fixed parameters. The isolated term
+−GHG/(6m4) is not claimed to be the complete quartic coefficient: multiple insertions also
+contribute at that order. In particular, no matrix logarithm is needed to justify the invariant
+coefficient in (38).
+A.4 Exact matching as a real finite-dimensional implicit problem
+The implicit function argument can treat the eight real coordinates of the complex matrixF as
+independent parameters. It need not interpolate the integer number of layers. Let
+W =
+(
+1 1
+1 −1
+)
+, K =W−1Λ(eℓR)FΛ(eℓL)W.
+On the open setK22̸= 0, define smooth scattering expressions
+rL =−K21/K22, r R =K12/K22, t R = 1/K22, t L = detK/K22.
+These are the usual two-sided boundary formulas. Define the real response extension
+˜T =|tL|2, ˜a = 1−|rL|2 +|rR|2 +|tL|2 +|tR|2
+2 .
+Off the determinant-one locus it is not asserted that this extension describes a reciprocal physical
+medium. On the actual transfer sequence,detFm = 1, the two transmission amplitudes agree
+and these expressions are exactly the physicalT,a.
+35
+
+--- PAGE 36 ---
+OQ7: directional absorption asymmetry Audited research manuscript
+AtF0 =I−g0E21, putA =eℓL+ℓR, h =g0eℓL−ℓR, andv =A +A−1. The determinant of the
+response derivative with respect to(ℓL,ℓR) factors as
+det ∂(T,a )
+∂(ℓL,ℓR) =
+[
+−16(v−h)
+(v +h)5
+]
+(1−A−2)(−2Ah).
+Atthestricttarget, A =A0∈(0, 1),h =h0> 0, andv−h = 2s/
+√
+T >0, soallfactorsarenonzero.
+The real parameter implicit function theorem gives a differentiable mapF↦→(ℓL(F ),ℓR(F)) near
+F0 for which the two extended responses equal the specified targets. BecauseFm−F0 =O(m−2),
+differentiability yields
+ℓL(Fm)−ℓL(F0) =O(m−2), ℓ R(Fm)−ℓR(F0) =O(m−2).
+Evaluating this map on the actual unimodular sequence supplies exact physical target matching
+for every sufficiently large integerm. The fixed quarter-wave realizations in Section 5 then realize
+these ratios with bounded additional thickness.
+A.5 Phase control and the passage to every large budget
+The original principal-phase expression requires a locally continuous choice of argument near a
+negative real number. The revised proof instead uses
+ζ= rLrR¯t 2
+T|rLrR|, |ζ|= 1, ζ + 1 =O(m−2).
+Thus 1 + Reζ=|ζ+ 1|2/2, without any branch choice. This is the sole phase repair; no target
+or asymptotic constant changes.
+Finally, letC bound the added dimensionless thickness uniformly. For every sufficiently large
+real budgetL, the integerm(L) =⌊
+√
+P (kL−C)/π⌋is admissible and tends to infinity with
+m(L)/(kL)→
+√
+P/π. The constructed asymmetry is a lower bound onD∗(L); the cell inequality
+bounds every admissible asymmetry from above. The supremum exists as a finite real number
+once nonemptiness is established, because0≤D≤1. These two inequalities prove the limit for
+all large budgets, irrespective of whether a finite-budget optimizer exists.
+B Manuscript–Lean correspondence and reproducibility
+All declaration names below have the prefixOQ7.. The completed supplement contains 43
+explicitly authored theorems: eleven inAlgebra, eight inScattering, five inUniversal, seven
+in FinitePorts, eight inSharpness, and four inOverlapCertificate. The environment also
+contains eight generated definition equations and four auxiliary proof constants, for fifty-five
+theorem constants in this namespace. Generated constants are audited but are not counted as
+independent results. The complete names, types, and dependencies are inlean/logs/public_
+theorems.json.
+B.1 Exact finite-port theorem represented in Lean
+For a finite index typen, S∈Cn×n, a mapρ:n→n, and two indicesj,k, the definitions are
+Aj = 1−
+∑
+i
+|Sij|2, C j =
+∑
+i
+|Sij−1i=ρ(j)|2, X j =Aj +Cj.
+The declaration OQ7.finite_port_absorption_asymmetry assumes exactly
+ST =S, I −S†S⪰0, ρ (j) =k, ρ(k) =j,
+36
+
+--- PAGE 37 ---
+OQ7: directional absorption asymmetry Audited research manuscript
+and concludes|Aj−Ak|≤Xj−X 2
+j/4. Thus the tested reference columns are unit port vectors
+interchanged byρ. The theorem does not quantify over arbitrary coherent inputs or an arbitrary
+symmetric unitary referenceS0. Those broader time-reversal and Maxwell identifications are
+part of the ordinary proof of Proposition 6.1, not this formal declaration.
+The declaration OQ7.finite_port_bound_attained quantifies over every realX∈[0, 4] and
+constructs a complex3×3 symmetric matrix withI−S†S⪰0, the specified extinction, and
+absorption differenceX−X 2/4. Its fixed reference map swaps ports zero and one and fixes port
+two. It is a complete sharpness theorem for that matrix class. Neither a dielectric realization nor
+the equality classification for all Hilbert-space operators is part of its statement.
+B.2 Exact PSD certificate represented in Lean
+For finite real matrices, letB,B 0 be symmetric, putW =B0Z +ZB0 and Y =Z−νE, and
+assume
+Z⪰0, Q −B2⪰0, I −Q⪰0, Y ⪰0, YB 2
+0 =Y.
+There is no sign restriction onνin the formal certificate. The declaration OQ7.overlap_
+certificate_identity proves the exact identity
+tr(WB 0) +ν{tr(EQ)−tr(EB 2
+0)}−tr(WB )
+= tr[Z(Q−B2)] + tr[Y (I−Q)] + tr[(B−B0)Z(B−B0)].
+The declaration OQ7.overlap_psd_trace_certificate proves that the left side is nonnegative
+from the stated matrix hypotheses. Positive trace products are established using Mathlib’s PSD
+square root and congruence theorem. No nonnegativity of the desired remainder is assumed.
+Section 7 supplies particular2×2 matrices and derives the optical interpretation by an ordinary
+proof. Those substitutions and the full joint envelope remain outside the formal certificate’s
+scope.
+B.3 Important statements and their exact formal scope
+Manuscript statement Declaration or status Formal scope
+Complex reciprocal
+two-port
+twoPort_reciprocal;
+twoPort_determinant
+Actual 2×2 complex matrix and
+its determinant.
+Absorption determinant twoPort_absorption_determinant Actual determinant ofI−S†S; not
+a Maxwell flux identity.
+Eliminated envelope envelope_identity; determinant_
+budget_iff_shifted_square
+Real algebra under an explicit
+quadratic identity. Does not prove
+all of the matrix-feasibility theorem.
+Phase penalty and
+inactive branch
+phase_penalty_identity;
+phase_penalty_nonnegative;
+inactive_branch_identity
+Polynomial identities and
+elementary nonnegativity.
+Rational target tangent
+and gap
+target_circle_identity;
+target_envelope_tangent;
+target_gap_from_det_floor;
+explicit_depth_constant
+The determinant floor is a
+hypothesis. The parameters are the
+stated rational benchmark, not
+arbitrary material profiles.
+Lemma 4.1, complex
+comparison
+Unverified No formal Helmholtz initial-value
+problem or modulus comparison.
+Lemma 4.2, capped
+Fourier moment
+Unverified No formal density, integral, or
+capped-moment optimization.
+Lemma 4.3, cell
+determinants
+Unverified The Gram–Wronskian integral,
+PSD Minkowski inequality, and cell
+partition are not formalized here.
+37
+
+--- PAGE 38 ---
+OQ7: directional absorption asymmetry Audited research manuscript
+Manuscript statement Declaration or status Formal scope
+Lemma 4.4, convexity
+and tangent
+root_convexity_numerator; root_
+convexity_derivative_algebra
+Only two algebraic cancellations.
+They do not prove derivatives,
+convexity, or the global tangent.
+Theorem 4.5, resource
+floor
+Unverified No material-constrained Maxwell
+class or uniform lower-limit
+theorem.
+Section 5, construction
+and exact matching
+Unverified No matrix-exponential remainder,
+physical layer realization, or
+implicit-function proof.
+Theorem 5.1 Unverified; declaration
+unavailable
+No OQ7.theorem51 was found or
+synthesized from assumed bounds.
+Single passive output
+bound
+absorbedPower_nonneg;
+extinctionPower_nonneg;
+extinction_sq_le_four_
+scattering; absorption_le_
+extinction_parabola
+Normed additive group; actual
+norms, a unit reference, and output
+norm at most one. No physical
+scattering operator is assumed.
+Equal-extinction pair
+inequality
+equal_extinction_absorption_
+asymmetry
+Actual norm-defined powers; equal
+extinction is an explicit premise.
+Finite-port optical
+identity
+column_extinction_formula;
+reciprocal_column_extinction
+The first is derived by expanding
+complex norm squares; the second
+derives extinction symmetry from
+matrix transpose symmetry.
+Passive column
+absorption
+column_absorption_eq_diagonal;
+passive_column_absorption_
+nonneg
+Mathlib complex positive
+semidefiniteness applied to a unit
+port vector.
+Finite-port parabola and
+pair bound
+column_extinction_sq_le_four_
+scattering; column_absorption_
+le_extinction_parabola; finite_
+port_absorption_asymmetry
+Complete inequalities for the above
+column/reference definitions.
+Real witness in (48) threePort_reciprocal;
+threePort_loss_factorization;
+threePort_loss_quadratic;
+threePort_loss_nonnegative;
+threePort_sharp_value
+Real matrix identities. The
+complex extension below separately
+proves full complex passivity.
+Complex witness and
+passivity
+threePortComplex_reciprocal;
+threePortComplex_loss_gram;
+threePortComplex_passive
+Exact complex Gram factorization,
+hence genuine complex PSD.
+Witness observables and
+equality
+threePortComplex_absorption_
+left; threePortComplex_
+absorption_right;
+threePortComplex_extinction;
+threePortComplex_saturates
+Computed absorption and
+extinction undert2 +s2 = 1.
+Existence at every
+X∈[0, 4]
+finite_port_bound_attained Explicit complex matrix existence,
+with no Maxwell-realizability claim.
+Positive trace products trace_nonneg_of_posSemidef;
+trace_product_nonneg_of_
+posSemidef
+Actual finite real PSD matrices; the
+product trace is nonnegative even
+though the product need not be
+symmetric.
+Joint-bound supporting
+certificate
+overlap_certificate_identity;
+overlap_psd_trace_certificate
+Exact three-trace identity and
+inequality under symmetry, PSD
+budgets, and the support identity.
+The certificate is proved in every
+finite dimension.
+38
+
+--- PAGE 39 ---
+OQ7: directional absorption asymmetry Audited research manuscript
+Manuscript statement Declaration or status Formal scope
+Theorem 7.1, full joint
+envelope
+Ordinary proof; certificate
+formalized
+The canonical optical compression,
+parameterized certificate matrices,
+sharp values, and equality operators
+are not formally linked to the
+generic certificate.
+Scalar fixed-extinction
+and golden-ratio
+optimum
+Ordinary proof only Theorem 6.3 is not among the
+formal declarations.
+Vector dielectric and
+finite-power beams
+Ordinary proof only Theorem 6.4 and Corollary 6.5
+require physical and analytic
+correspondence not present in the
+Lean model.
+B.4 Reproducibility and preservation record
+The source package includes the original PDF and original reproducibility archive without
+modification, a separate revised manuscript, and a hash ledger. The original numerical scripts
+run under Python 3.12.14, NumPy 2.3.5, SciPy 1.17.0, and Matplotlib 3.10.8. Exact polynomial
+checks also use SymPy 1.13.3. The four reproduced JSON files are byte-identical to their originals;
+the comparison is recorded inreproduction/comparison_with_originals.json.
+The new experiments provide three independently written normal-incidence implementations:
+a matrix exponential calculation, a closed scattering cascade, and a modal interface-continuity
+solve. The beam check uses the oblique four-component Maxwell equations. Their outputs,
+random seeds, optimization tolerances, and assertions remain in the scripts and JSON records.
+Numerical calculations diagnose errors; none supplies an omitted analytic or formal proof.
+From the extracted source root, the entry points are
+python3 scripts/reproduce_numerics.py
+cd lean
+bash scripts/bootstrap-linux.sh
+cd ../manuscript
+latexmk -pdf -interaction=nonstopmode -halt-on-error oq7_generalized.tex
+The top-level README states dependency installation, alternative explicit build commands, file
+layout, and the exact remaining formalization blockers. Build logs document both successful
+checks and relevant failed approaches; a previous failed attempt is not represented as the final
+status.
+References
+[1] O. D. Miller and F. Monticone,Fundamental limits in photonics and electromagnetics: a tutorial
+(2026), Section 4.1, OQ7. arXiv:2605.24738.
+[2] D. L. Sounas and A. Alù,Extinction symmetry for reciprocal objects and its implications on cloaking
+and scattering manipulation, Optics Letters39, 4053–4056 (2014). doi:10.1364/OL.39.004053.
+[3] D. L. Sounas and A. Alù,Time-Reversal Symmetry Bounds on the Electromagnetic Response of Asym-
+metric Structures, Physical Review Letters118, 154302 (2017). doi:10.1103/PhysRevLett.118.154302.
+[4] C. Guo and S. Fan,Reciprocity Constraints on Reflection, Physical Review Letters128, 256101
+(2022), Eqs. (24)–(28). doi:10.1103/PhysRevLett.128.256101. Author-hosted published PDF.
+39
+
+--- PAGE 40 ---
+OQ7: directional absorption asymmetry Audited research manuscript
+[5] Máñez-Espina, Amrahi, Asadchy, and Díaz-Rubio,Strong Mode Coupling and Maximum Direc-
+tional Absorption in Reciprocal Bianisotropic Metasurfaces, Nanophotonics 15, e70145 (2026).
+doi:10.1002/nap2.70145.
+[6] Máñez-Espina et al.,Strong Mode Coupling via Quasi-Bound States in the Continuum in Bianisotropic
+Metasurfaces, precursor (2025), Eq. (18). arXiv:2512.08927.
+[7] J. M. Rollett,Stability and Power-Gain Invariants of Linear Twoports, IRE Transactions on Circuit
+Theory 9, 29–32 (1962). doi:10.1109/TCT.1962.1086854.
+[8] W. Ma, R. Pestourie, and S. G. Johnson, Time-reversal-symmetry bounds on electromagnetic
+fields, Physical Review A 111, 063518 (2025), Section VII, Eq. (35). doi:10.1103/8bcn-796c.
+arXiv:2503.03342.
+[9] C. Guo and S. Fan,Passivity constraints on the relations between transmission, reflection, and
+absorption eigenvalues, Physical Review B110, 205431 (2024). doi:10.1103/PhysRevB.110.205431.
+[10] Li, Kim, Fan, and Guo,Joint control of coherent transmission, reflection, and absorption, Physical
+Review B112, 245421 (2025). doi:10.1103/nw8t-326d.
+[11] Z. Kuang, L. Zhang, and O. D. Miller,Maximal single-frequency electromagnetic response, Optica7,
+1746–1759 (2020). doi:10.1364/OPTICA.398715.
+[12] Y. Chitour and M. Sigalotti,On the Stabilization of Persistently Excited Linear Systems, SIAM
+Journal on Control and Optimization48, 4032–4055 (2010), Lemma 2.5. doi:10.1137/080737812.
+arXiv:0810.2122.
+[13] F. M. Hante, M. Sigalotti, and M. Tucsnak,On Conditions for Asymptotic Stability of Dissipative
+Infinite-Dimensional Systems with Intermittent Damping, Journal of Differential Equations252,
+5569–5593 (2012), Proposition 5.4. doi:10.1016/j.jde.2012.01.037. arXiv:1108.4327.
+[14] Y. Privat, E. Trélat, and E. Zuazua,Optimal Observation of the One-dimensional Wave Equation,
+Journal of Fourier Analysis and Applications19, 514–544 (2013), Remark 2. doi:10.1007/s00041-013-
+9267-4. Author preprint.
+[15] I. V. Kozhevnikov, S. Yulin, T. Feigl, and N. Kaiser,Effect of anomalous transmittance in EUV
+multilayer optics, Optics Communications281, 3025–3031 (2008). doi:10.1016/j.optcom.2008.01.057.
+[16] J. L. P. Barreaux et al.,Narrowband and tunable anomalous transmission filters for spectral monitor-
+ing in the extreme ultraviolet wavelength region, Optics Express25, 1993–2008 (2017), Section 2.
+doi:10.1364/OE.25.001993.
+[17] A. Martin,Some simple inequalities in scattering by complex potentials, Il Nuovo Cimento23, 641–
+654 (1962). doi:10.1007/BF02733216. Abstract and indexed primary conclusion inspected; full-text
+comparison incomplete.
+[18] R. Fleury, J. Soric, and A. Alù, Physical bounds on absorption and scattering for cloaked sensors,
+Physical Review B89, 045122 (2014). doi:10.1103/PhysRevB.89.045122. arXiv:1309.3619.
+[19] N. P. Armitage, Constraints on Jones transmission matrices from time-reversal invariance
+and discrete spatial symmetries, Physical Review B 90, 035135 (2014), Eqs. (27), (34).
+doi:10.1103/PhysRevB.90.035135. arXiv:1311.5556v4.
+[20] R. J. Potton, Reciprocity in optics, Reports on Progress in Physics67, 717–754 (2004), Section 5.
+doi:10.1088/0034-4885/67/5/R03. Publisher full-text retrieval incomplete; Armitage supplies the
+independently retrieved primary comparison used here.
+[21] Lean community, Lean 4, version 4.19.0 (2025). Pinned source and Lake frontend. The precise
+execution route and kernel checks are recorded in the accompanying project.
+[22] Mathlib community, Mathlib 4, commitc44e0c8ee63ca166450922a373c7409c5d26b00b. Pinned
+source.
+40
+
+--- PAGE 41 ---
+OQ7: directional absorption asymmetry Audited research manuscript
+[23] F. Buscemi and M. F. Sacchi, Information-disturbance trade-off in quantum-state discrimination,
+Physical Review A74, 052320 (2006). doi:10.1103/PhysRevA.74.052320. arXiv:quant-ph/0610196.
+[24] G. M. D’Ariano, S. Facchini, P. Perinotti, and M. F. Sacchi, Probability-fidelity tradeoffs for targeted
+quantum operations, Physics Letters A373, 3011–3015 (2009). doi:10.1016/j.physleta.2009.06.040.
+arXiv:0902.0695.
+41

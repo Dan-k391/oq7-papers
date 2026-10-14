@@ -1,0 +1,168 @@
+{
+  "testedAtUTC": "2026-10-10T16:27:14.5243722Z",
+  "lean": "Lean (version 4.34.1, x86_64-w64-windows-gnu, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)",
+  "projectRootReadOnly": "C:\\Users\\Daniel\\.codex\\.chatgpt-projects\\g-p-6ac8784424248191b154eb2ed308e1f1\\outputs\\oq7",
+  "dependencyMode": "Existing compiled libraries on LEAN_PATH; no lake build and no output .olean files",
+  "absentUnusedManifestLibraryPaths": [
+    "C:\\Users\\Daniel\\.codex\\.chatgpt-projects\\g-p-6ac8784424248191b154eb2ed308e1f1\\outputs\\oq7\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean"
+  ],
+  "allowedFoundationAxioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "originalHashCount": 83,
+  "changedOriginalFiles": [],
+  "allExpectedOutcomesObserved": true,
+  "tests": [
+    {
+      "case": "ValidControl",
+      "compilerExitCode": 0,
+      "compilerSuccessExpected": true,
+      "expectedAuditAcceptance": true,
+      "actualAuditAcceptance": true,
+      "detectedReasons": [],
+      "declaredAxioms": [],
+      "transitiveAxioms": [
+        "Classical.choice",
+        "propext",
+        "Quot.sound"
+      ],
+      "forbiddenTransitiveAxioms": [],
+      "kernelTheorems": [
+        "OQ7IntegrityScratch.original_statement_control"
+      ],
+      "expectationMet": true,
+      "fixtureSHA256": "07D486184B13F459D576C41E788687E5717E93CAF603EBF779F50B25D330A96D",
+      "generatedSHA256": "D4B2F99AAE8DE6B164F78A1E463CBD9478ABC6E0C33DA470668539EDF3642706",
+      "log": "logs/ValidControl.log"
+    },
+    {
+      "case": "InvalidProof",
+      "compilerExitCode": 1,
+      "compilerSuccessExpected": false,
+      "expectedAuditAcceptance": false,
+      "actualAuditAcceptance": false,
+      "detectedReasons": [
+        "CompilerRejected",
+        "ForbiddenTransitiveAxiom"
+      ],
+      "declaredAxioms": [],
+      "transitiveAxioms": [
+        "sorryAx"
+      ],
+      "forbiddenTransitiveAxioms": [
+        "sorryAx"
+      ],
+      "kernelTheorems": [
+        "OQ7IntegrityScratch.invalid_arithmetic"
+      ],
+      "expectationMet": true,
+      "fixtureSHA256": "A2461F89C52B5314A17575D5B9610E2D945D808AD12000ED03395CD5984952B4",
+      "generatedSHA256": "83EA4CA18DBB37A053334388DA514CE022594B94E77BD3FD3B931F3D604D31C5",
+      "log": "logs/InvalidProof.log"
+    },
+    {
+      "case": "SorryAdmission",
+      "compilerExitCode": 0,
+      "compilerSuccessExpected": true,
+      "expectedAuditAcceptance": false,
+      "actualAuditAcceptance": false,
+      "detectedReasons": [
+        "DisallowedSourceSyntax",
+        "ForbiddenTransitiveAxiom"
+      ],
+      "declaredAxioms": [],
+      "transitiveAxioms": [
+        "sorryAx"
+      ],
+      "forbiddenTransitiveAxioms": [
+        "sorryAx"
+      ],
+      "kernelTheorems": [
+        "OQ7IntegrityScratch.admitted_arithmetic"
+      ],
+      "expectationMet": true,
+      "fixtureSHA256": "0151A9DF90551300BDD6BC3CC65E5278880CD5DE310224A64C56B6A9A3852567",
+      "generatedSHA256": "2D74393726DE40958A4F9F13104A110290930228401E79F0ACE56D9B2814082C",
+      "log": "logs/SorryAdmission.log"
+    },
+    {
+      "case": "AdmitAdmission",
+      "compilerExitCode": 0,
+      "compilerSuccessExpected": true,
+      "expectedAuditAcceptance": false,
+      "actualAuditAcceptance": false,
+      "detectedReasons": [
+        "DisallowedSourceSyntax",
+        "ForbiddenTransitiveAxiom"
+      ],
+      "declaredAxioms": [],
+      "transitiveAxioms": [
+        "sorryAx"
+      ],
+      "forbiddenTransitiveAxioms": [
+        "sorryAx"
+      ],
+      "kernelTheorems": [
+        "OQ7IntegrityScratch.admitted_false"
+      ],
+      "expectationMet": true,
+      "fixtureSHA256": "6F380FFC922F3D2D5273C5751BF0D0F3DBEBD79126761B0D89F7773BBBC8B5A5",
+      "generatedSHA256": "E20FED9064CB879C8051689D6C41D35A8759F3CDCB9628371D931A06886A5448",
+      "log": "logs/AdmitAdmission.log"
+    },
+    {
+      "case": "TransitiveAxiom",
+      "compilerExitCode": 0,
+      "compilerSuccessExpected": true,
+      "expectedAuditAcceptance": false,
+      "actualAuditAcceptance": false,
+      "detectedReasons": [
+        "DisallowedSourceSyntax",
+        "DeclaredMathematicalAxiom",
+        "ForbiddenTransitiveAxiom"
+      ],
+      "declaredAxioms": [
+        "OQ7IntegrityScratch.injected_false"
+      ],
+      "transitiveAxioms": [
+        "OQ7IntegrityScratch.injected_false"
+      ],
+      "forbiddenTransitiveAxioms": [
+        "OQ7IntegrityScratch.injected_false"
+      ],
+      "kernelTheorems": [
+        "OQ7IntegrityScratch.inherited_invalid_arithmetic",
+        "OQ7IntegrityScratch.intermediate_false"
+      ],
+      "expectationMet": true,
+      "fixtureSHA256": "C912C56FC1BF0A2AF096371145C0D78B030F6B62BA10231DFE730E3C4E939981",
+      "generatedSHA256": "894FAC59B2073195DB31C4BCACCBC7542AAC39B13D66B7508D775EDF35F81E41",
+      "log": "logs/TransitiveAxiom.log"
+    },
+    {
+      "case": "UnusedAxiom",
+      "compilerExitCode": 0,
+      "compilerSuccessExpected": true,
+      "expectedAuditAcceptance": false,
+      "actualAuditAcceptance": false,
+      "detectedReasons": [
+        "DisallowedSourceSyntax",
+        "DeclaredMathematicalAxiom"
+      ],
+      "declaredAxioms": [
+        "OQ7IntegrityScratch.unused_true"
+      ],
+      "transitiveAxioms": [],
+      "forbiddenTransitiveAxioms": [],
+      "kernelTheorems": [
+        "OQ7IntegrityScratch.harmless_arithmetic"
+      ],
+      "expectationMet": true,
+      "fixtureSHA256": "7A6D92F6E7F09B66EFEE6F0A56C7E1F93A7C36CF233DF068DDEC2559FA65D3F7",
+      "generatedSHA256": "DF787700BDE737D48910F775E1835D372139AD2D37E190185D8C7B5FE1C808EE",
+      "log": "logs/UnusedAxiom.log"
+    }
+  ]
+}

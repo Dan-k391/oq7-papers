@@ -1,0 +1,29 @@
+warning: mathlib: repository 'C:/Users/Daniel/Documents/Codex/2026-10-09/set-up-a-local-ai-mathematical/outputs/math-research-lab/lean/.lake/packages\mathlib' has local changes
+warning: plausible: repository 'C:/Users/Daniel/Documents/Codex/2026-10-09/set-up-a-local-ai-mathematical/outputs/math-research-lab/lean/.lake/packages\plausible' has local changes
+warning: LeanSearchClient: repository 'C:/Users/Daniel/Documents/Codex/2026-10-09/set-up-a-local-ai-mathematical/outputs/math-research-lab/lean/.lake/packages\LeanSearchClient' has local changes
+warning: importGraph: repository 'C:/Users/Daniel/Documents/Codex/2026-10-09/set-up-a-local-ai-mathematical/outputs/math-research-lab/lean/.lake/packages\importGraph' has local changes
+warning: proofwidgets: repository 'C:/Users/Daniel/Documents/Codex/2026-10-09/set-up-a-local-ai-mathematical/outputs/math-research-lab/lean/.lake/packages\proofwidgets' has local changes
+warning: aesop: repository 'C:/Users/Daniel/Documents/Codex/2026-10-09/set-up-a-local-ai-mathematical/outputs/math-research-lab/lean/.lake/packages\aesop' has local changes
+warning: Qq: repository 'C:/Users/Daniel/Documents/Codex/2026-10-09/set-up-a-local-ai-mathematical/outputs/math-research-lab/lean/.lake/packages\Qq' has local changes
+warning: batteries: repository 'C:/Users/Daniel/Documents/Codex/2026-10-09/set-up-a-local-ai-mathematical/outputs/math-research-lab/lean/.lake/packages\batteries' has local changes
+warning: Cli: repository 'C:/Users/Daniel/Documents/Codex/2026-10-09/set-up-a-local-ai-mathematical/outputs/math-research-lab/lean/.lake/packages\Cli' has local changes
+C:\Users\Daniel\.codex\.chatgpt-projects\g-p-6ac8784424248191b154eb2ed308e1f1\outputs\oq7-prescribed-extinction\work\FarFieldGeometry.lean:16:59: warning: This simp argument is unused:
+  abs_inv
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [norm_smul, hx.ne', abs_of_pos hx]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+C:\Users\Daniel\.codex\.chatgpt-projects\g-p-6ac8784424248191b154eb2ed308e1f1\outputs\oq7-prescribed-extinction\work\FarFieldGeometry.lean:16:68: warning: This simp argument is unused:
+  abs_of_pos hx
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [norm_smul, hx.ne', abs_inv]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+C:\Users\Daniel\.codex\.chatgpt-projects\g-p-6ac8784424248191b154eb2ed308e1f1\outputs\oq7-prescribed-extinction\work\FarFieldGeometry.lean:37:0: warning: automatically included section variable(s) unused in theorem `OQ7Prescribed.displaced_inverse_amplitude_error`:
+  [InnerProductSpace ℝ H]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [InnerProductSpace ℝ H] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`

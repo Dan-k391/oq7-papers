@@ -1,0 +1,22 @@
+OQ7 PAPER 1: RELEASE REPORT
+12 October 2026, America/New_York
+
+Deliverables
+Complete editable LaTeX/BibTeX source; a clean 15-page PDF; responsive offline MathML HTML; reproducibility README; a 52-row theorem-correspondence table in CSV and HTML; outstanding issues; source provenance and input hashes; a reference audit; preserved frozen Lean source archive and Git bundle; and current verification records. Scientific content is maintained in main.tex and references.bib. No scientific figure is required by this analytic argument.
+
+Major manuscript changes
+The prescribed-extinction proof is presented as one coherent paper with self-contained Maxwell/Green foundations, a regular normalized planar construction, the uniform aperture argument, and both exact extinction-tuning steps. Weak uniqueness is stated almost everywhere and physical flux is tied to the canonical radiating representative. The quartic, resource-dependent, scalar-thickness, and abstract matrix results are reserved for separate papers. Older numerical diagnostics were not reconstructed without their source scripts. No new experiments, numerical claims, or theorem discovery were introduced.
+
+Current Lean checks
+The principal declaration is OQ7Prescribed.theorem11_complete : PhysicalTheorem11Statement at frozen commit 686402a6c2d63820828729cc7ab02504632e3fe7. Its complete statement, model definitions, prescribed-extinction sets, and major dependencies were inspected. Current checks passed for the principal export and all 52 named table declarations/definitions. A fresh empty-environment replay of the entire PrescribedExtinction aggregate succeeded using the same Lean kernel. All 378 certified library source hashes match and the original Git checkout remains clean. These checks cover the encoded existence, full-class suprema, universal strictness, well-posedness/converse representation, actual full-sphere radiation/flux, power balance, and reciprocal extinction. Auxiliary exposition with no separately identical formal statement is explicitly marked in the table.
+
+References
+The paper cites 17 primary publications/contributions. Existing literature positioning was expanded to include Armitage, Ra'di-Asadchy-Tretyakov, Andersen-Frandsen, Khurgin-Sun, Gao-Yang-Kattawar, Bruno and Arrieta/Perez-Arancibia, Maxwell VIE literature, Sounas-Alu time-reversal bounds, and the Mann-Alu 2023 contribution. Close Kononchuk and Manez-Espina precedents are retained with their actual constitutive/model distinctions. The detailed reference-audit.txt records scope and limitations.
+
+Format verification
+The PDF compiled without overfull/underfull boxes or unresolved references. All pages were rendered and visually reviewed, including full-size mathematical and reference pages. Desktop (1440 px) and phone (390 px) browser checks found no page overflow, MathML error, unresolved internal link, or duplicate ID. Both formats contain 51 numbered equations, six numbered theorem/lemma/proposition environments, and 17 references. Section/subsection/appendix numbers and citations derive from the TeX auxiliary files. The HTML contains 389 MathML expressions and does not need a network math loader. review/validation.json records the final source and output hashes.
+
+Remaining human review
+Independent semantic review of the completed frozen commit is pending according to its original manifest; the independent supplied audit concerns the older existence-only commit. The Mann-Alu full equations and priority equivalence remain unverified. The exact intended Khurgin asymmetry comparison and some full-article comparisons need specialist confirmation. Original editable manuscript/figure sources and latest ordinary prescribed-extinction audit notes were not located. Human experts must review the mathematical-physics exposition and scientific positioning, and confirm author order, affiliations, acknowledgments, disclosures, and journal requirements before submission. No submission or public publication was performed.
+
+The scientific consolidation and publication packaging are delivered. The remaining review items prevent an unqualified claim of submission readiness.

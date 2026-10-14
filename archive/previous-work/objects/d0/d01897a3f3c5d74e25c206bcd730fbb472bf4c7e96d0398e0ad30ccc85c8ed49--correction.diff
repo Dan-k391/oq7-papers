@@ -1,0 +1,291 @@
+--- before/main.tex
++++ after/main.tex
+@@ -34,22 +34,22 @@
+ 
+ The result is an existence and supremum theorem. It states that a finite object can have exactly any prescribed positive extinction and an absorption difference arbitrarily close to that extinction, while its real permittivity and loss obey fixed pointwise upper bounds. It establishes neither a finite-resource optimum nor finite-bandwidth performance. The same material tensor is used in both experiments, and scattering includes the whole outgoing sphere and both polarizations.
+ 
+-The preceding compact-Maxwell study established an unrestricted unit supremum with variable extinction. Its fixed-stack aperture theorem did not suffice to keep total extinction fixed: at a fixed coupling angle, enlarging the aperture increases extinction proportionally to area. The prescribed-extinction manuscript resolved this by an exact physical rotation factorization and a uniform normalized aperture theorem. We consolidate that argument here, incorporating the Green-operator and localization foundations of the preceding study. Separate dipole optimization, scalar thickness laws, fixed-resource bounds, and quartic small-size results are outside the present proof.
++At a fixed coupling angle, enlarging a planar-like aperture increases extinction proportionally to area. A fixed-stack aperture limit therefore does not suffice to prescribe total extinction. The exact rotation factorization and uniform normalized aperture theorem below permit the coupling angle to decrease while the aperture grows. Green-operator and localization arguments justify this passage for actual finite Maxwell bodies. Dipole optimization, scalar thickness laws, fixed-resource bounds, and quartic small-size results have different hypotheses and are outside the present proof.
+ 
+ \section{Prior work and the precise contribution}\label{sec:prior}
+ Reciprocal extinction equality and directional absorption are established facts. Sounas and Al\`u derived opposite-incidence extinction symmetry and its implications for scattering manipulation \citep{SounasAlu2014}. Hopkins and coauthors studied directional absorption and scattering at equal extinction through modal interference in reciprocal particles \citep{Hopkins2015}. The passive inequality used below is a consequence of power conservation, and its strictness follows from the optical theorem. We claim no independent discovery of these facts.
+ 
+-Polarization conversion combined with selective attenuation also has a substantial history. Armitage gives reciprocity constraints for Jones matrices and a polarizer--waveplate example \citep{Armitage2014}. Ra'di, Asadchy, and Tretyakov analyze thin bianisotropic absorbers and distinct opposite-side responses, distinguishing reciprocal and nonreciprocal constitutive classes \citep{Radi2013}. Such sheet and channel constructions establish relevant mechanisms; their realizability assumptions must be retained when comparing them with local nonmagnetic dielectric volumes. Likewise, the lossless-response time-reversal bounds of Sounas and Al\`u concern a different set of hypotheses \citep{SounasAlu2017}.
+-
+-Andersen and Frandsen showed that receiving-antenna absorption divided by absorption plus total scattering can approach one, with a directivity-dependent cost \citep{AndersenFrandsen2005}. That result precedes any general near-unit absorption-efficiency claim. It does not by itself supply the present simultaneous opposite-incidence response at every prescribed extinction within a capped local dielectric class. Schab, Gustafsson, and collaborators formulate absorption--scattering tradeoffs with prescribed losses and material parameters \citep{Schab2020}; those finite-resource optimization problems motivate the resource distinctions maintained here. Khurgin and Sun's analysis of loss scaling addresses resonant metal--dielectric structures with subwavelength confinement \citep{KhurginSun2011}. It provides material and confinement context, rather than an equivalent statement for the expanding positive-permittivity dielectric family considered here. The supplied priority report does not identify a more specific Khurgin comparison; that bibliographic question remains open for expert review.
+-
+-Related layered and metasurface devices also require explicit comparison. Kononchuk and coauthors combine dichroic attenuation with magnetic Faraday rotation in a layered-sheet isolator \citep{Kononchuk2019}; its complete device has a different, magnetically nonreciprocal constitutive class. The selective attenuation of its reciprocal polarizer component is a relevant precedent, as discussed in the source manuscript. M\'a\~nez-Espina and coauthors derive maximum directional absorptance difference in a reciprocal bianisotropic metasurface model and verify its predictions with full-wave simulations \citep{ManezEspina2026}. A planar absorptance difference in a specified coupled-mode model is distinct from a compact dimensional extinction-normalized supremum with every positive target and arbitrary material caps. Neither comparison establishes first priority for the latter theorem.
+-
+-For the finite-to-planar passage, Gao, Yang, and Kattawar studied polarized extinction of plates with large aspect ratios \citep{Gao2013}. The physical expectation of a planar limit is therefore established. Windowed Green-function methods rigorously treat layered backgrounds \citep{Bruno2016,Arrieta2022}, while volume-integral formulations supply the singular-kernel and radiation framework \citep{YurkinMishchenko2018,MishchenkoYurkin2018}. A computational window applied to an infinite-interface equation and literal truncation of a material body are different operations. Our smooth windows enter only trial currents; the final material aperture remains sharp.
++Polarization conversion combined with selective attenuation also has a substantial history. Armitage gives reciprocity constraints for Jones matrices and a polarizer--waveplate example \citep{Armitage2014}. Khurgin and coauthors demonstrated reciprocal asymmetric polarization switching using selective attenuation and imperfect waveplates, including passive experiments \citep{Khurgin2021}. This is a closely related channel mechanism. Ra'di, Asadchy, and Tretyakov analyze thin bianisotropic absorbers and distinct opposite-side responses, distinguishing reciprocal and nonreciprocal constitutive classes \citep{Radi2013}. Such sheet and channel constructions establish relevant mechanisms; their realizability assumptions must be retained when comparing them with local nonmagnetic dielectric volumes. Likewise, the lossless-response time-reversal bounds of Sounas and Al\`u concern a different set of hypotheses \citep{SounasAlu2017}.
++
++Andersen and Frandsen showed that receiving-antenna absorption divided by absorption plus total scattering can approach one, with a directivity-dependent cost \citep{AndersenFrandsen2005}. That result precedes any general near-unit absorption-efficiency claim. It does not by itself supply the present simultaneous opposite-incidence response at every prescribed extinction within a capped local dielectric class. Schab, Gustafsson, and collaborators formulate absorption--scattering tradeoffs with prescribed losses and material parameters \citep{Schab2020}; those finite-resource optimization problems motivate the resource distinctions maintained here. Khurgin and Sun's loss-scaling analysis supplies separate material and confinement context for resonant metal--dielectric structures \citep{KhurginSun2011}.
++
++Related layered and metasurface devices also require explicit comparison. Kononchuk and coauthors combine dichroic attenuation with magnetic Faraday rotation in a layered-sheet isolator \citep{Kononchuk2019}; its complete device has a different, magnetically nonreciprocal constitutive class, while its selective-attenuation component is relevant. Earlier bianisotropic metasurface asymmetric absorption was studied by Yazdi and coauthors \citep{Yazdi2015}. M\'a\~nez-Espina and coauthors derive maximum directional absorptance difference in a reciprocal bianisotropic metasurface model and verify its predictions with full-wave simulations \citep{ManezEspina2026}. A planar absorptance difference in a specified coupled-mode model is distinct from a compact dimensional extinction-normalized supremum with every positive target and arbitrary material caps. These comparisons do not establish first priority for the latter theorem.
++
++For the finite-to-planar passage, Gao, Yang, and Kattawar studied polarized extinction of plates with large aspect ratios \citep{Gao2013}. Gustafsson and coauthors derived planar extinction and scattered-transmission identities for periodic slabs \citep{Gustafsson2012}; literal compact-material truncation and the uniform normalized limit required here have different quantifiers. Windowed Green-function methods rigorously treat layered backgrounds \citep{Bruno2016,Arrieta2022}, while volume-integral formulations supply the singular-kernel and radiation framework \citep{YurkinMishchenko2018,MishchenkoYurkin2018}. A computational window applied to an infinite-interface equation and literal truncation of a material body are different operations. Our smooth windows enter only trial currents; the final material aperture remains sharp.
+ 
+ Mann and Al\`u's 2023 conference abstract explicitly announces maximal directional absorption for bianisotropic dipolar particles \citep{MannAlu2023}. It is direct prior art for the qualitative extremal phenomenon. The full equations, normalization, and any equivalent compact dielectric realization have not been verified from that contribution. Priority against it remains unresolved. More generally, absence of an identical retrieved statement does not establish first priority.
+ 
+-The potentially distinctive contribution is the combination of an aperture theorem uniform at vanishing physical coupling, exact finite-object extinction tuning, and positive-loss regularization preserving arbitrary fixed upper material caps. The available novelty assessment is provisional and incremental. The proof is evaluated independently of that assessment.
++The contribution established here is the combination of an aperture theorem uniform at vanishing physical coupling, exact finite-object extinction tuning, and positive-loss regularization preserving arbitrary fixed upper material caps. The mechanism, passive bound, extinction symmetry, and planar optical theorem have the prior precedents described above.
+ 
+ \section{Maxwell model, material class, and cross sections}\label{sec:model}
+ Use time dependence $e^{-i\omega t}$, vacuum wavenumber $k=\omega/c>0$, relative permeability $\mu=I$, and relative permittivity $\varepsilon=I+\chi$. Write $\mathbf H=Z_0H$ for the impedance-normalized magnetic field. The incident fields are
+@@ -180,7 +180,13 @@
+  \chi_{W,\theta}=(a+i\delta)\uvec\uvec^T,\qquad
+  \uvec=\cos\theta\ex+\sin\theta\ey,
+ \end{equation}
+-with $\eta,a,\delta>0$. These intermediate tensors have loss-free null directions and are not the final admissible tensors. Their local rank-one law reduces the unknown current to a scalar, while propagation and radiation remain the full vector Maxwell problem.
++with $\eta,a,\delta>0$. These intermediate tensors have loss-free null directions and are not the final admissible tensors. Their local rank-one law reduces the unknown current to a scalar, while propagation and radiation remain the full vector Maxwell problem. Figure~\ref{fig:geometry} summarizes the geometry and polarization axes.
++
++\begin{figure}[tb]
++\centering
++\includegraphics[width=\linewidth]{figures/two-layer-geometry.pdf}
++\caption{Finite two-layer geometry and transverse material axes, not to scale. Both incident waves have electric polarization $\ey$. The $+$ wave encounters the absorber first; the $-$ wave encounters the plate first. Each layer has square transverse aperture $R\times R$. The susceptibilities in~\eqref{eq:rankone} are intermediate; adding $i\nu I$ in~\eqref{eq:positive-loss} gives the final strictly lossy tensors.}\label{fig:geometry}
++\end{figure}
+ 
+ Let $J_\theta:L^2(D_R)\to L^2(D_R)^3$ multiply a scalar by $\ex$ in the absorber and by $\uvec$ in the plate. It is a real isometry. Let $\alpha(z)=i\eta$ below $h$ and $\alpha(z)=a+i\delta$ above $h$. The scalar operator is
+ \begin{equation}\label{eq:scalar}
+@@ -232,7 +238,7 @@
+ \end{equation}
+ Indeed, propagation of $(E,E'/k)^T$ through a scalar layer of index $n$ is the matrix with entries $\cos(nkd),\sin(nkd)/n,-n\sin(nkd),\cos(nkd)$; at an integer multiple of $\pi$ it is $\pm I_2$.
+ 
+-For the absorber's $x$ polarization, put $n=\sqrt{1+i\eta}$ on the passive branch, $r_0=(1-n)/(1+n)$, and $p=e^{inkh}$. Its exact amplitudes and absorptance are
++All slab coefficients are referenced to their boundary planes: unit incident electric amplitude at one interface gives reflected amplitude $r$ there and transmitted amplitude $t$ at the other interface. A vacuum layer of width $\ell$ has $r=0,t=e^{ik\ell}$. For the absorber's $x$ polarization, put $n=\sqrt{1+i\eta}$ on the passive branch, $r_0=(1-n)/(1+n)$, and $p=e^{inkh}$. Its exact amplitudes and absorptance are
+ \begin{equation}\label{eq:absorber}
+  r_A=\frac{r_0(1-p^2)}{1-r_0^2p^2},\qquad
+  t_A=\frac{(1-r_0^2)p}{1-r_0^2p^2},\qquad
+@@ -256,9 +262,9 @@
+ \end{equation}
+ \end{lemma}
+ \begin{proof}
+-From the absorber side, $y$ crosses vacuum-equivalent material before the reflectionless plate. From the plate side, $H_\theta\ey$ has $x$ component $\sin2\theta$, giving absorption $\sin^22\theta A_x$. In both directions the co-polar transmission relative to vacuum is $\cos2\theta$. The planar optical theorem is $X_\infty=2(1-\Re t_{\mathrm{co}})$, with scattered transmission defined by subtracting the vacuum wave. This proves~\eqref{eq:lossless-planar}.
+-
+-Let $r_W,t_W$ be scalar slab coefficients for permittivity $p_j+i\delta$ and width $d$. Put $D=1-r_Ar_W\cos^2\theta$. Exact cascade matching gives
++From the absorber side, $y$ crosses vacuum-equivalent material before the reflectionless plate. From the plate side, $H_\theta\ey$ has $x$ component $\sin2\theta$, giving absorption $\sin^22\theta A_x$. In both directions the co-polar transmission relative to vacuum is $\cos2\theta$. The planar optical theorem is $X_\infty=2(1-\Re t_{\mathrm{co}})$, with scattered transmission defined by subtracting the vacuum wave \citep{Gustafsson2012}. This proves~\eqref{eq:lossless-planar}.
++
++Let $r_W,t_W$ be scalar slab coefficients for permittivity $p_j+i\delta$ and width $d$. Put $D=1-r_Ar_W\cos^2\theta$. Define $t_{\mathrm{co}}$ as the complete-stack co-polar transmitted amplitude divided by the vacuum factor $e^{ik(h+d)}=v_Av_W$. Exact cascade matching gives
+ \begin{equation}\label{eq:planar-formula}
+  t_{\mathrm{co}}=1+\frac{(t_W/v_W-1)\sin^2\theta}{D},\qquad
+  Y_{\infty,\delta}(\theta)=2\Re\left\{\frac{1-t_W/v_W}{D}\right\}.
+@@ -318,19 +324,19 @@
+ 
+ \subsection{Mixed Fourier localization proof}
+ \begin{proof}[Proof of Theorem~\ref{thm:aperture}]
+-Choose a fixed $v\in C_c^\infty((-1/2,1/2)^2)$ and put $v_R(\mathbf x)=v(\mathbf x/R)$. For $r\in\mathcal H$, the projected commutator $H_{R,\theta}=J_\theta^*K_{D_R}J_\theta(v_Rr)-v_RB_{\mathbf0,\theta}r$ has transverse representation
++Choose a fixed $v\in C_c^\infty((-1/2,1/2)^2)$ and put $v_R(\mathbf x)=v(\mathbf x/R)$. Extend $J_\theta$ constantly in the transverse coordinates on $\mathbb R^2\times(0,L)$. For a compactly supported strip current $p$, define the unrestricted observation field $\mathcal Kp=(k^2I+\nabla\nabla\cdot)(g_k*\widetilde p)$, where $\widetilde p$ is its zero extension in three dimensions. For $r\in\mathcal H$, set $\widetilde H_{R,\theta}=J_\theta^*\mathcal K(J_\theta(v_Rr))-v_RB_{\mathbf0,\theta}r$ on this strip and $H_{R,\theta}=\widetilde H_{R,\theta}|_{D_R}$. The latter equals $J_\theta^*K_{D_R}J_\theta(v_Rr)-v_RB_{\mathbf0,\theta}r$ on $D_R$. The global auxiliary field has transverse Fourier representation
+ \begin{equation}\label{eq:commutator}
+- \widehat H_{R,\theta}(\boldsymbol\kappa)
++ \widehat{\widetilde H}_{R,\theta}(\boldsymbol\kappa)
+  =R^2\widehat v(R\boldsymbol\kappa)(B_{\boldsymbol\kappa,\theta}-B_{\mathbf0,\theta})r.
+ \end{equation}
+-First derive this identity for smooth compactly supported height profiles by the distributional Weyl formula. All estimates below are bounded linear estimates in $r$, so density extends the identity to $\mathcal H$ on the finite observation domain.
+-
+-For $\abs{\boldsymbol\kappa}\leq k/2$, Hilbert-valued Plancherel and~\eqref{eq:fiber-bounds} bound the global $L^2$ norm by $C\norm r\norm{\nabla v_R}_2=C\norm r\norm{\nabla v}_2$. For the complementary region choose an integer $N>3$. Schwartz decay gives $R^2\abs{\widehat v(R\boldsymbol\kappa)}\leq C_{v,N}R^{2-N}\abs{\boldsymbol\kappa}^{-N}$, and
++First derive this identity for smooth compactly supported height profiles by the distributional Weyl formula. The transverse transform acts on the global auxiliary field before aperture restriction. Density extends the distributional identity to $\mathcal H$ and the following estimates to its aperture restriction.
++
++For $\abs{\boldsymbol\kappa}\leq k/2$, Hilbert-valued Plancherel and~\eqref{eq:fiber-bounds} bound the global $L^2$ norm of the low-frequency part of $\widetilde H_{R,\theta}$ by $C\norm r\norm{\nabla v_R}_2=C\norm r\norm{\nabla v}_2$. For the complementary region choose an integer $N>3$. Schwartz decay gives $R^2\abs{\widehat v(R\boldsymbol\kappa)}\leq C_{v,N}R^{2-N}\abs{\boldsymbol\kappa}^{-N}$, and
+ \begin{equation}\label{eq:grazing-integral}
+  \int_{\abs{\boldsymbol\kappa}>k/2}\abs{\boldsymbol\kappa}^{-N}
+  (\norm{K_{\boldsymbol\kappa}}+\norm{K_{\mathbf0}})\dd\boldsymbol\kappa<\infty.
+ \end{equation}
+-The grazing part is locally $L^1$; at infinity the radial integrand is $O(\rho^{2-N})$. Inverse Fourier $L^1$ control gives a transverse $L^\infty(\mathcal H)$ bound $C_{v,N}R^{2-N}\norm r$. Restricting to the aperture gives an $L^2(D_R)$ bound $C_{v,N}R^{3-N}\norm r$. Therefore
++The grazing part is locally $L^1$; at infinity the radial integrand is $O(\rho^{2-N})$. Inverse Fourier $L^1$ control gives the complementary part of $\widetilde H_{R,\theta}$ a transverse $L^\infty(\mathcal H)$ bound $C_{v,N}R^{2-N}\norm r$. Restricting to the aperture gives an $L^2(D_R)$ bound $C_{v,N}R^{3-N}\norm r$. Therefore
+ \begin{equation}\label{eq:commutator-bound}
+  \norm{H_{R,\theta}}_{L^2(D_R)}\leq C_v\norm r+o(1)\norm r
+ \end{equation}
+@@ -421,15 +427,17 @@
+ \texttt{OQ7Prescribed.theorem11\_complete}\\
+ \texttt{: PhysicalTheorem11Statement}.
+ \end{quote}
+-The source is \path{PrescribedExtinction/PhysicalTheorem11.lean}. The first conjunct preserves the existence statement \texttt{Theorem11Statement}. Further conjuncts prove both prescribed-extinction suprema, well-posedness almost everywhere for every admissible two-layer body, the full physical optical certificates, reciprocal extinction, universal bounds, and strict nonattainment.
+-
+-The correspondence is literal at the level of the main class and powers. \texttt{TwoLayerBody} uses two positive finite thicknesses and a finite positive square side length. \texttt{MaterialAdmissible} imposes transpose symmetry and the same Hermitian quadratic-form bounds as~\eqref{eq:material}. \texttt{ScatteringState} contains actual weak Maxwell fields, the uniform outgoing condition, and an $L^2$ compact polarization. Its test class is $C_c^\infty$; a historical analytic-test annotation was corrected before the frozen proof. The formal supremum sets range over every such admissible body and state pair at the prescribed extinction, rather than only the constructed family. Physical sphere flux is proved for the canonical radiating representative.
+-
+-The machine proof of universal strictness also uses strictly positive local absorption at positive extinction, while Lemma~\ref{lem:strict} uses the far-field optical theorem. These are compatible proofs of the same conclusion within the stated class. The supplied correspondence table distinguishes direct declarations, mathematical consequences, and exposition that is not separately formalized. The Weyl-fiber exposition consolidates the supplied analytical proof; the Lean localization proof uses its own physical-space and $L^2$ lemmas. Equality of theorem statements does not require identical proof organization.
+-
+-The repository certificates report a clean project build, an exhaustive audit of 5654 project constants, and only the standard foundations \texttt{propext}, \texttt{Classical.choice}, and \texttt{Quot.sound} for the final theorem. An empty-environment replay of the full aggregate import closure used the same Lean kernel implementation. This is kernel checking, not an independently implemented kernel. The independent audit supplied with the repository reviewed the earlier existence-only commit; the frozen manifest explicitly leaves independent semantic review of the completed commit pending. A current declaration check and separate replay log accompany this publication package.
+-
+-Kernel checking verifies the encoded implication. Identifying its definitions with the intended Maxwell model, assessing the idealized constitutive assumptions, and establishing scientific priority remain distinct tasks. Neither the formalization nor the unsuccessful search for an equivalent publication establishes novelty. The author, affiliation, acknowledgments, and disclosure fields require human confirmation before submission.
++The source is \texttt{PrescribedExtinction/PhysicalTheorem11.lean}. The first conjunct preserves the existence statement \texttt{Theorem11Statement}. Further conjuncts prove both prescribed-extinction suprema, well-posedness almost everywhere for every admissible two-layer body, the full physical optical certificates, reciprocal extinction, universal bounds, and strict nonattainment.
++
++The correspondence is literal at the level of the main class and powers. \texttt{TwoLayerBody} uses two positive finite thicknesses and a finite positive square side length. \texttt{MaterialAdmissible} imposes transpose symmetry and the same Hermitian quadratic-form bounds as~\eqref{eq:material}. \texttt{ScatteringState} contains actual weak Maxwell fields, the uniform outgoing condition, and an $L^2$ compact polarization. Its test class is $C_c^\infty$. The formal supremum sets range over every such admissible body and state pair at the prescribed extinction, rather than only the constructed family. Physical sphere flux is proved for the canonical radiating representative.
++
++The machine proof of universal strictness also uses strictly positive local absorption at positive extinction, while Lemma~\ref{lem:strict} uses the far-field optical theorem. These are compatible proofs of the same conclusion within the stated class. \href{theorem-correspondence.html}{Supplement S1: theorem correspondence} distinguishes direct declarations, mathematical consequences, and exposition that is not separately formalized. The Weyl-fiber argument in Section~\ref{sec:aperture} and the Lean localization proof, which uses physical-space and $L^2$ lemmas, have different organizations. Equality of theorem statements does not require identical proof organization.
++
++The repository certificates report a clean project build, an exhaustive audit of 5654 project constants, and only the standard foundations \texttt{propext}, \texttt{Classical.choice}, and \texttt{Quot.sound} for the final theorem. An empty-environment replay of the full aggregate import closure used the same Lean kernel implementation. This is kernel checking, not an independently implemented kernel. \href{reproducibility/manifest.json}{Supplement S3: frozen verification manifest} records independent semantic review as pending at its export on 12 October 2026. The archived independent audit concerns the earlier existence-only commit; \href{reproducibility/AUDIT_PROVENANCE.md}{Supplement S4: audit provenance} identifies its scope and the review evidence available for this version.
++
++Kernel checking verifies the encoded implication. Independent AI-assisted semantic audit and human scientific review are distinct from kernel checking and from each other. Identifying the definitions with the intended Maxwell model, assessing the idealized constitutive assumptions, and establishing scientific priority remain separate tasks. Neither formalization nor absence of a retrieved equivalent publication establishes novelty.
++
++No experimental or simulation datasets are used. The proof code is distributed with this review manuscript as \href{reproducibility/OQ7-complete-physical-theorem11-source.zip}{Supplement S2: frozen Lean source}; its toolchain, dependencies, correspondence table, and checking instructions are listed in the \href{reproducibility/SUPPLEMENT_INDEX.html}{supplement index}. These are accompanying review materials; a public archival location remains unspecified.
+ 
+ \section{Conclusion}\label{sec:conclusion}
+ The prescribed-extinction problem has a unit normalized supremum within finite compact two-layer reciprocal anisotropic dielectrics at one frequency and under arbitrary fixed positive upper material caps. The proof combines exact rotation factorization, uniform normalized aperture localization, and two finite-object continuity arguments. Each selected object retains the exact extinction target and strictly positive tensor loss, while strict optical-theorem nonattainment prevents equality for an individual body. This gives a precise resource-unrestricted answer to one formulation of OQ7; finite-resource optima and bandwidth remain separate questions.
+@@ -459,7 +467,7 @@
+ For a general weak scattering state, subtract the compact-source reconstruction with $p=\chi E$. The difference is an entire outgoing vacuum pair and hence vanishes. This proves the converse representation before applying constitutive volume-equation uniqueness. It also explains why equality of arbitrary raw weak representatives is stated almost everywhere, while the smooth exterior representative carries the pointwise radiation and flux limits.
+ 
+ \section{Nonsingular normalized planar amplitudes}\label{app:amplitudes}
+-Let $s=\sin\theta$, $c=\cos\theta$, $v_A=e^{ikh}$, $v_W=e^{ikd}$, $\Delta=t_W-v_W$, and $D=1-r_Ar_Wc^2$. With output order $(Lx,Ly,Rx,Ry)$, subtract the vacuum transmitted wave and divide by $s$. Cascade matching gives
++The reference planes are $L:z=0$ and $R:z=L=h+d$. For $b^+$ and $b^-$ the incident $y$ amplitude is one at the left and right planes, respectively. The latter convention multiplies $f_-$ by $e^{ikL}$, an overall unit-modulus phase that does not change powers. Outgoing amplitudes are read at these planes. Let $s=\sin\theta$, $c=\cos\theta$, $v_A=e^{ikh}$, $v_W=e^{ikd}$, $\Delta=t_W-v_W$, and $D=1-r_Ar_Wc^2$. With output order $(Lx,Ly,Rx,Ry)$, subtract $v_Av_W\ey$ from the transmitted amplitude and divide the scattered vector by $s$. Cascade matching gives
+ \begin{equation}\label{eq:amplitudes-plus}
+  b^+=\frac1D\begin{pmatrix}
+  r_Wv_At_Ac\\r_Wv_A^2s\\cv_A(\Delta+v_Wr_Ar_W)\\sv_A\Delta
+--- before/references.bib
++++ after/references.bib
+@@ -48,6 +48,24 @@
+  journal={Applied Physics Letters}, volume={99}, pages={211106}, year={2011}, doi={10.1063/1.3664105},
+  eprint={1110.0753}, archivePrefix={arXiv}, url={https://arxiv.org/abs/1110.0753}
+ }
++@article{Khurgin2021,
++ author={Khurgin, J. B. and Sebbag, Y. and Edrei, E. and Zektzer, R. and Shastri, K. and Levy, U. and Monticone, F.},
++ title={Emulating exceptional-point encirclements using imperfect (leaky) photonic components: asymmetric mode-switching and omni-polarizer action},
++ journal={Optica}, volume={8}, number={4}, pages={563--569}, year={2021},
++ doi={10.1364/OPTICA.412981}, url={https://opg.optica.org/optica/fulltext.cfm?uri=optica-8-4-563}
++}
++@article{Gustafsson2012,
++ author={Gustafsson, Mats and Vakili, Iman and Bayer Keskin, Sena Esen and Sj{\"o}berg, Daniel and Larsson, Christer},
++ title={Optical theorem and forward scattering sum rule for periodic structures},
++ journal={IEEE Transactions on Antennas and Propagation}, volume={60}, number={8}, pages={3818--3826}, year={2012},
++ doi={10.1109/TAP.2012.2201113}, url={https://lup.lub.lu.se/search/files/96358663/TEAT_7213.pdf}
++}
++@article{Yazdi2015,
++ author={Yazdi, Mohammad and Albooyeh, Mohammad and Alaee, Rasoul and Asadchy, Viktar and Komjani, Nader and Rockstuhl, Carsten and Simovski, Constantin R. and Tretyakov, Sergei},
++ title={A Bianisotropic Metasurface With Resonant Asymmetric Absorption},
++ journal={IEEE Transactions on Antennas and Propagation}, volume={63}, number={7}, pages={3004--3015}, year={2015},
++ doi={10.1109/TAP.2015.2423855}
++}
+ @article{Gao2013,
+  author={Gao, Meng and Yang, Ping and Kattawar, George W.},
+  title={Polarized extinction properties of plates with large aspect ratios},
+--- before/build.py
++++ after/build.py
+@@ -5,10 +5,12 @@
+ """
+ from pathlib import Path
+ import argparse
++import base64
+ import copy
+ import hashlib
+ import html
+ import json
++import os
+ import re
+ import shutil
+ import subprocess
+@@ -44,6 +46,7 @@
+     pandoc = args.pandoc or executable("pandoc", list((ROOT / "tools/pandoc").rglob("pandoc.exe")))
+     if not args.skip_pdf:
+         tectonic = args.tectonic or executable("tectonic", [ROOT / "tools/tectonic/tectonic.exe"])
++        os.environ.setdefault("TECTONIC_CACHE_DIR", str(ROOT / "tools/tectonic-cache"))
+         run([tectonic, "--keep-logs", "--keep-intermediates", "--outdir", "build", "main.tex"],
+             logfile=BUILD / "tectonic-build.log")
+     for filename in ["main.pdf", "main.aux", "main.bbl"]:
+@@ -57,9 +60,11 @@
+     citations = dict(re.findall(r"\\bibcite\{([^}]+)\}\{\{(\d+)\}", aux))
+     source = (ROOT / "main.tex").read_text(encoding="utf-8")
+     expected_eqs = re.findall(r"\\begin\{equation\}.*?\\label\{([^}]+)\}", source, re.S)
++    expected_figs = re.findall(r"\\begin\{figure\}.*?\\label\{([^}]+)\}", source, re.S)
+     raw, warnings = run([pandoc, "main.tex", "-f", "latex", "-t", "json"])
+     doc = json.loads(raw)
+     equation_ids = []
++    figure_ids = []
+     transformed_citations = []
+     math_count = 0
+ 
+@@ -102,6 +107,26 @@
+                 raise RuntimeError(f"Section numbering mismatch: {ident}")
+             node["c"][2] = [{"t": "Str", "c": number + " "}] + node["c"][2]
+             node["c"][0] += 1  # The document title alone is h1 in the HTML.
++        if kind == "Figure":
++            ident = node["c"][0][0]
++            figure_ids.append(ident)
++            caption = node["c"][1][1][0]
++            caption["c"] = [{"t": "Str", "c": "Figure " + labels[ident] + ". "}] + caption["c"]
++            node["c"][2].append({"t": "Plain", "c": [{"t": "Link", "c": [
++                ["", ["figure-fullsize"], [["target", "_blank"], ["rel", "noopener"]]],
++                [{"t": "Str", "c": "Open full-size schematic"}],
++                ["figures/two-layer-geometry.svg", "Vector schematic with readable labels"]]}]})
++        if kind == "Image":
++            target = node["c"][2][0]
++            if target == "figures/two-layer-geometry.pdf":
++                svg = ROOT / "figures/two-layer-geometry.svg"
++                if not svg.is_file():
++                    raise RuntimeError("Missing vector SVG counterpart for Figure 1")
++                node["c"][0][2] = []
++                node["c"][1] = [{"t": "Str", "c": "Finite two-layer square-aperture body: absorber below the plate, opposite z-directed incidence with common y polarization, and rotated transverse plate axis."}]
++                node["c"][2][0] = "data:image/svg+xml;base64," + base64.b64encode(svg.read_bytes()).decode("ascii")
++            else:
++                raise RuntimeError("Unmapped figure image: " + target)
+         if kind == "Div":
+             ident = node["c"][0][0]
+             classes = node["c"][0][1]
+@@ -134,6 +159,8 @@
+         raise RuntimeError("Heading inventory differs between TeX and HTML")
+     if sorted(equation_ids) != sorted(expected_eqs):
+         raise RuntimeError("Equation inventory differs between TeX and HTML")
++    if sorted(figure_ids) != sorted(expected_figs):
++        raise RuntimeError("Figure inventory differs between TeX and HTML")
+     abstract = doc["meta"].pop("abstract")["c"]
+     doc["blocks"] = [{"t": "Div", "c": [["abstract", ["abstract"], []], [
+         {"t": "Header", "c": [2, ["abstract-heading", [], []], [{"t": "Str", "c": "Abstract"}]]}
+@@ -164,9 +191,12 @@
+     info = dict(authoritative_sources=["main.tex", "references.bib"],
+                 source_sha256={n: hashlib.sha256((ROOT/n).read_bytes()).hexdigest() for n in ["main.tex", "references.bib"]},
+                 equations=len(equation_ids), equation_labels=equation_ids, math_expressions=math_count,
++                figures=len(figure_ids), figure_labels=figure_ids,
++                figure_sources={n: hashlib.sha256((ROOT/n).read_bytes()).hexdigest()
++                                for n in ["figures/two-layer-geometry.pdf", "figures/two-layer-geometry.svg", "review/make_geometry.py"]},
+                 references=len(matches), citations=sorted(set(transformed_citations)),
+                 numbering_source="build/main.aux", bibliography_source="BibTeX-generated build/main.bbl",
+-                html_math="Native MathML; offline, no CDN or JavaScript dependency")
++                html_math="Native MathML; offline, no CDN; inline scroll-accessibility script only")
+     (BUILD / "format-correspondence.json").write_text(json.dumps(info, indent=2), encoding="utf-8")
+     print(f"Built paper.pdf and paper.html: {len(equation_ids)} equations, {len(matches)} references, {math_count} math expressions")
+ 
+--- before/template.html
++++ after/template.html
+@@ -26,6 +26,12 @@
+ .equation { display:block; position:relative; max-width:100%; overflow-x:auto; margin:1.3em 0; padding:8px 50px 8px 0; font-style:normal; }
+ .equation > .math { display:block; min-width:max-content; }
+ .equation-number { position:absolute; right:0; top:50%; transform:translateY(-50%); font-size:.95em; }
++.equation:focus-visible { outline:2px solid var(--blue); outline-offset:3px; }
++.equation-scroll-hint { margin:-1em 0 1em; color:#526f85; font:12px/1.4 system-ui,sans-serif; }
++figure { margin:1.5em 0; }
++figure img { display:block; width:100%; max-width:100%; height:auto; }
++figcaption { margin:.65em 0; font-size:.92em; line-height:1.5; }
++.figure-fullsize { display:inline-block; margin-top:.35em; font:13px/1.5 system-ui,sans-serif; }
+ math[display="block"] { margin:0; }
+ math { font-size:1.06em; }
+ .math.inline { display:inline-block; max-width:100%; overflow-x:auto; vertical-align:middle; }
+@@ -57,5 +63,30 @@
+ $body$
+ <footer>Generated from the editable LaTeX manuscript and BibTeX bibliography. Equation, theorem, section, and citation numbers match the PDF. Mathematical expressions use native MathML.</footer>
+ </main>
++<script>
++function indicateEquationOverflow() {
++  document.querySelectorAll('.equation').forEach(function(e) {
++    let hint=e.nextElementSibling;
++    if (!hint || !hint.classList.contains('equation-scroll-hint')) {
++      hint=document.createElement('p');
++      hint.className='equation-scroll-hint';
++      hint.textContent='Scroll horizontally to read the full equation.';
++      e.insertAdjacentElement('afterend',hint);
++    }
++    const overflow=e.scrollWidth>e.clientWidth+1;
++    hint.hidden=!overflow;
++    if (overflow) {
++      e.tabIndex=0;
++      e.setAttribute('aria-label','Equation '+e.dataset.number+', horizontally scrollable');
++    } else {
++      e.removeAttribute('tabindex');
++      e.removeAttribute('aria-label');
++    }
++  });
++}
++window.addEventListener('load',indicateEquationOverflow);
++window.addEventListener('resize',indicateEquationOverflow);
++if (document.fonts) document.fonts.ready.then(indicateEquationOverflow);
++</script>
+ </body>
+ </html>
