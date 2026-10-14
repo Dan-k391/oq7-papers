@@ -1,0 +1,44 @@
+{
+  "status": "FROZEN_COMPLETE_PHYSICAL_THEOREM11_KERNEL_VERIFIED",
+  "repository": "C:\\Users\\Daniel\\.codex\\.chatgpt-projects\\g-p-6ac8784424248191b154eb2ed308e1f1\\outputs\\oq7-prescribed-extinction",
+  "commit": "686402a6c2d63820828729cc7ab02504632e3fe7",
+  "theorem": "OQ7Prescribed.theorem11_complete",
+  "exactType": "OQ7Prescribed.PhysicalTheorem11Statement",
+  "cleanProjectBuildPassed": true,
+  "allProjectConstantsAudited": 5654,
+  "allowedFoundationAxioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "freshKernelReplay": {
+    "passed": true,
+    "command": "lake env leanchecker --fresh --verbose PrescribedExtinction",
+    "module": "PrescribedExtinction",
+    "scope": "Every constant in the complete physical aggregate import closure, replayed into an empty kernel environment",
+    "sameLeanKernelImplementation": true,
+    "independentKernelImplementationUsed": false,
+    "sourceHashesIdenticalToCleanCertificate": true,
+    "startedUTC": "2026-10-12T07:33:01.2482166Z",
+    "finishedUTC": "2026-10-12T07:39:25.3155776Z",
+    "elapsedSeconds": 384.067361,
+    "exitCode": 0,
+    "log": "verification/leanchecker-fresh.log"
+  },
+  "archiveCertifiedLeanSourceHashesVerified": true,
+  "certifiedLeanFiles": 378,
+  "gitBundleVerified": true,
+  "artifacts": [
+    {
+      "name": "OQ7-complete-physical-theorem11.bundle",
+      "sha256": "5A4E3A4623A910EE1F5993BC43B10DA38D70125EF4AA74A22653B540B2DB8479"
+    },
+    {
+      "name": "OQ7-complete-physical-theorem11-source.zip",
+      "sha256": "D141A3DED8C2D9FE520C0C92EF82601F4E1B7CA3A5EB1580D018E33A8F4FD258"
+    }
+  ],
+  "remainingMathematicalObligations": [],
+  "independentSemanticReview": "Not yet performed for this frozen commit; prompt supplied",
+  "createdUTC": "2026-10-12T07:41:05.5569062Z"
+}

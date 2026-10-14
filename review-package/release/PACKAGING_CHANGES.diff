@@ -1,0 +1,1754 @@
+diff --git a/.gitignore b/.gitignore
+index f5f7788..c071cb9 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -1,6 +1,5 @@
+-.lake/
+-*.olean
+-*.ilean
+-*.c
+-lake-manifest.json
+-work/
++.lake/
++*.olean
++*.ilean
++*.c
++work/
+diff --git a/RELEASE_REPRODUCE.md b/RELEASE_REPRODUCE.md
+new file mode 100644
+index 0000000..cc60823
+--- /dev/null
++++ b/RELEASE_REPRODUCE.md
+@@ -0,0 +1,8 @@
++# Portable release revision
++This revision preserves all 378 mathematical source files from commit 686402a6c2d63820828729cc7ab02504632e3fe7.
++The root lake-manifest.json is tracked and available; sources/pinned-lake-manifest.json is retained.
++The default package directory is .lake/packages. No absolute Windows path or manual LEAN_PATH is required.
++Activate Lean 4.34.1, then run: python configure.py; lake build OQ7 PrescribedExtinction; python run-audit.py.
++Dependency source ZIPs are supplied in the outer release's dependency-sources directory; restore them to .lake/packages by package name before building.
++All package revisions are frozen. Do not run lake update or substitute other toolchain versions.
++Original audit env.sh placeholders remain only in the historical audit packet; top-level env.sh and env.ps1 are portable convenience wrappers.
+diff --git a/audit/final/AUDIT_REPORT_686402a.md b/audit/final/AUDIT_REPORT_686402a.md
+new file mode 100644
+index 0000000..8552536
+--- /dev/null
++++ b/audit/final/AUDIT_REPORT_686402a.md
+@@ -0,0 +1,194 @@
++# Independent final audit: OQ7 Lean formalization of physical Theorem 1.1
++
++| | |
++|---|---|
++| Frozen commit | `686402a6c2d63820828729cc7ab02504632e3fe7` (tree `580737ccf6557102d601894145cc0229ae1f83e3`) |
++| Previously audited | `5a8350d5408c38e333c9f6b6d8a94816c794120b`, which had open gaps F1–F4 |
++| Declaration | `OQ7Prescribed.theorem11_complete : OQ7Prescribed.PhysicalTheorem11Statement` (`PrescribedExtinction/PhysicalTheorem11.lean:31`) |
++| Specification | `OQ7_prescribed_extinction_2026-10-11.pdf` (SHA-256 `3d9775d8…6710`), Theorem 1.1 and Lemma 1.2, p. 3 |
++| Toolchain | Lean 4.34.1 (`5045d005…`), Mathlib `d13f23b7…`; all transitive pins as verified in the previous audit |
++
++## Verdicts
++
++| Category | Verdict |
++|---|---|
++| Lean kernel validity | **PASS** |
++| Full semantic fidelity to the manuscript's Theorem 1.1 | **PASS** (interpretation scope noted in §3) |
++| Maxwell physical correctness within the formal model | **PASS** |
++| Completion of F1–F4 | **PASS**, all four closed |
++| Exact supremum theorem (both suprema, non-attained) | **PASS** |
++| Reproducibility | **PASS**, with two portability defects (R1, R2) that do not affect the result |
++
++No failures were found, so there are no failing file/line items to report.
++
++**Explicit confirmation.** Within the formal model defined in `Basic.lean` and `Maxwell.lean` (re-audited previously, unchanged since), the entire physical Theorem 1.1 is kernel-verified at this commit. That includes:
++
++* the existence statement (3)–(4);
++* uniqueness of the physical fields;
++* the optical theorem and the equivalence of both forms of Γ;
++* universal passivity;
++* **both exact suprema** (sup Γ = 1 and sup |A₊−A₋| = E∗ at fixed extinction);
++* universal strict non-attainment (Lemma 1.2).
++
++It depends only on `propext`, `Classical.choice` and `Quot.sound`.
++
++---
++
++## 1. Kernel validity: PASS
++
++### Frozen commit reconstruction
++
++* I staged all 172 loose objects plus the pack from the repository's `.git` and reconstructed the repository separately. `git fsck --full` is clean.
++* `HEAD` = `686402a6…` (commit message: "Preserve fresh kernel replay and frozen review export evidence"). There are 4 commits since `5a8350d`.
++* 37 working-tree files in your folder were hashed (`git hash-object`): all 32 new or changed Lean files, `Maxwell.lean`, `Basic.lean`, `Theorem11.lean`, `lakefile.toml`, `lean-toolchain`. All are **identical to the frozen commit**.
++
++### What changed since `5a8350d`
++
++* 31 new modules were added.
++* The only modified library file is the root `PrescribedExtinction.lean`, which gains imports only.
++* No previously audited library module is modified or deleted.
++* `Maxwell.lean`, `Basic.lean`, `lakefile.toml` and `lean-toolchain` are unchanged. The target definitions are therefore byte-identical to the ones I audited before.
++
++### Build
++
++* `lake build OQ7 PrescribedExtinction`: **3,601 jobs, exit 0**, no `declaration uses 'sorry'` (`logs/build-all.log`).
++* All 378 project modules were compiled fresh in a new clone.
++* Dependency oleans were reused from my own from-source build of the previous audit, at identical pinned revisions. The two Mathlib modules newly required by this commit were compiled from source here.
++
++### Source scan
++
++All 378 library files contain no `sorry`, `admit`, `axiom` declaration, `opaque`, `unsafe`, `implemented_by`, `@[extern]`, `native_decide`, `ofReduceBool`, `debug.skipKernelTC`, meta-programming, `run_cmd`/`#eval`, or environment manipulation.
++
++The only remaining `ContDiff ℝ ⊤` (analytic) is the historical `AnalyticTestWeakCurl` in `TestRegularity.lean:13`, which is **not** in the final theorem's dependency cone.
++
++### Axioms
++
++* `#print axioms OQ7Prescribed.theorem11_complete` reports `[propext, Classical.choice, Quot.sound]`.
++* My own traversal (`experiments/AuditCone2.lean`), which walks types, values, inductives and recursor rules, reaches **61,839 constants** (3,169 of them project constants, in 299 project modules). The only axioms are those three standard ones. There are 0 unsafe constants, and `sorryAx`, `ofReduceBool` and `trustCompiler` are absent.
++* A whole-project sweep (`experiments/AuditWholeProject.lean`) covers **5,658 project constants** (49 private). Their union of dependencies reaches only the same three axioms.
++
++### Independent kernel replay
++
++`leanchecker --fresh --verbose PrescribedExtinction.PhysicalTheorem11` replays every constant in the closure (Init, Lean, Std, Batteries, Mathlib, project) into an empty kernel environment. Result: **exit 0** in 10 min 45 s (`logs/leanchecker-fresh-PhysicalTheorem11.log`).
++
++---
++
++## 2. Gaps F1–F4: all closed (PASS)
++
++The final statement (`PhysicalTheorem11.lean:12–29`) contains each item below as an explicit conjunct, not as an unused lemma. Dependency cone (`logs/cone2.log`): the decisive lemmas are all reached, and **30 of the 31 new modules** contribute constants.
++
++* **Reached lemmas**:
++  * `physicalScatteringState_unique_ae`
++  * `scatteringState_outgoing_volume_representation`
++  * `scatteringState_energy_balance`
++  * `scatteringState_forward_optical_theorem`
++  * `exteriorSphereFlux_tendsto`
++  * `scatteringState_absorption_le_extinction`
++  * `scatteringState_extinction_reciprocity`
++  * `outgoing_weak_source_work_nonneg`
++  * `…AsymmetryValues_isLUB`
++  * `theorem11`
++* **Unused module**: only `DistributionVacuumHelmholtz` contributes no constants. It is an unused helper, and nothing claimed depends on it.
++
++| Gap | Formal content in the statement | Verified meaning |
++|---|---|---|
++| **F1** universal passivity and suprema | l.25: Γ ≤ 1 for every admissible body and every pair of states. l.15–16: `sSup` of Γ-values = 1; `sSup` of \|A₊−A₋\|-values = E∗. | The class (`PrescribedExtinctionClass.lean:9–27`) is *every* admissible `TwoLayerBody` with *arbitrary* `ScatteringState`s and X₊ = X₋ = E∗. My lemma `auditor_sup_is_lub` derives from the statement alone that Γ ≤ 1 on the class, that Γ > 1−ε is approached for every ε, and that Γ < 1 throughout. Lean's `sSup ∅ = 0` and `sSup(unbounded) = 0` conventions cannot fake "= 1" (checked in the proof). |
++| **F2** uniqueness and converse representation | l.18–19: ∃ s ∀ t, E and H agree a.e. For **every** state, `FullPhysicalOpticalStatement` conjuncts 1–2 give E =ᵐ f + E_out[χE] and H =ᵐ H_inc + H_out[χE]. | Uniqueness is a.e., the correct notion for L²_loc fields. The converse representation holds for an *arbitrary* weak radiating solution, not only for constructed ones. It uses strict loss through `admissible`. |
++| **F3** optical theorem | Conjuncts 3–7 of `FullPhysicalOpticalStatement` (`FullPhysicalOpticalTheorem.lean:13–26`), for every state. | X = A + S. X = (4π/k)·Im(e_y†F(σe_z)), the manuscript's forward optical theorem. S = ∫_{S²}\|F\|² dσ, with `sphereArea` the Mathlib surface measure of total mass 4π (`SphereMeasure.lean:31`). The Poynting flux r²∫Re(Ē·(H×n)) dσ → S, with the correct normalization for Z₀H units. Uniform far-field bound: \|r e^{−ikr}E_s(rn) − F(n)\| ≤ C/r. l.27–28: Γ = \|S₊−S₋\|/X. l.23: X₊ = X₋ for every pair of states (reciprocity). |
++| **F4** universal non-attainment | l.26: X > 0 ⇒ Γ < 1 for every admissible body and every pair of states. l.29: Γ < 1 and \|A₊−A₋\| < E∗ for every member of the class, so neither supremum is attained. | Matches Lemma 1.2 ("X > 0 implies Γ < 1"). |
++
++### Pointwise representatives are canonical
++
++The flux and far-field conjuncts evaluate fields on spheres, which are Lebesgue-null sets. I checked that the evaluated representative is the canonical one:
++
++* outside the body, `scatteringStateRadiatingElectric` is the explicit pointwise dyadic-Green integral `∫ classicalDyadic k (x−y) p(y) dy` (`ExteriorOutgoing.lean:73`), on `‖x‖ > R+1` (`OutgoingSourceFields.lean:77`);
++* the magnetic field is a pointwise convolution;
++* both are proved a.e. equal to the weak solution.
++
++So these statements are about the genuine continuous radiating field, not an arbitrary a.e. version.
++
++---
++
++## 3. Semantic fidelity: PASS
++
++### Mapping from Theorem 1.1 to `PhysicalTheorem11Statement`
++
++| Manuscript Theorem 1.1 / Lemma 1.2 | Statement | Status |
++|---|---|---|
++| ∀ k, P, Q, E∗, ϵ: ∃ two-layer body with (3) such that X₊ = X₋ = E∗ and 1−ϵ < Γ < 1 | conjunct 1 = the unchanged `Theorem11Statement` (re-audited previously) | ✓ |
++| "the pair (1)", i.e. the unique physical outgoing fields | l.18–19 (existence + a.e. uniqueness) and the converse representation | ✓ (was F2) |
++| sup_{X=E∗} Γ = 1 in this class | l.15 | ✓ (was F1) |
++| sup_{X=E∗} \|A₊−A₋\| = E∗ | l.16 | ✓ (was F1) |
++| Γ = \|A₊−A₋\|/X = \|S₊−S₋\|/X, X = A± + S± | l.27–28; energy balance for every state | ✓ (was F3) |
++| X₊ = X₋ (reciprocity) | l.23 | ✓ |
++| Lemma 1.2: X > 0 ⇒ Γ < 1 | l.26 | ✓ (was F4) |
++| Forward optical theorem X = (4π/k)·Im(e_y†F(±e_z)) | optical conjunct 4 | ✓ |
++
++### Adversarial checks
++
++1. **Test-function space.** The final theorem uses only `HasWeakCurl` with `ContDiff ℝ (⊤ : ℕ∞)`, i.e. C^∞_c. I re-ran my previous experiments against this build (`logs/regression-experiments.log`), all with standard axioms only:
++   * the old analytic class is still vacuous (`auditor_old_weakCurl_vacuous`);
++   * the corrected class still rejects "curl 0 = e_x" (`auditor_new_weakCurl_nonvacuous`);
++   * `AnalyticTestWeakCurl` is outside the cone.
++2. **Improper or default-zero integrals.** Re-verified for every `ScatteringState`: absorption and all four weak-Maxwell integrands are genuinely integrable (`auditor_absorption_integrable`, `auditor_weakMaxwell_integrands`).
++3. **Division by zero in Γ.** The universal Γ ≤ 1 clause (l.25) is proved via the X = 0 branch (`UniversalPhysicalBounds.lean:42–43`), where Lean sets x/0 = 0. The repo never proves X > 0 universally, but the manuscript asserts it ("X = X₊ = X₋ > 0", p. 3). **I proved it** (`auditor_extinction_pos`, `experiments/Audit2.lean`): for every admissible body and every state, X > 0. The argument: X = 0 ⇒ A = 0 ⇒ E = 0 a.e. in the body (strict loss) ⇒ P = 0 ⇒ E = f a.e. (converse representation), contradicting \|f\| = 1 on a set of positive measure. Hence the X = 0 branch is vacuous, and Γ < 1 holds for every admissible body with no hypothesis (`auditor_universal_gamma_lt_one`). This closes a small gap in the repo's statement rather than revealing a defect.
++4. **Vacuity.** `ScatteringState` is inhabited for every admissible body (l.18). The universal clauses therefore quantify over a non-empty class, and the supremum sets are proved non-empty.
++5. **Normalizations.** The base definitions are unchanged (incident amplitude, Z₀H, Silver–Müller sign for e^{−iωt}, X, A, Γ). The new ones were checked:
++   * flux is Re(E×H̄)·n in Z₀H units, i.e. cross-section normalization;
++   * the far-field factor is k²/4π;
++   * the sphere mass is 4π;
++   * the forward direction is σe_z.
++
++### Interpretation scope (not failures)
++
++* **"In this class"** is formalized as the manuscript's own geometry: the slab D_R = S_R × (0, h+d), axis-aligned and origin-anchored, illuminated along its normal by e_y-polarized ±e_z plane waves. The admissible tensors are arbitrary. A broader reading (rotated or translated bodies, other shapes) is not covered. Mathematically the upper bound Γ ≤ 1 still holds for those by passivity, but that is not formalized.
++* The formal class also admits equal absorber and plate tensors. This is harmless: the lower-bound witnesses have distinct layers, and the upper bound holds on the larger class.
++* The theorem is single-frequency. The causality and dispersion remarks (§5.3) and the bounded-resource asymptotics (§6) are outside Theorem 1.1 and were not audited.
++
++---
++
++## 4. Maxwell physical correctness within the formal model: PASS
++
++* The weak Maxwell equations (C^∞_c tests, μ = I), local L², and the uniform Silver–Müller condition are unchanged from the previous audit, where they were verified, and are re-confirmed non-vacuous here.
++* Uniqueness and the converse representation hold for arbitrary weak radiating solutions.
++* Energy balance, flux convergence, far-field identification and reciprocity hold for **every** state, not only the constructed witnesses.
++
++---
++
++## 5. Reproducibility: PASS (with portability defects)
++
++* The frozen commit hash, fsck, working-tree identity (37 files) and byte-preservation of all `5a8350d` modules are verified.
++* The repo's claims of 3,601 build jobs and fresh `leanchecker` success are reproduced independently. Its 5,654-constant count differs slightly from my 5,658 because of how generated declarations are counted; both find the same three axioms.
++* **R1**: `lake-manifest.json` is still git-ignored. The pins are tracked in `sources/pinned-lake-manifest.json` and match Mathlib's manifest.
++* **R2**: `lakefile.toml:3` still points `packagesDir` at an absolute Windows path. On POSIX this breaks `lake env`; I worked around it with a symlink and an explicit `LEAN_PATH` (`env.sh`).
++* The repo's PowerShell verifiers (`verify*.ps1`) were inspected but not run. Their substantive checks were reproduced.
++
++### Reproduction
++
++```bash
++git checkout 686402a6c2d63820828729cc7ab02504632e3fe7
++lake build OQ7 PrescribedExtinction                     # 3601 jobs
++source env.sh                                           # LEAN_PATH workaround (R2)
++lean experiments/Audit2.lean                            # A0–A3: axioms, sup⇔lub, X>0, universal Γ<1
++lean experiments/AuditCone2.lean                        # dependency cone of theorem11_complete
++lean experiments/AuditWholeProject.lean                 # all 5,658 project constants
++lean <prev>/AuditExperiments.lean                       # regression: test-space + integrability
++leanchecker --fresh --verbose PrescribedExtinction.PhysicalTheorem11
++```
++
++---
++
++## 6. What this does and does not establish
++
++* **Established.** A machine-checked proof, relative to Lean's kernel and Mathlib's standard definitions, that the formal statement holds. On my review, that statement faithfully encodes the manuscript's Theorem 1.1 and Lemma 1.2 for linear, local, reciprocal, nonmagnetic dielectric two-layer slabs at one frequency.
++* **Not established by Lean.**
++  * Scientific novelty or priority.
++  * Experimental or engineering realizability, e.g. finite bandwidth, real-material dispersion, or fabrication of the unbounded aperture and thickness sequences.
++  * That this is *the* resolution of OQ7 under every interpretation. OQ7 itself fixes no normalization or resource class; the manuscript's §1 says so.
++  * The manuscript's §6 results.
++* **Trust base.**
++  * The Lean 4.34.1 release binary.
++  * `leanchecker`, which uses the same kernel implementation; no independent kernel (e.g. lean4lean) was used.
++  * The standard meaning of Mathlib's definitions.
++  * My reading of the manuscript.
++  * For dependencies, my earlier from-source Mathlib build at identical pins. Everything was then re-checked by the fresh kernel replay.
+diff --git a/audit/final/env.sh b/audit/final/env.sh
+new file mode 100644
+index 0000000..ada07ca
+--- /dev/null
++++ b/audit/final/env.sh
+@@ -0,0 +1,2 @@
++export PATH=<AUDIT_ROOT>/tc/lean-4.34.1-linux/bin:$PATH
++export LEAN_PATH=<AUDIT_ROOT>/pkgs/Cli/.lake/build/lib/lean:<AUDIT_ROOT>/pkgs/batteries/.lake/build/lib/lean:<AUDIT_ROOT>/pkgs/Qq/.lake/build/lib/lean:<AUDIT_ROOT>/pkgs/aesop/.lake/build/lib/lean:<AUDIT_ROOT>/pkgs/proofwidgets/.lake/build/lib/lean:<AUDIT_ROOT>/pkgs/importGraph/.lake/build/lib/lean:<AUDIT_ROOT>/pkgs/LeanSearchClient/.lake/build/lib/lean:<AUDIT_ROOT>/pkgs/plausible/.lake/build/lib/lean:<AUDIT_ROOT>/pkgs/mathlib/.lake/build/lib/lean:<AUDIT2_ROOT>/oq7/.lake/build/lib/lean
+diff --git a/audit/final/experiments/Audit2.lean b/audit/final/experiments/Audit2.lean
+new file mode 100644
+index 0000000..8af181b
+--- /dev/null
++++ b/audit/final/experiments/Audit2.lean
+@@ -0,0 +1,127 @@
++import PrescribedExtinction.PhysicalTheorem11
++
++/-! Auditor's independent experiments for frozen commit 686402a (not from the repo). -/
++open MeasureTheory Set Filter
++open OQ7Prescribed
++
++noncomputable section
++
++/-! ## A0. Exact declaration and axioms -/
++#check @OQ7Prescribed.theorem11_complete
++#print axioms OQ7Prescribed.theorem11_complete
++example : OQ7Prescribed.PhysicalTheorem11Statement := OQ7Prescribed.theorem11_complete
++-- The preserved existence statement is literally the first conjunct.
++example : PhysicalTheorem11Statement → Theorem11Statement := fun h => h.1
++
++/-! ## A1. Consequences extracted from the statement exactly as the manuscript phrases them. -/
++theorem auditor_sup_is_lub (k P Q E : ℝ) (hk : 0 < k) (hP : 1 < P) (hQ : 0 < Q) (hE : 0 < E) :
++    (∀ s : PrescribedExtinctionPair k P Q E, s.asymmetry ≤ 1) ∧
++    (∀ ε > 0, ∃ s : PrescribedExtinctionPair k P Q E, 1 - ε < s.asymmetry) ∧
++    (∀ s : PrescribedExtinctionPair k P Q E, s.asymmetry < 1) := by
++  obtain ⟨-, h⟩ := theorem11_complete
++  obtain ⟨hsup, -, -, -, hlt⟩ := h k P Q E hk hP hQ hE
++  have hne : (prescribedExtinctionAsymmetryValues k P Q E).Nonempty := by
++    by_contra hn
++    rw [Set.not_nonempty_iff_eq_empty] at hn
++    rw [hn, Real.sSup_empty] at hsup
++    norm_num at hsup
++  have hbdd : BddAbove (prescribedExtinctionAsymmetryValues k P Q E) := by
++    by_contra hb
++    rw [Real.sSup_of_not_bddAbove hb] at hsup
++    norm_num at hsup
++  refine ⟨fun s => ?_, fun ε hε => ?_, fun s => (hlt s).1⟩
++  · rw [← hsup]; exact le_csSup hbdd ⟨s, rfl⟩
++  · obtain ⟨g, ⟨s, rfl⟩, hg⟩ := exists_lt_of_lt_csSup hne (show 1 - ε < sSup _ by rw [hsup]; linarith)
++    exact ⟨s, hg⟩
++
++/-! ## A2. Positivity of X for EVERY admissible body and EVERY state
++(manuscript p.3, "X = X₊ = X₋ > 0"). Not stated in the repo; proved here. -/
++def auditorZeroPolarization (p : CompactPolarization) : CompactPolarization where
++  current := 0
++  radius := p.radius
++  radius_nonneg := p.radius_nonneg
++  memLp := MemLp.zero
++  vanish := fun _ _ => rfl
++
++theorem auditor_extinction_pos (k : ℝ) (hk : 0 < k) (P Q : ℝ) (B : TwoLayerBody)
++    (hB : B.admissible P Q) (σ : Direction) (s : ScatteringState k B σ) :
++    0 < extinction k B σ s.electric := by
++  have hX0 := scatteringState_extinction_nonneg k hk.le P Q B hB σ s
++  refine lt_of_le_of_ne hX0 (fun hX => ?_)
++  have hA0 := physicalAbsorption_nonneg k hk.le P Q B hB s.electric
++  have hAX := scatteringState_absorption_le_extinction k B σ s
++  have hA : absorption k B s.electric = 0 := by linarith
++  -- absorption zero + strict loss ⇒ E = 0 a.e. on the body
++  have hi := physicalAbsorption_integrable B s.electric s.maxwell.1
++  have hn : ∀ᵐ x ∂(volume.restrict B.domain), 0 ≤ (quadratic (B.permittivity x) (s.electric x)).im := by
++    filter_upwards [ae_restrict_mem (bodyDomain_isOpen B).measurableSet] with x hx
++    exact material_quadratic_im_nonneg P Q _ (bodyPermittivity_admissible_on_domain P Q B hB x hx) _
++  have hz : (∫ x in B.domain, (quadratic (B.permittivity x) (s.electric x)).im) = 0 :=
++    (mul_eq_zero.mp hA).resolve_left hk.ne'
++  have hq := (integral_eq_zero_iff_of_nonneg_ae hn hi).mp hz
++  have hzero : s.electric =ᵐ[volume.restrict B.domain] 0 := by
++    filter_upwards [ae_restrict_mem (bodyDomain_isOpen B).measurableSet, hq] with x hx hqx
++    by_contra he
++    have ht := (bodyPermittivity_admissible_on_domain P Q B hB x hx).2.2.1 (s.electric x) he
++    change (quadratic (B.permittivity x) (s.electric x)).im = 0 at hqx
++    rw [hqx] at ht
++    exact (lt_irrefl 0) ht
++  -- hence the polarization vanishes a.e. on ℝ³
++  set p := physicalCompactPolarization B s.electric s.maxwell.1 with hpdef
++  have hpz : p.current =ᵐ[volume] (auditorZeroPolarization p).current := by
++    have h1 : ∀ᵐ x ∂volume, x ∈ B.domain → s.electric x = 0 :=
++      (ae_restrict_iff' (bodyDomain_isOpen B).measurableSet).mp hzero
++    filter_upwards [h1] with x hx
++    change polarization B s.electric x = 0
++    by_cases hxd : x ∈ B.domain
++    · simp [polarization, hx hxd, tensorApply]
++    · exact polarization_zero_outside B s.electric x hxd
++  -- the radiated field of a zero current is zero a.e.
++  have hfield : outgoingElectricField k p =ᵐ[volume] 0 := by
++    refine (outgoingElectricField_eq_ae k p).trans ?_
++    rw [electricVolumeField_congr_current k p (auditorZeroPolarization p) hpz]
++    have hL : (auditorZeroPolarization p).memLp.toLp (auditorZeroPolarization p).current = 0 :=
++      MemLp.toLp_zero _
++    have hR : remainderPotential k (auditorZeroPolarization p) = 0 := by
++      funext x
++      simp [remainderPotential, auditorZeroPolarization, MeasureTheory.convolution]
++    filter_upwards [Lp.coeFn_zero Vector 2 (volume : Measure Position)] with x hx
++    simp only [electricVolumeField, hL, hR, map_zero, Pi.zero_apply, add_zero]
++    exact hx
++  -- representation: E = f + E_s a.e., so E = f a.e. on the body
++  have hrep := (scatteringState_outgoing_volume_representation k hk B σ s).1
++  have hf : s.electric =ᵐ[volume] incidentElectric k σ := by
++    filter_upwards [hrep, hfield] with x h1 h2
++    rw [h1]
++    change incidentElectric k σ x + outgoingElectricField k p x = _
++    rw [h2]; simp
++  have hcontra : ∀ᵐ x ∂(volume.restrict B.domain), False := by
++    filter_upwards [hzero, ae_restrict_of_ae hf] with x h0 h1
++    have hn1 : ‖incidentElectric k σ x‖ = 1 := incidentElectric_norm k σ x
++    rw [← h1, h0] at hn1
++    simp at hn1
++  have hpos : 0 < volume B.domain := by
++    refine (bodyDomain_isOpen B).measure_pos volume
++      ⟨WithLp.toLp 2 ![0, 0, (B.absorberThickness + B.plateThickness) / 2], ?_⟩
++    have := B.aperture_pos; have := B.absorberThickness_pos; have := B.plateThickness_pos
++    simp only [TwoLayerBody.domain, bodyDomain, squareAperture, Set.mem_setOf_eq]
++    simp
++    repeat' constructor
++    all_goals (first | linarith | positivity)
++  have h0 : volume.restrict B.domain = 0 := by
++    rw [← Measure.measure_univ_eq_zero]
++    have := ae_iff.mp hcontra
++    simpa using this
++  rw [Measure.restrict_eq_zero] at h0
++  exact (ne_of_gt hpos) h0
++
++/-! ## A3. Hence universal strict nonattainment holds for EVERY admissible body with no
++positivity hypothesis (the X = 0 / division-by-zero branch is vacuous). -/
++theorem auditor_universal_gamma_lt_one (k : ℝ) (hk : 0 < k) (P Q : ℝ) (B : TwoLayerBody)
++    (hB : B.admissible P Q) (sp : ScatteringState k B .plus) (sm : ScatteringState k B .minus) :
++    normalizedAsymmetry k B sp.electric sm.electric < 1 :=
++  universal_physical_asymmetry_lt_one k hk P Q B hB sp sm (auditor_extinction_pos k hk P Q B hB .plus sp)
++
++#print axioms auditor_sup_is_lub
++#print axioms auditor_extinction_pos
++#print axioms auditor_universal_gamma_lt_one
+diff --git a/audit/final/experiments/AuditCone2.lean b/audit/final/experiments/AuditCone2.lean
+new file mode 100644
+index 0000000..67bfd7e
+--- /dev/null
++++ b/audit/final/experiments/AuditCone2.lean
+@@ -0,0 +1,83 @@
++import PrescribedExtinction
++open Lean Elab Command
++def auditorDeps (env : Environment) (root : Name) : NameSet := Id.run do
++  let mut seen : NameSet := {}
++  let mut stack : Array Name := #[root]
++  while h : stack.size > 0 do
++    let n := stack.back
++    stack := stack.pop
++    if seen.contains n then continue
++    seen := seen.insert n
++    let some ci := env.find? n | continue
++    let mut used := ci.type.getUsedConstants
++    match ci with
++    | .defnInfo d => used := used ++ d.value.getUsedConstants
++    | .thmInfo t => used := used ++ t.value.getUsedConstants
++    | .opaqueInfo o => used := used ++ o.value.getUsedConstants
++    | .inductInfo i => used := used ++ i.ctors.toArray ++ i.all.toArray
++    | .ctorInfo c => used := used.push c.induct
++    | .recInfo r =>
++        used := used ++ r.all.toArray
++        for rule in r.rules do used := used ++ rule.rhs.getUsedConstants
++    | .quotInfo _ => pure ()
++    | .axiomInfo _ => pure ()
++    for u in used do
++      unless seen.contains u do stack := stack.push u
++  return seen
++
++
++elab "#cone2" : command => do
++  let env ← getEnv
++  let deps := auditorDeps env `OQ7Prescribed.theorem11_complete
++  let mut axs : Array Name := #[]
++  let mut unsafes := 0
++  let mut proj := 0
++  let mut projMods : NameSet := {}
++  for n in deps do
++    if let some ci := env.find? n then
++      if ci matches .axiomInfo _ then axs := axs.push n
++      if ci.isUnsafe then unsafes := unsafes + 1
++      if let some idx := env.getModuleIdxFor? n then
++        let m := env.header.moduleNames[idx.toNat]!
++        let top := (m.components.headD `none).toString
++        if top == "PrescribedExtinction" || top == "OQ7" then
++          proj := proj + 1; projMods := projMods.insert m
++  logInfo m!"reachable constants: {deps.size}; project constants: {proj}; project modules: {projMods.size}"
++  logInfo m!"axioms: {axs}; unsafe: {unsafes}"
++  let newMods := [`PrescribedExtinction.ArbitraryStateOpticalBalance, `PrescribedExtinction.CompactFieldTestSeparation,
++    `PrescribedExtinction.DistributionVacuumHelmholtz, `PrescribedExtinction.ExteriorSphereContinuity,
++    `PrescribedExtinction.ForwardOpticalTheorem, `PrescribedExtinction.FullPhysicalOpticalTheorem,
++    `PrescribedExtinction.FullPrescribedSuprema, `PrescribedExtinction.OutgoingWeakEnergy,
++    `PrescribedExtinction.PhysicalPowersAE, `PrescribedExtinction.PhysicalSphereFlux,
++    `PrescribedExtinction.PhysicalTheorem11, `PrescribedExtinction.PrescribedExtinctionClass,
++    `PrescribedExtinction.ScatteringStatePhysicalRadiation, `PrescribedExtinction.SmoothSourceWeakDecay,
++    `PrescribedExtinction.UniversalFieldPowers, `PrescribedExtinction.UniversalPassivity,
++    `PrescribedExtinction.UniversalPhysicalBounds, `PrescribedExtinction.UniversalStrictAbsorption,
++    `PrescribedExtinction.VacuumOutgoingWeakUniqueness, `PrescribedExtinction.WeakCurlFourier,
++    `PrescribedExtinction.WeakCurlLocalization, `PrescribedExtinction.WeakCurlPlaneWave,
++    `PrescribedExtinction.WeakCurlProducts, `PrescribedExtinction.WeakCurlWeightedGreen,
++    `PrescribedExtinction.WeakLorentzBoundaryBound, `PrescribedExtinction.WeakPhysicalRepresentation,
++    `PrescribedExtinction.WeakPhysicalUniqueness, `PrescribedExtinction.WeakPoynting,
++    `PrescribedExtinction.WeakScatteringResidual, `PrescribedExtinction.WeakSmoothLorentz,
++    `PrescribedExtinction.WeightedRadiationEnergy]
++  for m in newMods do
++    logInfo m!"new module {m}: constants reached = {projMods.contains m}"
++  logInfo m!"OQ7Prescribed.theorem11: in cone = {deps.contains `OQ7Prescribed.theorem11}, exists = {(env.find? `OQ7Prescribed.theorem11).isSome}"
++  logInfo m!"OQ7Prescribed.physicalScatteringState_unique_ae: in cone = {deps.contains `OQ7Prescribed.physicalScatteringState_unique_ae}, exists = {(env.find? `OQ7Prescribed.physicalScatteringState_unique_ae).isSome}"
++  logInfo m!"OQ7Prescribed.physicalScatteringState_exists: in cone = {deps.contains `OQ7Prescribed.physicalScatteringState_exists}, exists = {(env.find? `OQ7Prescribed.physicalScatteringState_exists).isSome}"
++  logInfo m!"OQ7Prescribed.scatteringState_outgoing_volume_representation: in cone = {deps.contains `OQ7Prescribed.scatteringState_outgoing_volume_representation}, exists = {(env.find? `OQ7Prescribed.scatteringState_outgoing_volume_representation).isSome}"
++  logInfo m!"OQ7Prescribed.scatteringState_energy_balance: in cone = {deps.contains `OQ7Prescribed.scatteringState_energy_balance}, exists = {(env.find? `OQ7Prescribed.scatteringState_energy_balance).isSome}"
++  logInfo m!"OQ7Prescribed.scatteringState_forward_optical_theorem: in cone = {deps.contains `OQ7Prescribed.scatteringState_forward_optical_theorem}, exists = {(env.find? `OQ7Prescribed.scatteringState_forward_optical_theorem).isSome}"
++  logInfo m!"OQ7Prescribed.exteriorSphereFlux_tendsto: in cone = {deps.contains `OQ7Prescribed.exteriorSphereFlux_tendsto}, exists = {(env.find? `OQ7Prescribed.exteriorSphereFlux_tendsto).isSome}"
++  logInfo m!"OQ7Prescribed.scatteringState_absorption_le_extinction: in cone = {deps.contains `OQ7Prescribed.scatteringState_absorption_le_extinction}, exists = {(env.find? `OQ7Prescribed.scatteringState_absorption_le_extinction).isSome}"
++  logInfo m!"OQ7Prescribed.scatteringState_extinction_reciprocity: in cone = {deps.contains `OQ7Prescribed.scatteringState_extinction_reciprocity}, exists = {(env.find? `OQ7Prescribed.scatteringState_extinction_reciprocity).isSome}"
++  logInfo m!"OQ7Prescribed.physicalScattering_eq_Haar: in cone = {deps.contains `OQ7Prescribed.physicalScattering_eq_Haar}, exists = {(env.find? `OQ7Prescribed.physicalScattering_eq_Haar).isSome}"
++  logInfo m!"OQ7Prescribed.scatteringState_currentFarField_is_physical: in cone = {deps.contains `OQ7Prescribed.scatteringState_currentFarField_is_physical}, exists = {(env.find? `OQ7Prescribed.scatteringState_currentFarField_is_physical).isSome}"
++  logInfo m!"OQ7Prescribed.outgoing_weak_source_work_nonneg: in cone = {deps.contains `OQ7Prescribed.outgoing_weak_source_work_nonneg}, exists = {(env.find? `OQ7Prescribed.outgoing_weak_source_work_nonneg).isSome}"
++  logInfo m!"OQ7Prescribed.prescribedExtinctionAsymmetryValues_isLUB: in cone = {deps.contains `OQ7Prescribed.prescribedExtinctionAsymmetryValues_isLUB}, exists = {(env.find? `OQ7Prescribed.prescribedExtinctionAsymmetryValues_isLUB).isSome}"
++  logInfo m!"OQ7Prescribed.AnalyticTestWeakCurl: in cone = {deps.contains `OQ7Prescribed.AnalyticTestWeakCurl}, exists = {(env.find? `OQ7Prescribed.AnalyticTestWeakCurl).isSome}"
++  logInfo m!"OQ7Prescribed.HasWeakCurl.implies_analyticTestWeakCurl: in cone = {deps.contains `OQ7Prescribed.HasWeakCurl.implies_analyticTestWeakCurl}, exists = {(env.find? `OQ7Prescribed.HasWeakCurl.implies_analyticTestWeakCurl).isSome}"
++  logInfo m!"sorryAx: in cone = {deps.contains `sorryAx}, exists = {(env.find? `sorryAx).isSome}"
++  logInfo m!"Lean.ofReduceBool: in cone = {deps.contains `Lean.ofReduceBool}, exists = {(env.find? `Lean.ofReduceBool).isSome}"
++  logInfo m!"Lean.trustCompiler: in cone = {deps.contains `Lean.trustCompiler}, exists = {(env.find? `Lean.trustCompiler).isSome}"
++#cone2
+diff --git a/audit/final/experiments/AuditExperiments.lean b/audit/final/experiments/AuditExperiments.lean
+new file mode 100644
+index 0000000..d34cef3
+--- /dev/null
++++ b/audit/final/experiments/AuditExperiments.lean
+@@ -0,0 +1,232 @@
++import PrescribedExtinction.Theorem11
++import PrescribedExtinction.TestRegularity
++import Mathlib.Analysis.Calculus.BumpFunction.Normed
++import Mathlib.Analysis.Calculus.BumpFunction.InnerProduct
++import Mathlib.Analysis.Analytic.Uniqueness
++
++/-! Independent audit experiments (written by the auditor, not from the repo).
++Compiled against the from-source build of commit 5a8350d. -/
++
++open MeasureTheory Set Filter Topology
++open scoped ContDiff
++open OQ7Prescribed
++
++noncomputable section
++
++/-! ## E0. Exact final declaration, statement, and axioms -/
++set_option pp.fullNames true in
++#check @OQ7Prescribed.theorem11
++#print axioms OQ7Prescribed.theorem11
++example : OQ7Prescribed.Theorem11Statement := OQ7Prescribed.theorem11
++
++/-! ## E1. The two `⊤`s: `ContDiff ℝ ⊤` (old) is analytic (ω); `ContDiff ℝ (⊤ : ℕ∞)` (new) is C^∞. -/
++example : ((⊤ : ℕ∞) : WithTop ℕ∞) ≠ (⊤ : WithTop ℕ∞) := by simp
++example : ((⊤ : ℕ∞) : WithTop ℕ∞) = ∞ := rfl
++
++/-! ## E2. The pre-correction weak-curl condition was vacuous.
++An analytic, compactly supported field on ℝ³ is identically zero, so the old test class is {0}
++and `AnalyticTestWeakCurl F G` holds for *every* pair of fields. -/
++theorem auditor_analytic_compactSupport_eq_zero (φ : Field)
++    (h : ContDiff ℝ ⊤ φ) (hs : HasCompactSupport φ) : φ = 0 := by
++  have han : AnalyticOnNhd ℝ φ univ := h.analyticOnNhd
++  obtain ⟨z, hz⟩ : ∃ z : Position, z ∉ tsupport φ := by
++    by_contra hcon
++    push Not at hcon
++    have huniv : tsupport φ = univ := eq_univ_of_forall hcon
++    have hc : IsCompact (univ : Set Position) := huniv ▸ hs
++    exact noncompact_univ Position hc
++  have hz' : φ =ᶠ[𝓝 z] 0 := notMem_tsupport_iff_eventuallyEq.mp hz
++  funext x
++  exact han.eqOn_zero_of_preconnected_of_eventuallyEq_zero isPreconnected_univ (mem_univ z) hz'
++    (mem_univ x)
++
++theorem auditor_old_weakCurl_vacuous (F G : Field) : AnalyticTestWeakCurl F G := by
++  intro φ hφ hs
++  have h0 := auditor_analytic_compactSupport_eq_zero φ hφ hs
++  subst h0
++  have hc : curl (0 : Field) = 0 := by
++    funext x; ext i; fin_cases i <;> simp [curl]
++  simp [hc, bilinear]
++
++/-! ## E3. The corrected condition has content: `curl 0 = e_x` is rejected.
++Test with a smooth bump times e_x. -/
++theorem auditor_new_weakCurl_nonvacuous :
++    ¬ HasWeakCurl (fun _ => 0) (fun _ => basisC 0) := by
++  intro h
++  let b : ContDiffBump (0 : Position) := ⟨1, 2, one_pos, one_lt_two⟩
++  let g : ℝ →L[ℝ] Vector := (ContinuousLinearMap.lsmul ℝ ℝ).flip (basisC 0) |>.restrictScalars ℝ
++  -- explicit ℝ-linear embedding r ↦ r • e_x
++  let φ : Field := fun x => ((b x : ℝ) : ℂ) • basisC 0
++  have hφ : ContDiff ℝ (⊤ : ℕ∞) φ := by
++    have hb : ContDiff ℝ (⊤ : ℕ∞) (fun x => (b x : ℝ)) := b.contDiff
++    have hl : ContDiff ℝ (⊤ : ℕ∞) (fun r : ℝ => ((r : ℂ)) • basisC 0) := by
++      have : (fun r : ℝ => ((r : ℂ)) • basisC 0) = fun r : ℝ => r • basisC 0 := by
++        funext r; rw [Complex.coe_smul]
++      rw [this]
++      exact contDiff_id.smul contDiff_const
++    exact hl.comp hb
++  have hs : HasCompactSupport φ := by
++    have : φ = (fun r : ℝ => ((r : ℂ)) • basisC 0) ∘ (fun x => b x) := rfl
++    rw [this]
++    exact b.hasCompactSupport.comp_left (by simp)
++  have he := h φ hφ hs
++  have hl : (∫ x : Position, bilinear ((fun _ => (0 : Vector)) x) (curl φ x)) = 0 := by
++    simp [bilinear]
++  have hr : (∫ x : Position, bilinear ((fun _ => basisC 0) x) (φ x)) =
++      ((∫ x : Position, b x : ℝ) : ℂ) := by
++    have : (fun x : Position => bilinear (basisC 0) (φ x)) = fun x => ((b x : ℝ) : ℂ) := by
++      funext x
++      simp [bilinear, φ, basisC, Fin.sum_univ_succ, Pi.single_apply]
++    simp only [this]
++    exact integral_ofReal
++  rw [hl, hr] at he
++  have hpos : 0 < ∫ x : Position, b x := b.integral_pos
++  have : (∫ x : Position, b x) = 0 := by exact_mod_cast he.symm
++  linarith
++
++/-! ## E4. Default-zero integrals cannot be exploited in the final statement.
++(a) A positive extinction forces integrability of the extinction integrand. -/
++theorem auditor_extinction_pos_integrable (k : ℝ) (B : TwoLayerBody) (σ : Direction) (E : Field)
++    (hX : 0 < extinction k B σ E) :
++    IntegrableOn (fun x => pairing (incidentElectric k σ x) (polarization B E x)) B.domain := by
++  by_contra hni
++  have h0 : (∫ x in B.domain, pairing (incidentElectric k σ x) (polarization B E x)) = 0 :=
++    integral_undef hni
++  simp [extinction, h0] at hX
++
++/-! (b) For EVERY ScatteringState, the absorption integrand is integrable on the body
++(so `absorption` is never a default-zero Bochner integral). -/
++theorem auditor_pairing_eq_inner (u v : Vector) : pairing u v = inner ℂ u v := by
++  simp [pairing, PiLp.inner_apply, mul_comm]
++
++theorem auditor_absorption_integrand (B : TwoLayerBody) (E : Field) (x : Position) :
++    (quadratic (B.permittivity x) (E x)).im = (pairing (E x) (polarization B E x)).im := by
++  have hsplit : tensorApply (B.permittivity x) (E x) = E x + polarization B E x := by
++    ext i
++    simp [tensorApply, polarization, TwoLayerBody.susceptibility, Matrix.sub_mulVec]
++  have hlin : pairing (E x) (E x + polarization B E x) =
++      pairing (E x) (E x) + pairing (E x) (polarization B E x) := by
++    simp [pairing, mul_add, Finset.sum_add_distrib]
++  rw [quadratic, hsplit, hlin, Complex.add_im, pairing_self]
++  simp
++
++theorem auditor_absorption_integrable (k : ℝ) (B : TwoLayerBody) (σ : Direction)
++    (s : ScatteringState k B σ) :
++    IntegrableOn (fun x => (quadratic (B.permittivity x) (s.electric x)).im) B.domain := by
++  have hE : MemLp s.electric 2 (volume.restrict B.domain) :=
++    (s.maxwell.1 (closure B.domain) (domain_compact_closure B)).mono_measure
++      (Measure.restrict_mono subset_closure le_rfl)
++  have hP : MemLp (polarization B s.electric) 2 (volume.restrict B.domain) :=
++    s.current_memLp.restrict B.domain
++  have hi : Integrable (fun x => inner ℂ (hE.toLp s.electric x)
++      (hP.toLp (polarization B s.electric) x)) (volume.restrict B.domain) :=
++    L2.integrable_inner (hE.toLp s.electric) (hP.toLp _)
++  have hi' : Integrable (fun x => pairing (s.electric x) (polarization B s.electric x))
++      (volume.restrict B.domain) := by
++    refine hi.congr ?_
++    filter_upwards [hE.coeFn_toLp, hP.coeFn_toLp] with x h1 h2
++    rw [h1, h2, auditor_pairing_eq_inner]
++  have := hi'.im
++  refine this.congr (Eventually.of_forall fun x => ?_)
++  exact (auditor_absorption_integrand B s.electric x).symm
++
++/-! ## E5. Weak-curl integrands are genuinely integrable for every ScatteringState and every
++smooth compactly supported test, so the Maxwell equations are never `0 = 0` by default. -/
++theorem auditor_bilinear_integrable (F ψ : Field) (hF : LocallySquareIntegrable F)
++    (hψ : Continuous ψ) (hs : HasCompactSupport ψ) :
++    Integrable (fun x => bilinear (F x) (ψ x)) := by
++  set K := tsupport ψ
++  have hK : IsCompact K := hs
++  have : IsFiniteMeasure (volume.restrict K) := ⟨by simpa using hK.measure_lt_top⟩
++  have hF1 : Integrable F (volume.restrict K) := (hF K hK).integrable one_le_two
++  have hon : IntegrableOn (fun x => bilinear (F x) (ψ x)) K := by
++    unfold IntegrableOn bilinear
++    refine integrable_finsetSum _ fun i _ => ?_
++    have hFi : Integrable (fun x => F x i) (volume.restrict K) :=
++      (EuclideanSpace.proj i : Vector →L[ℂ] ℂ).integrable_comp hF1
++    obtain ⟨C, hC⟩ := hψ.bounded_above_of_compact_support hs
++    exact hFi.mul_bdd ((continuous_apply i).comp (PiLp.continuous_ofLp 2 _) |>.comp hψ
++      |>.aestronglyMeasurable) (Eventually.of_forall fun x => (PiLp.norm_apply_le (ψ x) i).trans (hC x))
++  refine (integrableOn_iff_integrable_of_support_subset ?_).mp hon
++  intro x hx
++  by_contra hxK
++  have : ψ x = 0 := image_eq_zero_of_notMem_tsupport hxK
++  simp [bilinear, this] at hx
++
++theorem auditor_curl_continuous_compact (φ : Field) (hφ : ContDiff ℝ (⊤ : ℕ∞) φ)
++    (hs : HasCompactSupport φ) : Continuous (curl φ) ∧ HasCompactSupport (curl φ) := by
++  have hd : Continuous (fderiv ℝ φ) :=
++    ContDiff.continuous_fderiv (𝕜 := ℝ) hφ (by simp)
++  let c : (Position →L[ℝ] Vector) → Vector := fun L => WithLp.toLp 2
++    ![L (basisR 1) 2 - L (basisR 2) 1, L (basisR 2) 0 - L (basisR 0) 2,
++      L (basisR 0) 1 - L (basisR 1) 0]
++  have hcurl : curl φ = c ∘ fderiv ℝ φ := rfl
++  rw [hcurl]
++  refine ⟨?_, (hs.fderiv (𝕜 := ℝ)).comp_left (by ext i; fin_cases i <;> simp [c])⟩
++  refine Continuous.comp ?_ hd
++  refine (PiLp.continuous_toLp 2 _).comp ?_
++  refine continuous_pi fun i => ?_
++  have hev (v : Position) (j : Fin 3) : Continuous fun L : Position →L[ℝ] Vector => L v j :=
++    ((continuous_apply j).comp (PiLp.continuous_ofLp 2 _)).comp (continuous_id.clm_apply continuous_const)
++  fin_cases i <;> simp [Matrix.cons_val] <;> exact (hev _ _).sub (hev _ _)
++
++theorem auditor_weakMaxwell_integrands (k : ℝ) (B : TwoLayerBody) (σ : Direction)
++    (s : ScatteringState k B σ) (φ : Field) (hφ : ContDiff ℝ (⊤ : ℕ∞) φ)
++    (hs : HasCompactSupport φ) :
++    Integrable (fun x => bilinear (s.electric x) (curl φ x)) ∧
++    Integrable (fun x => bilinear ((Complex.I * (k : ℂ)) • s.magnetic x) (φ x)) ∧
++    Integrable (fun x => bilinear (s.magnetic x) (curl φ x)) ∧
++    Integrable (fun x => bilinear ((-Complex.I * (k : ℂ)) •
++      tensorApply (B.permittivity x) (s.electric x)) (φ x)) := by
++  obtain ⟨hc, hcs⟩ := auditor_curl_continuous_compact φ hφ hs
++  have hφc : Continuous φ := hφ.continuous
++  have hE := s.maxwell.1
++  have hH := s.maxwell.2.1
++  have hsm (c : ℂ) (F : Field) (hF : LocallySquareIntegrable F) :
++      LocallySquareIntegrable (fun x => c • F x) := fun K hK => (hF K hK).const_smul c
++  have hD : LocallySquareIntegrable (fun x => tensorApply (B.permittivity x) (s.electric x)) := by
++    intro K hK
++    have : (fun x => tensorApply (B.permittivity x) (s.electric x)) =
++        fun x => s.electric x + polarization B s.electric x := by
++      funext x; ext i
++      simp [tensorApply, polarization, TwoLayerBody.susceptibility, Matrix.sub_mulVec]
++    rw [this]
++    exact (hE K hK).add (s.current_memLp.restrict K)
++  exact ⟨auditor_bilinear_integrable _ _ hE hc hcs,
++    auditor_bilinear_integrable _ _ (hsm _ _ hH) hφc hs,
++    auditor_bilinear_integrable _ _ hH hc hcs,
++    auditor_bilinear_integrable _ _ (hsm _ _ hD) hφc hs⟩
++
++/-! ## E7. Under the PRE-correction definitions, the plain incident field (no scattering at all)
++is a "scattering state" for every body: the old target imposed no Maxwell equation. -/
++structure AuditorOldScatteringState (k : ℝ) (B : TwoLayerBody) (σ : Direction) where
++  electric : Field
++  magnetic : Field
++  maxwell : LocallySquareIntegrable electric ∧ LocallySquareIntegrable magnetic ∧
++    AnalyticTestWeakCurl electric (fun x => (Complex.I * (k : ℂ)) • magnetic x) ∧
++    AnalyticTestWeakCurl magnetic (fun x => (-Complex.I * (k : ℂ)) •
++      tensorApply (B.permittivity x) (electric x))
++  outgoing : Outgoing (fun x => electric x - incidentElectric k σ x)
++    (fun x => magnetic x - incidentMagnetic k σ x)
++  current_memLp : MemLp (polarization B electric) 2 volume
++
++def auditorOldIncidentState (k : ℝ) (B : TwoLayerBody) (σ : Direction) :
++    AuditorOldScatteringState k B σ where
++  electric := incidentElectric k σ
++  magnetic := incidentMagnetic k σ
++  maxwell := ⟨incidentElectric_locallySquareIntegrable k σ,
++    incidentMagnetic_locallySquareIntegrable k σ,
++    auditor_old_weakCurl_vacuous _ _, auditor_old_weakCurl_vacuous _ _⟩
++  outgoing := fun ε hε => ⟨1, one_pos, fun x _ => by
++    have h0 : (WithLp.toLp 2 ![(0 : ℂ), 0, 0] : Vector) = 0 := by
++      ext i; fin_cases i <;> rfl
++    simpa [cross, h0] using hε⟩
++  current_memLp := physicalPolarization_memLp B _ (incidentElectric_locallySquareIntegrable k σ)
++
++#print axioms auditor_old_weakCurl_vacuous
++#print axioms auditor_new_weakCurl_nonvacuous
++#print axioms auditor_absorption_integrable
++#print axioms auditor_weakMaxwell_integrands
++#print axioms auditorOldIncidentState
++
++end
+diff --git a/audit/final/experiments/AuditWholeProject.lean b/audit/final/experiments/AuditWholeProject.lean
+new file mode 100644
+index 0000000..7c78bc4
+--- /dev/null
++++ b/audit/final/experiments/AuditWholeProject.lean
+@@ -0,0 +1,45 @@
++import OQ7
++import PrescribedExtinction
++open Lean Elab Command
++def auditorDeps (env : Environment) (roots : Array Name) : NameSet := Id.run do
++  let mut seen : NameSet := {}
++  let mut stack : Array Name := roots
++  while h : stack.size > 0 do
++    let n := stack.back
++    stack := stack.pop
++    if seen.contains n then continue
++    seen := seen.insert n
++    let some ci := env.find? n | continue
++    let mut used := ci.type.getUsedConstants
++    match ci with
++    | .defnInfo d => used := used ++ d.value.getUsedConstants
++    | .thmInfo t => used := used ++ t.value.getUsedConstants
++    | .opaqueInfo o => used := used ++ o.value.getUsedConstants
++    | .inductInfo i => used := used ++ i.ctors.toArray ++ i.all.toArray
++    | .ctorInfo c => used := used.push c.induct
++    | .recInfo r =>
++        used := used ++ r.all.toArray
++        for rule in r.rules do used := used ++ rule.rhs.getUsedConstants
++    | .quotInfo _ => pure ()
++    | .axiomInfo _ => pure ()
++    for u in used do
++      unless seen.contains u do stack := stack.push u
++  return seen
++
++
++elab "#auditor_whole_project" : command => do
++  let env ← getEnv
++  let mut roots : Array Name := #[]
++  for (n, _) in env.constants.toList do
++    if let some idx := env.getModuleIdxFor? n then
++      let m := env.header.moduleNames[idx.toNat]!
++      let top := (m.components.headD `none).toString
++      if top == "OQ7" || top == "PrescribedExtinction" then roots := roots.push n
++  let all := auditorDeps env roots
++  let mut axs : Array Name := #[]
++  for n in all do
++    if let some (.axiomInfo _) := env.find? n then axs := axs.push n
++  let priv := roots.filter isPrivateName
++  logInfo m!"project constants (roots): {roots.size}; private: {priv.size}; union of transitive deps: {all.size}"
++  logInfo m!"axioms reachable from ANY project constant: {axs}"
++#auditor_whole_project
+diff --git a/audit/final/logs/build-all.log.gz b/audit/final/logs/build-all.log.gz
+new file mode 100644
+index 0000000000000000000000000000000000000000..68def8d53c0449309a923f0ae56e750a754d48fa
+GIT binary patch
+literal 20048
+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
+
+literal 0
+HcmV?d00001
+
+diff --git a/audit/final/logs/cone2.log b/audit/final/logs/cone2.log
+new file mode 100644
+index 0000000..58783f9
+--- /dev/null
++++ b/audit/final/logs/cone2.log
+@@ -0,0 +1,51 @@
++reachable constants: 61839; project constants: 3169; project modules: 299
++axioms: [Quot.sound, Classical.choice, propext]; unsafe: 0
++new module PrescribedExtinction.ArbitraryStateOpticalBalance: constants reached = true
++new module PrescribedExtinction.CompactFieldTestSeparation: constants reached = true
++new module PrescribedExtinction.DistributionVacuumHelmholtz: constants reached = false
++new module PrescribedExtinction.ExteriorSphereContinuity: constants reached = true
++new module PrescribedExtinction.ForwardOpticalTheorem: constants reached = true
++new module PrescribedExtinction.FullPhysicalOpticalTheorem: constants reached = true
++new module PrescribedExtinction.FullPrescribedSuprema: constants reached = true
++new module PrescribedExtinction.OutgoingWeakEnergy: constants reached = true
++new module PrescribedExtinction.PhysicalPowersAE: constants reached = true
++new module PrescribedExtinction.PhysicalSphereFlux: constants reached = true
++new module PrescribedExtinction.PhysicalTheorem11: constants reached = true
++new module PrescribedExtinction.PrescribedExtinctionClass: constants reached = true
++new module PrescribedExtinction.ScatteringStatePhysicalRadiation: constants reached = true
++new module PrescribedExtinction.SmoothSourceWeakDecay: constants reached = true
++new module PrescribedExtinction.UniversalFieldPowers: constants reached = true
++new module PrescribedExtinction.UniversalPassivity: constants reached = true
++new module PrescribedExtinction.UniversalPhysicalBounds: constants reached = true
++new module PrescribedExtinction.UniversalStrictAbsorption: constants reached = true
++new module PrescribedExtinction.VacuumOutgoingWeakUniqueness: constants reached = true
++new module PrescribedExtinction.WeakCurlFourier: constants reached = true
++new module PrescribedExtinction.WeakCurlLocalization: constants reached = true
++new module PrescribedExtinction.WeakCurlPlaneWave: constants reached = true
++new module PrescribedExtinction.WeakCurlProducts: constants reached = true
++new module PrescribedExtinction.WeakCurlWeightedGreen: constants reached = true
++new module PrescribedExtinction.WeakLorentzBoundaryBound: constants reached = true
++new module PrescribedExtinction.WeakPhysicalRepresentation: constants reached = true
++new module PrescribedExtinction.WeakPhysicalUniqueness: constants reached = true
++new module PrescribedExtinction.WeakPoynting: constants reached = true
++new module PrescribedExtinction.WeakScatteringResidual: constants reached = true
++new module PrescribedExtinction.WeakSmoothLorentz: constants reached = true
++new module PrescribedExtinction.WeightedRadiationEnergy: constants reached = true
++OQ7Prescribed.theorem11: in cone = true, exists = true
++OQ7Prescribed.physicalScatteringState_unique_ae: in cone = true, exists = true
++OQ7Prescribed.physicalScatteringState_exists: in cone = true, exists = true
++OQ7Prescribed.scatteringState_outgoing_volume_representation: in cone = true, exists = true
++OQ7Prescribed.scatteringState_energy_balance: in cone = true, exists = true
++OQ7Prescribed.scatteringState_forward_optical_theorem: in cone = true, exists = true
++OQ7Prescribed.exteriorSphereFlux_tendsto: in cone = true, exists = true
++OQ7Prescribed.scatteringState_absorption_le_extinction: in cone = true, exists = true
++OQ7Prescribed.scatteringState_extinction_reciprocity: in cone = true, exists = true
++OQ7Prescribed.physicalScattering_eq_Haar: in cone = true, exists = true
++OQ7Prescribed.scatteringState_currentFarField_is_physical: in cone = true, exists = true
++OQ7Prescribed.outgoing_weak_source_work_nonneg: in cone = true, exists = true
++OQ7Prescribed.prescribedExtinctionAsymmetryValues_isLUB: in cone = true, exists = true
++OQ7Prescribed.AnalyticTestWeakCurl: in cone = false, exists = true
++OQ7Prescribed.HasWeakCurl.implies_analyticTestWeakCurl: in cone = false, exists = true
++sorryAx: in cone = false, exists = true
++Lean.ofReduceBool: in cone = false, exists = true
++Lean.trustCompiler: in cone = false, exists = true
+diff --git a/audit/final/logs/experiments2.log b/audit/final/logs/experiments2.log
+new file mode 100644
+index 0000000..6694d9b
+--- /dev/null
++++ b/audit/final/logs/experiments2.log
+@@ -0,0 +1,12 @@
++theorem11_complete : PhysicalTheorem11Statement
++'OQ7Prescribed.theorem11_complete' depends on axioms: [propext, Classical.choice, Quot.sound]
++../experiments/Audit2.lean:107:64: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
++../experiments/Audit2.lean:110:34: warning: Unused tactic linter: `positivity` does nothing
++
++Note: This linter can be disabled with `set_option linter.unusedTactic false`
++../experiments/Audit2.lean:110:34: warning: this tactic is never executed
++
++Note: This linter can be disabled with `set_option linter.unreachableTactic false`
++'auditor_sup_is_lub' depends on axioms: [propext, Classical.choice, Quot.sound]
++'auditor_extinction_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
++'auditor_universal_gamma_lt_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+diff --git a/audit/final/logs/leanchecker-fresh-PhysicalTheorem11.log b/audit/final/logs/leanchecker-fresh-PhysicalTheorem11.log
+new file mode 100644
+index 0000000..1e530b5
+--- /dev/null
++++ b/audit/final/logs/leanchecker-fresh-PhysicalTheorem11.log
+@@ -0,0 +1,8 @@
++2026-10-12T10:41:02Z
++replaying PrescribedExtinction.PhysicalTheorem11 with --fresh
++
++real	10m44.941s
++user	10m29.657s
++sys	0m4.623s
++EXIT=0
++2026-10-12T10:51:47Z
+diff --git a/audit/final/logs/regression-experiments.log b/audit/final/logs/regression-experiments.log
+new file mode 100644
+index 0000000..2224e62
+--- /dev/null
++++ b/audit/final/logs/regression-experiments.log
+@@ -0,0 +1,21 @@
++OQ7Prescribed.theorem11 : OQ7Prescribed.Theorem11Statement
++'OQ7Prescribed.theorem11' depends on axioms: [propext, Classical.choice, Quot.sound]
++/home/claude/audit/experiments/AuditExperiments.lean:79:33: warning: This simp argument is unused:
++  Fin.sum_univ_succ
++
++Hint: Omit it from the simp argument list.
++  [apply] simp [bilinear, φ, basisC, Pi.single_apply]
++
++Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
++/home/claude/audit/experiments/AuditExperiments.lean:79:52: warning: This simp argument is unused:
++  Pi.single_apply
++
++Hint: Omit it from the simp argument list.
++  [apply] simp [bilinear, φ, basisC, Fin.sum_univ_succ]
++
++Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
++'auditor_old_weakCurl_vacuous' depends on axioms: [propext, Classical.choice, Quot.sound]
++'auditor_new_weakCurl_nonvacuous' depends on axioms: [propext, Classical.choice, Quot.sound]
++'auditor_absorption_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]
++'auditor_weakMaxwell_integrands' depends on axioms: [propext, Classical.choice, Quot.sound]
++'auditorOldIncidentState' depends on axioms: [propext, Classical.choice, Quot.sound]
+diff --git a/audit/final/logs/whole-project-axioms.log b/audit/final/logs/whole-project-axioms.log
+new file mode 100644
+index 0000000..a822821
+--- /dev/null
++++ b/audit/final/logs/whole-project-axioms.log
+@@ -0,0 +1,2 @@
++project constants (roots): 5658; private: 49; union of transitive deps: 68675
++axioms reachable from ANY project constant: [Quot.sound, Classical.choice, propext]
+diff --git a/audit/preceding/AUDIT_REPORT_5a8350d.md b/audit/preceding/AUDIT_REPORT_5a8350d.md
+new file mode 100644
+index 0000000..9022745
+--- /dev/null
++++ b/audit/preceding/AUDIT_REPORT_5a8350d.md
+@@ -0,0 +1,253 @@
++# Independent audit: OQ7 Lean formalization of physical Theorem 1.1
++
++| | |
++|---|---|
++| Repository | `oq7-prescribed-extinction` (read-only; isolated clone used) |
++| Audited commit | `5a8350d5408c38e333c9f6b6d8a94816c794120b` (tree `a1b03d72e958851f2418f97a6b5c40c0689e305c`) |
++| Specification | `sources/OQ7_prescribed_extinction_2026-10-11.pdf`, SHA-256 `3d9775d849234e828370d7c96d8bdcdd574beb6831a7906ea6b7706579868710`, Theorem 1.1 (p. 3) |
++| Claimed declaration | `OQ7Prescribed.theorem11 : OQ7Prescribed.Theorem11Statement` (`PrescribedExtinction/Theorem11.lean:11`) |
++| Audit date | 2026-10-11/12 (America/New_York) |
++
++## Verdicts
++
++| Category | Verdict | One-line reason |
++|---|---|---|
++| 1. Kernel validity | **PASS** | Rebuilt from source; `theorem11` has exactly type `Theorem11Statement`. Its transitive axioms are only `propext`, `Classical.choice` and `Quot.sound`. A fresh `leanchecker` kernel replay of the whole closure succeeded. |
++| 2. Semantic fidelity | **FAIL** (the existence core passes) | Hypotheses (3) and conclusion (4) are expressed faithfully. Theorem 1.1's own concluding clause, "sup_{X=E∗} Γ = 1 in this class, and sup_{X=E∗} \|A₊−A₋\| = E∗", is absent (F1). The statement also quantifies existentially over solutions, so it only refers to "the" physical solution if uniqueness holds (F2). |
++| 3. Mathematical completeness | **FAIL** (incomplete; nothing shown false) | Results the manuscript's claim needs are not proved in Lean: passivity Γ ≤ 1 for every admissible body (F1), uniqueness or converse representation (F2), and the optical-theorem / X = A+S identification (F3). The universal Lemma 1.2 is also missing (F4). All are classical and believed true, and none is needed for the existential Lean statement itself. |
++
++"FAIL" in category 3 means *not established*. I found no evidence that any part of the manuscript's Theorem 1.1 is false.
++
++---
++
++## 1. Kernel validity: PASS
++
++### Toolchain and dependency identities (independently verified)
++
++* **Lean**: release tarball `lean-4.34.1-linux.tar.zst` from GitHub releases. SHA-256 `47bf4bbd78f70c2e9670598ab7124d92b6efb7330ff33e5fbb4030f6fd72e4e4`.
++  * `lean --version` reports `Lean (version 4.34.1, x86_64-unknown-linux-gnu, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)`.
++  * `Lean.githash` evaluates to `5045d0056413266e57c625dcd7c365b10e377c52`.
++  * `git ls-remote` on `leanprover/lean4` shows `refs/tags/v4.34.1` → `5045d005…`.
++* **Mathlib**: `git ls-remote` shows `refs/tags/v4.34.1` and `refs/heads/stable` → `d13f23b723b8a846827a245b89c10fc7d3f11612`. That commit's `lean-toolchain` is `leanprover/lean4:v4.34.1` (commit dated 2026-09-24, "chore: bump toolchain to v4.34.1").
++* **Transitive dependencies**: resolved by Lake from scratch, then compared three ways:
++  * against Mathlib's own `lake-manifest.json` at `d13f23b`;
++  * against the repo's `sources/pinned-lake-manifest.json`;
++  * against the user's untracked working-tree `lake-manifest.json`.
++
++  All three agree on every revision, and every checkout was clean (`git status --porcelain` empty):
++
++| package | revision |
++|---|---|
++| mathlib | `d13f23b723b8a846827a245b89c10fc7d3f11612` |
++| batteries | `f2effa3d803fda822b1f97b806c47cf2adfbcbc2` |
++| Qq | `6a489d9af5d0c47e5b259e2e8bcdfc1811b5a259` |
++| aesop | `355695d523e41d0554926416cba2a2b3544fbbc9` |
++| proofwidgets | `106ff4fafc74ef4ac99d81dbf3ab399118f497a5` |
++| importGraph | `e928b72544873815af278d38681b31c0293588e3` |
++| LeanSearchClient | `ddf04cf3949fa556442341e87d47f9f6e6074707` |
++| plausible | `118aa17ee84656b8bd727fef7c458ee8c833385c` |
++| Cli | `e92c9f15fdfacc8536f31cfb3b7ad26c3c8cd204` |
++
++### From-source build
++
++* No prebuilt artifacts were used. Mathlib's post-update `cache get` failed. All six optional Reservoir "barrel" downloads returned 404, and Lake logged "building from source". No `.barrel` or `.ltar` file exists. The only oleans present before the build were the 19 Lake had just compiled locally for Mathlib's cache tool.
++* `lake build PrescribedExtinction.Theorem11`: **3494 jobs, exit 0, 96 min wall time** on 2 cores. This includes 2837 Mathlib modules and 274 project modules.
++* `lake build OQ7 PrescribedExtinction` (all default targets): **3568 jobs, exit 0**.
++* Neither build log contains `declaration uses 'sorry'`. Only linter and deprecation warnings appear.
++
++### Source scan
++
++All 347 library files (77 in `OQ7/`, 268 in `PrescribedExtinction/`, plus the two root files) contain no `sorry`, `admit`, `axiom` declaration, `opaque`, `unsafe`, `implemented_by`, `@[extern]`, `native_decide`, `ofReduceBool`, `debug.skipKernelTC`, `macro`/`elab`/`syntax`, `initialize`, `run_cmd`/`#eval`, environment manipulation, or `import Lean`. The one textual hit for "axiom" is a comment (`OQ7/Envelope.lean:135`).
++
++Options used are `backward.isDefEq.respectTransparency false` (179 occurrences) and `maxHeartbeats`/`maxRecDepth`. These affect elaboration only, not the kernel.
++
++### Exact declaration and axioms
++
++`experiments/AuditExperiments.lean:18–20` reports:
++
++```
++OQ7Prescribed.theorem11 : OQ7Prescribed.Theorem11Statement
++'OQ7Prescribed.theorem11' depends on axioms: [propext, Classical.choice, Quot.sound]
++```
++
++My own traversal (`experiments/AuditTraversal.lean`, which walks the type and value of every reachable constant, plus inductives, constructors and recursor rules) found:
++
++* **61,339 reachable constants**: 47,649 theorems, 11,191 defs, 1,034 inductives, 1,130 constructors, 280 recursors, 48 opaques, 4 quot, 3 axioms.
++* **Axioms reached**: `propext`, `Classical.choice`, `Quot.sound`. These are Lean's standard foundations: propositional extensionality, global choice, and quotient soundness. **No additional axioms.**
++* `sorryAx`, `Lean.ofReduceBool`, `Lean.ofReduceNat`, `Lean.trustCompiler`: absent. No `unsafe` constants are reached.
++* The 48 opaques are Mathlib `irreducible_def` wrappers (`…wrapped._@…`) plus `Lean.opaqueId` and `String.Internal.append`. Opaque values are kernel-checked.
++* **2,771 project constants** are reached, across 256 modules: 4 private and 1,066 auxiliary or generated (`match_`, `proof_`, `eq_`, `_`-prefixed).
++* A whole-project sweep (`experiments/AuditWholeProject.lean`) covered all **5,405** project constants (49 private). Their union of dependencies (68,385 constants) reaches the same three axioms and nothing else.
++
++### Independent kernel replay
++
++`leanchecker --fresh PrescribedExtinction.Theorem11` (the toolchain's checker) replays **every** constant in the import closure (Init, Lean, Std, Batteries, Mathlib, project) into an empty kernel environment. Result: exit 0 in 10 min 37 s.
++
++This rules out environment hacking or declarations added without kernel checking. It does not provide an independent kernel implementation (see Limitations).
++
++The proof of `theorem11` (`Theorem11.lean:11–47`) takes no hypotheses. Every structure it inhabits is constructed, so no hidden hypotheses can enter the final declaration.
++
++---
++
++## 2. Semantic fidelity: FAIL (the existence core passes)
++
++### What is faithfully expressed (checked against the unfolded `#print` output in `logs/traversal.log`)
++
++| Manuscript (p. 3) | Formal (file:line) | Check |
++|---|---|---|
++| Fix k>0, P>1, Q>0, E∗>0; ∀ 0<ϵ<1 ∃ body | `Maxwell.lean:115–117` | Same quantifiers, order and ranges. |
++| Two adjacent homogeneous layers, common finite square aperture S_R=(−R/2,R/2)², D=S_R×(0,h+d), absorber below z=h, vacuum outside | `Basic.lean:47–77` | Constant tensors on an open box. Outside the box the permittivity is the identity. An open box is a.e. equal to the compact closed body. |
++| εᵀ=ε, I ⪯ Re_H ε ⪯ PI, 0 ≺ Im_H ε ⪯ QI in both layers | `Basic.lean:34–39, 75–77` | `(v*εv).re` is the Re_H form and `(v*εv).im` the Im_H form. "∀v≠0, 0<Im" is ≡ 0≺Im_H in finite dimension. |
++| μ=I, e^{−iωt}, curl E = ikZ₀H, curl Z₀H = −ikεE | `Maxwell.lean:58–62` | Signs correct for e^{−iωt}. |
++| f± = e_y e^{±ikz}, Z₀H_inc,± = ±(e_z×e_y)e^{±ikz}, unit amplitude | `Maxwell.lean:31–39`, `planePhase_norm` (125) | Matches. |
++| Distributional Maxwell equations, fields in H_loc(curl) | `Maxwell.lean:49–62` | All C_c^∞ complex vector tests against the bilinear pairing; curl is formally self-transpose, and the component formula was checked by hand. Interfaces are handled because the weak equation holds on all of ℝ³. |
++| Uniform Silver–Müller condition on scattered fields | `Maxwell.lean:66–69, 79–80` | `‖x‖·‖Hs×x̂ − Es‖ < ε` for all ‖x‖ ≥ ρ. This is the correct sign for e^{−iωt}: an outgoing plane wave has H×x̂ = E. The condition is uniform over all directions. |
++| X± (extinction cross-section) | `Maxwell.lean:96–97` | `k·Im∫_D f̄·χE`, the standard volume-work extinction for unit amplitude. See F3 for how this relates to the manuscript's definition. |
++| A± (absorption) | `Maxwell.lean:100–101` | `k∫_D Im(Ē·εE)` = k∫Ē·Im_H(χ)E. This is the physical absorption cross-section. |
++| Γ = \|A₊−A₋\|/X | `Maxwell.lean:109–110` | Divides by X₊, which equals E∗ > 0, so there is no division by zero. |
++| X₊ = X₋ = E∗ exactly, 1−ϵ < Γ < 1 | `Maxwell.lean:120–123` | Matches. |
++| Measure | `measureSpaceOfInnerProductSpace` | Haar measure normalized on an orthonormal box, i.e. Lebesgue measure. |
++
++Name resolution was checked with `pp.fullNames`. `Field` and `Vector` resolve to the project abbreviations, not Mathlib's `Field` class or core `Vector`.
++
++### Integrability (no exploitation of Lean's default zero integral)
++
++All demonstrated in `experiments/AuditExperiments.lean`; each compiles with only the standard three axioms.
++
++* **E4a** `auditor_extinction_pos_integrable` (l.89): `0 < extinction` forces the extinction integrand to be integrable. The final theorem asserts extinction = E∗ > 0.
++* **E4b** `auditor_absorption_integrable` (l.113): for **every** `ScatteringState`, the absorption integrand is integrable on D. The proof uses Im(Ē·εE) = Im(Ē·P), E ∈ L²(D) and P ∈ L²(ℝ³).
++* **E5** `auditor_weakMaxwell_integrands` (l.173): for **every** `ScatteringState` and **every** C_c^∞ test, all four weak-Maxwell integrands are genuinely integrable. The Maxwell equations therefore never hold as a default `0 = 0`.
++
++### Findings affecting fidelity
++
++**F1: Theorem 1.1's supremum clause is not formalized.** *Demonstrated discrepancy.*
++
++* **Location**: manuscript p. 3, last italic sentence *inside* Theorem 1.1 (confirmed by rendering the page): "Consequently sup_{X=E∗} Γ = 1 in this class, and sup_{X=E∗} \|A₊−A₋\| = E∗." Section 8's status table also claims "Exact supremum 1, no individual positive-extinction equality".
++* **Formal statement**: `PrescribedExtinction/Maxwell.lean:114–123` quantifies universally only over k, P, Q, E∗, ϵ. It contains no bound over arbitrary admissible bodies or arbitrary scattering states.
++* **Consequence**: the Lean theorem certifies only the lower half (sup ≥ 1, by approach). sup Γ ≤ 1 requires passivity A± ≤ X for every admissible body and its fields, and sup \|A₊−A₋\| = E∗ needs the same. Neither appears in the statement.
++* **What the repo does prove**: `physicalPerturbedAbsorption_le_extinction` (A ≤ X) only for its own constructed volume solutions.
++* **Demonstration**: `#print OQ7Prescribed.Theorem11Statement` in `logs/traversal.log`.
++
++**F2: The statement is existential over solutions; uniqueness and converse representation are not proved.** *Unproved; necessary for an exact match; mathematically true.*
++
++* **Location**: `Maxwell.lean:75–81, 118–119`.
++* **What exists in the repo**:
++  * `ScatteringExistence.lean:99–104` (existence only).
++  * `MaterialVolumeUniqueness.lean:74–80`, which proves uniqueness only *among solutions of the volume equation*.
++  * No declaration in the repo takes an arbitrary `ScatteringState` as a hypothesis (grep). `README.md:44` acknowledges this.
++* **Consequence**: `theorem11` shows that *some* pair of radiating weak Maxwell solutions has the stated cross-sections. The manuscript asserts properties of "the pair (1)", i.e. the unique outgoing solution. Its Lemma 2.1 claims uniqueness *and* the converse representation. The two statements coincide only if the radiating weak problem has at most one solution for the selected body. Uniqueness is not needed for kernel validity. It **is** needed to read the Lean theorem as the manuscript's physical claim.
++* **Justification that the gap is benign** (sketch, not formalized): let (E,H) be the difference of two `ScatteringState`s.
++  1. Over a ball B_r containing D, the weak curl identities give Re∫_{S_r} E·conj(H×x̂) = −k∫_D Im(Ē·εE) ≤ 0.
++  2. Expand ∫_{S_r}\|H×x̂−E\|² → 0, which follows from uniform Silver–Müller. This gives ∫_{S_r}(\|E\|²+\|H×x̂\|²) ≤ o(1) − 2k∫_D Im(Ē·εE).
++  3. Hence ∫_{S_r}\|E\|² → 0, and strict loss gives E = 0 a.e. in D.
++  4. Rellich's lemma (componentwise Helmholtz outside D, where the fields are smooth) and unique continuation in the connected exterior of the box give E = 0, hence H = curl E/(ik) = 0.
++  5. The pointwise form of `Outgoing` on representatives passes to the smooth exterior representative by continuity.
++
++  So uniqueness holds, and under it the formal and physical statements of (4) agree.
++
++**F3: X is formalized as volume work, not as A+S or via the forward optical theorem.** *Definitional identification; not a defect in (4), but part of (2) is not covered.*
++
++* **Formal side**: `Maxwell.lean:96–97` defines X = k·Im∫ f̄·χE. The manuscript's (2) defines X = A± + S±, with S the total scattering cross-section, and uses the forward optical theorem in Lemma 1.2.
++* **Unused definitions**: `scattering` (`Maxwell.lean:105–107`) is unused by the statement. Its own docstring (l.104) says its identification with outgoing flux is "still unproved".
++* **Energy balance**: the repo's full-angle energy balance `physicalVolume_Haar_energy_balance` (`FarFieldWorkL2.lean:66`) is **not** in `theorem11`'s dependency cone (`logs/cone.log`). It uses a current far-field integral, not the Poynting flux of Es.
++* **Consequence**: Γ is formalized in its first form \|A₊−A₋\|/X, which is the physically correct work form (sign checked for e^{−iωt}). The equalities X = A±+S± and Γ = \|S₊−S₋\|/X are not certified by the statement.
++
++**F4: Strict nonattainment is proved only for the constructed body.** *Partly outside Theorem 1.1's (4).*
++
++* **Formal route**: Γ < 1 is proved in `IsotropicPhysicalStrictLoss.lean:88–100` via A± > 0 (strict isotropic loss) and A± ≤ X. This is valid, and it is a different argument from the manuscript's Lemma 1.2.
++* **What is missing**: Lemma 1.2's universal claim ("for every individual compact scatterer … X>0 ⇒ Γ<1", via far-field continuity and the optical theorem) is not formalized. Together with F1 it is what supports "sup not attained".
++
++**F5 (historical): the original test class was vacuous.** *Demonstrated defect in the pre-correction target; fixed at the audited commit.*
++
++* **Original**: `ContDiff ℝ ⊤ φ` (`verification/physical-target-before-test-correction.txt:50`; first commit `680cfab`). Here `⊤ : WithTop ℕ∞` means **ω, analytic**.
++* **E2** `auditor_analytic_compactSupport_eq_zero` (l.29) proves that every analytic, compactly supported field on ℝ³ is 0. Consequently `auditor_old_weakCurl_vacuous` (l.43) proves the **old weak-curl condition holds for every pair (F, G)**. The original `WeakMaxwell` therefore reduced to local L² alone.
++* **E7** `auditorOldIncidentState` (l.213) builds an old-definition scattering state, for **every** body, whose total field is the bare incident wave with zero scattered field. Under the original target the theorem was not about Maxwell fields at all.
++* **Corrected**: `ContDiff ℝ (⊤ : ℕ∞)` at `Maxwell.lean:50`.
++  * **E1** (l.23–24) proves `((⊤ : ℕ∞) : WithTop ℕ∞) = ∞ ≠ ω`, i.e. C^∞.
++  * **E3** `auditor_new_weakCurl_nonvacuous` (l.53) proves the corrected condition **rejects** "curl 0 = e_x", using a smooth bump test.
++  * The corrected form is the standard distributional formulation (C_c^∞ test functions), matching the manuscript's "solve Maxwell's equations distributionally".
++* **Repo characterization**: `TestRegularity.lean:3–6` and `README.md:40` call the original "weaker". That is accurate but understates it: the original imposed *no* equation.
++* **History**: the final proof first appears at `5a8350d`, 41 commits after the correction `b7bbfe8`. It was never built against the vacuous target, and `Maxwell.lean:50` is the only change to the target since `680cfab` (`Basic.lean` is unchanged).
++
++### Further semantic checks (no defect found)
++
++* **Body**: the final body (`IsotropicPhysicalBody.lean:8–11`) is χ = αuuᵀ + iνI per layer. The absorber has α = iη, u = e_x. The plate has β = (p_j−1)+iδ, u = (cos θ, sin θ, 0). This matches manuscript (37).
++* **Order of choices**: matches §5. The planar design is chosen first (`PlanarPrescribedDesign.lean:8`). Then the aperture and angle bracket (`PhysicalRankOneExtinctionBracket.lean:27`). Then ν < Q/3 (`PhysicalCompactLossBracket.lean:10`). Finally the intermediate-value angle (`PhysicalIsotropicPrescribedExtinction.lean:41`).
++* **Uniform aperture localization**: `UniformBodyResponse.lean:9–15` is uniform over **all real θ**, including θ → 0, with R₀ depending only on (k, h, d, α, β, ε).
++* **Volume operators**: the static and outgoing operators (contact term, signs, constants) are not part of the statement. Their correctness is nevertheless certified indirectly. The witness fields (`VolumeScatteringBridge.lean:101–109`) are proved to satisfy the corrected, non-vacuous `WeakMaxwell` and `Outgoing`. A wrong sign, constant or missing contact term would produce fields that are not Maxwell solutions, so the kernel-checked proof could not exist.
++* **No conclusions embedded in definitions**: every definition in the statement is elementary (`logs/traversal.log`).
++* **No vacuous structures**: `TwoLayerBody` and `ScatteringState` are both inhabited by the proof.
++
++---
++
++## 3. Mathematical completeness: FAIL (not established; no falsity found)
++
++Everything `Theorem11Statement` needs is kernel-proved. Missing for the manuscript's full physical claim:
++
++1. **Passivity for all admissible bodies and states** (Γ ≤ 1, \|A₊−A₋\| ≤ X), needed for the supremum clause (F1).
++2. **Uniqueness of radiating weak solutions, or the converse volume representation**, needed to identify the witnesses with "the" physical fields (F2). Proof sketch above.
++3. **The optical theorem and X = A+S with S the scattered Poynting flux over all angles** (F3). The repo's energy balance exists but is outside the cone and uses the current far field.
++4. **Universal Lemma 1.2** (F4).
++
++---
++
++## Reproducibility and documentation findings (do not affect validity)
++
++* **R1**: `lake-manifest.json` is git-ignored (`.gitignore:5`), so the commit alone does not pin transitive dependencies. The pins are in `sources/pinned-lake-manifest.json`, which is identical to Mathlib's manifest, so resolution is deterministic in practice.
++* **R2**: `lakefile.toml:3` sets `packagesDir` to an absolute Windows path in a *shared, external* directory.
++  * On Linux this creates a relative `C:/…` tree.
++  * The colon breaks `lake env` (`LEAN_PATH` splits on `:`). I worked around this with a colon-free symlink to the same freshly built oleans.
++* **R3**: `verify.ps1:22` runs `lake clean oq7_prescribed_extinction`, which cleans the project only. The dependency oleans come from the shared external directory and are never rebuilt. The repo's "clean build" therefore does not rebuild Mathlib, and its axiom audit (`collectAxioms` over loaded oleans) does no kernel replay. My from-source build and `leanchecker --fresh` close both gaps.
++* **R4**: `Maxwell.lean:112–113` still says "an UNPROVED proposition. No proof declaration … is present". The docstring is stale.
++* **R5**: `TestRegularity` is not in `theorem11`'s import closure. Its implication lemma is documentation only.
++
++---
++
++## Reproduction
++
++```bash
++# toolchain
++curl -LO https://github.com/leanprover/lean4/releases/download/v4.34.1/lean-4.34.1-linux.tar.zst
++#   sha256 47bf4bbd78f70c2e9670598ab7124d92b6efb7330ff33e5fbb4030f6fd72e4e4; extract; put bin/ on PATH
++lean --version            # … commit 5045d0056413266e57c625dcd7c365b10e377c52
++git ls-remote https://github.com/leanprover/lean4.git refs/tags/v4.34.1
++git ls-remote https://github.com/leanprover-community/mathlib4.git | grep d13f23b7
++
++# isolated clone at the audit commit
++git clone <repo> oq7 && cd oq7 && git checkout 5a8350d5408c38e333c9f6b6d8a94816c794120b
++lake resolve-deps                         # cache fetch fails/declined → source build
++lake build -v PrescribedExtinction.Theorem11   # 3494 jobs
++lake build OQ7 PrescribedExtinction            # 3568 jobs
++
++# LEAN_PATH workaround for the Windows packagesDir (see R2), then:
++lean AuditExperiments.lean      # E0–E7
++lean AuditTraversal.lean        # transitive traversal + unfolded #print of all statement definitions
++lean AuditWholeProject.lean     # all 5,405 project constants
++lean AuditCone.lean             # which key lemmas are in theorem11's cone
++leanchecker --fresh PrescribedExtinction.Theorem11
++```
++
++The bundled `env.sh` holds the exact `LEAN_PATH` used.
++
++### Logs (in `logs/`)
++
++* `build-theorem11.log.gz` (verbose, 3494 jobs, `real 96m11s`, EXIT=0)
++* `build-default-targets.log` (3568 jobs, EXIT=0)
++* `leanchecker-fresh-theorem11.log` (EXIT=0, 10m37s)
++* `experiments.log`
++* `traversal.log`
++* `whole-project-axioms.log`
++* `cone.log`
++
++---
++
++## Limitations
++
++* **Trust base**:
++  * The Lean 4.34.1 release binary (downloaded, not compiled from source; no published checksum could be fetched to compare).
++  * The standard meaning of Mathlib's definitions (`ContDiff`, Bochner integral, `MemLp`, `EuclideanSpace` measure).
++  * `leanchecker` uses the same kernel implementation. No independent kernel (e.g. lean4lean) was run.
++* **Not re-derived**: I did not re-derive the internal analytic lemmas (aperture localization, Green operators, planar slab algebra) by hand. For them I rely on the kernel check, which suffices for the Lean statement.
++* **Uniqueness**: the argument in F2 is a sketch and is not formalized.
++* **Repository scripts**: they are PowerShell and were not executed. Their substantive checks (pins, banned-token scan, build, transitive axioms, target hash `a9950f0f…` = README) were reproduced independently. The previous verification reports and AI audits were not relied on.
++* **Manuscript reading**: read from extracted text plus a rendered page 3. Section 6 (bounded-resource asymptotics) is outside Theorem 1.1 and was not audited.
+diff --git a/env.ps1 b/env.ps1
+new file mode 100644
+index 0000000..2fa57cd
+--- /dev/null
++++ b/env.ps1
+@@ -0,0 +1,5 @@
++# Dot-source after activating Lean 4.34.1; Lake supplies the import path.
++$ErrorActionPreference = 'Stop'
++if (-not (Get-Command lake -ErrorAction SilentlyContinue)) { throw 'Activate Lean 4.34.1 first.' }
++function Invoke-OQ7Lean { & lake env lean @args }
++function Invoke-OQ7Checker { & lake env leanchecker @args }
+diff --git a/env.sh b/env.sh
+new file mode 100644
+index 0000000..5e17e9a
+--- /dev/null
++++ b/env.sh
+@@ -0,0 +1,8 @@
++#!/bin/sh
++# Source this file after activating the pinned Lean toolchain. Lake supplies LEAN_PATH.
++if ! command -v lake >/dev/null 2>&1; then
++  printf '%s\n' 'Activate Lean 4.34.1 before using this release.' >&2
++  return 1 2>/dev/null || exit 1
++fi
++oq7_lean() { lake env lean "$@"; }
++oq7_checker() { lake env leanchecker "$@"; }
+diff --git a/lake-manifest.json b/lake-manifest.json
+new file mode 100644
+index 0000000..8f08c93
+--- /dev/null
++++ b/lake-manifest.json
+@@ -0,0 +1,117 @@
++{
++  "version": "1.2.0",
++  "packagesDir": ".lake/packages",
++  "packages": [
++    {
++      "url": "https://github.com/leanprover-community/mathlib4.git",
++      "type": "git",
++      "subDir": null,
++      "scope": "",
++      "rev": "d13f23b723b8a846827a245b89c10fc7d3f11612",
++      "name": "mathlib",
++      "manifestFile": "lake-manifest.json",
++      "inputRev": "d13f23b723b8a846827a245b89c10fc7d3f11612",
++      "inherited": false,
++      "configFile": "lakefile.lean"
++    },
++    {
++      "url": "https://github.com/leanprover-community/plausible",
++      "type": "git",
++      "subDir": null,
++      "scope": "leanprover-community",
++      "rev": "118aa17ee84656b8bd727fef7c458ee8c833385c",
++      "name": "plausible",
++      "manifestFile": "lake-manifest.json",
++      "inputRev": "main",
++      "inherited": true,
++      "configFile": "lakefile.toml"
++    },
++    {
++      "url": "https://github.com/leanprover-community/LeanSearchClient",
++      "type": "git",
++      "subDir": null,
++      "scope": "leanprover-community",
++      "rev": "ddf04cf3949fa556442341e87d47f9f6e6074707",
++      "name": "LeanSearchClient",
++      "manifestFile": "lake-manifest.json",
++      "inputRev": "main",
++      "inherited": true,
++      "configFile": "lakefile.toml"
++    },
++    {
++      "url": "https://github.com/leanprover-community/import-graph",
++      "type": "git",
++      "subDir": null,
++      "scope": "leanprover-community",
++      "rev": "e928b72544873815af278d38681b31c0293588e3",
++      "name": "importGraph",
++      "manifestFile": "lake-manifest.json",
++      "inputRev": "main",
++      "inherited": true,
++      "configFile": "lakefile.toml"
++    },
++    {
++      "url": "https://github.com/leanprover-community/ProofWidgets4",
++      "type": "git",
++      "subDir": null,
++      "scope": "leanprover-community",
++      "rev": "106ff4fafc74ef4ac99d81dbf3ab399118f497a5",
++      "name": "proofwidgets",
++      "manifestFile": "lake-manifest.json",
++      "inputRev": "main",
++      "inherited": true,
++      "configFile": "lakefile.lean"
++    },
++    {
++      "url": "https://github.com/leanprover-community/aesop",
++      "type": "git",
++      "subDir": null,
++      "scope": "leanprover-community",
++      "rev": "355695d523e41d0554926416cba2a2b3544fbbc9",
++      "name": "aesop",
++      "manifestFile": "lake-manifest.json",
++      "inputRev": "master",
++      "inherited": true,
++      "configFile": "lakefile.toml"
++    },
++    {
++      "url": "https://github.com/leanprover-community/quote4",
++      "type": "git",
++      "subDir": null,
++      "scope": "leanprover-community",
++      "rev": "6a489d9af5d0c47e5b259e2e8bcdfc1811b5a259",
++      "name": "Qq",
++      "manifestFile": "lake-manifest.json",
++      "inputRev": "master",
++      "inherited": true,
++      "configFile": "lakefile.toml"
++    },
++    {
++      "url": "https://github.com/leanprover-community/batteries",
++      "type": "git",
++      "subDir": null,
++      "scope": "leanprover-community",
++      "rev": "f2effa3d803fda822b1f97b806c47cf2adfbcbc2",
++      "name": "batteries",
++      "manifestFile": "lake-manifest.json",
++      "inputRev": "main",
++      "inherited": true,
++      "configFile": "lakefile.toml"
++    },
++    {
++      "url": "https://github.com/leanprover/lean4-cli",
++      "type": "git",
++      "subDir": null,
++      "scope": "leanprover",
++      "rev": "e92c9f15fdfacc8536f31cfb3b7ad26c3c8cd204",
++      "name": "Cli",
++      "manifestFile": "lake-manifest.json",
++      "inputRev": "v4.34.0",
++      "inherited": true,
++      "configFile": "lakefile.toml"
++    }
++  ],
++  "name": "oq7_prescribed_extinction",
++  "lakeDir": ".lake",
++  "fixedToolchain": false
++}
+diff --git a/lakefile.toml b/lakefile.toml
+index 06321e5..8bac48a 100644
+--- a/lakefile.toml
++++ b/lakefile.toml
+@@ -1,15 +1,15 @@
+-name = "oq7_prescribed_extinction"
+-version = "0.1.0"
+-packagesDir = "C:/Users/Daniel/Documents/Codex/2026-10-09/set-up-a-local-ai-mathematical/outputs/math-research-lab/lean/.lake/packages"
+-defaultTargets = ["OQ7", "PrescribedExtinction"]
+-
+-[[require]]
+-name = "mathlib"
+-git = "https://github.com/leanprover-community/mathlib4.git"
+-rev = "d13f23b723b8a846827a245b89c10fc7d3f11612"
+-
+-[[lean_lib]]
+-name = "OQ7"
+-
+-[[lean_lib]]
++name = "oq7_prescribed_extinction"
++version = "0.1.0"
++packagesDir = ".lake/packages"
++defaultTargets = ["OQ7", "PrescribedExtinction"]
++
++[[require]]
++name = "mathlib"
++git = "https://github.com/leanprover-community/mathlib4.git"
++rev = "d13f23b723b8a846827a245b89c10fc7d3f11612"
++
++[[lean_lib]]
++name = "OQ7"
++
++[[lean_lib]]
+ name = "PrescribedExtinction"
+diff --git a/restore-dependencies.py b/restore-dependencies.py
+new file mode 100644
+index 0000000..595f851
+--- /dev/null
++++ b/restore-dependencies.py
+@@ -0,0 +1,27 @@
++"""Restore included pinned dependency source and Git metadata snapshots without network."""
++import argparse,json,pathlib,stat,subprocess,zipfile
++root=pathlib.Path(__file__).resolve().parent
++parser=argparse.ArgumentParser(description=__doc__)
++parser.add_argument('--archives-directory',type=pathlib.Path,default=root.parent/'dependency-sources')
++args=parser.parse_args()
++pins=json.loads((root/'sources/pinned-lake-manifest.json').read_text(encoding='utf-8-sig'))
++def unpack(archive,destination):
++ destination.mkdir(parents=True,exist_ok=True)
++ with zipfile.ZipFile(archive) as z:
++  for member in z.infolist():
++   path=pathlib.PurePosixPath(member.filename)
++   if path.is_absolute() or '..' in path.parts or any(':' in part for part in path.parts): raise RuntimeError('Unsafe archive member')
++   target=destination.joinpath(*path.parts)
++   if member.is_dir(): target.mkdir(parents=True,exist_ok=True);continue
++   # Preserve symbolic-link blobs as ordinary link-text files, matching the
++   # supplied core.symlinks=false Git metadata. Never create or follow links.
++   target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes(z.read(member))
++for package in pins['packages']:
++ target=root/'.lake/packages'/package['name']
++ if target.exists(): raise RuntimeError('Refusing to overwrite an existing dependency: '+str(target))
++ stem=package['name']+'-'+package['rev']
++ unpack(args.archives_directory/(stem+'.zip'),target)
++ unpack(args.archives_directory/(stem+'-git-metadata.zip'),target/'.git')
++ actual=subprocess.check_output(['git','-C',str(target),'rev-parse','HEAD'],text=True).strip()
++ if actual!=package['rev']: raise RuntimeError('Dependency revision mismatch: '+package['name'])
++print('Restored all nine exact pinned dependencies. Activate Lean 4.34.1 and run lake build.')
+diff --git a/run-audit.py b/run-audit.py
+new file mode 100644
+index 0000000..5e4204d
+--- /dev/null
++++ b/run-audit.py
+@@ -0,0 +1,6 @@
++"""Run the preserved final-audit programs through Lake's portable environment."""
++import pathlib, subprocess, sys
++root = pathlib.Path(__file__).resolve().parent
++for name in ['Audit2.lean','AuditCone2.lean','AuditWholeProject.lean','AuditExperiments.lean']:
++    result = subprocess.run(['lake','env','lean',str(root/'audit/final/experiments'/name)],cwd=root)
++    if result.returncode: sys.exit(result.returncode)

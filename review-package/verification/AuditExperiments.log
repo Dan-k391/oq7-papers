@@ -1,0 +1,21 @@
+OQ7Prescribed.theorem11 : OQ7Prescribed.Theorem11Statement
+'OQ7Prescribed.theorem11' depends on axioms: [propext, Classical.choice, Quot.sound]
+audit/final/experiments/AuditExperiments.lean:79:33: warning: This simp argument is unused:
+  Fin.sum_univ_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [bilinear, φ, basisC, Pi.single_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+audit/final/experiments/AuditExperiments.lean:79:52: warning: This simp argument is unused:
+  Pi.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [bilinear, φ, basisC, Fin.sum_univ_succ]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'auditor_old_weakCurl_vacuous' depends on axioms: [propext, Classical.choice, Quot.sound]
+'auditor_new_weakCurl_nonvacuous' depends on axioms: [propext, Classical.choice, Quot.sound]
+'auditor_absorption_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'auditor_weakMaxwell_integrands' depends on axioms: [propext, Classical.choice, Quot.sound]
+'auditorOldIncidentState' depends on axioms: [propext, Classical.choice, Quot.sound]

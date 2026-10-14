@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "C:\Users\Daniel\.codex\.chatgpt-projects\g-p-6ac8784424248191b154eb2ed308e1f1\work\r59a36c60\restored-portable\restore-dependencies.py", line 21, in <module>
+    unpack(args.archives_directory/(stem+'.zip'),target)
+  File "C:\Users\Daniel\.codex\.chatgpt-projects\g-p-6ac8784424248191b154eb2ed308e1f1\work\r59a36c60\restored-portable\restore-dependencies.py", line 13, in unpack
+    if path.is_absolute() or '..' in path.parts or stat.S_ISLNK(member.external_attr>>16): raise RuntimeError('Unsafe archive member')
+                                                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Unsafe archive member

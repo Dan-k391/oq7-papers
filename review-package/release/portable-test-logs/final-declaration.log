@@ -1,0 +1,64 @@
+OQ7Prescribed.theorem11_complete : OQ7Prescribed.PhysicalTheorem11Statement
+def OQ7Prescribed.PhysicalTheorem11Statement : Prop :=
+OQ7Prescribed.Theorem11Statement ∧
+  ∀ (k P Q target : ℝ),
+    0 < k →
+      1 < P →
+        0 < Q →
+          0 < target →
+            sSup (OQ7Prescribed.prescribedExtinctionAsymmetryValues k P Q target) = 1 ∧
+              sSup (OQ7Prescribed.prescribedExtinctionDifferenceValues k P Q target) = target ∧
+                (∀ (B : OQ7Prescribed.TwoLayerBody),
+                    B.admissible P Q →
+                      ∀ (σ : OQ7Prescribed.Direction),
+                        (∃ s,
+                            ∀ (t : OQ7Prescribed.ScatteringState k B σ),
+                              s.electric =ᵐ[MeasureTheory.volume] t.electric ∧
+                                s.magnetic =ᵐ[MeasureTheory.volume] t.magnetic) ∧
+                          ∀ (s : OQ7Prescribed.ScatteringState k B σ),
+                            OQ7Prescribed.FullPhysicalOpticalStatement k B σ s) ∧
+                  (∀ (B : OQ7Prescribed.TwoLayerBody),
+                      B.admissible P Q →
+                        ∀ (sp : OQ7Prescribed.ScatteringState k B OQ7Prescribed.Direction.plus)
+                          (sm : OQ7Prescribed.ScatteringState k B OQ7Prescribed.Direction.minus),
+                          OQ7Prescribed.extinction k B OQ7Prescribed.Direction.plus sp.electric =
+                              OQ7Prescribed.extinction k B OQ7Prescribed.Direction.minus sm.electric ∧
+                            0 ≤ OQ7Prescribed.normalizedAsymmetry k B sp.electric sm.electric ∧
+                              OQ7Prescribed.normalizedAsymmetry k B sp.electric sm.electric ≤ 1 ∧
+                                (0 < OQ7Prescribed.extinction k B OQ7Prescribed.Direction.plus sp.electric →
+                                    OQ7Prescribed.normalizedAsymmetry k B sp.electric sm.electric < 1) ∧
+                                  OQ7Prescribed.normalizedAsymmetry k B sp.electric sm.electric =
+                                    |OQ7Prescribed.scattering k B sp.electric -
+                                          OQ7Prescribed.scattering k B sm.electric| /
+                                      OQ7Prescribed.extinction k B OQ7Prescribed.Direction.plus sp.electric) ∧
+                    ∀ (s : OQ7Prescribed.PrescribedExtinctionPair k P Q target),
+                      s.asymmetry < 1 ∧ s.absorptionDifference < target
+def OQ7Prescribed.FullPhysicalOpticalStatement : (k : ℝ) →
+  (B : OQ7Prescribed.TwoLayerBody) → (σ : OQ7Prescribed.Direction) → OQ7Prescribed.ScatteringState k B σ → Prop :=
+fun k B σ s =>
+  (s.electric =ᵐ[MeasureTheory.volume] fun x =>
+      OQ7Prescribed.incidentElectric k σ x + OQ7Prescribed.scatteringStateRadiatingElectric s x) ∧
+    (s.magnetic =ᵐ[MeasureTheory.volume] fun x =>
+        OQ7Prescribed.incidentMagnetic k σ x + OQ7Prescribed.scatteringStateRadiatingMagnetic s x) ∧
+      OQ7Prescribed.extinction k B σ s.electric =
+          OQ7Prescribed.absorption k B s.electric + OQ7Prescribed.scattering k B s.electric ∧
+        OQ7Prescribed.extinction k B σ s.electric =
+            4 * Real.pi / k *
+              (OQ7Prescribed.pairing (OQ7Prescribed.basisC 1)
+                  (OQ7Prescribed.currentFarField k B s.electric (OQ7Prescribed.incidentForwardDirection σ))).im ∧
+          OQ7Prescribed.scattering k B s.electric =
+              ∫ (n : ↑OQ7Prescribed.UnitSphere),
+                ‖OQ7Prescribed.currentFarField k B s.electric ↑n‖ ^ 2 ∂OQ7Prescribed.sphereArea ∧
+            Filter.Tendsto (OQ7Prescribed.scatteringStateSphereFlux s) Filter.atTop
+                (nhds (OQ7Prescribed.scattering k B s.electric)) ∧
+              have p := OQ7Prescribed.physicalCompactPolarization B s.electric ⋯;
+              ∀ (r : ℝ),
+                2 * p.radius + 2 ≤ r →
+                  ∀ (n : ↑OQ7Prescribed.UnitSphere),
+                    ‖(↑r * Complex.exp (-Complex.I * ↑(k * r))) •
+                            OQ7Prescribed.scatteringStateRadiatingElectric s (r • ↑n) -
+                          OQ7Prescribed.currentFarField k B s.electric ↑n‖ ≤
+                      OQ7Prescribed.farFieldKernelConstant k p.radius / r *
+                        ∫ (y : OQ7Prescribed.Position), ‖p.current y‖
+'OQ7Prescribed.theorem11_complete' depends on axioms: [propext, Classical.choice, Quot.sound]
+VERIFIED-COMPLETE-PHYSICAL-THEOREM11: kernel theorem declaration with exactly PhysicalTheorem11Statement

@@ -1,32 +1,26 @@
-# OQ7 physical Theorem 1.1 — complete kernel proof
+# OQ7 compact prescribed-extinction theorem
 
-The complete declaration is `OQ7Prescribed.theorem11_complete : PhysicalTheorem11Statement` in PrescribedExtinction/PhysicalTheorem11.lean:31. Its first conjunct is the unchanged original existence statement, proved by the preserved `theorem11`. It also proves both exact prescribed-extinction suprema and certifies the original Maxwell and power interpretation. The original existence core alone did not contain the full manuscript conclusion; Claude's independent baseline audit is preserved in verification/claude-independent-audit-5a8350d.md.
+Private archival/review repository for the existing audited result. No new theorem or investigation is added by this upload.
 
-| Requested result | Exact declarations | Source |
-| --- | --- | --- |
-| Universal passivity and Gamma <= 1 | scatteringState_absorption_le_extinction; universal_physical_asymmetry_le_one | UniversalPassivity.lean:117; UniversalPhysicalBounds.lean:38 |
-| Outgoing weak uniqueness and converse volume representation | physicalScatteringState_unique_ae; physicalScatteringState_wellposed_ae; scatteringState_converse_material_volume_equation | WeakPhysicalUniqueness.lean:40; WeakPhysicalRepresentation.lean:27 |
-| Full optical theorem and X=A+S, with actual all-angle radiation | scatteringState_full_optical_theorem; scatteringState_energy_balance; scatteringState_scattering_is_physical_flux | FullPhysicalOpticalTheorem.lean:28; ArbitraryStateOpticalBalance.lean:39; ScatteringStatePhysicalRadiation.lean:83 |
-| Universal strict nonattainment at positive extinction | universal_physical_asymmetry_lt_one | UniversalPhysicalBounds.lean:24 |
-| Both full-class suprema and complete theorem | prescribedExtinction_full_supremum; theorem11_complete | FullPrescribedSuprema.lean:80; PhysicalTheorem11.lean:31 |
+The exact audited declaration is OQ7Prescribed.theorem11_complete : OQ7Prescribed.PhysicalTheorem11Statement at commit 686402a6c2d63820828729cc7ab02504632e3fe7. That original commit is preserved in the history and tagged audited-686402a. The separate portable packaging revision is tagged portable-0bdf00f. The 378 mathematical modules remain byte-identical.
 
-Every declaration is in namespace OQ7Prescribed. The value sets range over all original admissible bodies and original weak scattering states at the prescribed common extinction, without a volume-equation or constructed-family restriction. Reciprocity proves common extinction for arbitrary opposite-incidence states. Both IsLUB results and nonempty value sets are proved before the sSup equalities.
+## Review materials
 
-Weak uniqueness is equality almost everywhere. The canonical exterior fields are proved to represent each weak solution; the original powers are invariant under that equality. The actual full-sphere Poynting integrals are proved genuinely integrable, with an explicit vanishing far-field error, and converge to the original scattering cross section. The original current far field is also identified uniformly over the whole sphere as the canonical electric radiation amplitude. No optical identity, converse, uniqueness, or passivity conclusion is assumed as a structure field or axiom.
+- [Checked 16-page paper](review-package/manuscript/paper.pdf) and [manuscript source](review-package/manuscript/main.tex).
+- [Complete deliverable index and S1–S4](review-package/RELEASE_INDEX.md).
+- [Final package audit](review-package/FINAL_REVIEW_AUDIT.md), [claim-to-code correspondence](review-package/CLAIM_TO_CODE.md) and [audit provenance](review-package/AUDIT_PROVENANCE.md).
+- [Reproduction commands](review-package/REPRODUCE.md), [exact regenerated commands](review-package/verification/COMMANDS.jsonl), [theorem type](review-package/FINAL_THEOREM_TYPE.txt), [axioms](review-package/FINAL_AXIOMS.txt), and [same-kernel fresh replay log](review-package/KERNEL_REPLAY.log).
+- [All nine pinned dependency snapshots](review-package/release/dependency-sources/PINNED_DEPENDENCIES.json).
+- [Historical version dispositions](review-package/VERSION_VERIFICATION_DISPOSITION.md) and [already-completed bounded priority comparison](review-package/priority/TARGETED_PRIORITY_REPORT.md).
 
-The final fresh project build passed 3601 jobs, the exact full theorem declaration/type check, and the exhaustive transitive axiom audit of all 5654 project constants. The only foundations used by the final theorem are propext, Classical.choice and Quot.sound. See verification/report.json and verification/final-complete-theorem.log for the current certificate. Separate obligation exports are in verification/milestones/. The empty-environment replay of the complete physical aggregate import closure also passed. Its source hashes match the clean certificate; see verification/fresh-kernel-report.json and verification/leanchecker-fresh.log. The frozen export script verifies every certified Lean file in the source archive and validates the self-contained Git bundle.
+The compiler archive is supplied inside the complete source-and-audit archive attached to the private release/draft on this repository's [Releases page](https://github.com/Dan-k391/oq7-prescribed-extinction/releases). It is too large for an ordinary Git blob. Extract that complete archive to obtain the exact sealed package, including the compiler. Its SHA-256 is recorded in GITHUB_UPLOAD.md. The package's SHA256SUMS covers the full package, so the compiler must be restored before checking every member against it.
 
-## Reproduction
+## Claim scope
 
-Pins: Lean 4.34.1, compiler commit 5045d0056413266e57c625dcd7c365b10e377c52; Mathlib d13f23b723b8a846827a245b89c10fc7d3f11612. sources/pinned-lake-manifest.json preserves every transitive package revision. Configure build paths in a disposable checkout without changing Lean sources or upgrading pins:
+Gamma is the absolute absorption difference divided by the common dimensional extinction, equivalently the scattering difference divided by it. The same unchanged object/material law is used for opposite unit-amplitude waves with the same real y polarization. For fixed frequency and stated pointwise material caps, every strictly positive extinction target is exactly realized by a compact reciprocal local nonmagnetic anisotropic dielectric sequence. Radiation accounting includes the whole sphere and both polarizations. The unit supremum is strictly nonattained.
 
-```powershell
-./configure.ps1 -PackagesDirectory 'C:/path/to/pinned/.lake/packages'
-./verify.ps1 -LeanBin 'C:/path/to/lean-4.34.1-windows/bin' -Clean -BuildThreads 2
-./verify-milestones.ps1 -LeanBin 'C:/path/to/lean-4.34.1-windows/bin' -Only obligation-1-universal-passivity,outgoing-weak-uniqueness,obligation-3-full-physical-optics,obligation-4-universal-nonattainment,obligation-5-complete-physical-theorem
-./verify-kernel.ps1 -LeanBin 'C:/path/to/lean-4.34.1-windows/bin'
-```
+Dimensions are unrestricted across the sequence; there is no common positive loss floor, fixed-resource guarantee or bandwidth claim. The statement is not expanded to every interpretation of OQ7.
 
-configure.py provides the same path setup on other platforms, optionally with --packages-directory. The fresh replay command is `lake env leanchecker --fresh --verbose PrescribedExtinction`; it replays every constant in the aggregate's import closure into an empty environment, using the same Lean kernel implementation. This is distinct from an independently implemented kernel audit.
+The recovered final-commit audit and regenerated strict checking support the final theorem's formal-verification claim. Only propext, Classical.choice and Quot.sound occur in the theorem dependency axioms. Fresh replay uses the same Lean kernel. AI-assisted semantic and ordinary mathematical review are distinguished from human peer review, and independently implemented kernel checking is not claimed. First priority remains unresolved.
 
-All original Lean leaf modules from audited commit 5a8350d5408c38e333c9f6b6d8a94816c794120b are byte-preserved; aggregate imports are appended only. Maxwell.lean retains its historical smooth-test annotation correction and stale comments so the guarded source stays unchanged. The manuscript and read-only sources are preserved. The verifier guards these hashes, rejects prohibited proof mechanisms, and checks pinned dependency sources are clean. RESUME.md records session state. verification/INDEPENDENT_REVIEW_PROMPT.md supplies the next independent audit prompt.
+Historical originals are retained without rewriting their prior status. The uncompiled scalar thickness checkpoint and unrecovered 43-theorem finite-port source are not used as substitutes. The manuscript remains anonymous; named author metadata has not been supplied. This private repository is not a public preprint or journal submission.

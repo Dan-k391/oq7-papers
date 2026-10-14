@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="OQ7 publication build from authoritative LaTeX">
+<title>$pagetitle$</title>
+<style>
+:root { color-scheme: light; --ink:#202b36; --blue:#1f5681; --line:#d8e1e8; }
+* { box-sizing: border-box; }
+body { margin:0; background:#f2f5f7; color:var(--ink); font:18px/1.7 Georgia,"Times New Roman",serif; }
+main { max-width:980px; margin:36px auto; padding:56px 70px; background:#fff; border:1px solid var(--line); }
+header { border-bottom:2px solid var(--blue); padding-bottom:24px; margin-bottom:34px; }
+h1 { font-size:2.0rem; line-height:1.25; margin:0; text-wrap:balance; }
+h2 { font-size:1.42rem; line-height:1.4; margin:2.2em 0 .8em; color:#213d53; }
+h3 { font-size:1.14rem; line-height:1.4; margin:1.7em 0 .65em; }
+p { margin:.75em 0; }
+a { color:var(--blue); text-decoration-thickness:1px; text-underline-offset:3px; }
+a:hover { color:#10344f; }
+code { font-size:.85em; font-family:Consolas,monospace; overflow-wrap:anywhere; }
+.abstract { font-size:.94em; padding:0 0 20px; border-bottom:1px solid var(--line); }
+.abstract h2 { margin:0 0 .7em; font-size:1.15rem; }
+.theorem,.lemma,.proposition { padding:14px 20px; margin:1.5em 0; border-left:3px solid #7e9eb6; background:#f5f8fa; }
+.theorem p:first-child,.lemma p:first-child,.proposition p:first-child { margin-top:0; }
+.proof { margin-bottom:1.6em; }
+.equation { display:block; position:relative; max-width:100%; overflow-x:auto; margin:1.3em 0; padding:8px 50px 8px 0; font-style:normal; }
+.equation > .math { display:block; min-width:max-content; }
+.equation-number { position:absolute; right:0; top:50%; transform:translateY(-50%); font-size:.95em; }
+.equation:focus-visible { outline:2px solid var(--blue); outline-offset:3px; }
+.equation-scroll-hint { margin:-1em 0 1em; color:#526f85; font:12px/1.4 system-ui,sans-serif; }
+figure { margin:1.5em 0; }
+figure img { display:block; width:100%; max-width:100%; height:auto; }
+figcaption { margin:.65em 0; font-size:.92em; line-height:1.5; }
+.figure-fullsize { display:inline-block; margin-top:.35em; font:13px/1.5 system-ui,sans-serif; }
+math[display="block"] { margin:0; }
+math { font-size:1.06em; }
+.math.inline { display:inline-block; max-width:100%; overflow-x:auto; vertical-align:middle; }
+math[display="inline"] { display:inline-block; max-width:100%; overflow-x:auto; vertical-align:middle; }
+.center { text-align:center; }
+.references { font-size:.89em; padding-left:2.6em; }
+.references li { padding-left:.3em; margin:1em 0; overflow-wrap:anywhere; }
+.references li p { margin:0; }
+footer { margin-top:3em; border-top:1px solid var(--line); padding-top:16px; font:13px/1.5 system-ui,sans-serif; color:#657584; }
+.contents { padding:12px 0 18px; border-bottom:1px solid var(--line); margin-bottom:25px; font:15px/1.7 system-ui,sans-serif; }
+.contents summary { cursor:pointer; color:var(--blue); }
+.contents ul { padding-left:22px; }
+@media(max-width:720px) {
+ body { font-size:17px; background:#fff; }
+ main { margin:0; padding:28px 22px; border:0; }
+ h1 { font-size:1.7rem; }
+ h2 { font-size:1.25rem; }
+ .theorem,.lemma,.proposition { padding:10px 14px; }
+ .equation { padding-right:0; padding-bottom:28px; }
+ .equation-number { top:auto; bottom:0; transform:none; }
+}
+@media print { body { background:#fff; font-size:11pt; } main { margin:0; padding:0; border:0; } a { color:inherit; } }
+</style>
+</head>
+<body>
+<main>
+<header><h1>$title$</h1></header>
+<details class="contents"><summary>Contents</summary>$toc$</details>
+$body$
+<footer>Generated from the editable LaTeX manuscript and BibTeX bibliography. Equation, theorem, section, and citation numbers match the PDF. Mathematical expressions use native MathML.</footer>
+</main>
+<script>
+function indicateEquationOverflow() {
+  document.querySelectorAll('.equation').forEach(function(e) {
+    let hint=e.nextElementSibling;
+    if (!hint || !hint.classList.contains('equation-scroll-hint')) {
+      hint=document.createElement('p');
+      hint.className='equation-scroll-hint';
+      hint.textContent='Scroll horizontally to read the full equation.';
+      e.insertAdjacentElement('afterend',hint);
+    }
+    const overflow=e.scrollWidth>e.clientWidth+1;
+    hint.hidden=!overflow;
+    if (overflow) {
+      e.tabIndex=0;
+      e.setAttribute('aria-label','Equation '+e.dataset.number+', horizontally scrollable');
+    } else {
+      e.removeAttribute('tabindex');
+      e.removeAttribute('aria-label');
+    }
+  });
+}
+window.addEventListener('load',indicateEquationOverflow);
+window.addEventListener('resize',indicateEquationOverflow);
+if (document.fonts) document.fonts.ready.then(indicateEquationOverflow);
+</script>
+</body>
+</html>

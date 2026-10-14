@@ -1,0 +1,11 @@
+fatal: not a git repository (or any of the parent directories): .git
+Traceback (most recent call last):
+  File "C:\Users\Daniel\.codex\.chatgpt-projects\g-p-6ac8784424248191b154eb2ed308e1f1\work\r59a36c60\restored-2\restore-dependencies.py", line 25, in <module>
+    actual=subprocess.check_output(['git','-C',str(target),'rev-parse','HEAD'],text=True).strip()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Daniel\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\subprocess.py", line 466, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Daniel\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', '-C', 'C:\\Users\\Daniel\\.codex\\.chatgpt-projects\\g-p-6ac8784424248191b154eb2ed308e1f1\\work\\r59a36c60\\restored-2\\.lake\\packages\\mathlib', 'rev-parse', 'HEAD']' returned non-zero exit status 128.

@@ -1,0 +1,1433 @@
+def OQ7Prescribed.PhysicalTheorem11Statement : Prop :=
+And OQ7Prescribed.Theorem11Statement
+  (∀ (k P Q target : Real),
+    @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) k →
+      @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) P →
+        @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) Q →
+          @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+              target →
+            And
+              (@Eq.{1} Real
+                (@SupSet.sSup.{0} Real Real.instSupSet (OQ7Prescribed.prescribedExtinctionAsymmetryValues k P Q target))
+                (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))
+              (And
+                (@Eq.{1} Real
+                  (@SupSet.sSup.{0} Real Real.instSupSet
+                    (OQ7Prescribed.prescribedExtinctionDifferenceValues k P Q target))
+                  target)
+                (And
+                  (∀ (B : OQ7Prescribed.TwoLayerBody),
+                    OQ7Prescribed.TwoLayerBody.admissible B P Q →
+                      ∀ (σ : OQ7Prescribed.Direction),
+                        And
+                          (@Exists.{1} (OQ7Prescribed.ScatteringState k B σ)
+                            fun (s : OQ7Prescribed.ScatteringState k B σ) =>
+                            ∀ (t : OQ7Prescribed.ScatteringState k B σ),
+                              And
+                                (@Filter.EventuallyEq.{0, 0} OQ7Prescribed.Position OQ7Prescribed.Vector
+                                  (@MeasureTheory.ae.{0, 0} OQ7Prescribed.Position
+                                    (@MeasureTheory.Measure.{0} OQ7Prescribed.Position
+                                      (@MeasureTheory.MeasureSpace.toMeasurableSpace.{0} OQ7Prescribed.Position
+                                        (@measureSpaceOfInnerProductSpace.{0} OQ7Prescribed.Position
+                                          (@PiLp.normedAddCommGroup.{0, 0}
+                                            (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                                              (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                                                (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                                                  (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal
+                                                    ENNReal.instAddCommMonoidWithOne))
+                                                PiLp.innerProductSpace._proof_1))
+                                            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                                            (fun
+                                                (x :
+                                                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                                              Real)
+                                            fact_one_le_two_ennreal
+                                            (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                                            fun
+                                              (i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                                            Real.normedAddCommGroup)
+                                          (@PiLp.innerProductSpace.{0, 0, 0} Real Real.instRCLike
+                                            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                                            (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                                            (fun
+                                                (x :
+                                                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                                              Real)
+                                            (fun
+                                                (i :
+                                                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                                              Real.normedAddCommGroup)
+                                            fun
+                                              (i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                                            @RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike)
+                                          OQ7Prescribed.PhysicalTheorem11Statement._proof_1
+                                          (@WithLp.measurableSpace.{0}
+                                            (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                                              (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                                                (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                                                  (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal
+                                                    ENNReal.instAddCommMonoidWithOne))
+                                                PiLp.innerProductSpace._proof_1))
+                                            ((i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) →
+                                              (fun
+                                                    (x :
+                                                      Fin
+                                                        (@OfNat.ofNat.{0} Nat (nat_lit 3)
+                                                          (instOfNatNat (nat_lit 3)))) =>
+                                                  Real)
+                                                i)
+                                            (@MeasurableSpace.pi.{0, 0}
+                                              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                                              (fun
+                                                  (x :
+                                                    Fin
+                                                      (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                                                Real)
+                                              fun
+                                                (a :
+                                                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                                              Real.measurableSpace))
+                                          OQ7Prescribed.PhysicalTheorem11Statement._proof_2)))
+                                    (@MeasureTheory.Measure.instFunLike.{0} OQ7Prescribed.Position
+                                      (@MeasureTheory.MeasureSpace.toMeasurableSpace.{0} OQ7Prescribed.Position
+                                        (@measureSpaceOfInnerProductSpace.{0} OQ7Prescribed.Position
+                                          (@PiLp.normedAddCommGroup.{0, 0}
+                                            (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                                              (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                                                (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                                                  (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal
+                                                    ENNReal.instAddCommMonoidWithOne))
+                                                PiLp.innerProductSpace._proof_1))
+                                            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                                            (fun
+                                                (x :
+                                                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                                              Real)
+                                            fact_one_le_two_ennreal
+                                            (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                                            fun
+                                              (i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                                            Real.normedAddCommGroup)
+                                          (@PiLp.innerProductSpace.{0, 0, 0} Real Real.instRCLike
+                                            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                                            (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                                            (fun
+                                                (x :
+                                                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                                              Real)
+                                            (fun
+                                                (i :
+                                                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                                              Real.normedAddCommGroup)
+                                            fun
+                                              (i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                                            @RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike)
+                                          OQ7Prescribed.PhysicalTheorem11Statement._proof_1
+                                          (@WithLp.measurableSpace.{0}
+                                            (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                                              (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                                                (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                                                  (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal
+                                                    ENNReal.instAddCommMonoidWithOne))
+                                                PiLp.innerProductSpace._proof_1))
+                                            ((i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) →
+                                              (fun
+                                                    (x :
+                                                      Fin
+                                                        (@OfNat.ofNat.{0} Nat (nat_lit 3)
+                                                          (instOfNatNat (nat_lit 3)))) =>
+                                                  Real)
+                                                i)
+                                            (@MeasurableSpace.pi.{0, 0}
+                                              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                                              (fun
+                                                  (x :
+                                                    Fin
+                                                      (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                                                Real)
+                                              fun
+                                                (a :
+                                                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                                              Real.measurableSpace))
+                                          OQ7Prescribed.PhysicalTheorem11Statement._proof_2)))
+                                    OQ7Prescribed.PhysicalTheorem11Statement._proof_3
+                                    (@MeasureTheory.MeasureSpace.volume.{0} OQ7Prescribed.Position
+                                      (@measureSpaceOfInnerProductSpace.{0} OQ7Prescribed.Position
+                                        (@PiLp.normedAddCommGroup.{0, 0}
+                                          (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                                            (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                                              (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                                                (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal
+                                                  ENNReal.instAddCommMonoidWithOne))
+                                              PiLp.innerProductSpace._proof_1))
+                                          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                                          (fun
+                                              (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                                            Real)
+                                          fact_one_le_two_ennreal
+                                          (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                                          fun (i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                                          Real.normedAddCommGroup)
+                                        (@PiLp.innerProductSpace.{0, 0, 0} Real Real.instRCLike
+                                          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                                          (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                                          (fun
+                                              (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                                            Real)
+                                          (fun
+                                              (i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                                            Real.normedAddCommGroup)
+                                          fun (i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                                          @RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike)
+                                        OQ7Prescribed.PhysicalTheorem11Statement._proof_1
+                                        (@WithLp.measurableSpace.{0}
+                                          (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                                            (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                                              (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                                                (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal
+                                                  ENNReal.instAddCommMonoidWithOne))
+                                              PiLp.innerProductSpace._proof_1))
+                                          ((i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) →
+                                            (fun
+                                                  (x :
+                                                    Fin
+                                                      (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                                                Real)
+                                              i)
+                                          (@MeasurableSpace.pi.{0, 0}
+                                            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                                            (fun
+                                                (x :
+                                                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                                              Real)
+                                            fun
+                                              (a : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                                            Real.measurableSpace))
+                                        OQ7Prescribed.PhysicalTheorem11Statement._proof_2)))
+                                  (@OQ7Prescribed.ScatteringState.electric k B σ s)
+                                  (@OQ7Prescribed.ScatteringState.electric k B σ t))
+                                (@Filter.EventuallyEq.{0, 0} OQ7Prescribed.Position OQ7Prescribed.Vector
+                                  (@MeasureTheory.ae.{0, 0} OQ7Prescribed.Position
+                                    (@MeasureTheory.Measure.{0} OQ7Prescribed.Position
+                                      (@MeasureTheory.MeasureSpace.toMeasurableSpace.{0} OQ7Prescribed.Position
+                                        (@measureSpaceOfInnerProductSpace.{0} OQ7Prescribed.Position
+                                          (@PiLp.normedAddCommGroup.{0, 0}
+                                            (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                                              (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                                                (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                                                  (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal
+                                                    ENNReal.instAddCommMonoidWithOne))
+                                                PiLp.innerProductSpace._proof_1))
+                                            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                                            (fun
+                                                (x :
+                                                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                                              Real)
+                                            fact_one_le_two_ennreal
+                                            (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                                            fun
+                                              (i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                                            Real.normedAddCommGroup)
+                                          (@PiLp.innerProductSpace.{0, 0, 0} Real Real.instRCLike
+                                            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                                            (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                                            (fun
+                                                (x :
+                                                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                                              Real)
+                                            (fun
+                                                (i :
+                                                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                                              Real.normedAddCommGroup)
+                                            fun
+                                              (i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                                            @RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike)
+                                          OQ7Prescribed.PhysicalTheorem11Statement._proof_1
+                                          (@WithLp.measurableSpace.{0}
+                                            (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                                              (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                                                (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                                                  (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal
+                                                    ENNReal.instAddCommMonoidWithOne))
+                                                PiLp.innerProductSpace._proof_1))
+                                            ((i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) →
+                                              (fun
+                                                    (x :
+                                                      Fin
+                                                        (@OfNat.ofNat.{0} Nat (nat_lit 3)
+                                                          (instOfNatNat (nat_lit 3)))) =>
+                                                  Real)
+                                                i)
+                                            (@MeasurableSpace.pi.{0, 0}
+                                              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                                              (fun
+                                                  (x :
+                                                    Fin
+                                                      (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                                                Real)
+                                              fun
+                                                (a :
+                                                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                                              Real.measurableSpace))
+                                          OQ7Prescribed.PhysicalTheorem11Statement._proof_2)))
+                                    (@MeasureTheory.Measure.instFunLike.{0} OQ7Prescribed.Position
+                                      (@MeasureTheory.MeasureSpace.toMeasurableSpace.{0} OQ7Prescribed.Position
+                                        (@measureSpaceOfInnerProductSpace.{0} OQ7Prescribed.Position
+                                          (@PiLp.normedAddCommGroup.{0, 0}
+                                            (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                                              (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                                                (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                                                  (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal
+                                                    ENNReal.instAddCommMonoidWithOne))
+                                                PiLp.innerProductSpace._proof_1))
+                                            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                                            (fun
+                                                (x :
+                                                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                                              Real)
+                                            fact_one_le_two_ennreal
+                                            (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                                            fun
+                                              (i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                                            Real.normedAddCommGroup)
+                                          (@PiLp.innerProductSpace.{0, 0, 0} Real Real.instRCLike
+                                            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                                            (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                                            (fun
+                                                (x :
+                                                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                                              Real)
+                                            (fun
+                                                (i :
+                                                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                                              Real.normedAddCommGroup)
+                                            fun
+                                              (i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                                            @RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike)
+                                          OQ7Prescribed.PhysicalTheorem11Statement._proof_1
+                                          (@WithLp.measurableSpace.{0}
+                                            (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                                              (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                                                (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                                                  (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal
+                                                    ENNReal.instAddCommMonoidWithOne))
+                                                PiLp.innerProductSpace._proof_1))
+                                            ((i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) →
+                                              (fun
+                                                    (x :
+                                                      Fin
+                                                        (@OfNat.ofNat.{0} Nat (nat_lit 3)
+                                                          (instOfNatNat (nat_lit 3)))) =>
+                                                  Real)
+                                                i)
+                                            (@MeasurableSpace.pi.{0, 0}
+                                              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                                              (fun
+                                                  (x :
+                                                    Fin
+                                                      (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                                                Real)
+                                              fun
+                                                (a :
+                                                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                                              Real.measurableSpace))
+                                          OQ7Prescribed.PhysicalTheorem11Statement._proof_2)))
+                                    OQ7Prescribed.PhysicalTheorem11Statement._proof_3
+                                    (@MeasureTheory.MeasureSpace.volume.{0} OQ7Prescribed.Position
+                                      (@measureSpaceOfInnerProductSpace.{0} OQ7Prescribed.Position
+                                        (@PiLp.normedAddCommGroup.{0, 0}
+                                          (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                                            (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                                              (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                                                (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal
+                                                  ENNReal.instAddCommMonoidWithOne))
+                                              PiLp.innerProductSpace._proof_1))
+                                          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                                          (fun
+                                              (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                                            Real)
+                                          fact_one_le_two_ennreal
+                                          (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                                          fun (i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                                          Real.normedAddCommGroup)
+                                        (@PiLp.innerProductSpace.{0, 0, 0} Real Real.instRCLike
+                                          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                                          (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                                          (fun
+                                              (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                                            Real)
+                                          (fun
+                                              (i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                                            Real.normedAddCommGroup)
+                                          fun (i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                                          @RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike)
+                                        OQ7Prescribed.PhysicalTheorem11Statement._proof_1
+                                        (@WithLp.measurableSpace.{0}
+                                          (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                                            (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                                              (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                                                (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal
+                                                  ENNReal.instAddCommMonoidWithOne))
+                                              PiLp.innerProductSpace._proof_1))
+                                          ((i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) →
+                                            (fun
+                                                  (x :
+                                                    Fin
+                                                      (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                                                Real)
+                                              i)
+                                          (@MeasurableSpace.pi.{0, 0}
+                                            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                                            (fun
+                                                (x :
+                                                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                                              Real)
+                                            fun
+                                              (a : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                                            Real.measurableSpace))
+                                        OQ7Prescribed.PhysicalTheorem11Statement._proof_2)))
+                                  (@OQ7Prescribed.ScatteringState.magnetic k B σ s)
+                                  (@OQ7Prescribed.ScatteringState.magnetic k B σ t)))
+                          (∀ (s : OQ7Prescribed.ScatteringState k B σ),
+                            OQ7Prescribed.FullPhysicalOpticalStatement k B σ s))
+                  (And
+                    (∀ (B : OQ7Prescribed.TwoLayerBody),
+                      OQ7Prescribed.TwoLayerBody.admissible B P Q →
+                        ∀ (sp : OQ7Prescribed.ScatteringState k B OQ7Prescribed.Direction.plus)
+                          (sm : OQ7Prescribed.ScatteringState k B OQ7Prescribed.Direction.minus),
+                          And
+                            (@Eq.{1} Real
+                              (OQ7Prescribed.extinction k B OQ7Prescribed.Direction.plus
+                                (@OQ7Prescribed.ScatteringState.electric k B OQ7Prescribed.Direction.plus sp))
+                              (OQ7Prescribed.extinction k B OQ7Prescribed.Direction.minus
+                                (@OQ7Prescribed.ScatteringState.electric k B OQ7Prescribed.Direction.minus sm)))
+                            (And
+                              (@LE.le.{0} Real Real.instLE
+                                (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+                                (OQ7Prescribed.normalizedAsymmetry k B
+                                  (@OQ7Prescribed.ScatteringState.electric k B OQ7Prescribed.Direction.plus sp)
+                                  (@OQ7Prescribed.ScatteringState.electric k B OQ7Prescribed.Direction.minus sm)))
+                              (And
+                                (@LE.le.{0} Real Real.instLE
+                                  (OQ7Prescribed.normalizedAsymmetry k B
+                                    (@OQ7Prescribed.ScatteringState.electric k B OQ7Prescribed.Direction.plus sp)
+                                    (@OQ7Prescribed.ScatteringState.electric k B OQ7Prescribed.Direction.minus sm))
+                                  (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))
+                                (And
+                                  (@LT.lt.{0} Real Real.instLT
+                                      (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+                                      (OQ7Prescribed.extinction k B OQ7Prescribed.Direction.plus
+                                        (@OQ7Prescribed.ScatteringState.electric k B OQ7Prescribed.Direction.plus sp)) →
+                                    @LT.lt.{0} Real Real.instLT
+                                      (OQ7Prescribed.normalizedAsymmetry k B
+                                        (@OQ7Prescribed.ScatteringState.electric k B OQ7Prescribed.Direction.plus sp)
+                                        (@OQ7Prescribed.ScatteringState.electric k B OQ7Prescribed.Direction.minus sm))
+                                      (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))
+                                  (@Eq.{1} Real
+                                    (OQ7Prescribed.normalizedAsymmetry k B
+                                      (@OQ7Prescribed.ScatteringState.electric k B OQ7Prescribed.Direction.plus sp)
+                                      (@OQ7Prescribed.ScatteringState.electric k B OQ7Prescribed.Direction.minus sm))
+                                    (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                                      (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                                      (@abs.{0} Real Real.lattice Real.instAddGroup
+                                        (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+                                          (OQ7Prescribed.scattering k B
+                                            (@OQ7Prescribed.ScatteringState.electric k B OQ7Prescribed.Direction.plus
+                                              sp))
+                                          (OQ7Prescribed.scattering k B
+                                            (@OQ7Prescribed.ScatteringState.electric k B OQ7Prescribed.Direction.minus
+                                              sm))))
+                                      (OQ7Prescribed.extinction k B OQ7Prescribed.Direction.plus
+                                        (@OQ7Prescribed.ScatteringState.electric k B OQ7Prescribed.Direction.plus
+                                          sp))))))))
+                    (∀ (s : OQ7Prescribed.PrescribedExtinctionPair k P Q target),
+                      And
+                        (@LT.lt.{0} Real Real.instLT (@OQ7Prescribed.PrescribedExtinctionPair.asymmetry k P Q target s)
+                          (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))
+                        (@LT.lt.{0} Real Real.instLT
+                          (@OQ7Prescribed.PrescribedExtinctionPair.absorptionDifference k P Q target s) target))))))
+def OQ7Prescribed.Theorem11Statement : Prop :=
+∀ (k P Q target : Real),
+  @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) k →
+    @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) P →
+      @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) Q →
+        @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) target →
+          ∀ (ε : Real),
+            @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) ε →
+              @LT.lt.{0} Real Real.instLT ε (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) →
+                @Exists.{1} OQ7Prescribed.TwoLayerBody fun (B : OQ7Prescribed.TwoLayerBody) =>
+                  And (OQ7Prescribed.TwoLayerBody.admissible B P Q)
+                    (@Exists.{1} (OQ7Prescribed.ScatteringState k B OQ7Prescribed.Direction.plus)
+                      fun (sp : OQ7Prescribed.ScatteringState k B OQ7Prescribed.Direction.plus) =>
+                      @Exists.{1} (OQ7Prescribed.ScatteringState k B OQ7Prescribed.Direction.minus)
+                        fun (sm : OQ7Prescribed.ScatteringState k B OQ7Prescribed.Direction.minus) =>
+                        And
+                          (@Eq.{1} Real
+                            (OQ7Prescribed.extinction k B OQ7Prescribed.Direction.plus
+                              (@OQ7Prescribed.ScatteringState.electric k B OQ7Prescribed.Direction.plus sp))
+                            target)
+                          (And
+                            (@Eq.{1} Real
+                              (OQ7Prescribed.extinction k B OQ7Prescribed.Direction.minus
+                                (@OQ7Prescribed.ScatteringState.electric k B OQ7Prescribed.Direction.minus sm))
+                              target)
+                            (And
+                              (@LT.lt.{0} Real Real.instLT
+                                (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+                                  (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) ε)
+                                (OQ7Prescribed.normalizedAsymmetry k B
+                                  (@OQ7Prescribed.ScatteringState.electric k B OQ7Prescribed.Direction.plus sp)
+                                  (@OQ7Prescribed.ScatteringState.electric k B OQ7Prescribed.Direction.minus sm)))
+                              (@LT.lt.{0} Real Real.instLT
+                                (OQ7Prescribed.normalizedAsymmetry k B
+                                  (@OQ7Prescribed.ScatteringState.electric k B OQ7Prescribed.Direction.plus sp)
+                                  (@OQ7Prescribed.ScatteringState.electric k B OQ7Prescribed.Direction.minus sm))
+                                (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))))))
+def OQ7Prescribed.FullPhysicalOpticalStatement : (k : Real) →
+  (B : OQ7Prescribed.TwoLayerBody) → (σ : OQ7Prescribed.Direction) → (s : OQ7Prescribed.ScatteringState k B σ) → Prop :=
+fun (k : Real) (B : OQ7Prescribed.TwoLayerBody) (σ : OQ7Prescribed.Direction)
+    (s : OQ7Prescribed.ScatteringState k B σ) =>
+  And
+    (@Filter.EventuallyEq.{0, 0} OQ7Prescribed.Position OQ7Prescribed.Vector
+      (@MeasureTheory.ae.{0, 0} OQ7Prescribed.Position
+        (@MeasureTheory.Measure.{0} OQ7Prescribed.Position
+          (@MeasureTheory.MeasureSpace.toMeasurableSpace.{0} OQ7Prescribed.Position
+            (@measureSpaceOfInnerProductSpace.{0} OQ7Prescribed.Position
+              (@PiLp.normedAddCommGroup.{0, 0}
+                (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                  (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                    (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                      (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                    PiLp.innerProductSpace._proof_1))
+                (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Real)
+                fact_one_le_two_ennreal (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                fun (i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Real.normedAddCommGroup)
+              (@PiLp.innerProductSpace.{0, 0, 0} Real Real.instRCLike
+                (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Real)
+                (fun (i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Real.normedAddCommGroup)
+                fun (i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                @RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike)
+              OQ7Prescribed.FullPhysicalOpticalStatement._proof_1
+              (@WithLp.measurableSpace.{0}
+                (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                  (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                    (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                      (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                    PiLp.innerProductSpace._proof_1))
+                ((i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) →
+                  (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Real) i)
+                (@MeasurableSpace.pi.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                  (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Real)
+                  fun (a : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Real.measurableSpace))
+              OQ7Prescribed.FullPhysicalOpticalStatement._proof_2)))
+        (@MeasureTheory.Measure.instFunLike.{0} OQ7Prescribed.Position
+          (@MeasureTheory.MeasureSpace.toMeasurableSpace.{0} OQ7Prescribed.Position
+            (@measureSpaceOfInnerProductSpace.{0} OQ7Prescribed.Position
+              (@PiLp.normedAddCommGroup.{0, 0}
+                (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                  (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                    (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                      (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                    PiLp.innerProductSpace._proof_1))
+                (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Real)
+                fact_one_le_two_ennreal (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                fun (i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Real.normedAddCommGroup)
+              (@PiLp.innerProductSpace.{0, 0, 0} Real Real.instRCLike
+                (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Real)
+                (fun (i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Real.normedAddCommGroup)
+                fun (i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                @RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike)
+              OQ7Prescribed.FullPhysicalOpticalStatement._proof_1
+              (@WithLp.measurableSpace.{0}
+                (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                  (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                    (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                      (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                    PiLp.innerProductSpace._proof_1))
+                ((i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) →
+                  (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Real) i)
+                (@MeasurableSpace.pi.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                  (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Real)
+                  fun (a : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Real.measurableSpace))
+              OQ7Prescribed.FullPhysicalOpticalStatement._proof_2)))
+        OQ7Prescribed.FullPhysicalOpticalStatement._proof_3
+        (@MeasureTheory.MeasureSpace.volume.{0} OQ7Prescribed.Position
+          (@measureSpaceOfInnerProductSpace.{0} OQ7Prescribed.Position
+            (@PiLp.normedAddCommGroup.{0, 0}
+              (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                  (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                    (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                  PiLp.innerProductSpace._proof_1))
+              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+              (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Real)
+              fact_one_le_two_ennreal (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+              fun (i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Real.normedAddCommGroup)
+            (@PiLp.innerProductSpace.{0, 0, 0} Real Real.instRCLike
+              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+              (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+              (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Real)
+              (fun (i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Real.normedAddCommGroup)
+              fun (i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+              @RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike)
+            OQ7Prescribed.FullPhysicalOpticalStatement._proof_1
+            (@WithLp.measurableSpace.{0}
+              (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                  (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                    (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                  PiLp.innerProductSpace._proof_1))
+              ((i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) →
+                (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Real) i)
+              (@MeasurableSpace.pi.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Real)
+                fun (a : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Real.measurableSpace))
+            OQ7Prescribed.FullPhysicalOpticalStatement._proof_2)))
+      (@OQ7Prescribed.ScatteringState.electric k B σ s) fun (x : OQ7Prescribed.Position) =>
+      @HAdd.hAdd.{0, 0, 0} OQ7Prescribed.Vector OQ7Prescribed.Vector OQ7Prescribed.Vector
+        (@instHAdd.{0} OQ7Prescribed.Vector
+          (@AddCommMagma.toAdd.{0} OQ7Prescribed.Vector
+            (@AddCommSemigroup.toAddCommMagma.{0} OQ7Prescribed.Vector
+              (@AddCommMonoid.toAddCommSemigroup.{0} OQ7Prescribed.Vector
+                (@AddCommGroup.toAddCommMonoid.{0} OQ7Prescribed.Vector
+                  (@WithLp.instAddCommGroup.{0}
+                    (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                      (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                        (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                          (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                        PiLp.innerProductSpace._proof_1))
+                    ((i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) →
+                      (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Complex) i)
+                    (@Pi.addCommGroup.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                      (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Complex)
+                      fun (i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                      Complex.addCommGroup)))))))
+        (OQ7Prescribed.incidentElectric k σ x) (@OQ7Prescribed.scatteringStateRadiatingElectric k B σ s x))
+    (And
+      (@Filter.EventuallyEq.{0, 0} OQ7Prescribed.Position OQ7Prescribed.Vector
+        (@MeasureTheory.ae.{0, 0} OQ7Prescribed.Position
+          (@MeasureTheory.Measure.{0} OQ7Prescribed.Position
+            (@MeasureTheory.MeasureSpace.toMeasurableSpace.{0} OQ7Prescribed.Position
+              (@measureSpaceOfInnerProductSpace.{0} OQ7Prescribed.Position
+                (@PiLp.normedAddCommGroup.{0, 0}
+                  (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                    (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                      (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                        (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                      PiLp.innerProductSpace._proof_1))
+                  (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                  (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Real)
+                  fact_one_le_two_ennreal (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                  fun (i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                  Real.normedAddCommGroup)
+                (@PiLp.innerProductSpace.{0, 0, 0} Real Real.instRCLike
+                  (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                  (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                  (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Real)
+                  (fun (i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                    Real.normedAddCommGroup)
+                  fun (i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                  @RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike)
+                OQ7Prescribed.FullPhysicalOpticalStatement._proof_1
+                (@WithLp.measurableSpace.{0}
+                  (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                    (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                      (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                        (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                      PiLp.innerProductSpace._proof_1))
+                  ((i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) →
+                    (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Real) i)
+                  (@MeasurableSpace.pi.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                    (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Real)
+                    fun (a : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                    Real.measurableSpace))
+                OQ7Prescribed.FullPhysicalOpticalStatement._proof_2)))
+          (@MeasureTheory.Measure.instFunLike.{0} OQ7Prescribed.Position
+            (@MeasureTheory.MeasureSpace.toMeasurableSpace.{0} OQ7Prescribed.Position
+              (@measureSpaceOfInnerProductSpace.{0} OQ7Prescribed.Position
+                (@PiLp.normedAddCommGroup.{0, 0}
+                  (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                    (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                      (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                        (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                      PiLp.innerProductSpace._proof_1))
+                  (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                  (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Real)
+                  fact_one_le_two_ennreal (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                  fun (i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                  Real.normedAddCommGroup)
+                (@PiLp.innerProductSpace.{0, 0, 0} Real Real.instRCLike
+                  (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                  (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                  (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Real)
+                  (fun (i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                    Real.normedAddCommGroup)
+                  fun (i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                  @RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike)
+                OQ7Prescribed.FullPhysicalOpticalStatement._proof_1
+                (@WithLp.measurableSpace.{0}
+                  (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                    (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                      (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                        (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                      PiLp.innerProductSpace._proof_1))
+                  ((i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) →
+                    (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Real) i)
+                  (@MeasurableSpace.pi.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                    (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Real)
+                    fun (a : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                    Real.measurableSpace))
+                OQ7Prescribed.FullPhysicalOpticalStatement._proof_2)))
+          OQ7Prescribed.FullPhysicalOpticalStatement._proof_3
+          (@MeasureTheory.MeasureSpace.volume.{0} OQ7Prescribed.Position
+            (@measureSpaceOfInnerProductSpace.{0} OQ7Prescribed.Position
+              (@PiLp.normedAddCommGroup.{0, 0}
+                (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                  (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                    (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                      (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                    PiLp.innerProductSpace._proof_1))
+                (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Real)
+                fact_one_le_two_ennreal (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                fun (i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Real.normedAddCommGroup)
+              (@PiLp.innerProductSpace.{0, 0, 0} Real Real.instRCLike
+                (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Real)
+                (fun (i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Real.normedAddCommGroup)
+                fun (i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                @RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike)
+              OQ7Prescribed.FullPhysicalOpticalStatement._proof_1
+              (@WithLp.measurableSpace.{0}
+                (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                  (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                    (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                      (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                    PiLp.innerProductSpace._proof_1))
+                ((i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) →
+                  (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Real) i)
+                (@MeasurableSpace.pi.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                  (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Real)
+                  fun (a : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Real.measurableSpace))
+              OQ7Prescribed.FullPhysicalOpticalStatement._proof_2)))
+        (@OQ7Prescribed.ScatteringState.magnetic k B σ s) fun (x : OQ7Prescribed.Position) =>
+        @HAdd.hAdd.{0, 0, 0} OQ7Prescribed.Vector OQ7Prescribed.Vector OQ7Prescribed.Vector
+          (@instHAdd.{0} OQ7Prescribed.Vector
+            (@AddCommMagma.toAdd.{0} OQ7Prescribed.Vector
+              (@AddCommSemigroup.toAddCommMagma.{0} OQ7Prescribed.Vector
+                (@AddCommMonoid.toAddCommSemigroup.{0} OQ7Prescribed.Vector
+                  (@AddCommGroup.toAddCommMonoid.{0} OQ7Prescribed.Vector
+                    (@WithLp.instAddCommGroup.{0}
+                      (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                        (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                          (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                            (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                          PiLp.innerProductSpace._proof_1))
+                      ((i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) →
+                        (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Complex) i)
+                      (@Pi.addCommGroup.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                        (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Complex)
+                        fun (i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                        Complex.addCommGroup)))))))
+          (OQ7Prescribed.incidentMagnetic k σ x) (@OQ7Prescribed.scatteringStateRadiatingMagnetic k B σ s x))
+      (And
+        (@Eq.{1} Real (OQ7Prescribed.extinction k B σ (@OQ7Prescribed.ScatteringState.electric k B σ s))
+          (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+            (OQ7Prescribed.absorption k B (@OQ7Prescribed.ScatteringState.electric k B σ s))
+            (OQ7Prescribed.scattering k B (@OQ7Prescribed.ScatteringState.electric k B σ s))))
+        (And
+          (@Eq.{1} Real (OQ7Prescribed.extinction k B σ (@OQ7Prescribed.ScatteringState.electric k B σ s))
+            (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+              (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                  (@OfNat.ofNat.{0} Real (nat_lit 4)
+                    (@instOfNatAtLeastTwo.{0} Real (nat_lit 4) Real.instNatCast
+                      OQ7Prescribed.FullPhysicalOpticalStatement._proof_4))
+                  Real.pi)
+                k)
+              (Complex.im
+                (OQ7Prescribed.pairing
+                  (OQ7Prescribed.basisC
+                    (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) (nat_lit 1)
+                      (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+                        OQ7Prescribed.FullPhysicalOpticalStatement._proof_5 (nat_lit 1))))
+                  (OQ7Prescribed.currentFarField k B (@OQ7Prescribed.ScatteringState.electric k B σ s)
+                    (OQ7Prescribed.incidentForwardDirection σ))))))
+          (And
+            (@Eq.{1} Real (OQ7Prescribed.scattering k B (@OQ7Prescribed.ScatteringState.electric k B σ s))
+              (@MeasureTheory.integral.{0, 0} (@Set.Elem.{0} OQ7Prescribed.Position OQ7Prescribed.UnitSphere) Real
+                Real.normedAddCommGroup
+                (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+                  (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+                  (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+                (@Subtype.instMeasurableSpace.{0} OQ7Prescribed.Position
+                  (fun (x : OQ7Prescribed.Position) =>
+                    @Membership.mem.{0, 0} OQ7Prescribed.Position (Set.{0} OQ7Prescribed.Position)
+                      (@Set.instMembership.{0} OQ7Prescribed.Position) OQ7Prescribed.UnitSphere x)
+                  (@WithLp.measurableSpace.{0}
+                    (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                      (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                        (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                          (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                        PiLp.innerProductSpace._proof_1))
+                    ((i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) →
+                      (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Real) i)
+                    (@MeasurableSpace.pi.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                      (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Real)
+                      fun (a : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                      Real.measurableSpace)))
+                OQ7Prescribed.sphereArea fun (n : @Set.Elem.{0} OQ7Prescribed.Position OQ7Prescribed.UnitSphere) =>
+                @HPow.hPow.{0, 0, 0} Real Nat Real
+                  (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+                  (@Norm.norm.{0} OQ7Prescribed.Vector
+                    (@PiLp.instNorm.{0, 0}
+                      (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                        (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                          (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                            (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                          PiLp.innerProductSpace._proof_1))
+                      (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                      (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Complex)
+                      (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                      fun (i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Complex.instNorm)
+                    (OQ7Prescribed.currentFarField k B (@OQ7Prescribed.ScatteringState.electric k B σ s)
+                      (@Subtype.val.{1} OQ7Prescribed.Position
+                        (fun (x : OQ7Prescribed.Position) =>
+                          @Membership.mem.{0, 0} OQ7Prescribed.Position (Set.{0} OQ7Prescribed.Position)
+                            (@Set.instMembership.{0} OQ7Prescribed.Position) OQ7Prescribed.UnitSphere x)
+                        n)))
+                  (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+            (And
+              (@Filter.Tendsto.{0, 0} Real Real (@OQ7Prescribed.scatteringStateSphereFlux k B σ s)
+                (@Filter.atTop.{0} Real Real.instPreorder)
+                (@nhds.{0} Real
+                  (@UniformSpace.toTopologicalSpace.{0} Real
+                    (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+                  (OQ7Prescribed.scattering k B (@OQ7Prescribed.ScatteringState.electric k B σ s))))
+              (have p : OQ7Prescribed.CompactPolarization :=
+                OQ7Prescribed.physicalCompactPolarization B (@OQ7Prescribed.ScatteringState.electric k B σ s)
+                  (OQ7Prescribed.FullPhysicalOpticalStatement._proof_6 k B σ s);
+              ∀ (r : Real),
+                @LE.le.{0} Real Real.instLE
+                    (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+                      (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                        (@OfNat.ofNat.{0} Real (nat_lit 2)
+                          (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast
+                            OQ7Prescribed.FullPhysicalOpticalStatement._proof_7))
+                        (OQ7Prescribed.CompactPolarization.radius p))
+                      (@OfNat.ofNat.{0} Real (nat_lit 2)
+                        (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast
+                          OQ7Prescribed.FullPhysicalOpticalStatement._proof_7)))
+                    r →
+                  ∀ (n : @Set.Elem.{0} OQ7Prescribed.Position OQ7Prescribed.UnitSphere),
+                    @LE.le.{0} Real Real.instLE
+                      (@Norm.norm.{0} OQ7Prescribed.Vector
+                        (@PiLp.instNorm.{0, 0}
+                          (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                            (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                              (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                                (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                              PiLp.innerProductSpace._proof_1))
+                          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                          (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Complex)
+                          (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                          fun (i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                          Complex.instNorm)
+                        (@HSub.hSub.{0, 0, 0} OQ7Prescribed.Vector OQ7Prescribed.Vector OQ7Prescribed.Vector
+                          (@instHSub.{0} OQ7Prescribed.Vector
+                            (@SubNegMonoid.toSub.{0} OQ7Prescribed.Vector
+                              (@AddGroup.toSubNegMonoid.{0} OQ7Prescribed.Vector
+                                (@AddCommGroup.toAddGroup.{0} OQ7Prescribed.Vector
+                                  (@WithLp.instAddCommGroup.{0}
+                                    (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                                      (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                                        (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                                          (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal
+                                            ENNReal.instAddCommMonoidWithOne))
+                                        PiLp.innerProductSpace._proof_1))
+                                    ((i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) →
+                                      (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                                          Complex)
+                                        i)
+                                    (@Pi.addCommGroup.{0, 0}
+                                      (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                                      (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                                        Complex)
+                                      fun (i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                                      Complex.addCommGroup))))))
+                          (@HSMul.hSMul.{0, 0, 0} Complex OQ7Prescribed.Vector OQ7Prescribed.Vector
+                            (@instHSMul.{0, 0} Complex OQ7Prescribed.Vector
+                              (@WithLp.instSMul.{0, 0}
+                                (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                                  (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                                    (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                                      (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal
+                                        ENNReal.instAddCommMonoidWithOne))
+                                    PiLp.innerProductSpace._proof_1))
+                                Complex
+                                ((i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) →
+                                  (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                                      Complex)
+                                    i)
+                                (@Function.hasSMul.{0, 0, 0}
+                                  (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Complex Complex
+                                  (@instSMulOfMul.{0} Complex Complex.instMul))))
+                            (@HMul.hMul.{0, 0, 0} Complex Complex Complex (@instHMul.{0} Complex Complex.instMul)
+                              (Complex.ofReal r)
+                              (Complex.exp
+                                (@HMul.hMul.{0, 0, 0} Complex Complex Complex (@instHMul.{0} Complex Complex.instMul)
+                                  (@Neg.neg.{0} Complex Complex.instNeg Complex.I)
+                                  (Complex.ofReal
+                                    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) k r)))))
+                            (@OQ7Prescribed.scatteringStateRadiatingElectric k B σ s
+                              (@HSMul.hSMul.{0, 0, 0} Real OQ7Prescribed.Position OQ7Prescribed.Position
+                                (@instHSMul.{0, 0} Real OQ7Prescribed.Position
+                                  (@WithLp.instSMul.{0, 0}
+                                    (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                                      (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                                        (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                                          (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal
+                                            ENNReal.instAddCommMonoidWithOne))
+                                        PiLp.innerProductSpace._proof_1))
+                                    Real
+                                    ((i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) →
+                                      (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                                          Real)
+                                        i)
+                                    (@Function.hasSMul.{0, 0, 0}
+                                      (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Real Real
+                                      (@instSMulOfMul.{0} Real Real.instMul))))
+                                r
+                                (@Subtype.val.{1} OQ7Prescribed.Position
+                                  (fun (x : OQ7Prescribed.Position) =>
+                                    @Membership.mem.{0, 0} OQ7Prescribed.Position (Set.{0} OQ7Prescribed.Position)
+                                      (@Set.instMembership.{0} OQ7Prescribed.Position) OQ7Prescribed.UnitSphere x)
+                                  n))))
+                          (OQ7Prescribed.currentFarField k B (@OQ7Prescribed.ScatteringState.electric k B σ s)
+                            (@Subtype.val.{1} OQ7Prescribed.Position
+                              (fun (x : OQ7Prescribed.Position) =>
+                                @Membership.mem.{0, 0} OQ7Prescribed.Position (Set.{0} OQ7Prescribed.Position)
+                                  (@Set.instMembership.{0} OQ7Prescribed.Position) OQ7Prescribed.UnitSphere x)
+                              n))))
+                      (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                        (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                          (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                          (OQ7Prescribed.farFieldKernelConstant k (OQ7Prescribed.CompactPolarization.radius p)) r)
+                        (@MeasureTheory.integral.{0, 0} OQ7Prescribed.Position Real Real.normedAddCommGroup
+                          (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+                            (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+                            (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+                          (@MeasureTheory.MeasureSpace.toMeasurableSpace.{0} OQ7Prescribed.Position
+                            (@measureSpaceOfInnerProductSpace.{0} OQ7Prescribed.Position
+                              (@PiLp.normedAddCommGroup.{0, 0}
+                                (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                                  (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                                    (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                                      (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal
+                                        ENNReal.instAddCommMonoidWithOne))
+                                    PiLp.innerProductSpace._proof_1))
+                                (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                                (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Real)
+                                fact_one_le_two_ennreal
+                                (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                                fun (i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                                Real.normedAddCommGroup)
+                              (@PiLp.innerProductSpace.{0, 0, 0} Real Real.instRCLike
+                                (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                                (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                                (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Real)
+                                (fun (i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                                  Real.normedAddCommGroup)
+                                fun (i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                                @RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike)
+                              OQ7Prescribed.FullPhysicalOpticalStatement._proof_1
+                              (@WithLp.measurableSpace.{0}
+                                (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                                  (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                                    (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                                      (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal
+                                        ENNReal.instAddCommMonoidWithOne))
+                                    PiLp.innerProductSpace._proof_1))
+                                ((i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) →
+                                  (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Real)
+                                    i)
+                                (@MeasurableSpace.pi.{0, 0}
+                                  (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                                  (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Real)
+                                  fun (a : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                                  Real.measurableSpace))
+                              OQ7Prescribed.FullPhysicalOpticalStatement._proof_2))
+                          (@MeasureTheory.MeasureSpace.volume.{0} OQ7Prescribed.Position
+                            (@measureSpaceOfInnerProductSpace.{0} OQ7Prescribed.Position
+                              (@PiLp.normedAddCommGroup.{0, 0}
+                                (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                                  (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                                    (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                                      (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal
+                                        ENNReal.instAddCommMonoidWithOne))
+                                    PiLp.innerProductSpace._proof_1))
+                                (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                                (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Real)
+                                fact_one_le_two_ennreal
+                                (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                                fun (i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                                Real.normedAddCommGroup)
+                              (@PiLp.innerProductSpace.{0, 0, 0} Real Real.instRCLike
+                                (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                                (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                                (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Real)
+                                (fun (i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                                  Real.normedAddCommGroup)
+                                fun (i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                                @RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike)
+                              OQ7Prescribed.FullPhysicalOpticalStatement._proof_1
+                              (@WithLp.measurableSpace.{0}
+                                (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                                  (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                                    (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                                      (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal
+                                        ENNReal.instAddCommMonoidWithOne))
+                                    PiLp.innerProductSpace._proof_1))
+                                ((i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) →
+                                  (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Real)
+                                    i)
+                                (@MeasurableSpace.pi.{0, 0}
+                                  (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                                  (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Real)
+                                  fun (a : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                                  Real.measurableSpace))
+                              OQ7Prescribed.FullPhysicalOpticalStatement._proof_2))
+                          fun (y : OQ7Prescribed.Position) =>
+                          @Norm.norm.{0} OQ7Prescribed.Vector
+                            (@PiLp.instNorm.{0, 0}
+                              (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                                (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                                  (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                                    (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal
+                                      ENNReal.instAddCommMonoidWithOne))
+                                  PiLp.innerProductSpace._proof_1))
+                              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                              (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Complex)
+                              (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                              fun (i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                              Complex.instNorm)
+                            (OQ7Prescribed.CompactPolarization.current p y)))))))))
+def OQ7Prescribed.MaterialAdmissible : (P Q : Real) → (ε : OQ7Prescribed.Tensor) → Prop :=
+fun (P Q : Real) (ε : OQ7Prescribed.Tensor) =>
+  And
+    (@Eq.{1}
+      (Matrix.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+        (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Complex)
+      (@Matrix.transpose.{0, 0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+        (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Complex ε)
+      ε)
+    (And
+      (∀ (v : OQ7Prescribed.Vector),
+        And (@LE.le.{0} Real Real.instLE (OQ7Prescribed.squareNorm v) (Complex.re (OQ7Prescribed.quadratic ε v)))
+          (@LE.le.{0} Real Real.instLE (Complex.re (OQ7Prescribed.quadratic ε v))
+            (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) P (OQ7Prescribed.squareNorm v))))
+      (And
+        (∀ (v : OQ7Prescribed.Vector),
+          @Ne.{1} OQ7Prescribed.Vector v
+              (@OfNat.ofNat.{0} OQ7Prescribed.Vector (nat_lit 0)
+                (@Zero.toOfNat0.{0} OQ7Prescribed.Vector
+                  (@NegZeroClass.toZero.{0} OQ7Prescribed.Vector
+                    (@SubNegZeroMonoid.toNegZeroClass.{0} OQ7Prescribed.Vector
+                      (@SubtractionMonoid.toSubNegZeroMonoid.{0} OQ7Prescribed.Vector
+                        (@SubtractionCommMonoid.toSubtractionMonoid.{0} OQ7Prescribed.Vector
+                          (@AddCommGroup.toDivisionAddCommMonoid.{0} OQ7Prescribed.Vector
+                            (@WithLp.instAddCommGroup.{0}
+                              (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                                (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                                  (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                                    (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal
+                                      ENNReal.instAddCommMonoidWithOne))
+                                  PiLp.innerProductSpace._proof_1))
+                              ((i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) →
+                                (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Complex)
+                                  i)
+                              (@Pi.addCommGroup.{0, 0}
+                                (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                                (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Complex)
+                                fun (i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                                Complex.addCommGroup))))))))) →
+            @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+              (Complex.im (OQ7Prescribed.quadratic ε v)))
+        (∀ (v : OQ7Prescribed.Vector),
+          @LE.le.{0} Real Real.instLE (Complex.im (OQ7Prescribed.quadratic ε v))
+            (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) Q (OQ7Prescribed.squareNorm v)))))
+structure OQ7Prescribed.TwoLayerBody : Type
+number of parameters: 0
+fields:
+  OQ7Prescribed.TwoLayerBody.aperture : Real
+  OQ7Prescribed.TwoLayerBody.absorberThickness : Real
+  OQ7Prescribed.TwoLayerBody.plateThickness : Real
+  OQ7Prescribed.TwoLayerBody.absorberPermittivity : OQ7Prescribed.Tensor
+  OQ7Prescribed.TwoLayerBody.platePermittivity : OQ7Prescribed.Tensor
+  OQ7Prescribed.TwoLayerBody.aperture_pos : @LT.lt.{0} Real Real.instLT
+      (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+      (OQ7Prescribed.TwoLayerBody.aperture self)
+  OQ7Prescribed.TwoLayerBody.absorberThickness_pos : @LT.lt.{0} Real Real.instLT
+      (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+      (OQ7Prescribed.TwoLayerBody.absorberThickness self)
+  OQ7Prescribed.TwoLayerBody.plateThickness_pos : @LT.lt.{0} Real Real.instLT
+      (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+      (OQ7Prescribed.TwoLayerBody.plateThickness self)
+constructor:
+  OQ7Prescribed.TwoLayerBody.mk (aperture absorberThickness plateThickness : Real)
+    (absorberPermittivity platePermittivity : OQ7Prescribed.Tensor)
+    (aperture_pos :
+      @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) aperture)
+    (absorberThickness_pos :
+      @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+        absorberThickness)
+    (plateThickness_pos :
+      @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+        plateThickness) :
+    OQ7Prescribed.TwoLayerBody
+structure OQ7Prescribed.ScatteringState (k : Real) (B : OQ7Prescribed.TwoLayerBody) (σ : OQ7Prescribed.Direction) : Type
+number of parameters: 3
+fields:
+  OQ7Prescribed.ScatteringState.electric : OQ7Prescribed.Field
+  OQ7Prescribed.ScatteringState.magnetic : OQ7Prescribed.Field
+  OQ7Prescribed.ScatteringState.maxwell : OQ7Prescribed.WeakMaxwell k B
+      (@OQ7Prescribed.ScatteringState.electric k B σ self) (@OQ7Prescribed.ScatteringState.magnetic k B σ self)
+  OQ7Prescribed.ScatteringState.outgoing : OQ7Prescribed.Outgoing
+      (fun (x : OQ7Prescribed.Position) =>
+        @HSub.hSub.{0, 0, 0} OQ7Prescribed.Vector OQ7Prescribed.Vector OQ7Prescribed.Vector
+          (@instHSub.{0} OQ7Prescribed.Vector
+            (@SubNegMonoid.toSub.{0} OQ7Prescribed.Vector
+              (@AddGroup.toSubNegMonoid.{0} OQ7Prescribed.Vector
+                (@AddCommGroup.toAddGroup.{0} OQ7Prescribed.Vector
+                  (@WithLp.instAddCommGroup.{0}
+                    (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                      (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                        (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                          (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                        PiLp.innerProductSpace._proof_1))
+                    ((i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) →
+                      (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Complex) i)
+                    (@Pi.addCommGroup.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                      (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Complex)
+                      fun (i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                      Complex.addCommGroup))))))
+          (@OQ7Prescribed.ScatteringState.electric k B σ self x) (OQ7Prescribed.incidentElectric k σ x))
+      fun (x : OQ7Prescribed.Position) =>
+      @HSub.hSub.{0, 0, 0} OQ7Prescribed.Vector OQ7Prescribed.Vector OQ7Prescribed.Vector
+        (@instHSub.{0} OQ7Prescribed.Vector
+          (@SubNegMonoid.toSub.{0} OQ7Prescribed.Vector
+            (@AddGroup.toSubNegMonoid.{0} OQ7Prescribed.Vector
+              (@AddCommGroup.toAddGroup.{0} OQ7Prescribed.Vector
+                (@WithLp.instAddCommGroup.{0}
+                  (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                    (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                      (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                        (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                      PiLp.innerProductSpace._proof_1))
+                  ((i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) →
+                    (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Complex) i)
+                  (@Pi.addCommGroup.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                    (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Complex)
+                    fun (i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                    Complex.addCommGroup))))))
+        (@OQ7Prescribed.ScatteringState.magnetic k B σ self x) (OQ7Prescribed.incidentMagnetic k σ x)
+  OQ7Prescribed.ScatteringState.current_memLp : @MeasureTheory.MemLp.{0, 0} OQ7Prescribed.Position OQ7Prescribed.Vector
+      (@MeasureTheory.MeasureSpace.toMeasurableSpace.{0} OQ7Prescribed.Position
+        (@measureSpaceOfInnerProductSpace.{0} OQ7Prescribed.Position
+          (@PiLp.normedAddCommGroup.{0, 0}
+            (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+              (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                  (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                PiLp.innerProductSpace._proof_1))
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+            (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Real)
+            fact_one_le_two_ennreal (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+            fun (i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Real.normedAddCommGroup)
+          (@PiLp.innerProductSpace.{0, 0, 0} Real Real.instRCLike
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+            (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+            (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Real)
+            (fun (i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Real.normedAddCommGroup)
+            fun (i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+            @RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike)
+          ⋯
+          (@WithLp.measurableSpace.{0}
+            (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+              (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                  (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                PiLp.innerProductSpace._proof_1))
+            ((i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) →
+              (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Real) i)
+            (@MeasurableSpace.pi.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+              (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Real)
+              fun (a : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Real.measurableSpace))
+          ⋯))
+      (@ContinuousENorm.toENorm.{0} OQ7Prescribed.Vector
+        (@UniformSpace.toTopologicalSpace.{0} OQ7Prescribed.Vector
+          (@PseudoMetricSpace.toUniformSpace.{0} OQ7Prescribed.Vector
+            (@SeminormedAddGroup.toPseudoMetricSpace.{0} OQ7Prescribed.Vector
+              (@SeminormedAddCommGroup.toSeminormedAddGroup.{0} OQ7Prescribed.Vector
+                (@PiLp.seminormedAddCommGroup.{0, 0}
+                  (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                    (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                      (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                        (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                      PiLp.innerProductSpace._proof_1))
+                  (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                  (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Complex)
+                  fact_one_le_two_ennreal (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                  fun (i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                  @NonUnitalSeminormedRing.toSeminormedAddCommGroup.{0} Complex
+                    (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing.{0} Complex
+                      (@SeminormedCommRing.toNonUnitalSeminormedCommRing.{0} Complex
+                        (@NormedCommRing.toSeminormedCommRing.{0} Complex
+                          (@NormedField.toNormedCommRing.{0} Complex Complex.instNormedField)))))))))
+        (@SeminormedAddGroup.toContinuousENorm.{0} OQ7Prescribed.Vector
+          (@SeminormedAddCommGroup.toSeminormedAddGroup.{0} OQ7Prescribed.Vector
+            (@PiLp.seminormedAddCommGroup.{0, 0}
+              (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                  (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                    (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                  PiLp.innerProductSpace._proof_1))
+              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+              (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Complex)
+              fact_one_le_two_ennreal (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+              fun (i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+              @NonUnitalSeminormedRing.toSeminormedAddCommGroup.{0} Complex
+                (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing.{0} Complex
+                  (@SeminormedCommRing.toNonUnitalSeminormedCommRing.{0} Complex
+                    (@NormedCommRing.toSeminormedCommRing.{0} Complex
+                      (@NormedField.toNormedCommRing.{0} Complex Complex.instNormedField))))))))
+      (@PiLp.topologicalSpace.{0, 0}
+        (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+          (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+            (@AddMonoidWithOne.toNatCast.{0} ENNReal
+              (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+            PiLp.innerProductSpace._proof_1))
+        (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+        (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Complex)
+        fun (i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+        @UniformSpace.toTopologicalSpace.{0} Complex
+          (@PseudoMetricSpace.toUniformSpace.{0} Complex
+            (@SeminormedRing.toPseudoMetricSpace.{0} Complex
+              (@SeminormedCommRing.toSeminormedRing.{0} Complex
+                (@NormedCommRing.toSeminormedCommRing.{0} Complex
+                  (@NormedField.toNormedCommRing.{0} Complex Complex.instNormedField))))))
+      (OQ7Prescribed.polarization B (@OQ7Prescribed.ScatteringState.electric k B σ self))
+      (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+        (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+          (@AddMonoidWithOne.toNatCast.{0} ENNReal
+            (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+          ⋯))
+      (@MeasureTheory.MeasureSpace.volume.{0} OQ7Prescribed.Position
+        (@measureSpaceOfInnerProductSpace.{0} OQ7Prescribed.Position
+          (@PiLp.normedAddCommGroup.{0, 0}
+            (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+              (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                  (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                PiLp.innerProductSpace._proof_1))
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+            (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Real)
+            fact_one_le_two_ennreal (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+            fun (i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Real.normedAddCommGroup)
+          (@PiLp.innerProductSpace.{0, 0, 0} Real Real.instRCLike
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+            (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+            (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Real)
+            (fun (i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Real.normedAddCommGroup)
+            fun (i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+            @RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike)
+          ⋯
+          (@WithLp.measurableSpace.{0}
+            (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+              (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                  (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                PiLp.innerProductSpace._proof_1))
+            ((i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) →
+              (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Real) i)
+            (@MeasurableSpace.pi.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+              (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Real)
+              fun (a : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Real.measurableSpace))
+          ⋯))
+constructor:
+  OQ7Prescribed.ScatteringState.mk {k : Real} {B : OQ7Prescribed.TwoLayerBody} {σ : OQ7Prescribed.Direction}
+    (electric magnetic : OQ7Prescribed.Field) (maxwell : OQ7Prescribed.WeakMaxwell k B electric magnetic)
+    (outgoing :
+      OQ7Prescribed.Outgoing
+        (fun (x : OQ7Prescribed.Position) =>
+          @HSub.hSub.{0, 0, 0} OQ7Prescribed.Vector OQ7Prescribed.Vector OQ7Prescribed.Vector
+            (@instHSub.{0} OQ7Prescribed.Vector
+              (@SubNegMonoid.toSub.{0} OQ7Prescribed.Vector
+                (@AddGroup.toSubNegMonoid.{0} OQ7Prescribed.Vector
+                  (@AddCommGroup.toAddGroup.{0} OQ7Prescribed.Vector
+                    (@WithLp.instAddCommGroup.{0}
+                      (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                        (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                          (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                            (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                          PiLp.innerProductSpace._proof_1))
+                      ((i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) →
+                        (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Complex) i)
+                      (@Pi.addCommGroup.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                        (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Complex)
+                        fun (i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                        Complex.addCommGroup))))))
+            (electric x) (OQ7Prescribed.incidentElectric k σ x))
+        fun (x : OQ7Prescribed.Position) =>
+        @HSub.hSub.{0, 0, 0} OQ7Prescribed.Vector OQ7Prescribed.Vector OQ7Prescribed.Vector
+          (@instHSub.{0} OQ7Prescribed.Vector
+            (@SubNegMonoid.toSub.{0} OQ7Prescribed.Vector
+              (@AddGroup.toSubNegMonoid.{0} OQ7Prescribed.Vector
+                (@AddCommGroup.toAddGroup.{0} OQ7Prescribed.Vector
+                  (@WithLp.instAddCommGroup.{0}
+                    (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                      (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                        (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                          (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                        PiLp.innerProductSpace._proof_1))
+                    ((i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) →
+                      (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Complex) i)
+                    (@Pi.addCommGroup.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                      (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Complex)
+                      fun (i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                      Complex.addCommGroup))))))
+          (magnetic x) (OQ7Prescribed.incidentMagnetic k σ x))
+    (current_memLp :
+      @MeasureTheory.MemLp.{0, 0} OQ7Prescribed.Position OQ7Prescribed.Vector
+        (@MeasureTheory.MeasureSpace.toMeasurableSpace.{0} OQ7Prescribed.Position
+          (@measureSpaceOfInnerProductSpace.{0} OQ7Prescribed.Position
+            (@PiLp.normedAddCommGroup.{0, 0}
+              (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                  (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                    (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                  PiLp.innerProductSpace._proof_1))
+              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+              (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Real)
+              fact_one_le_two_ennreal (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+              fun (i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Real.normedAddCommGroup)
+            (@PiLp.innerProductSpace.{0, 0, 0} Real Real.instRCLike
+              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+              (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+              (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Real)
+              (fun (i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Real.normedAddCommGroup)
+              fun (i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+              @RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike)
+            ⋯
+            (@WithLp.measurableSpace.{0}
+              (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                  (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                    (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                  PiLp.innerProductSpace._proof_1))
+              ((i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) →
+                (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Real) i)
+              (@MeasurableSpace.pi.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Real)
+                fun (a : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Real.measurableSpace))
+            ⋯))
+        (@ContinuousENorm.toENorm.{0} OQ7Prescribed.Vector
+          (@UniformSpace.toTopologicalSpace.{0} OQ7Prescribed.Vector
+            (@PseudoMetricSpace.toUniformSpace.{0} OQ7Prescribed.Vector
+              (@SeminormedAddGroup.toPseudoMetricSpace.{0} OQ7Prescribed.Vector
+                (@SeminormedAddCommGroup.toSeminormedAddGroup.{0} OQ7Prescribed.Vector
+                  (@PiLp.seminormedAddCommGroup.{0, 0}
+                    (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                      (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                        (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                          (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                        PiLp.innerProductSpace._proof_1))
+                    (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                    (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Complex)
+                    fact_one_le_two_ennreal (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                    fun (i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                    @NonUnitalSeminormedRing.toSeminormedAddCommGroup.{0} Complex
+                      (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing.{0} Complex
+                        (@SeminormedCommRing.toNonUnitalSeminormedCommRing.{0} Complex
+                          (@NormedCommRing.toSeminormedCommRing.{0} Complex
+                            (@NormedField.toNormedCommRing.{0} Complex Complex.instNormedField)))))))))
+          (@SeminormedAddGroup.toContinuousENorm.{0} OQ7Prescribed.Vector
+            (@SeminormedAddCommGroup.toSeminormedAddGroup.{0} OQ7Prescribed.Vector
+              (@PiLp.seminormedAddCommGroup.{0, 0}
+                (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                  (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                    (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                      (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                    PiLp.innerProductSpace._proof_1))
+                (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Complex)
+                fact_one_le_two_ennreal (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                fun (i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+                @NonUnitalSeminormedRing.toSeminormedAddCommGroup.{0} Complex
+                  (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing.{0} Complex
+                    (@SeminormedCommRing.toNonUnitalSeminormedCommRing.{0} Complex
+                      (@NormedCommRing.toSeminormedCommRing.{0} Complex
+                        (@NormedField.toNormedCommRing.{0} Complex Complex.instNormedField))))))))
+        (@PiLp.topologicalSpace.{0, 0}
+          (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+            (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+              (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+              PiLp.innerProductSpace._proof_1))
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+          (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Complex)
+          fun (i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+          @UniformSpace.toTopologicalSpace.{0} Complex
+            (@PseudoMetricSpace.toUniformSpace.{0} Complex
+              (@SeminormedRing.toPseudoMetricSpace.{0} Complex
+                (@SeminormedCommRing.toSeminormedRing.{0} Complex
+                  (@NormedCommRing.toSeminormedCommRing.{0} Complex
+                    (@NormedField.toNormedCommRing.{0} Complex Complex.instNormedField))))))
+        (OQ7Prescribed.polarization B electric)
+        (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+          (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+            (@AddMonoidWithOne.toNatCast.{0} ENNReal
+              (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+            ⋯))
+        (@MeasureTheory.MeasureSpace.volume.{0} OQ7Prescribed.Position
+          (@measureSpaceOfInnerProductSpace.{0} OQ7Prescribed.Position
+            (@PiLp.normedAddCommGroup.{0, 0}
+              (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                  (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                    (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                  PiLp.innerProductSpace._proof_1))
+              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+              (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Real)
+              fact_one_le_two_ennreal (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+              fun (i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Real.normedAddCommGroup)
+            (@PiLp.innerProductSpace.{0, 0, 0} Real Real.instRCLike
+              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+              (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+              (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Real)
+              (fun (i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Real.normedAddCommGroup)
+              fun (i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) =>
+              @RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike)
+            ⋯
+            (@WithLp.measurableSpace.{0}
+              (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                  (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                    (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                  PiLp.innerProductSpace._proof_1))
+              ((i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) →
+                (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Real) i)
+              (@MeasurableSpace.pi.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Real)
+                fun (a : Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) => Real.measurableSpace))
+            ⋯))) :
+    OQ7Prescribed.ScatteringState k B σ
+FULLY-ELABORATED-FINAL-THEOREM-TYPE: OQ7Prescribed.PhysicalTheorem11Statement
