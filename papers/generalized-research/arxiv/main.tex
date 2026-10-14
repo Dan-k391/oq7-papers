@@ -1,0 +1,668 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{microtype}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\hypersetup{pdftitle={Reciprocal Absorption Asymmetry: Sharp Channel Tradeoffs and Dielectric Thickness Asymptotics},pdfauthor={Daniel Wang and Junjie Zheng},pdfsubject={Sharp reciprocal channel envelopes and exact-target scalar dielectric thickness asymptotics}}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\norm}[1]{\lVert #1\rVert}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\ip}[2]{\langle #1,#2\rangle}
+\newcommand{\dd}{\,\mathrm d}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\diag}{\operatorname{diag}}
+\newcommand{\ReH}{\operatorname{Re}_{H}}
+\newcommand{\ImH}{\operatorname{Im}_{H}}
+\title{Reciprocal Absorption Asymmetry:\\Sharp Channel Tradeoffs and Dielectric Thickness Asymptotics}
+\author{Daniel Wang\\McMaster University\\\href{mailto:denialk391@gmail.com}{\texttt{denialk391@gmail.com}}
+\and Junjie Zheng\\Columbia University\\\href{mailto:zjj2785@gmail.com}{\texttt{zjj2785@gmail.com}}}
+\date{14 October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+Reciprocity equates extinction under time-reversed illumination but permits unequal absorption. We quantify this asymmetry in two monochromatic settings. For reciprocal passive channel operators with unit incident power, we determine the sharp absorption-difference bound at prescribed common extinction and prescribed overlap between an input and its background time reverse. The resulting three-branch envelope has an explicit positive-matrix certificate and attainable equality operators. For finite scalar dielectric multilayers with fixed upper material caps and fixed integrated loss, we prove a sharp inverse-square approach to the established two-port ceiling at exactly prescribed transmission and mean absorption in its strict active branch. The matching construction uses thin lossy slices near standing-wave nodes and finite bounded-index dielectric matching layers. An exact two-layer anisotropic planar construction shows why a scalar loss-budget determinant floor does not extend to semidefinite tensor loss; finite-power beams retain its fixed-extinction supremum. The channel statements use dimensionless power normalization, whereas the thickness theorem concerns a specified one-dimensional material class. Neither the abstract equality operators nor the planar examples establish compact three-dimensional Maxwell realization at nonzero prescribed illumination overlap. Layer count and minimum feature size are unrestricted, and no finite-bandwidth conclusion is asserted.
+\end{abstract}
+
+\section{Introduction}
+Lorentz reciprocity constrains directional optical response without requiring absorption to be direction independent. In particular, a reciprocal object has equal extinction for time-reversed incident waves, although absorption and scattering can exchange their contributions \citep{SounasAlu2014}. Open Question 7 in the tutorial of Miller and Monticone asks for fundamental bounds on this absorption--scattering asymmetry \citep{MillerMonticone2026}. A bound requires a specified normalization, illumination pair and resource class. We distinguish a complete-channel problem with finite incident power from a scalar multilayer problem with a fixed material-loss budget.
+
+The first main result is a sharp joint channel envelope at fixed common extinction $X$ and fixed overlap $\rho$ between an input and its background time reverse. The familiar single-input passivity parabola and the overlap bound are separately sharp, but their minimum need not be jointly attainable. We determine the intervening branch using an explicit positive-matrix certificate and construct equality operators in two or three channels. This is an abstract operator result; physical realization of its equality operators at nonzero $\rho$ is a separate problem.
+
+The second main result is a sharp material-resource asymptotic for scalar dielectric multilayers. At fixed transmitted power $T$, mean absorptance $a$, integrated imaginary permittivity $M$ and upper material caps, the optimal absorption difference approaches the established two-port ceiling with a deficit proportional to the inverse square of total thickness. We prove both the uniform lower bound and its matching coefficient, while retaining exactly the prescribed $T,a,M$. The construction permits arbitrarily many layers and shrinking lossy slices. It is therefore distinct from optimization with a fixed layer count, minimum feature size or material catalogue.
+
+The ingredients have substantial precedents. Guo and Fan characterize reciprocal reflection feasibility and related multimode passivity constraints \citep{GuoFan2022,GuoFan2024}; Rollett's invariant supplies the coating-invariant two-port quantity used below \citep{Rollett1962}. Single-frequency material-dependent bounds are established in photonics \citep{Kuang2020}, and quantitative observability has related Gramian and small-window bounds \citep{Chitour2010,Hante2012,Privat2013}. Loss placed near standing-wave minima is the established optical Borrmann mechanism \citep{Kozhevnikov2008,Barreaux2017}. Our thickness statement concerns a variable complex spatial Helmholtz equation, an all-profile bound and an exact-target leading coefficient.
+
+For channels, the passivity envelope is a direct consequence of the optical-theorem absorption--scattering constraint \citep{Fleury2014}. Existing reciprocity and time-reversal bounds \citep{SounasAlu2017,Ma2025}, coherent-control results \citep{Li2025}, and quantum information--disturbance tradeoffs \citep{Buscemi2006,Dariano2009} provide relevant comparisons. The present joint problem fixes a coherent forward overlap of a transpose-symmetric contraction and the difference of two output powers. These hypotheses differ from the inspected statements; an equivalent prior formulation has not been excluded. We make no claim of first priority. Reciprocal polarization conversion with selective attenuation is also established \citep{Armitage2014,Potton2004,Khurgin2021}, as is directional absorption in bianisotropic metasurfaces \citep{ManezEspina2026}. The planar construction in Section~\ref{sec:vector} uses that mechanism to exhibit the limits of transferring scalar resource bounds to tensor materials.
+
+Sections~\ref{sec:benchmark}--\ref{sec:thickness} establish the scalar thickness result. Sections~\ref{sec:channels}--\ref{sec:joint} establish the channel envelope. Section~\ref{sec:vector} supplies the planar Maxwell construction and its finite-power extension. All proofs are ordinary analytic proofs; formal-verification scope is stated separately in Section~\ref{sec:scope}.
+
+\section{The scalar two-port benchmark}\label{sec:benchmark}
+For power-normalized ports, write
+\begin{equation}\label{eq:twoport}
+ S=\begin{pmatrix}r_L&t\\t&r_R\end{pmatrix},\qquad
+ \mathsf A=I-S^\dagger S\succeq0,\qquad T=\abs t^2.
+\end{equation}
+Set
+\begin{equation}\label{eq:scalar-variables}
+ \begin{aligned}
+ A_L&=1-T-\abs{r_L}^2,\qquad A_R=1-T-\abs{r_R}^2,\\
+ a&=\frac{A_L+A_R}{2},\quad \delta=\frac{A_L-A_R}{2},\quad
+ x=\abs\delta,\quad b=1-T-a.
+ \end{aligned}
+\end{equation}
+Thus $\abs{r_L}^2=b-\delta$ and $\abs{r_R}^2=b+\delta$. The following benchmark is a consequence of established reciprocal reflection feasibility \citep{GuoFan2022}; its proof fixes the constants and phases needed later.
+
+\begin{proposition}\label{prop:benchmark}
+A triple $(T,a,\delta)$ is realized by a symmetric contraction if and only if
+\begin{equation}\label{eq:feasibility}
+ 0\leq T\leq1,\quad 0\leq a\leq1-T,\quad
+ x\leq\min(a,b),\quad F(x)\geq0,
+\end{equation}
+where
+\begin{equation}\label{eq:F}
+ F(x)=a^2-x^2-2T\left(b-\sqrt{b^2-x^2}\right).
+\end{equation}
+For $a_c(T)=(1-T^2)/2$, the sharp absorption-difference ceiling is
+\begin{equation}\label{eq:matrix-ceiling}
+ D_0(T,a)=
+ \begin{cases}
+ 2\sqrt{b^2-(\sqrt{1-2a}-T)^2},&0\leq a<a_c(T),\\
+ 2b,&a_c(T)\leq a\leq1-T.
+ \end{cases}
+\end{equation}
+\end{proposition}
+\begin{proof}
+Put $z=\overline{r_L}t+\overline t r_R$. Direct multiplication gives
+\[
+ \mathsf A=\begin{pmatrix}a+\delta&-z\\-\overline z&a-\delta\end{pmatrix},
+ \qquad \det\mathsf A=a^2-x^2-\abs z^2.
+\]
+Its diagonal entries and the reflection magnitudes give the first three conditions in~\eqref{eq:feasibility}. If $T\abs{r_Lr_R}>0$ and $\vartheta=\arg r_L+\arg r_R-2\arg t$, then
+\[
+ \abs z^2=2T\left(b+\sqrt{b^2-x^2}\cos\vartheta\right).
+\]
+The smallest value is $2T(b-\sqrt{b^2-x^2})$, proving necessity of $F(x)\geq0$. The same formula covers a vanishing entry by continuity. Conversely,
+\[
+ S_*=\begin{pmatrix}\sqrt{b-\delta}&\sqrt T\\\sqrt T&-\sqrt{b+\delta}\end{pmatrix}
+\]
+has nonnegative absorption diagonal and determinant $F(x)$, proving sufficiency. In particular every $0\leq a\leq1-T$ is feasible by taking $\delta=0$.
+
+With $y=\sqrt{b^2-x^2}$, one has $F(x)=(y+T)^2-(1-2a)$. If $a\geq a_c(T)$, then $x=b\leq a$ is feasible and maximal. Otherwise $y_0=\sqrt{1-2a}-T>0$, and feasibility is equivalent to $y\geq y_0$. Since $F(0)=a^2\geq0$, $b\geq y_0$. The maximal $x_0=\sqrt{b^2-y_0^2}$ also satisfies $x_0\leq a$, because $F(x_0)=0$ gives $a^2-x_0^2=2T(b-y_0)\geq0$. The matrix $S_*$ attains both branches.
+\end{proof}
+
+\section{A uniform scalar material-resource floor}\label{sec:floor}
+Fix vacuum wavenumber $k>0$, time dependence $e^{-i\omega t}$, relative permeability one and identical vacuum exteriors. A finite scalar multilayer has piecewise constant relative permittivity $\varepsilon=p+iq$ and finite positive layer thicknesses. The exact normal-incidence equation is
+\begin{equation}\label{eq:helmholtz}
+ E''+k^2\varepsilon(z)E=0,
+\end{equation}
+with $E,E'$ continuous at interfaces. For the thickness theorem, impose
+\begin{equation}\label{eq:material}
+ 1\leq p\leq P,\qquad 0\leq q\leq Q,\qquad
+ \int q(z)\dd z=M,\qquad P>1,\quad Q,M>0.
+\end{equation}
+Total geometric thickness includes all lossless spacers and matching layers. There is no prescribed layer count or minimum feature size. The integrated loss $M$ has units of length; it is neither absorbed power nor a frequency-integrated sum rule.
+
+The homogeneous outgoing problem has no nonzero solution: the flux identity makes outgoing power plus volume dissipation zero, and hence the exterior outgoing amplitudes vanish. The zero interface state and ODE uniqueness force the field to vanish. Scattering is therefore well defined, reciprocal and passive. Its transmission amplitude is nonzero, since zero transmission would give $E=E'=0$ at the transmitted interface and contradict unit incidence.
+
+\begin{lemma}[Gram and transfer identities]\label{lem:gram}
+For the fields $E_L,E_R$ of unit opposite incidence, let $v=(E_L,E_R)$ and
+\[
+ \mathsf A_J=k\int_J q(z)v(z)^\dagger v(z)\dd z
+\]
+on a selected material interval $J$. Then $\mathsf A=I-S^\dagger S$, $\mathsf A-\mathsf A_J\succeq0$, and
+\begin{equation}\label{eq:gram}
+ \frac{\det\mathsf A_J}{T}
+ =4k^4\int_{\substack{x<y\\x,y\in J}}
+ q(x)q(y)\abs{s(y,x)}^2\dd x\dd y,
+\end{equation}
+where $s(x,x)=0$, $\partial_y s(x,x)=1$ and $s$ solves~\eqref{eq:helmholtz}. For the state $u=(E,E'/(ik))^T$, its transfer matrix $F$ satisfies $\det F=1$ and
+\begin{equation}\label{eq:invariant}
+ c:=\frac{\det\mathsf A}{T}=\det(\Sigma-F^\dagger\Sigma F),\qquad
+ \Sigma=\begin{pmatrix}0&1\\1&0\end{pmatrix}.
+\end{equation}
+The quantity $c$ is unchanged by finite lossless coatings on either side.
+\end{lemma}
+\begin{proof}
+Flux balance for every incident linear combination gives the Gram formula for $\mathsf A$. The Wronskian is constant and equals $-2ikt$, so
+\[
+ E_L(x)E_R(y)-E_R(x)E_L(y)=-2ikt\,s(y,x).
+\]
+Expansion of the determinant of the two-dimensional Gram integral, followed by symmetry in $x,y$, proves~\eqref{eq:gram}.
+
+The directed flux is $u^\dagger\Sigma u/2$. The incident-to-left-state matrix is
+\[
+ B_{\rm in}=\begin{pmatrix}1+r_L&t\\1-r_L&-t\end{pmatrix},\qquad
+ \det B_{\rm in}=-2t.
+\]
+Thus $\mathsf A=\tfrac12B_{\rm in}^\dagger(\Sigma-F^\dagger\Sigma F)B_{\rm in}$, giving~\eqref{eq:invariant}. A lossless coating $F_j$ obeys $F_j^\dagger\Sigma F_j=\Sigma$ and $\det F_j=1$. Replacing $F$ by $F_RF F_L$ conjugates its flux defect by $F_L$ and preserves its determinant. In scattering notation,
+\[
+ \frac{1-\abs{r_L}^2-\abs{r_R}^2+\abs{\det S}^2}{2\abs t^2}
+ =1+\frac{c}{2},
+\]
+which identifies the established Rollett invariant \citep{Rollett1962}.
+\end{proof}
+
+\begin{lemma}[Complex comparison]\label{lem:comparison}
+Let $K=k\sqrt P$. If $p\leq P$ on $[x,x+h]$ and $0\leq h\leq\pi/K$, then
+\begin{equation}\label{eq:comparison}
+ \abs{s(x+h,x)}\geq\frac{\sin(Kh)}{K}.
+\end{equation}
+\end{lemma}
+\begin{proof}
+Translate $x$ to zero, set $\varrho=\abs s$ and $j=\Im(\overline s s')$. Before a positive zero of $s$, direct differentiation gives
+\[
+ \varrho''+K^2\varrho=(K^2-k^2p)\varrho+\frac{j^2}{\varrho^3}\geq0.
+\]
+The initial conditions imply $s(h)/h\to1$, $s'(h)\to1$ and $\varrho'(h)=\Re(\overline s s')/\abs s\to1$. Suppose the first positive zero were $h_0<\pi/K$. For $0<\zeta<h<h_0$, variation of constants and its nonnegative sine kernel give
+\[
+ \varrho(h)\geq\varrho(\zeta)\cos K(h-\zeta)
+       +\frac{\varrho'(\zeta)}K\sin K(h-\zeta).
+\]
+Letting $\zeta\downarrow0$ yields~\eqref{eq:comparison}; letting $h\uparrow h_0$ contradicts the zero. The same argument therefore applies throughout the interval, with endpoints by continuity. The fields and their first derivatives are continuous at every interface, so the argument also holds for piecewise constant coefficients. No division by the initial zero is needed.
+\end{proof}
+
+\begin{lemma}[Capped Fourier moment]\label{lem:moment}
+If $0\leq q\leq Q$ on an interval of length at most $\pi/K$ and $m=\int q$, then
+\begin{equation}\label{eq:moment}
+ \abs{\int q(z)e^{2iKz}\dd z}\leq\frac QK\sin(Km/Q).
+\end{equation}
+\end{lemma}
+\begin{proof}
+Extend $q$ by zero to one full period and write $\lambda=Km/Q\in[0,\pi]$. For any phase $\phi$, the pointwise inequality
+\[
+ q\cos(2Kz-\phi)\leq q\cos\lambda
+   +Q\max\{\cos(2Kz-\phi)-\cos\lambda,0\}
+\]
+holds on both signs of the expression in braces. The positive arc has half-width $\lambda$, and its integral over a period is $(\sin\lambda-\lambda\cos\lambda)/K$. Integration cancels the mass term, giving $\Re(e^{-i\phi}\int qe^{2iKz})\leq(Q/K)\sin\lambda$. Choose $\phi$ to align a nonzero moment; the zero moment and endpoint masses are immediate.
+\end{proof}
+
+Put $f(u)=u^2-\sin^2u$ and $g(u)=\sqrt{f(u)}$. For a cell $J_j$ of length at most $\pi/K$, with mass $m_j$ and $u_j=Km_j/Q\in[0,\pi]$,~\eqref{eq:gram}--\eqref{eq:moment} give
+\begin{equation}\label{eq:cell}
+ \frac{\det\mathsf A_{J_j}}T\geq\frac{Q^2}{P^2}f(u_j),\qquad
+ \sqrt c\geq\frac QP\sum_j g(u_j).
+\end{equation}
+Indeed,
+\[
+ \int_{x<y}q(x)q(y)\sin^2K(y-x)\dd x\dd y
+ =\frac14\left(m_j^2-\abs{\int q(z)e^{2iKz}\dd z}^2\right).
+\]
+To combine cells, use $\sqrt{\det(A+B)}\geq\sqrt{\det A}+\sqrt{\det B}$ for positive semidefinite two-by-two matrices. For $A\succ0$, it follows from $\tr(A^{-1/2}BA^{-1/2})\geq2\sqrt{\det(A^{-1/2}BA^{-1/2})}$; continuity covers singular matrices and repeated application proves~\eqref{eq:cell}.
+
+\begin{lemma}\label{lem:tangent}
+The function $g$ is convex on $[0,\pi/2]$. Its tangent at any $0<x\leq1/3$ lies below $g$ on all of $[0,\pi]$.
+\end{lemma}
+\begin{proof}
+For $u>0$,
+\[
+ g''(u)=\frac{H(u)}{f(u)^{3/2}},\quad
+ H(u)=2\sin^2u\,f(u)-(u-\sin u\cos u)^2,\quad
+ H'(u)=2f(u)\sin(2u).
+\]
+Since $H(0)=0$, convexity holds on $[0,\pi/2]$. Also $g(0)=g'(0)=0$ by $f(u)=u^4/3+O(u^6)$. On this interval,
+\[
+ f(u)=4\int_0^u(u-v)\sin^2v\dd v\geq\frac{4u^4}{3\pi^2},\qquad
+ f'(u)=4\int_0^u\sin^2v\dd v\leq\frac{4u^3}{3}.
+\]
+Consequently $g'(x)\leq\pi x/\sqrt3$, and convexity gives the nonpositive tangent intercept $g(x)-xg'(x)\leq0$. For $v\in[\pi/2,\pi]$,
+\[
+ \frac{g(v)}v\geq\sqrt{1-4/\pi^2}>\frac\pi{3\sqrt3}\geq g'(x).
+\]
+The tangent is therefore below $g$ on the second interval too. Convexity on the whole of $[0,\pi]$ is not required.
+\end{proof}
+
+\begin{theorem}[Finite resource floor]\label{thm:floor}
+Suppose a selected interval of length $L$ has $p\leq P$, $0\leq q\leq Q$ and mass $M>0$; additional finite passive layers outside it are allowed. Let $U=KM/Q$ and $\beta_n=n^2Q^2f(U/n)/P^2$. With $n_h=\max\{1,\lceil2KL/\pi\rceil\}$,
+\begin{equation}\label{eq:floor}
+ c\geq\beta_{n_h}\geq\frac{4k^4M^4}{3Q^2(\pi+2k\sqrt P L)^2}>0.
+\end{equation}
+With $n_f=\max\{1,\lceil KL/\pi\rceil\}$, the stronger floor $c\geq\beta_{n_f}$ holds if $U\leq\pi/2$ or $U/n_f\leq1/3$. In particular every sequence with fixed $k,P,Q,M$ and budgets $L\to\infty$ obeys
+\begin{equation}\label{eq:floor-asymptotic}
+ \liminf_{L\to\infty}(kL)^2c\geq\frac{\pi^2(kM)^4}{3PQ^2}.
+\end{equation}
+\end{theorem}
+\begin{proof}
+Partition into $n_h$ equal cells. Every $u_j\leq\pi/2$, so~\eqref{eq:cell} and Jensen give $c\geq\beta_{n_h}$. The lower bound on $f$ in Lemma~\ref{lem:tangent} gives $\beta_{n_h}\geq4k^4M^4/(3\pi^2Q^2n_h^2)$; use $n_h\leq1+2KL/\pi$ to get~\eqref{eq:floor}. For $n_f$, cells have length at most $\pi/K$. If $U\leq\pi/2$, all $u_j$ remain in the convexity interval. If $U/n_f\leq1/3$, apply the global supporting tangent at their mean and sum. Both cases give $\sum_jg(u_j)\geq n_fg(U/n_f)$. Finally,
+\[
+ n_f=KL/\pi+O(1),\qquad
+ \beta_{n_f}=\frac{k^4M^4}{3Q^2n_f^2}+O(n_f^{-4}),
+\]
+which proves~\eqref{eq:floor-asymptotic}. A shorter stack can be enclosed in an interval of length $L$ by zero-loss vacuum, so this is also a thickness-cap bound.
+\end{proof}
+
+Any finite stack with positive distributed loss has $\mathsf A\succ0$: a zero Gram quadratic form would make a nonzero incident combination vanish on a positive-loss interval, contradicting ODE uniqueness. In particular it cannot attain the rank-one absorption defect of the strict active two-port ceiling. The finite floors are themselves strict for a finite multilayer: on a positive-loss subinterval, $j(z)=-k^2\int_x^zq(v)\abs{s(v,x)}^2\dd v$ is nonzero after propagation, making the forcing in the modulus comparison positive on a positive-measure set of loss pairs in some cell.
+
+\section{Sharp thickness asymptotics at exact target powers}\label{sec:thickness}
+Fix $k>0$, $P>1$, $Q,M>0$ and targets
+\begin{equation}\label{eq:strict-target}
+ 0<T<1,\qquad 0<a<(1-T^2)/2.
+\end{equation}
+Write
+\begin{equation}\label{eq:target-constants}
+ b=1-T-a,\quad s=\sqrt{1-2a},\quad y_0=s-T,\quad
+ x_0=\sqrt{b^2-y_0^2},\quad D_0=2x_0,\quad
+ \alpha=\frac{Ty_0}{sx_0}.
+\end{equation}
+Here $x_0,y_0,\alpha>0$. Let $\mathcal C_L$ be the finite multilayers satisfying~\eqref{eq:material}, total thickness at most $L$, transmitted power exactly $T$ and mean absorptance exactly $a$. When nonempty, put $D^*(L)=\sup_{\mathcal C_L}\abs{A_L-A_R}$.
+
+\begin{theorem}[Sharp exact-target thickness law]\label{thm:thickness}
+The class $\mathcal C_L$ is nonempty for every sufficiently large $L$, and
+\begin{equation}\label{eq:thickness-main}
+ \lim_{L\to\infty}(kL)^2\bigl[D_0-D^*(L)\bigr]
+ =\frac{\alpha\pi^2(kM)^4}{3PQ^2}.
+\end{equation}
+Every finite admissible stack has $\abs{A_L-A_R}<D_0$. The limit retains the exact targets $T,a,M$.
+\end{theorem}
+
+\subsection{Uniform lower bound on the deficit}
+For $x=\abs{A_L-A_R}/2$, phase minimization gives $Tc=\det\mathsf A\leq F(x)$ and $x\leq x_0<b$. The function in~\eqref{eq:F} satisfies
+\[
+ F(x_0)=0,\quad F'(x)=-2x\left(1+\frac T{\sqrt{b^2-x^2}}\right),\quad
+ F''(x)=-2-\frac{2Tb^2}{(b^2-x^2)^{3/2}}<0.
+\]
+Its tangent at $x_0$ therefore gives
+\begin{equation}\label{eq:deficit}
+ D_0-\abs{A_L-A_R}\geq\alpha c.
+\end{equation}
+Combining~\eqref{eq:deficit} with Theorem~\ref{thm:floor} proves the lower limiting constant in~\eqref{eq:thickness-main}, uniformly over the entire class. It also gives strictness for every finite member.
+
+\subsection{A matching finite-layer sequence}
+Put $g_0=kM$. Use $m$ cells of length $d=\pi/(k\sqrt P)$, each consisting of a centered slice with $\varepsilon=P+iQ$ and width $w=M/(Qm)$, with lossless real-$P$ material on either side. For sufficiently large $m$, $0<w<d$. All material caps hold and the integrated loss is exactly $M$.
+
+In dimensionless distance $kz$, set
+\[
+ A=i\begin{pmatrix}0&1\\P&0\end{pmatrix},\quad B=-QE_{21},\quad
+ R=e^{\pi A/(2\sqrt P)},\quad R^2=-I,
+\]
+where $E_{21}$ has its sole nonzero entry in row two, column one. With $\xi=kw=g_0/(Qm)$, put
+\begin{equation}\label{eq:Dxi}
+ D(\xi)=e^{-A\xi/2}e^{(A+B)\xi}e^{-A\xi/2}.
+\end{equation}
+The physical cell is $RD(\xi)R$; its spacers have positive length $(\pi/\sqrt P-\xi)/2$. Append an ordinary real-$P$ quarter-wave layer at each end. The resulting transfer is $(-1)^{m-1}D(\xi)^m$. The sign changes only transmission phase, so we may analyze $F_m=D(g_0/(Qm))^m$. Negative exponents in~\eqref{eq:Dxi} are algebraic factors, not physical negative thicknesses.
+
+Direct exponential-series multiplication gives
+\begin{equation}\label{eq:product-expansion}
+ D(\xi)=I+\xi B+\xi^3C_3+\frac{\xi^4}{2}(BC_3+C_3B)+O(\xi^5),\qquad
+ C_3=\frac1{12}\begin{pmatrix}0&-Q\\Q(P+2iQ)&0\end{pmatrix}.
+\end{equation}
+For example $C_3=[A,[A,B]]/24+[B,[A,B]]/12$. The quadratic term vanishes because $B^2=0$; the quartic term follows by comparing powers in $D(-\xi)D(\xi)=I$. Analyticity bounds the remainder by a constant times $\abs\xi^5$ near zero.
+
+Here is an explicit justification of the accumulated remainder. Let
+\[
+ G=-g_0E_{21},\quad H=(g_0^3/Q^3)C_3,\quad K_4=(GH+HG)/2,\quad
+ A_m=I+G/m.
+\]
+Then $D_m:=D(g_0/(Qm))=A_m+W_m$, where $W_m=H/m^3+K_4/m^4+O(m^{-5})$, and $\norm{A_m},\norm{D_m}\leq1+C/m$ for fixed parameters. Two telescoping expansions give
+\[
+ D_m^m-A_m^m-\sum_{j=0}^{m-1}A_m^{m-1-j}W_mA_m^j
+ =\sum_{j=0}^{m-2}\sum_{\ell=0}^{m-2-j}
+ D_m^{m-2-j-\ell}W_mA_m^\ell W_mA_m^j.
+\]
+Its norm is $O(m^{-4})$, since it has $m(m-1)/2$ terms and each insertion is $O(m^{-3})$. Nilpotence gives $A_m^m=I+G$ and, for any matrix $Y$,
+\[
+ \sum_{j=0}^{m-1}A_m^{m-1-j}YA_m^j
+ =mY+\frac{m-1}{2}(GY+YG)
+  +\frac{(m-1)(m-2)}{6m}GYG.
+\]
+Since $GK_4+K_4G=GHG$ and $GK_4G=0$, the $H,K_4$ terms sum to
+\[
+ \frac1{m^2}\left(H+\frac{GH+HG}{2}+\frac{GHG}{6}\right)
+ -\frac{GHG}{6m^4}.
+\]
+The remainder contributes $O(m^{-4})$ as well. Consequently
+\begin{equation}\label{eq:Fm}
+ F_m=F_0+m^{-2}J+O(m^{-4}),\quad
+ F_0=I+G,\quad J=H+\tfrac12(GH+HG)+\tfrac16GHG.
+\end{equation}
+In particular $J_{12}=-g_0^3/(12Q^2)$. Since $\Sigma-F_0^\dagger\Sigma F_0=\diag(2g_0,0)$, the order-$m^{-2}$ lower-right defect entry is $-2\Re J_{12}=g_0^3/(6Q^2)$. Thus
+\begin{equation}\label{eq:cm}
+ c_m=\det(\Sigma-F_m^\dagger\Sigma F_m)
+ =\frac{g_0^4}{3Q^2m^2}+O(m^{-4}).
+\end{equation}
+
+\subsection{Exact target matching by bounded-index dielectric layers}
+Put $p_0=\sqrt{b-x_0}$, $r_0=\sqrt{b+x_0}$ and $t_0=\sqrt T$. The real optimizer
+\[
+ S_0=\begin{pmatrix}p_0&t_0\\t_0&-r_0\end{pmatrix}
+\]
+has $r_0-p_0=1-s$ and $T=(1-r_0)(1+p_0)$. Its field transfer is
+\[
+ F_{\rm target}=\begin{pmatrix}A_0&0\\-h_0&A_0^{-1}\end{pmatrix},\qquad
+ A_0=(1-r_0)/t_0\in(0,1),\quad h_0=(r_0-p_0)/t_0>0.
+\]
+Write $\Lambda(s_j)=\diag(s_j,s_j^{-1})$, and choose
+\[
+ s_{L,0}^2=A_0h_0/g_0,\qquad s_{R,0}^2=A_0g_0/h_0.
+\]
+Then $\Lambda(s_{R,0})F_0\Lambda(s_{L,0})=F_{\rm target}$. For the limiting transformed sheet, put $A_*=s_Ls_R$, $h_*=g_0s_L/s_R$, $v_*=A_*+A_*^{-1}$. Direct transfer-to-scattering conversion gives
+\[
+ T=\frac4{(v_*+h_*)^2},\qquad a=\frac{2h_*v_*}{(v_*+h_*)^2}.
+\]
+At the target, $v_*-h_*=2s/t_0>0$, and
+\begin{align*}
+ \det\frac{\partial(T,a)}{\partial(v_*,h_*)}
+ &=-\frac{16(v_*-h_*)}{(v_*+h_*)^5}\ne0,\\
+ \frac{\dd v_*}{\dd A_*}&=1-A_*^{-2}\ne0,\qquad
+ \det\frac{\partial(A_*,h_*)}{\partial(\log s_L,\log s_R)}=-2A_*h_*\ne0.
+\end{align*}
+To apply the real implicit function theorem, set $\tau=1/m$ and extend
+\[
+ F(\tau)=\exp\left[\tau^{-1}\log D((g_0/Q)\tau)\right]
+\]
+through zero using the analytic logarithm near $I$. The identity $D(-\xi)=D(\xi)^{-1}$ makes its logarithm odd, so $F(0)=F_0$ and $F(\tau)-F_0=O(\tau^2)$. All matrices are unimodular. The scattering map is smooth near this target: in the wave basis $W=\left(\begin{smallmatrix}1&1\\1&-1\end{smallmatrix}\right)$, $K=W^{-1}FW$ has $K_{22}\ne0$, and
+\[
+ r_L=-K_{21}/K_{22},\quad r_R=K_{12}/K_{22},\quad t=1/K_{22}.
+\]
+The nonsingular real response derivative therefore supplies positive ratios $s_L(m)=s_{L,0}+O(m^{-2})$ and $s_R(m)=s_{R,0}+O(m^{-2})$ fixing both actual $T,a$ exactly for every sufficiently large integer $m$.
+
+These ratios are realized with ordinary lossless layers. A real index-$n$ quarter-wave layer has transfer $\left(\begin{smallmatrix}0&i/n\\in&0\end{smallmatrix}\right)$. A pair with indices $n_1,n_2$ gives $-\diag(n_1/n_2,n_2/n_1)$. For any fixed ratio $s_j>0$, choose an integer $N$ with $\abs{\log s_j}/N<\tfrac12\log P$ and set
+\[
+ n_1=P^{1/4}e^{(\log s_j)/(2N)},\qquad
+ n_2=P^{1/4}e^{-(\log s_j)/(2N)}.
+\]
+Both indices lie strictly between $1$ and $\sqrt P$. Repeating the pair $N$ times implements $\Lambda(s_j)$ up to a transmission sign. The strict index bounds persist under the small target-matching adjustments. A fixed number of such layers therefore realizes both networks with additional thickness $O(1/k)$ uniformly in $m$. They add no loss, and coating invariance preserves~\eqref{eq:cm}.
+
+\subsection{The optimal coefficient and every large thickness budget}
+After removing the transmission sign, the matched matrix approaches $S_0$ at order $m^{-2}$. Its limiting entries are nonzero, so
+\[
+ \zeta=\frac{r_Lr_R\overline{t}^{2}}{T\abs{r_Lr_R}}
+\]
+is well defined with $\abs\zeta=1$ and $\zeta+1=O(m^{-2})$. The exact determinant identity is
+\[
+ \det\mathsf A=F(x)-2T\sqrt{b^2-x^2}(1+\Re\zeta).
+\]
+Since $1+\Re\zeta=\abs{\zeta+1}^2/2$, the phase penalty is $O(m^{-4})$, without choosing a branch of the complex argument. Taylor expansion at $x_0$, where $F'(x_0)=-2x_0s/y_0\ne0$, and~\eqref{eq:cm} yield
+\begin{equation}\label{eq:constructed-deficit}
+ D_0-D_m=\alpha c_m+O(m^{-4})
+ =\frac{\alpha g_0^4}{3Q^2m^2}+O(m^{-4}).
+\end{equation}
+The total physical thickness is $kL_m=\pi m/\sqrt P+O(1)$. Choose a fixed $C$ bounding the additional dimensionless thickness. For each sufficiently large real budget $L$, take
+\[
+ m(L)=\left\lfloor\frac{\sqrt P(kL-C)}\pi\right\rfloor.
+\]
+This stack fits within $L$, has the exact targets, and $m(L)/(kL)\to\sqrt P/\pi$. Equation~\eqref{eq:constructed-deficit} proves the upper limiting constant. The uniform lower bound proves the reverse inequality, completing Theorem~\ref{thm:thickness} for all large budgets.
+
+\begin{corollary}\label{cor:min-thickness}
+Let $L_{\min}(\eta)$ be the infimum of thicknesses of admissible stacks with $\abs{A_L-A_R}\geq D_0-\eta$, at the same fixed targets and material resources. Then
+\[
+ kL_{\min}(\eta)\sim\frac{\pi(kM)^2}{Q}\sqrt{\frac\alpha{3P\eta}}
+ \qquad(\eta\downarrow0).
+\]
+\end{corollary}
+\begin{proof}
+The positive finite-thickness floor forces $L_{\min}(\eta)\to\infty$. The upper and lower estimates in Theorem~\ref{thm:thickness}, with arbitrarily small relative slack, can then be inverted. The explicit constructed family supplies the upper estimate even when a finite-budget supremum is not attained.
+\end{proof}
+
+\section{Complete channels and illumination reversal}\label{sec:channels}
+Let incoming and outgoing propagating channels be complete and power normalized, with bases paired by time reversal. Reciprocity is $S^T=S$ and passivity is $S^\dagger S\preceq I$. Include every radiation, polarization and guided channel carrying energy away. Let $S_0$ be a specified lossless reciprocal reference: $S_0^\dagger S_0=I$, $S_0^T=S_0$. For unit input $u$, reversing its entire background field gives
+\begin{equation}\label{eq:reverse}
+ J_0u=\overline{S_0u}=S_0^\dagger\overline u.
+\end{equation}
+This antiunitary is an involution. It need not select an arbitrary second port. Define powers divided by incoming power as
+\begin{equation}\label{eq:channel-powers}
+ A(u)=1-\norm{Su}^2,\quad C(u)=\norm{(S-S_0)u}^2,\quad
+ X(u)=2\Re\ip{S_0u}{(S_0-S)u}=A(u)+C(u).
+\end{equation}
+The Hermitian inner product is conjugate linear in its first argument. These definitions also apply to bounded operators on a Hilbert channel space, with transpose defined by channel conjugation.
+
+\begin{proposition}\label{prop:channel-basic}
+For $v=J_0u$, extinction reciprocity gives $X(v)=X(u)=X$, and
+\begin{equation}\label{eq:separate}
+ 0\leq X\leq4,\qquad
+ \abs{A(u)-A(v)}\leq X-X^2/4,\qquad
+ \abs{A(u)-A(v)}\leq\sqrt{1-\abs{\ip uv}^2}.
+\end{equation}
+The first absorption-difference bound is sharp over reciprocal channels at every $X\in[0,4]$ with an orthogonal reversed pair.
+\end{proposition}
+\begin{proof}
+Since $S_0v=\overline u$, transposing a scalar gives
+\[
+ \ip{S_0v}{Sv}=u^TSS_0^\dagger\overline u
+ =u^\dagger(S_0^\dagger)^TS^Tu
+ =u^\dagger S_0^\dagger Su=\ip{S_0u}{Su}.
+\]
+Thus the extinctions agree. If $z=\ip{S_0u}{Su}$, then $\abs z\leq\norm{Su}\leq1$, and
+\[
+ 0\leq A(u)\leq1-\abs z^2\leq1-(\Re z)^2=X-X^2/4.
+\]
+Apply the same estimate to $v$; two numbers in $[0,B]$ differ by at most $B$. For $0<X<4$, equality requires, after interchanging the inputs if necessary, $Su=(1-X/2)S_0u$ and $\norm{Sv}=1$. At $X=0,4$, the inputs have zero absorption.
+
+For sharpness put $t=1-X/2$, $s=\sqrt{1-t^2}$ and
+\[
+ S=\begin{pmatrix}0&t&0\\t&0&s\\0&s&0\end{pmatrix},\qquad
+ S_0=\begin{pmatrix}0&1&0\\1&0&0\\0&0&1\end{pmatrix}.
+\]
+The defect is $(s,0,-t)^T(s,0,-t)\succeq0$. For $u=e_1$, $v=e_2=J_0u$, the absorptions are $1-t^2$ and zero, and the common extinction is $2(1-t)$.
+
+Finally the absorption effect $B=I-S^\dagger S$ obeys $0\preceq B\preceq I$. The rank-two operator $uu^\dagger-vv^\dagger$ has eigenvalues $\pm\sqrt{1-\abs{\ip uv}^2}$ on its support. Its trace against $B$ lies between these extreme values, proving the overlap bound.
+\end{proof}
+
+The extinction parabola is the familiar single-input passivity constraint \citep{Fleury2014}, combined with extinction reciprocity \citep{SounasAlu2014}. The overlap bound is the pure-state trace-distance bound. A plane wave on an infinite slab is handled per transverse area, divided by incident intensity. A compact-body cross section has units of area and is a different normalization;~\eqref{eq:separate} must not be applied to it without a specified power or effective-area normalization.
+
+\section{The sharp prescribed-overlap channel envelope}\label{sec:joint}
+\begin{theorem}\label{thm:joint}
+Fix $0<\rho<1$ and $0\leq X\leq4$. Among reciprocal passive scattering operators, lossless reciprocal references and unit inputs satisfying $\abs{\ip u{J_0u}}=\rho$ and common extinction $X$, the maximum absorption difference is
+\begin{equation}\label{eq:joint}
+ \Delta_\rho(X)=
+ \begin{cases}
+ d_\rho,&0\leq r\leq\rho/2,\\
+ d_\rho(1-\lambda^2)\sqrt{1-c^2},&\rho/2<r<\rho,\\
+ 1-r^2,&\rho\leq r\leq1,
+ \end{cases}
+ \quad d_\rho=\sqrt{1-\rho^2},\quad r=\abs{1-X/2}.
+\end{equation}
+In the middle branch $c\in(0,\rho)$ is uniquely determined by
+\begin{equation}\label{eq:middle-parameters}
+ r=\frac{\rho+c-2\rho c^2}{2-\rho c-c^2},\qquad
+ \lambda=\frac{c(\rho-c)}{2-\rho c-c^2}.
+\end{equation}
+Two channels suffice in the first and middle branches and three in the last. Both transitions are continuous.
+\end{theorem}
+
+\subsection{Canonical coordinates and the upper relaxation}
+First take $S_0=I$, so reversal is conjugation. A global input phase makes $u^Tu=\rho\geq0$. Writing $u=x+iy$ then gives $x\cdot y=0$, $\norm x^2=(1+\rho)/2$ and $\norm y^2=(1-\rho)/2$. A real orthogonal basis therefore yields
+\[
+ u=pe_1+iqe_2,\quad \overline u=pe_1-iqe_2,\qquad
+ p^2=(1+\rho)/2,\quad q^2=(1-\rho)/2.
+\]
+For a general reference, an orthonormal basis fixed by the antiunitary involution $J_0$ gives the same coordinates; in finite dimension this is also the unitary congruence furnished by Takagi factorization. Reciprocity, powers, extinction and overlap are preserved.
+
+Make the further unitary coordinate change with $P_*=\diag(1,i,1,\ldots)$, using the congruence $\widehat S=P_*^TSP_*$. The reference becomes $P_*^TS_0P_*$, equal to $J$ on the input plane. In the new input coordinates, the incident vectors are real,
+\[
+ a=(p,q)^T,\qquad b=(p,-q)^T=J a,\qquad J=\diag(1,-1),
+\]
+and the reference on this plane is $J$. Let $\widehat S$ be the full transformed scattering operator and $\iota$ the inclusion of the input plane. Define real symmetric matrices
+\begin{equation}\label{eq:compression}
+ B=\Re(\iota^\dagger\widehat S\iota),\quad
+ Q=\Re(\iota^\dagger\widehat S^\dagger\widehat S\iota),\quad
+ W=\diag\bigl((1+\rho)/2,-(1-\rho)/2\bigr).
+\end{equation}
+Here $\Re$ means entrywise real part. For every real $x$, discarding the imaginary output part and then projecting gives
+\[
+ \norm{Bx}^2\leq\norm{\iota^\dagger\widehat S\iota x}^2
+ \leq\norm{\widehat S\iota x}^2=x^TQx\leq\norm x^2.
+\]
+Hence
+\begin{equation}\label{eq:relaxation}
+ B^2\preceq Q\preceq I_2.
+\end{equation}
+Symmetry cancels the off-diagonal term in the forward overlap:
+\[
+ 1-X/2=\Re\ip{Ja}{\widehat Sa}=\tr(WB),\qquad
+ \abs{A(a)-A(b)}=4pq\abs{Q_{12}}=2d_\rho\abs{Q_{12}}.
+\]
+Changing $\widehat S$ to $-\widehat S$ reverses the signed forward overlap; congruence by $\diag(1,-1)$ interchanges the inputs and changes the sign of $Q_{12}$. It suffices to maximize $h=Q_{12}\geq0$ with $\tr(WB)=r\geq0$. This relaxation is necessary for every channel count; equality constructions below eliminate any need to assume a reciprocal completion for arbitrary feasible $B,Q$.
+
+\subsection{A positive-matrix certificate for the middle branch}
+Fix $0<c<\rho$, set $s=\sqrt{1-c^2}$, $D=2-\rho c-c^2$ and $\lambda=c(\rho-c)/D$. These obey $D>0$ and $0<\lambda<1$. Let $O$ be the real rotation through $\theta\in(0,\pi/4)$ with $\cos2\theta=c$, $\sin2\theta=s$, and put
+\[
+ B_0=O\diag(1,\lambda)O^T,\quad Q_0=B_0^2,\quad
+ r_0=\tr(WB_0)=\frac{\rho+c-2\rho c^2}{D},\quad
+ h_0=(Q_0)_{12}=\frac{1-\lambda^2}{2}s.
+\]
+For $E=\left(\begin{smallmatrix}0&1/2\\1/2&0\end{smallmatrix}\right)$, define $Z$ and $\nu$ by
+\begin{equation}\label{eq:certificate}
+ O^TZO=\begin{pmatrix}(\rho+c)/4&-s/[2(1+\lambda)]\\-s/[2(1+\lambda)]&(\rho-c)/(4\lambda)\end{pmatrix},
+ \qquad \nu=-\frac{s}{(1+\lambda)c}<0.
+\end{equation}
+Direct substitution verifies
+\begin{equation}\label{eq:certificate-identities}
+ \det Z=\frac{D(\rho-c)}{16c(1-c^2)}>0,\quad Z\succ0,\quad
+ B_0Z+ZB_0=W,\quad
+ H:=Z-\nu E=\delta O\diag(1,0)O^T\succeq0,
+\end{equation}
+where $\delta=(\rho+c)/4+s^2/[2(1+\lambda)c]>0$. The vanishing lower-right entry of $O^THO$ is exactly the identity $(\rho-c)(1+\lambda)c=2\lambda(1-c^2)$, and its off-diagonal entry vanishes as well.
+
+For every feasible $B,Q$, the nonnegative square gives
+\[
+ 0\leq\tr((B-B_0)Z(B-B_0))
+ =\tr(ZB^2)-\tr(WB)+\tr(ZB_0^2).
+\]
+Using~\eqref{eq:relaxation} and $Z,H\succeq0$,
+\begin{align}\label{eq:dual-bound}
+ \tr(WB)&\leq\tr(ZQ)+\tr(ZB_0^2)\notag\\
+ &=\tr(HQ)+\nu h+\tr(ZB_0^2)\notag\\
+ &\leq\tr H+\nu h+\tr(ZB_0^2)=r_0+\nu(h-h_0).
+\end{align}
+The last equality follows from $H(I-Q_0)=0$ and $\tr(WB_0)=2\tr(ZB_0^2)$. If $r=r_0$, then $\nu<0$ forces $h\leq h_0$. The reciprocal contraction $\widehat S=B_0$ attains equality in two channels, and transforming back gives a complex symmetric contraction with reference identity.
+
+The parameter covers the entire middle strip once, because
+\[
+ r_0(0)=\rho/2,\quad r_0(\rho)=\rho,\quad
+ r_0'(c)=\frac{2+\rho^2-6\rho c+(1+2\rho^2)c^2}{D^2}>0.
+\]
+The numerator decreases on $[0,\rho]$ and its endpoint value is $2(1-\rho^2)^2>0$. If desired, the unique parameter is evaluated stably by
+\[
+ c=\frac{2(2r-\rho)}{1+\rho r+\sqrt{(1+\rho r)^2-4(2\rho-r)(2r-\rho)}}.
+\]
+
+This certificate also gives all middle-branch equality cases. Equality forces $B=B_0$ since $Z\succ0$, and $Q=B_0^2$ since $Q-B^2\succeq0$ has zero trace against $Z$. Write the compressed complex block as $B+iC$ with $C$ real symmetric, and let $F$ be its columns into auxiliary channels. Then
+\[
+ Q-B^2=C^2+\Re(F^\dagger F).
+\]
+Zero trace forces $C=0$ and $F=0$; reciprocity removes the reverse coupling too. After the stated sign changes, every equality operator is therefore $\widehat S=B_0\oplus S_{\rm aux}$ with an arbitrary reciprocal contraction $S_{\rm aux}$.
+
+\subsection{Outer branches and transition conditions}
+Since $0\preceq Q\preceq I$, $\abs{Q_{12}}\leq1/2$, so $\Delta\leq d_\rho$. Equality requires
+\[
+ Q=P_\pm:=\frac12\begin{pmatrix}1&\pm1\\\pm1&1\end{pmatrix}.
+\]
+Indeed the quadratic values on $(e_1\pm e_2)/\sqrt2$ lie in $[0,1]$ and their difference is $2Q_{12}$; endpoint equality fixes both eigenvalues. If $B^2\preceq P_\pm$ and $B$ is symmetric, its kernel contains that of $P_\pm$, so $B=\alpha P_\pm$, $\abs\alpha\leq1$. Thus $\abs{\tr(WB)}\leq\rho/2$. Conversely $\widehat S=e^{i\phi}P_+$ with $\cos\phi=2r/\rho$ attains $\Delta=d_\rho$ for every $0\leq r\leq\rho/2$. This proves the first branch and its necessary transition.
+
+The extinction bound gives $\Delta\leq1-r^2$. For $0<r<1$, its equality conditions require, after input interchange, $\widehat Sb=ra$ and $\norm{\widehat Sa}=1$. Contractivity then gives $\widehat S^\dagger\widehat Sa=a$, whence
+\[
+ \rho=\ip ab=\ip{\widehat Sa}{\widehat Sb}
+ =r\ip{\widehat Sa}a,
+\]
+and therefore $\rho\leq r$. To attain the bound for $\rho\leq r\leq1$, work in three real channels. Choose a unit $w$ in the input plane orthogonal to $a$, so $b=\rho a+d_\rho w$, and a perpendicular unit $e_3$. Put
+\[
+ \alpha=\frac{\sqrt{1-r^2}}{d_\rho},\quad
+ \beta=\frac{\sqrt{r^2-\rho^2}}{d_\rho},\quad
+ f=\alpha w+\beta e_3,\quad g=\beta w-\alpha e_3.
+\]
+The basis $(a,g,f)$ is orthonormal. In that basis choose
+\[
+ \widehat S=\begin{pmatrix}\rho/r&\sqrt{r^2-\rho^2}/r&0\\
+ \sqrt{r^2-\rho^2}/r&-\rho/r&0\\0&0&0\end{pmatrix}.
+\]
+Its nonzero eigenvalues are $1,-1$, so it is a reciprocal contraction. Since $b=\rho a+\sqrt{r^2-\rho^2}\,g+\sqrt{1-r^2}\,f$, it satisfies $\widehat Sb=ra$, $\norm{\widehat Sa}=1$ and signed forward overlap $r$. At $r=1$ the difference is zero. At $r=\rho$, its input compression is $aa^T$, the limit of the middle branch; at $r=\rho/2$, that branch tends to $P_+$. A negative signed overlap is handled by $-\widehat S$. This proves all of Theorem~\ref{thm:joint}.
+
+For $\rho=0$, the bound reduces to the sharp extinction parabola; for $\rho=1$, the inputs differ only by a phase and their absorptions agree. Every $X\in[0,4]$ remains feasible, for instance with $S=(1-X/2)S_0$.
+
+\begin{remark}[The minimum of separate bounds is not sharp]
+For $\rho=4/5$, $r=59/95$ and $X=72/95$, the middle parameter is $c=2/5$, $\lambda=2/19$, and
+\[
+ B_0=\frac1{190}\begin{pmatrix}139&17\sqrt{21}\\17\sqrt{21}&71\end{pmatrix},\qquad
+ \Delta_{4/5}(72/95)=\frac{1071\sqrt{21}}{9025}=0.5438159079\ldots.
+\]
+The minimum of the separate bounds is $3/5$. An exact certificate is $W=\diag(9/10,-1/10)$,
+\[
+ Z=\begin{pmatrix}7/8&-17\sqrt{21}/168\\-17\sqrt{21}/168&3/8\end{pmatrix},\quad
+ \nu=-19\sqrt{21}/42,\quad Z-\nu E=\frac18\begin{pmatrix}7&\sqrt{21}\\\sqrt{21}&3\end{pmatrix}.
+\]
+One checks $\det Z=19/168>0$, $B_0Z+ZB_0=W$ and $(Z-\nu E)(I-B_0^2)=0$. The improvement is therefore certified exactly, without numerical optimization.
+\end{remark}
+
+\section{An exact planar tensor realization and its scope}\label{sec:vector}
+The scalar resource floor does not follow from a positive total tensor-loss budget alone. The next construction uses established polarization filtering and waveplate conversion \citep{Armitage2014,Potton2004,Khurgin2021}. Its layers are laterally infinite; all plane-wave powers below are normalized per transverse area.
+
+\begin{proposition}\label{prop:vector}
+For every $k>0$, $-1<t<1$, $\eta,h>0$, two homogeneous reciprocal nonmagnetic anisotropic dielectric layers have opposite $y$-polarized responses
+\begin{equation}\label{eq:vector-powers}
+ A_L=0,\qquad A_R=(1-t^2)A_x(\eta,kh)>0,\qquad X_L=X_R=2(1-t).
+\end{equation}
+Their real permittivity eigenvalues lie in $[1,4]$ and their loss is positive semidefinite. At $\eta_m=1/m$, $kh_m=m^2$, $A_x\to1$. Thus at every fixed $0<X<4$, the physical planar supremum of the absorption difference is $X-X^2/4$. An arbitrary real cap $P>1$ and positive loss cap $Q$ can also be respected.
+\end{proposition}
+\begin{proof}
+The absorbing layer has $\varepsilon_A=\diag(1+i\eta,1,1)$ and thickness $h$. Its $y$ channel is exact vacuum. For $s=\sqrt{1-t^2}$, let
+\[
+ V=\begin{pmatrix}-t&s\\s&t\end{pmatrix},\quad
+ \varepsilon_{W,\perp}=(5I_2-3V)/2,\quad\varepsilon_{W,zz}=1,\quad d=\pi/k,
+\]
+with no transverse--longitudinal coupling. Since $V^T=V$, $V^2=I$, its transverse eigenindices are $2,1$, with phases $2\pi,\pi$. A scalar slab is reflectionless at an integer multiple of its optical half-wavelength. Consequently this plate has zero reflection and boundary-plane transmission $H=-V$.
+
+For the absorber's $x$ channel let $n=\sqrt{1+i\eta}$ on the passive branch, $r_0=(1-n)/(1+n)$ and $p=e^{inkh}$. Interface matching gives
+\[
+ r_A=\frac{r_0(1-p^2)}{1-r_0^2p^2},\quad
+ \tau_A=\frac{(1-r_0^2)p}{1-r_0^2p^2},\quad
+ A_x=1-\abs{r_A}^2-\abs{\tau_A}^2.
+\]
+The denominator is nonzero because $\abs{r_0},\abs p<1$, and $\tau_A\ne0$. The flux identity $A_x=k\eta\int_0^h\abs{E_x}^2\dd z$ makes $A_x>0$: zero interior field would force both $1+r_A=0$ and $1-r_A=0$. Nonzero transmission gives $A_x<1$.
+
+With channel order $(Lx,Ly,Rx,Ry)$, $R=\diag(r_A,0)$ and $D=\diag(\tau_A,e^{ikh})$, the exact stack matrices are
+\[
+ S=\begin{pmatrix}R&DH\\HD&HRH\end{pmatrix},\qquad
+ S_0=e^{ik(h+d)}\begin{pmatrix}0&I_2\\I_2&0\end{pmatrix}.
+\]
+Symmetry is explicit and flux balance proves passivity. Left $y$ incidence traverses the absorber without loss. Right $y$ incidence first becomes $He_y=-se_x-te_y$, so only its $x$ component is absorbed. Both co-polar boundary transmissions equal $-te^{ikh}$; dividing by vacuum propagation $e^{ik(h+d)}$ gives $t$. This proves~\eqref{eq:vector-powers}.
+
+For the selected sequence, $n_m\to1$, $r_{0,m}\to0$ and $m\Im n_m=1/(2\Re n_m)\to1/2$. Hence $\abs{p_m}=e^{-m^2\Im n_m}\to0$ and both $r_{A,m},\tau_{A,m}\to0$. The absorption difference therefore approaches $1-t^2=X-X^2/4$. Taking $t_m=1-1/m$ also gives $(A_R-A_L)/X=(1+t_m)A_{x,m}/2\to1$.
+
+For any $P>1$, choose an integer $j$ with $p_j=[2j/(2j-1)]^2\leq P$, and replace the plate by
+\[
+ \varepsilon_{W,\perp}=\frac{p_j+1}{2}I_2-\frac{p_j-1}{2}V,\qquad
+ d=(2j-1)\pi/k.
+\]
+Its principal phases remain $2j\pi,(2j-1)\pi$, so the same response holds. The loss cap $Q$ is respected for all sufficiently large $m$.
+\end{proof}
+
+For any fixed $\eta,h,t$, the absorption effect on the two reversed $y$ inputs is $\diag(0,(1-t^2)A_x)$ and has determinant zero. The off-diagonal entries vanish because the full effect is positive semidefinite and its left $y$ diagonal is zero. Yet $\int\tr(\ImH\varepsilon)\dd z=\eta h>0$, with finite layer thicknesses and coefficients. For any prescribed $M>0$ one can take $h=M/\eta$. Thus positive integrated tensor loss and an upper loss cap do not imply the scalar determinant floor: the construction has a loss-free field subspace. Its limiting sharpness sequence does not keep integrated loss fixed, since $k\eta_mh_m=m$. This distinction prevents a conflict with Theorem~\ref{thm:thickness}.
+
+\begin{corollary}[Finite-power beams]\label{cor:beams}
+For each fixed $0<X<4$, the same laterally infinite layer class admits unit-power incident beams and their background time reverses with exactly that common extinction and absorption differences approaching $X-X^2/4$.
+\end{corollary}
+\begin{proof}
+A planar stack conserves transverse wavevector $\kappa$. For $\abs\kappa<k$, set $k_z=\sqrt{k^2-\abs\kappa^2}$, $\kappa_\perp=(-\kappa_y,\kappa_x)$ and $B_\kappa=I_2-\kappa\kappa^T/k^2$. For these tensors, $\varepsilon_{zz}=1$ and there is no transverse--longitudinal coupling. In impedance-normalized magnetic coordinates $H_t=(H_y,-H_x)^T$, the exact Maxwell system is
+\[
+ \frac\dd{\dd z}\begin{pmatrix}E_t\\H_t\end{pmatrix}
+ =ik\begin{pmatrix}0&B_\kappa\\\varepsilon_\perp-\kappa_\perp\kappa_\perp^T/k^2&0\end{pmatrix}
+ \begin{pmatrix}E_t\\H_t\end{pmatrix}.
+\]
+Layer transfers are finite matrix exponentials, continuous in $\kappa$ and the plate angle. Vacuum has positive admittance $Y_\kappa=(k_z/k)B_\kappa^{-1}$. The laboratory-axis bases $E_t=\sqrt2Y_\kappa^{-1/2}a$, $H_t=\pm\sqrt2Y_\kappa^{1/2}a$ give power $\norm a^2$ and are smooth near normal incidence. The transfer-to-scattering denominator is invertible: a null vector would give an outgoing-only field, and flux balance followed by ODE uniqueness would make it zero. Thus the scattering matrices and powers are continuous near zero and are contractions.
+
+Choose $f\in L^2(\mathbb R^2)$ supported in the unit disk, with $\int\abs f^2=1$, and the left incoming spectrum $f_\sigma(\kappa)e_y=\sigma^{-1}f(\kappa/\sigma)e_y$, $0<\sigma<k$. Its background time reverse is the right incoming spectrum $e^{-ik_z(h+d)}\overline{f_\sigma(-\kappa)}e_y$. Parseval and transverse translation invariance express the powers as fiber-power integrals. The change $\kappa=\sigma p$ and continuity give convergence to~\eqref{eq:vector-powers} as $\sigma\downarrow0$, uniformly over a compact plate-angle interval for each fixed absorber. No estimate uniform in growing $h$ or vanishing $\eta$ is used.
+
+Write the target as $X=2(1-\cos2\theta_0)$ with $0<\theta_0<\pi/2$. Choose shrinking intervals around $\theta_0$. Their normal-incidence extinctions bracket the target because the derivative is $4\sin2\theta>0$. For each fixed absorber $\eta_m=1/m$, $kh_m=m^2$, choose $\sigma_m$ small enough to preserve these endpoint inequalities and approximate all powers uniformly within $1/m$. Continuity and the intermediate value theorem give an angle in the interval with extinction exactly $X$; reciprocity gives the same value for its reversed beam. The angle tends to $\theta_0$ and $A_{x,m}\to1$, proving the limit. A diagonal sequence of targets $X_j\downarrow0$ with absolute approximation error $o(X_j)$ gives relative-contrast supremum one when extinction is free.
+\end{proof}
+
+\section{Scope, verification and conclusions}\label{sec:scope}
+The sharp thickness law applies to scalar, local, normal-incidence multilayers with the fixed pointwise caps and integrated loss in~\eqref{eq:material}. It excludes $T=0$, $a=0$, $a=(1-T^2)/2$ and $P=1$, where the matching Jacobian or active-branch deficit can degenerate. It establishes an asymptotic optimum, not the exact optimizer at finite thickness or a minimum layer count. Lossy slices shrink and layer count grows; finite feature size and a finite catalogue of dispersive materials require different hypotheses.
+
+The joint channel theorem is sharp for reciprocal contractions at fixed dimensionless extinction and input overlap. Its equality operators are explicitly constructed, but no Maxwell equality realization at nonzero prescribed overlap is supplied. The planar construction has laterally infinite material extent even for finite-power beams. It establishes neither compact-body cross-section sharpness nor a fixed-resource coercive tensor-loss theorem. All results are monochromatic; they impose no bandwidth constraint.
+
+The mathematical claims in this manuscript are supported by the ordinary proofs above. The earlier research record describes a Lean/Mathlib supplement covering selected algebraic and finite-channel statements and a generic positive-matrix trace certificate. That scope does not include the scalar material floor, sharp thickness theorem, canonical channel compression or complete prescribed-overlap envelope. Formal validity of a selected certificate must not be conflated with formal verification of those full physical or analytic statements. The historical reports and original manuscript retain their separate version identities.
+
+The two main conclusions are a sharp joint refinement of the channel passivity and overlap bounds, and a matching all-profile thickness asymptotic at exact scalar target powers. The planar example identifies the loss-free tensor subspaces that prevent an unrestricted transfer of the scalar resource floor. These conclusions answer specified formulations of directional absorption asymmetry while leaving physical joint-bound realization and finite-resource vector optimization open.
+
+\paragraph{AI assistance.} AI tools assisted reconstruction and editing of this manuscript and preparation of symbolic algebra cross-checks. The earlier research record describes AI-assisted analytical and numerical reviews. Those reviews are distinct from human peer review.
+
+\bibliographystyle{unsrtnat}
+\bibliography{references}
+\end{document}

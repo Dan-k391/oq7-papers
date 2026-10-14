@@ -4,6 +4,8 @@ Primary clone: D:\\oq7-papers. Repository: https://github.com/Dan-k391/oq7-paper
 
 ## Current prescribed-extinction manuscript
 
+The current arXiv source revisions and clean upload ZIPs are documented in [ARXIV_SUBMISSION.md](ARXIV_SUBMISSION.md). Build them with `scripts/build-arxiv.py`; local intermediates stay in `.local/`. The workflow compiles manuscripts only and does not run proof code.
+
 The named manuscript and its existing generation record are in papers/prescribed-extinction/publication/. From its manuscript/ directory, run build.py with the installed XeLaTeX/BibTeX/Pandoc or Tectonic/Pandoc executable arguments documented in the unchanged publication/REPRODUCE.md. Do not overwrite the earlier review or frozen PDFs.
 
 ## Final audited proof

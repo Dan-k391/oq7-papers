@@ -1,0 +1,1 @@
+The completed final-commit audit validates the main theorem/lemma correspondence. The S1 table is a source/declaration map, not a claim that the auditor certified every intermediate statement or every expository proof paragraph. See MANUSCRIPT_VERSION_CORRESPONDENCE.md and AUDIT_PROVENANCE.md.

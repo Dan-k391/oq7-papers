@@ -1,0 +1,501 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,microtype}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\hypersetup{pdftitle={Finite-Aperture Localization and Dipolar Bounds for Reciprocal Absorption Asymmetry},pdfauthor={Daniel Wang and Junjie Zheng},pdfsubject={Compact Maxwell cross sections, fixed-stack localization and radiation-consistent dipole models}}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\norm}[1]{\lVert #1\rVert}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\ip}[2]{\langle #1,#2\rangle}
+\newcommand{\dd}{\,\mathrm d}
+\newcommand{\ReH}{\operatorname{Re}_{H}}
+\newcommand{\ImH}{\operatorname{Im}_{H}}
+\newcommand{\diag}{\operatorname{diag}}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\ez}{\mathbf e_z}
+\newcommand{\ex}{\mathbf e_x}
+\newcommand{\ey}{\mathbf e_y}
+\title{Finite-Aperture Localization and Dipolar Bounds\\for Reciprocal Absorption Asymmetry}
+\author{Daniel Wang\\McMaster University\\\href{mailto:denialk391@gmail.com}{\texttt{denialk391@gmail.com}} \and Junjie Zheng\\Columbia University\\\href{mailto:zjj2785@gmail.com}{\texttt{zjj2785@gmail.com}}}
+\date{14 October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We study extinction-normalized absorption asymmetry for opposite time-reversed plane waves in reciprocal electromagnetism. For a fixed strictly absorbing planar tensor stack, we prove that the extinction, absorption and total scattering cross sections of its compact finite-aperture truncations, divided by aperture area, converge to the exact planar densities. The proof combines an aperture-independent inverse bound for the volume equation with mixed Fourier estimates that retain the grazing-radiation singularity. The optical theorem supplies the all-angle scattering limit. For square apertures, a boundary-strip construction gives a nonoptimal $O((kR)^{-1/3})$ error at fixed stack parameters. An ordered planar-design, positive-loss and aperture limit yields compact two-layer local nonmagnetic dielectrics with fixed upper material caps and absorption asymmetry arbitrarily close to one; the total extinction is not prescribed in this construction. Separately, we derive the sharp dimensional absorption-difference bound for complete reciprocal electric--magnetic dipole models and exhibit exactly radiation-dressed equality tensors. The dipole model has a finite directivity ceiling that does not apply to unrestricted compact bodies. These ordinary analytic results distinguish physical material truncation from computational windowing and point-polarizability feasibility from finite-dielectric realization. No joint resource limit, bandwidth bound or complete formal-verification claim is made.
+\end{abstract}
+
+\section{Introduction and scope}
+Reciprocity equates the extinction cross sections of time-reversed incident waves while permitting different absorption and scattering \citep{SounasAlu2014}. Fundamental bounds on this redistribution motivate Open Question 7 of Miller and Monticone \citep{MillerMonticone2026}. The normalization and physical class matter: a compact-body cross section has units of area, an infinite slab is described by power densities per transverse area, and a point-dipole model has its own finite-dimensional radiation constraint.
+
+This paper supplies two complementary analyses. The first proves localization of the actual Maxwell cross sections for literal material truncations of a fixed strictly absorbing planar stack. Its volume-current estimate controls both incidences and, through energy balance, the complete scattering integral. A square-aperture construction gives an explicit, nonoptimal convergence exponent. The second treats complete electric--magnetic dipole polarizabilities with radiation reaction, exhibiting the distinction between a sharp point-model bound and realization by a local finite dielectric.
+
+The unrestricted compact unit supremum is included as an application of the localization theorem. It overlaps the stronger exact prescribed-extinction result in the companion manuscript \citep{WangZhengPrescribed2026}: that result implies the unrestricted supremum for the same two-layer class. Here extinction is allowed to vary and fixed-stack localization is proved directly, with an explicit square-aperture rate. Prescribing total extinction during aperture growth requires further uniformity at vanishing physical coupling; it is not obtained by the fixed-stack limit alone. No verification record from the companion is transferred to the present proofs.
+
+The physical ingredients have established precedents. Magnetoelectric optical theorems and inverse-polarizability radiation dressing are developed by Sersic and coauthors \citep{Sersic2011}. Reciprocal particle asymmetry and its nonorthogonal-mode mechanism are studied by Hopkins and coauthors \citep{Hopkins2015}; Mann and Al\`u's conference abstract announces maximal directional absorption in bianisotropic dipolar particles \citep{MannAlu2023}. Antenna efficiency and optical-theorem bounds identify directivity-dependent limitations \citep{Andersen2005,Liberal2014}. Polarization conversion with selective attenuation is established \citep{Armitage2014,Khurgin2021}, and metasurface directional absorption has related model-specific bounds \citep{ManezEspina2026}.
+
+For the aperture passage, Gao, Yang and Kattawar analyze polarized extinction of large-aspect-ratio plates \citep{Gao2013}. Windowed Green-function methods treat layered backgrounds \citep{Bruno2016,Arrieta2022}, while volume-integral formulations supply the singular-kernel and radiation framework \citep{Yurkin2018,Mishchenko2018}. Computational windowing of an infinite-interface equation and truncation of the physical material are different operations. Our smooth windows modify only trial polarizations; the final material aperture remains sharp. These comparisons do not establish first priority for the localization theorem or dipole equality family.
+
+\section{Maxwell cross sections and strictness}\label{sec:model}
+Use time dependence $e^{-i\omega t}$ and vacuum wavenumber $k=\omega/c>0$. Write $\mathbf H=Z_0H$ for the impedance-normalized magnetic field. For a real unit propagation vector $d$ and unit transverse electric polarization $e\in\mathbb C^3$, the paired vacuum waves are
+\begin{equation}\label{eq:incident}
+ \begin{aligned}
+ f_+(x)&=e e^{ikd\cdot x},&\mathbf H_{\mathrm{inc},+}(x)&=(d\times e)e^{ikd\cdot x},\\
+ f_-(x)&=\overline e e^{-ikd\cdot x},&\mathbf H_{\mathrm{inc},-}(x)&=-(d\times\overline e)e^{-ikd\cdot x}.
+ \end{aligned}
+\end{equation}
+Their intensities agree. The material is reciprocal; its lossy total dynamics need not be invariant under time reversal.
+
+For unit incident electric amplitude and an outgoing electric far field $F$,
+\begin{equation}\label{eq:cross-sections}
+ E_s(rn)=\frac{e^{ikr}}rF(n)+O(r^{-2}),\quad
+ S=\int_{S^2}\norm{F(n)}^2\dd\Omega,\quad X=A+S.
+\end{equation}
+Here $X,A,S$ denote extinction, absorption and scattering cross sections, each with units of area. Scattering includes every outgoing direction and both polarizations. Reciprocity gives $X_+=X_-=X$. At positive extinction define
+\begin{equation}\label{eq:Gamma}
+ \Gamma=\frac{\abs{A_+-A_-}}X=\frac{\abs{S_+-S_-}}X.
+\end{equation}
+
+\begin{proposition}[Strict bound and directivity obstruction]\label{prop:strict}
+For a compact passive reciprocal scatterer with continuous far field and the forward optical theorem, positive common extinction implies $0\leq\Gamma<1$. If $H$ denotes the more absorbing incidence, its co-polar forward directivity
+\[
+ D_{\mathrm{co},H}=\frac{4\pi\abs{e_H^\dagger F_H(d_H)}^2}{S_H}
+\]
+satisfies
+\begin{equation}\label{eq:directivity}
+ \Gamma\leq1-\frac{k^2X}{4\pi D_{\mathrm{co},H}}.
+\end{equation}
+\end{proposition}
+\begin{proof}
+Passivity gives $0\leq A_\pm\leq X$, so $\Gamma\leq1$. Equality would require absorption $X$ and zero scattering for one experiment. A continuous far field with zero integral of its squared norm vanishes everywhere. Its forward optical theorem
+\begin{equation}\label{eq:forward}
+ X=\frac{4\pi}k\Im\{e^\dagger F(d)\}
+\end{equation}
+would give $X=0$, a contradiction. In particular $S_H>0$ and the forward projection is nonzero. Squaring~\eqref{eq:forward} yields $S_H\geq k^2X^2/(4\pi D_{\mathrm{co},H})$. Since $\abs{A_H-A_L}=X-S_H-A_L$, division by $X$ proves~\eqref{eq:directivity}.
+\end{proof}
+This is an established efficiency/directivity obstruction \citep{Andersen2005,Liberal2014}. At fixed nonzero extinction, approaching one requires unbounded forward directivity; no hard multipole cutoff is inferred from finite object size.
+
+\section{Complete electric--magnetic dipole models}\label{sec:dipole}
+Let $f=(E,\mathbf H)$, $d_p=(p/\varepsilon_0,Z_0m)$ and $d_p=\alpha f$. Define
+\begin{equation}\label{eq:dipole-model}
+ \mathsf A=\frac{k^3}{6\pi}\alpha,\qquad
+ Q_{\mathsf A}=\ImH\mathsf A-\mathsf A^\dagger\mathsf A\succeq0,
+ \qquad \mathsf A^T=D\mathsf A D,\quad D=\diag(I_3,-I_3).
+\end{equation}
+The positivity condition is complete dipolar passivity for every incident six-vector. The last equality imposes symmetric electric and magnetic blocks and the reciprocal minus-transpose relation on the magnetoelectric blocks. No normality or orthogonal-eigenpolarizability hypothesis is imposed.
+
+The full dipole cross sections for unit electric incident amplitude are
+\begin{equation}\label{eq:dipole-cross}
+ X=\frac{6\pi}{k^2}\Im(f^\dagger\mathsf A f),\quad
+ S=\frac{6\pi}{k^2}\norm{\mathsf A f}^2,\quad
+ A=\frac{6\pi}{k^2}f^\dagger Q_{\mathsf A}f.
+\end{equation}
+Indeed its electric far field is
+\[
+ F(n)=\frac3{2k}\bigl[(I-nn^T)(\mathsf A f)_E-n\times(\mathsf A f)_M\bigr].
+\]
+Angular integration gives $\int\norm{(I-nn^T)v}^2\dd\Omega=(8\pi/3)\norm v^2$, while electric--magnetic interference integrates to zero by parity. This gives scattering in~\eqref{eq:dipole-cross}; the forward projection gives its extinction through~\eqref{eq:forward}. This is the established magnetoelectric optical-theorem normalization \citep{Sersic2011}.
+
+\begin{theorem}[Sharp complete dipole bound]\label{thm:dipole}
+Every reciprocal passive complete dipole model satisfies
+\begin{equation}\label{eq:dipole-bound}
+ 0\leq X\leq\frac{12\pi}{k^2},\qquad
+ \abs{A_+-A_-}\leq X-\frac{k^2X^2}{12\pi}.
+\end{equation}
+Every permitted extinction has an equality model. For $X>0$, $\Gamma\leq1-k^2X/(12\pi)<1$, and the free-extinction supremum is one.
+\end{theorem}
+\begin{proof}
+Set $J=\diag(I_3,iI_3)$, $\widetilde{\mathsf A}=J^\dagger\mathsf A J$ and $\mathsf S=I+2i\widetilde{\mathsf A}$. Reciprocity and passivity give
+\[
+ \mathsf S^T=\mathsf S,\qquad I-\mathsf S^\dagger\mathsf S=4J^\dagger Q_{\mathsf A}J\succeq0.
+\]
+For the plane-wave pair, $f_-=D\overline{f_+}$ and $\norm{f_+}^2=2$. Thus $u=J^\dagger f_+/\sqrt2$ and $\overline u$ are unit vectors, and
+\[
+ u^Tu=\tfrac12\bigl[e\cdot e-(d\times e)\cdot(d\times e)\bigr]=0.
+\]
+They are orthogonal, including for complex transverse $e$. With $x=2-2\Re(u^\dagger\mathsf S u)$, direct substitution in~\eqref{eq:dipole-cross} gives
+\begin{equation}\label{eq:dipole-channel-scale}
+ (X,A,S)=\frac{3\pi}{k^2}\bigl(x,\,1-\norm{\mathsf S u}^2,\,\norm{(\mathsf S-I)u}^2\bigr).
+\end{equation}
+Symmetry equates the two complex forward overlaps. Contractivity gives $0\leq x\leq4$, and Cauchy--Schwarz yields
+\[
+ 0\leq1-\norm{\mathsf S u}^2\leq1-[\Re(u^\dagger\mathsf S u)]^2=x-x^2/4.
+\]
+The same applies to $\overline u$, so their absorption difference is at most $x-x^2/4$. Equation~\eqref{eq:dipole-channel-scale} proves~\eqref{eq:dipole-bound}. In the interior, equality requires, after input interchange, $\mathsf S u=(1-x/2)u$ and $\norm{\mathsf S\overline u}=1$. The next explicit family attains every interior value; endpoints follow by continuity.
+\end{proof}
+
+\subsection{Exactly radiation-dressed equality tensors}
+On the active physical coordinates $(E_x,\mathbf H_y,E_y)$, choose $-1<t<1$ and $b=\sqrt{(1-t^2)/2}$, and set all other entries to zero. Take
+\begin{equation}\label{eq:equality-tensor}
+ \mathsf A=\frac i2M,\qquad M=\begin{pmatrix}1-t&0&-b\\0&1-t&-b\\-b&b&1\end{pmatrix}.
+\end{equation}
+The reciprocal signs are explicit, and multiplication gives $Q_{\mathsf A}=qq^T/4$ for $q=(b,b,-t)^T$. For $f_+=(1,1,0)^T$, $f_-=(1,-1,0)^T$,
+\begin{equation}\label{eq:equality-cross}
+ \begin{aligned}
+ X_+=X_-&=\frac{6\pi}{k^2}(1-t),\\
+ A_+&=\frac{3\pi}{k^2}(1-t^2),& A_-&=0,\\
+ S_+&=\frac{3\pi}{k^2}(1-t)^2,&S_-&=\frac{6\pi}{k^2}(1-t).
+ \end{aligned}
+\end{equation}
+This proves equality at every interior extinction. The ratio is $(1+t)/2\to1$ as $t\uparrow1$, while the extinction tends to zero.
+
+Radiation reaction is retained exactly. Put $a=\sqrt{2(1-t)/(1+t)}$ and
+\[
+ \mathsf A_0=iN,\qquad
+ N=\begin{pmatrix}a^2&-a^2/2&-a\\a^2/2&0&-a\\-a&a&1\end{pmatrix}.
+\]
+Its Hermitian imaginary part is $vv^T\succeq0$, $v=(a,0,-1)^T$. The relations $ab=1-t$ and $b=a(1+t)/2$ give $M(I+N)=2N$. Moreover $\det N=a^4/4>0$, and $I+N$ is invertible because its Hermitian real part is $I+vv^T\succ0$. Consequently, on the active block,
+\begin{equation}\label{eq:radiation-dressing}
+ \mathsf A=(\mathsf A_0^{-1}-iI)^{-1}.
+\end{equation}
+The inactive zero block is handled separately, or by the equivalent expression $\mathsf A=\mathsf A_0(I-i\mathsf A_0)^{-1}$ on the full six-dimensional space.
+
+Reciprocity also implies $\norm{\mathsf A f_-}^2=\norm{\mathsf A^\dagger f_+}^2$. Therefore
+\begin{equation}\label{eq:nonnormal}
+ A_+-A_-=\frac{6\pi}{k^2}f_+^\dagger
+ (\mathsf A\mathsf A^\dagger-\mathsf A^\dagger\mathsf A)f_+.
+\end{equation}
+Every normal reciprocal dipole tensor has zero asymmetry, consistent with the established modal-interference interpretation \citep{Hopkins2015}. The far-field formula gives $\abs{e^\dagger F(d)}^2\leq9\norm{\mathsf A f}^2/(2k^2)$, hence $D_{\mathrm{co}}\leq3$. Substitution in~\eqref{eq:directivity} recovers the dipole coefficient. This finite directivity ceiling is not a bound for arbitrary large compact Maxwell objects. Neither a passive point tensor nor its bare response proves realization by a local finite dielectric; the construction below does not require that completion.
+
+\section{Exact volume operators and weak Maxwell solutions}\label{sec:volume}
+Let $D$ be bounded and measurable, with $\abs D>0$, and extend $p\in L^2(D;\mathbb C^3)$ by zero. Define
+\begin{equation}\label{eq:Green}
+ g_k(x)=\frac{e^{ik\abs x}}{4\pi\abs x},\qquad
+ \mathcal Tp=(k^2I+\nabla\nabla\cdot)(g_k*p),\qquad
+ T_Dp=(\mathcal Tp)|_D.
+\end{equation}
+Derivatives are distributional, including the static contact term. The polarization $p=\chi E$ is the physical electric polarization divided by $\varepsilon_0$.
+
+\begin{lemma}\label{lem:Green}
+$T_D$ is bounded on $L^2(D;\mathbb C^3)$. For every such polarization,
+\begin{equation}\label{eq:radiation}
+ \Im\ip p{T_Dp}=\frac{k^3}{16\pi^2}\int_{S^2}
+ \norm{(I-nn^T)\int_Dp(y)e^{-ikn\cdot y}\dd y}^2\dd\Omega\geq0.
+\end{equation}
+Its continuous far field is
+\begin{equation}\label{eq:farfield}
+ F_p(n)=\frac{k^2}{4\pi}(I-nn^T)\int_Dp(y)e^{-ikn\cdot y}\dd y.
+\end{equation}
+\end{lemma}
+\begin{proof}
+For $g_0=1/(4\pi\abs x)$, the distributional static operator $\nabla\nabla\cdot(g_0*\cdot)$ has Fourier multiplier $-\xi\xi^T/\abs\xi^2$ and norm at most one on whole-space $L^2$. This includes its local distributional term. Near zero, $g_k-g_0=ik/(4\pi)+O(\abs x)$ and its second derivatives are $O(\abs x^{-1})$. The remaining kernels $k^2g_kI$ and $\nabla\nabla\cdot(g_k-g_0)$ have finite absolute row and column integrals on the bounded difference set $D-D$. Schur's test proves boundedness; its constant may grow with $D$.
+
+The smooth identity $\Im g_k(x)=k(16\pi^2)^{-1}\int_{S^2}e^{ikn\cdot x}\dd\Omega$ follows by angular integration. Kernel reciprocity identifies its Hermitian imaginary part with this entrywise imaginary kernel. Differentiation supplies $k^2(I-nn^T)$, and Fubini proves~\eqref{eq:radiation} first for smooth compact currents. For general measurable $D$, approximate the zero extension of $p$ by smooth currents in a fixed larger ball; boundedness of the ball-restricted operator and convergence in both $L^2$ and $L^1$ give the displayed identity for $p$. The real contact term contributes no imaginary work. Since $D$ is bounded, $p\in L^1$ with bounded first moments; the large-distance expansion gives~\eqref{eq:farfield} and the uniform remainder in~\eqref{eq:cross-sections}. The corresponding magnetic field has expansion $e^{ikr}n\times F_p(n)/r+O(r^{-2})$, so its normalized sphere flux tends to $\int\norm{F_p}^2$.
+\end{proof}
+
+Suppose the local susceptibility is measurable and satisfies
+\begin{equation}\label{eq:coercive-material}
+ \chi^T=\chi,\qquad \ImH\chi\succeq\delta I,\qquad
+ \norm\chi\leq K\quad\text{a.e. in }D,\qquad \delta>0,\quad K<\infty.
+\end{equation}
+It is invertible with $\norm{\chi^{-1}}\leq\delta^{-1}$. Put
+\begin{equation}\label{eq:volume-equation}
+ L_D=\chi^{-1}-T_D,\qquad L_Dp=f|_D,\qquad
+ W=-\ImH\chi^{-1}=\chi^{-\dagger}(\ImH\chi)\chi^{-1}\succeq cI,
+ \quad c=\delta/K^2.
+\end{equation}
+
+\begin{proposition}\label{prop:physical}
+Equation~\eqref{eq:volume-equation} has a unique solution with $\norm{L_D^{-1}}\leq c^{-1}$. It is equivalent to the unique locally square-integrable weak Maxwell scattering solution with outgoing scattered fields, up to equality almost everywhere, and its cross sections obey
+\begin{equation}\label{eq:work}
+ \begin{aligned}
+ X&=k\Im\ip fp,\qquad A=k\ip p{Wp},\\
+ S&=k\Im\ip p{T_Dp}=\int_{S^2}\norm{F_p}^2\dd\Omega,\qquad X=A+S.
+ \end{aligned}
+\end{equation}
+For~\eqref{eq:incident}, $X_+=X_->0$. The inverse bound depends on $K,\delta$ and not on the aperture or volume.
+\end{proposition}
+\begin{proof}
+For each $v$, $\delta\norm v^2\leq\Im(v^\dagger\chi v)\leq\norm v\norm{\chi v}$, proving invertibility. Multiplying $\chi-\chi^\dagger$ by its inverses proves the factorization of $W$, and $\norm{\chi^{-1}v}\geq\norm v/K$ gives its lower bound. It is also bounded. Lemma~\ref{lem:Green} implies
+\[
+ -\Im\ip p{L_Dp}=\ip p{Wp}+\Im\ip p{T_Dp}\geq c\norm p^2.
+\]
+Complex Lax--Milgram for $i\ip q{L_Dp}$ gives solvability and the inverse estimate.
+
+Reconstruct $E=f+\mathcal Tp$ and $\mathbf H=(ik)^{-1}\nabla\times E$. The scalar potential $g_k*p$ is locally $H^2$ by its Helmholtz equation and local elliptic regularity, so $E\in L^2_{\rm loc}$ and its curl is locally $H^1$. The distributional equations are
+\[
+ \nabla\times E=ik\mathbf H,\qquad \nabla\times\mathbf H=-ik\varepsilon E,
+ \qquad\varepsilon=I+\chi\text{ in }D,\quad\varepsilon=I\text{ outside}.
+\]
+Inside $D$, $E=\chi^{-1}p$; outside, the scattered field is the outgoing compact-source field. It satisfies the uniform Silver--M\"uller condition $r\norm{\mathbf H_s(rn)\times n-E_s(rn)}\to0$. Both fields belong locally to $H(\mathrm{curl})$. Conversely subtract this reconstruction, with $p=\chi E$, from any locally square-integrable weak scattering state whose scattered fields obey that outgoing condition. The difference is an entire outgoing vacuum Maxwell pair and vanishes by Lemma~\ref{lem:vacuum-uniqueness} below. This proves equivalence and uniqueness without imposing classical interface traces on arbitrary weak representatives.
+
+The imaginary part of $\ip p{L_Dp}=\ip pf$ gives $k\Im\ip fp=A+S$. Lemma~\ref{lem:Green} identifies scattering with its actual flux; the forward projection of~\eqref{eq:farfield} proves~\eqref{eq:forward}. For the bilinear pairing $[u,v]=\int_Du^Tv$, transpose symmetry gives $[u,L_D^{-1}v]=[v,L_D^{-1}u]$. Since $f_- =\overline{f_+}$,
+\[
+ \ip{f_+}{L_D^{-1}f_+}=[f_-,L_D^{-1}f_+]
+ =[f_+,L_D^{-1}f_-]=\ip{f_-}{L_D^{-1}f_-}.
+\]
+Their imaginary parts agree. Each current is nonzero, since its drive is nonzero, and $W\succeq cI$, so each absorption and the common extinction are positive. Physical far fields and pointwise radiation refer to the canonical smooth exterior representative.
+\end{proof}
+
+\begin{lemma}[Entire outgoing weak vacuum uniqueness]\label{lem:vacuum-uniqueness}
+An entire locally square-integrable vacuum Maxwell pair with the uniform Silver--M\"uller condition vanishes almost everywhere.
+\end{lemma}
+\begin{proof}
+The vacuum curl equations imply vanishing divergences and the scalar Helmholtz equation for every component. Local elliptic regularity gives smooth representatives. Let a smooth radial cutoff $\eta_R$ equal one on $r\leq R$ and zero on $r\geq2R$, with $w_R=-\eta_R'\geq0$ and $\int_R^{2R}w_R\dd r=1$. The real Poynting identity and compact integration by parts give
+\[
+ \int w_R\Re\{E\cdot\overline{\mathbf H\times n}\}\dd x=0,
+ \qquad n=x/\abs x.
+\]
+Consequently
+\[
+ \int w_R\bigl(\norm E^2+\norm{\mathbf H\times n}^2\bigr)\dd x
+ =\int w_R\norm{\mathbf H\times n-E}^2\dd x=o(1),
+\]
+because $\int w_R/r^2\dd x=4\pi$ and the outgoing condition is uniform.
+
+For an arbitrary $q\in C_c^\infty(\mathbb R^3)^3$, let $(E_q,\mathbf H_q)$ be the outgoing source fields of~\eqref{eq:Green}, so $\nabla\times\mathbf H_q=-ik(E_q+q)$. They obey $E_q=O(r^{-1})$ and $\mathbf H_q\times n-E_q=O(r^{-2})$ outside their source. The bilinear Lorentz identity gives
+\[
+ ik\int\eta_RE\cdot q\dd x
+ =\int w_R\{E\cdot(\mathbf H_q\times n)-E_q\cdot(\mathbf H\times n)\}\dd x.
+\]
+Rewrite its integrand as $E\cdot(\mathbf H_q\times n-E_q)-E_q\cdot(\mathbf H\times n-E)$. Cauchy--Schwarz and the shell estimate make the first integral $o(1)O(R^{-1})$ and the second $O(1)o(1)$; the source estimates use $\int w_R/r^4\dd x\leq4\pi/R^2$. For large $R$, $\eta_R=1$ on the fixed source support. Thus $\int E\cdot q=0$ for every test $q$, proving $E=0$ distributionally and almost everywhere; its curl equation then gives $\mathbf H=0$.
+\end{proof}
+
+\section{Fixed-stack finite-aperture localization}\label{sec:localization}
+Write $x=(x_\perp,z)\in\mathbb R^2\times\mathbb R$. Let $\Omega\subset\mathbb R^2$ be bounded, open and Lipschitz, with $\abs\Omega>0$, and let $L>0$. Fix a height-dependent measurable susceptibility satisfying~\eqref{eq:coercive-material} on $(0,L)$. Set
+\[
+ D_R=(R\Omega)\times(0,L),\qquad
+ \varepsilon_R=I+\chi(z)\text{ in }D_R,\quad\varepsilon_R=I\text{ outside}.
+\]
+Boundary values do not change the weak problem; the closure of the material region is compact. The normal-incidence electric drives are $f_+(z)=e e^{ikz}$ and $f_-(z)=\overline e e^{-ikz}$, with $e\cdot\ez=0$ and $\norm e=1$.
+
+\begin{theorem}[Localization of exact Maxwell cross sections]\label{thm:localization}
+For each fixed stack and both incidences,
+\begin{equation}\label{eq:localization}
+ \frac{X_R^\pm}{R^2\abs\Omega}\longrightarrow X_\infty^\pm,\qquad
+ \frac{A_R^\pm}{R^2\abs\Omega}\longrightarrow A_\infty^\pm,\qquad
+ \frac{S_R^\pm}{R^2\abs\Omega}\longrightarrow C_\infty^\pm,
+\end{equation}
+where the limits are the exact infinite-planar power densities normalized by incident intensity. The scattering limit includes the whole outgoing sphere and both polarizations. Constants may depend on the fixed $k,L,K,\delta$; no uniformity as loss vanishes or thickness diverges is asserted.
+\end{theorem}
+
+\subsection{Weyl fibers and the planar state}
+Let $\mathcal H=L^2((0,L);\mathbb C^3)$ and use transverse transform $\widehat v(\kappa)=\int e^{-i\kappa\cdot x_\perp}v(x_\perp)\dd x_\perp$, with inverse factor $(2\pi)^{-2}$. Put
+\[
+ \beta(\kappa)=\sqrt{k^2-\abs\kappa^2},\qquad
+ G_\kappa(z)=\frac{i}{2\beta(\kappa)}e^{i\beta(\kappa)\abs z},
+\]
+on the outgoing/decaying branch. The light circle has measure zero. Fourier transformation of $(-\Delta-k^2)g_k=\delta_0$ and $\partial_z^2G_\kappa=-\beta^2G_\kappa-\delta_0$ give the electric fiber
+\begin{equation}\label{eq:fibers}
+ \begin{aligned}
+ (T_\kappa)_{ab}&=(k^2\delta_{ab}-\kappa_a\kappa_b)G_\kappa*,&&a,b\in\{1,2\},\\
+ (T_\kappa)_{a3}&=(T_\kappa)_{3a}=i\kappa_a\partial_zG_\kappa*,&
+ (T_\kappa)_{33}&=\abs\kappa^2G_\kappa*-I.
+ \end{aligned}
+\end{equation}
+Convolution integrates source heights over $(0,L)$. In particular the longitudinal contact term is $-I$.
+
+Since $\abs{G_\kappa}\leq(2\abs\beta)^{-1}$ and $\abs{\partial_zG_\kappa}\leq1/2$ off the diagonal, Schur estimates imply
+\begin{equation}\label{eq:fiber-bounds}
+ \norm{T_\kappa}\leq C\left(1+\abs\kappa+\frac{k^2+\abs\kappa^2}{\abs\beta}\right),\qquad
+ \norm{T_\kappa-T_0}\leq C_0\abs\kappa\quad(\abs\kappa\leq k/2).
+\end{equation}
+The second estimate follows from bounded kernel derivatives on the low-frequency disk. The first has at most linear growth at infinity and a locally integrable singularity of order $\abs{\abs\kappa-k}^{-1/2}$ near grazing. Its square need not be integrable, which precludes global Plancherel across the light circle.
+
+At $\kappa=0$, the transverse kernel is $(ik/2)e^{ik\abs{z-z'}}I_2$, mixed entries vanish and the longitudinal term is real multiplication by $-I$. For $q_\perp=(q_1,q_2)$,
+\begin{equation}\label{eq:planar-radiation}
+ \Im\ip q{T_0q}_{\mathcal H}
+ =\frac k4\left(\norm{\int_0^Le^{ikz}q_\perp(z)\dd z}^2
+ +\norm{\int_0^Le^{-ikz}q_\perp(z)\dd z}^2\right)\geq0.
+\end{equation}
+The same coercivity argument proves unique solvability of
+\begin{equation}\label{eq:planar-equation}
+ (\chi^{-1}-T_0)q=f\quad\text{in }\mathcal H,\qquad
+ \norm q_{\mathcal H}\leq c^{-1}\norm f_{\mathcal H}.
+\end{equation}
+Reconstruction yields planar outgoing amplitudes
+\[
+ b_+=\frac{ik}{2}\int_0^Le^{-ikz}q_\perp(z)\dd z,\qquad
+ b_-=\frac{ik}{2}\int_0^Le^{ikz}q_\perp(z)\dd z.
+\]
+Therefore the exact normalized densities are
+\begin{equation}\label{eq:planar-powers}
+ X_\infty=k\Im\ip fq_{\mathcal H},\quad
+ A_\infty=k\ip q{Wq}_{\mathcal H},\quad
+ C_\infty=k\Im\ip q{T_0q}_{\mathcal H}=\norm{b_+}^2+\norm{b_-}^2,
+ \quad X_\infty=A_\infty+C_\infty.
+\end{equation}
+For $f_+$, the total forward amplitude is $e+b_+$, so $t_{\rm co}=1+(ik/2)\int_0^Le^{-ikz}e^\dagger q(z)\dd z$ and $X_\infty=2(1-\Re t_{\rm co})$. For $f_-$ the opposite amplitude is used. Boundary-plane transmission must be divided by the vacuum phase $e^{ikL}$. The absorption formula equals $k\int E^\dagger\ImH\chi E\dd z$; the balance follows by taking the imaginary part of~\eqref{eq:planar-equation}. These are actual planar Maxwell powers, not an $L^2(\mathbb R^3)$ normalization of an infinite plane wave.
+
+\subsection{Mixed Fourier localization proof}
+Choose a fixed $g\in C_c^\infty(\Omega)$ and put $g_R(x_\perp)=g(x_\perp/R)$. On the unrestricted strip $\mathbb R^2\times(0,L)$ define
+\[
+ \widetilde H_R=\mathcal T(g_Rq)-g_RT_0q,\qquad H_R=\widetilde H_R|_{D_R}.
+\]
+The transverse Fourier transform is taken before restriction:
+\begin{equation}\label{eq:commutator}
+ \widehat{\widetilde H_R}(\kappa)=R^2\widehat g(R\kappa)(T_\kappa-T_0)q.
+\end{equation}
+First derive this distributional identity for smooth compact height profiles, then use the density argument below.
+
+On $\abs\kappa\leq k/2$, Hilbert-valued Plancherel and~\eqref{eq:fiber-bounds} give
+\[
+ \norm{\widetilde H_R^{\rm low}}_{L^2(\mathbb R^2;\mathcal H)}
+ \leq C\norm q_{\mathcal H}\norm{\nabla g_R}_{L^2(\mathbb R^2)}
+ =C\norm q_{\mathcal H}\norm{\nabla g}_{L^2(\mathbb R^2)}.
+\]
+For an integer $N>3$, Schwartz decay gives $R^2\abs{\widehat g(R\kappa)}\leq C_{g,N}R^{2-N}\abs\kappa^{-N}$ in the complementary region. The integral
+\[
+ I_N=\int_{\abs\kappa>k/2}\abs\kappa^{-N}(\norm{T_\kappa}+\norm{T_0})\dd\kappa
+\]
+is finite: grazing is locally $L^1$, and the radial bound at infinity is $O(\rho^{2-N})\dd\rho$. Inverse Fourier $L^1$ control therefore gives
+\[
+ \sup_{x_\perp}\norm{\widetilde H_R^{\rm high}(x_\perp,\cdot)}_{\mathcal H}
+ \leq C_{g,N}R^{2-N}\norm q_{\mathcal H},\qquad
+ \norm{H_R^{\rm high}}_{L^2(D_R)}\leq C_{g,N}R^{3-N}\norm q_{\mathcal H}.
+\]
+Thus $\norm{H_R}_{L^2(D_R)}=O_g(1)=o(R)$. No square of the grazing singularity has been integrated. For general $q\in\mathcal H$, approximate by smooth compact height profiles. The restricted three-dimensional Green operator is bounded on each fixed bounded observation domain, so its outgoing fields converge locally in $L^2$. The low-frequency inverse transforms converge globally in $L^2$ and the high-frequency transforms in $L^\infty(\mathbb R^2;\mathcal H)$ by the same estimates. Their local limit is the volume field in~\eqref{eq:commutator}.
+
+Let $p_R$ be the exact compact polarization. The trial current satisfies the exact residual
+\[
+ L_{D_R}(g_Rq)-f=(g_R-1)f-H_R\quad\text{in }D_R.
+\]
+The aperture-independent inverse estimate gives
+\begin{equation}\label{eq:current-estimate}
+ \norm{p_R-q}_{L^2(D_R)}
+ \leq R(c^{-1}\norm f_{\mathcal H}+\norm q_{\mathcal H})\norm{1-g}_{L^2(\Omega)}
+ +c^{-1}\norm{H_R}_{L^2(D_R)}.
+\end{equation}
+For each fixed window, divide by $R$ and let $R\to\infty$. The left-hand side is independent of the window. Approximating one in $L^2(\Omega)$ by $C_c^\infty(\Omega)$ functions proves
+\begin{equation}\label{eq:current-limit}
+ \norm{p_R-q}_{L^2(D_R)}=o(R).
+\end{equation}
+The order is fixed stack, fixed window, aperture limit, then window approximation; the material is never smoothed.
+
+The incident, planar-extended and exact current norms on $D_R$ are all $O(R)$. Cauchy--Schwarz in~\eqref{eq:work} gives $\abs{X_R-R^2\abs\Omega X_\infty}=o(R^2)$. Boundedness of $W$ and the quadratic-form difference estimate give the same conclusion for absorption. Subtract the exact compact and planar energy balances to obtain total scattering. This proves Theorem~\ref{thm:localization}, including a narrowing forward peak and any edge or grazing radiation, without requiring pointwise far-field convergence.
+
+\section{An explicit square-aperture rate}\label{sec:rate}
+Let $S_R=(-R/2,R/2)^2$, whose area is $R^2$. Fix a smooth $a:\mathbb R\to[0,1]$ with $a(u)=0$ for $u\leq0$ and $a(u)=1$ for $u\geq1$. For $0<w\leq R/8$, define
+\[
+ a_{R,w}(s)=a\left(\frac{R/2-w/4-\abs s}{w}\right),\qquad
+ g_{R,w}(x_1,x_2)=a_{R,w}(x_1)a_{R,w}(x_2).
+\]
+The absolute-value cusp is harmless because the function is constant near zero. The support lies at least $w/4$ inside the square, and the function equals one outside a boundary strip of area $O(Rw)$. One-dimensional differentiation gives $\norm{a_{R,w}^{(n)}}_1\leq C_nw^{1-n}$, $\norm{a_{R,w}'}_2^2\leq C/w$ and $\norm{a_{R,w}}_p^p\leq R$ for $p=1,2$. Hence
+\begin{equation}\label{eq:cutoff-estimates}
+ \begin{aligned}
+ \norm{1-g_{R,w}}_{L^2(S_R)}&\leq C(Rw)^{1/2},\qquad
+ \norm{\nabla g_{R,w}}_2\leq C(R/w)^{1/2},\\
+ \norm{\partial^\alpha g_{R,w}}_1&\leq C_\alpha Rw^{-4}\qquad(\abs\alpha=5).
+ \end{aligned}
+\end{equation}
+A pure fifth derivative has this bound directly. A mixed derivative has norm $O(w^{-3})\leq O(Rw^{-4})$. Choosing $j$ with $\abs{\kappa_j}\geq\abs\kappa/\sqrt2$ and integrating by parts five times gives
+\begin{equation}\label{eq:cutoff-Fourier}
+ \abs{\widehat g_{R,w}(\kappa)}\leq CRw^{-4}\abs\kappa^{-5}\quad(\kappa\ne0).
+\end{equation}
+
+\begin{proposition}[Square-aperture error]\label{prop:rate}
+For a fixed stack satisfying~\eqref{eq:coercive-material} and either normal incidence, there are constants independent of $R$ such that, for large $kR$,
+\begin{equation}\label{eq:rate}
+ \begin{aligned}
+ \norm{p_R-q}_{L^2(D_R)}&\leq C_{\rm cur}(kR)^{2/3},\\
+ \abs{X_R/R^2-X_\infty}&\leq C_{\rm pow}(kR)^{-1/3},\\
+ \abs{A_R/R^2-A_\infty}&\leq C_{\rm pow}(kR)^{-1/3},\\
+ \abs{S_R^{\rm sca}/R^2-C_\infty}&\leq C_{\rm pow}(kR)^{-1/3}.
+ \end{aligned}
+\end{equation}
+Here $S_R^{\rm sca}$ is the scattering cross section, distinguished from the geometric square $S_R$. The exponent is not asserted optimal; constants can depend on $k,L,K,\delta$.
+\end{proposition}
+\begin{proof}
+Apply the mixed Fourier decomposition to $\mathcal T(g_{R,w}q)-g_{R,w}T_0q$. Its low part is bounded by $C\norm q_{\mathcal H}(R/w)^{1/2}$. Equations~\eqref{eq:cutoff-Fourier} and $I_5<\infty$ give high-frequency $L^\infty(\mathbb R^2;\mathcal H)$ bound $C\norm q_{\mathcal H}Rw^{-4}$. Restriction to the square multiplies this by $R$. The residual and cutoff estimates therefore yield
+\[
+ \norm{p_R-q}_{L^2(D_R)}\leq C\bigl((Rw)^{1/2}+(R/w)^{1/2}+R^2w^{-4}\bigr).
+\]
+With reference length $\ell=1/k$, choose $w=\ell(R/\ell)^{1/3}=k^{-1}(kR)^{1/3}$. For large $kR$ it fits within $R/8$. At fixed $k$, the three terms have orders $(kR)^{2/3},(kR)^{1/3},(kR)^{2/3}$, with dimensional factors absorbed into the constants. This proves the current bound. The norms of $f,p_R,q$ are $O(R)$, so linear work and bounded absorption quadratic forms have errors $O(R(kR)^{2/3})$. Dividing by $R^2$ gives the power rate; scattering follows by subtraction of energy balances.
+\end{proof}
+
+\section{Compact dielectric examples and the unrestricted supremum}\label{sec:construction}
+\subsection{An exact planar pair under arbitrary real caps}
+Fix $P>1$ and choose an integer $j$ with $p_j=[2j/(2j-1)]^2\leq P$. Set $d=(2j-1)\pi/k$. For $-1<t<1$, $s=\sqrt{1-t^2}$, let
+\[
+ V=\begin{pmatrix}-t&s\\s&t\end{pmatrix},\quad
+ \varepsilon_A=\diag(1+i\eta,1,1),\quad
+ \varepsilon_{W,\perp}=\frac{p_j+1}{2}I_2-\frac{p_j-1}{2}V,\quad
+ \varepsilon_{W,zz}=1,
+\]
+with no transverse--longitudinal entries. The absorber has thickness $h$ and the plate thickness $d$. Both tensors are symmetric, local and nonmagnetic, with real eigenvalues in $[1,P]$. Their loss is initially semidefinite.
+
+Since $V^2=I$, the plate's two eigenindices have phases $(2j-1)\pi$ and $2j\pi$. Propagation of $(E,E'/k)^T$ through a scalar index-$n$ slab is
+\[
+ \begin{pmatrix}\cos(nkd)&\sin(nkd)/n\\-n\sin(nkd)&\cos(nkd)\end{pmatrix}.
+\]
+At integer phase it is $\pm I$; matching to vacuum gives zero reflection. The plate's boundary-plane Jones transmission is therefore $H=-V$, with vacuum-reference transmission $e^{-ikd}H=V$.
+
+For the absorber's $x$ channel, put $n=\sqrt{1+i\eta}$ on the passive branch, $r_0=(1-n)/(1+n)$ and $p=e^{inkh}$. Interface matching yields
+\[
+ r_A=\frac{r_0(1-p^2)}{1-r_0^2p^2},\qquad
+ \tau_A=\frac{(1-r_0^2)p}{1-r_0^2p^2},\qquad
+ A_x=1-\abs{r_A}^2-\abs{\tau_A}^2.
+\]
+Because $\abs{r_0},\abs p<1$, the denominator is nonzero and $\tau_A\ne0$. The exact flux identity $A_x=k\eta\int_0^h\abs{E_x}^2\dd z$ proves $A_x>0$: vanishing interior field would require both $1+r_A=0$ and $1-r_A=0$. Thus $0<A_x<1$.
+
+The absorber's $y$ channel is vacuum. The complete four-port scattering matrix, in order $(Lx,Ly,Rx,Ry)$, is
+\[
+ \mathsf S=\begin{pmatrix}R_A&D_AH\\HD_A&HR_AH\end{pmatrix},\qquad
+ R_A=\diag(r_A,0),\qquad D_A=\diag(\tau_A,e^{ikh}).
+\]
+The exactly reflectionless plate requires no additional feedback denominator. The $+z$ $y$ input meets the absorber first and loses no power. The opposite input first becomes $He_y=-se_x-te_y$ and loses $s^2A_x$ in the absorber. Both co-polar boundary transmissions are $-te^{ikh}$; division by $e^{ik(h+d)}$ gives $t$. Consequently
+\begin{equation}\label{eq:planar-design}
+ A_\infty^+=0,\qquad A_\infty^-=(1-t^2)A_x,\qquad
+ X_\infty^+=X_\infty^-=2(1-t),\qquad
+ \Gamma_\infty=\frac{1+t}{2}A_x.
+\end{equation}
+For $\eta_m=1/m$, $kh_m=m^2$, $t_m=1-1/m$, one has $n_m\to1$, $r_{0,m}\to0$ and $m\Im n_m=1/(2\Re n_m)\to1/2$. Thus $\abs{p_m}\to0$, both slab amplitudes tend to zero and $A_{x,m}\to1$, so $\Gamma_\infty\to1$. Every chosen thickness and coefficient is finite. The mechanism is the established polarization-filter/waveplate combination \citep{Armitage2014,Khurgin2021}.
+
+\subsection{Positive loss before physical truncation}
+For one fixed finite choice $(\eta,h,t)$, add $i\nu I$ to each tensor, with $\nu>0$. Its planar amplitudes and powers depend continuously on $\nu$ at zero. To see this without inverting a singular susceptibility, use the exact transverse ODE
+\[
+ \frac\dd{\dd z}\begin{pmatrix}E_\perp\\E_\perp'/k\end{pmatrix}
+ =k\begin{pmatrix}0&I_2\\-\varepsilon_\perp(\nu)&0\end{pmatrix}
+ \begin{pmatrix}E_\perp\\E_\perp'/k\end{pmatrix}.
+\]
+At fixed thickness each layer transfer is a matrix exponential analytic in $\nu$. The boundary-matching matrix is invertible at zero: an outgoing homogeneous solution has zero sum of outgoing flux and nonnegative dissipation, hence zero exterior amplitudes and zero boundary state. ODE uniqueness makes the entire field zero. Its inverse and the scattering powers are therefore continuous for small $\nu$. Since $2(1-t)>0$, the ratio is continuous too. Once $\nu$ is fixed, the susceptibility has a fixed positive loss floor and finite norm, satisfying~\eqref{eq:coercive-material}.
+
+\begin{theorem}[Unrestricted compact dielectric supremum]\label{thm:supremum}
+Fix $k>0$, $P>1$ and $Q>0$. For every $0<\epsilon<1$ there is a compact body consisting of two adjacent homogeneous anisotropic dielectric layers with a finite square aperture, vacuum exterior and $\mu=I$, such that
+\begin{equation}\label{eq:final-caps}
+ \varepsilon^T=\varepsilon,\qquad I\preceq\ReH\varepsilon\preceq PI,\qquad
+ 0\prec\ImH\varepsilon\preceq QI,
+\end{equation}
+and opposite $y$-polarized plane waves have common positive extinction and $1-\epsilon<\Gamma<1$. Hence the unrestricted supremum of $\Gamma$ over this class is one and is not attained.
+\end{theorem}
+\begin{proof}
+Choose a finite planar member of~\eqref{eq:planar-design} with $\Gamma_\infty>1-\epsilon/3$ and $\eta<Q/2$. The same integer $j$ respects $P$. Choose a fixed $0<\nu<Q/2$ small enough that the regularized planar ratio remains above $1-2\epsilon/3$. The loss eigenvalues are $\eta+\nu,\nu,\nu$ in the absorber and $\nu,\nu,\nu$ in the plate, so~\eqref{eq:final-caps} holds. This fixed regularized stack has positive common extinction density $X_{\infty,\nu}$.
+
+Truncate both layers to the side-$R$ square and apply Theorem~\ref{thm:localization}. Exact finite-object reciprocity and the positive limiting denominator give
+\[
+ \frac{\abs{A_R^+-A_R^-}}{X_R}\longrightarrow
+ \frac{\abs{A_{\infty,\nu}^+-A_{\infty,\nu}^-}}{X_{\infty,\nu}}>1-2\epsilon/3.
+\]
+A sufficiently large finite $R$ gives the required lower bound. Proposition~\ref{prop:strict} proves strictness and the universal upper bound. For a fixed selected stack, Proposition~\ref{prop:rate} also gives an $O((kR)^{-1/3})$ ratio error once $X_R/R^2\geq X_{\infty,\nu}/2$.
+\end{proof}
+The order is finite planar design, fixed positive regularization, then aperture enlargement. A diagonal sequence of these finite selections does not interchange a vanishing-loss limit with an infinite-aperture limit. There is no common bound on thickness, footprint, volume, integrated loss or positive loss floor. The construction leaves total extinction free; for each fixed selected stack, $X_R\sim R^2X_{\infty,\nu}$. The exact prescribed-extinction counterpart is addressed in the companion manuscript \citep{WangZhengPrescribed2026} and requires additional normalized angle-uniform control.
+
+\section{Dispersion, limitations and conclusions}
+The constructed real and imaginary tensor parts share a real orthogonal eigenbasis. At a chosen frequency $\omega>0$, each target susceptibility $a+ib$, $a\geq0$, $b>0$, admits a passive causal scalar extension
+\[
+ \chi(\zeta)=\frac{F}{\omega_0^2-\zeta^2-i\gamma\zeta},\qquad
+ \omega_0^2=\omega^2+(a/b)\gamma\omega,\qquad
+ F=\gamma\omega(a^2+b^2)/b>0,
+\]
+for any $\gamma>0$. It gives $\chi(\omega)=a+ib$, lower-half-plane poles and nonnegative loss at positive real frequency. More explicitly, the real oscillator equation $\ddot p+\gamma\dot p+\omega_0^2p=FE$ has the energy identity
+\[
+ \frac\dd{\dd t}\frac{\dot p^2+\omega_0^2p^2}{2F}=E\dot p-\frac\gamma F\dot p^2.
+\]
+Stored energy and damping dissipation are nonnegative; summing over the real principal axes preserves locality and reciprocity. This compatibility observation does not impose upper caps or performance over a finite band.
+
+The dipole bound is sharp within a complete radiation-consistent point model, and its near-unit sequence has vanishing total extinction. The compact construction has no such restriction: its selected aperture can grow after the planar design is fixed. The localization theorem proves all three area-normalized cross-section limits and a fixed-stack square-aperture upper error. It does not give an optimal global resource cost, a rate uniform as loss vanishes, or a finite-bandwidth law. Sharp bounded-size and coercive-loss resource optima remain separate problems.
+
+The unrestricted compact supremum is weaker than the companion prescribed-extinction theorem. The distinctive analyses presented here are the complete dipole equality tensors and radiation removal, the general fixed-stack material-aperture passage, and its explicit square-window rate. Their ordinary proofs stand independently of numerical experiments. No Lean formalization or human peer-review certification is claimed for this manuscript; verification categories attached to other versions or other papers do not certify these reorganized arguments.
+
+\paragraph{AI assistance.} AI tools assisted manuscript reconstruction, editing and algebraic review. The source investigation describes AI-assisted mathematical and numerical reviews; these are distinct from human peer review. Numerical diagnostics from that historical investigation are not used here as continuum error certificates.
+
+\bibliographystyle{unsrtnat}
+\bibliography{references}
+\end{document}
