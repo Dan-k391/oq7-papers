@@ -1,0 +1,75 @@
+{
+ "source_sha256": "576478ba88fd374e724b96e07c5e3e1648485cd163dc4d8ba9cd0b3ef52eac62",
+ "static": {
+  "C_isolated_block": 3.082851637764933e-05,
+  "C_dipole_exchange_only": 3.077284744221179e-05,
+  "C_single_exchange_with_quadrupole": 3.0772585215898896e-05,
+  "manuscript_interval": [
+   2.771095929952853e-05,
+   3.395389215780843e-05
+  ],
+  "manuscript_numerical_extrapolation": 3.07725625e-05,
+  "relative_gap_single_exchange_vs_extrapolation": 7.381867823674781e-07,
+  "multiple_exchange_relative_scale_c_squared": 1.4730379664810303e-07
+ },
+ "mie_small_size_alpha_relative_error": 2.629883261027526e-06,
+ "dynamic_coupled_dipole": [
+  {
+   "t": 0.4,
+   "Gamma": 7.409880976500703e-07,
+   "Gamma_over_t4": 2.8944847564455864e-05,
+   "extinction_reciprocity_rel": 1.7282654825171307e-16,
+   "absorption_plus": 0.0025092663755542726,
+   "absorption_minus": 0.0025092682349466254,
+   "manuscript_Gamma_over_t4": 2.89345641e-05,
+   "relative_difference": 0.000355404160239825
+  },
+  {
+   "t": 0.2,
+   "Gamma": 4.8492304950252626e-08,
+   "Gamma_over_t4": 3.0307690593907885e-05,
+   "extinction_reciprocity_rel": 1.728817694353972e-16,
+   "absorption_plus": 0.0012542653745156872,
+   "absorption_minus": 0.0012542654353381352,
+   "manuscript_Gamma_over_t4": 3.03048021e-05,
+   "relative_difference": 9.531472597501534e-05
+  },
+  {
+   "t": 0.1,
+   "Gamma": 3.065604925598157e-09,
+   "Gamma_over_t4": 3.065604925598156e-05,
+   "extinction_reciprocity_rel": 0.0,
+   "absorption_plus": 0.0006270836460227512,
+   "absorption_minus": 0.0006270836479451428,
+   "manuscript_Gamma_over_t4": 3.06551229e-05,
+   "relative_difference": 3.0218635383771897e-05
+  },
+  {
+   "t": 0.05,
+   "Gamma": 1.921476023040131e-10,
+   "Gamma_over_t4": 3.074361636864209e-05,
+   "extinction_reciprocity_rel": 3.4579883103102063e-16,
+   "absorption_plus": 0.00031353550430209904,
+   "absorption_minus": 0.00031353550436234425,
+   "manuscript_Gamma_over_t4": 3.07431878e-05,
+   "relative_difference": 1.3940279872226569e-05
+  },
+  {
+   "t": 0.025,
+   "Gamma": 1.2017788010783977e-11,
+   "Gamma_over_t4": 3.076553730760698e-05,
+   "extinction_reciprocity_rel": 0.0,
+   "absorption_plus": 0.00015676695070303357,
+   "absorption_minus": 0.00015676695070491756,
+   "manuscript_Gamma_over_t4": 3.07652336e-05,
+   "relative_difference": 9.87177964995034e-06
+  }
+ ],
+ "gates": {
+  "single-exchange C inside proved interval": true,
+  "single-exchange C within 1e-5 of manuscript extrapolation": true,
+  "dipole model within 1e-3 of Table 1 at every t": true,
+  "extinction reciprocity to rounding": true,
+  "Mie static limit": true
+ }
+}

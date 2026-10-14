@@ -1,0 +1,18 @@
+{
+ "name": "generalized-research audit 2026-10-14",
+ "sources": [
+  {"path": "papers/generalized-research/manuscript/OQ7_generalized_research_2026-10-10.pdf",
+   "sha256": "3f01036ff6bc99939b1f2b1a8a205ac4e755188930535db1336d841ca7d377bf"}
+ ],
+ "checks": [
+  {"script": "checks/channel_and_planar_checks.py", "output": "checks/results/channel_and_planar_checks.json"}
+ ],
+ "lean": ["../../../historical-notes/projects/oq7-mission/lean/OQ7Mission/RationalOverlap.lean"],
+ "replays": [
+  {"import": "OQ7",
+   "declarations": ["OQ7.theorem51"],
+   "print": ["OQ7.Theorem51Statement", "OQ7.PhysicalParameters", "OQ7.exactTargetClass",
+             "OQ7.optimalAsymmetry", "OQ7.asymptoticCoefficient", "OQ7.ScalarEnvelope.ActiveTarget"],
+   "kernel_modules": ["OQ7.SharpPhysicalConstruction"]}
+ ]
+}

@@ -1,0 +1,46 @@
+OQ7.theorem51 : ∀ (p : OQ7.PhysicalParameters), OQ7.Theorem51Statement p
+'OQ7.theorem51' depends on axioms: [propext, Classical.choice, Quot.sound]
+def OQ7.Theorem51Statement : OQ7.PhysicalParameters → Prop :=
+fun p =>
+  (∀ᶠ (L : ℝ) in Filter.atTop, (OQ7.exactTargetClass p L).Nonempty) ∧
+    (∀ (L : ℝ), ∀ layers ∈ OQ7.exactTargetClass p L, OQ7.stackAsymmetry p.k layers < OQ7.ScalarEnvelope.D0 p.T p.a) ∧
+      Filter.Tendsto (fun L => (p.k * L) ^ 2 * (OQ7.ScalarEnvelope.D0 p.T p.a - OQ7.optimalAsymmetry p L)) Filter.atTop
+        (nhds (OQ7.asymptoticCoefficient p))
+structure OQ7.PhysicalParameters : Type
+number of parameters: 0
+fields:
+  OQ7.PhysicalParameters.k : ℝ
+  OQ7.PhysicalParameters.P : ℝ
+  OQ7.PhysicalParameters.Q : ℝ
+  OQ7.PhysicalParameters.M : ℝ
+  OQ7.PhysicalParameters.T : ℝ
+  OQ7.PhysicalParameters.a : ℝ
+  OQ7.PhysicalParameters.k_pos : 0 < self.k
+  OQ7.PhysicalParameters.P_gt_one : 1 < self.P
+  OQ7.PhysicalParameters.Q_pos : 0 < self.Q
+  OQ7.PhysicalParameters.M_pos : 0 < self.M
+  OQ7.PhysicalParameters.active : OQ7.ScalarEnvelope.ActiveTarget self.T self.a
+constructor:
+  OQ7.PhysicalParameters.mk (k P Q M T a : ℝ) (k_pos : 0 < k) (P_gt_one : 1 < P) (Q_pos : 0 < Q) (M_pos : 0 < M)
+    (active : OQ7.ScalarEnvelope.ActiveTarget T a) : OQ7.PhysicalParameters
+def OQ7.exactTargetClass : OQ7.PhysicalParameters → ℝ → Set (List OQ7.HomogeneousLayer) :=
+fun p L =>
+  {layers |
+    OQ7.StackAdmissible p.P p.Q layers ∧
+      OQ7.integratedLoss layers = p.M ∧
+        OQ7.totalThickness layers ≤ L ∧
+          OQ7.stackTransmissionPower p.k layers = p.T ∧ OQ7.stackMeanAbsorptance p.k layers = p.a}
+def OQ7.optimalAsymmetry : OQ7.PhysicalParameters → ℝ → ℝ :=
+fun p L => sSup (OQ7.stackAsymmetry p.k '' OQ7.exactTargetClass p L)
+def OQ7.asymptoticCoefficient : OQ7.PhysicalParameters → ℝ :=
+fun p => OQ7.ScalarEnvelope.alpha p.T p.a * Real.pi ^ 2 * (p.k * p.M) ^ 4 / (3 * p.P * p.Q ^ 2)
+structure OQ7.ScalarEnvelope.ActiveTarget (T a : ℝ) : Prop
+number of parameters: 2
+fields:
+  OQ7.ScalarEnvelope.ActiveTarget.transmission_pos : 0 < T
+  OQ7.ScalarEnvelope.ActiveTarget.transmission_lt_one : T < 1
+  OQ7.ScalarEnvelope.ActiveTarget.absorptance_pos : 0 < a
+  OQ7.ScalarEnvelope.ActiveTarget.absorptance_lt : a < (1 - T ^ 2) / 2
+constructor:
+  OQ7.ScalarEnvelope.ActiveTarget.mk {T a : ℝ} (transmission_pos : 0 < T) (transmission_lt_one : T < 1)
+    (absorptance_pos : 0 < a) (absorptance_lt : a < (1 - T ^ 2) / 2) : OQ7.ScalarEnvelope.ActiveTarget T a

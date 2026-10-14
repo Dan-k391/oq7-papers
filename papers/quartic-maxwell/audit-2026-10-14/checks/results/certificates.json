@@ -1,0 +1,312 @@
+{
+ "source_sha256": "576478ba88fd374e724b96e07c5e3e1648485cd163dc4d8ba9cd0b3ef52eac62",
+ "passed": 61,
+ "total": 61,
+ "checks": [
+  {
+   "check": "diag: |b(u)| <= u^2/2 on (0,20] grid",
+   "pass": true,
+   "detail": "0.9999999723397616"
+  },
+  {
+   "check": "diag: b'(u) = -u e^{iu}",
+   "pass": true,
+   "detail": "9.809830578443794e-10"
+  },
+  {
+   "check": "diag: |A(s)|,|B(s)| <= s^2 on (0,6/5] (rounding tol 1e-8)",
+   "pass": true,
+   "detail": "1.0000000030217857"
+  },
+  {
+   "check": "exact: |A(s)|<=s^2 integration bound valid for s^2<=3 (x(3+6x-x^2)>=0 on [0,3])",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "exact: Lemma 3.1 Schur constant 3/(8pi)*2pi = 3/4",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "exact: int Pi_n dOmega = (8pi/3) I",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "exact: (1/16pi^2)(8pi/3) = 1/(6pi)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "exact: Theorem 1.1 coefficient 2/(3pi)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "exact: Theorem 1.1 (6) coefficient 8/9",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "exact: beta_1 = 3(1+3i)/10",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "exact: beta_2 = 6(2+3i)/13",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "exact: alpha_1 = 4 pi a^3 (1+3i)/10",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "exact: alpha_2 = 32 pi a^3 (4+6i)/13",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "exact: I_b = -(8/195) w^2",
+   "pass": true,
+   "detail": "-8/195"
+  },
+  {
+   "check": "exact: D_b = (173/130) w",
+   "pass": true,
+   "detail": "173/130"
+  },
+  {
+   "check": "exact: gap 1-3a = 17/20",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "exact: c^2 = (4 sqrt2/14739)^2",
+   "pass": true,
+   "detail": "32/217238121"
+  },
+  {
+   "check": "exact: c < 1/2500",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "exact: -Im chi^{-1} = 1 and 1/2",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "exact: 4c/(1-2c) < 1/600 at c=1/2500 (monotone in c)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "exact: relative error = 0.097540625 < 1/10",
+   "pass": true,
+   "detail": "0.097540625"
+  },
+  {
+   "check": "exact: z-range: geometry inside B_{3/5}",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "exact: |I0| in [12/325, 44/975] w^2",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "exact: D0 in [10367/7800, 10393/7800] w",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "exact: (45) 2304 a^3/10393 <= C <= 2816 a^3/10367",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "exact: (7) interval at a=1/20",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "exact: C_b = 128 a^3/519",
+   "pass": true,
+   "detail": "128/519"
+  },
+  {
+   "check": "exact: interval contains C_b",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "exact: Schur radius-L ball  L^2/2 = 18/25",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "exact: ||T_t-T_0|| <= 2*2*18/25 = 72/25",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "exact: ||u_t-q0|| constant 81/25",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "exact: ||v_t-t q1|| constant 9/5",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "exact: radiation terms 54/125, 81/125, 3/5",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "exact: sum 42/25, times 4 = 168/25",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "exact: |D(t)-D0| constant 108/25",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "exact: D(t) >= w for t <= 1/4",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "exact: |S0| <= 88 w^2/(2925 pi)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "exact: division constant 55656/8125 < 7",
+   "pass": true,
+   "detail": "6.849969230769231"
+  },
+  {
+   "check": "exact: (7/pi) w = 21/2000 at a=1/20",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "exact: remainder at t=1/40 < (1/4) lower endpoint",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "exact: lower bound 27/1299125 = (3/4) * 36/1299125",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "exact: minimum enclosing radius 23/40 at z=1/40 (axial extent)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "exact: (61) L = 2688 pi^2 mu^3 a^9/(9+mu^2)^2",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "exact: (60) prefactor 6 sqrt3/(5) * (1+4) = 6 sqrt3",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "exact: (59) ||DH|| <= 24/(4pi r^4) = 6/(pi r^4)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "exact: (62) coefficient 48/7",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "exact: 48 sqrt3/(7 (4/5)^4) < 30",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "exact: h = 1-3a >= 4/5 for a <= 1/20",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "exact: (54) sqrt2/(3h^3) <= 1 at h=4/5",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "exact: (64) coefficient 54/35",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "exact: (63) b(mu+2|beta|) mu^3 <= (9/5) mu^4 since |beta|<=mu",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "exact: (65) 30/120 = 1/4 and (54/35)*(35/216) = 1/4",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "exact: (66) lower coefficient 2688/36 = 224/3",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "exact: (66) upper coefficient 3*(224/3) = 224",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "exact: mu=1,a=1/100 relative error 5277/175000 < 0.031",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "exact: beta(mu=1/10) Im and |beta|<=min(mu,3)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "exact: beta(mu=1) Im and |beta|<=min(mu,3)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "exact: beta(mu=3) Im and |beta|<=min(mu,3)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "exact: beta(mu=10) Im and |beta|<=min(mu,3)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "diag: Lorentz chi_1(w0) = 1i and Im chi > 0 for w > 0",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "diag: Lorentz chi_2(w0) = 2i and Im chi > 0 for w > 0",
+   "pass": true,
+   "detail": ""
+  }
+ ]
+}

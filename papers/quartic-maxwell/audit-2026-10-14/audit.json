@@ -1,0 +1,15 @@
+{
+ "name": "quartic-maxwell audit 2026-10-14",
+ "sources": [
+  {"path": "papers/quartic-maxwell/manuscript/OQ7_quartic_Maxwell_2026-10-10.pdf",
+   "sha256": "576478ba88fd374e724b96e07c5e3e1648485cd163dc4d8ba9cd0b3ef52eac62"},
+  {"path": "papers/quartic-maxwell/audits/OQ7_quartic_adversarial_audit_2026-10-10.pdf",
+   "sha256": "178914944734ddcf14c76a363b952afec901c57ca56f32b2f503c90c1d98c59b"}
+ ],
+ "checks": [
+  {"script": "checks/certificates.py", "output": "checks/results/certificates.json"},
+  {"script": "checks/two_sphere_crosscheck.py", "output": "checks/results/two_sphere_crosscheck.json"}
+ ],
+ "lean": ["lean/QuarticCertificates.lean"],
+ "replays": []
+}

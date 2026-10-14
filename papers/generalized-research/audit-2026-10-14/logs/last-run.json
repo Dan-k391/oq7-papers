@@ -1,0 +1,33 @@
+{
+ "started": "2026-10-14T16:48:08+00:00",
+ "audit": "generalized-research audit 2026-10-14",
+ "steps": [
+  {
+   "step": "sha256 papers/generalized-research/manuscript/OQ7_generalized_research_2026-10-10.pdf",
+   "pass": true,
+   "detail": "3f01036ff6bc99939b1f2b1a8a205ac4e755188930535db1336d841ca7d377bf"
+  },
+  {
+   "step": "check checks/channel_and_planar_checks.py",
+   "pass": true,
+   "detail": "34/34 checks passed"
+  },
+  {
+   "step": "lean ../../../historical-notes/projects/oq7-mission/lean/OQ7Mission/RationalOverlap.lean",
+   "pass": true,
+   "detail": "22 axiom reports; clean"
+  },
+  {
+   "step": "replay OQ7",
+   "pass": true,
+   "detail": "standard axioms only"
+  },
+  {
+   "step": "leanchecker --fresh OQ7.SharpPhysicalConstruction",
+   "pass": true,
+   "detail": "replaying OQ7.SharpPhysicalConstruction with --fresh"
+  }
+ ],
+ "finished": "2026-10-14T16:53:38+00:00",
+ "all_pass": true
+}

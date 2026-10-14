@@ -19,3 +19,5 @@ See [submission preparation](ARXIV_SUBMISSION.md), [all changes in this revision
 The exact audited theorem remains commit 686402a6c2d63820828729cc7ab02504632e3fe7, tag audited-686402a. The portable packaging commit remains tag portable-0bdf00f. Organization of this collection does not change theorem scope, upgrade dependencies, perform a new mathematical audit, or establish first priority.
 
 Use [the configured primary workspace](WORKSPACE.md) when available. See [reproduction instructions](REPRODUCE.md) and the preserved [reorganization record](archive/REORGANIZATION.md). All collaborators with repository access can read and edit the collection.
+
+Sibling-paper audits follow [AUDIT_WORKFLOW.md](AUDIT_WORKFLOW.md) and are re-run with `scripts/run-paper-audit.py`.
