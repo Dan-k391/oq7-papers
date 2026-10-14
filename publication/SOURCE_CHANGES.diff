@@ -1,0 +1,343 @@
+--- review-package/manuscript/main.tex
++++ publication/manuscript/main.tex
+@@ -20,13 +20,14 @@
+ \newcommand{\ip}[2]{\langle #1,#2\rangle}
+ \newcommand{\norm}[1]{\lVert #1\rVert}
+ \newcommand{\abs}[1]{\lvert #1\rvert}
+-\title{Unit Absorption Asymmetry at Prescribed Extinction\\for Compact Reciprocal Dielectrics}
+-\author{}
++\title{Unit Supremum of Absorption Asymmetry at Prescribed Extinction\\for Compact Reciprocal Dielectrics}
++\author{Daniel Wang\\McMaster University \and Junjie Zheng\\Columbia University}
++\hypersetup{pdfauthor={Daniel Wang and Junjie Zheng},pdftitle={Unit Supremum of Absorption Asymmetry at Prescribed Extinction for Compact Reciprocal Dielectrics}}
+ \date{}
+ \begin{document}
+ \maketitle
+ \begin{abstract}
+-For two opposite real linearly polarized plane waves, reciprocity fixes the extinction of a compact scatterer but permits different absorption and scattering. At a fixed vacuum wavenumber $k>0$, we establish that the supremum of the absorption difference divided by common extinction is one at every exactly prescribed extinction $E_*>0$. The realization uses finite compact two-layer local anisotropic nonmagnetic dielectrics satisfying arbitrary fixed upper caps $P>1$ and $Q>0$, with $I\preceq\ReH\varepsilon\preceq PI$ and $0\prec\ImH\varepsilon\preceq QI$ in each layer. Every individual body has asymmetry strictly below one. The constructive step is a physical aperture limit uniform after factorization by the squared sine of a material rotation angle, including its zero-angle auxiliary limit. This permits the coupling angle to decrease as the aperture increases while total extinction remains fixed. A subsequent positive isotropic-loss perturbation and a second intermediate-value argument preserve the exact target. Geometric resources are unrestricted across the approximating sequence, and no common positive loss floor or bandwidth is imposed. The polarization mechanism and reciprocal extinction identity have prior precedents; the contribution is the controlled compact Maxwell realization at prescribed extinction. A frozen Lean 4 formalization certifies the stated existence, suprema, and physical power identities, with the scope of its verification distinguished from independent semantic and priority review.
++Reciprocity equates the extinction cross sections for opposite real linearly polarized plane waves, while permitting different absorption and scattering. At a fixed vacuum wavenumber $k>0$, we prove that the supremum of the absorption difference divided by common extinction is one at every exactly prescribed extinction $E_*>0$. The construction uses finite compact two-layer local anisotropic nonmagnetic dielectrics satisfying arbitrary fixed caps $P>1$ and $Q>0$, with $I\preceq\ReH\varepsilon\preceq PI$ and $0\prec\ImH\varepsilon\preceq QI$ in each layer. Every individual body has asymmetry strictly below one. The key step is an aperture limit uniform after factoring out the squared sine of the material rotation angle, including its zero-angle auxiliary limit. This permits the coupling angle to decrease as the aperture grows while extinction remains fixed. Positive isotropic loss is then added, and continuity permits exact retuning to the target. The approximating sequence has no common geometric resource bound or positive loss floor, and no bandwidth guarantee is asserted. The contribution is the controlled compact Maxwell realization at prescribed extinction. An accompanying Lean 4 formalization verifies the main existence and supremum statements and physical power identities; its verification and review scope are specified separately.
+ \end{abstract}
+ 
+ \section{Introduction and relation to OQ7}\label{sec:intro}
+@@ -37,22 +38,15 @@
+ At a fixed coupling angle, enlarging a planar-like aperture increases extinction proportionally to area. A fixed-stack aperture limit therefore does not suffice to prescribe total extinction. The exact rotation factorization and uniform normalized aperture theorem below permit the coupling angle to decrease while the aperture grows. Green-operator and localization arguments justify this passage for actual finite Maxwell bodies. Dipole optimization, scalar thickness laws, fixed-resource bounds, and quartic small-size results have different hypotheses and are outside the present proof.
+ 
+ \section{Prior work and the precise contribution}\label{sec:prior}
+-Reciprocal extinction equality and directional absorption are established facts. Sounas and Al\`u derived opposite-incidence extinction symmetry and its implications for scattering manipulation \citep{SounasAlu2014}. Hopkins and coauthors studied directional absorption and scattering at equal extinction through modal interference in reciprocal particles \citep{Hopkins2015}. The passive inequality used below is a consequence of power conservation, and its strictness follows from the optical theorem. We claim no independent discovery of these facts.
+-
+-Polarization conversion combined with selective attenuation also has a substantial history. Armitage gives reciprocity constraints for Jones matrices and a polarizer--waveplate example \citep{Armitage2014}. Khurgin and coauthors demonstrated reciprocal asymmetric polarization switching using selective attenuation and imperfect waveplates, including passive experiments \citep{Khurgin2021}. This is a closely related channel mechanism. Ra'di, Asadchy, and Tretyakov analyze thin bianisotropic absorbers and distinct opposite-side responses, distinguishing reciprocal and nonreciprocal constitutive classes \citep{Radi2013}. Such sheet and channel constructions establish relevant mechanisms; their realizability assumptions must be retained when comparing them with local nonmagnetic dielectric volumes. Sounas and Al\`u also derive multiport and free-space response bounds, including a stated extension to loss through additional channels, as well as their lossless two-port result \citep{SounasAlu2017}. These necessary bounds do not themselves construct the prescribed-extinction dielectric family.
+-
+-Andersen and Frandsen showed that receiving-antenna absorption divided by absorption plus total scattering can approach one, with a directivity-dependent cost \citep{AndersenFrandsen2005}. That result precedes any general near-unit absorption-efficiency claim. It does not by itself supply the present simultaneous opposite-incidence response at every prescribed extinction within a capped local dielectric class. Schab, Gustafsson, and collaborators formulate absorption--scattering tradeoffs with prescribed losses and material parameters \citep{Schab2020}; those finite-resource optimization problems motivate the resource distinctions maintained here. Khurgin and Sun's loss-scaling analysis supplies separate material and confinement context for resonant metal--dielectric structures \citep{KhurginSun2011}.
+-
+-Related layered and metasurface devices also require explicit comparison. Kononchuk and coauthors combine dichroic attenuation with magnetic Faraday rotation in a layered-sheet isolator \citep{Kononchuk2019}; its complete device has a different, magnetically nonreciprocal constitutive class, while its selective-attenuation component is relevant. Earlier bianisotropic metasurface asymmetric absorption was studied by Yazdi and coauthors \citep{Yazdi2015}. M\'a\~nez-Espina and coauthors derive maximum directional absorptance difference in a reciprocal bianisotropic metasurface model and verify its predictions with full-wave simulations \citep{ManezEspina2026}. A planar absorptance difference in a specified coupled-mode model is distinct from a compact dimensional extinction-normalized supremum with every positive target and arbitrary material caps. These comparisons do not establish first priority for the latter theorem.
+-
+-For the finite-to-planar passage, Gao, Yang, and Kattawar studied polarized extinction of plates with large aspect ratios \citep{Gao2013}. Gustafsson and coauthors derived planar extinction and scattered-transmission identities for periodic slabs \citep{Gustafsson2012}; literal compact-material truncation and the uniform normalized limit required here have different quantifiers. Windowed Green-function methods rigorously treat layered backgrounds \citep{Bruno2016,Arrieta2022}, while volume-integral formulations supply the singular-kernel and radiation framework \citep{YurkinMishchenko2018,MishchenkoYurkin2018}. A computational window applied to an infinite-interface equation and literal truncation of a material body are different operations. Our smooth windows enter only trial currents; the final material aperture remains sharp.
+-
+-Mann and Al\`u's 2023 conference abstract explicitly announces maximal directional absorption for bianisotropic dipolar particles \citep{MannAlu2023}. It is direct prior art for the qualitative extremal phenomenon. The full equations, normalization, and any equivalent compact dielectric realization have not been verified from that contribution. Priority against it remains unresolved. More generally, absence of an identical retrieved statement does not establish first priority.
+-
+-The contribution established here is the combination of an aperture theorem uniform at vanishing physical coupling, exact finite-object extinction tuning, and positive-loss regularization preserving arbitrary fixed upper material caps. The mechanism, passive bound, extinction symmetry, and planar optical theorem have the prior precedents described above.
+-
+-The accompanying \href{../priority/TARGETED_PRIORITY_REPORT.md}{targeted theorem-level priority comparison} separates known ingredients and routine adaptations from the potentially distinct normalized compact-localization and exact-target combination. It does not establish first priority. Full-primary access and theorem equivalence remain unresolved for the identified Mann--Al\`u and Gao--Yang--Kattawar contributions and the stated version-specific access gaps.
+-
++Reciprocal extinction equality and directional absorption are established facts. Sounas and Al\`u derived opposite-incidence extinction symmetry and its implications for scattering manipulation \citep{SounasAlu2014}. Hopkins and coauthors obtained directional absorption and scattering at equal extinction through modal interference in reciprocal particles \citep{Hopkins2015}. Power conservation gives the passive bound used here, and the optical theorem gives strict nonattainment for compact bodies.
++
++Polarization conversion combined with selective attenuation also has established precedents. Armitage develops reciprocity constraints for Jones matrices and discusses a polarizer--waveplate example \citep{Armitage2014}. Khurgin and coauthors demonstrate reciprocal asymmetric polarization switching using selective attenuation and imperfect waveplates, including passive experiments \citep{Khurgin2021}. Thin bianisotropic absorbers and metasurfaces provide further examples of distinct opposite-side responses \citep{Radi2013,Yazdi2015}. M\'a\~nez-Espina and coauthors derive maximum directional absorptance difference in a reciprocal bianisotropic metasurface model and verify its predictions with full-wave simulations \citep{ManezEspina2026}. Kononchuk and coauthors combine selective attenuation with magnetic Faraday rotation in a layered-sheet isolator \citep{Kononchuk2019}; its complete device is magnetically nonreciprocal. These constructions must be compared with local nonmagnetic dielectric volumes under their respective constitutive and geometric assumptions.
++
++Efficiency and response bounds clarify the resource requirements. Andersen and Frandsen show that receiving-antenna absorption divided by absorption plus total scattering can approach one at a directivity-dependent cost \citep{AndersenFrandsen2005}. Schab and collaborators formulate absorption--scattering tradeoffs with prescribed losses and material parameters \citep{Schab2020}, while Khurgin and Sun analyze loss scaling in resonant metal--dielectric structures \citep{KhurginSun2011}. Sounas and Al\`u derive multiport and free-space response bounds, including a stated extension to loss through additional channels \citep{SounasAlu2017}. These results constrain related responses but do not themselves construct the present opposite-incidence family at every prescribed extinction under arbitrary fixed dielectric caps.
++
++For the finite-to-planar passage, Gao, Yang, and Kattawar study polarized extinction of plates with large aspect ratios \citep{Gao2013}. Gustafsson and coauthors derive planar extinction and scattered-transmission identities for periodic slabs \citep{Gustafsson2012}. Windowed Green-function methods treat layered backgrounds \citep{Bruno2016,Arrieta2022}, and volume-integral formulations supply the singular-kernel and radiation framework \citep{YurkinMishchenko2018,MishchenkoYurkin2018}. A computational window in an infinite-interface equation differs from literal truncation of a material body. Here smooth windows enter only trial currents; the final material aperture remains sharp.
++
++Mann and Al\`u's conference abstract announces maximal directional absorption for bianisotropic dipolar particles \citep{MannAlu2023}. It is direct prior art for the qualitative extremal phenomenon, although its full equations, normalization and possible equivalence to a compact dielectric realization remain unverified. The contribution established here is the uniform normalized compact-aperture limit at vanishing physical coupling, combined with exact finite-object extinction tuning and positive-loss regularization within arbitrary fixed upper material caps. These results distinguish the quantified theorem from the preceding mechanisms and bounds; they do not establish first priority.
+ 
+ \section{Maxwell model, material class, and cross sections}\label{sec:model}
+ Use time dependence $e^{-i\omega t}$, vacuum wavenumber $k=\omega/c>0$, relative permeability $\mu=I$, and relative permittivity $\varepsilon=I+\chi$. Write $\mathbf H=Z_0H$ for the impedance-normalized magnetic field. The incident fields are
+@@ -155,7 +149,7 @@
+ \begin{proof}
+ The Newtonian part has Fourier multiplier $-\boldsymbol\xi\boldsymbol\xi^T/\abs{\boldsymbol\xi}^2$, with norm at most one. It includes the local distributional contribution. Set $b(u)=e^{iu}(iu-1)+1$. Since $b'(u)=-ue^{iu}$ and $b(0)=0$, $\abs{b(u)}\leq u^2/2$ for real $u\geq0$. The dynamic difference kernel has radial and tangential eigenvalues $-2b(kr)/(4\pi r^3)$ and $((kr)^2e^{ikr}+b(kr))/(4\pi r^3)$, respectively. Its operator norm is at most $3k^2/(8\pi r)$. Rearrangement of the radial decreasing kernel gives $\sup_{\mathbf x}\int_D\abs{\mathbf x-\mathbf y}^{-1}\dd\mathbf y\leq2\pi(3\abs{D}/(4\pi))^{2/3}$. Schur's test proves~\eqref{eq:green-bound}.
+ 
+-The smooth identity $\Im g_k(\mathbf x)=k(16\pi^2)^{-1}\int_{S^2}e^{ik\mathbf n\cdot\mathbf x}\dd\Omega$ follows by direct angular integration. Applying $k^2I+\nabla\nabla\cdot$ supplies $k^2\Pi_{\mathbf n}$. Reciprocity of the kernel, Fubini's theorem, and $L^2(D)$ density yield~\eqref{eq:radiation}. The static contact term is real and contributes no imaginary work. The large-distance expansion of the same kernel gives~\eqref{eq:farfield} and its uniform remainder, together with $\mathbf H_s(r\mathbf n)=e^{ikr}\mathbf n\times F_p(\mathbf n)/r+O(r^{-2})$. Their sphere Poynting flux tends to $S$.
++The smooth identity $\Im g_k(\mathbf x)=k(16\pi^2)^{-1}\int_{S^2}e^{ik\mathbf n\cdot\mathbf x}\dd\Omega$ follows by direct angular integration. Applying $k^2I+\nabla\nabla\cdot$ supplies $k^2\Pi_{\mathbf n}$. Reciprocity of the kernel, Fubini's theorem, and $L^2(D)$ density yield~\eqref{eq:radiation}. The static contact term is real and contributes no imaginary work. The large-distance expansion of the same kernel gives~\eqref{eq:farfield} and its uniform remainder, together with $\mathbf H_s(r\mathbf n)=e^{ikr}\mathbf n\times F_p(\mathbf n)/r+O(r^{-2})$. Their sphere-integrated time-averaged Poynting flux, divided by the incident intensity $I_{\mathrm{inc}}=1/(2Z_0)$, tends to $S$.
+ \end{proof}
+ 
+ \begin{proposition}[Weak Maxwell well-posedness and optical identities]\label{prop:physical}
+@@ -241,7 +235,7 @@
+ \end{equation}
+ Indeed, propagation of $(E,E'/k)^T$ through a scalar layer of index $n$ is the matrix with entries $\cos(nkd),\sin(nkd)/n,-n\sin(nkd),\cos(nkd)$; at an integer multiple of $\pi$ it is $\pm I_2$.
+ 
+-All slab coefficients are referenced to their boundary planes: unit incident electric amplitude at one interface gives reflected amplitude $r$ there and transmitted amplitude $t$ at the other interface. A vacuum layer of width $\ell$ has $r=0,t=e^{ik\ell}$. For the absorber's $x$ polarization, put $n=\sqrt{1+i\eta}$ on the passive branch, $r_0=(1-n)/(1+n)$, and $p=e^{inkh}$. Its exact amplitudes and absorptance are
++All slab coefficients are referenced to their boundary planes: unit incident electric amplitude at one interface gives reflected amplitude $r$ there and transmitted amplitude $t$ at the other interface. A vacuum layer of width $\ell$ has $r=0,t=e^{ik\ell}$; write $v_A=e^{ikh}$ for the absorber's vacuum reference phase. For the absorber's $x$ polarization, put $n=\sqrt{1+i\eta}$ on the passive branch, $r_0=(1-n)/(1+n)$, and $p=e^{inkh}$. Its exact amplitudes and absorptance are
+ \begin{equation}\label{eq:absorber}
+  r_A=\frac{r_0(1-p^2)}{1-r_0^2p^2},\qquad
+  t_A=\frac{(1-r_0^2)p}{1-r_0^2p^2},\qquad
+@@ -373,7 +367,7 @@
+ \end{equation}
+ Indeed, $Y_R(\theta)/R^2\to Y_0$ along either endpoint and $\sin\theta/\theta\to1$. For large $R$, throughout the bracket $\Gamma_R>1-3\epsilon/4$.
+ 
+-At fixed $R$, $J_\theta$ and $L_{R,\theta}$ vary continuously in operator norm; the inverse identity and~\eqref{eq:scalar-inverse} give continuity of $X_R$. The intermediate value theorem supplies an angle $\theta_R$ with $X_R(\theta_R)=E_*$ exactly. Reciprocity supplies the same extinction for the other incidence. Monotonicity and a nonzero derivative are unnecessary. For every choice of such roots,
++At fixed $R$, $J_\theta$ and $L_{R,\theta}$ vary continuously in operator norm; the inverse identity and~\eqref{eq:scalar-inverse} give continuity of $X_R$. The intermediate value theorem supplies an angle $\theta_R\in[\theta_{\mathrm{lo}}(R),\theta_{\mathrm{hi}}(R)]$ with $X_R(\theta_R)=E_*$ exactly. Reciprocity supplies the same extinction for the other incidence. Monotonicity and a nonzero derivative are unnecessary. For every choice of such bracketed roots,
+ \begin{equation}\label{eq:root-scaling}
+  R\theta_R\to\sqrt{E_*/Y_0},\qquad
+  \Gamma_R(\theta_R)\to\gamma_{\infty,\delta}(0).
+@@ -401,14 +395,14 @@
+ The order of choices matters: choose a finite absorber, choose positive active plate loss, fix an angle interval, enlarge the aperture, and only then choose isotropic loss and retune. None of the estimates is asserted uniform in a vanishing active loss or a diverging thickness. The main theorem needs preservation of the bracket, not a quantitative rate for the final angle.
+ 
+ \section{Physical consequences and limitations}\label{sec:consequences}
+-At fixed extinction, let $h$ denote the more absorbing incidence and $\ell$ the other one. Energy balance gives
++At fixed extinction, label the more absorbing incidence $\mathrm{hi}$ and the other one $\mathrm{lo}$. Energy balance gives
+ \begin{equation}\label{eq:deficit}
+- 1-\Gamma=\frac{S_h+A_\ell}{E_*}.
+-\end{equation}
+-Thus $\Gamma\to1$ implies $A_h\to E_*$, $S_h\to0$, $A_\ell\to0$, and $S_\ell\to E_*$. No finite member has zero $S_h$ at positive extinction. Define co-polar forward directivity by
++ 1-\Gamma=\frac{S_{\mathrm{hi}}+A_{\mathrm{lo}}}{E_*}.
++\end{equation}
++Thus $\Gamma\to1$ implies $A_{\mathrm{hi}}\to E_*$, $S_{\mathrm{hi}}\to0$, $A_{\mathrm{lo}}\to0$, and $S_{\mathrm{lo}}\to E_*$. No finite member has zero $S_{\mathrm{hi}}$ at positive extinction. Define co-polar forward directivity by
+ \begin{equation}\label{eq:directivity}
+- D_{\mathrm{co},h}=\frac{4\pi\abs{\ey^\dagger F_h(\mathbf d_h)}^2}{S_h},\qquad
+- \Gamma\leq1-\frac{k^2E_*}{4\pi D_{\mathrm{co},h}},\qquad\mathbf d_h=\pm\ez.
++ D_{\mathrm{co},\mathrm{hi}}=\frac{4\pi\abs{\ey^\dagger F_{\mathrm{hi}}(\mathbf d_{\mathrm{hi}})}^2}{S_{\mathrm{hi}}},\qquad
++ \Gamma\leq1-\frac{k^2E_*}{4\pi D_{\mathrm{co},\mathrm{hi}}},\qquad\mathbf d_{\mathrm{hi}}=\pm\ez.
+ \end{equation}
+ The inequality follows by squaring the forward optical theorem and using $\abs{\Im z}\leq\abs z$. It is an established efficiency/directivity obstruction, consistent with the antenna literature \citep{AndersenFrandsen2005}. The expanding aperture permits the required unbounded directivity and a narrowing forward peak.
+ 
+@@ -420,37 +414,36 @@
+ \end{equation}
+ Then $\chi(\omega)=a+ib$. Independent oscillators on the real principal axes preserve locality and reciprocity. This compatibility observation is not part of the formal main theorem and gives no bandwidth claim.
+ 
+-The theorem supplies no practical finite-size optimizer, quantitative universal resource cost, common positive loss floor, or all-isotropic realization. Aperture and absorber thickness can grow, and the final isotropic loss can shrink. The fixed-resource and quartic small-object questions require different quantifiers and remain separate. No numerical simulation or experimental data are needed for the existence proof, and none is presented as a continuum accuracy certificate here.
++The theorem supplies no practical finite-size optimizer, quantitative universal resource cost, common positive loss floor, or all-isotropic realization. Aperture and absorber thickness can grow, and the final isotropic loss can shrink. The fixed-resource and quartic small-object questions require different quantifiers and remain separate.
+ 
+ \section{Formal verification correspondence}\label{sec:formal}
+-The frozen Lean 4 repository is identified by commit
++The accompanying Lean 4 formalization is frozen at commit
+ \begin{center}\small\texttt{686402a6c2d63820828729cc7ab02504632e3fe7}.\end{center}
+-The principal declaration and its type are
++Its principal declaration is
+ \begin{quote}
+ \texttt{OQ7Prescribed.theorem11\_complete}\\
+ \texttt{: PhysicalTheorem11Statement}.
+ \end{quote}
+-The source is \texttt{PrescribedExtinction/PhysicalTheorem11.lean}. The first conjunct preserves the existence statement \texttt{Theorem11Statement}. Further conjuncts prove both prescribed-extinction suprema, well-posedness almost everywhere for every admissible two-layer body, the full physical optical certificates, reciprocal extinction, universal bounds, and strict nonattainment.
+-
+-The correspondence is literal at the level of the main class and powers. \texttt{TwoLayerBody} uses two positive finite thicknesses and a finite positive square side length. \texttt{MaterialAdmissible} imposes transpose symmetry and the same Hermitian quadratic-form bounds as~\eqref{eq:material}. \texttt{ScatteringState} contains actual weak Maxwell fields, the uniform outgoing condition, and an $L^2$ compact polarization. Its test class is $C_c^\infty$. The formal supremum sets range over every such admissible body and state pair at the prescribed extinction, rather than only the constructed family. Physical sphere flux is proved for the canonical radiating representative.
+-
+-The machine proof of universal strictness also uses strictly positive local absorption at positive extinction, while Lemma~\ref{lem:strict} uses the far-field optical theorem. These are compatible proofs of the same conclusion within the stated class. \href{theorem-correspondence.html}{Supplement S1: theorem correspondence} distinguishes direct declarations, mathematical consequences, and exposition that is not separately formalized. The Weyl-fiber argument in Section~\ref{sec:aperture} and the Lean localization proof, which uses physical-space and $L^2$ lemmas, have different organizations. Equality of theorem statements does not require identical proof organization.
+-
+-The final AI-assisted independent audit of the frozen commit above reports PASS for Lean kernel validity, semantic fidelity to the original Theorem 1.1 and Lemma 1.2, Maxwell correctness within the formal model, both exact suprema and strict nonattainment, and closure of the preceding audit's F1--F4. These original statements correspond to Theorem~\ref{thm:main} and Lemma~\ref{lem:strict} here; the version comparison is supplied with the release. The final theorem uses only \texttt{propext}, \texttt{Classical.choice}, and \texttt{Quot.sound}. 
+-
+-The auditor additionally proved \texttt{auditor\_extinction\_pos} and unconditional strictness for admissible bodies; those audit theorems are preserved separately, without changing the frozen main theorem. The \href{reproducibility/AUDIT_REPORT_686402a.md}{final audit report}, programs, and logs accompany this release.
+-
+-The audit reports a fresh empty-environment replay of the \texttt{PhysicalTheorem11} import closure, using the same Lean kernel implementation. This is distinct from an independently implemented checker, which was not used. \href{reproducibility/manifest.json}{Supplement S3: frozen verification manifest} retains its historical export-time pending-review field; the completed final audit supersedes that status. \href{reproducibility/AUDIT_PROVENANCE.md}{Supplement S4: audit provenance} records both the preceding and final reviews. The audit establishes the main theorem's statement correspondence, not verification of every intermediate statement or this manuscript's reorganized proof presentation.
+-
+-Kernel checking verifies the encoded implication. The completed AI-assisted semantic review assesses its correspondence with the stated Maxwell model; it is distinct from human peer review, which is not established by these materials. Scientific priority, experimental realization, and finite-resource or bandwidth performance remain separate questions. Neither formal verification nor absence of a retrieved equivalent publication establishes novelty.
+-
+-No experimental or simulation datasets are used. The proof code is distributed with this review manuscript as \href{reproducibility/OQ7-complete-physical-theorem11-source.zip}{Supplement S2: frozen Lean source}; its toolchain, dependencies, correspondence table, and checking instructions are listed in the \href{reproducibility/SUPPLEMENT_INDEX.html}{supplement index}. These are accompanying review materials; a public archival location remains unspecified.
+-
+-\noindent\textbf{AI assistance and review status.}
+-This release used AI assistance for document preparation, source-to-claim comparison, compilation checks, and the focused literature-priority analysis. The supplied mathematical and semantic reviews are AI-assisted. Historical sources and reports retain their original version identities and attributions. No completed human peer review or independently implemented kernel check is claimed. Authorship and affiliation details are not supplied in this anonymous review copy.
++It proves the prescribed-extinction existence statement, both exact suprema, well-posedness for the admissible two-layer class, physical optical identities, reciprocal extinction and strict nonattainment. The formal material conditions, geometry and cross-section definitions match those of Sections~\ref{sec:model} and~\ref{sec:main}. Weak fields are identified almost everywhere; radiation and sphere-flux limits use the canonical exterior representative.
++
++Supplement S1 records the statement correspondence and distinguishes direct formal declarations, mathematical consequences and exposition not separately formalized. The formal localization proof and the Weyl-fiber presentation in Section~\ref{sec:aperture} use different organizations. The correspondence of the main theorem does not certify every intermediate estimate or paragraph of this manuscript's proof presentation. The causal-dispersion observation in Section~\ref{sec:consequences} also lies outside the formal main theorem.
++
++The archived final AI-assisted audit examines the frozen declaration and reports kernel validity, semantic fidelity to the original main theorem and lemma, Maxwell correctness within the formal model, both suprema and strict nonattainment. The version mapping identifies these statements with Theorem~\ref{thm:main} and Lemma~\ref{lem:strict}. The main declaration depends only on \texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound}. The recorded fresh replay uses Lean's own kernel implementation. Kernel checking certifies the encoded statement; the supplied semantic assessment is AI-assisted and does not constitute human peer review or an independently implemented kernel check.
++
++\noindent\textbf{Code and verification materials.}
++The accompanying materials comprise
++\href{theorem-correspondence.html}{S1: theorem correspondence},
++\href{reproducibility/OQ7-complete-physical-theorem11-source.zip}{S2: frozen proof source},
++\href{reproducibility/manifest.json}{S3: verification manifest}, and
++\href{reproducibility/AUDIT_PROVENANCE.md}{S4: audit provenance}.
++The \href{reproducibility/SUPPLEMENT_INDEX.html}{supplement index}
++provides dependency information, checking instructions and audit records. No experimental or simulation datasets are used.
++
++\noindent\textbf{AI assistance.}
++AI assistance was used for document preparation, source-to-claim comparison, compilation checks and focused literature-priority analysis. The accompanying mathematical and semantic reviews are AI-assisted.
+ 
+ \section{Conclusion}\label{sec:conclusion}
+-The prescribed-extinction problem has a unit normalized supremum within finite compact two-layer reciprocal anisotropic dielectrics at one frequency and under arbitrary fixed positive upper material caps. The proof combines exact rotation factorization, uniform normalized aperture localization, and two finite-object continuity arguments. Each selected object retains the exact extinction target and strictly positive tensor loss, while strict optical-theorem nonattainment prevents equality for an individual body. This gives a precise resource-unrestricted answer to one formulation of OQ7; finite-resource optima and bandwidth remain separate questions.
++The prescribed-extinction problem has a unit normalized supremum within finite compact two-layer reciprocal anisotropic dielectrics at one frequency and under arbitrary fixed positive upper material caps. The proof combines exact rotation factorization, uniform normalized aperture localization, and two finite-object continuity arguments. Each selected object retains the exact extinction target and strictly positive tensor loss, while strict optical-theorem nonattainment prevents equality for an individual body. This establishes the resource-unrestricted supremum for the stated formulation of OQ7; finite-resource optima and bandwidth remain separate questions.
+ 
+ \appendix
+ \section{Entire outgoing weak vacuum uniqueness}\label{app:weak}
+@@ -494,6 +487,7 @@
+ 
+ An operator argument independently justifies this regular limit. At $\delta=0$ the active scalar susceptibility stays nonzero. The projected transverse planar Green kernel on the finite interval is Hilbert--Schmidt, so $\alpha^{-1}-B_{\mathbf0,\theta}$ is Fredholm of index zero. A nullvector reconstructs a source-free outgoing passive one-dimensional field. Its flux identity forces both outgoing amplitudes to vanish; exterior $E,E'$ are therefore zero at an interface. Uniqueness of the finite-layer ordinary differential equation makes the field and current zero. The inverse exists, and operator-norm perturbation gives joint continuity in $(\delta,\theta)$ near $(0,0)$ for the fixed auxiliary drives. No inverse estimate uniform as $\delta\downarrow0$ is used in the aperture theorem.
+ 
++\small
+ \bibliographystyle{unsrtnat}
+ \bibliography{references}
+ \end{document}
+--- review-package/manuscript/references.bib
++++ publication/manuscript/references.bib
+@@ -110,6 +110,5 @@
+  author={Mann, Sander A. and Al{\`u}, Andrea},
+  title={Maximum Asymmetric Absorption and Scattering in Bianisotropic Particles},
+  year={2023}, howpublished={Metamaterials 2023, oral contribution, 14 September 2023},
+- url={https://congress2023.metamorphose-vi.org/index.php/component/svisor/?Itemid=156&task=showScheduleSvisor},
+- note={Official program and abstract; full equations and priority equivalence remain unverified}
++ url={https://congress2023.metamorphose-vi.org/index.php/component/svisor/?Itemid=156&task=showScheduleSvisor}
+ }
+--- review-package/manuscript/build.py
++++ publication/manuscript/build.py
+@@ -41,14 +41,23 @@
+     parser = argparse.ArgumentParser(description=__doc__)
+     parser.add_argument("--skip-pdf", action="store_true", help="Use existing build/main.aux and main.bbl")
+     parser.add_argument("--tectonic", help="Explicit TeX-engine path")
++    parser.add_argument("--xelatex", help="Use XeLaTeX and BibTeX instead of Tectonic")
++    parser.add_argument("--bibtex", default="bibtex", help="BibTeX executable for the XeLaTeX build")
+     parser.add_argument("--pandoc", help="Explicit Pandoc path")
+     args = parser.parse_args()
+     pandoc = args.pandoc or executable("pandoc", list((ROOT / "tools/pandoc").rglob("pandoc.exe")))
+     if not args.skip_pdf:
+-        tectonic = args.tectonic or executable("tectonic", [ROOT / "tools/tectonic/tectonic.exe"])
+-        os.environ.setdefault("TECTONIC_CACHE_DIR", str(ROOT / "tools/tectonic-cache"))
+-        run([tectonic, "--keep-logs", "--keep-intermediates", "--outdir", "build", "main.tex"],
+-            logfile=BUILD / "tectonic-build.log")
++        if args.xelatex:
++            latex_args = [args.xelatex, "-interaction=nonstopmode", "-halt-on-error", "-output-directory=build", "main.tex"]
++            run(latex_args, logfile=BUILD / "xelatex-pass-1.log")
++            run([args.bibtex, "build/main"], logfile=BUILD / "bibtex-build.log")
++            run(latex_args, logfile=BUILD / "xelatex-pass-2.log")
++            run(latex_args, logfile=BUILD / "xelatex-pass-3.log")
++        else:
++            tectonic = args.tectonic or executable("tectonic", [ROOT / "tools/tectonic/tectonic.exe"])
++            os.environ.setdefault("TECTONIC_CACHE_DIR", str(ROOT / "tools/tectonic-cache"))
++            run([tectonic, "--keep-logs", "--keep-intermediates", "--outdir", "build", "main.tex"],
++                logfile=BUILD / "tectonic-build.log")
+     for filename in ["main.pdf", "main.aux", "main.bbl"]:
+         if not (BUILD / filename).is_file():
+             raise RuntimeError(f"Missing TeX output: {filename}")
+@@ -63,6 +72,17 @@
+     expected_figs = re.findall(r"\\begin\{figure\}.*?\\label\{([^}]+)\}", source, re.S)
+     raw, warnings = run([pandoc, "main.tex", "-f", "latex", "-t", "json"])
+     doc = json.loads(raw)
++    author_names = []
++    for author in doc.get("meta", {}).get("author", {}).get("c", []):
++        nodes = author.get("c", [])
++        name_nodes = []
++        for node in nodes:
++            if node.get("t") == "LineBreak":
++                break
++            name_nodes.append(node)
++        if name_nodes:
++            author_names.append({"t": "MetaInlines", "c": name_nodes})
++    doc["meta"]["author-name"] = {"t": "MetaList", "c": author_names}
+     equation_ids = []
+     figure_ids = []
+     transformed_citations = []
+--- review-package/manuscript/template.html
++++ publication/manuscript/template.html
+@@ -4,6 +4,9 @@
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <meta name="generator" content="OQ7 publication build from authoritative LaTeX">
++$for(author-name)$
++<meta name="author" content="$author-name$">
++$endfor$
+ <title>$pagetitle$</title>
+ <style>
+ :root { color-scheme: light; --ink:#202b36; --blue:#1f5681; --line:#d8e1e8; }
+@@ -12,6 +15,8 @@
+ main { max-width:980px; margin:36px auto; padding:56px 70px; background:#fff; border:1px solid var(--line); }
+ header { border-bottom:2px solid var(--blue); padding-bottom:24px; margin-bottom:34px; }
+ h1 { font-size:2.0rem; line-height:1.25; margin:0; text-wrap:balance; }
++.authors { display:flex; flex-wrap:wrap; gap:18px 48px; margin:22px 0 0; font-size:1rem; line-height:1.5; }
++.author { margin:0; }
+ h2 { font-size:1.42rem; line-height:1.4; margin:2.2em 0 .8em; color:#213d53; }
+ h3 { font-size:1.14rem; line-height:1.4; margin:1.7em 0 .65em; }
+ p { margin:.75em 0; }
+@@ -34,8 +39,8 @@
+ .figure-fullsize { display:inline-block; margin-top:.35em; font:13px/1.5 system-ui,sans-serif; }
+ math[display="block"] { margin:0; }
+ math { font-size:1.06em; }
+-.math.inline { display:inline-block; max-width:100%; overflow-x:auto; vertical-align:middle; }
+-math[display="inline"] { display:inline-block; max-width:100%; overflow-x:auto; vertical-align:middle; }
++.math.inline { display:inline-block; max-width:100%; overflow-x:auto; overflow-y:hidden; vertical-align:middle; }
++math[display="inline"] { display:inline-block; max-width:100%; overflow:visible; vertical-align:middle; }
+ .center { text-align:center; }
+ .references { font-size:.89em; padding-left:2.6em; }
+ .references li { padding-left:.3em; margin:1em 0; overflow-wrap:anywhere; }
+@@ -58,7 +63,7 @@
+ </head>
+ <body>
+ <main>
+-<header><h1>$title$</h1></header>
++<header><h1>$title$</h1><div class="authors">$for(author)$<p class="author">$author$</p>$endfor$</div></header>
+ <details class="contents"><summary>Contents</summary>$toc$</details>
+ $body$
+ <footer>Generated from the editable LaTeX manuscript and BibTeX bibliography. Equation, theorem, section, and citation numbers match the PDF. Mathematical expressions use native MathML.</footer>
+--- baseline-fbbfc94/README.md
++++ README.md
+@@ -1,26 +1,33 @@
+-# OQ7 compact prescribed-extinction theorem
+-
+-Private archival/review repository for the existing audited result. No new theorem or investigation is added by this upload.
+-
+-The exact audited declaration is OQ7Prescribed.theorem11_complete : OQ7Prescribed.PhysicalTheorem11Statement at commit 686402a6c2d63820828729cc7ab02504632e3fe7. That original commit is preserved in the history and tagged audited-686402a. The separate portable packaging revision is tagged portable-0bdf00f. The 378 mathematical modules remain byte-identical.
+-
+-## Review materials
+-
+-- [Checked 16-page paper](review-package/manuscript/paper.pdf) and [manuscript source](review-package/manuscript/main.tex).
+-- [Complete deliverable index and S1–S4](review-package/RELEASE_INDEX.md).
+-- [Final package audit](review-package/FINAL_REVIEW_AUDIT.md), [claim-to-code correspondence](review-package/CLAIM_TO_CODE.md) and [audit provenance](review-package/AUDIT_PROVENANCE.md).
+-- [Reproduction commands](review-package/REPRODUCE.md), [exact regenerated commands](review-package/verification/COMMANDS.jsonl), [theorem type](review-package/FINAL_THEOREM_TYPE.txt), [axioms](review-package/FINAL_AXIOMS.txt), and [same-kernel fresh replay log](review-package/KERNEL_REPLAY.log).
+-- [All nine pinned dependency snapshots](review-package/release/dependency-sources/PINNED_DEPENDENCIES.json).
+-- [Historical version dispositions](review-package/VERSION_VERIFICATION_DISPOSITION.md) and [already-completed bounded priority comparison](review-package/priority/TARGETED_PRIORITY_REPORT.md).
+-
+-The compiler archive is supplied inside the complete source-and-audit archive attached to the private release/draft on this repository's [Releases page](https://github.com/Dan-k391/oq7-prescribed-extinction/releases). It is too large for an ordinary Git blob. Extract that complete archive to obtain the exact sealed package, including the compiler. Its SHA-256 is recorded in GITHUB_UPLOAD.md. The package's SHA256SUMS covers the full package, so the compiler must be restored before checking every member against it.
+-
+-## Claim scope
+-
+-Gamma is the absolute absorption difference divided by the common dimensional extinction, equivalently the scattering difference divided by it. The same unchanged object/material law is used for opposite unit-amplitude waves with the same real y polarization. For fixed frequency and stated pointwise material caps, every strictly positive extinction target is exactly realized by a compact reciprocal local nonmagnetic anisotropic dielectric sequence. Radiation accounting includes the whole sphere and both polarizations. The unit supremum is strictly nonattained.
+-
+-Dimensions are unrestricted across the sequence; there is no common positive loss floor, fixed-resource guarantee or bandwidth claim. The statement is not expanded to every interpretation of OQ7.
+-
+-The recovered final-commit audit and regenerated strict checking support the final theorem's formal-verification claim. Only propext, Classical.choice and Quot.sound occur in the theorem dependency axioms. Fresh replay uses the same Lean kernel. AI-assisted semantic and ordinary mathematical review are distinguished from human peer review, and independently implemented kernel checking is not claimed. First priority remains unresolved.
+-
+-Historical originals are retained without rewriting their prior status. The uncompiled scalar thickness checkpoint and unrecovered 43-theorem finite-port source are not used as substitutes. The manuscript remains anonymous; named author metadata has not been supplied. This private repository is not a public preprint or journal submission.
++# Unit Supremum of Absorption Asymmetry at Prescribed Extinction for Compact Reciprocal Dielectrics
++
++**Daniel Wang — McMaster University**
++
++**Junjie Zheng — Columbia University**
++
++This repository contains the manuscript, accompanying formal-verification evidence, and preserved earlier versions.
++
++## Manuscript
++
++- [Current PDF](publication/manuscript/paper.pdf), [HTML](publication/manuscript/paper.html), and [LaTeX source](publication/manuscript/main.tex)
++- [Publication document index](publication/README.md), [author information](publication/AUTHOR_INFORMATION.md), and [revision record](publication/CHANGES.md)
++- [S1–S4 supplements](publication/manuscript/reproducibility/SUPPLEMENT_INDEX.html)
++
++The normalized asymmetry is the absolute absorption difference divided by the common dimensional extinction. For opposite unit-amplitude plane waves with the same real linear polarization, the theorem gives a unit supremum at every positive prescribed extinction within the stated compact two-layer reciprocal local nonmagnetic anisotropic dielectric class. Each individual body has strictly smaller asymmetry. Radiation accounting includes the full outgoing sphere and both transverse polarizations.
++
++The theorem is at one frequency and under fixed pointwise upper material caps. Dimensions are unrestricted across the approximating sequence, with no common positive loss floor or bandwidth guarantee.
++
++## Formal evidence
++
++The audited declaration is `OQ7Prescribed.theorem11_complete : OQ7Prescribed.PhysicalTheorem11Statement` at commit `686402a6c2d63820828729cc7ab02504632e3fe7`, preserved under tag `audited-686402a`. The portable packaging revision is tagged `portable-0bdf00f`. The publication revision does not change the mathematical source files.
++
++- [Proof reproduction instructions](review-package/REPRODUCE.md) and [exact checking commands](review-package/verification/COMMANDS.jsonl)
++- [Final audit report](review-package/release/evidence/AUDIT_REPORT_686402a.md), [claim-to-code correspondence](review-package/CLAIM_TO_CODE.md), and [audit provenance](publication/manuscript/reproducibility/AUDIT_PROVENANCE.md)
++- [Pinned dependency identities](review-package/release/dependency-sources/PINNED_DEPENDENCIES.json)
++
++The supplied checking records report only `propext`, `Classical.choice`, and `Quot.sound` as final-theorem dependency axioms. Fresh replay uses Lean's same kernel implementation. The mathematical and semantic reviews are AI-assisted; these materials do not establish completed human peer review, an independently implemented kernel check, or first scientific priority.
++
++## Earlier versions
++
++The [sealed October 13, 2026 review package](review-package/RELEASE_INDEX.md) retains the anonymous manuscript, original reports, logs, and checksums. Root-level milestone documents record successive earlier stages; their partial or pending statements are historical. The [version-specific disposition](review-package/VERSION_VERIFICATION_DISPOSITION.md) identifies the final evidence, and the [bounded priority comparison](review-package/priority/TARGETED_PRIORITY_REPORT.md) records unresolved literature comparisons.
++
++The sealed checksum manifest includes a compiler archive omitted from ordinary Git files. The [upload provenance](GITHUB_UPLOAD.md) records the complete archive and compiler identities. Restoring that member is required to check every entry in the sealed manifest.
+--- baseline-fbbfc94/.gitignore
++++ .gitignore
+@@ -1,5 +1,7 @@
+-.lake/
+-*.olean
+-*.ilean
+-*.c
+-work/
++.lake/
++*.olean
++*.ilean
++*.c
++work/
++.publication-work/
++publication/manuscript/build/

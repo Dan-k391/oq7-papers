@@ -1,26 +1,33 @@
-# OQ7 compact prescribed-extinction theorem
+# Unit Supremum of Absorption Asymmetry at Prescribed Extinction for Compact Reciprocal Dielectrics
 
-Private archival/review repository for the existing audited result. No new theorem or investigation is added by this upload.
+**Daniel Wang — McMaster University**
 
-The exact audited declaration is OQ7Prescribed.theorem11_complete : OQ7Prescribed.PhysicalTheorem11Statement at commit 686402a6c2d63820828729cc7ab02504632e3fe7. That original commit is preserved in the history and tagged audited-686402a. The separate portable packaging revision is tagged portable-0bdf00f. The 378 mathematical modules remain byte-identical.
+**Junjie Zheng — Columbia University**
 
-## Review materials
+This repository contains the manuscript, accompanying formal-verification evidence, and preserved earlier versions.
 
-- [Checked 16-page paper](review-package/manuscript/paper.pdf) and [manuscript source](review-package/manuscript/main.tex).
-- [Complete deliverable index and S1–S4](review-package/RELEASE_INDEX.md).
-- [Final package audit](review-package/FINAL_REVIEW_AUDIT.md), [claim-to-code correspondence](review-package/CLAIM_TO_CODE.md) and [audit provenance](review-package/AUDIT_PROVENANCE.md).
-- [Reproduction commands](review-package/REPRODUCE.md), [exact regenerated commands](review-package/verification/COMMANDS.jsonl), [theorem type](review-package/FINAL_THEOREM_TYPE.txt), [axioms](review-package/FINAL_AXIOMS.txt), and [same-kernel fresh replay log](review-package/KERNEL_REPLAY.log).
-- [All nine pinned dependency snapshots](review-package/release/dependency-sources/PINNED_DEPENDENCIES.json).
-- [Historical version dispositions](review-package/VERSION_VERIFICATION_DISPOSITION.md) and [already-completed bounded priority comparison](review-package/priority/TARGETED_PRIORITY_REPORT.md).
+## Manuscript
 
-The compiler archive is supplied inside the complete source-and-audit archive attached to the private release/draft on this repository's [Releases page](https://github.com/Dan-k391/oq7-prescribed-extinction/releases). It is too large for an ordinary Git blob. Extract that complete archive to obtain the exact sealed package, including the compiler. Its SHA-256 is recorded in GITHUB_UPLOAD.md. The package's SHA256SUMS covers the full package, so the compiler must be restored before checking every member against it.
+- [Current PDF](publication/manuscript/paper.pdf), [HTML](publication/manuscript/paper.html), and [LaTeX source](publication/manuscript/main.tex)
+- [Publication document index](publication/README.md), [author information](publication/AUTHOR_INFORMATION.md), and [revision record](publication/CHANGES.md)
+- [S1–S4 supplements](publication/manuscript/reproducibility/SUPPLEMENT_INDEX.html)
 
-## Claim scope
+The normalized asymmetry is the absolute absorption difference divided by the common dimensional extinction. For opposite unit-amplitude plane waves with the same real linear polarization, the theorem gives a unit supremum at every positive prescribed extinction within the stated compact two-layer reciprocal local nonmagnetic anisotropic dielectric class. Each individual body has strictly smaller asymmetry. Radiation accounting includes the full outgoing sphere and both transverse polarizations.
 
-Gamma is the absolute absorption difference divided by the common dimensional extinction, equivalently the scattering difference divided by it. The same unchanged object/material law is used for opposite unit-amplitude waves with the same real y polarization. For fixed frequency and stated pointwise material caps, every strictly positive extinction target is exactly realized by a compact reciprocal local nonmagnetic anisotropic dielectric sequence. Radiation accounting includes the whole sphere and both polarizations. The unit supremum is strictly nonattained.
+The theorem is at one frequency and under fixed pointwise upper material caps. Dimensions are unrestricted across the approximating sequence, with no common positive loss floor or bandwidth guarantee.
 
-Dimensions are unrestricted across the sequence; there is no common positive loss floor, fixed-resource guarantee or bandwidth claim. The statement is not expanded to every interpretation of OQ7.
+## Formal evidence
 
-The recovered final-commit audit and regenerated strict checking support the final theorem's formal-verification claim. Only propext, Classical.choice and Quot.sound occur in the theorem dependency axioms. Fresh replay uses the same Lean kernel. AI-assisted semantic and ordinary mathematical review are distinguished from human peer review, and independently implemented kernel checking is not claimed. First priority remains unresolved.
+The audited declaration is `OQ7Prescribed.theorem11_complete : OQ7Prescribed.PhysicalTheorem11Statement` at commit `686402a6c2d63820828729cc7ab02504632e3fe7`, preserved under tag `audited-686402a`. The portable packaging revision is tagged `portable-0bdf00f`. The publication revision does not change the mathematical source files.
 
-Historical originals are retained without rewriting their prior status. The uncompiled scalar thickness checkpoint and unrecovered 43-theorem finite-port source are not used as substitutes. The manuscript remains anonymous; named author metadata has not been supplied. This private repository is not a public preprint or journal submission.
+- [Proof reproduction instructions](review-package/REPRODUCE.md) and [exact checking commands](review-package/verification/COMMANDS.jsonl)
+- [Final audit report](review-package/release/evidence/AUDIT_REPORT_686402a.md), [claim-to-code correspondence](review-package/CLAIM_TO_CODE.md), and [audit provenance](publication/manuscript/reproducibility/AUDIT_PROVENANCE.md)
+- [Pinned dependency identities](review-package/release/dependency-sources/PINNED_DEPENDENCIES.json)
+
+The supplied checking records report only `propext`, `Classical.choice`, and `Quot.sound` as final-theorem dependency axioms. Fresh replay uses Lean's same kernel implementation. The mathematical and semantic reviews are AI-assisted; these materials do not establish completed human peer review, an independently implemented kernel check, or first scientific priority.
+
+## Earlier versions
+
+The [sealed October 13, 2026 review package](review-package/RELEASE_INDEX.md) retains the anonymous manuscript, original reports, logs, and checksums. Root-level milestone documents record successive earlier stages; their partial or pending statements are historical. The [version-specific disposition](review-package/VERSION_VERIFICATION_DISPOSITION.md) identifies the final evidence, and the [bounded priority comparison](review-package/priority/TARGETED_PRIORITY_REPORT.md) records unresolved literature comparisons.
+
+The sealed checksum manifest includes a compiler archive omitted from ordinary Git files. The [upload provenance](GITHUB_UPLOAD.md) records the complete archive and compiler identities. Restoring that member is required to check every entry in the sealed manifest.

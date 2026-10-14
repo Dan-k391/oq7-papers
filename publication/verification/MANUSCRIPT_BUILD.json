@@ -1,0 +1,45 @@
+{
+  "date": "2026-10-14",
+  "scope": "Manuscript PDF and offline MathML HTML; no Lean execution",
+  "pdf_engine": "XeLaTeX / TeX Live 2024",
+  "bibliography_engine": "BibTeX / TeX Live 2024",
+  "html_engine": "Pandoc 3.12.1",
+  "commands": [
+    [
+      "python",
+      "build.py",
+      "--xelatex",
+      "PATH_TO_XELATEX",
+      "--bibtex",
+      "PATH_TO_BIBTEX",
+      "--pandoc",
+      "PATH_TO_PANDOC"
+    ],
+    [
+      "python",
+      "build.py",
+      "--skip-pdf",
+      "--pandoc",
+      "PATH_TO_PANDOC"
+    ]
+  ],
+  "xelatex_passes": 3,
+  "bibtex_passes": 1,
+  "exit_code": 0,
+  "pandoc_download": {
+    "url": "https://github.com/jgm/pandoc/releases/download/3.12.1/pandoc-3.12.1-windows-x86_64.zip",
+    "sha256": "6ef431cb20b2c24a0371fc19200dc49d452be54b1b5c9239f3462841ef53e587",
+    "digest": "sha256:6ef431cb20b2c24a0371fc19200dc49d452be54b1b5c9239f3462841ef53e587"
+  },
+  "source_sha256": {
+    "main.tex": "bf1cb5462bb1535c9b17f34ad22f8ead24e11b1ea15774354e1003d91037a33a",
+    "references.bib": "5e05914c33ed047fb2d7bf7105667830b8d101477ab3b043c2951721c8b3f858",
+    "build.py": "aab1c93b7086524648e96c909295242196527bc24b96cba9db16d99a4e8fd3e9",
+    "template.html": "0e831c4c1db7934e6773013f800703b182455d6bb19294b24a631be9450320e5"
+  },
+  "author_order": [
+    "Daniel Wang",
+    "Junjie Zheng"
+  ],
+  "author_correction_rebuilt_pdf_and_html": true
+}
