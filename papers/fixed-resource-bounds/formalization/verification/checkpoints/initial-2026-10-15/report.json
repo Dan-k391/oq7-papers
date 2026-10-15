@@ -1,0 +1,2863 @@
+{
+  "status": "fresh-kernel-passed",
+  "startedUTC": "2026-10-15T07:49:04.988247+00:00",
+  "finishedUTC": "2026-10-15T08:03:45.549815+00:00",
+  "project": "fixed-resource-bounds",
+  "namespace": "FixedResource",
+  "leanVersion": "Lean (version 4.34.1, x86_64-w64-windows-gnu, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)",
+  "mathlibRevision": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "compilerSHA256": "fcc4a10077d5fdd575592cea5f2981c91cbd77c490c80bc74407908e57e8b87b",
+  "checkerSHA256": "1f18d5f13e24519bc7e21217500b45be36bc6bfde70229556c857e6ad066811f",
+  "sameKernelImplementation": true,
+  "independentKernelImplementation": false,
+  "freshKernelPassed": true,
+  "allExportedDeclarationsAudited": true,
+  "exportCount": 48,
+  "exports": [
+    "FixedResource.BesselEnergy.energy",
+    "FixedResource.BesselEnergy.energy_derivative",
+    "FixedResource.BesselEnergy.energy_monotone",
+    "FixedResource.BesselEnergy.energy_upper",
+    "FixedResource.BesselEnergy.eigenvalue_pair_bound",
+    "FixedResource.bounded_volume_operator",
+    "FixedResource.null_support_zero",
+    "FixedResource.bounded_volume_operator_all",
+    "FixedResource.inverse_bound",
+    "FixedResource.weak_maxwell_wellposed",
+    "FixedResource.conjugate_incident_source",
+    "FixedResource.conjugate_polarization_transverse",
+    "FixedResource.complex_pair_volume_work",
+    "FixedResource.complex_pair_extinction",
+    "FixedResource.positive_extinction",
+    "FixedResource.interval_width",
+    "FixedResource.efficiency_fraction",
+    "FixedResource.efficiency_pair",
+    "FixedResource.response_extinction_cap",
+    "FixedResource.necessary_efficiency_cost",
+    "FixedResource.response_pair",
+    "FixedResource.positive_extinction_cost",
+    "FixedResource.absolute_difference_quarter",
+    "FixedResource.absolute_difference_small",
+    "FixedResource.SphereAlgebra.Mat",
+    "FixedResource.SphereAlgebra.chi",
+    "FixedResource.SphereAlgebra.d",
+    "FixedResource.SphereAlgebra.L",
+    "FixedResource.SphereAlgebra.plus",
+    "FixedResource.SphereAlgebra.minus",
+    "FixedResource.SphereAlgebra.quad",
+    "FixedResource.SphereAlgebra.power",
+    "FixedResource.SphereAlgebra.reciprocal",
+    "FixedResource.SphereAlgebra.static_response",
+    "FixedResource.SphereAlgebra.static_extinction_coefficient",
+    "FixedResource.SphereAlgebra.static_scattering_difference",
+    "FixedResource.SphereAlgebra.normalized_coefficient",
+    "FixedResource.SphereAlgebra.loss_decomposition",
+    "FixedResource.SphereAlgebra.loss_floor",
+    "FixedResource.SphereAlgebra.loss_upper",
+    "FixedResource.SphereAlgebra.real_permittivity",
+    "FixedResource.uniformBudget",
+    "FixedResource.uniformBeta",
+    "FixedResource.current_norm_loss",
+    "FixedResource.physical_scattering_efficiency",
+    "FixedResource.physical_extinction_work",
+    "FixedResource.physical_uniform_pair",
+    "FixedResource.physical_uniform_response_pair"
+  ],
+  "axioms": {
+    "FixedResource.BesselEnergy.energy": "propext, Classical.choice.{u}, Quot.sound.{u}",
+    "FixedResource.BesselEnergy.energy_derivative": "propext, Classical.choice.{u}, Quot.sound.{u}",
+    "FixedResource.BesselEnergy.energy_monotone": "propext, Classical.choice.{u}, Quot.sound.{u}",
+    "FixedResource.BesselEnergy.energy_upper": "propext, Classical.choice.{u}, Quot.sound.{u}",
+    "FixedResource.BesselEnergy.eigenvalue_pair_bound": "propext, Classical.choice.{u}, Quot.sound.{u}",
+    "FixedResource.bounded_volume_operator": "propext, Classical.choice.{u}, Quot.sound.{u}",
+    "FixedResource.null_support_zero": "propext, Classical.choice.{u}, Quot.sound.{u}",
+    "FixedResource.bounded_volume_operator_all": "propext, Classical.choice.{u}, Quot.sound.{u}",
+    "FixedResource.inverse_bound": "propext, Classical.choice.{u}, Quot.sound.{u}",
+    "FixedResource.weak_maxwell_wellposed": "propext, Classical.choice.{u}, Quot.sound.{u}",
+    "FixedResource.conjugate_incident_source": "propext, Classical.choice.{u}, Quot.sound.{u}",
+    "FixedResource.conjugate_polarization_transverse": "propext, Classical.choice.{u}, Quot.sound.{u}",
+    "FixedResource.complex_pair_volume_work": "propext, Classical.choice.{u}, Quot.sound.{u}",
+    "FixedResource.complex_pair_extinction": "propext, Classical.choice.{u}, Quot.sound.{u}",
+    "FixedResource.positive_extinction": "propext, Classical.choice.{u}, Quot.sound.{u}",
+    "FixedResource.interval_width": "propext, Classical.choice.{u}, Quot.sound.{u}",
+    "FixedResource.efficiency_fraction": "propext, Classical.choice.{u}, Quot.sound.{u}",
+    "FixedResource.efficiency_pair": "propext, Classical.choice.{u}, Quot.sound.{u}",
+    "FixedResource.response_extinction_cap": "propext, Classical.choice.{u}, Quot.sound.{u}",
+    "FixedResource.necessary_efficiency_cost": "propext, Classical.choice.{u}, Quot.sound.{u}",
+    "FixedResource.response_pair": "propext, Classical.choice.{u}, Quot.sound.{u}",
+    "FixedResource.positive_extinction_cost": "propext, Classical.choice.{u}, Quot.sound.{u}",
+    "FixedResource.absolute_difference_quarter": "propext, Classical.choice.{u}, Quot.sound.{u}",
+    "FixedResource.absolute_difference_small": "propext, Classical.choice.{u}, Quot.sound.{u}",
+    "FixedResource.SphereAlgebra.Mat": "propext, Classical.choice.{u}, Quot.sound.{u}",
+    "FixedResource.SphereAlgebra.chi": "propext, Classical.choice.{u}, Quot.sound.{u}",
+    "FixedResource.SphereAlgebra.d": "propext, Classical.choice.{u}, Quot.sound.{u}",
+    "FixedResource.SphereAlgebra.L": "propext, Classical.choice.{u}, Quot.sound.{u}",
+    "FixedResource.SphereAlgebra.plus": "propext, Classical.choice.{u}, Quot.sound.{u}",
+    "FixedResource.SphereAlgebra.minus": "propext, Classical.choice.{u}, Quot.sound.{u}",
+    "FixedResource.SphereAlgebra.quad": "propext, Classical.choice.{u}, Quot.sound.{u}",
+    "FixedResource.SphereAlgebra.power": "propext, Classical.choice.{u}, Quot.sound.{u}",
+    "FixedResource.SphereAlgebra.reciprocal": "propext, Classical.choice.{u}, Quot.sound.{u}",
+    "FixedResource.SphereAlgebra.static_response": "propext, Classical.choice.{u}, Quot.sound.{u}",
+    "FixedResource.SphereAlgebra.static_extinction_coefficient": "propext,\n Classical.choice.{u},\n Quot.sound.{u}",
+    "FixedResource.SphereAlgebra.static_scattering_difference": "propext,\n Classical.choice.{u},\n Quot.sound.{u}",
+    "FixedResource.SphereAlgebra.normalized_coefficient": "propext, Classical.choice.{u}, Quot.sound.{u}",
+    "FixedResource.SphereAlgebra.loss_decomposition": "propext, Classical.choice.{u}, Quot.sound.{u}",
+    "FixedResource.SphereAlgebra.loss_floor": "propext, Classical.choice.{u}, Quot.sound.{u}",
+    "FixedResource.SphereAlgebra.loss_upper": "propext, Classical.choice.{u}, Quot.sound.{u}",
+    "FixedResource.SphereAlgebra.real_permittivity": "propext, Classical.choice.{u}, Quot.sound.{u}",
+    "FixedResource.uniformBudget": "propext, Classical.choice.{u}, Quot.sound.{u}",
+    "FixedResource.uniformBeta": "propext, Classical.choice.{u}, Quot.sound.{u}",
+    "FixedResource.current_norm_loss": "propext, Classical.choice.{u}, Quot.sound.{u}",
+    "FixedResource.physical_scattering_efficiency": "propext, Classical.choice.{u}, Quot.sound.{u}",
+    "FixedResource.physical_extinction_work": "propext, Classical.choice.{u}, Quot.sound.{u}",
+    "FixedResource.physical_uniform_pair": "propext, Classical.choice.{u}, Quot.sound.{u}",
+    "FixedResource.physical_uniform_response_pair": "propext, Classical.choice.{u}, Quot.sound.{u}"
+  },
+  "sourceHashes": {
+    "papers/fixed-resource-bounds/formalization/FixedResource/BesselEnergy.lean": "2ce25054e1193803ce60bc8b367e6dbe9b8e957c7ea63bbe317ac215495fbbba",
+    "papers/quartic-maxwell/formalization/QuarticMaxwell/ProjectionGeometry.lean": "ceb94d9e5c1ad65477e62bca635c5d30a41e2ee75a994a906739d9567678095b",
+    "papers/quartic-maxwell/formalization/QuarticMaxwell/GreenEigenvalues.lean": "179f57f119faff4e9750b883b6737fa99aa4f7badf0090dbf630165eda2cf674",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/Basic.lean": "c28784676179d6de3515bcd1f4a954de966da5ed4b1aec980dba4835d8c842be",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/Maxwell.lean": "a9950f0f1c9ea4a20ff2c480a71cc4fabdc4ab84f8173851c37a4bd56e0d231b",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/GreenKernel.lean": "3a601832c3d6454533f558f130d988650b1215d9c1ce62ca846dd0effd9600dc",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/RadialCalculus.lean": "ed8b9b42f0bf64be57073ba74f16728064fc479ff843729849f9b2bb97bf87e9",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/NewtonKernel.lean": "a86012ead7511d0f67ce931b3ab653cd3d738d735a847a99b3c08388e6b95e6f",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/OutgoingRadial.lean": "b010c014ba7d30cf9fa70dd5f9b8de3116b7cbfee8066a425a5c4d6adcdee16f",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/GreenCancellation.lean": "93a0d5145050f289d945f7473cea317a44fe742e8a3c8b507cd4d65207b3d72a",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/Materials.lean": "6bbf0eb08fc0f159f45101b602a8b0be6dc9351d988f71061d8dbce2517af321",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/StaticFourier.lean": "16ecc1c08e33a8cdde982108acf09e25c025db1b8a28ffa8dbca755525d51cb9",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/DyadicRemainder.lean": "5fb0ff5ccb18154ad79da9fd73141660a03405dc0ad134d8269a208e4379544d",
+    "papers/quartic-maxwell/formalization/QuarticMaxwell/ProjectionKernel.lean": "ef8f0e2a7c6d30cb5241ce628ee92e906669a65e397e656370ea4ea99b5650f1",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/SphereMeasure.lean": "875388fb1316c5d3a87fe63b607454b8c94014028c9cfb4cb2188de467eb3955",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/SphereMoments.lean": "b0af55057732cfbafc8e4313ce68f10fbf69df0a4ed1fcebeb2cea9fd928e8d2",
+    "papers/quartic-maxwell/formalization/QuarticMaxwell/RadiationMoment.lean": "c6bf843ca0b095d764773afbdbee44cfbb693d0892fd66220a8e50b54ee39921",
+    "papers/quartic-maxwell/formalization/QuarticMaxwell/Schur.lean": "3a39af9994fcebdb76aad48caa0cec6cf5ad2a1a3992ef4dfbef5f90e941e0a8",
+    "papers/quartic-maxwell/formalization/QuarticMaxwell/SquareIntegral.lean": "0c664a8148eb83ee4af4d20dce7417aef10182f55852117ba0d41864512da5df",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/SetSupportedL2.lean": "5ddb514d50df9697999151cce0fb8660a3b76479e8cdfaabb3e416330a486788",
+    "papers/quartic-maxwell/formalization/QuarticMaxwell/RadiationOperator.lean": "92d0dd3bb3154d1196e00bb5ef4e895fbd4fea907a56a96605d5bb5873664fa7",
+    "papers/quartic-maxwell/formalization/QuarticMaxwell/IncidentSources.lean": "ba7874ba0e8383f03110cc850558d7635c19976a671cface4f8f3fae2631c232",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/NewtonBoundary.lean": "19f2ad2bfa12843cc2017e5f69e2b1975969e08c780bb8319944938919b20c95",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/NewtonPV.lean": "1fb2370b4c80d31b9b8b2032da9c201986905f20cae6729fdfea369e6e83558d",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/NewtonPrincipalValue.lean": "36338fd7f4bc485e084e6bce58789787ddc1fe8bf23e5a4fcdf8ecfe3fc9535b",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/NewtonCutoff.lean": "d99782437fd61f6bd64d7cf8a4000b1475c60721120b5a596ea54926c11ae92e",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/NewtonCutoffIBP.lean": "a98002ada6f2360c8e30bc2e2a29101abcacbb014c105f8c5b39012067427597",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/NewtonCutoffLimit.lean": "12d535691bb12e2ce383ffbbf9f5274e46df55325e18ac5f668aabaedee47b97",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/NewtonShell.lean": "27e18d2200ca955f3511b6d6df697dff8b8006750cb5c8909b45e9a11e9fc2d0",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/NewtonPunctured.lean": "2eeb944bd5f12916ace526217e6f5831fc06d2a114ce7a16e112144a6263132e",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/NewtonContact.lean": "81fce662c7cd20fa669ee43e025de6434803b9ea82f3442dff4c5d09f30db10f",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/Geometry.lean": "b584c06ebf199cd9565a858104b4b7d2e5989e1c6140222175e322a385dd5a25",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/VolumePotential.lean": "2b1d2e99f9a52d07b36d9a4721b9ac840f0f41045d179c5363b4fb29714353c9",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/NewtonTempered.lean": "1a2f75f44af14b236a8e9b27efcef86c15cf42e9bf54aadf510f8eb840b4dcf6",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/NewtonFundamental.lean": "301c1cf98293b4783dfff2eaff68560caaa8f49eb073304e9b78ac9a0ac8362e",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/NewtonSchwartz.lean": "01dcd60aece07933c05cc556e89c29559e56a43b3976e9697c5e0e830bc0e1a7",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/NewtonFourier.lean": "f13fcd0d70ab48f7eadcf4309388ec42768355e987119b0b27dd986420e2e872",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/NewtonHeat.lean": "43294481702e7adc3329cd655a5467304e38774aa533d8dc525269859f8d0189",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/NewtonHeatPairing.lean": "3d431472c379ff57196009a4e380901733b59d2a4b612538ec4b32b6b6f6e8bd",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/NewtonHeatFourier.lean": "2bb4fb1fd6f0ccb6db4985791e8eb609eecd93b3695e22cb704e573cbc2ecdb2",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/StaticSymbolCoordinates.lean": "34b6aff125774fe750f182a01ea68c3d7bb09a38e69648a54a2f8d73076d70c0",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/NewtonFrequency.lean": "2477696f808b3a5f6b5ea3516741cb25143925cdc9b197fc6b4659e1e3caa0a2",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/NewtonFrequencyHeat.lean": "070a90d685c43312389900f8a630e31c4e8889a6996ca5f0043c661d337b718a",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/NewtonSymbol.lean": "906d98a5a54bb1d40f006cabcd43bde0ea0c263fd136779ec2e372d8779b2e22",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/NewtonTransform.lean": "4d84043b57394a1245ea57256462100e0ad4edbbfe0cc437b0e491ab1c022a55",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/NewtonCurrentPairing.lean": "6df33c1f06141d671aeedadfffdc265808783d6439b4ec2dbf4ed6e069d8be33",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/OutgoingCurrentPairing.lean": "eb72daaa8e6993e24216f4d25956deb614b9a7a1fd4931c3796e92c3b9908fab",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/RemainderConvolution.lean": "3b2ec87dd3816c75bb89e9968f5f3b2dd763e0d4f8b8d1175eff88011896c75a",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/RemainderCurrentPairing.lean": "91d40c5d919fa3a36d4be0670ad55aa9ad1929777380596cf6e3d8a0674a9eeb",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/YoungConvolution.lean": "243bac6f55dcd708003abc2fb1144f7910168d6dbebf0a9a3eb7eac9faf02bde",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/ShrinkingCutoff.lean": "7b85aa314f05c955dd541591be82390b05ba8715c5539fc81aa5c054252a33da",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/RemovablePointIBP.lean": "35990de178a401b2a34e7b911b9f17deae17aadd524795e4f6dc3dc234f18e83",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/DynamicGreenRegularity.lean": "077a70bef44ef8e70e0de29ce33ecfc16f1b8af197fcd01f521ceef2436a5c4c",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/OutgoingDynamicIdentity.lean": "8d60fa2204d26ef6eeb7011aede64a57a265c27230114d12f3a6d10af165ce36",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/GreenGradient.lean": "b5194720653f05da0ad8bec8a45668473b85fa26b965f1e07049c945f8b0e859",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/PolePointIBP.lean": "9c6f0fe9f21e752b10ef3da8cc12a4a03b1517a70b3735161bd7362e2870bf06",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/GreenFirstDerivative.lean": "23ae1be155b4f182a62fcaf5cd70c90e2c8f40587412fc7b68a2ab9150dae28c",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/OutgoingFundamental.lean": "c3318b75c2d8b4378aa43f2553e8a0f975c9e19d8e9d1bdb412cc1d40f9fecbd",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/NewtonCurrentCorrelation.lean": "e37f59eaada9138d5c8a97d8d2cf85f3b73a9ea9cf47c9f246e4c6c6b30a67ca",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/NewtonCurrentFourier.lean": "ad79a469ba7c993c95818f5e3d0ce940307face965e5ecba7916c2136fab8cbe",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/FourierL1L2.lean": "af6f8dac4e9003d91e28e4dcd1b72a9052706dc9bdd5f86cc69bacd4f02173db",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/StaticOperatorDistribution.lean": "7a4f3d1260eb0f6b1b2c874c8364a37e1dbee95f98f6236e7d1901f535494807",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/NewtonStaticIdentification.lean": "02a03d5277cdcf69afd3f0821cf9865493c459629b965c13917103c80f968885",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/OutgoingVolumeIdentification.lean": "eec7c58b619de7db6ba6f35d6f57148a1f44fa618c2cc976e181fe925f28feb6",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/DistributionVectorCalculus.lean": "6eafe833c17cdb2c21390ef82eaf2fd1b8bee84433916f236940c9048b4b7bd0",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/VolumeFundamental.lean": "c36315f427457f6af06181bedff4a5b1cc0f24efd11838012fb93db0302eb9bc",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/GradientCurrentPairing.lean": "8e7973880bccc0c77b7300f2bf7fe2eef7fe59e927f746d5fd964dd59c2b42d5",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/CompactOutgoingOperator.lean": "b3b1dd8830c6dc7aa1c7335f8ff256c7b867ae7ef4a2b45461de9a2b44ebec00",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/CompactOutgoingIdentification.lean": "ac0826e440dab1f78780917e8ba277b53443bded9cd292caae8d791e411af70c",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/DyadicMaxwellSource.lean": "3bd14ea9c917bb4c4895636231f44ca00a19b597885a77f30a7b793da8e21573",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/PhysicalSourceFields.lean": "092ede2b0a9fb8e6a4abda2742a8bfda927f069bddef69fd844b8ac8c99c1fbf",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/WeakCurlBridge.lean": "fb86140f0c34b471d4c2de99a5db85d9af6aaa0a448f81cfd62c5f59d416db96",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/IncidentMaxwell.lean": "cae1d8b9f4c86f20ae7a2e060fd2ac2134458d76275671219b3a8f2c619db755",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/FarFieldGeometry.lean": "51d5a672c1832f525af923f0b5afbf47a7a318c61050539a3cfc453db36f1f08",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/RadiationKernel.lean": "d6782a59bf5dae9e1a71664910d1158a258814115a694990beab573db2ff754c",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/ExteriorOutgoing.lean": "f957a4e9ca74cfdaeb05f6922e46488f2cf56d05bb9a3a109c2cf00771b02ec4",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/FarFieldPhase.lean": "e2dced38efe03621d22bbbf8a7abfa65fda603e0909e2ce6bd56acc58d3b176a",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/FarFieldKernel.lean": "b9abede0db7727c77c89bb5272946235711ecb93c326d3e34fc928d44b55d48d",
+    "papers/quartic-maxwell/formalization/QuarticMaxwell/PlaneWaves.lean": "66a21599f53b1f660588bd2d365a560e20f7493d0dd46ee40c6da06810d5ba88",
+    "papers/quartic-maxwell/formalization/QuarticMaxwell/Rearrangement.lean": "4325514c20c7aa0fcc3ef99cfc1754bb4756b642527ac5a2dcd074b9aca43586",
+    "papers/quartic-maxwell/formalization/QuarticMaxwell/SharpVolume.lean": "b4b8195104b9d8a0920e6bf3d243a6b5129ce72065b76fe82e05afed4a22ba97",
+    "papers/quartic-maxwell/formalization/QuarticMaxwell/MaskedRemainder.lean": "4cfaf26d18a6a56925956cac0be1f32220624d79ca3a61603b3bf12d612280ee",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/TwoPieceL2.lean": "196ded0233d056b3c8b5a376b92caceed95fadac06114f90c2bcb37836a802b5",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/SupportedL2Maps.lean": "7c7b832696b927dea1ca0fbf16eb04361145ed8eb94d4b8943f4c6794af6315f",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/SmoothOutgoingFields.lean": "dd5ec20245746c5df7edb244eba9641519e76f9fd82be6b262666f4c233dd0a5",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/ExteriorKernelTests.lean": "d85e570aaa34d58cb7c22fc7785feb16513f3f65cf3da620cf5fd9835b8fc79e",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/ExteriorCurrentIdentification.lean": "8f15494d3a3a2223bac79a7c542e027071e7af153bb226af62cb37c12abdc15f",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/OutgoingSourceFields.lean": "e9df4f89e73f33879dc406be96a656bb0515ef35d78ad1d9adb23dfc762eede8",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/PhysicalPolarization.lean": "1d7b4b707b6909fd75924fb0fdd272e63ecbdcebccd0f05347b161617d4cf3a0",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/VolumeScatteringBridge.lean": "37ad16336613d61781490f27a68019fe9ca591057209a0dff9309db8d1e8b0b4",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/ComplexCoerciveInverse.lean": "79ec011d85c761a702d9778f4cb624c61122e0194dcaed68e878f7e7b51e48bf",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/TensorLossCoercivity.lean": "c43b6f6bfdd503851d81e8b8e76bf51e725a385f8472ebf7984d4d72aa6c3e86",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/PoyntingCutoff.lean": "efd0f304c7feb8dba575ebb3904afa046154e73cfa5653a42a0ba6c5697f162a",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/RadialEnergyCutoff.lean": "a7af45be576cbf2dac3611a0fceb6350894541b8e4685b29037d4b04c7293656",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/RadiationEnergyBounds.lean": "4cf96fcdac6ec88a38dd5e1e13b2aa1de2e71e02f1a1f70a6788964c84dd9d23",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/SmoothOutgoingDissipativity.lean": "6bb0c8921dd5183b6e1d30b31842d680f34f80d728983d4eb41ec1e2b247ab55",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/CompactCurrentDensity.lean": "27ccbbbad1f10f6b125eef5661c7953a39962cb7bb88ffad82a17fa47c5ee151",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/OutgoingDissipativity.lean": "04530caf58f61bd65e7bbf662929c65f6aeb0a90980e9ec35442da3780edcf5e",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/BodyCurrentSpace.lean": "b662a768ae2d5d9f6bc706fa0d04a1e19212dd8d309b0a00986a7a14f78ac3b8",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/MaterialBodyInverse.lean": "26c53f6776185e5ca5e59c2278ddaf847cda2cd71080b71d089e9dd3ddc60c3a",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/ScatteringExistence.lean": "d4f27e0b65b4ce72df53151f9d75c56b0aa3ca064e6d3af4a37e50c4b5acf122",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/ActiveCurrentSpace.lean": "2a2b8a1523a12cf1cba84ff5f41c36abac12198d76e565c3fe2a6e5259489923",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/ActiveMaterialInverse.lean": "a676e58ba5f27241e9ba19f9c8fbdd4af9d8941e88fb88823f567841b70ffef4",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/RankOneScattering.lean": "3fb2849d49904f3ac4702e90531a1f430f99584114ce34768f2f37a1f61fbb2b",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/PhysicalExtinctionWork.lean": "f0d54b75d1cdebfebd68a64857d556d2967d5f39e0ad10c4ec52ac70b97d11a1",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/FarFieldCurrent.lean": "66c222464beb9038ee4aa88671173375df6c4219bee2f42e111b680821e07869",
+    "papers/quartic-maxwell/formalization/QuarticMaxwell/RadiationPhysical.lean": "47141a7ffa13715fe796479e909b5d59eb1d4dfa099885c48f1aeb6111ce7eab",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/FarFieldFlux.lean": "a81fa4f4380c3d1242dae5a07ef7692d27f1fff1ca3bf7f1c0a287a920309194",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/FarFieldRadial.lean": "3f7190a3b97f8141e7b34062be5ad12575e1b989aba34cab1a55031ee34963c2",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/FarFieldWork.lean": "e9008dc3ed323f754a6d635ebbf5383bd092a387168ceaebb4a155e7f4de69af",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/FarFieldL2.lean": "18faccd837af10fe9a6b1e8a4646a6cbd7e87c3cecc0dc616582072b9c1d4aee",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/PhysicalAbsorptionWork.lean": "35aa94973fbbeeaa32bfb4246beaca4fc942b5bcbfb4841dc5b69a40d9ff5b88",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/FarFieldWorkL2.lean": "872246f1860f31dc9b0d7c72d2f2bb875855ee552cb93d479a4b1c483a8f630f",
+    "papers/quartic-maxwell/formalization/QuarticMaxwell/RadiationIdentity.lean": "68e01ed7d21ee692b472d62fff07eb25df829b82d9a866e7ced54d11ce25945c",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/LorentzCutoff.lean": "dce3e65b7c26467e832b06a2dd9598ae6391fb1ef979257ec99ba487c070fdf0",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/LorentzIdentity.lean": "81f2a436ff342590493c73ecae77f3e323217f6116b9b7a5e3f5a6d24850307c",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/LorentzBounds.lean": "f887ff10433b031e353985b2e8528c714c04964e03d1281d6ccdccefc8ee8520",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/SmoothReciprocity.lean": "30f7f359145352b9c98488cb1345ea4620b1561b1f7d62be5cf5c84fc5473b63",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/ReciprocityL2.lean": "e7af6b6394ad788775364c4d47b62fff18d63d4484778ffbb7b389defbd86985",
+    "papers/quartic-maxwell/formalization/QuarticMaxwell/Reciprocity.lean": "e384d066778e1925fdc0bec9d45883085ec63b6deb91eec2687dd79a3ff8aa7a",
+    "papers/quartic-maxwell/formalization/QuarticMaxwell/SupportedOperators.lean": "3720b404144e14d7d74d74517433a758e2b8d88b30bac4c37928080cff5d1eee",
+    "papers/quartic-maxwell/formalization/QuarticMaxwell/MaterialInverse.lean": "4c7badded7fcea8d33afcf7a0bc5000b3069c362b30d13628dbedebca9c02c2b",
+    "papers/quartic-maxwell/formalization/QuarticMaxwell/TensorMultiplier.lean": "d140fbc11039e72a972456e20c0283dfc3c9afe2fa2806bf2177f5dd3e3617c3",
+    "papers/quartic-maxwell/formalization/QuarticMaxwell/VolumeInverse.lean": "d948222906e8b77a652b8722257f6673c3f8e559bbdbd7004ffd0743cef71e08",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/WeakCurlProducts.lean": "29a3e9b6bd4de78f2061baa1a60a4f84476bfb5c96e2a972d7d0f53b73fed854",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/WeakCurlPlaneWave.lean": "57fd884f1a1e2c621f2dc747f4bf3de40fc7b64614cc3bc6a6bd6b43d8170ef8",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/WeakCurlFourier.lean": "9deaa63122cd2ec5b74efd20920904a8b46af911a4ffd3d26f545ed0f60fad6b",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/WeakCurlLocalization.lean": "6670d49d20bba5304ecf26ffec4c26b1c7e3f0e13ff34380da9281c47cb428bd",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/WeakCurlWeightedGreen.lean": "3c983da75acf31f696dda5a77815baab4f516db0200fe7573a5fcf97964ebd32",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/WeakPoynting.lean": "3f109d9e616ad5c90746227b25d5b5b6aa815106c912b5bfaed291891286695b",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/OutgoingWeakEnergy.lean": "0aa7d46c6d1fc9cca6c911590c8caa15741d92ca99d790b629d3c9dd5231e3fd",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/WeightedRadiationEnergy.lean": "3af1b7a821aae3b39c66534056503306f826fffd75fedfe97119689a451d72d8",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/WeakSmoothLorentz.lean": "d73216ec1a8b188bbc50e8a5193b59132d715c5569eb00bec061dfb995e824ec",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/WeakLorentzBoundaryBound.lean": "10368aeb7cd08b4ae17439cd6ae659b71d0fe895f88010690ffb330635578d06",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/SmoothSourceWeakDecay.lean": "bb1650d67623fa190ff90058bb31d0cd52da316639f74a959ff3817b6ec3e426",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/CompactFieldTestSeparation.lean": "611d864dac3533c011ee34705171669d33131461ee75ef2dcd018a4ed22a1cce",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/VacuumOutgoingWeakUniqueness.lean": "b40149defc960a4786e5c93860eeacee253a1511486de3ff58ea5284b6fd6e4b",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/WeakScatteringResidual.lean": "e34f8fb8d3c330ff3305473a282af3fa4d67628669bbe737762be418c6bff199",
+    "papers/quartic-maxwell/formalization/QuarticMaxwell/WeakMaterial.lean": "01eea838307862652d8a12e80640c0cb4ff2578bf9ddb8e240df42042dbc36b8",
+    "papers/quartic-maxwell/formalization/QuarticMaxwell/Operator.lean": "23ceeaf90bc49f39a3bd442de944ead114aab32d0cc865d1292260ccf47f80b5",
+    "papers/quartic-maxwell/formalization/QuarticMaxwell/UniformBound.lean": "35cffaca7f3076f670bc1107c4a90e12604445ab5e9c010da4d42e6190843b6a",
+    "papers/quartic-maxwell/formalization/QuarticMaxwell/BallBound.lean": "a494627335e0bfde72297c896970dcddcc9fe73405684a2a9012bc5da19ddb24",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/ExteriorSphereContinuity.lean": "2205f60d6997cbdc895949e97ab6e8a0bfb02fa9434a039ab31ccbe15e5e9b07",
+    "papers/prescribed-extinction/formalization/PrescribedExtinction/PhysicalSphereFlux.lean": "7fdcbc373a9b38d8d0959256278904327df46e90e161054deb645598e54a7c27",
+    "papers/quartic-maxwell/formalization/QuarticMaxwell/PhysicalPowers.lean": "6128371d08047d026e612a64fec9cc54b01a26f6daa890726aa3872c108979e1",
+    "papers/fixed-resource-bounds/formalization/FixedResource/MaxwellCore.lean": "9f1f075891fcb3279f8cec35659dced1440c8d6c7e64bfcea7499524f0e0ee8d",
+    "papers/fixed-resource-bounds/formalization/FixedResource/PowerIntervals.lean": "34bd76ae06862734c6b61ab57c5858e36e80a00a90218eb67ce275336bc9a967",
+    "papers/generalized-research/formalization/GeneralizedResearch/MiddleParameters.lean": "8cb7bd5ab7e29fad72ba2a914f5ea5fe703770f73b7efca8960451c13e7a79f9",
+    "papers/generalized-research/formalization/GeneralizedResearch/MiddleCertificate.lean": "1d99a689fca41f5f917374b191406e1c312efc761458d09f450e681f7b6b7ca5",
+    "papers/generalized-research/formalization/GeneralizedResearch/RealCompression.lean": "ce10c3d34966be6759987252b549293239ec435f7c8cfc48883bb30e630f4354",
+    "papers/generalized-research/formalization/GeneralizedResearch/CanonicalMiddle.lean": "a1ecfdda8ebd9d0bba778952b3a1f6134b42b15338f8c902fcc04023a9b3d70b",
+    "papers/generalized-research/formalization/GeneralizedResearch/OuterBound.lean": "e47338de09682345bd3492c6e85236b54aa453a34cc71d8a9b38bd3623b2a827",
+    "papers/generalized-research/formalization/GeneralizedResearch/ChannelPowers.lean": "7836a8c171c170ac3ba8d33d9090dcbd064aa8d57c6f1cde81061db059d98c08",
+    "papers/generalized-research/formalization/GeneralizedResearch/ThirdBranchAttainment.lean": "ac023e985ae72bbbda9334a2e38ae3c0f68d881fd3b0e2c8e7343dea20d2f5c4",
+    "papers/generalized-research/formalization/GeneralizedResearch/OrthogonalSharpness.lean": "cbd270bfc42c9715089e0153b33ee8968995c7e47b70a2ba17a842b745641765",
+    "papers/generalized-research/formalization/GeneralizedResearch/ChannelAttainment.lean": "98c5b2b03fe2b939c4bc11876e7b1ba3847fbf69efaae8192cf3a329b244fe73",
+    "papers/generalized-research/formalization/GeneralizedResearch/ChannelPassivity.lean": "c03581d2a158e0830863c18878a4804fe700576d8128ca0ccf2482e3d68a1720",
+    "papers/generalized-research/formalization/GeneralizedResearch/ChannelReciprocity.lean": "e43a676e79c3d4d5d5dc26d1ba8a598f2e872c6a2526cbf55be9b99a7993294f",
+    "papers/generalized-research/formalization/GeneralizedResearch/ChannelCoordinates.lean": "33c7f0fa130725036474be8a76fca32a304e7ce4a070490f81e6fac2bb5dc8c2",
+    "papers/generalized-research/formalization/GeneralizedResearch/FiniteHilbertBridge.lean": "6c089e5735b0d7eca2aed48ee6e4edc71eda5b018bceaedd80135c7e13fbc08f",
+    "papers/fixed-resource-bounds/formalization/FixedResource/SphereAlgebra.lean": "15d0f78c1bec2f37eb6a54e0783e582e9c8b7bb5f8b7ded1f95009c4d9f59ec4",
+    "papers/fixed-resource-bounds/formalization/FixedResource/UniformPhysicalBudget.lean": "e20f58f1e1e5cc78e60db26403aa720fed320ab18f943e6c3851a35e47f8fb9b",
+    "papers/fixed-resource-bounds/formalization/FixedResource.lean": "32745c2a59cb4e195ee270811831d4bbf1ce8a0f906c9cd51e56f180ea689142",
+    "papers/fixed-resource-bounds/formalization/verification/project.json": "01f5f60ac8207ca12dac5d90e347d88d62e4efd4921bfefb4ccaee35cf354814",
+    "papers/fixed-resource-bounds/formalization/verification/coverage.json": "53549ad4c093a8a116cde382cfdaab0329718634b6990a5d33eeb0014536ad90",
+    "papers/fixed-resource-bounds/formalization/lean-toolchain": "8152090414016dd5dc871752f8ce4ecdbd604d9845758e9b9047cb80101280b5",
+    "papers/fixed-resource-bounds/formalization/lakefile.toml": "784dbf3c58f491c2a9f155fdf7461bf4701dba45d89efe63372863df406a48e8",
+    "papers/fixed-resource-bounds/formalization/verify.py": "ead00e6aa0f2590e42596857bee5c36e4e770f3a4f95061f2c055699930190c5",
+    "papers/fixed-resource-bounds/formalization/Audit.lean": "dffc1db961a65ce3bc093eeb650201c77274eca7085d548ddce483ff99d7112c",
+    "papers/fixed-resource-bounds/formalization/README.md": "e250a1ae80c9c88ab4a0bc7ab3f1dfde3d717fd0f7ac65c302d49db3a6087e39",
+    "papers/fixed-resource-bounds/formalization/CLAIM_STATUS.md": "31bfaf6f00f6445bc2c503a12046a937d02011b833ba595cba1b58680082c8db",
+    "papers/quartic-maxwell/formalization/verify.py": "00f0fefef1c493e4b125d807a8a39755ca9e02f6b1f529d823c8cca08b7ac894",
+    "scripts/verify-companion-lean.py": "8a3883ee4709e3417b0cf4764bd9dcd5e4dacf3cf5a49e7bb88d8cc0993ad96c",
+    "papers/fixed-resource-bounds/formalization/verification/public-types.json": "e3c9a3a2cb11c956f4e24e8c03f15791f9fe9e29e3eebfcfddebab930daf50bc"
+  },
+  "dependencyObjects": {
+    "FixedResource.BesselEnergy": {
+      "source": "papers/fixed-resource-bounds/formalization/FixedResource/BesselEnergy.lean",
+      "sourceSHA256": "2ce25054e1193803ce60bc8b367e6dbe9b8e957c7ea63bbe317ac215495fbbba",
+      "artifactSHA256": "6390c0cc32c6dba2d7582e42b4c34a714683c9e70fce392dbbfdab1a61a4ab6c",
+      "rebuiltFromSource": true
+    },
+    "QuarticMaxwell.ProjectionGeometry": {
+      "source": "papers/quartic-maxwell/formalization/QuarticMaxwell/ProjectionGeometry.lean",
+      "sourceSHA256": "ceb94d9e5c1ad65477e62bca635c5d30a41e2ee75a994a906739d9567678095b",
+      "artifactSHA256": "a0f0dfc6d475404171120813d458cca7d3e2db3fda2b6d09cc94bf25d4381663",
+      "rebuiltFromSource": false
+    },
+    "QuarticMaxwell.GreenEigenvalues": {
+      "source": "papers/quartic-maxwell/formalization/QuarticMaxwell/GreenEigenvalues.lean",
+      "sourceSHA256": "179f57f119faff4e9750b883b6737fa99aa4f7badf0090dbf630165eda2cf674",
+      "artifactSHA256": "293e035816a39ff371ebd9b27627e69c09e240ac6a9653a95e5763d9a3849b1c",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.Basic": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/Basic.lean",
+      "sourceSHA256": "c28784676179d6de3515bcd1f4a954de966da5ed4b1aec980dba4835d8c842be",
+      "artifactSHA256": "9e3bf393762f580d37150425c33a35b7ba6f4167f1b94b5f1e1d076b878711ff",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.Maxwell": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/Maxwell.lean",
+      "sourceSHA256": "a9950f0f1c9ea4a20ff2c480a71cc4fabdc4ab84f8173851c37a4bd56e0d231b",
+      "artifactSHA256": "ddb63c7bc4db1285dbf8bc3dffa80c22b9ee7c791d2d335d0633a8f616c793cd",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.GreenKernel": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/GreenKernel.lean",
+      "sourceSHA256": "3a601832c3d6454533f558f130d988650b1215d9c1ce62ca846dd0effd9600dc",
+      "artifactSHA256": "887175d782cf568e1495bc50590d5d3561eeedbcf1ee77cfbae8334b66f126ee",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.RadialCalculus": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/RadialCalculus.lean",
+      "sourceSHA256": "ed8b9b42f0bf64be57073ba74f16728064fc479ff843729849f9b2bb97bf87e9",
+      "artifactSHA256": "e90818bf4703770e93eea9eb36c97fc2ff3e4d6a9081b05efb4c978541d60a19",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.NewtonKernel": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/NewtonKernel.lean",
+      "sourceSHA256": "a86012ead7511d0f67ce931b3ab653cd3d738d735a847a99b3c08388e6b95e6f",
+      "artifactSHA256": "96fd9d06b6683f86312c5a1444bf958f0fddc7c115c923dc3a3d4e4979ec71ac",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.OutgoingRadial": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/OutgoingRadial.lean",
+      "sourceSHA256": "b010c014ba7d30cf9fa70dd5f9b8de3116b7cbfee8066a425a5c4d6adcdee16f",
+      "artifactSHA256": "be3a05367a1a2d764e07fae3b4f7decbef4b1c688542b9c6e2681eec6ed06f8b",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.GreenCancellation": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/GreenCancellation.lean",
+      "sourceSHA256": "93a0d5145050f289d945f7473cea317a44fe742e8a3c8b507cd4d65207b3d72a",
+      "artifactSHA256": "fb5d11a18fa0f77a61eebbd8c4f9e0be1b947928de874f4a9ff4a583a36011a0",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.Materials": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/Materials.lean",
+      "sourceSHA256": "6bbf0eb08fc0f159f45101b602a8b0be6dc9351d988f71061d8dbce2517af321",
+      "artifactSHA256": "e371e6f41de9c6c0f8e56514f01b32a9a89d313fbaf40de49cc8fbc984672974",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.StaticFourier": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/StaticFourier.lean",
+      "sourceSHA256": "16ecc1c08e33a8cdde982108acf09e25c025db1b8a28ffa8dbca755525d51cb9",
+      "artifactSHA256": "11def1a08dec95dcbfccb984b7f8e49daaafee32b3633f5b3b21c641163a1d28",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.DyadicRemainder": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/DyadicRemainder.lean",
+      "sourceSHA256": "5fb0ff5ccb18154ad79da9fd73141660a03405dc0ad134d8269a208e4379544d",
+      "artifactSHA256": "9c63e070615179781403bdfa18d0bbff959a970d81440cf3bfc6d33ae5eb8aff",
+      "rebuiltFromSource": false
+    },
+    "QuarticMaxwell.ProjectionKernel": {
+      "source": "papers/quartic-maxwell/formalization/QuarticMaxwell/ProjectionKernel.lean",
+      "sourceSHA256": "ef8f0e2a7c6d30cb5241ce628ee92e906669a65e397e656370ea4ea99b5650f1",
+      "artifactSHA256": "efacc434bf72e190e2334646923c97e9a7aee4032c0c362b89bd4a67c62cfb5b",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.SphereMeasure": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/SphereMeasure.lean",
+      "sourceSHA256": "875388fb1316c5d3a87fe63b607454b8c94014028c9cfb4cb2188de467eb3955",
+      "artifactSHA256": "5f454c136715263a23cb6fb1e5cfcd4f2d840fa8969267f5f373a0a6c0884caa",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.SphereMoments": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/SphereMoments.lean",
+      "sourceSHA256": "b0af55057732cfbafc8e4313ce68f10fbf69df0a4ed1fcebeb2cea9fd928e8d2",
+      "artifactSHA256": "5e5e9acae8f4d183ca4460d33c937590780e95ef3b5a948aba240a9309754218",
+      "rebuiltFromSource": false
+    },
+    "QuarticMaxwell.RadiationMoment": {
+      "source": "papers/quartic-maxwell/formalization/QuarticMaxwell/RadiationMoment.lean",
+      "sourceSHA256": "c6bf843ca0b095d764773afbdbee44cfbb693d0892fd66220a8e50b54ee39921",
+      "artifactSHA256": "25cdaa3d409f4006a45966d235df902b07ab48e5a1b6be53850ff2f8cc4540dd",
+      "rebuiltFromSource": false
+    },
+    "QuarticMaxwell.Schur": {
+      "source": "papers/quartic-maxwell/formalization/QuarticMaxwell/Schur.lean",
+      "sourceSHA256": "3a39af9994fcebdb76aad48caa0cec6cf5ad2a1a3992ef4dfbef5f90e941e0a8",
+      "artifactSHA256": "100c85b890a47162ef7b159fb7317c0db1efb519058b0ea7409ba28b108ab0d3",
+      "rebuiltFromSource": false
+    },
+    "QuarticMaxwell.SquareIntegral": {
+      "source": "papers/quartic-maxwell/formalization/QuarticMaxwell/SquareIntegral.lean",
+      "sourceSHA256": "0c664a8148eb83ee4af4d20dce7417aef10182f55852117ba0d41864512da5df",
+      "artifactSHA256": "386071595c7c5594dc0d7bdd73eafa15db29c4d717297e125b2aec19258b3313",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.SetSupportedL2": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/SetSupportedL2.lean",
+      "sourceSHA256": "5ddb514d50df9697999151cce0fb8660a3b76479e8cdfaabb3e416330a486788",
+      "artifactSHA256": "d62dc754481de1848c412a3418176774ddff512349c7774e85207ae53abc6895",
+      "rebuiltFromSource": false
+    },
+    "QuarticMaxwell.RadiationOperator": {
+      "source": "papers/quartic-maxwell/formalization/QuarticMaxwell/RadiationOperator.lean",
+      "sourceSHA256": "92d0dd3bb3154d1196e00bb5ef4e895fbd4fea907a56a96605d5bb5873664fa7",
+      "artifactSHA256": "3d253dfb53d4ab4e51102208b15c9ac98e046efee24752af31ba6235e46fcdff",
+      "rebuiltFromSource": false
+    },
+    "QuarticMaxwell.IncidentSources": {
+      "source": "papers/quartic-maxwell/formalization/QuarticMaxwell/IncidentSources.lean",
+      "sourceSHA256": "ba7874ba0e8383f03110cc850558d7635c19976a671cface4f8f3fae2631c232",
+      "artifactSHA256": "9732e5b715f57d1aa3debf570841afbc8afc8dee7951cbc0859245675142f19c",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.NewtonBoundary": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/NewtonBoundary.lean",
+      "sourceSHA256": "19f2ad2bfa12843cc2017e5f69e2b1975969e08c780bb8319944938919b20c95",
+      "artifactSHA256": "345b16e256ece097e331625b04ea4ad301787356852eeebf602aa9d9c306deb2",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.NewtonPV": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/NewtonPV.lean",
+      "sourceSHA256": "1fb2370b4c80d31b9b8b2032da9c201986905f20cae6729fdfea369e6e83558d",
+      "artifactSHA256": "262f3b7abac1f5ad895c669c4fbb695b95aad4b5e588ce2f790d3650e33ea1d4",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.NewtonPrincipalValue": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/NewtonPrincipalValue.lean",
+      "sourceSHA256": "36338fd7f4bc485e084e6bce58789787ddc1fe8bf23e5a4fcdf8ecfe3fc9535b",
+      "artifactSHA256": "98d92fdea1d31295de0d452addc68e2f1ea7a1de441f4ca67e566f9b76a2cfa2",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.NewtonCutoff": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/NewtonCutoff.lean",
+      "sourceSHA256": "d99782437fd61f6bd64d7cf8a4000b1475c60721120b5a596ea54926c11ae92e",
+      "artifactSHA256": "426e6a3cfb37a0a3969f21209fcae6426461a347ce75b862ee9182674ddfe71b",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.NewtonCutoffIBP": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/NewtonCutoffIBP.lean",
+      "sourceSHA256": "a98002ada6f2360c8e30bc2e2a29101abcacbb014c105f8c5b39012067427597",
+      "artifactSHA256": "751f42503f9bf93c7bb0ce5d5b8f13bae22a9f02385f5a59c31cd7a9a8c25a91",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.NewtonCutoffLimit": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/NewtonCutoffLimit.lean",
+      "sourceSHA256": "12d535691bb12e2ce383ffbbf9f5274e46df55325e18ac5f668aabaedee47b97",
+      "artifactSHA256": "5deac685a2021ac1d48f6d63cb93a9bd487c425eef12c186ee8cd1d27b4a3442",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.NewtonShell": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/NewtonShell.lean",
+      "sourceSHA256": "27e18d2200ca955f3511b6d6df697dff8b8006750cb5c8909b45e9a11e9fc2d0",
+      "artifactSHA256": "961f7f808642508b6164157456995967851fb723084452d1c4848b446dddde2b",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.NewtonPunctured": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/NewtonPunctured.lean",
+      "sourceSHA256": "2eeb944bd5f12916ace526217e6f5831fc06d2a114ce7a16e112144a6263132e",
+      "artifactSHA256": "0d55f87836072db10a180f3ecf579388e9a04a1e547048f3c2882370d1c09069",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.NewtonContact": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/NewtonContact.lean",
+      "sourceSHA256": "81fce662c7cd20fa669ee43e025de6434803b9ea82f3442dff4c5d09f30db10f",
+      "artifactSHA256": "14b3d8b74f38cb79c66147c5e4acf381af736efc7ee648e2c0d0149306e04637",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.Geometry": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/Geometry.lean",
+      "sourceSHA256": "b584c06ebf199cd9565a858104b4b7d2e5989e1c6140222175e322a385dd5a25",
+      "artifactSHA256": "4e748a5ef3d90fea883e4ed62a57a6cc0c329900e69e09577343f97ef9bc2b7f",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.VolumePotential": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/VolumePotential.lean",
+      "sourceSHA256": "2b1d2e99f9a52d07b36d9a4721b9ac840f0f41045d179c5363b4fb29714353c9",
+      "artifactSHA256": "661375b220e408510ac790b2c106a873def945e226abe8ee74b8acc5768dad5a",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.NewtonTempered": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/NewtonTempered.lean",
+      "sourceSHA256": "1a2f75f44af14b236a8e9b27efcef86c15cf42e9bf54aadf510f8eb840b4dcf6",
+      "artifactSHA256": "5741703cfb768250fd4b0e64702e734a8e18b37e8907905ae716d9deb15f8fcc",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.NewtonFundamental": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/NewtonFundamental.lean",
+      "sourceSHA256": "301c1cf98293b4783dfff2eaff68560caaa8f49eb073304e9b78ac9a0ac8362e",
+      "artifactSHA256": "1ce79cdc7cb73b3ebd78f0ca9d0c575dcf72985688904aa3dc47ead19d749e66",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.NewtonSchwartz": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/NewtonSchwartz.lean",
+      "sourceSHA256": "01dcd60aece07933c05cc556e89c29559e56a43b3976e9697c5e0e830bc0e1a7",
+      "artifactSHA256": "4e26cfdb0e53c3c6b2975cada8fbfbdc5b495cfe4c1fe4801990e6e74953d7ca",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.NewtonFourier": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/NewtonFourier.lean",
+      "sourceSHA256": "f13fcd0d70ab48f7eadcf4309388ec42768355e987119b0b27dd986420e2e872",
+      "artifactSHA256": "a746728de00c5ac1cfd559ce16b6b74f662b9897cc58af0bc102b13336cd55ef",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.NewtonHeat": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/NewtonHeat.lean",
+      "sourceSHA256": "43294481702e7adc3329cd655a5467304e38774aa533d8dc525269859f8d0189",
+      "artifactSHA256": "b86303a22bbffd5d18da48dbddac406f2a75cf2e9880730597bc0e2b0e596296",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.NewtonHeatPairing": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/NewtonHeatPairing.lean",
+      "sourceSHA256": "3d431472c379ff57196009a4e380901733b59d2a4b612538ec4b32b6b6f6e8bd",
+      "artifactSHA256": "f750afc522439414d9b68bf2e2e7d03fdca7700cf48df41b63e17d3100e2b09f",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.NewtonHeatFourier": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/NewtonHeatFourier.lean",
+      "sourceSHA256": "2bb4fb1fd6f0ccb6db4985791e8eb609eecd93b3695e22cb704e573cbc2ecdb2",
+      "artifactSHA256": "a6125fc2e614c0982553bb24002501537921112e289d5de9246b69e67f04a28b",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.StaticSymbolCoordinates": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/StaticSymbolCoordinates.lean",
+      "sourceSHA256": "34b6aff125774fe750f182a01ea68c3d7bb09a38e69648a54a2f8d73076d70c0",
+      "artifactSHA256": "4e9b635780aa3670216f43f190352b640286871b85f18c9bfbf4da5b0a79ffe1",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.NewtonFrequency": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/NewtonFrequency.lean",
+      "sourceSHA256": "2477696f808b3a5f6b5ea3516741cb25143925cdc9b197fc6b4659e1e3caa0a2",
+      "artifactSHA256": "765650c59bba23248edf21caf3284367e805695aa75ae5ddbb4e1a0cdd97252c",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.NewtonFrequencyHeat": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/NewtonFrequencyHeat.lean",
+      "sourceSHA256": "070a90d685c43312389900f8a630e31c4e8889a6996ca5f0043c661d337b718a",
+      "artifactSHA256": "0e4fe45b27da759aa9650de7aeafeec714e7ceceb8245625ea006755c63ecfea",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.NewtonSymbol": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/NewtonSymbol.lean",
+      "sourceSHA256": "906d98a5a54bb1d40f006cabcd43bde0ea0c263fd136779ec2e372d8779b2e22",
+      "artifactSHA256": "be6bb44c65c586fa314311b99ccd13a5227705ba198c0fe46350aa3af7eba0d2",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.NewtonTransform": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/NewtonTransform.lean",
+      "sourceSHA256": "4d84043b57394a1245ea57256462100e0ad4edbbfe0cc437b0e491ab1c022a55",
+      "artifactSHA256": "f1546580e699158d4b49f28e23f4aafb5430e0b92d1836189e51deadf21c0bdd",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.NewtonCurrentPairing": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/NewtonCurrentPairing.lean",
+      "sourceSHA256": "6df33c1f06141d671aeedadfffdc265808783d6439b4ec2dbf4ed6e069d8be33",
+      "artifactSHA256": "b83f7976b3ae71e1826822978813a3577e91558e74c1079d1aa8f9dda448df78",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.OutgoingCurrentPairing": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/OutgoingCurrentPairing.lean",
+      "sourceSHA256": "eb72daaa8e6993e24216f4d25956deb614b9a7a1fd4931c3796e92c3b9908fab",
+      "artifactSHA256": "f4bb8ea5c08212f2c5a4e28f9246a1ba049ff303ff26046814a7ac7f63fd0705",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.RemainderConvolution": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/RemainderConvolution.lean",
+      "sourceSHA256": "3b2ec87dd3816c75bb89e9968f5f3b2dd763e0d4f8b8d1175eff88011896c75a",
+      "artifactSHA256": "53fd438a94d99643b9ac2fd1c8be12307969fc4483b536a1f706eb71745477b7",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.RemainderCurrentPairing": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/RemainderCurrentPairing.lean",
+      "sourceSHA256": "91d40c5d919fa3a36d4be0670ad55aa9ad1929777380596cf6e3d8a0674a9eeb",
+      "artifactSHA256": "9a48d84ec953ed5347c479ed0a4beab2bd53e3ba2476377fd8a9cfb42ecc81e5",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.YoungConvolution": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/YoungConvolution.lean",
+      "sourceSHA256": "243bac6f55dcd708003abc2fb1144f7910168d6dbebf0a9a3eb7eac9faf02bde",
+      "artifactSHA256": "d32f7434fdd5d1472eef2e15038563e45991fec8692d7103c7727293c6735686",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.ShrinkingCutoff": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/ShrinkingCutoff.lean",
+      "sourceSHA256": "7b85aa314f05c955dd541591be82390b05ba8715c5539fc81aa5c054252a33da",
+      "artifactSHA256": "27206493024c47e9bf8e07a9c02b913d10aa26edc01f9cebbebe80a22681f309",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.RemovablePointIBP": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/RemovablePointIBP.lean",
+      "sourceSHA256": "35990de178a401b2a34e7b911b9f17deae17aadd524795e4f6dc3dc234f18e83",
+      "artifactSHA256": "d55f9815329305c292cea08047fb6e50c06156351638492de4cd53848ff66581",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.DynamicGreenRegularity": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/DynamicGreenRegularity.lean",
+      "sourceSHA256": "077a70bef44ef8e70e0de29ce33ecfc16f1b8af197fcd01f521ceef2436a5c4c",
+      "artifactSHA256": "0bfd4ab62fe7f81da1c8809be0dcaaa9446fffec18f790762dcdda391bde43a6",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.OutgoingDynamicIdentity": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/OutgoingDynamicIdentity.lean",
+      "sourceSHA256": "8d60fa2204d26ef6eeb7011aede64a57a265c27230114d12f3a6d10af165ce36",
+      "artifactSHA256": "ceea56ac21adbec2e50cb0e8ed7b87821095a42f836b062fc2f5019421cbe9fc",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.GreenGradient": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/GreenGradient.lean",
+      "sourceSHA256": "b5194720653f05da0ad8bec8a45668473b85fa26b965f1e07049c945f8b0e859",
+      "artifactSHA256": "0a98563067ea4a547ad3dd496fb52ba739f361ed6efcc28e927effbc9fa15353",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.PolePointIBP": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/PolePointIBP.lean",
+      "sourceSHA256": "9c6f0fe9f21e752b10ef3da8cc12a4a03b1517a70b3735161bd7362e2870bf06",
+      "artifactSHA256": "63a2e9147ab50dd7510f512860dc9759032a1d70bb31b7d13256aa58a90a3f8e",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.GreenFirstDerivative": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/GreenFirstDerivative.lean",
+      "sourceSHA256": "23ae1be155b4f182a62fcaf5cd70c90e2c8f40587412fc7b68a2ab9150dae28c",
+      "artifactSHA256": "53009a5def44a8533edba149651b672a6e116b359fb3b4c7aebdf5b3702c8c03",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.OutgoingFundamental": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/OutgoingFundamental.lean",
+      "sourceSHA256": "c3318b75c2d8b4378aa43f2553e8a0f975c9e19d8e9d1bdb412cc1d40f9fecbd",
+      "artifactSHA256": "cc12903d9ed8bde1bde1967203a165d44fa372c91c2ce446f0dea9b1fbb6dd14",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.NewtonCurrentCorrelation": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/NewtonCurrentCorrelation.lean",
+      "sourceSHA256": "e37f59eaada9138d5c8a97d8d2cf85f3b73a9ea9cf47c9f246e4c6c6b30a67ca",
+      "artifactSHA256": "5f790a13af8bbfbdf08ab6c677b022852b78b43a48c09e755d925a69919afaf3",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.NewtonCurrentFourier": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/NewtonCurrentFourier.lean",
+      "sourceSHA256": "ad79a469ba7c993c95818f5e3d0ce940307face965e5ecba7916c2136fab8cbe",
+      "artifactSHA256": "80f170b31dbe1d14bc9f497216949a861f64c793f5b4d4f6ea89b385f5eefa8f",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.FourierL1L2": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/FourierL1L2.lean",
+      "sourceSHA256": "af6f8dac4e9003d91e28e4dcd1b72a9052706dc9bdd5f86cc69bacd4f02173db",
+      "artifactSHA256": "b8e99d64855b536754b49211fa50275566bc76efe5bb0afea5284838ce24dab5",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.StaticOperatorDistribution": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/StaticOperatorDistribution.lean",
+      "sourceSHA256": "7a4f3d1260eb0f6b1b2c874c8364a37e1dbee95f98f6236e7d1901f535494807",
+      "artifactSHA256": "db82446fdd85f2c51a54ea2eb0f4814d3a17ff2e91d4e6a4b4be1aa505f763c9",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.NewtonStaticIdentification": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/NewtonStaticIdentification.lean",
+      "sourceSHA256": "02a03d5277cdcf69afd3f0821cf9865493c459629b965c13917103c80f968885",
+      "artifactSHA256": "aba7d7733fcef2a1e5f655b669d45768f61604daf65843eb7a02ba632184fc07",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.OutgoingVolumeIdentification": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/OutgoingVolumeIdentification.lean",
+      "sourceSHA256": "eec7c58b619de7db6ba6f35d6f57148a1f44fa618c2cc976e181fe925f28feb6",
+      "artifactSHA256": "9f877be155c22bbdc9b47cab91fdd18931ad90704d001e28d92dc69f769ef76a",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.DistributionVectorCalculus": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/DistributionVectorCalculus.lean",
+      "sourceSHA256": "6eafe833c17cdb2c21390ef82eaf2fd1b8bee84433916f236940c9048b4b7bd0",
+      "artifactSHA256": "8b4c59425fb76954ee7e97a2c5f7a524980cfa8d8ccd5f09a7037f3c3c921710",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.VolumeFundamental": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/VolumeFundamental.lean",
+      "sourceSHA256": "c36315f427457f6af06181bedff4a5b1cc0f24efd11838012fb93db0302eb9bc",
+      "artifactSHA256": "06382bd81c97a3a0c29ae68d90b8970576a404a44f67be8bfc4a36064cb20594",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.GradientCurrentPairing": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/GradientCurrentPairing.lean",
+      "sourceSHA256": "8e7973880bccc0c77b7300f2bf7fe2eef7fe59e927f746d5fd964dd59c2b42d5",
+      "artifactSHA256": "9f4147f8fa1758a34bfa762302fdcb8f267804547d63701bb618f5f94ef72d3f",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.CompactOutgoingOperator": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/CompactOutgoingOperator.lean",
+      "sourceSHA256": "b3b1dd8830c6dc7aa1c7335f8ff256c7b867ae7ef4a2b45461de9a2b44ebec00",
+      "artifactSHA256": "8e653e3b5fe47a7a6aeb8fc09d9d88b7852a6c4c4553edc5e1d10b3a2131a8ea",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.CompactOutgoingIdentification": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/CompactOutgoingIdentification.lean",
+      "sourceSHA256": "ac0826e440dab1f78780917e8ba277b53443bded9cd292caae8d791e411af70c",
+      "artifactSHA256": "3875aac5e88d73887c40bcac08bfbf1c522996bc5fa711f6bba16d6a6667fe3f",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.DyadicMaxwellSource": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/DyadicMaxwellSource.lean",
+      "sourceSHA256": "3bd14ea9c917bb4c4895636231f44ca00a19b597885a77f30a7b793da8e21573",
+      "artifactSHA256": "a2e8e035aa3389cba3d266357cba541e85f5ce135d0265060cee93d946f0967c",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.PhysicalSourceFields": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/PhysicalSourceFields.lean",
+      "sourceSHA256": "092ede2b0a9fb8e6a4abda2742a8bfda927f069bddef69fd844b8ac8c99c1fbf",
+      "artifactSHA256": "c12c1a0296aae1ad1b492dfaf853f2482bfcb9e25747163e9cdacade7dff29ea",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.WeakCurlBridge": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/WeakCurlBridge.lean",
+      "sourceSHA256": "fb86140f0c34b471d4c2de99a5db85d9af6aaa0a448f81cfd62c5f59d416db96",
+      "artifactSHA256": "c8b39cf6ed31d831bf7dd14f6ea397d2fe3c2c51d0d541606b2555cc4bd9f66b",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.IncidentMaxwell": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/IncidentMaxwell.lean",
+      "sourceSHA256": "cae1d8b9f4c86f20ae7a2e060fd2ac2134458d76275671219b3a8f2c619db755",
+      "artifactSHA256": "eac04de94c2dc991d3e7b317a23d4545bf0a0442ef925cafe397002863f504af",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.FarFieldGeometry": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/FarFieldGeometry.lean",
+      "sourceSHA256": "51d5a672c1832f525af923f0b5afbf47a7a318c61050539a3cfc453db36f1f08",
+      "artifactSHA256": "9720f63cc76544ae6ba29ac8fc952135fcecb96bc6ec3d01fb56a81db7f6681b",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.RadiationKernel": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/RadiationKernel.lean",
+      "sourceSHA256": "d6782a59bf5dae9e1a71664910d1158a258814115a694990beab573db2ff754c",
+      "artifactSHA256": "2ede23a6fb90cbecb2a1432d7daec5c32948f32494260cf9b4bb50f743c83450",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.ExteriorOutgoing": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/ExteriorOutgoing.lean",
+      "sourceSHA256": "f957a4e9ca74cfdaeb05f6922e46488f2cf56d05bb9a3a109c2cf00771b02ec4",
+      "artifactSHA256": "8ab1465d50b4d656ce2e6d244122ae0818db08a29187d3d769ab9ecc59676278",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.FarFieldPhase": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/FarFieldPhase.lean",
+      "sourceSHA256": "e2dced38efe03621d22bbbf8a7abfa65fda603e0909e2ce6bd56acc58d3b176a",
+      "artifactSHA256": "61efb74022c68f8d48788b0c8365738316ccb53267931cd509bf32813484c19e",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.FarFieldKernel": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/FarFieldKernel.lean",
+      "sourceSHA256": "b9abede0db7727c77c89bb5272946235711ecb93c326d3e34fc928d44b55d48d",
+      "artifactSHA256": "10761c6c3d97b74d172bb9126472f0569e641227b0db0ae3f931ca13f210fae4",
+      "rebuiltFromSource": false
+    },
+    "QuarticMaxwell.PlaneWaves": {
+      "source": "papers/quartic-maxwell/formalization/QuarticMaxwell/PlaneWaves.lean",
+      "sourceSHA256": "66a21599f53b1f660588bd2d365a560e20f7493d0dd46ee40c6da06810d5ba88",
+      "artifactSHA256": "2a9562e7582370e384b74d72415ed9178aee4753bf37df44aef609e27895153d",
+      "rebuiltFromSource": false
+    },
+    "QuarticMaxwell.Rearrangement": {
+      "source": "papers/quartic-maxwell/formalization/QuarticMaxwell/Rearrangement.lean",
+      "sourceSHA256": "4325514c20c7aa0fcc3ef99cfc1754bb4756b642527ac5a2dcd074b9aca43586",
+      "artifactSHA256": "67335c14f26c78c831ebb5b6de380faca16a7a3fb0e4fe152c5239f73a3c4e75",
+      "rebuiltFromSource": false
+    },
+    "QuarticMaxwell.SharpVolume": {
+      "source": "papers/quartic-maxwell/formalization/QuarticMaxwell/SharpVolume.lean",
+      "sourceSHA256": "b4b8195104b9d8a0920e6bf3d243a6b5129ce72065b76fe82e05afed4a22ba97",
+      "artifactSHA256": "cc7e22db88253090f962ee35266bf93e2a9f794b2495975ff238c2b397d88f87",
+      "rebuiltFromSource": false
+    },
+    "QuarticMaxwell.MaskedRemainder": {
+      "source": "papers/quartic-maxwell/formalization/QuarticMaxwell/MaskedRemainder.lean",
+      "sourceSHA256": "4cfaf26d18a6a56925956cac0be1f32220624d79ca3a61603b3bf12d612280ee",
+      "artifactSHA256": "7c54ddc8857df9db017283b35ee31c352d3d7fcbda273a5ab90cce152d633f3a",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.TwoPieceL2": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/TwoPieceL2.lean",
+      "sourceSHA256": "196ded0233d056b3c8b5a376b92caceed95fadac06114f90c2bcb37836a802b5",
+      "artifactSHA256": "7b5fd5cfd06ff9cb63df3e497e1dd3598a3c12ffa30c97809c948b0c861ad3a8",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.SupportedL2Maps": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/SupportedL2Maps.lean",
+      "sourceSHA256": "7c7b832696b927dea1ca0fbf16eb04361145ed8eb94d4b8943f4c6794af6315f",
+      "artifactSHA256": "a0390ee1a5eca4c4193ca5b17091283327b29d5ea50dd1e624c30b21b0a817a6",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.SmoothOutgoingFields": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/SmoothOutgoingFields.lean",
+      "sourceSHA256": "dd5ec20245746c5df7edb244eba9641519e76f9fd82be6b262666f4c233dd0a5",
+      "artifactSHA256": "76b673e9b9b86f3f48162093e75820bd159b3fa0675dfd4725c9a4661f69b04f",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.ExteriorKernelTests": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/ExteriorKernelTests.lean",
+      "sourceSHA256": "d85e570aaa34d58cb7c22fc7785feb16513f3f65cf3da620cf5fd9835b8fc79e",
+      "artifactSHA256": "9485c51efefe470d60e7db1e4fc1c0efa913a6db6fb14e64f8987b01be39a1cb",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.ExteriorCurrentIdentification": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/ExteriorCurrentIdentification.lean",
+      "sourceSHA256": "8f15494d3a3a2223bac79a7c542e027071e7af153bb226af62cb37c12abdc15f",
+      "artifactSHA256": "8b500f3620ca0c6f23a68ea831bce73a37416217fb7d30c0321f92f3eff84d7c",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.OutgoingSourceFields": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/OutgoingSourceFields.lean",
+      "sourceSHA256": "e9df4f89e73f33879dc406be96a656bb0515ef35d78ad1d9adb23dfc762eede8",
+      "artifactSHA256": "2505de212ed943ccda4c415d5a0e3acb8e5d5a677cc15c3dbabd38eb590910a8",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.PhysicalPolarization": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/PhysicalPolarization.lean",
+      "sourceSHA256": "1d7b4b707b6909fd75924fb0fdd272e63ecbdcebccd0f05347b161617d4cf3a0",
+      "artifactSHA256": "4c02f0106fc6266182d78672bd4350d0ee4c83afc564feb9ece5029727b8a8ea",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.VolumeScatteringBridge": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/VolumeScatteringBridge.lean",
+      "sourceSHA256": "37ad16336613d61781490f27a68019fe9ca591057209a0dff9309db8d1e8b0b4",
+      "artifactSHA256": "94dc447973282a4d0fe50cf17ee50f393005deb683dff1fd6f3e06211711760b",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.ComplexCoerciveInverse": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/ComplexCoerciveInverse.lean",
+      "sourceSHA256": "79ec011d85c761a702d9778f4cb624c61122e0194dcaed68e878f7e7b51e48bf",
+      "artifactSHA256": "91fe6bdb5b5ae37b9a8d4b504597bea06a790cd291504cae9cbc89303a85512b",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.TensorLossCoercivity": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/TensorLossCoercivity.lean",
+      "sourceSHA256": "c43b6f6bfdd503851d81e8b8e76bf51e725a385f8472ebf7984d4d72aa6c3e86",
+      "artifactSHA256": "2d94db7740cdc279a5ac3f8c94ab8bbb614ec8213356164d37c0656faa106b43",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.PoyntingCutoff": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/PoyntingCutoff.lean",
+      "sourceSHA256": "efd0f304c7feb8dba575ebb3904afa046154e73cfa5653a42a0ba6c5697f162a",
+      "artifactSHA256": "bb37eef5370e2eab57ed263e6ed3742b7c621a573809431c33659b17ee8fdf59",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.RadialEnergyCutoff": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/RadialEnergyCutoff.lean",
+      "sourceSHA256": "a7af45be576cbf2dac3611a0fceb6350894541b8e4685b29037d4b04c7293656",
+      "artifactSHA256": "36d8747cf21343d61a21bc9e4c23b6df797dec5574b270ad94436243a2336c34",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.RadiationEnergyBounds": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/RadiationEnergyBounds.lean",
+      "sourceSHA256": "4cf96fcdac6ec88a38dd5e1e13b2aa1de2e71e02f1a1f70a6788964c84dd9d23",
+      "artifactSHA256": "175502dacc788fbc50ba0d466b29f9adf048d3f68ffa642e30ef20693ded1834",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.SmoothOutgoingDissipativity": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/SmoothOutgoingDissipativity.lean",
+      "sourceSHA256": "6bb0c8921dd5183b6e1d30b31842d680f34f80d728983d4eb41ec1e2b247ab55",
+      "artifactSHA256": "b53a5452ecf42031f1f8c7bb6c5ba9070893b03f459fdf7c83dc011a3b85761c",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.CompactCurrentDensity": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/CompactCurrentDensity.lean",
+      "sourceSHA256": "27ccbbbad1f10f6b125eef5661c7953a39962cb7bb88ffad82a17fa47c5ee151",
+      "artifactSHA256": "857aa628768e0ee9a1fa89ece304de2309e2434f48152700cb46bbb2d19eb8ab",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.OutgoingDissipativity": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/OutgoingDissipativity.lean",
+      "sourceSHA256": "04530caf58f61bd65e7bbf662929c65f6aeb0a90980e9ec35442da3780edcf5e",
+      "artifactSHA256": "d327039f54767efe744d0783329f55cea36c8f0fecbdeae69d71fce84b196673",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.BodyCurrentSpace": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/BodyCurrentSpace.lean",
+      "sourceSHA256": "b662a768ae2d5d9f6bc706fa0d04a1e19212dd8d309b0a00986a7a14f78ac3b8",
+      "artifactSHA256": "588567de7b7e95ca4f0b26abf680b82cf64d5a35b43e821417563c99c33de1d0",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.MaterialBodyInverse": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/MaterialBodyInverse.lean",
+      "sourceSHA256": "26c53f6776185e5ca5e59c2278ddaf847cda2cd71080b71d089e9dd3ddc60c3a",
+      "artifactSHA256": "f27f4e4a25521a8215d2d091888a0c1701da9e5e26e7166a3e42be3db1a4baab",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.ScatteringExistence": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/ScatteringExistence.lean",
+      "sourceSHA256": "d4f27e0b65b4ce72df53151f9d75c56b0aa3ca064e6d3af4a37e50c4b5acf122",
+      "artifactSHA256": "66d4d3880f82cc3f3939bd521a334470e4f8fce39562fcdd3557a2f22af31f81",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.ActiveCurrentSpace": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/ActiveCurrentSpace.lean",
+      "sourceSHA256": "2a2b8a1523a12cf1cba84ff5f41c36abac12198d76e565c3fe2a6e5259489923",
+      "artifactSHA256": "f196f8f93181f9ca48278fde2834f6bb7f6e03e941f7f4aa3e88231e92134cba",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.ActiveMaterialInverse": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/ActiveMaterialInverse.lean",
+      "sourceSHA256": "a676e58ba5f27241e9ba19f9c8fbdd4af9d8941e88fb88823f567841b70ffef4",
+      "artifactSHA256": "3cffe2c4b7bfb1e3902f511a7b1b9d09e3f7ca1a7cc071ea5dc73e44b0db1bfc",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.RankOneScattering": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/RankOneScattering.lean",
+      "sourceSHA256": "3fb2849d49904f3ac4702e90531a1f430f99584114ce34768f2f37a1f61fbb2b",
+      "artifactSHA256": "f52e8e0626368877aeacfd6ee1971842bed80339fa9d0547f66eb2e80a06a5b2",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.PhysicalExtinctionWork": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/PhysicalExtinctionWork.lean",
+      "sourceSHA256": "f0d54b75d1cdebfebd68a64857d556d2967d5f39e0ad10c4ec52ac70b97d11a1",
+      "artifactSHA256": "fcfc027e9ce55694e19def197c354bda9f07f00c08819204efce3375cdd6bece",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.FarFieldCurrent": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/FarFieldCurrent.lean",
+      "sourceSHA256": "66c222464beb9038ee4aa88671173375df6c4219bee2f42e111b680821e07869",
+      "artifactSHA256": "632945cafff253d92a65ca46ec2573d20c79930304559ddeeca9e686792f4930",
+      "rebuiltFromSource": false
+    },
+    "QuarticMaxwell.RadiationPhysical": {
+      "source": "papers/quartic-maxwell/formalization/QuarticMaxwell/RadiationPhysical.lean",
+      "sourceSHA256": "47141a7ffa13715fe796479e909b5d59eb1d4dfa099885c48f1aeb6111ce7eab",
+      "artifactSHA256": "01b0f3557bb613e25ec35a5c3079347a8425c5e0548d47d88f6356b2f69bcaa7",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.FarFieldFlux": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/FarFieldFlux.lean",
+      "sourceSHA256": "a81fa4f4380c3d1242dae5a07ef7692d27f1fff1ca3bf7f1c0a287a920309194",
+      "artifactSHA256": "412de7e8447ef0f397e08a146b86a1055da9b793327139cbb4ad4d331ab23afd",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.FarFieldRadial": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/FarFieldRadial.lean",
+      "sourceSHA256": "3f7190a3b97f8141e7b34062be5ad12575e1b989aba34cab1a55031ee34963c2",
+      "artifactSHA256": "445074c337824ef6e0b7d80b39bed30152879835a10ca7fe4303fd68e6dc17b4",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.FarFieldWork": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/FarFieldWork.lean",
+      "sourceSHA256": "e9008dc3ed323f754a6d635ebbf5383bd092a387168ceaebb4a155e7f4de69af",
+      "artifactSHA256": "616ec925408ba780dd22835c26e22b9c32dd019fa36c8c5bd8289bbde61b2ebb",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.FarFieldL2": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/FarFieldL2.lean",
+      "sourceSHA256": "18faccd837af10fe9a6b1e8a4646a6cbd7e87c3cecc0dc616582072b9c1d4aee",
+      "artifactSHA256": "c04d25e40e51f054bda1d91df69360650814f851dfc2b05effbfedb54debfe68",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.PhysicalAbsorptionWork": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/PhysicalAbsorptionWork.lean",
+      "sourceSHA256": "35aa94973fbbeeaa32bfb4246beaca4fc942b5bcbfb4841dc5b69a40d9ff5b88",
+      "artifactSHA256": "887b5f1063b965b79dc6ccad570197d8c8debc13e498cddc662196da20e0efaa",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.FarFieldWorkL2": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/FarFieldWorkL2.lean",
+      "sourceSHA256": "872246f1860f31dc9b0d7c72d2f2bb875855ee552cb93d479a4b1c483a8f630f",
+      "artifactSHA256": "e83f8c83767a1d748e674d38cc9b77d8ade2b40fd98aa96a58665d0a5a4ad5eb",
+      "rebuiltFromSource": false
+    },
+    "QuarticMaxwell.RadiationIdentity": {
+      "source": "papers/quartic-maxwell/formalization/QuarticMaxwell/RadiationIdentity.lean",
+      "sourceSHA256": "68e01ed7d21ee692b472d62fff07eb25df829b82d9a866e7ced54d11ce25945c",
+      "artifactSHA256": "d131a6cb97436531ca9926c457c338101effaf925b1b652d92ef095816cddada",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.LorentzCutoff": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/LorentzCutoff.lean",
+      "sourceSHA256": "dce3e65b7c26467e832b06a2dd9598ae6391fb1ef979257ec99ba487c070fdf0",
+      "artifactSHA256": "51d4843fe17e88d310df6b0b0a885df56230043fb208092c67c576c50bf61c33",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.LorentzIdentity": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/LorentzIdentity.lean",
+      "sourceSHA256": "81f2a436ff342590493c73ecae77f3e323217f6116b9b7a5e3f5a6d24850307c",
+      "artifactSHA256": "ddef6d07fa98c21f0876cfe9f316f318399bab2bf66794b4048c2b44ea47ba3e",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.LorentzBounds": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/LorentzBounds.lean",
+      "sourceSHA256": "f887ff10433b031e353985b2e8528c714c04964e03d1281d6ccdccefc8ee8520",
+      "artifactSHA256": "31bdef2beca2ad1461fa58ca9f9fb0455478cb780abb78d7c227782dfbbc857c",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.SmoothReciprocity": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/SmoothReciprocity.lean",
+      "sourceSHA256": "30f7f359145352b9c98488cb1345ea4620b1561b1f7d62be5cf5c84fc5473b63",
+      "artifactSHA256": "67369077d8a22d8ae11f9053502aa60f2c5a7b444576cf937caa4381d8744482",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.ReciprocityL2": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/ReciprocityL2.lean",
+      "sourceSHA256": "e7af6b6394ad788775364c4d47b62fff18d63d4484778ffbb7b389defbd86985",
+      "artifactSHA256": "8b70e8ad4e8112ed166bbe9d8baa9068cef032be84983254749051d869a95cdc",
+      "rebuiltFromSource": false
+    },
+    "QuarticMaxwell.Reciprocity": {
+      "source": "papers/quartic-maxwell/formalization/QuarticMaxwell/Reciprocity.lean",
+      "sourceSHA256": "e384d066778e1925fdc0bec9d45883085ec63b6deb91eec2687dd79a3ff8aa7a",
+      "artifactSHA256": "b76805d8a080dddfbd6cb49fb2bb3a48bf1fb1e073a51402efc9040710fab27f",
+      "rebuiltFromSource": false
+    },
+    "QuarticMaxwell.SupportedOperators": {
+      "source": "papers/quartic-maxwell/formalization/QuarticMaxwell/SupportedOperators.lean",
+      "sourceSHA256": "3720b404144e14d7d74d74517433a758e2b8d88b30bac4c37928080cff5d1eee",
+      "artifactSHA256": "a025d9c8e345db98c18f02e8bcba4e4fced1d5795b112ec7ea9694d7cb1a768e",
+      "rebuiltFromSource": false
+    },
+    "QuarticMaxwell.MaterialInverse": {
+      "source": "papers/quartic-maxwell/formalization/QuarticMaxwell/MaterialInverse.lean",
+      "sourceSHA256": "4c7badded7fcea8d33afcf7a0bc5000b3069c362b30d13628dbedebca9c02c2b",
+      "artifactSHA256": "17e38291a3db51491cb319529aadd6b8f6b1ba1e1fa3959ff63a0e2a63a91397",
+      "rebuiltFromSource": false
+    },
+    "QuarticMaxwell.TensorMultiplier": {
+      "source": "papers/quartic-maxwell/formalization/QuarticMaxwell/TensorMultiplier.lean",
+      "sourceSHA256": "d140fbc11039e72a972456e20c0283dfc3c9afe2fa2806bf2177f5dd3e3617c3",
+      "artifactSHA256": "042d1a49b6ce519ae4b74dd553e527b079c81fbe9a75d4a61fe68ab345dfd56d",
+      "rebuiltFromSource": false
+    },
+    "QuarticMaxwell.VolumeInverse": {
+      "source": "papers/quartic-maxwell/formalization/QuarticMaxwell/VolumeInverse.lean",
+      "sourceSHA256": "d948222906e8b77a652b8722257f6673c3f8e559bbdbd7004ffd0743cef71e08",
+      "artifactSHA256": "dc376b1dd627f9c89a3a288b59fb47cd7537ea3364cdd40b4a3d57d0845ee0da",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.WeakCurlProducts": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/WeakCurlProducts.lean",
+      "sourceSHA256": "29a3e9b6bd4de78f2061baa1a60a4f84476bfb5c96e2a972d7d0f53b73fed854",
+      "artifactSHA256": "f42bee75f470212e0334d74f3a2a78c0c608985bbf149af30102a28d6ffae6c7",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.WeakCurlPlaneWave": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/WeakCurlPlaneWave.lean",
+      "sourceSHA256": "57fd884f1a1e2c621f2dc747f4bf3de40fc7b64614cc3bc6a6bd6b43d8170ef8",
+      "artifactSHA256": "2b5c0006300b106273eb68c9095a327a07cf2467dcd23f86f86b662dadfa971d",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.WeakCurlFourier": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/WeakCurlFourier.lean",
+      "sourceSHA256": "9deaa63122cd2ec5b74efd20920904a8b46af911a4ffd3d26f545ed0f60fad6b",
+      "artifactSHA256": "27fc1b4c1fcde496192e94fa2a0a04ab1d90011b4b61639e14a31f7aeb6906ff",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.WeakCurlLocalization": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/WeakCurlLocalization.lean",
+      "sourceSHA256": "6670d49d20bba5304ecf26ffec4c26b1c7e3f0e13ff34380da9281c47cb428bd",
+      "artifactSHA256": "117345a4edcc21bf917029e7f7be5718aaf633e4c8e77d2042a763b67e0f1877",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.WeakCurlWeightedGreen": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/WeakCurlWeightedGreen.lean",
+      "sourceSHA256": "3c983da75acf31f696dda5a77815baab4f516db0200fe7573a5fcf97964ebd32",
+      "artifactSHA256": "8eff036303076bbebf3b604f9acba210d97e985decf34a4d64e76c16447ba304",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.WeakPoynting": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/WeakPoynting.lean",
+      "sourceSHA256": "3f109d9e616ad5c90746227b25d5b5b6aa815106c912b5bfaed291891286695b",
+      "artifactSHA256": "18405d54f3f16af0dd160a46cf11922cfd9221945913e0554aac5055a0382c7c",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.OutgoingWeakEnergy": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/OutgoingWeakEnergy.lean",
+      "sourceSHA256": "0aa7d46c6d1fc9cca6c911590c8caa15741d92ca99d790b629d3c9dd5231e3fd",
+      "artifactSHA256": "29346114a7423bcea1c85d864339b00dcdb4886e60b05755d4e1b48e5f943fde",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.WeightedRadiationEnergy": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/WeightedRadiationEnergy.lean",
+      "sourceSHA256": "3af1b7a821aae3b39c66534056503306f826fffd75fedfe97119689a451d72d8",
+      "artifactSHA256": "ecc8a1303e1e0df9d99fafb3e80812e8b52ab4bafe46bbf5351a1b4ccc941417",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.WeakSmoothLorentz": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/WeakSmoothLorentz.lean",
+      "sourceSHA256": "d73216ec1a8b188bbc50e8a5193b59132d715c5569eb00bec061dfb995e824ec",
+      "artifactSHA256": "798db3324accf69d1a4e9d8270cf98fa0538d3b038fffb8236b975c04a4fa855",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.WeakLorentzBoundaryBound": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/WeakLorentzBoundaryBound.lean",
+      "sourceSHA256": "10368aeb7cd08b4ae17439cd6ae659b71d0fe895f88010690ffb330635578d06",
+      "artifactSHA256": "097c48606b9e9eb62106b53dd30f38c310c991453dc201797764adcbeb59e366",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.SmoothSourceWeakDecay": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/SmoothSourceWeakDecay.lean",
+      "sourceSHA256": "bb1650d67623fa190ff90058bb31d0cd52da316639f74a959ff3817b6ec3e426",
+      "artifactSHA256": "421c51463352bfe735597db86cea933b8c851975dbca30a42ff8f0c10873d04b",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.CompactFieldTestSeparation": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/CompactFieldTestSeparation.lean",
+      "sourceSHA256": "611d864dac3533c011ee34705171669d33131461ee75ef2dcd018a4ed22a1cce",
+      "artifactSHA256": "020cc532f92fdb2d975e546d0f72d158997fe7c0d9a029061c7d264681648e46",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.VacuumOutgoingWeakUniqueness": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/VacuumOutgoingWeakUniqueness.lean",
+      "sourceSHA256": "b40149defc960a4786e5c93860eeacee253a1511486de3ff58ea5284b6fd6e4b",
+      "artifactSHA256": "307452919e773c2a666ecd0af342045085cbf3f8aeb626d1d2618098647ef774",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.WeakScatteringResidual": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/WeakScatteringResidual.lean",
+      "sourceSHA256": "e34f8fb8d3c330ff3305473a282af3fa4d67628669bbe737762be418c6bff199",
+      "artifactSHA256": "22168001ed3e7ec06ad3621ea4e9b0efc2eb0944ea943609b513a4ff774ad678",
+      "rebuiltFromSource": false
+    },
+    "QuarticMaxwell.WeakMaterial": {
+      "source": "papers/quartic-maxwell/formalization/QuarticMaxwell/WeakMaterial.lean",
+      "sourceSHA256": "01eea838307862652d8a12e80640c0cb4ff2578bf9ddb8e240df42042dbc36b8",
+      "artifactSHA256": "4679722991d37f8270e8dafccf5f1e203e69c54cc04e4e92360bb0e2689ce20b",
+      "rebuiltFromSource": false
+    },
+    "QuarticMaxwell.Operator": {
+      "source": "papers/quartic-maxwell/formalization/QuarticMaxwell/Operator.lean",
+      "sourceSHA256": "23ceeaf90bc49f39a3bd442de944ead114aab32d0cc865d1292260ccf47f80b5",
+      "artifactSHA256": "49deb9eb70094db11c18169da207d35b2f0a0a189bffc0ded069670c6417425d",
+      "rebuiltFromSource": false
+    },
+    "QuarticMaxwell.UniformBound": {
+      "source": "papers/quartic-maxwell/formalization/QuarticMaxwell/UniformBound.lean",
+      "sourceSHA256": "35cffaca7f3076f670bc1107c4a90e12604445ab5e9c010da4d42e6190843b6a",
+      "artifactSHA256": "6a77a7dbaf34358d536e5f75461ef1edbadc49f4e3757b945c54dbcedb97a31f",
+      "rebuiltFromSource": false
+    },
+    "QuarticMaxwell.BallBound": {
+      "source": "papers/quartic-maxwell/formalization/QuarticMaxwell/BallBound.lean",
+      "sourceSHA256": "a494627335e0bfde72297c896970dcddcc9fe73405684a2a9012bc5da19ddb24",
+      "artifactSHA256": "804ffae8575a59c88ffea1c8e5cde1d2635de11b4cd8a880b0ee77aef2e40fb5",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.ExteriorSphereContinuity": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/ExteriorSphereContinuity.lean",
+      "sourceSHA256": "2205f60d6997cbdc895949e97ab6e8a0bfb02fa9434a039ab31ccbe15e5e9b07",
+      "artifactSHA256": "9cd3d7ecc3cf1d9a9a9864d287d643816d8d5b0d3cb096026600b01b6f674893",
+      "rebuiltFromSource": false
+    },
+    "PrescribedExtinction.PhysicalSphereFlux": {
+      "source": "papers/prescribed-extinction/formalization/PrescribedExtinction/PhysicalSphereFlux.lean",
+      "sourceSHA256": "7fdcbc373a9b38d8d0959256278904327df46e90e161054deb645598e54a7c27",
+      "artifactSHA256": "a31c008b093768235eb33fd6b67156e8e6e79b202a343ebd5c1819dc8af5d15b",
+      "rebuiltFromSource": false
+    },
+    "QuarticMaxwell.PhysicalPowers": {
+      "source": "papers/quartic-maxwell/formalization/QuarticMaxwell/PhysicalPowers.lean",
+      "sourceSHA256": "6128371d08047d026e612a64fec9cc54b01a26f6daa890726aa3872c108979e1",
+      "artifactSHA256": "84e54faf4b4c980e4418dbda3ec904ad60c41576d8e2dd3d93132c4e7dcac65c",
+      "rebuiltFromSource": false
+    },
+    "FixedResource.MaxwellCore": {
+      "source": "papers/fixed-resource-bounds/formalization/FixedResource/MaxwellCore.lean",
+      "sourceSHA256": "9f1f075891fcb3279f8cec35659dced1440c8d6c7e64bfcea7499524f0e0ee8d",
+      "artifactSHA256": "27f7223fb72f475b1509abbb082647c4537a52e687d22b4921fd199ce05d851d",
+      "rebuiltFromSource": true
+    },
+    "FixedResource.PowerIntervals": {
+      "source": "papers/fixed-resource-bounds/formalization/FixedResource/PowerIntervals.lean",
+      "sourceSHA256": "34bd76ae06862734c6b61ab57c5858e36e80a00a90218eb67ce275336bc9a967",
+      "artifactSHA256": "d69be36041a2ed9a3157562e5c0e098137266876bf90524b3b40db1141491454",
+      "rebuiltFromSource": true
+    },
+    "GeneralizedResearch.MiddleParameters": {
+      "source": "papers/generalized-research/formalization/GeneralizedResearch/MiddleParameters.lean",
+      "sourceSHA256": "8cb7bd5ab7e29fad72ba2a914f5ea5fe703770f73b7efca8960451c13e7a79f9",
+      "artifactSHA256": "a1cc7ffdd5a5a277c05ec863a72bddf8afe4fc6bc83c8caf7454ad7bde4465d2",
+      "rebuiltFromSource": false
+    },
+    "GeneralizedResearch.MiddleCertificate": {
+      "source": "papers/generalized-research/formalization/GeneralizedResearch/MiddleCertificate.lean",
+      "sourceSHA256": "1d99a689fca41f5f917374b191406e1c312efc761458d09f450e681f7b6b7ca5",
+      "artifactSHA256": "5304a01b006856fc1daee1132231e883645512450f8a0843ec0eeb71591f1236",
+      "rebuiltFromSource": false
+    },
+    "GeneralizedResearch.RealCompression": {
+      "source": "papers/generalized-research/formalization/GeneralizedResearch/RealCompression.lean",
+      "sourceSHA256": "ce10c3d34966be6759987252b549293239ec435f7c8cfc48883bb30e630f4354",
+      "artifactSHA256": "ec7449a99735d0de2dce9f0eedce49f35827d449216ef51ccff38c1625dfc6e7",
+      "rebuiltFromSource": false
+    },
+    "GeneralizedResearch.CanonicalMiddle": {
+      "source": "papers/generalized-research/formalization/GeneralizedResearch/CanonicalMiddle.lean",
+      "sourceSHA256": "a1ecfdda8ebd9d0bba778952b3a1f6134b42b15338f8c902fcc04023a9b3d70b",
+      "artifactSHA256": "b376b869e96adcde09a92b1bc7c0b58bbcecb43ba17eb20ddf0672debe219f67",
+      "rebuiltFromSource": false
+    },
+    "GeneralizedResearch.OuterBound": {
+      "source": "papers/generalized-research/formalization/GeneralizedResearch/OuterBound.lean",
+      "sourceSHA256": "e47338de09682345bd3492c6e85236b54aa453a34cc71d8a9b38bd3623b2a827",
+      "artifactSHA256": "aece7b69a699f648b2854c484cb09bcf462c18b1de261b26a6d2cb68f8555dfa",
+      "rebuiltFromSource": false
+    },
+    "GeneralizedResearch.ChannelPowers": {
+      "source": "papers/generalized-research/formalization/GeneralizedResearch/ChannelPowers.lean",
+      "sourceSHA256": "7836a8c171c170ac3ba8d33d9090dcbd064aa8d57c6f1cde81061db059d98c08",
+      "artifactSHA256": "b000e5b64e2489d0168510b1d1d03eb8ed4eaf153f594b42bd9d2378df9c5c90",
+      "rebuiltFromSource": false
+    },
+    "GeneralizedResearch.ThirdBranchAttainment": {
+      "source": "papers/generalized-research/formalization/GeneralizedResearch/ThirdBranchAttainment.lean",
+      "sourceSHA256": "ac023e985ae72bbbda9334a2e38ae3c0f68d881fd3b0e2c8e7343dea20d2f5c4",
+      "artifactSHA256": "a0c28a6497dfe101847b675380a606406d8dcbc32931592e1e37bc2c45fd8416",
+      "rebuiltFromSource": false
+    },
+    "GeneralizedResearch.OrthogonalSharpness": {
+      "source": "papers/generalized-research/formalization/GeneralizedResearch/OrthogonalSharpness.lean",
+      "sourceSHA256": "cbd270bfc42c9715089e0153b33ee8968995c7e47b70a2ba17a842b745641765",
+      "artifactSHA256": "029669acbc29235488fd918f67daa309fcba6167594b6869c0c0f66fef86fd77",
+      "rebuiltFromSource": false
+    },
+    "GeneralizedResearch.ChannelAttainment": {
+      "source": "papers/generalized-research/formalization/GeneralizedResearch/ChannelAttainment.lean",
+      "sourceSHA256": "98c5b2b03fe2b939c4bc11876e7b1ba3847fbf69efaae8192cf3a329b244fe73",
+      "artifactSHA256": "d05a27578722a455a3dace82e52cb0a11b3d3d80a3e329da4ef5cfe5a30d0ee9",
+      "rebuiltFromSource": false
+    },
+    "GeneralizedResearch.ChannelPassivity": {
+      "source": "papers/generalized-research/formalization/GeneralizedResearch/ChannelPassivity.lean",
+      "sourceSHA256": "c03581d2a158e0830863c18878a4804fe700576d8128ca0ccf2482e3d68a1720",
+      "artifactSHA256": "224313e642f77580b8e8ec9208724a308d974b132af9332158871b1c3de3f160",
+      "rebuiltFromSource": false
+    },
+    "GeneralizedResearch.ChannelReciprocity": {
+      "source": "papers/generalized-research/formalization/GeneralizedResearch/ChannelReciprocity.lean",
+      "sourceSHA256": "e43a676e79c3d4d5d5dc26d1ba8a598f2e872c6a2526cbf55be9b99a7993294f",
+      "artifactSHA256": "f6c7a445ad848331672ac1d8321816577933ef209b1d50479cd17d0d8f0a2e44",
+      "rebuiltFromSource": false
+    },
+    "GeneralizedResearch.ChannelCoordinates": {
+      "source": "papers/generalized-research/formalization/GeneralizedResearch/ChannelCoordinates.lean",
+      "sourceSHA256": "33c7f0fa130725036474be8a76fca32a304e7ce4a070490f81e6fac2bb5dc8c2",
+      "artifactSHA256": "5980c76e17ed9e07b9283374129f7f14e1f39e70f0e906a7a780b82522dfff34",
+      "rebuiltFromSource": false
+    },
+    "GeneralizedResearch.FiniteHilbertBridge": {
+      "source": "papers/generalized-research/formalization/GeneralizedResearch/FiniteHilbertBridge.lean",
+      "sourceSHA256": "6c089e5735b0d7eca2aed48ee6e4edc71eda5b018bceaedd80135c7e13fbc08f",
+      "artifactSHA256": "bcd19b8f65c4e16fb1d926bc46c6d9047f8a0dae3b923bfeffeb884ee015c261",
+      "rebuiltFromSource": false
+    },
+    "FixedResource.SphereAlgebra": {
+      "source": "papers/fixed-resource-bounds/formalization/FixedResource/SphereAlgebra.lean",
+      "sourceSHA256": "15d0f78c1bec2f37eb6a54e0783e582e9c8b7bb5f8b7ded1f95009c4d9f59ec4",
+      "artifactSHA256": "1ec02beed538ebabe191e6c7cfddbc0c002ec0f519fec8690b1de4d4b23f2875",
+      "rebuiltFromSource": true
+    },
+    "FixedResource.UniformPhysicalBudget": {
+      "source": "papers/fixed-resource-bounds/formalization/FixedResource/UniformPhysicalBudget.lean",
+      "sourceSHA256": "e20f58f1e1e5cc78e60db26403aa720fed320ab18f943e6c3851a35e47f8fb9b",
+      "artifactSHA256": "436ad8a605231c76ad3ced273cd746604c310a07917f3211d436be3bc3ef66d2",
+      "rebuiltFromSource": true
+    },
+    "FixedResource": {
+      "source": "papers/fixed-resource-bounds/formalization/FixedResource.lean",
+      "sourceSHA256": "32745c2a59cb4e195ee270811831d4bbf1ce8a0f906c9cd51e56f180ea689142",
+      "artifactSHA256": "a9bebe347bb9ff619e8c9b08f8a4015788bd2fc7ea8f517892f96d2000692884",
+      "rebuiltFromSource": true
+    }
+  },
+  "compileOrder": [
+    {
+      "module": "FixedResource.BesselEnergy",
+      "rebuiltFromSource": true,
+      "exitCode": 0
+    },
+    {
+      "module": "QuarticMaxwell.ProjectionGeometry",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "QuarticMaxwell.GreenEigenvalues",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.Basic",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.Maxwell",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.GreenKernel",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.RadialCalculus",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.NewtonKernel",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.OutgoingRadial",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.GreenCancellation",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.Materials",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.StaticFourier",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.DyadicRemainder",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "QuarticMaxwell.ProjectionKernel",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.SphereMeasure",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.SphereMoments",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "QuarticMaxwell.RadiationMoment",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "QuarticMaxwell.Schur",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "QuarticMaxwell.SquareIntegral",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.SetSupportedL2",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "QuarticMaxwell.RadiationOperator",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "QuarticMaxwell.IncidentSources",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.NewtonBoundary",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.NewtonPV",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.NewtonPrincipalValue",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.NewtonCutoff",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.NewtonCutoffIBP",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.NewtonCutoffLimit",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.NewtonShell",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.NewtonPunctured",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.NewtonContact",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.Geometry",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.VolumePotential",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.NewtonTempered",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.NewtonFundamental",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.NewtonSchwartz",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.NewtonFourier",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.NewtonHeat",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.NewtonHeatPairing",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.NewtonHeatFourier",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.StaticSymbolCoordinates",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.NewtonFrequency",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.NewtonFrequencyHeat",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.NewtonSymbol",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.NewtonTransform",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.NewtonCurrentPairing",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.OutgoingCurrentPairing",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.RemainderConvolution",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.RemainderCurrentPairing",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.YoungConvolution",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.ShrinkingCutoff",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.RemovablePointIBP",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.DynamicGreenRegularity",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.OutgoingDynamicIdentity",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.GreenGradient",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.PolePointIBP",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.GreenFirstDerivative",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.OutgoingFundamental",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.NewtonCurrentCorrelation",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.NewtonCurrentFourier",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.FourierL1L2",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.StaticOperatorDistribution",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.NewtonStaticIdentification",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.OutgoingVolumeIdentification",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.DistributionVectorCalculus",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.VolumeFundamental",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.GradientCurrentPairing",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.CompactOutgoingOperator",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.CompactOutgoingIdentification",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.DyadicMaxwellSource",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.PhysicalSourceFields",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.WeakCurlBridge",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.IncidentMaxwell",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.FarFieldGeometry",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.RadiationKernel",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.ExteriorOutgoing",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.FarFieldPhase",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.FarFieldKernel",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "QuarticMaxwell.PlaneWaves",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "QuarticMaxwell.Rearrangement",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "QuarticMaxwell.SharpVolume",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "QuarticMaxwell.MaskedRemainder",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.TwoPieceL2",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.SupportedL2Maps",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.SmoothOutgoingFields",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.ExteriorKernelTests",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.ExteriorCurrentIdentification",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.OutgoingSourceFields",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.PhysicalPolarization",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.VolumeScatteringBridge",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.ComplexCoerciveInverse",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.TensorLossCoercivity",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.PoyntingCutoff",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.RadialEnergyCutoff",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.RadiationEnergyBounds",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.SmoothOutgoingDissipativity",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.CompactCurrentDensity",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.OutgoingDissipativity",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.BodyCurrentSpace",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.MaterialBodyInverse",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.ScatteringExistence",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.ActiveCurrentSpace",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.ActiveMaterialInverse",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.RankOneScattering",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.PhysicalExtinctionWork",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.FarFieldCurrent",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "QuarticMaxwell.RadiationPhysical",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.FarFieldFlux",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.FarFieldRadial",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.FarFieldWork",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.FarFieldL2",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.PhysicalAbsorptionWork",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.FarFieldWorkL2",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "QuarticMaxwell.RadiationIdentity",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.LorentzCutoff",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.LorentzIdentity",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.LorentzBounds",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.SmoothReciprocity",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.ReciprocityL2",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "QuarticMaxwell.Reciprocity",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "QuarticMaxwell.SupportedOperators",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "QuarticMaxwell.MaterialInverse",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "QuarticMaxwell.TensorMultiplier",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "QuarticMaxwell.VolumeInverse",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.WeakCurlProducts",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.WeakCurlPlaneWave",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.WeakCurlFourier",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.WeakCurlLocalization",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.WeakCurlWeightedGreen",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.WeakPoynting",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.OutgoingWeakEnergy",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.WeightedRadiationEnergy",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.WeakSmoothLorentz",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.WeakLorentzBoundaryBound",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.SmoothSourceWeakDecay",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.CompactFieldTestSeparation",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.VacuumOutgoingWeakUniqueness",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.WeakScatteringResidual",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "QuarticMaxwell.WeakMaterial",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "QuarticMaxwell.Operator",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "QuarticMaxwell.UniformBound",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "QuarticMaxwell.BallBound",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.ExteriorSphereContinuity",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "PrescribedExtinction.PhysicalSphereFlux",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "QuarticMaxwell.PhysicalPowers",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "FixedResource.MaxwellCore",
+      "rebuiltFromSource": true,
+      "exitCode": 0
+    },
+    {
+      "module": "FixedResource.PowerIntervals",
+      "rebuiltFromSource": true,
+      "exitCode": 0
+    },
+    {
+      "module": "GeneralizedResearch.MiddleParameters",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "GeneralizedResearch.MiddleCertificate",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "GeneralizedResearch.RealCompression",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "GeneralizedResearch.CanonicalMiddle",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "GeneralizedResearch.OuterBound",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "GeneralizedResearch.ChannelPowers",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "GeneralizedResearch.ThirdBranchAttainment",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "GeneralizedResearch.OrthogonalSharpness",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "GeneralizedResearch.ChannelAttainment",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "GeneralizedResearch.ChannelPassivity",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "GeneralizedResearch.ChannelReciprocity",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "GeneralizedResearch.ChannelCoordinates",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "GeneralizedResearch.FiniteHilbertBridge",
+      "rebuiltFromSource": false,
+      "exitCode": 0
+    },
+    {
+      "module": "FixedResource.SphereAlgebra",
+      "rebuiltFromSource": true,
+      "exitCode": 0
+    },
+    {
+      "module": "FixedResource.UniformPhysicalBudget",
+      "rebuiltFromSource": true,
+      "exitCode": 0
+    },
+    {
+      "module": "FixedResource",
+      "rebuiltFromSource": true,
+      "exitCode": 0
+    }
+  ],
+  "importGraph": {
+    "FixedResource": [
+      "FixedResource.BesselEnergy",
+      "FixedResource.MaxwellCore",
+      "FixedResource.PowerIntervals",
+      "FixedResource.SphereAlgebra",
+      "FixedResource.UniformPhysicalBudget"
+    ],
+    "FixedResource.BesselEnergy": [
+      "Mathlib.Analysis.Calculus.Deriv.MeanValue",
+      "Mathlib.Analysis.Calculus.Deriv.Inv",
+      "Mathlib.Analysis.Calculus.Deriv.Pow",
+      "Mathlib.Tactic"
+    ],
+    "FixedResource.MaxwellCore": [
+      "QuarticMaxwell.PhysicalPowers"
+    ],
+    "QuarticMaxwell.PhysicalPowers": [
+      "QuarticMaxwell.WeakMaterial",
+      "QuarticMaxwell.UniformBound",
+      "QuarticMaxwell.BallBound",
+      "PrescribedExtinction.PhysicalSphereFlux"
+    ],
+    "QuarticMaxwell.WeakMaterial": [
+      "QuarticMaxwell.PlaneWaves",
+      "QuarticMaxwell.VolumeInverse",
+      "PrescribedExtinction.VacuumOutgoingWeakUniqueness",
+      "PrescribedExtinction.WeakScatteringResidual"
+    ],
+    "QuarticMaxwell.PlaneWaves": [
+      "QuarticMaxwell.IncidentSources",
+      "PrescribedExtinction.IncidentMaxwell",
+      "PrescribedExtinction.FarFieldKernel"
+    ],
+    "QuarticMaxwell.IncidentSources": [
+      "QuarticMaxwell.RadiationOperator"
+    ],
+    "QuarticMaxwell.RadiationOperator": [
+      "QuarticMaxwell.RadiationMoment",
+      "QuarticMaxwell.SquareIntegral",
+      "PrescribedExtinction.SetSupportedL2"
+    ],
+    "QuarticMaxwell.RadiationMoment": [
+      "QuarticMaxwell.ProjectionKernel",
+      "PrescribedExtinction.SphereMoments"
+    ],
+    "QuarticMaxwell.ProjectionKernel": [
+      "QuarticMaxwell.ProjectionGeometry",
+      "QuarticMaxwell.GreenEigenvalues",
+      "PrescribedExtinction.DyadicRemainder"
+    ],
+    "QuarticMaxwell.ProjectionGeometry": [
+      "Mathlib.Analysis.InnerProductSpace.LinearMap",
+      "Mathlib.Tactic"
+    ],
+    "QuarticMaxwell.GreenEigenvalues": [
+      "Mathlib.Analysis.Complex.Exponential",
+      "Mathlib.Analysis.Complex.Basic",
+      "Mathlib.Analysis.SpecialFunctions.Integrals.Basic",
+      "Mathlib.MeasureTheory.Integral.IntervalIntegral.FundThmCalculus",
+      "Mathlib.Tactic"
+    ],
+    "PrescribedExtinction.DyadicRemainder": [
+      "PrescribedExtinction.GreenCancellation",
+      "PrescribedExtinction.StaticFourier"
+    ],
+    "PrescribedExtinction.GreenCancellation": [
+      "PrescribedExtinction.OutgoingRadial",
+      "Mathlib.Analysis.Complex.Exponential"
+    ],
+    "PrescribedExtinction.OutgoingRadial": [
+      "PrescribedExtinction.NewtonKernel",
+      "Mathlib.Analysis.SpecialFunctions.ExpDeriv"
+    ],
+    "PrescribedExtinction.NewtonKernel": [
+      "PrescribedExtinction.RadialCalculus"
+    ],
+    "PrescribedExtinction.RadialCalculus": [
+      "PrescribedExtinction.GreenKernel",
+      "Mathlib.Analysis.InnerProductSpace.Calculus",
+      "Mathlib.Analysis.Calculus.LineDeriv.Basic",
+      "Mathlib.Analysis.Calculus.Deriv.Inv",
+      "Mathlib.Analysis.Calculus.FDeriv.Mul",
+      "Mathlib.Analysis.SpecialFunctions.Pow.Deriv"
+    ],
+    "PrescribedExtinction.GreenKernel": [
+      "PrescribedExtinction.Maxwell",
+      "Mathlib.Analysis.Distribution.Distribution",
+      "Mathlib.Analysis.SpecialFunctions.Pow.Integral",
+      "Mathlib.MeasureTheory.Function.L2Space",
+      "Mathlib.Tactic.FunProp"
+    ],
+    "PrescribedExtinction.Maxwell": [
+      "PrescribedExtinction.Basic",
+      "Mathlib.Analysis.Calculus.ContDiff.Defs",
+      "Mathlib.Analysis.SpecialFunctions.Complex.Log",
+      "Mathlib.MeasureTheory.Function.LocallyIntegrable",
+      "Mathlib.MeasureTheory.Function.LpSeminorm.Basic",
+      "Mathlib.MeasureTheory.Integral.Bochner.Basic",
+      "Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic",
+      "Mathlib.MeasureTheory.Measure.Haar.InnerProductSpace"
+    ],
+    "PrescribedExtinction.Basic": [
+      "Mathlib.Analysis.InnerProductSpace.PiL2",
+      "Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic",
+      "Mathlib.LinearAlgebra.Matrix.ConjTranspose",
+      "Mathlib.Tactic.FinCases",
+      "Mathlib.Tactic.Linarith",
+      "Mathlib.Tactic.NormNum",
+      "Mathlib.Tactic.Ring"
+    ],
+    "PrescribedExtinction.StaticFourier": [
+      "PrescribedExtinction.Materials",
+      "PrescribedExtinction.Maxwell",
+      "Mathlib.Analysis.Fourier.LpSpace",
+      "Mathlib.MeasureTheory.Function.StronglyMeasurable.Lemmas",
+      "Mathlib.Tactic.FunProp"
+    ],
+    "PrescribedExtinction.Materials": [
+      "PrescribedExtinction.Basic"
+    ],
+    "PrescribedExtinction.SphereMoments": [
+      "PrescribedExtinction.SphereMeasure"
+    ],
+    "PrescribedExtinction.SphereMeasure": [
+      "PrescribedExtinction.NewtonKernel",
+      "Mathlib.MeasureTheory.Constructions.HaarToSphere",
+      "Mathlib.MeasureTheory.Measure.Lebesgue.VolumeOfBalls",
+      "Mathlib.MeasureTheory.Measure.Haar.NormedSpace"
+    ],
+    "QuarticMaxwell.SquareIntegral": [
+      "QuarticMaxwell.Schur",
+      "Mathlib.MeasureTheory.Function.LpSpace.Indicator"
+    ],
+    "QuarticMaxwell.Schur": [
+      "Mathlib.MeasureTheory.Function.L2Space",
+      "Mathlib.MeasureTheory.Integral.Prod",
+      "Mathlib.Analysis.InnerProductSpace.Dual",
+      "Mathlib.MeasureTheory.Function.StronglyMeasurable.Lemmas",
+      "Mathlib.Tactic"
+    ],
+    "PrescribedExtinction.SetSupportedL2": [
+      "Mathlib.MeasureTheory.Function.L2Space",
+      "Mathlib.MeasureTheory.Function.LpSeminorm.Indicator"
+    ],
+    "PrescribedExtinction.IncidentMaxwell": [
+      "PrescribedExtinction.WeakCurlBridge",
+      "Mathlib.Analysis.Calculus.LineDeriv.IntegrationByParts"
+    ],
+    "PrescribedExtinction.WeakCurlBridge": [
+      "PrescribedExtinction.PhysicalSourceFields"
+    ],
+    "PrescribedExtinction.PhysicalSourceFields": [
+      "PrescribedExtinction.GradientCurrentPairing",
+      "PrescribedExtinction.DyadicMaxwellSource"
+    ],
+    "PrescribedExtinction.GradientCurrentPairing": [
+      "PrescribedExtinction.GreenFirstDerivative",
+      "PrescribedExtinction.VolumeFundamental"
+    ],
+    "PrescribedExtinction.GreenFirstDerivative": [
+      "PrescribedExtinction.GreenGradient",
+      "PrescribedExtinction.PolePointIBP"
+    ],
+    "PrescribedExtinction.GreenGradient": [
+      "PrescribedExtinction.YoungConvolution",
+      "PrescribedExtinction.OutgoingDynamicIdentity"
+    ],
+    "PrescribedExtinction.YoungConvolution": [
+      "PrescribedExtinction.RemainderCurrentPairing",
+      "Mathlib.MeasureTheory.Function.L2Space"
+    ],
+    "PrescribedExtinction.RemainderCurrentPairing": [
+      "PrescribedExtinction.OutgoingCurrentPairing",
+      "PrescribedExtinction.RemainderConvolution"
+    ],
+    "PrescribedExtinction.OutgoingCurrentPairing": [
+      "PrescribedExtinction.NewtonCurrentPairing"
+    ],
+    "PrescribedExtinction.NewtonCurrentPairing": [
+      "PrescribedExtinction.NewtonTransform",
+      "PrescribedExtinction.VolumePotential",
+      "Mathlib.MeasureTheory.Integral.Prod"
+    ],
+    "PrescribedExtinction.NewtonTransform": [
+      "PrescribedExtinction.NewtonFourier",
+      "PrescribedExtinction.NewtonHeatPairing",
+      "PrescribedExtinction.NewtonHeatFourier",
+      "PrescribedExtinction.NewtonFrequencyHeat",
+      "PrescribedExtinction.NewtonSymbol"
+    ],
+    "PrescribedExtinction.NewtonFourier": [
+      "PrescribedExtinction.NewtonSchwartz"
+    ],
+    "PrescribedExtinction.NewtonSchwartz": [
+      "PrescribedExtinction.NewtonTempered",
+      "PrescribedExtinction.NewtonFundamental"
+    ],
+    "PrescribedExtinction.NewtonTempered": [
+      "PrescribedExtinction.NewtonContact",
+      "PrescribedExtinction.VolumePotential",
+      "Mathlib.Analysis.Fourier.LpSpace"
+    ],
+    "PrescribedExtinction.NewtonContact": [
+      "PrescribedExtinction.NewtonPunctured"
+    ],
+    "PrescribedExtinction.NewtonPunctured": [
+      "PrescribedExtinction.NewtonShell"
+    ],
+    "PrescribedExtinction.NewtonShell": [
+      "PrescribedExtinction.NewtonCutoffIBP",
+      "PrescribedExtinction.NewtonCutoffLimit"
+    ],
+    "PrescribedExtinction.NewtonCutoffIBP": [
+      "PrescribedExtinction.NewtonCutoff"
+    ],
+    "PrescribedExtinction.NewtonCutoff": [
+      "PrescribedExtinction.NewtonPrincipalValue",
+      "Mathlib.Analysis.SpecialFunctions.SmoothTransition",
+      "Mathlib.Analysis.Calculus.ContDiff.Deriv",
+      "Mathlib.Analysis.Calculus.LineDeriv.IntegrationByParts",
+      "Mathlib.Analysis.Calculus.LocalExtr.Basic",
+      "Mathlib.MeasureTheory.Integral.IntervalIntegral.FundThmCalculus"
+    ],
+    "PrescribedExtinction.NewtonPrincipalValue": [
+      "PrescribedExtinction.NewtonPV"
+    ],
+    "PrescribedExtinction.NewtonPV": [
+      "PrescribedExtinction.NewtonBoundary",
+      "Mathlib.Analysis.Calculus.MeanValue",
+      "Mathlib.MeasureTheory.Integral.DominatedConvergence"
+    ],
+    "PrescribedExtinction.NewtonBoundary": [
+      "PrescribedExtinction.SphereMoments",
+      "Mathlib.MeasureTheory.Integral.Bochner.Set"
+    ],
+    "PrescribedExtinction.NewtonCutoffLimit": [
+      "PrescribedExtinction.NewtonCutoff"
+    ],
+    "PrescribedExtinction.VolumePotential": [
+      "PrescribedExtinction.GreenKernel",
+      "PrescribedExtinction.Geometry",
+      "Mathlib.Analysis.Convolution",
+      "Mathlib.MeasureTheory.Function.LpSeminorm.Indicator"
+    ],
+    "PrescribedExtinction.Geometry": [
+      "PrescribedExtinction.Basic",
+      "Mathlib.Analysis.Normed.Module.FiniteDimension"
+    ],
+    "PrescribedExtinction.NewtonFundamental": [
+      "PrescribedExtinction.NewtonContact"
+    ],
+    "PrescribedExtinction.NewtonHeatPairing": [
+      "PrescribedExtinction.NewtonHeat",
+      "PrescribedExtinction.NewtonTempered",
+      "Mathlib.MeasureTheory.Integral.Prod"
+    ],
+    "PrescribedExtinction.NewtonHeat": [
+      "PrescribedExtinction.NewtonContact",
+      "Mathlib.Analysis.SpecialFunctions.Gaussian.GaussianIntegral"
+    ],
+    "PrescribedExtinction.NewtonHeatFourier": [
+      "PrescribedExtinction.NewtonHeat",
+      "Mathlib.Analysis.SpecialFunctions.Gaussian.FourierTransform"
+    ],
+    "PrescribedExtinction.NewtonFrequencyHeat": [
+      "PrescribedExtinction.NewtonFrequency",
+      "Mathlib.MeasureTheory.Integral.Prod"
+    ],
+    "PrescribedExtinction.NewtonFrequency": [
+      "PrescribedExtinction.NewtonTempered",
+      "PrescribedExtinction.StaticSymbolCoordinates"
+    ],
+    "PrescribedExtinction.StaticSymbolCoordinates": [
+      "PrescribedExtinction.StaticFourier"
+    ],
+    "PrescribedExtinction.NewtonSymbol": [
+      "PrescribedExtinction.StaticSymbolCoordinates",
+      "PrescribedExtinction.NewtonSchwartz"
+    ],
+    "PrescribedExtinction.RemainderConvolution": [
+      "PrescribedExtinction.DyadicRemainder",
+      "PrescribedExtinction.VolumePotential",
+      "Mathlib.MeasureTheory.Function.LpSeminorm.Monotonicity"
+    ],
+    "PrescribedExtinction.OutgoingDynamicIdentity": [
+      "PrescribedExtinction.RemovablePointIBP",
+      "PrescribedExtinction.DynamicGreenRegularity",
+      "PrescribedExtinction.NewtonContact"
+    ],
+    "PrescribedExtinction.RemovablePointIBP": [
+      "PrescribedExtinction.NewtonShell",
+      "PrescribedExtinction.StaticSymbolCoordinates",
+      "PrescribedExtinction.ShrinkingCutoff"
+    ],
+    "PrescribedExtinction.ShrinkingCutoff": [
+      "PrescribedExtinction.NewtonShell",
+      "Mathlib.MeasureTheory.Measure.Lebesgue.EqHaar"
+    ],
+    "PrescribedExtinction.DynamicGreenRegularity": [
+      "PrescribedExtinction.RemainderConvolution",
+      "Mathlib.Analysis.Calculus.ContDiff.Operations"
+    ],
+    "PrescribedExtinction.PolePointIBP": [
+      "PrescribedExtinction.RemovablePointIBP"
+    ],
+    "PrescribedExtinction.VolumeFundamental": [
+      "PrescribedExtinction.OutgoingFundamental",
+      "PrescribedExtinction.OutgoingVolumeIdentification",
+      "PrescribedExtinction.DistributionVectorCalculus"
+    ],
+    "PrescribedExtinction.OutgoingFundamental": [
+      "PrescribedExtinction.OutgoingDynamicIdentity",
+      "PrescribedExtinction.NewtonFundamental"
+    ],
+    "PrescribedExtinction.OutgoingVolumeIdentification": [
+      "PrescribedExtinction.OutgoingDynamicIdentity",
+      "PrescribedExtinction.RemainderCurrentPairing",
+      "PrescribedExtinction.NewtonStaticIdentification"
+    ],
+    "PrescribedExtinction.NewtonStaticIdentification": [
+      "PrescribedExtinction.NewtonCurrentFourier",
+      "PrescribedExtinction.FourierL1L2",
+      "PrescribedExtinction.StaticOperatorDistribution"
+    ],
+    "PrescribedExtinction.NewtonCurrentFourier": [
+      "PrescribedExtinction.NewtonCurrentCorrelation",
+      "Mathlib.Analysis.Fourier.Convolution"
+    ],
+    "PrescribedExtinction.NewtonCurrentCorrelation": [
+      "PrescribedExtinction.NewtonCurrentPairing",
+      "PrescribedExtinction.NewtonSchwartz",
+      "Mathlib.Analysis.Calculus.ContDiff.Convolution"
+    ],
+    "PrescribedExtinction.FourierL1L2": [
+      "PrescribedExtinction.StaticFourier",
+      "Mathlib.Analysis.Distribution.AEEqOfIntegralContDiff"
+    ],
+    "PrescribedExtinction.StaticOperatorDistribution": [
+      "PrescribedExtinction.NewtonTransform"
+    ],
+    "PrescribedExtinction.DistributionVectorCalculus": [
+      "PrescribedExtinction.NewtonCutoffIBP",
+      "Mathlib.Analysis.Calculus.FDeriv.Symmetric"
+    ],
+    "PrescribedExtinction.DyadicMaxwellSource": [
+      "PrescribedExtinction.VolumeFundamental",
+      "PrescribedExtinction.CompactOutgoingIdentification"
+    ],
+    "PrescribedExtinction.CompactOutgoingIdentification": [
+      "PrescribedExtinction.CompactOutgoingOperator",
+      "PrescribedExtinction.OutgoingVolumeIdentification"
+    ],
+    "PrescribedExtinction.CompactOutgoingOperator": [
+      "PrescribedExtinction.NewtonStaticIdentification",
+      "PrescribedExtinction.RemainderCurrentPairing",
+      "Mathlib.MeasureTheory.Function.LpSpace.Indicator"
+    ],
+    "PrescribedExtinction.FarFieldKernel": [
+      "PrescribedExtinction.FarFieldPhase",
+      "PrescribedExtinction.ExteriorOutgoing"
+    ],
+    "PrescribedExtinction.FarFieldPhase": [
+      "PrescribedExtinction.FarFieldGeometry",
+      "PrescribedExtinction.ExteriorOutgoing"
+    ],
+    "PrescribedExtinction.FarFieldGeometry": [
+      "Mathlib.Analysis.InnerProductSpace.Basic",
+      "Mathlib.Analysis.SpecialFunctions.Trigonometric.Bounds",
+      "Mathlib.Tactic.Linarith",
+      "Mathlib.Tactic.Ring"
+    ],
+    "PrescribedExtinction.ExteriorOutgoing": [
+      "PrescribedExtinction.RadiationKernel"
+    ],
+    "PrescribedExtinction.RadiationKernel": [
+      "PrescribedExtinction.GreenGradient"
+    ],
+    "QuarticMaxwell.VolumeInverse": [
+      "QuarticMaxwell.SupportedOperators",
+      "QuarticMaxwell.TensorMultiplier"
+    ],
+    "QuarticMaxwell.SupportedOperators": [
+      "QuarticMaxwell.Reciprocity"
+    ],
+    "QuarticMaxwell.Reciprocity": [
+      "QuarticMaxwell.RadiationIdentity",
+      "QuarticMaxwell.IncidentSources",
+      "PrescribedExtinction.ReciprocityL2"
+    ],
+    "QuarticMaxwell.RadiationIdentity": [
+      "QuarticMaxwell.RadiationPhysical",
+      "PrescribedExtinction.FarFieldWorkL2"
+    ],
+    "QuarticMaxwell.RadiationPhysical": [
+      "QuarticMaxwell.RadiationOperator",
+      "QuarticMaxwell.MaskedRemainder",
+      "PrescribedExtinction.FarFieldCurrent"
+    ],
+    "QuarticMaxwell.MaskedRemainder": [
+      "QuarticMaxwell.ProjectionKernel",
+      "QuarticMaxwell.SharpVolume",
+      "QuarticMaxwell.Schur",
+      "PrescribedExtinction.CompactOutgoingOperator",
+      "PrescribedExtinction.SetSupportedL2",
+      "PrescribedExtinction.OutgoingVolumeIdentification"
+    ],
+    "QuarticMaxwell.SharpVolume": [
+      "QuarticMaxwell.Rearrangement",
+      "Mathlib.MeasureTheory.Constructions.HaarToSphere",
+      "Mathlib.MeasureTheory.Measure.Lebesgue.VolumeOfBalls",
+      "Mathlib.Analysis.SpecialFunctions.Integrals.Basic",
+      "Mathlib.MeasureTheory.Group.Integral",
+      "Mathlib.Analysis.SpecialFunctions.Pow.Real",
+      "Mathlib.Tactic"
+    ],
+    "QuarticMaxwell.Rearrangement": [
+      "Mathlib.MeasureTheory.Integral.Bochner.Set",
+      "Mathlib.MeasureTheory.Measure.Real",
+      "Mathlib.Tactic"
+    ],
+    "PrescribedExtinction.FarFieldCurrent": [
+      "PrescribedExtinction.FarFieldKernel",
+      "PrescribedExtinction.PhysicalExtinctionWork"
+    ],
+    "PrescribedExtinction.PhysicalExtinctionWork": [
+      "PrescribedExtinction.RankOneScattering"
+    ],
+    "PrescribedExtinction.RankOneScattering": [
+      "PrescribedExtinction.ActiveMaterialInverse"
+    ],
+    "PrescribedExtinction.ActiveMaterialInverse": [
+      "PrescribedExtinction.ActiveCurrentSpace"
+    ],
+    "PrescribedExtinction.ActiveCurrentSpace": [
+      "PrescribedExtinction.SupportedL2Maps",
+      "PrescribedExtinction.ScatteringExistence"
+    ],
+    "PrescribedExtinction.SupportedL2Maps": [
+      "PrescribedExtinction.TwoPieceL2",
+      "Mathlib.Analysis.InnerProductSpace.Adjoint"
+    ],
+    "PrescribedExtinction.TwoPieceL2": [
+      "PrescribedExtinction.SetSupportedL2"
+    ],
+    "PrescribedExtinction.ScatteringExistence": [
+      "PrescribedExtinction.MaterialBodyInverse",
+      "PrescribedExtinction.VolumeScatteringBridge"
+    ],
+    "PrescribedExtinction.MaterialBodyInverse": [
+      "PrescribedExtinction.BodyCurrentSpace",
+      "PrescribedExtinction.TwoPieceL2",
+      "PrescribedExtinction.TensorLossCoercivity"
+    ],
+    "PrescribedExtinction.BodyCurrentSpace": [
+      "PrescribedExtinction.SetSupportedL2",
+      "PrescribedExtinction.OutgoingDissipativity"
+    ],
+    "PrescribedExtinction.OutgoingDissipativity": [
+      "PrescribedExtinction.SmoothOutgoingDissipativity",
+      "PrescribedExtinction.CompactCurrentDensity"
+    ],
+    "PrescribedExtinction.SmoothOutgoingDissipativity": [
+      "PrescribedExtinction.RadialEnergyCutoff",
+      "PrescribedExtinction.RadiationEnergyBounds",
+      "Mathlib.MeasureTheory.Measure.Lebesgue.VolumeOfBalls",
+      "Mathlib.Topology.Algebra.Order.Field"
+    ],
+    "PrescribedExtinction.RadialEnergyCutoff": [
+      "PrescribedExtinction.PoyntingCutoff",
+      "PrescribedExtinction.NewtonShell",
+      "Mathlib.Analysis.Calculus.Deriv.Slope"
+    ],
+    "PrescribedExtinction.PoyntingCutoff": [
+      "PrescribedExtinction.SmoothOutgoingFields",
+      "PrescribedExtinction.VolumeScatteringBridge",
+      "PrescribedExtinction.TensorLossCoercivity"
+    ],
+    "PrescribedExtinction.SmoothOutgoingFields": [
+      "PrescribedExtinction.IncidentMaxwell",
+      "PrescribedExtinction.NewtonCurrentPairing",
+      "Mathlib.Analysis.Calculus.ContDiff.Convolution",
+      "Mathlib.MeasureTheory.Measure.OpenPos"
+    ],
+    "PrescribedExtinction.VolumeScatteringBridge": [
+      "PrescribedExtinction.PhysicalPolarization",
+      "PrescribedExtinction.IncidentMaxwell"
+    ],
+    "PrescribedExtinction.PhysicalPolarization": [
+      "PrescribedExtinction.OutgoingSourceFields"
+    ],
+    "PrescribedExtinction.OutgoingSourceFields": [
+      "PrescribedExtinction.ExteriorCurrentIdentification"
+    ],
+    "PrescribedExtinction.ExteriorCurrentIdentification": [
+      "PrescribedExtinction.ExteriorKernelTests",
+      "Mathlib.MeasureTheory.Group.Prod"
+    ],
+    "PrescribedExtinction.ExteriorKernelTests": [
+      "PrescribedExtinction.WeakCurlBridge",
+      "PrescribedExtinction.ExteriorOutgoing"
+    ],
+    "PrescribedExtinction.TensorLossCoercivity": [
+      "PrescribedExtinction.PhysicalPolarization",
+      "PrescribedExtinction.ComplexCoerciveInverse",
+      "Mathlib.Topology.Order.Compact"
+    ],
+    "PrescribedExtinction.ComplexCoerciveInverse": [
+      "PrescribedExtinction.StaticFourier",
+      "Mathlib.Analysis.InnerProductSpace.LaxMilgram"
+    ],
+    "PrescribedExtinction.RadiationEnergyBounds": [
+      "PrescribedExtinction.OutgoingSourceFields",
+      "PrescribedExtinction.TensorLossCoercivity",
+      "PrescribedExtinction.SmoothOutgoingFields"
+    ],
+    "PrescribedExtinction.CompactCurrentDensity": [
+      "PrescribedExtinction.VolumePotential",
+      "PrescribedExtinction.StaticFourier",
+      "Mathlib.Analysis.Normed.Lp.SmoothApprox"
+    ],
+    "PrescribedExtinction.FarFieldWorkL2": [
+      "PrescribedExtinction.FarFieldWork",
+      "PrescribedExtinction.FarFieldL2",
+      "PrescribedExtinction.PhysicalAbsorptionWork"
+    ],
+    "PrescribedExtinction.FarFieldWork": [
+      "PrescribedExtinction.FarFieldFlux",
+      "PrescribedExtinction.FarFieldRadial",
+      "PrescribedExtinction.SmoothOutgoingDissipativity"
+    ],
+    "PrescribedExtinction.FarFieldFlux": [
+      "PrescribedExtinction.FarFieldCurrent",
+      "PrescribedExtinction.RadiationEnergyBounds"
+    ],
+    "PrescribedExtinction.FarFieldRadial": [
+      "PrescribedExtinction.FarFieldCurrent",
+      "PrescribedExtinction.RadialEnergyCutoff"
+    ],
+    "PrescribedExtinction.FarFieldL2": [
+      "PrescribedExtinction.FarFieldCurrent",
+      "PrescribedExtinction.OutgoingDissipativity"
+    ],
+    "PrescribedExtinction.PhysicalAbsorptionWork": [
+      "PrescribedExtinction.PhysicalExtinctionWork"
+    ],
+    "PrescribedExtinction.ReciprocityL2": [
+      "PrescribedExtinction.SmoothReciprocity"
+    ],
+    "PrescribedExtinction.SmoothReciprocity": [
+      "PrescribedExtinction.LorentzBounds"
+    ],
+    "PrescribedExtinction.LorentzBounds": [
+      "PrescribedExtinction.LorentzIdentity"
+    ],
+    "PrescribedExtinction.LorentzIdentity": [
+      "PrescribedExtinction.LorentzCutoff",
+      "Mathlib.Tactic.LinearCombination"
+    ],
+    "PrescribedExtinction.LorentzCutoff": [
+      "PrescribedExtinction.RadialEnergyCutoff",
+      "PrescribedExtinction.FarFieldWork"
+    ],
+    "QuarticMaxwell.TensorMultiplier": [
+      "QuarticMaxwell.MaterialInverse",
+      "PrescribedExtinction.SetSupportedL2",
+      "Mathlib.MeasureTheory.Function.StronglyMeasurable.Lemmas",
+      "Mathlib.MeasureTheory.Integral.Bochner.ContinuousLinearMap"
+    ],
+    "QuarticMaxwell.MaterialInverse": [
+      "Mathlib.Analysis.InnerProductSpace.LaxMilgram",
+      "Mathlib.Tactic"
+    ],
+    "PrescribedExtinction.VacuumOutgoingWeakUniqueness": [
+      "PrescribedExtinction.WeakLorentzBoundaryBound",
+      "PrescribedExtinction.SmoothSourceWeakDecay",
+      "PrescribedExtinction.CompactFieldTestSeparation"
+    ],
+    "PrescribedExtinction.WeakLorentzBoundaryBound": [
+      "PrescribedExtinction.WeightedRadiationEnergy",
+      "PrescribedExtinction.WeakSmoothLorentz"
+    ],
+    "PrescribedExtinction.WeightedRadiationEnergy": [
+      "PrescribedExtinction.OutgoingWeakEnergy"
+    ],
+    "PrescribedExtinction.OutgoingWeakEnergy": [
+      "PrescribedExtinction.WeakPoynting",
+      "PrescribedExtinction.FarFieldRadial"
+    ],
+    "PrescribedExtinction.WeakPoynting": [
+      "PrescribedExtinction.WeakCurlWeightedGreen",
+      "PrescribedExtinction.RadialEnergyCutoff"
+    ],
+    "PrescribedExtinction.WeakCurlWeightedGreen": [
+      "PrescribedExtinction.WeakCurlLocalization"
+    ],
+    "PrescribedExtinction.WeakCurlLocalization": [
+      "PrescribedExtinction.WeakCurlFourier",
+      "Mathlib.MeasureTheory.Function.LpSeminorm.CompareExp",
+      "Mathlib.MeasureTheory.SpecificCodomains.WithLp"
+    ],
+    "PrescribedExtinction.WeakCurlFourier": [
+      "PrescribedExtinction.WeakCurlPlaneWave",
+      "PrescribedExtinction.FourierL1L2"
+    ],
+    "PrescribedExtinction.WeakCurlPlaneWave": [
+      "PrescribedExtinction.WeakCurlProducts",
+      "PrescribedExtinction.FarFieldCurrent",
+      "Mathlib.Analysis.Calculus.BumpFunction.FiniteDimension"
+    ],
+    "PrescribedExtinction.WeakCurlProducts": [
+      "PrescribedExtinction.PoyntingCutoff"
+    ],
+    "PrescribedExtinction.WeakSmoothLorentz": [
+      "PrescribedExtinction.WeakPoynting",
+      "PrescribedExtinction.LorentzBounds"
+    ],
+    "PrescribedExtinction.SmoothSourceWeakDecay": [
+      "PrescribedExtinction.WeakSmoothLorentz"
+    ],
+    "PrescribedExtinction.CompactFieldTestSeparation": [
+      "PrescribedExtinction.SmoothOutgoingFields"
+    ],
+    "PrescribedExtinction.WeakScatteringResidual": [
+      "PrescribedExtinction.WeakCurlProducts",
+      "PrescribedExtinction.FarFieldKernel"
+    ],
+    "QuarticMaxwell.UniformBound": [
+      "QuarticMaxwell.VolumeInverse",
+      "QuarticMaxwell.Operator"
+    ],
+    "QuarticMaxwell.Operator": [
+      "Mathlib.Analysis.InnerProductSpace.Basic",
+      "Mathlib.Analysis.Normed.Operator.ContinuousLinearMap",
+      "Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic",
+      "Mathlib.Tactic"
+    ],
+    "QuarticMaxwell.BallBound": [
+      "QuarticMaxwell.UniformBound"
+    ],
+    "PrescribedExtinction.PhysicalSphereFlux": [
+      "PrescribedExtinction.ExteriorSphereContinuity",
+      "PrescribedExtinction.FarFieldFlux",
+      "PrescribedExtinction.FarFieldRadial"
+    ],
+    "PrescribedExtinction.ExteriorSphereContinuity": [
+      "PrescribedExtinction.WeakCurlProducts",
+      "PrescribedExtinction.ExteriorOutgoing"
+    ],
+    "FixedResource.PowerIntervals": [
+      "Mathlib.Tactic"
+    ],
+    "FixedResource.SphereAlgebra": [
+      "GeneralizedResearch.FiniteHilbertBridge"
+    ],
+    "GeneralizedResearch.FiniteHilbertBridge": [
+      "GeneralizedResearch.ChannelAttainment",
+      "GeneralizedResearch.ChannelCoordinates",
+      "Mathlib.Analysis.CStarAlgebra.Matrix"
+    ],
+    "GeneralizedResearch.ChannelAttainment": [
+      "GeneralizedResearch.CanonicalMiddle",
+      "GeneralizedResearch.OuterBound",
+      "GeneralizedResearch.ChannelPowers",
+      "GeneralizedResearch.ThirdBranchAttainment",
+      "GeneralizedResearch.OrthogonalSharpness",
+      "Mathlib.Tactic"
+    ],
+    "GeneralizedResearch.CanonicalMiddle": [
+      "GeneralizedResearch.MiddleCertificate",
+      "GeneralizedResearch.RealCompression"
+    ],
+    "GeneralizedResearch.MiddleCertificate": [
+      "GeneralizedResearch.MiddleParameters",
+      "Mathlib.LinearAlgebra.Matrix.PosDef",
+      "Mathlib.LinearAlgebra.Matrix.Trace",
+      "Mathlib.LinearAlgebra.Matrix.Notation",
+      "Mathlib.Algebra.Order.Star.Real",
+      "Mathlib.Tactic.FinCases",
+      "Mathlib.Tactic.NormNum"
+    ],
+    "GeneralizedResearch.MiddleParameters": [
+      "Mathlib.Analysis.SpecialFunctions.Pow.Real",
+      "Mathlib.Topology.Order.IntermediateValue",
+      "Mathlib.Tactic.FieldSimp",
+      "Mathlib.Tactic.FunProp",
+      "Mathlib.Tactic.Linarith",
+      "Mathlib.Tactic.Positivity",
+      "Mathlib.Tactic.Ring"
+    ],
+    "GeneralizedResearch.RealCompression": [
+      "Mathlib.LinearAlgebra.Matrix.PosDef",
+      "Mathlib.LinearAlgebra.Matrix.Trace",
+      "Mathlib.LinearAlgebra.Matrix.Notation",
+      "Mathlib.Algebra.Order.Star.Real",
+      "Mathlib.Analysis.RCLike.Basic",
+      "Mathlib.Analysis.Complex.Basic",
+      "Mathlib.Tactic.Abel",
+      "Mathlib.Tactic.Linarith",
+      "Mathlib.Tactic.LinearCombination"
+    ],
+    "GeneralizedResearch.OuterBound": [
+      "GeneralizedResearch.MiddleParameters",
+      "Mathlib.LinearAlgebra.Matrix.PosDef",
+      "Mathlib.LinearAlgebra.Matrix.Trace",
+      "Mathlib.LinearAlgebra.Matrix.Notation",
+      "Mathlib.Algebra.Order.Star.Real",
+      "Mathlib.Tactic.FinCases",
+      "Mathlib.Tactic.NormNum",
+      "Mathlib.Tactic.Module"
+    ],
+    "GeneralizedResearch.ChannelPowers": [
+      "GeneralizedResearch.RealCompression",
+      "Mathlib.Tactic.Ring",
+      "Mathlib.Tactic.NormNum"
+    ],
+    "GeneralizedResearch.ThirdBranchAttainment": [
+      "GeneralizedResearch.MiddleCertificate"
+    ],
+    "GeneralizedResearch.OrthogonalSharpness": [
+      "GeneralizedResearch.MiddleCertificate"
+    ],
+    "GeneralizedResearch.ChannelCoordinates": [
+      "GeneralizedResearch.ChannelReciprocity"
+    ],
+    "GeneralizedResearch.ChannelReciprocity": [
+      "GeneralizedResearch.ChannelPassivity",
+      "Mathlib.Analysis.InnerProductSpace.Adjoint"
+    ],
+    "GeneralizedResearch.ChannelPassivity": [
+      "Mathlib.Analysis.InnerProductSpace.Basic",
+      "Mathlib.Analysis.InnerProductSpace.LinearMap",
+      "Mathlib.Analysis.Complex.Norm",
+      "Mathlib.Tactic"
+    ],
+    "FixedResource.UniformPhysicalBudget": [
+      "FixedResource.MaxwellCore",
+      "FixedResource.PowerIntervals"
+    ]
+  },
+  "manuscriptInputs": {
+    "papers/fixed-resource-bounds/arxiv/main.tex": "bb530c25d461d87be90d82ccad4767dc156d53744c3aefe771da11757c8a28cc",
+    "papers/fixed-resource-bounds/arxiv/paper.pdf": "d7cc67130524c70fb749be3bf86744d7e343bdaa6b2ab3f618f0677e9bd972c8",
+    "papers/fixed-resource-bounds/manuscript/OQ7_fixed_resource_bounds_2026-10-10.pdf": "bf0cd5f0f1ef218da4ab396840a639f2d69c6cfe4e200c25689478ea09847711",
+    "papers/fixed-resource-bounds/manuscript/OQ7_fixed_resource_bounds_2026-10-10.txt": "fe5581e57b4e707b5a258b78659677df5d82f2071110d9fd465e009c3f65930d"
+  },
+  "coverageSHA256": "53549ad4c093a8a116cde382cfdaab0329718634b6990a5d33eeb0014536ad90",
+  "publicTypesSHA256": "e3c9a3a2cb11c956f4e24e8c03f15791f9fe9e29e3eebfcfddebab930daf50bc",
+  "completePhysicalManuscriptTheoremsVerified": false,
+  "allOriginalManuscriptClaimsVerified": false,
+  "manuscriptsUpdated": false,
+  "remainingClaimIds": [
+    "Theorem 1.1",
+    "Theorem 3.1",
+    "Corollary 3.2",
+    "Lemma 4.1",
+    "Theorem 4.2",
+    "Theorem 5.1",
+    "Corollary 5.2",
+    "Proposition 5.3",
+    "Theorem 6.1",
+    "Proposition 7.1"
+  ],
+  "logHashes": {
+    "logs/Audit.log": "d291cf1a2d1f9258cf9ab359e661d6be11b53b0107f20cdd8bc4a20979456501",
+    "logs/FixedResource.BesselEnergy.log": "db3a652ed442e59da3d74e9c88edb24994ae9e4bc9a01ee0ee444b2999af204b",
+    "logs/FixedResource.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "logs/FixedResource.MaxwellCore.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "logs/FixedResource.PowerIntervals.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "logs/FixedResource.SphereAlgebra.log": "f24f9a645ae27d82889a32d737f1594125648d6231c9625457fdc14e35b06600",
+    "logs/FixedResource.UniformPhysicalBudget.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "logs/fresh-kernel.log": "07f9778f734898f11bc7794a31b5e3ae99eae1ea8e064e8f4eacbd8e2c8f2077"
+  },
+  "inventorySHA256": "8354af446bab1f9fa400233bdde1b4e55c09fb0efaf9b644a71f34ad356a6247"
+}

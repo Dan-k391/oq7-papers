@@ -1,0 +1,39 @@
+{
+  "status": "passed",
+  "paper": "compact-maxwell-cross-sections",
+  "cases": [
+    {
+      "control": "physical-reciprocity-positive",
+      "expectedToCompile": true,
+      "exitCode": 0,
+      "sourceSHA256": "607d1a86318101bd31b089f9d79f4d29eaecbdfb188573c872650324a419cbe8",
+      "logSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "control": "incorrect-reciprocity-sign",
+      "expectedToCompile": false,
+      "exitCode": 1,
+      "sourceSHA256": "1316e19ae36a195d59c69be21af5c0f34e57d3898974b413853d364d670b0a9f",
+      "logSHA256": "206349f338262e99418acfff1f6ad5d66ef1d59978b11259dccb2793dbd375ff"
+    },
+    {
+      "control": "loss-defect-positive",
+      "expectedToCompile": true,
+      "exitCode": 0,
+      "sourceSHA256": "eaa0983a7bd82e00f3c6eb382351795033604132cc2188a235416b20adb2c3bf",
+      "logSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "control": "invalid-loss-defect",
+      "expectedToCompile": false,
+      "exitCode": 1,
+      "sourceSHA256": "16d6b9afb8068580d619ca144887bbde778e1806d26ba7568896f5d8694fd038",
+      "logSHA256": "247415b5578eaea027c16ebe0bf8fac9e926b80a2fdc21eae432e2e4410e01fe"
+    }
+  ],
+  "compilerSHA256": "fcc4a10077d5fdd575592cea5f2981c91cbd77c490c80bc74407908e57e8b87b",
+  "testRunner": "scripts/check-companion-controls.py",
+  "testRunnerSHA256": "d044873edfa04e4ba5bf4ca4b356415b979e141813bbf4b7e53087c3d7cac36e",
+  "productionSourcesMutated": false,
+  "negativeControlsDeliberatelyDoNotCompile": true
+}

@@ -1,0 +1,156 @@
+{
+  "paper": "compact-maxwell-cross-sections",
+  "status": "partial-formalization-checkpoint",
+  "allOriginalManuscriptClaimsVerified": false,
+  "manuscriptsUpdated": false,
+  "manuscriptInputs": {
+    "papers/compact-maxwell-cross-sections/arxiv/main.tex": "2d00da7c7e4b327d6d1fa86c94b8f94e510f57796959a7d8173dea6e76ece4ea",
+    "papers/compact-maxwell-cross-sections/arxiv/paper.pdf": "fd90b31b0a7bf50df143d11ad79743ac2c88f1d8e0a7fd8373c3d78ebe6c5001",
+    "papers/compact-maxwell-cross-sections/manuscript/OQ7_compact_Maxwell_cross_sections_2026-10-10.pdf": "eb85dd064e8dd2410c0b6f88cd6463c2d0700a3b35dcc307cd152cf8f3c4cd6a",
+    "papers/compact-maxwell-cross-sections/manuscript/OQ7_compact_Maxwell_cross_sections_2026-10-10.txt": "aa60d8f2c387617bd9302e8db7e4c413f702bf74a044259eeda442ffed58a01d"
+  },
+  "claims": [
+    {
+      "id": "Theorem 1.1",
+      "currentLabel": "thm:supremum",
+      "status": "complete",
+      "exports": [
+        "CompactMaxwell.PhysicalSupremum.unrestricted_examples",
+        "CompactMaxwell.PhysicalSupremum.unrestricted_compact_dielectric_supremum"
+      ],
+      "currentStatementSHA256": "984507a08aadc978f4c4897298bec454ddca704b11b62cd01aece76208927a63",
+      "remaining": "An explicit corollary of the stronger unchanged prescribed-extinction physical theorem. Does not verify this manuscript’s independent localization route."
+    },
+    {
+      "id": "Theorem 2.1",
+      "currentLabel": "thm:dipole",
+      "status": "complete",
+      "exports": [
+        "CompactMaxwell.SixVectorBridge.complete_dipole_bound",
+        "CompactMaxwell.SixVectorEquality.all_extinctions",
+        "CompactMaxwell.DipoleSupremum.free_extinction_supremum"
+      ],
+      "currentStatementSHA256": "674c108d2d0b66c636f9dbed93cba61d370b4bf74e643199ba5f1b0ab20e7ac9",
+      "remaining": "Complete six-coordinate passivity/reciprocity bound, both endpoints, every allowed extinction equality model and positive-extinction strictness. No local finite-dielectric realization of the point model is claimed."
+    },
+    {
+      "id": "Theorem 3.1",
+      "currentLabel": "thm:localization",
+      "status": "open",
+      "exports": [],
+      "currentStatementSHA256": "36d637455748c22b61d7d884c6a31e26ac2b19d1e3e574dd5d7b6b5067db284f",
+      "remaining": "General bounded Lipschitz Ω and measurable tensor stack: transverse Weyl identity with its contact term, mixed L²/L¹ control across grazing, window approximation, all three area-normalized physical cross-section limits remain open."
+    },
+    {
+      "id": "Lemma 3.2",
+      "currentLabel": "lem:Green",
+      "status": "complete",
+      "exports": [
+        "CompactMaxwell.MaxwellCore.green_bounded",
+        "CompactMaxwell.MaxwellCore.green_radiation",
+        "CompactMaxwell.MaxwellCore.far_field_continuous"
+      ],
+      "currentStatementSHA256": "ddc8dff17290d7fe7b16e46aa42e240899aa9f4bbeba20c06d505692ad55e7f3",
+      "remaining": ""
+    },
+    {
+      "id": "Proposition 3.3",
+      "currentLabel": "prop:physical",
+      "status": "partial",
+      "exports": [
+        "CompactMaxwell.MaxwellCore.physical_problem",
+        "FixedResource.complex_pair_extinction"
+      ],
+      "currentStatementSHA256": "2e16bceb6ecb43e8008a360000eb968ec37e16ad8db63845eb0d06549e3d9951",
+      "remaining": "The actual aperture-independent inverse, positive common extinction, unique weak fields, energy balance and physical flux are checked. The literal W = -Im_H(χ⁻¹) = χ⁻†(Im_H χ)χ⁻¹ operator factorization and all displayed work identities have not yet been assembled into the complete original statement."
+    },
+    {
+      "id": "Lemma 3.4",
+      "currentLabel": null,
+      "status": "open",
+      "exports": [],
+      "currentStatementSHA256": null,
+      "remaining": "Actual Weyl fibers, longitudinal contact term −I, low-frequency Lipschitz and globally L¹ grazing estimates remain open."
+    },
+    {
+      "id": "Proposition 3.5",
+      "currentLabel": null,
+      "status": "open",
+      "exports": [],
+      "currentStatementSHA256": null,
+      "remaining": "Arbitrary measurable height tensor stack inverse and actual planar power density formulas remain open; special constructed stacks do not establish this universal statement."
+    },
+    {
+      "id": "Lemma 3.6",
+      "currentLabel": null,
+      "status": "open",
+      "exports": [],
+      "currentStatementSHA256": null,
+      "remaining": "The unrestricted-strip smooth-window commutator identity and mixed Fourier estimates, including extension by density, remain open."
+    },
+    {
+      "id": "Lemma 3.7",
+      "currentLabel": null,
+      "status": "open",
+      "exports": [],
+      "currentStatementSHA256": null,
+      "remaining": "The stated R,w boundary-strip family and all uniform derivative/Fourier estimates remain open. A fixed-window existence result does not certify these rates."
+    },
+    {
+      "id": "Proposition 3.8",
+      "currentLabel": "prop:rate",
+      "status": "open",
+      "exports": [],
+      "currentStatementSHA256": "bdbfcf46dca095aecb6feec1b65a5a9323ede93dd2e1060c39012d5277876426",
+      "remaining": "The square-window mixed Fourier residual and the exact current/power O((kR)^(-1/3)) consequences remain open."
+    },
+    {
+      "id": "Lemma 3.9",
+      "currentLabel": null,
+      "status": "open",
+      "exports": [],
+      "currentStatementSHA256": null,
+      "remaining": "The literal reflectionless-plate/absorber formulas and all finite parameter claims must be checked separately; final physical existence alone does not certify this particular construction."
+    },
+    {
+      "id": "Lemma 3.10",
+      "currentLabel": null,
+      "status": "open",
+      "exports": [],
+      "currentStatementSHA256": null,
+      "remaining": "The fixed finite stack zero-regularization continuity proof, with invertible boundary matching at semidefinite loss, remains open in this exact generality."
+    },
+    {
+      "id": "Theorem 3.11",
+      "currentLabel": "thm:supremum",
+      "status": "complete",
+      "exports": [
+        "CompactMaxwell.PhysicalSupremum.unrestricted_examples",
+        "CompactMaxwell.PhysicalSupremum.unrestricted_compact_dielectric_supremum"
+      ],
+      "currentStatementSHA256": "984507a08aadc978f4c4897298bec454ddca704b11b62cd01aece76208927a63",
+      "remaining": "Same unrestricted statement as original Theorem 1.1; proved by the stronger prescribed-extinction theorem rather than by assuming localization."
+    },
+    {
+      "id": "Reading revision Proposition 2.1",
+      "currentLabel": "prop:strict",
+      "status": "complete",
+      "exports": [
+        "CompactMaxwell.strict_bound_and_directivity"
+      ],
+      "currentStatementSHA256": "4a80901c8b6ba1066afad840fc1bd298d6a7ba77b2385235275ae05ba2b0d381",
+      "remaining": "Its explicitly stated continuous-far-field, optical-theorem and passive-power hypotheses are used directly."
+    },
+    {
+      "id": "Reading revision Lemma 4.3",
+      "currentLabel": "lem:vacuum-uniqueness",
+      "status": "complete",
+      "exports": [
+        "CompactMaxwell.MaxwellCore.entire_outgoing_vacuum_unique"
+      ],
+      "currentStatementSHA256": "b5aff375399d37b12b0b1e0f38fd77f4a722d827f81e63ae7ef43e5c964326cf",
+      "remaining": ""
+    }
+  ],
+  "auxiliaryScope": "Unnumbered analytical, dispersion, numerical, bibliography and novelty claims are not completely certified. No human peer review is inferred."
+}

@@ -1,0 +1,384 @@
+FixedResource.BesselEnergy.energy : ℝ → (ℝ → ℝ) → (ℝ → ℝ) → ℝ → ℝ
+'FixedResource.BesselEnergy.energy' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@FixedResource.BesselEnergy.energy_derivative : ∀ {L z : ℝ} {u v : ℝ → ℝ},
+  Ne.{1} z 0 →
+    HasDerivAt.{0, 0} u (v z) z →
+      HasDerivAt.{0, 0} v
+          (HMul.hMul.{0, 0, 0} (Neg.neg.{0} (HSub.hSub.{0, 0, 0} 1 (HDiv.hDiv.{0, 0, 0} L (HPow.hPow.{0, 0, 0} z 2))))
+            (u z))
+          z →
+        HasDerivAt.{0, 0} (FixedResource.BesselEnergy.energy L u v)
+          (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 L) (HPow.hPow.{0, 0, 0} (u z) 2))
+            (HPow.hPow.{0, 0, 0} z 3))
+          z
+'FixedResource.BesselEnergy.energy_derivative' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@FixedResource.BesselEnergy.energy_monotone : ∀ {L : ℝ},
+  LE.le.{0} 0 L →
+    ∀ {u v : ℝ → ℝ},
+      (∀ (z : ℝ), LT.lt.{0} 0 z → HasDerivAt.{0, 0} u (v z) z) →
+        (∀ (z : ℝ),
+            LT.lt.{0} 0 z →
+              HasDerivAt.{0, 0} v
+                (HMul.hMul.{0, 0, 0}
+                  (Neg.neg.{0} (HSub.hSub.{0, 0, 0} 1 (HDiv.hDiv.{0, 0, 0} L (HPow.hPow.{0, 0, 0} z 2)))) (u z))
+                z) →
+          MonotoneOn.{0, 0} (FixedResource.BesselEnergy.energy L u v) (Set.Ioi.{0} 0)
+'FixedResource.BesselEnergy.energy_monotone' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@FixedResource.BesselEnergy.energy_upper : ∀ {L : ℝ},
+  LE.le.{0} 0 L →
+    ∀ {u v : ℝ → ℝ},
+      (∀ (z : ℝ), LT.lt.{0} 0 z → HasDerivAt.{0, 0} u (v z) z) →
+        (∀ (z : ℝ),
+            LT.lt.{0} 0 z →
+              HasDerivAt.{0, 0} v
+                (HMul.hMul.{0, 0, 0}
+                  (Neg.neg.{0} (HSub.hSub.{0, 0, 0} 1 (HDiv.hDiv.{0, 0, 0} L (HPow.hPow.{0, 0, 0} z 2)))) (u z))
+                z) →
+          Filter.Tendsto.{0, 0} (FixedResource.BesselEnergy.energy L u v) Filter.atTop.{0} (nhds.{0} 1) →
+            ∀ {z : ℝ}, LT.lt.{0} 0 z → LE.le.{0} (FixedResource.BesselEnergy.energy L u v z) 1
+'FixedResource.BesselEnergy.energy_upper' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@FixedResource.BesselEnergy.eigenvalue_pair_bound : ∀ {z E m n : ℝ},
+  LE.le.{0} 0 z →
+    LE.le.{0} E 1 →
+      LE.le.{0} 0 m →
+        LE.le.{0} 0 n → Eq.{1} (HAdd.hAdd.{0, 0, 0} m n) (HMul.hMul.{0, 0, 0} z E) → LE.le.{0} m z ∧ LE.le.{0} n z
+'FixedResource.BesselEnergy.eigenvalue_pair_bound' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+FixedResource.bounded_volume_operator : ∀ (B : QuarticMaxwell.WeakMaterial.Medium) {k : ℝ},
+  LE.le.{0} 0 k →
+    LT.lt.{0} 0 (MeasureTheory.Measure.real.{0} MeasureTheory.MeasureSpace.volume.{0} B.domain) →
+      LE.le.{0} (Norm.norm.{0} (QuarticMaxwell.domainStaticOperator B.domain ⋯)) 1 ∧
+        LE.le.{0}
+          (Norm.norm.{0}
+            (HSub.hSub.{0, 0, 0} (QuarticMaxwell.domainOutgoingOperator k B.domain ⋯ ⋯ ⋯)
+              (QuarticMaxwell.domainStaticOperator B.domain ⋯)))
+          (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (3 / 4) (HPow.hPow.{0, 0, 0} k 2))
+            (HPow.hPow.{0, 0, 0}
+              (QuarticMaxwell.volumeRadius
+                (MeasureTheory.Measure.real.{0} MeasureTheory.MeasureSpace.volume.{0} B.domain))
+              2))
+'FixedResource.bounded_volume_operator' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+FixedResource.null_support_zero : ∀ (B : QuarticMaxwell.WeakMaterial.Medium),
+  Eq.{1} (MeasureTheory.Measure.real.{0} MeasureTheory.MeasureSpace.volume.{0} B.domain) 0 →
+    ∀ (p : ↥(QuarticMaxwell.DomainL2 B.domain)), Eq.{1} p 0
+'FixedResource.null_support_zero' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+FixedResource.bounded_volume_operator_all : ∀ (B : QuarticMaxwell.WeakMaterial.Medium) {k : ℝ},
+  LE.le.{0} 0 k →
+    LE.le.{0} (Norm.norm.{0} (QuarticMaxwell.domainStaticOperator B.domain ⋯)) 1 ∧
+      LE.le.{0}
+        (Norm.norm.{0}
+          (HSub.hSub.{0, 0, 0} (QuarticMaxwell.domainOutgoingOperator k B.domain ⋯ ⋯ ⋯)
+            (QuarticMaxwell.domainStaticOperator B.domain ⋯)))
+        (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (3 / 4) (HPow.hPow.{0, 0, 0} k 2))
+          (HPow.hPow.{0, 0, 0}
+            (QuarticMaxwell.volumeRadius
+              (MeasureTheory.Measure.real.{0} MeasureTheory.MeasureSpace.volume.{0} B.domain))
+            2))
+'FixedResource.bounded_volume_operator_all' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+FixedResource.inverse_bound : ∀ (B : QuarticMaxwell.WeakMaterial.Medium) {k : ℝ} (hk : LT.lt.{0} 0 k),
+  LE.le.{0}
+    (Norm.norm.{0}
+      ↑(ContinuousLinearEquiv.symm.{0, 0, 0, 0}
+          (QuarticMaxwell.VolumeInverse.equiv B.domain ⋯ B.susceptibility ⋯ B.M ⋯ ⋯ ⋯ hk ⋯ ⋯ ⋯ ⋯)))
+    (HDiv.hDiv.{0, 0, 0} (HPow.hPow.{0, 0, 0} B.M 2) B.m)
+'FixedResource.inverse_bound' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+FixedResource.weak_maxwell_wellposed : ∀ (B : QuarticMaxwell.WeakMaterial.Medium) {k : ℝ},
+  LT.lt.{0} 0 k →
+    ∀ (n : ↑OQ7Prescribed.UnitSphere) (e : OQ7Prescribed.Vector),
+      Eq.{1} (OQ7Prescribed.bilinear (OQ7Prescribed.complexify ↑n) e) 0 →
+        ∃ s,
+          ∀ (t : QuarticMaxwell.WeakMaterial.State B k n e),
+            t.electric =ᵐ[MeasureTheory.MeasureSpace.volume.{0}] s.electric ∧
+              t.magnetic =ᵐ[MeasureTheory.MeasureSpace.volume.{0}] s.magnetic
+'FixedResource.weak_maxwell_wellposed' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+FixedResource.conjugate_incident_source : ∀ (k : ℝ) (n : ↑OQ7Prescribed.UnitSphere) (e : OQ7Prescribed.Vector)
+  (D : Set.{0} QuarticMaxwell.Position) (hD : MeasurableSet.{0} D)
+  (hfin : Ne.{1} (MeasureTheory.MeasureSpace.volume.{0} D) Top.top.{0}),
+  Eq.{1} ((QuarticMaxwell.domainConjugate D) (QuarticMaxwell.domainIncidentSource k n e D hD hfin))
+    (QuarticMaxwell.domainIncidentSource (Neg.neg.{0} k) n (OQ7Prescribed.vectorConjugate e) D hD hfin)
+'FixedResource.conjugate_incident_source' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+FixedResource.conjugate_polarization_transverse : ∀ (n : ↑OQ7Prescribed.UnitSphere) (e : OQ7Prescribed.Vector),
+  Eq.{1} (OQ7Prescribed.bilinear (OQ7Prescribed.complexify ↑n) e) 0 →
+    Eq.{1}
+      (OQ7Prescribed.bilinear (OQ7Prescribed.complexify ↑(QuarticMaxwell.PhysicalPowers.opposite n))
+        (OQ7Prescribed.vectorConjugate e))
+      0
+'FixedResource.conjugate_polarization_transverse' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+FixedResource.complex_pair_volume_work : ∀ (B : QuarticMaxwell.WeakMaterial.Medium) {k : ℝ} (hk : LT.lt.{0} 0 k),
+  (∀ᵐ (x : QuarticMaxwell.Position),
+      Membership.mem.{0, 0} B.domain x →
+        ∀ (u v : OQ7Prescribed.Vector),
+          Eq.{1} (OQ7Prescribed.bilinear u ((B.susceptibility x) v))
+            (OQ7Prescribed.bilinear v ((B.susceptibility x) u))) →
+    ∀ (n : ↑OQ7Prescribed.UnitSphere) (e : OQ7Prescribed.Vector),
+      have A := QuarticMaxwell.VolumeInverse.equiv B.domain ⋯ B.susceptibility ⋯ B.M ⋯ ⋯ ⋯ hk ⋯ ⋯ ⋯ ⋯;
+      Eq.{1} (QuarticMaxwell.UniformBound.extinctionPower k A (QuarticMaxwell.domainIncidentSource k n e B.domain ⋯ ⋯))
+        (QuarticMaxwell.UniformBound.extinctionPower k A
+          (QuarticMaxwell.domainIncidentSource (Neg.neg.{0} k) n (OQ7Prescribed.vectorConjugate e) B.domain ⋯ ⋯))
+'FixedResource.complex_pair_volume_work' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+FixedResource.complex_pair_extinction : ∀ (B : QuarticMaxwell.WeakMaterial.Medium) {k : ℝ},
+  LT.lt.{0} 0 k →
+    (∀ᵐ (x : QuarticMaxwell.Position),
+        Membership.mem.{0, 0} B.domain x →
+          ∀ (u v : OQ7Prescribed.Vector),
+            Eq.{1} (OQ7Prescribed.bilinear u ((B.susceptibility x) v))
+              (OQ7Prescribed.bilinear v ((B.susceptibility x) u))) →
+      ∀ (n : ↑OQ7Prescribed.UnitSphere) (e : OQ7Prescribed.Vector),
+        Eq.{1} (OQ7Prescribed.bilinear (OQ7Prescribed.complexify ↑n) e) 0 →
+          ∀ (s : QuarticMaxwell.WeakMaterial.State B k n e)
+            (t :
+              QuarticMaxwell.WeakMaterial.State B k (QuarticMaxwell.PhysicalPowers.opposite n)
+                (OQ7Prescribed.vectorConjugate e)),
+            Eq.{1} (QuarticMaxwell.PhysicalPowers.extinction B k n e s.electric)
+              (QuarticMaxwell.PhysicalPowers.extinction B k (QuarticMaxwell.PhysicalPowers.opposite n)
+                (OQ7Prescribed.vectorConjugate e) t.electric)
+'FixedResource.complex_pair_extinction' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+FixedResource.positive_extinction : ∀ (B : QuarticMaxwell.WeakMaterial.Medium) {k : ℝ},
+  LT.lt.{0} 0 k →
+    LT.lt.{0} 0 (MeasureTheory.Measure.real.{0} MeasureTheory.MeasureSpace.volume.{0} B.domain) →
+      ∀ (n : ↑OQ7Prescribed.UnitSphere) (e : OQ7Prescribed.Vector),
+        Eq.{1} (Norm.norm.{0} e) 1 →
+          Eq.{1} (OQ7Prescribed.bilinear (OQ7Prescribed.complexify ↑n) e) 0 →
+            ∀ (s : QuarticMaxwell.WeakMaterial.State B k n e),
+              LT.lt.{0} 0 (QuarticMaxwell.PhysicalPowers.extinction B k n e s.electric)
+'FixedResource.positive_extinction' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@FixedResource.interval_width : ∀ {x y l u : ℝ},
+  LE.le.{0} l x ∧ LE.le.{0} x u →
+    LE.le.{0} l y ∧ LE.le.{0} y u → LE.le.{0} (abs.{0} (HSub.hSub.{0, 0, 0} x y)) (HSub.hSub.{0, 0, 0} u l)
+'FixedResource.interval_width' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@FixedResource.efficiency_fraction : ∀ {A S X b : ℝ},
+  LT.lt.{0} 0 X →
+    LE.le.{0} 0 b →
+      Eq.{1} X (HAdd.hAdd.{0, 0, 0} A S) →
+        LE.le.{0} S (HMul.hMul.{0, 0, 0} b A) →
+          LE.le.{0} (HDiv.hDiv.{0, 0, 0} S X) (HDiv.hDiv.{0, 0, 0} b (HAdd.hAdd.{0, 0, 0} 1 b))
+'FixedResource.efficiency_fraction' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@FixedResource.efficiency_pair : ∀ {Ap Am Sp Sm X b : ℝ},
+  LT.lt.{0} 0 X →
+    LE.le.{0} 0 b →
+      Eq.{1} X (HAdd.hAdd.{0, 0, 0} Ap Sp) →
+        Eq.{1} X (HAdd.hAdd.{0, 0, 0} Am Sm) →
+          LE.le.{0} 0 Sp →
+            LE.le.{0} 0 Sm →
+              LE.le.{0} Sp (HMul.hMul.{0, 0, 0} b Ap) →
+                LE.le.{0} Sm (HMul.hMul.{0, 0, 0} b Am) →
+                  LE.le.{0} (HDiv.hDiv.{0, 0, 0} (abs.{0} (HSub.hSub.{0, 0, 0} Ap Am)) X)
+                    (HDiv.hDiv.{0, 0, 0} b (HAdd.hAdd.{0, 0, 0} 1 b))
+'FixedResource.efficiency_pair' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@FixedResource.response_extinction_cap : ∀ {A S X K : ℝ},
+  LT.lt.{0} 0 X →
+    LT.lt.{0} 0 K →
+      LE.le.{0} 0 S →
+        Eq.{1} X (HAdd.hAdd.{0, 0, 0} A S) →
+          LE.le.{0} (HPow.hPow.{0, 0, 0} X 2) (HMul.hMul.{0, 0, 0} K A) →
+            LE.le.{0} X K ∧ LE.le.{0} (HDiv.hDiv.{0, 0, 0} S X) (HSub.hSub.{0, 0, 0} 1 (HDiv.hDiv.{0, 0, 0} X K))
+'FixedResource.response_extinction_cap' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@FixedResource.necessary_efficiency_cost : ∀ {b g ε : ℝ},
+  LT.lt.{0} 0 ε →
+    LE.le.{0} 0 b →
+      LE.le.{0} (HSub.hSub.{0, 0, 0} 1 ε) g →
+        LE.le.{0} g (HDiv.hDiv.{0, 0, 0} b (HAdd.hAdd.{0, 0, 0} 1 b)) →
+          LE.le.{0} (HDiv.hDiv.{0, 0, 0} (HSub.hSub.{0, 0, 0} 1 ε) ε) b
+'FixedResource.necessary_efficiency_cost' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@FixedResource.response_pair : ∀ {Ap Am Sp Sm X b K : ℝ},
+  LT.lt.{0} 0 X →
+    LE.le.{0} 0 b →
+      LT.lt.{0} 0 K →
+        Eq.{1} X (HAdd.hAdd.{0, 0, 0} Ap Sp) →
+          Eq.{1} X (HAdd.hAdd.{0, 0, 0} Am Sm) →
+            LE.le.{0} 0 Sp →
+              LE.le.{0} 0 Sm →
+                LE.le.{0} Sp (HMul.hMul.{0, 0, 0} b Ap) →
+                  LE.le.{0} Sm (HMul.hMul.{0, 0, 0} b Am) →
+                    LE.le.{0} (HPow.hPow.{0, 0, 0} X 2) (HMul.hMul.{0, 0, 0} K Ap) →
+                      LE.le.{0} (HPow.hPow.{0, 0, 0} X 2) (HMul.hMul.{0, 0, 0} K Am) →
+                        LE.le.{0} X K ∧
+                          LE.le.{0} (HDiv.hDiv.{0, 0, 0} (abs.{0} (HSub.hSub.{0, 0, 0} Ap Am)) X)
+                            (Min.min.{0} (HDiv.hDiv.{0, 0, 0} b (HAdd.hAdd.{0, 0, 0} 1 b))
+                              (HSub.hSub.{0, 0, 0} 1 (HDiv.hDiv.{0, 0, 0} X K)))
+'FixedResource.response_pair' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@FixedResource.positive_extinction_cost : ∀ {k M E X g ε : ℝ},
+  LT.lt.{0} 0 k →
+    LT.lt.{0} 0 M →
+      LT.lt.{0} 0 ε →
+        LE.le.{0} E X →
+          LE.le.{0} (HSub.hSub.{0, 0, 0} 1 ε) g →
+            LE.le.{0} g (HSub.hSub.{0, 0, 0} 1 (HDiv.hDiv.{0, 0, 0} X (HMul.hMul.{0, 0, 0} k M))) →
+              LE.le.{0} (HDiv.hDiv.{0, 0, 0} E (HMul.hMul.{0, 0, 0} k ε)) M
+'FixedResource.positive_extinction_cost' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@FixedResource.absolute_difference_quarter : ∀ {x g : ℝ},
+  LE.le.{0} 0 x → LE.le.{0} g (HSub.hSub.{0, 0, 0} 1 x) → LE.le.{0} (HMul.hMul.{0, 0, 0} x g) (1 / 4)
+'FixedResource.absolute_difference_quarter' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@FixedResource.absolute_difference_small : ∀ {x g b : ℝ},
+  LE.le.{0} 0 x →
+    LE.le.{0} 0 b →
+      LE.le.{0} b 1 →
+        LE.le.{0} g (HDiv.hDiv.{0, 0, 0} b (HAdd.hAdd.{0, 0, 0} 1 b)) →
+          LE.le.{0} g (HSub.hSub.{0, 0, 0} 1 x) →
+            LE.le.{0} (HMul.hMul.{0, 0, 0} x g)
+              (HDiv.hDiv.{0, 0, 0} b (HPow.hPow.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} 1 b) 2))
+'FixedResource.absolute_difference_small' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+FixedResource.SphereAlgebra.Mat : Type
+'FixedResource.SphereAlgebra.Mat' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+FixedResource.SphereAlgebra.chi : FixedResource.SphereAlgebra.Mat
+'FixedResource.SphereAlgebra.chi' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+FixedResource.SphereAlgebra.d : ℂ
+'FixedResource.SphereAlgebra.d' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+FixedResource.SphereAlgebra.L : FixedResource.SphereAlgebra.Mat
+'FixedResource.SphereAlgebra.L' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+FixedResource.SphereAlgebra.plus : Fin 3 → ℂ
+'FixedResource.SphereAlgebra.plus' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+FixedResource.SphereAlgebra.minus : Fin 3 → ℂ
+'FixedResource.SphereAlgebra.minus' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+FixedResource.SphereAlgebra.quad : FixedResource.SphereAlgebra.Mat → (Fin 3 → ℂ) → ℂ
+'FixedResource.SphereAlgebra.quad' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+FixedResource.SphereAlgebra.power : (Fin 3 → ℂ) → ℝ
+'FixedResource.SphereAlgebra.power' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+FixedResource.SphereAlgebra.reciprocal : Eq.{1} (Matrix.transpose.{0, 0, 0} FixedResource.SphereAlgebra.chi)
+  FixedResource.SphereAlgebra.chi
+'FixedResource.SphereAlgebra.reciprocal' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+FixedResource.SphereAlgebra.static_response : Eq.{1}
+  (HMul.hMul.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} FixedResource.SphereAlgebra.chi (HSMul.hSMul.{0, 0, 0} 3 1))
+    FixedResource.SphereAlgebra.L)
+  (HSMul.hSMul.{0, 0, 0} 3 FixedResource.SphereAlgebra.chi)
+'FixedResource.SphereAlgebra.static_response' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+FixedResource.SphereAlgebra.static_extinction_coefficient : Eq.{1}
+  (HDiv.hDiv.{0, 0, 0}
+    (FixedResource.SphereAlgebra.quad FixedResource.SphereAlgebra.L FixedResource.SphereAlgebra.plus).im 2)
+  (931950 / 4118941)
+'FixedResource.SphereAlgebra.static_extinction_coefficient' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+FixedResource.SphereAlgebra.static_scattering_difference : Eq.{1}
+  (HDiv.hDiv.{0, 0, 0}
+    (HSub.hSub.{0, 0, 0}
+      (FixedResource.SphereAlgebra.power
+        (Matrix.mulVec.{0, 0, 0} FixedResource.SphereAlgebra.L FixedResource.SphereAlgebra.plus))
+      (FixedResource.SphereAlgebra.power
+        (Matrix.mulVec.{0, 0, 0} FixedResource.SphereAlgebra.L FixedResource.SphereAlgebra.minus)))
+    2)
+  (324000 / 4118941)
+'FixedResource.SphereAlgebra.static_scattering_difference' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+FixedResource.SphereAlgebra.normalized_coefficient : Eq.{1}
+    (HDiv.hDiv.{0, 0, 0}
+      (HDiv.hDiv.{0, 0, 0}
+        (HSub.hSub.{0, 0, 0}
+          (FixedResource.SphereAlgebra.power
+            (Matrix.mulVec.{0, 0, 0} FixedResource.SphereAlgebra.L FixedResource.SphereAlgebra.plus))
+          (FixedResource.SphereAlgebra.power
+            (Matrix.mulVec.{0, 0, 0} FixedResource.SphereAlgebra.L FixedResource.SphereAlgebra.minus)))
+        2)
+      (HDiv.hDiv.{0, 0, 0}
+        (FixedResource.SphereAlgebra.quad FixedResource.SphereAlgebra.L FixedResource.SphereAlgebra.plus).im 2))
+    (720 / 2071) ∧
+  Eq.{1} (HMul.hMul.{0, 0, 0} (2 / 9) (720 / 2071)) (160 / 2071)
+'FixedResource.SphereAlgebra.normalized_coefficient' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+FixedResource.SphereAlgebra.loss_decomposition : ∀ (v : Fin 3 → ℂ),
+  Eq.{1} (FixedResource.SphereAlgebra.quad FixedResource.SphereAlgebra.chi v).im
+    (HAdd.hAdd.{0, 0, 0}
+      (HAdd.hAdd.{0, 0, 0}
+        (HMul.hMul.{0, 0, 0} (3 / 10) (HAdd.hAdd.{0, 0, 0} (Complex.normSq (v 0)) (Complex.normSq (v 1))))
+        (HMul.hMul.{0, 0, 0} (1 / 5) (Complex.normSq (HAdd.hAdd.{0, 0, 0} (v 0) (v 1)))))
+      (HMul.hMul.{0, 0, 0} (1 / 2) (Complex.normSq (v 2))))
+'FixedResource.SphereAlgebra.loss_decomposition' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+FixedResource.SphereAlgebra.loss_floor : ∀ (v : Fin 3 → ℂ),
+  LE.le.{0} (HMul.hMul.{0, 0, 0} (3 / 10) (FixedResource.SphereAlgebra.power v))
+    (FixedResource.SphereAlgebra.quad FixedResource.SphereAlgebra.chi v).im
+'FixedResource.SphereAlgebra.loss_floor' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+FixedResource.SphereAlgebra.loss_upper : ∀ (v : Fin 3 → ℂ),
+  LE.le.{0} (FixedResource.SphereAlgebra.quad FixedResource.SphereAlgebra.chi v).im
+    (HMul.hMul.{0, 0, 0} (7 / 10) (FixedResource.SphereAlgebra.power v))
+'FixedResource.SphereAlgebra.loss_upper' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+FixedResource.SphereAlgebra.real_permittivity : ∀ (v : Fin 3 → ℂ),
+  LE.le.{0} (FixedResource.SphereAlgebra.power v)
+      (FixedResource.SphereAlgebra.quad (HAdd.hAdd.{0, 0, 0} 1 FixedResource.SphereAlgebra.chi) v).re ∧
+    LE.le.{0} (FixedResource.SphereAlgebra.quad (HAdd.hAdd.{0, 0, 0} 1 FixedResource.SphereAlgebra.chi) v).re
+      (HMul.hMul.{0, 0, 0} 3 (FixedResource.SphereAlgebra.power v))
+'FixedResource.SphereAlgebra.real_permittivity' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+FixedResource.uniformBudget : QuarticMaxwell.WeakMaterial.Medium → ℝ
+'FixedResource.uniformBudget' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+FixedResource.uniformBeta : QuarticMaxwell.WeakMaterial.Medium → ℝ → ℝ
+'FixedResource.uniformBeta' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+FixedResource.current_norm_loss : ∀ (B : QuarticMaxwell.WeakMaterial.Medium) {k : ℝ},
+  LT.lt.{0} 0 k →
+    ∀ (E : OQ7Prescribed.Field) (hE : OQ7Prescribed.LocallySquareIntegrable E),
+      LE.le.{0} (HPow.hPow.{0, 0, 0} (Norm.norm.{0} (QuarticMaxwell.WeakMaterial.currentL2 B E hE)) 2)
+        (HDiv.hDiv.{0, 0, 0}
+          (HMul.hMul.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} (HPow.hPow.{0, 0, 0} B.M 2) B.m)
+            (QuarticMaxwell.PhysicalPowers.absorption B k E))
+          k)
+'FixedResource.current_norm_loss' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+FixedResource.physical_scattering_efficiency : ∀ (B : QuarticMaxwell.WeakMaterial.Medium) {k : ℝ},
+  LT.lt.{0} 0 k →
+    ∀ (E : OQ7Prescribed.Field) (hE : OQ7Prescribed.LocallySquareIntegrable E),
+      LE.le.{0} (QuarticMaxwell.PhysicalPowers.scattering B k E hE)
+        (HMul.hMul.{0, 0, 0} (FixedResource.uniformBeta B k) (QuarticMaxwell.PhysicalPowers.absorption B k E))
+'FixedResource.physical_scattering_efficiency' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+FixedResource.physical_extinction_work : ∀ (B : QuarticMaxwell.WeakMaterial.Medium) {k : ℝ},
+  LT.lt.{0} 0 k →
+    ∀ (n : ↑OQ7Prescribed.UnitSphere) (e : OQ7Prescribed.Vector),
+      Eq.{1} (Norm.norm.{0} e) 1 →
+        ∀ (E : OQ7Prescribed.Field),
+          OQ7Prescribed.LocallySquareIntegrable E →
+            LE.le.{0} (HPow.hPow.{0, 0, 0} (QuarticMaxwell.PhysicalPowers.extinction B k n e E) 2)
+              (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} k (FixedResource.uniformBudget B))
+                (QuarticMaxwell.PhysicalPowers.absorption B k E))
+'FixedResource.physical_extinction_work' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+FixedResource.physical_uniform_pair : ∀ (B : QuarticMaxwell.WeakMaterial.Medium) {k : ℝ},
+  LT.lt.{0} 0 k →
+    (∀ᵐ (x : QuarticMaxwell.Position),
+        Membership.mem.{0, 0} B.domain x →
+          ∀ (u v : OQ7Prescribed.Vector),
+            Eq.{1} (OQ7Prescribed.bilinear u ((B.susceptibility x) v))
+              (OQ7Prescribed.bilinear v ((B.susceptibility x) u))) →
+      ∀ (n : ↑OQ7Prescribed.UnitSphere) (e : OQ7Prescribed.Vector),
+        Eq.{1} (OQ7Prescribed.bilinear (OQ7Prescribed.complexify ↑n) e) 0 →
+          ∀ (s : QuarticMaxwell.WeakMaterial.State B k n e)
+            (t :
+              QuarticMaxwell.WeakMaterial.State B k (QuarticMaxwell.PhysicalPowers.opposite n)
+                (OQ7Prescribed.vectorConjugate e)),
+            LT.lt.{0} 0 (QuarticMaxwell.PhysicalPowers.extinction B k n e s.electric) →
+              LE.le.{0}
+                  (HDiv.hDiv.{0, 0, 0}
+                    (abs.{0}
+                      (HSub.hSub.{0, 0, 0} (QuarticMaxwell.PhysicalPowers.absorption B k s.electric)
+                        (QuarticMaxwell.PhysicalPowers.absorption B k t.electric)))
+                    (QuarticMaxwell.PhysicalPowers.extinction B k n e s.electric))
+                  (HDiv.hDiv.{0, 0, 0} (FixedResource.uniformBeta B k)
+                    (HAdd.hAdd.{0, 0, 0} 1 (FixedResource.uniformBeta B k))) ∧
+                LT.lt.{0}
+                  (HDiv.hDiv.{0, 0, 0} (FixedResource.uniformBeta B k)
+                    (HAdd.hAdd.{0, 0, 0} 1 (FixedResource.uniformBeta B k)))
+                  1
+'FixedResource.physical_uniform_pair' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+FixedResource.physical_uniform_response_pair : ∀ (B : QuarticMaxwell.WeakMaterial.Medium) {k : ℝ},
+  LT.lt.{0} 0 k →
+    LT.lt.{0} 0 (MeasureTheory.Measure.real.{0} MeasureTheory.MeasureSpace.volume.{0} B.domain) →
+      (∀ᵐ (x : QuarticMaxwell.Position),
+          Membership.mem.{0, 0} B.domain x →
+            ∀ (u v : OQ7Prescribed.Vector),
+              Eq.{1} (OQ7Prescribed.bilinear u ((B.susceptibility x) v))
+                (OQ7Prescribed.bilinear v ((B.susceptibility x) u))) →
+        ∀ (n : ↑OQ7Prescribed.UnitSphere) (e : OQ7Prescribed.Vector),
+          Eq.{1} (Norm.norm.{0} e) 1 →
+            Eq.{1} (OQ7Prescribed.bilinear (OQ7Prescribed.complexify ↑n) e) 0 →
+              ∀ (s : QuarticMaxwell.WeakMaterial.State B k n e)
+                (t :
+                  QuarticMaxwell.WeakMaterial.State B k (QuarticMaxwell.PhysicalPowers.opposite n)
+                    (OQ7Prescribed.vectorConjugate e)),
+                LE.le.{0} (QuarticMaxwell.PhysicalPowers.extinction B k n e s.electric)
+                    (HMul.hMul.{0, 0, 0} k (FixedResource.uniformBudget B)) ∧
+                  LE.le.{0}
+                    (HDiv.hDiv.{0, 0, 0}
+                      (abs.{0}
+                        (HSub.hSub.{0, 0, 0} (QuarticMaxwell.PhysicalPowers.absorption B k s.electric)
+                          (QuarticMaxwell.PhysicalPowers.absorption B k t.electric)))
+                      (QuarticMaxwell.PhysicalPowers.extinction B k n e s.electric))
+                    (Min.min.{0}
+                      (HDiv.hDiv.{0, 0, 0} (FixedResource.uniformBeta B k)
+                        (HAdd.hAdd.{0, 0, 0} 1 (FixedResource.uniformBeta B k)))
+                      (HSub.hSub.{0, 0, 0} 1
+                        (HDiv.hDiv.{0, 0, 0} (QuarticMaxwell.PhysicalPowers.extinction B k n e s.electric)
+                          (HMul.hMul.{0, 0, 0} k (FixedResource.uniformBudget B)))))
+'FixedResource.physical_uniform_response_pair' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]

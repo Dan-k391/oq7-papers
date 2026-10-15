@@ -1,0 +1,37 @@
+D:\oq7-papers\papers\compact-maxwell-cross-sections\formalization\CompactMaxwell\SixVectorBridge.lean:25:42: warning: This simp argument is unused:
+  ofLp_toLp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [inner_coordinates, vector, dotProduct]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\oq7-papers\papers\compact-maxwell-cross-sections\formalization\CompactMaxwell\SixVectorBridge.lean:45:50: warning: This simp argument is unused:
+  ofLp_toLp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [inner_coordinates, reversal, vector, Matrix.ofLp_toEuclideanCLM, Matrix.mulVec, dotProduct,
+    Pi.star_apply, star_mul, Complex.conj_ofReal, star_star]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\oq7-papers\papers\compact-maxwell-cross-sections\formalization\CompactMaxwell\SixVectorBridge.lean:46:56: warning: This simp argument is unused:
+  Complex.conj_ofReal
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [inner_coordinates, reversal, vector, ofLp_toLp, Matrix.ofLp_toEuclideanCLM, Matrix.mulVec,
+    dotProduct, Pi.star_apply, star_mul, star_star]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\oq7-papers\papers\compact-maxwell-cross-sections\formalization\CompactMaxwell\SixVectorBridge.lean:79:10: warning: This simp argument is unused:
+  Complex.div_re
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Complex.div_im, Complex.mul_re, Complex.mul_im, pow_two]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\oq7-papers\papers\compact-maxwell-cross-sections\formalization\CompactMaxwell\SixVectorBridge.lean:79:26: warning: This simp argument is unused:
+  Complex.div_im
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Complex.div_re, Complex.mul_re, Complex.mul_im, pow_two]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

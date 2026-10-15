@@ -1,0 +1,58 @@
+D:\oq7-papers\papers\compact-maxwell-cross-sections\formalization\CompactMaxwell\DipoleEquality.lean:26:82: warning: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+D:\oq7-papers\papers\compact-maxwell-cross-sections\formalization\CompactMaxwell\DipoleEquality.lean:26:82: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+D:\oq7-papers\papers\compact-maxwell-cross-sections\formalization\CompactMaxwell\DipoleEquality.lean:47:6: warning: This simp argument is unused:
+  Complex.mul_re
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [work, A, M, plus, minus, Matrix.mulVec, dotProduct, Fin.sum_univ_three, Complex.mul_im, Complex.div_re,
+    Complex.div_im]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\oq7-papers\papers\compact-maxwell-cross-sections\formalization\CompactMaxwell\DipoleEquality.lean:47:38: warning: This simp argument is unused:
+  Complex.div_re
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [work, A, M, plus, minus, Matrix.mulVec, dotProduct, Fin.sum_univ_three, Complex.mul_re, Complex.mul_im,
+    Complex.div_im]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\oq7-papers\papers\compact-maxwell-cross-sections\formalization\CompactMaxwell\DipoleEquality.lean:47:54: warning: This simp argument is unused:
+  Complex.div_im
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [work, A, M, plus, minus, Matrix.mulVec, dotProduct, Fin.sum_univ_three, Complex.mul_re, Complex.mul_im,
+    Complex.div_re]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\oq7-papers\papers\compact-maxwell-cross-sections\formalization\CompactMaxwell\DipoleEquality.lean:53:60: warning: This simp argument is unused:
+  Complex.div_re
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [power, A, M, plus, minus, Matrix.mulVec, dotProduct, Fin.sum_univ_three, Complex.normSq_apply,
+    Complex.mul_re, Complex.mul_im, Complex.div_im]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\oq7-papers\papers\compact-maxwell-cross-sections\formalization\CompactMaxwell\DipoleEquality.lean:53:76: warning: This simp argument is unused:
+  Complex.div_im
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [power, A, M, plus, minus, Matrix.mulVec, dotProduct, Fin.sum_univ_three, Complex.normSq_apply,
+    Complex.mul_re, Complex.mul_im, Complex.div_re]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\oq7-papers\papers\compact-maxwell-cross-sections\formalization\CompactMaxwell\DipoleEquality.lean:64:36: warning: Variable name `ht0` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _ht0
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+D:\oq7-papers\papers\compact-maxwell-cross-sections\formalization\CompactMaxwell\DipoleEquality.lean:64:51: warning: Variable name `ht1` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _ht1
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`

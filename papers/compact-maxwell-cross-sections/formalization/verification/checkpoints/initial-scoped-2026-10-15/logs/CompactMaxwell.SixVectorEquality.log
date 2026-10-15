@@ -1,0 +1,40 @@
+D:\oq7-papers\papers\compact-maxwell-cross-sections\formalization\CompactMaxwell\SixVectorEquality.lean:54:44: warning: This simp argument is unused:
+  Matrix.ofLp_toEuclideanCLM
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [dipoleWork, T, inner_coordinates, A, M, plus, minus, vector, Matrix.mulVec, dotProduct,
+    Fin.sum_univ_six, Complex.mul_im]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\oq7-papers\papers\compact-maxwell-cross-sections\formalization\CompactMaxwell\SixVectorEquality.lean:55:27: warning: This simp argument is unused:
+  Matrix.mulVec
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [dipoleWork, T, inner_coordinates, Matrix.ofLp_toEuclideanCLM, A, M, plus, minus, vector, dotProduct,
+    Fin.sum_univ_six, Complex.mul_im]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\oq7-papers\papers\compact-maxwell-cross-sections\formalization\CompactMaxwell\SixVectorEquality.lean:61:58: warning: This simp argument is unused:
+  Matrix.ofLp_toEuclideanCLM
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [dipoleScattering, T, EuclideanSpace.norm_sq_eq, A, M, plus, minus, vector, Matrix.mulVec, dotProduct,
+    Fin.sum_univ_six, ← Complex.normSq_eq_norm_sq, Complex.normSq_apply, Complex.mul_re, Complex.mul_im]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\oq7-papers\papers\compact-maxwell-cross-sections\formalization\CompactMaxwell\SixVectorEquality.lean:62:27: warning: This simp argument is unused:
+  Matrix.mulVec
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [dipoleScattering, T, EuclideanSpace.norm_sq_eq, Matrix.ofLp_toEuclideanCLM, A, M, plus, minus, vector,
+    dotProduct, Fin.sum_univ_six, ← Complex.normSq_eq_norm_sq, Complex.normSq_apply, Complex.mul_re, Complex.mul_im]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\oq7-papers\papers\compact-maxwell-cross-sections\formalization\CompactMaxwell\SixVectorEquality.lean:62:42: warning: This simp argument is unused:
+  dotProduct
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [dipoleScattering, T, EuclideanSpace.norm_sq_eq, Matrix.ofLp_toEuclideanCLM, A, M, plus, minus, vector,
+    Matrix.mulVec, Fin.sum_univ_six, ← Complex.normSq_eq_norm_sq, Complex.normSq_apply, Complex.mul_re, Complex.mul_im]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

@@ -1,0 +1,25 @@
+{
+  "status": "passed",
+  "paper": "fixed-resource-bounds",
+  "cases": [
+    {
+      "control": "sphere-coefficient-positive",
+      "expectedToCompile": true,
+      "exitCode": 0,
+      "sourceSHA256": "c1c63efb7f61d8822f59f3f1efd9b325b4efa3b8d1e1a35c38757280398f55bc",
+      "logSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "control": "sphere-coefficient-altered",
+      "expectedToCompile": false,
+      "exitCode": 1,
+      "sourceSHA256": "2764088ed4dfd18d5a87a7415391cc30ebe478fdf08c0cf74643825333997c47",
+      "logSHA256": "5777c02daf60f6fbb0ab09c2a9056d99de506127cbe9fb1f739721135168d025"
+    }
+  ],
+  "compilerSHA256": "fcc4a10077d5fdd575592cea5f2981c91cbd77c490c80bc74407908e57e8b87b",
+  "testRunner": "scripts/check-companion-controls.py",
+  "testRunnerSHA256": "d044873edfa04e4ba5bf4ca4b356415b979e141813bbf4b7e53087c3d7cac36e",
+  "productionSourcesMutated": false,
+  "negativeControlsDeliberatelyDoNotCompile": true
+}

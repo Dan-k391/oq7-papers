@@ -1,0 +1,556 @@
+@CompactMaxwell.dipoleWork.{u_1} : {E : Type u_1} →
+  [inst : NormedAddCommGroup.{u_1} E] →
+    [inst_1 : InnerProductSpace.{0, u_1} ℂ E] → ContinuousLinearMap.{0, 0, u_1, u_1} (RingHom.id.{0} ℂ) E E → E → ℝ
+'CompactMaxwell.dipoleWork' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@CompactMaxwell.dipoleScattering.{u_1} : {E : Type u_1} →
+  [inst : NormedAddCommGroup.{u_1} E] →
+    [inst_1 : InnerProductSpace.{0, u_1} ℂ E] → ContinuousLinearMap.{0, 0, u_1, u_1} (RingHom.id.{0} ℂ) E E → E → ℝ
+'CompactMaxwell.dipoleScattering' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@CompactMaxwell.dipoleAbsorption.{u_1} : {E : Type u_1} →
+  [inst : NormedAddCommGroup.{u_1} E] →
+    [inst_1 : InnerProductSpace.{0, u_1} ℂ E] → ContinuousLinearMap.{0, 0, u_1, u_1} (RingHom.id.{0} ℂ) E E → E → ℝ
+'CompactMaxwell.dipoleAbsorption' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CompactMaxwell.dipoleScale : ℝ → ℝ
+'CompactMaxwell.dipoleScale' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@CompactMaxwell.dipole_work_reciprocity.{u_1} : ∀ {E : Type u_1} [inst : NormedAddCommGroup.{u_1} E]
+  [inst_1 : InnerProductSpace.{0, u_1} ℂ E] (C : GeneralizedResearch.ChannelConjugation.{u_1} E)
+  (A : ContinuousLinearMap.{0, 0, u_1, u_1} (RingHom.id.{0} ℂ) E E),
+  GeneralizedResearch.channelReciprocal.{u_1} C A →
+    ∀ (f : E),
+      Eq.{1} (CompactMaxwell.dipoleWork.{u_1} A (GeneralizedResearch.ChannelConjugation.map.{u_1} C f))
+        (CompactMaxwell.dipoleWork.{u_1} A f)
+'CompactMaxwell.dipole_work_reciprocity' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@CompactMaxwell.dipole_unit_bounds.{u_1} : ∀ {E : Type u_1} [inst : NormedAddCommGroup.{u_1} E]
+  [inst_1 : InnerProductSpace.{0, u_1} ℂ E] (A : ContinuousLinearMap.{0, 0, u_1, u_1} (RingHom.id.{0} ℂ) E E),
+  (∀ (f : E), LE.le.{0} (CompactMaxwell.dipoleScattering.{u_1} A f) (CompactMaxwell.dipoleWork.{u_1} A f)) →
+    ∀ (f : E),
+      Eq.{1} (HPow.hPow.{0, 0, 0} (Norm.norm.{u_1} f) 2) 2 →
+        LE.le.{0} 0 (CompactMaxwell.dipoleWork.{u_1} A f) ∧
+          LE.le.{0} (CompactMaxwell.dipoleWork.{u_1} A f) 2 ∧
+            LE.le.{0} 0 (CompactMaxwell.dipoleAbsorption.{u_1} A f) ∧
+              LE.le.{0} (CompactMaxwell.dipoleAbsorption.{u_1} A f)
+                (HSub.hSub.{0, 0, 0} (CompactMaxwell.dipoleWork.{u_1} A f)
+                  (HDiv.hDiv.{0, 0, 0} (HPow.hPow.{0, 0, 0} (CompactMaxwell.dipoleWork.{u_1} A f) 2) 2))
+'CompactMaxwell.dipole_unit_bounds' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@CompactMaxwell.reciprocal_dipole_parabola.{u_1} : ∀ {E : Type u_1} [inst : NormedAddCommGroup.{u_1} E]
+  [inst_1 : InnerProductSpace.{0, u_1} ℂ E] (C : GeneralizedResearch.ChannelConjugation.{u_1} E)
+  (A : ContinuousLinearMap.{0, 0, u_1, u_1} (RingHom.id.{0} ℂ) E E),
+  GeneralizedResearch.channelReciprocal.{u_1} C A →
+    (∀ (f : E), LE.le.{0} (CompactMaxwell.dipoleScattering.{u_1} A f) (CompactMaxwell.dipoleWork.{u_1} A f)) →
+      ∀ (f : E),
+        Eq.{1} (HPow.hPow.{0, 0, 0} (Norm.norm.{u_1} f) 2) 2 →
+          LE.le.{0} 0 (CompactMaxwell.dipoleWork.{u_1} A f) ∧
+            LE.le.{0} (CompactMaxwell.dipoleWork.{u_1} A f) 2 ∧
+              LE.le.{0}
+                (abs.{0}
+                  (HSub.hSub.{0, 0, 0} (CompactMaxwell.dipoleAbsorption.{u_1} A f)
+                    (CompactMaxwell.dipoleAbsorption.{u_1} A (GeneralizedResearch.ChannelConjugation.map.{u_1} C f))))
+                (HSub.hSub.{0, 0, 0} (CompactMaxwell.dipoleWork.{u_1} A f)
+                  (HDiv.hDiv.{0, 0, 0} (HPow.hPow.{0, 0, 0} (CompactMaxwell.dipoleWork.{u_1} A f) 2) 2))
+'CompactMaxwell.reciprocal_dipole_parabola' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@CompactMaxwell.dimensional_dipole_bound.{u_1} : ∀ {E : Type u_1} [inst : NormedAddCommGroup.{u_1} E]
+  [inst_1 : InnerProductSpace.{0, u_1} ℂ E] (C : GeneralizedResearch.ChannelConjugation.{u_1} E)
+  (A : ContinuousLinearMap.{0, 0, u_1, u_1} (RingHom.id.{0} ℂ) E E),
+  GeneralizedResearch.channelReciprocal.{u_1} C A →
+    (∀ (f : E), LE.le.{0} (CompactMaxwell.dipoleScattering.{u_1} A f) (CompactMaxwell.dipoleWork.{u_1} A f)) →
+      ∀ (f : E),
+        Eq.{1} (HPow.hPow.{0, 0, 0} (Norm.norm.{u_1} f) 2) 2 →
+          ∀ {k : ℝ},
+            LT.lt.{0} 0 k →
+              have X := HMul.hMul.{0, 0, 0} (CompactMaxwell.dipoleScale k) (CompactMaxwell.dipoleWork.{u_1} A f);
+              LE.le.{0} 0 X ∧
+                LE.le.{0} X (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} 12 Real.pi) (HPow.hPow.{0, 0, 0} k 2)) ∧
+                  LE.le.{0}
+                    (abs.{0}
+                      (HSub.hSub.{0, 0, 0}
+                        (HMul.hMul.{0, 0, 0} (CompactMaxwell.dipoleScale k) (CompactMaxwell.dipoleAbsorption.{u_1} A f))
+                        (HMul.hMul.{0, 0, 0} (CompactMaxwell.dipoleScale k)
+                          (CompactMaxwell.dipoleAbsorption.{u_1} A
+                            (GeneralizedResearch.ChannelConjugation.map.{u_1} C f)))))
+                    (HSub.hSub.{0, 0, 0} X
+                      (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} k 2) (HPow.hPow.{0, 0, 0} X 2))
+                        (HMul.hMul.{0, 0, 0} 12 Real.pi)))
+'CompactMaxwell.dimensional_dipole_bound' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@CompactMaxwell.dimensional_dipole_strict : ∀ {X Δ k : ℝ},
+  LT.lt.{0} 0 k →
+    LT.lt.{0} 0 X →
+      LE.le.{0} Δ
+          (HSub.hSub.{0, 0, 0} X
+            (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} k 2) (HPow.hPow.{0, 0, 0} X 2))
+              (HMul.hMul.{0, 0, 0} 12 Real.pi))) →
+        LE.le.{0} (HDiv.hDiv.{0, 0, 0} Δ X)
+            (HSub.hSub.{0, 0, 0} 1
+              (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} k 2) X)
+                (HMul.hMul.{0, 0, 0} 12 Real.pi))) ∧
+          LT.lt.{0} (HDiv.hDiv.{0, 0, 0} Δ X) 1
+'CompactMaxwell.dimensional_dipole_strict' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CompactMaxwell.DipoleEquality.Mat : Type
+'CompactMaxwell.DipoleEquality.Mat' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CompactMaxwell.DipoleEquality.M : ℝ → ℝ → CompactMaxwell.DipoleEquality.Mat
+'CompactMaxwell.DipoleEquality.M' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CompactMaxwell.DipoleEquality.A : ℝ → ℝ → CompactMaxwell.DipoleEquality.Mat
+'CompactMaxwell.DipoleEquality.A' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CompactMaxwell.DipoleEquality.D : CompactMaxwell.DipoleEquality.Mat
+'CompactMaxwell.DipoleEquality.D' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CompactMaxwell.DipoleEquality.q : ℝ → ℝ → Fin 3 → ℂ
+'CompactMaxwell.DipoleEquality.q' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CompactMaxwell.DipoleEquality.imagH : CompactMaxwell.DipoleEquality.Mat → CompactMaxwell.DipoleEquality.Mat
+'CompactMaxwell.DipoleEquality.imagH' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CompactMaxwell.DipoleEquality.defect : ℝ → ℝ → CompactMaxwell.DipoleEquality.Mat
+'CompactMaxwell.DipoleEquality.defect' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CompactMaxwell.DipoleEquality.plus : Fin 3 → ℂ
+'CompactMaxwell.DipoleEquality.plus' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CompactMaxwell.DipoleEquality.minus : Fin 3 → ℂ
+'CompactMaxwell.DipoleEquality.minus' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CompactMaxwell.DipoleEquality.work : CompactMaxwell.DipoleEquality.Mat → (Fin 3 → ℂ) → ℝ
+'CompactMaxwell.DipoleEquality.work' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CompactMaxwell.DipoleEquality.power : CompactMaxwell.DipoleEquality.Mat → (Fin 3 → ℂ) → ℝ
+'CompactMaxwell.DipoleEquality.power' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CompactMaxwell.DipoleEquality.reciprocal : ∀ (t b : ℝ),
+  Eq.{1} (Matrix.transpose.{0, 0, 0} (CompactMaxwell.DipoleEquality.A t b))
+    (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} CompactMaxwell.DipoleEquality.D (CompactMaxwell.DipoleEquality.A t b))
+      CompactMaxwell.DipoleEquality.D)
+'CompactMaxwell.DipoleEquality.reciprocal' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@CompactMaxwell.DipoleEquality.rank_one_defect : ∀ {t b : ℝ},
+  Eq.{1} (HPow.hPow.{0, 0, 0} b 2) (HDiv.hDiv.{0, 0, 0} (HSub.hSub.{0, 0, 0} 1 (HPow.hPow.{0, 0, 0} t 2)) 2) →
+    Eq.{1} (CompactMaxwell.DipoleEquality.defect t b)
+      (HSMul.hSMul.{0, 0, 0} (1 / 4)
+        (Matrix.vecMulVec.{0, 0, 0} (CompactMaxwell.DipoleEquality.q t b)
+          (Star.star.{0} (CompactMaxwell.DipoleEquality.q t b))))
+'CompactMaxwell.DipoleEquality.rank_one_defect' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@CompactMaxwell.DipoleEquality.passive : ∀ {t b : ℝ},
+  Eq.{1} (HPow.hPow.{0, 0, 0} b 2) (HDiv.hDiv.{0, 0, 0} (HSub.hSub.{0, 0, 0} 1 (HPow.hPow.{0, 0, 0} t 2)) 2) →
+    Matrix.PosSemidef.{0, 0} (CompactMaxwell.DipoleEquality.defect t b)
+'CompactMaxwell.DipoleEquality.passive' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CompactMaxwell.DipoleEquality.forward_works : ∀ (t b : ℝ),
+  Eq.{1} (CompactMaxwell.DipoleEquality.work (CompactMaxwell.DipoleEquality.A t b) CompactMaxwell.DipoleEquality.plus)
+      (HSub.hSub.{0, 0, 0} 1 t) ∧
+    Eq.{1}
+      (CompactMaxwell.DipoleEquality.work (CompactMaxwell.DipoleEquality.A t b) CompactMaxwell.DipoleEquality.minus)
+      (HSub.hSub.{0, 0, 0} 1 t)
+'CompactMaxwell.DipoleEquality.forward_works' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@CompactMaxwell.DipoleEquality.scattered_powers : ∀ {t b : ℝ},
+  Eq.{1} (HPow.hPow.{0, 0, 0} b 2) (HDiv.hDiv.{0, 0, 0} (HSub.hSub.{0, 0, 0} 1 (HPow.hPow.{0, 0, 0} t 2)) 2) →
+    Eq.{1}
+        (CompactMaxwell.DipoleEquality.power (CompactMaxwell.DipoleEquality.A t b) CompactMaxwell.DipoleEquality.plus)
+        (HDiv.hDiv.{0, 0, 0} (HPow.hPow.{0, 0, 0} (HSub.hSub.{0, 0, 0} 1 t) 2) 2) ∧
+      Eq.{1}
+        (CompactMaxwell.DipoleEquality.power (CompactMaxwell.DipoleEquality.A t b) CompactMaxwell.DipoleEquality.minus)
+        (HSub.hSub.{0, 0, 0} 1 t)
+'CompactMaxwell.DipoleEquality.scattered_powers' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@CompactMaxwell.DipoleEquality.absorption_powers : ∀ {t b : ℝ},
+  Eq.{1} (HPow.hPow.{0, 0, 0} b 2) (HDiv.hDiv.{0, 0, 0} (HSub.hSub.{0, 0, 0} 1 (HPow.hPow.{0, 0, 0} t 2)) 2) →
+    Eq.{1}
+        (HSub.hSub.{0, 0, 0}
+          (CompactMaxwell.DipoleEquality.work (CompactMaxwell.DipoleEquality.A t b) CompactMaxwell.DipoleEquality.plus)
+          (CompactMaxwell.DipoleEquality.power (CompactMaxwell.DipoleEquality.A t b)
+            CompactMaxwell.DipoleEquality.plus))
+        (HDiv.hDiv.{0, 0, 0} (HSub.hSub.{0, 0, 0} 1 (HPow.hPow.{0, 0, 0} t 2)) 2) ∧
+      Eq.{1}
+        (HSub.hSub.{0, 0, 0}
+          (CompactMaxwell.DipoleEquality.work (CompactMaxwell.DipoleEquality.A t b) CompactMaxwell.DipoleEquality.minus)
+          (CompactMaxwell.DipoleEquality.power (CompactMaxwell.DipoleEquality.A t b)
+            CompactMaxwell.DipoleEquality.minus))
+        0
+'CompactMaxwell.DipoleEquality.absorption_powers' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@CompactMaxwell.DipoleEquality.saturates_dimensional_parabola : ∀ {t b k : ℝ},
+  Eq.{1} (HPow.hPow.{0, 0, 0} b 2) (HDiv.hDiv.{0, 0, 0} (HSub.hSub.{0, 0, 0} 1 (HPow.hPow.{0, 0, 0} t 2)) 2) →
+    LE.le.{0} (-1) t →
+      LE.le.{0} t 1 →
+        LT.lt.{0} 0 k →
+          have X :=
+            HMul.hMul.{0, 0, 0} (CompactMaxwell.dipoleScale k)
+              (CompactMaxwell.DipoleEquality.work (CompactMaxwell.DipoleEquality.A t b)
+                CompactMaxwell.DipoleEquality.plus);
+          have Δ :=
+            HMul.hMul.{0, 0, 0} (CompactMaxwell.dipoleScale k)
+              (abs.{0}
+                (HSub.hSub.{0, 0, 0}
+                  (HSub.hSub.{0, 0, 0}
+                    (CompactMaxwell.DipoleEquality.work (CompactMaxwell.DipoleEquality.A t b)
+                      CompactMaxwell.DipoleEquality.plus)
+                    (CompactMaxwell.DipoleEquality.power (CompactMaxwell.DipoleEquality.A t b)
+                      CompactMaxwell.DipoleEquality.plus))
+                  (HSub.hSub.{0, 0, 0}
+                    (CompactMaxwell.DipoleEquality.work (CompactMaxwell.DipoleEquality.A t b)
+                      CompactMaxwell.DipoleEquality.minus)
+                    (CompactMaxwell.DipoleEquality.power (CompactMaxwell.DipoleEquality.A t b)
+                      CompactMaxwell.DipoleEquality.minus))));
+          Eq.{1} Δ
+            (HSub.hSub.{0, 0, 0} X
+              (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} k 2) (HPow.hPow.{0, 0, 0} X 2))
+                (HMul.hMul.{0, 0, 0} 12 Real.pi)))
+'CompactMaxwell.DipoleEquality.saturates_dimensional_parabola' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+CompactMaxwell.DipoleEquality.N : ℝ → CompactMaxwell.DipoleEquality.Mat
+'CompactMaxwell.DipoleEquality.N' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CompactMaxwell.DipoleEquality.v : ℝ → Fin 3 → ℂ
+'CompactMaxwell.DipoleEquality.v' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CompactMaxwell.DipoleEquality.bare_loss : ∀ (a : ℝ),
+  Eq.{1} (CompactMaxwell.DipoleEquality.imagH (HSMul.hSMul.{0, 0, 0} Complex.I (CompactMaxwell.DipoleEquality.N a)))
+    (Matrix.vecMulVec.{0, 0, 0} (CompactMaxwell.DipoleEquality.v a) (Star.star.{0} (CompactMaxwell.DipoleEquality.v a)))
+'CompactMaxwell.DipoleEquality.bare_loss' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@CompactMaxwell.DipoleEquality.dressing_equation : ∀ {t b a : ℝ},
+  Eq.{1} (HMul.hMul.{0, 0, 0} a b) (HSub.hSub.{0, 0, 0} 1 t) →
+    Eq.{1} b (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} a (HAdd.hAdd.{0, 0, 0} 1 t)) 2) →
+      Eq.{1} (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} a 2) (HAdd.hAdd.{0, 0, 0} 1 t))
+          (HMul.hMul.{0, 0, 0} 2 (HSub.hSub.{0, 0, 0} 1 t)) →
+        Eq.{1}
+          (HMul.hMul.{0, 0, 0} (CompactMaxwell.DipoleEquality.M t b)
+            (HAdd.hAdd.{0, 0, 0} 1 (CompactMaxwell.DipoleEquality.N a)))
+          (HSMul.hSMul.{0, 0, 0} 2 (CompactMaxwell.DipoleEquality.N a))
+'CompactMaxwell.DipoleEquality.dressing_equation' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CompactMaxwell.SixVectorBridge.Six : Type
+'CompactMaxwell.SixVectorBridge.Six' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CompactMaxwell.SixVectorBridge.Mat : Type
+'CompactMaxwell.SixVectorBridge.Mat' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CompactMaxwell.SixVectorBridge.sign : Fin 6 → ℝ
+'CompactMaxwell.SixVectorBridge.sign' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CompactMaxwell.SixVectorBridge.D : CompactMaxwell.SixVectorBridge.Mat
+'CompactMaxwell.SixVectorBridge.D' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CompactMaxwell.SixVectorBridge.sign_square : ∀ (i : Fin 6),
+  Eq.{1} (HPow.hPow.{0, 0, 0} (CompactMaxwell.SixVectorBridge.sign i) 2) 1
+'CompactMaxwell.SixVectorBridge.sign_square' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CompactMaxwell.SixVectorBridge.reversal : GeneralizedResearch.ChannelConjugation.{0} CompactMaxwell.SixVectorBridge.Six
+'CompactMaxwell.SixVectorBridge.reversal' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CompactMaxwell.SixVectorBridge.reversal_formula : ∀ (f : CompactMaxwell.SixVectorBridge.Six),
+  Eq.{1} (GeneralizedResearch.ChannelConjugation.map.{0} CompactMaxwell.SixVectorBridge.reversal f)
+    (GeneralizedResearch.FiniteHilbertBridge.vector.{0}
+      (Matrix.mulVec.{0, 0, 0} CompactMaxwell.SixVectorBridge.D (Star.star.{0} (WithLp.ofLp.{0} f))))
+'CompactMaxwell.SixVectorBridge.reversal_formula' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CompactMaxwell.SixVectorBridge.imagH : CompactMaxwell.SixVectorBridge.Mat → CompactMaxwell.SixVectorBridge.Mat
+'CompactMaxwell.SixVectorBridge.imagH' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CompactMaxwell.SixVectorBridge.Q : CompactMaxwell.SixVectorBridge.Mat → CompactMaxwell.SixVectorBridge.Mat
+'CompactMaxwell.SixVectorBridge.Q' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CompactMaxwell.SixVectorBridge.matrix_reciprocity : ∀ (A : CompactMaxwell.SixVectorBridge.Mat),
+  Eq.{1} (Matrix.transpose.{0, 0, 0} A)
+      (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} CompactMaxwell.SixVectorBridge.D A) CompactMaxwell.SixVectorBridge.D) →
+    GeneralizedResearch.channelReciprocal.{0} CompactMaxwell.SixVectorBridge.reversal (Matrix.toEuclideanCLM.{0, 0} A)
+'CompactMaxwell.SixVectorBridge.matrix_reciprocity' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CompactMaxwell.SixVectorBridge.matrix_passivity : ∀ (A : CompactMaxwell.SixVectorBridge.Mat),
+  Matrix.PosSemidef.{0, 0} (CompactMaxwell.SixVectorBridge.Q A) →
+    ∀ (f : CompactMaxwell.SixVectorBridge.Six),
+      LE.le.{0} (CompactMaxwell.dipoleScattering.{0} (Matrix.toEuclideanCLM.{0, 0} A) f)
+        (CompactMaxwell.dipoleWork.{0} (Matrix.toEuclideanCLM.{0, 0} A) f)
+'CompactMaxwell.SixVectorBridge.matrix_passivity' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CompactMaxwell.SixVectorBridge.complete_dipole_bound : ∀ (A : CompactMaxwell.SixVectorBridge.Mat),
+  Eq.{1} (Matrix.transpose.{0, 0, 0} A)
+      (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} CompactMaxwell.SixVectorBridge.D A) CompactMaxwell.SixVectorBridge.D) →
+    Matrix.PosSemidef.{0, 0} (CompactMaxwell.SixVectorBridge.Q A) →
+      ∀ (f : CompactMaxwell.SixVectorBridge.Six),
+        Eq.{1} (HPow.hPow.{0, 0, 0} (Norm.norm.{0} f) 2) 2 →
+          ∀ {k : ℝ},
+            LT.lt.{0} 0 k →
+              have T := Matrix.toEuclideanCLM.{0, 0} A;
+              have X := HMul.hMul.{0, 0, 0} (CompactMaxwell.dipoleScale k) (CompactMaxwell.dipoleWork.{0} T f);
+              LE.le.{0} 0 X ∧
+                LE.le.{0} X (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} 12 Real.pi) (HPow.hPow.{0, 0, 0} k 2)) ∧
+                  LE.le.{0}
+                    (abs.{0}
+                      (HSub.hSub.{0, 0, 0}
+                        (HMul.hMul.{0, 0, 0} (CompactMaxwell.dipoleScale k) (CompactMaxwell.dipoleAbsorption.{0} T f))
+                        (HMul.hMul.{0, 0, 0} (CompactMaxwell.dipoleScale k)
+                          (CompactMaxwell.dipoleAbsorption.{0} T
+                            (GeneralizedResearch.ChannelConjugation.map.{0} CompactMaxwell.SixVectorBridge.reversal
+                              f)))))
+                    (HSub.hSub.{0, 0, 0} X
+                      (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} k 2) (HPow.hPow.{0, 0, 0} X 2))
+                        (HMul.hMul.{0, 0, 0} 12 Real.pi)))
+'CompactMaxwell.SixVectorBridge.complete_dipole_bound' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+CompactMaxwell.SixVectorEquality.M : ℝ → ℝ → CompactMaxwell.SixVectorBridge.Mat
+'CompactMaxwell.SixVectorEquality.M' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CompactMaxwell.SixVectorEquality.A : ℝ → ℝ → CompactMaxwell.SixVectorBridge.Mat
+'CompactMaxwell.SixVectorEquality.A' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CompactMaxwell.SixVectorEquality.q : ℝ → ℝ → Fin 6 → ℂ
+'CompactMaxwell.SixVectorEquality.q' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CompactMaxwell.SixVectorEquality.plus : CompactMaxwell.SixVectorBridge.Six
+'CompactMaxwell.SixVectorEquality.plus' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CompactMaxwell.SixVectorEquality.minus : CompactMaxwell.SixVectorBridge.Six
+'CompactMaxwell.SixVectorEquality.minus' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CompactMaxwell.SixVectorEquality.T : ℝ →
+  ℝ →
+    ContinuousLinearMap.{0, 0, 0, 0} (RingHom.id.{0} ℂ) CompactMaxwell.SixVectorBridge.Six
+      CompactMaxwell.SixVectorBridge.Six
+'CompactMaxwell.SixVectorEquality.T' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CompactMaxwell.SixVectorEquality.reciprocal : ∀ (t b : ℝ),
+  Eq.{1} (Matrix.transpose.{0, 0, 0} (CompactMaxwell.SixVectorEquality.A t b))
+    (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} CompactMaxwell.SixVectorBridge.D (CompactMaxwell.SixVectorEquality.A t b))
+      CompactMaxwell.SixVectorBridge.D)
+'CompactMaxwell.SixVectorEquality.reciprocal' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@CompactMaxwell.SixVectorEquality.rank_one_defect : ∀ {t b : ℝ},
+  Eq.{1} (HPow.hPow.{0, 0, 0} b 2) (HDiv.hDiv.{0, 0, 0} (HSub.hSub.{0, 0, 0} 1 (HPow.hPow.{0, 0, 0} t 2)) 2) →
+    Eq.{1} (CompactMaxwell.SixVectorBridge.Q (CompactMaxwell.SixVectorEquality.A t b))
+      (HSMul.hSMul.{0, 0, 0} (1 / 4)
+        (Matrix.vecMulVec.{0, 0, 0} (CompactMaxwell.SixVectorEquality.q t b)
+          (Star.star.{0} (CompactMaxwell.SixVectorEquality.q t b))))
+'CompactMaxwell.SixVectorEquality.rank_one_defect' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@CompactMaxwell.SixVectorEquality.passive : ∀ {t b : ℝ},
+  Eq.{1} (HPow.hPow.{0, 0, 0} b 2) (HDiv.hDiv.{0, 0, 0} (HSub.hSub.{0, 0, 0} 1 (HPow.hPow.{0, 0, 0} t 2)) 2) →
+    Matrix.PosSemidef.{0, 0} (CompactMaxwell.SixVectorBridge.Q (CompactMaxwell.SixVectorEquality.A t b))
+'CompactMaxwell.SixVectorEquality.passive' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CompactMaxwell.SixVectorEquality.time_reverse : Eq.{1}
+  (GeneralizedResearch.ChannelConjugation.map.{0} CompactMaxwell.SixVectorBridge.reversal
+    CompactMaxwell.SixVectorEquality.plus)
+  CompactMaxwell.SixVectorEquality.minus
+'CompactMaxwell.SixVectorEquality.time_reverse' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CompactMaxwell.SixVectorEquality.incident_norm : Eq.{1}
+  (HPow.hPow.{0, 0, 0} (Norm.norm.{0} CompactMaxwell.SixVectorEquality.plus) 2) 2
+'CompactMaxwell.SixVectorEquality.incident_norm' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CompactMaxwell.SixVectorEquality.works : ∀ (t b : ℝ),
+  Eq.{1} (CompactMaxwell.dipoleWork.{0} (CompactMaxwell.SixVectorEquality.T t b) CompactMaxwell.SixVectorEquality.plus)
+      (HSub.hSub.{0, 0, 0} 1 t) ∧
+    Eq.{1}
+      (CompactMaxwell.dipoleWork.{0} (CompactMaxwell.SixVectorEquality.T t b) CompactMaxwell.SixVectorEquality.minus)
+      (HSub.hSub.{0, 0, 0} 1 t)
+'CompactMaxwell.SixVectorEquality.works' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@CompactMaxwell.SixVectorEquality.scatterings : ∀ {t b : ℝ},
+  Eq.{1} (HPow.hPow.{0, 0, 0} b 2) (HDiv.hDiv.{0, 0, 0} (HSub.hSub.{0, 0, 0} 1 (HPow.hPow.{0, 0, 0} t 2)) 2) →
+    Eq.{1}
+        (CompactMaxwell.dipoleScattering.{0} (CompactMaxwell.SixVectorEquality.T t b)
+          CompactMaxwell.SixVectorEquality.plus)
+        (HDiv.hDiv.{0, 0, 0} (HPow.hPow.{0, 0, 0} (HSub.hSub.{0, 0, 0} 1 t) 2) 2) ∧
+      Eq.{1}
+        (CompactMaxwell.dipoleScattering.{0} (CompactMaxwell.SixVectorEquality.T t b)
+          CompactMaxwell.SixVectorEquality.minus)
+        (HSub.hSub.{0, 0, 0} 1 t)
+'CompactMaxwell.SixVectorEquality.scatterings' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@CompactMaxwell.SixVectorEquality.absorptions : ∀ {t b : ℝ},
+  Eq.{1} (HPow.hPow.{0, 0, 0} b 2) (HDiv.hDiv.{0, 0, 0} (HSub.hSub.{0, 0, 0} 1 (HPow.hPow.{0, 0, 0} t 2)) 2) →
+    Eq.{1}
+        (CompactMaxwell.dipoleAbsorption.{0} (CompactMaxwell.SixVectorEquality.T t b)
+          CompactMaxwell.SixVectorEquality.plus)
+        (HDiv.hDiv.{0, 0, 0} (HSub.hSub.{0, 0, 0} 1 (HPow.hPow.{0, 0, 0} t 2)) 2) ∧
+      Eq.{1}
+        (CompactMaxwell.dipoleAbsorption.{0} (CompactMaxwell.SixVectorEquality.T t b)
+          CompactMaxwell.SixVectorEquality.minus)
+        0
+'CompactMaxwell.SixVectorEquality.absorptions' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@CompactMaxwell.SixVectorEquality.all_extinctions : ∀ {k X : ℝ},
+  LT.lt.{0} 0 k →
+    LE.le.{0} 0 X →
+      LE.le.{0} X (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} 12 Real.pi) (HPow.hPow.{0, 0, 0} k 2)) →
+        ∃ B,
+          Eq.{1} (Matrix.transpose.{0, 0, 0} B)
+              (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} CompactMaxwell.SixVectorBridge.D B)
+                CompactMaxwell.SixVectorBridge.D) ∧
+            Matrix.PosSemidef.{0, 0} (CompactMaxwell.SixVectorBridge.Q B) ∧
+              have U := Matrix.toEuclideanCLM.{0, 0} B;
+              Eq.{1}
+                  (HMul.hMul.{0, 0, 0} (CompactMaxwell.dipoleScale k)
+                    (CompactMaxwell.dipoleWork.{0} U CompactMaxwell.SixVectorEquality.plus))
+                  X ∧
+                Eq.{1}
+                  (HMul.hMul.{0, 0, 0} (CompactMaxwell.dipoleScale k)
+                    (abs.{0}
+                      (HSub.hSub.{0, 0, 0} (CompactMaxwell.dipoleAbsorption.{0} U CompactMaxwell.SixVectorEquality.plus)
+                        (CompactMaxwell.dipoleAbsorption.{0} U
+                          (GeneralizedResearch.ChannelConjugation.map.{0} CompactMaxwell.SixVectorBridge.reversal
+                            CompactMaxwell.SixVectorEquality.plus)))))
+                  (HSub.hSub.{0, 0, 0} X
+                    (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} k 2) (HPow.hPow.{0, 0, 0} X 2))
+                      (HMul.hMul.{0, 0, 0} 12 Real.pi)))
+'CompactMaxwell.SixVectorEquality.all_extinctions' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CompactMaxwell.DipoleSupremum.contrastValues : Set.{0} ℝ
+'CompactMaxwell.DipoleSupremum.contrastValues' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@CompactMaxwell.DipoleSupremum.contrast_strict : ∀ {g : ℝ},
+  Membership.mem.{0, 0} CompactMaxwell.DipoleSupremum.contrastValues g → LE.le.{0} 0 g ∧ LT.lt.{0} g 1
+'CompactMaxwell.DipoleSupremum.contrast_strict' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@CompactMaxwell.DipoleSupremum.near_one : ∀ {ε : ℝ},
+  LT.lt.{0} 0 ε →
+    LT.lt.{0} ε 1 →
+      ∃ g, Membership.mem.{0, 0} CompactMaxwell.DipoleSupremum.contrastValues g ∧ LT.lt.{0} (HSub.hSub.{0, 0, 0} 1 ε) g
+'CompactMaxwell.DipoleSupremum.near_one' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CompactMaxwell.DipoleSupremum.contrast_isLUB : IsLUB.{0} CompactMaxwell.DipoleSupremum.contrastValues 1
+'CompactMaxwell.DipoleSupremum.contrast_isLUB' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CompactMaxwell.DipoleSupremum.free_extinction_supremum : Eq.{1}
+    (SupSet.sSup.{0} CompactMaxwell.DipoleSupremum.contrastValues) 1 ∧
+  1 ∉ CompactMaxwell.DipoleSupremum.contrastValues
+'CompactMaxwell.DipoleSupremum.free_extinction_supremum' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+CompactMaxwell.MaxwellCore.green_bounded : ∀ (B : QuarticMaxwell.WeakMaterial.Medium) {k : ℝ},
+  LE.le.{0} 0 k →
+    LT.lt.{0} 0 (MeasureTheory.Measure.real.{0} MeasureTheory.MeasureSpace.volume.{0} B.domain) →
+      LE.le.{0} (Norm.norm.{0} (QuarticMaxwell.domainOutgoingOperator k B.domain ⋯ ⋯ ⋯))
+        (HAdd.hAdd.{0, 0, 0} 1
+          (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (3 / 4) (HPow.hPow.{0, 0, 0} k 2))
+            (HPow.hPow.{0, 0, 0}
+              (QuarticMaxwell.volumeRadius
+                (MeasureTheory.Measure.real.{0} MeasureTheory.MeasureSpace.volume.{0} B.domain))
+              2)))
+'CompactMaxwell.MaxwellCore.green_bounded' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CompactMaxwell.MaxwellCore.green_radiation : ∀ (B : QuarticMaxwell.WeakMaterial.Medium) {k : ℝ},
+  LT.lt.{0} 0 k →
+    ∀ (p : ↥(QuarticMaxwell.DomainL2 B.domain)),
+      LE.le.{0} 0 (Inner.inner.{0, 0} ℂ p ((QuarticMaxwell.domainOutgoingOperator k B.domain ⋯ ⋯ ⋯) p)).im ∧
+        Eq.{1}
+          (HMul.hMul.{0, 0, 0} k
+            (Inner.inner.{0, 0} ℂ p ((QuarticMaxwell.domainOutgoingOperator k B.domain ⋯ ⋯ ⋯) p)).im)
+          (∫ (n : ↑OQ7Prescribed.UnitSphere),
+            HPow.hPow.{0, 0, 0}
+              (Norm.norm.{0}
+                (OQ7Prescribed.compactCurrentFarField k (QuarticMaxwell.domainPolarization B.domain ⋯ ⋯ ⋯ p) ↑n))
+              2 ∂OQ7Prescribed.sphereArea)
+'CompactMaxwell.MaxwellCore.green_radiation' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CompactMaxwell.MaxwellCore.far_field_continuous : ∀ (k : ℝ) (p : OQ7Prescribed.CompactPolarization),
+  Continuous.{0, 0} (OQ7Prescribed.compactCurrentFarField k p)
+'CompactMaxwell.MaxwellCore.far_field_continuous' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@CompactMaxwell.MaxwellCore.entire_outgoing_vacuum_unique : ∀ {k : ℝ},
+  LT.lt.{0} 0 k →
+    ∀ (E H : OQ7Prescribed.Field),
+      OQ7Prescribed.LocallySquareIntegrable E →
+        OQ7Prescribed.LocallySquareIntegrable H →
+          (OQ7Prescribed.HasWeakCurl E fun x => HSMul.hSMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} Complex.I ↑k) (H x)) →
+            (OQ7Prescribed.HasWeakCurl H fun x =>
+                HSMul.hSMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (Neg.neg.{0} Complex.I) ↑k) (E x)) →
+              OQ7Prescribed.Outgoing E H →
+                E =ᵐ[MeasureTheory.MeasureSpace.volume.{0}] 0 ∧ H =ᵐ[MeasureTheory.MeasureSpace.volume.{0}] 0
+'CompactMaxwell.MaxwellCore.entire_outgoing_vacuum_unique' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+CompactMaxwell.MaxwellCore.physical_problem : ∀ (B : QuarticMaxwell.WeakMaterial.Medium) {k : ℝ} (hk : LT.lt.{0} 0 k)
+  (n : ↑OQ7Prescribed.UnitSphere) (e : OQ7Prescribed.Vector),
+  Eq.{1} (Norm.norm.{0} e) 1 →
+    LT.lt.{0} 0 (MeasureTheory.Measure.real.{0} MeasureTheory.MeasureSpace.volume.{0} B.domain) →
+      Eq.{1} (OQ7Prescribed.bilinear (OQ7Prescribed.complexify ↑n) e) 0 →
+        (∃ s,
+            ∀ (t : QuarticMaxwell.WeakMaterial.State B k n e),
+              t.electric =ᵐ[MeasureTheory.MeasureSpace.volume.{0}] s.electric ∧
+                t.magnetic =ᵐ[MeasureTheory.MeasureSpace.volume.{0}] s.magnetic) ∧
+          LE.le.{0}
+              (Norm.norm.{0}
+                ↑(ContinuousLinearEquiv.symm.{0, 0, 0, 0}
+                    (QuarticMaxwell.VolumeInverse.equiv B.domain ⋯ B.susceptibility ⋯ B.M ⋯ ⋯ ⋯ hk ⋯ ⋯ ⋯ ⋯)))
+              (HDiv.hDiv.{0, 0, 0} (HPow.hPow.{0, 0, 0} B.M 2) B.m) ∧
+            ∀ (s : QuarticMaxwell.WeakMaterial.State B k n e),
+              LT.lt.{0} 0 (QuarticMaxwell.PhysicalPowers.extinction B k n e s.electric) ∧
+                Eq.{1} (QuarticMaxwell.PhysicalPowers.extinction B k n e s.electric)
+                    (HAdd.hAdd.{0, 0, 0} (QuarticMaxwell.PhysicalPowers.absorption B k s.electric)
+                      (QuarticMaxwell.PhysicalPowers.scattering B k s.electric ⋯)) ∧
+                  Filter.Tendsto.{0, 0}
+                    (OQ7Prescribed.exteriorSphereFlux k (QuarticMaxwell.WeakMaterial.polarization B s.electric ⋯))
+                    Filter.atTop.{0} (nhds.{0} (QuarticMaxwell.PhysicalPowers.scattering B k s.electric ⋯))
+'CompactMaxwell.MaxwellCore.physical_problem' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CompactMaxwell.PhysicalSupremum.unrestricted_examples : ∀ (k P Q ε : ℝ),
+  LT.lt.{0} 0 k →
+    LT.lt.{0} 1 P →
+      LT.lt.{0} 0 Q →
+        LT.lt.{0} 0 ε →
+          LT.lt.{0} ε 1 →
+            ∃ B,
+              B.admissible P Q ∧
+                ∃ sp sm,
+                  Eq.{1} (OQ7Prescribed.extinction k B OQ7Prescribed.Direction.plus sp.electric)
+                      (OQ7Prescribed.extinction k B OQ7Prescribed.Direction.minus sm.electric) ∧
+                    LT.lt.{0} 0 (OQ7Prescribed.extinction k B OQ7Prescribed.Direction.plus sp.electric) ∧
+                      LT.lt.{0} (HSub.hSub.{0, 0, 0} 1 ε)
+                          (OQ7Prescribed.normalizedAsymmetry k B sp.electric sm.electric) ∧
+                        LT.lt.{0} (OQ7Prescribed.normalizedAsymmetry k B sp.electric sm.electric) 1
+'CompactMaxwell.PhysicalSupremum.unrestricted_examples' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+CompactMaxwell.PhysicalSupremum.asymmetryValues : ℝ → ℝ → ℝ → Set.{0} ℝ
+'CompactMaxwell.PhysicalSupremum.asymmetryValues' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@CompactMaxwell.PhysicalSupremum.universal_strict : ∀ {k P Q g : ℝ},
+  LT.lt.{0} 0 k → Membership.mem.{0, 0} (CompactMaxwell.PhysicalSupremum.asymmetryValues k P Q) g → LT.lt.{0} g 1
+'CompactMaxwell.PhysicalSupremum.universal_strict' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CompactMaxwell.PhysicalSupremum.unrestricted_isLUB : ∀ (k P Q : ℝ),
+  LT.lt.{0} 0 k → LT.lt.{0} 1 P → LT.lt.{0} 0 Q → IsLUB.{0} (CompactMaxwell.PhysicalSupremum.asymmetryValues k P Q) 1
+'CompactMaxwell.PhysicalSupremum.unrestricted_isLUB' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CompactMaxwell.PhysicalSupremum.unrestricted_compact_dielectric_supremum : ∀ (k P Q : ℝ),
+  LT.lt.{0} 0 k →
+    LT.lt.{0} 1 P →
+      LT.lt.{0} 0 Q →
+        Eq.{1} (SupSet.sSup.{0} (CompactMaxwell.PhysicalSupremum.asymmetryValues k P Q)) 1 ∧
+          1 ∉ CompactMaxwell.PhysicalSupremum.asymmetryValues k P Q
+'CompactMaxwell.PhysicalSupremum.unrestricted_compact_dielectric_supremum' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+CompactMaxwell.scattering : (↑OQ7Prescribed.UnitSphere → OQ7Prescribed.Vector) → ℝ
+'CompactMaxwell.scattering' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CompactMaxwell.directivity : (↑OQ7Prescribed.UnitSphere → OQ7Prescribed.Vector) →
+  OQ7Prescribed.Vector → ↑OQ7Prescribed.UnitSphere → ℝ
+'CompactMaxwell.directivity' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CompactMaxwell.zero_scattering_iff : ∀ (F : ↑OQ7Prescribed.UnitSphere → OQ7Prescribed.Vector),
+  Continuous.{0, 0} F → (Eq.{1} (CompactMaxwell.scattering F) 0 ↔ Eq.{1} F 0)
+'CompactMaxwell.zero_scattering_iff' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CompactMaxwell.positive_scattering : ∀ (F : ↑OQ7Prescribed.UnitSphere → OQ7Prescribed.Vector),
+  Continuous.{0, 0} F →
+    ∀ {k X : ℝ},
+      LT.lt.{0} 0 k →
+        LT.lt.{0} 0 X →
+          ∀ (e : OQ7Prescribed.Vector) (d : ↑OQ7Prescribed.UnitSphere),
+            Eq.{1} X
+                (HMul.hMul.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} 4 Real.pi) k)
+                  (Inner.inner.{0, 0} ℂ e (F d)).im) →
+              LT.lt.{0} 0 (CompactMaxwell.scattering F)
+'CompactMaxwell.positive_scattering' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CompactMaxwell.forward_nonzero : ∀ (F : ↑OQ7Prescribed.UnitSphere → OQ7Prescribed.Vector) {k X : ℝ},
+  LT.lt.{0} 0 X →
+    ∀ (e : OQ7Prescribed.Vector) (d : ↑OQ7Prescribed.UnitSphere),
+      Eq.{1} X
+          (HMul.hMul.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} 4 Real.pi) k)
+            (Inner.inner.{0, 0} ℂ e (F d)).im) →
+        Ne.{1} (Inner.inner.{0, 0} ℂ e (F d)) 0
+'CompactMaxwell.forward_nonzero' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CompactMaxwell.forward_directivity_floor : ∀ (F : ↑OQ7Prescribed.UnitSphere → OQ7Prescribed.Vector),
+  Continuous.{0, 0} F →
+    ∀ {k X : ℝ},
+      LT.lt.{0} 0 k →
+        LT.lt.{0} 0 X →
+          ∀ (e : OQ7Prescribed.Vector) (d : ↑OQ7Prescribed.UnitSphere),
+            Eq.{1} X
+                (HMul.hMul.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} 4 Real.pi) k)
+                  (Inner.inner.{0, 0} ℂ e (F d)).im) →
+              LT.lt.{0} 0 (CompactMaxwell.directivity F e d) ∧
+                LE.le.{0}
+                  (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} k 2) X)
+                    (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 4 Real.pi) (CompactMaxwell.directivity F e d)))
+                  (HDiv.hDiv.{0, 0, 0} (CompactMaxwell.scattering F) X)
+'CompactMaxwell.forward_directivity_floor' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+CompactMaxwell.strict_bound_and_directivity : ∀ (Fh Fl : ↑OQ7Prescribed.UnitSphere → OQ7Prescribed.Vector),
+  Continuous.{0, 0} Fh →
+    Continuous.{0, 0} Fl →
+      ∀ {k X Ah Al : ℝ},
+        LT.lt.{0} 0 k →
+          LT.lt.{0} 0 X →
+            LE.le.{0} 0 Ah →
+              LE.le.{0} 0 Al →
+                LE.le.{0} Al Ah →
+                  Eq.{1} X (HAdd.hAdd.{0, 0, 0} Ah (CompactMaxwell.scattering Fh)) →
+                    Eq.{1} X (HAdd.hAdd.{0, 0, 0} Al (CompactMaxwell.scattering Fl)) →
+                      ∀ (eh el : OQ7Prescribed.Vector) (dh dl : ↑OQ7Prescribed.UnitSphere),
+                        Eq.{1} X
+                            (HMul.hMul.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} 4 Real.pi) k)
+                              (Inner.inner.{0, 0} ℂ eh (Fh dh)).im) →
+                          Eq.{1} X
+                              (HMul.hMul.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} 4 Real.pi) k)
+                                (Inner.inner.{0, 0} ℂ el (Fl dl)).im) →
+                            LE.le.{0} 0 (HDiv.hDiv.{0, 0, 0} (abs.{0} (HSub.hSub.{0, 0, 0} Ah Al)) X) ∧
+                              LT.lt.{0} (HDiv.hDiv.{0, 0, 0} (abs.{0} (HSub.hSub.{0, 0, 0} Ah Al)) X) 1 ∧
+                                LE.le.{0} (HDiv.hDiv.{0, 0, 0} (abs.{0} (HSub.hSub.{0, 0, 0} Ah Al)) X)
+                                  (HSub.hSub.{0, 0, 0} 1
+                                    (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} k 2) X)
+                                      (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 4 Real.pi)
+                                        (CompactMaxwell.directivity Fh eh dh))))
+'CompactMaxwell.strict_bound_and_directivity' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+FixedResource.complex_pair_extinction : ∀ (B : QuarticMaxwell.WeakMaterial.Medium) {k : ℝ},
+  LT.lt.{0} 0 k →
+    (∀ᵐ (x : QuarticMaxwell.Position),
+        Membership.mem.{0, 0} B.domain x →
+          ∀ (u v : OQ7Prescribed.Vector),
+            Eq.{1} (OQ7Prescribed.bilinear u ((B.susceptibility x) v))
+              (OQ7Prescribed.bilinear v ((B.susceptibility x) u))) →
+      ∀ (n : ↑OQ7Prescribed.UnitSphere) (e : OQ7Prescribed.Vector),
+        Eq.{1} (OQ7Prescribed.bilinear (OQ7Prescribed.complexify ↑n) e) 0 →
+          ∀ (s : QuarticMaxwell.WeakMaterial.State B k n e)
+            (t :
+              QuarticMaxwell.WeakMaterial.State B k (QuarticMaxwell.PhysicalPowers.opposite n)
+                (OQ7Prescribed.vectorConjugate e)),
+            Eq.{1} (QuarticMaxwell.PhysicalPowers.extinction B k n e s.electric)
+              (QuarticMaxwell.PhysicalPowers.extinction B k (QuarticMaxwell.PhysicalPowers.opposite n)
+                (OQ7Prescribed.vectorConjugate e) t.electric)
+'FixedResource.complex_pair_extinction' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]

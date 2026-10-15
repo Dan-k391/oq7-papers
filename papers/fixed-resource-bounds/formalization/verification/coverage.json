@@ -1,0 +1,137 @@
+{
+  "paper": "fixed-resource-bounds",
+  "status": "partial-formalization-checkpoint",
+  "allOriginalManuscriptClaimsVerified": false,
+  "manuscriptsUpdated": false,
+  "manuscriptInputs": {
+    "papers/fixed-resource-bounds/arxiv/main.tex": "bb530c25d461d87be90d82ccad4767dc156d53744c3aefe771da11757c8a28cc",
+    "papers/fixed-resource-bounds/arxiv/paper.pdf": "d7cc67130524c70fb749be3bf86744d7e343bdaa6b2ab3f618f0677e9bd972c8",
+    "papers/fixed-resource-bounds/manuscript/OQ7_fixed_resource_bounds_2026-10-10.pdf": "bf0cd5f0f1ef218da4ab396840a639f2d69c6cfe4e200c25689478ea09847711",
+    "papers/fixed-resource-bounds/manuscript/OQ7_fixed_resource_bounds_2026-10-10.txt": "fe5581e57b4e707b5a258b78659677df5d82f2071110d9fd465e009c3f65930d"
+  },
+  "claims": [
+    {
+      "id": "Theorem 1.1",
+      "currentLabel": "thm:main",
+      "status": "partial",
+      "exports": [
+        "FixedResource.physical_uniform_pair"
+      ],
+      "currentStatementSHA256": "7559ad09f864963bcff38ba4dca83df28575af991fcf0775d85f72342e7a18e5",
+      "remaining": "A genuine Maxwell bound with budget |D| K²/δ is proved. The sharper η₀=c²/δ+Q, isodiametric volume, Jung enclosing-radius and linear spectral bounds remain to be assembled."
+    },
+    {
+      "id": "Lemma 2.1",
+      "currentLabel": "lem:operator",
+      "status": "complete",
+      "exports": [
+        "FixedResource.bounded_volume_operator_all"
+      ],
+      "currentStatementSHA256": "da9533189797fb17dd0e47c142f8d17e0f05daefdaffe120dab9c0ed270df0d2",
+      "remaining": ""
+    },
+    {
+      "id": "Proposition 2.2",
+      "currentLabel": "prop:coercivity",
+      "status": "complete",
+      "exports": [
+        "FixedResource.weak_maxwell_wellposed",
+        "FixedResource.inverse_bound",
+        "FixedResource.complex_pair_extinction"
+      ],
+      "currentStatementSHA256": "5273230dc6975c486aa4e273c473fdbcd40145ced11279485462c6ad0b116777",
+      "remaining": ""
+    },
+    {
+      "id": "Theorem 3.1",
+      "currentLabel": "thm:response",
+      "status": "partial",
+      "exports": [
+        "FixedResource.physical_scattering_efficiency",
+        "FixedResource.physical_extinction_work",
+        "FixedResource.physical_uniform_pair"
+      ],
+      "currentStatementSHA256": "c5260c7263fc21a406384dca161ce3c368400ab31dec004e4fcf99bb1f3e4155",
+      "remaining": "The uniform K²/δ budget is proved for actual weak fields. The general measurable integrable η budget, including currents controlled only in L¹, remains open."
+    },
+    {
+      "id": "Corollary 3.2",
+      "currentLabel": "cor:costs",
+      "status": "partial",
+      "exports": [
+        "FixedResource.necessary_efficiency_cost",
+        "FixedResource.absolute_difference_small",
+        "FixedResource.absolute_difference_quarter"
+      ],
+      "currentStatementSHA256": "e5b4f6f3e61f4a145693d1debaa08d7a13ce23569384e725dcdcfb23d540bec8",
+      "remaining": "The two-branch algebra and efficiency cost are proved. Their variable-response physical premise and positive-extinction cost must still be connected."
+    },
+    {
+      "id": "Lemma 4.1",
+      "currentLabel": "lem:spectrum",
+      "status": "open",
+      "exports": [],
+      "currentStatementSHA256": "3dce3b4d5c2ba130291916442eb45cde2caa35c2629e5dcc929846b6b7055e0a",
+      "remaining": "Actual spherical Bessel modes, vector-harmonic completeness, all positive eigenvalues/multiplicities, kernel orthogonality, plane-wave resolvent series and Parseval formula remain open."
+    },
+    {
+      "id": "Theorem 4.2",
+      "currentLabel": "thm:linear",
+      "status": "partial",
+      "exports": [
+        "FixedResource.BesselEnergy.energy_derivative",
+        "FixedResource.BesselEnergy.energy_upper",
+        "FixedResource.BesselEnergy.eigenvalue_pair_bound"
+      ],
+      "currentStatementSHA256": "2a47d0625552662a6a5130c74b93876f1795fbf8fbef084ce18c50f8a1b7e5c2",
+      "remaining": "The fixed-order ODE energy argument is proved under explicit ODE and asymptotic hypotheses. Its identification with actual spherical Bessel solutions, integral eigenvalues and the full radiation norm is open."
+    },
+    {
+      "id": "Theorem 5.1",
+      "currentLabel": "thm:floor",
+      "status": "open",
+      "exports": [],
+      "currentStatementSHA256": "32d092c8a598558ce780f50e45a146c023b60bec68241e3f0c315e149b4b2c60",
+      "remaining": "Actual resolvent dual supremum, positivity, monotonicity, exact minimizer for every interior t, strict T derivative/range, unique endpoint current and empty-class threshold remain open."
+    },
+    {
+      "id": "Corollary 5.2",
+      "currentLabel": "cor:positive",
+      "status": "open",
+      "exports": [],
+      "currentStatementSHA256": "08d77eb9497cee864db1a80c574416061ec6240b7c24ff623cd016af82bf95d8",
+      "remaining": "Needs the full physical response/spectral upper endpoint and exact resolvent floor, including feasibility and empty-class clauses."
+    },
+    {
+      "id": "Proposition 5.3",
+      "currentLabel": "prop:cap",
+      "status": "open",
+      "exports": [],
+      "currentStatementSHA256": "a57b293c7c5587d6c3a015b91701fff7633c4d0377584ad36ec1cda3cf554265",
+      "remaining": "Full far-field angular Lipschitz estimate, chord-cap integration and the stated 96π constant remain open."
+    },
+    {
+      "id": "Theorem 6.1",
+      "currentLabel": "thm:sphere",
+      "status": "partial",
+      "exports": [
+        "FixedResource.SphereAlgebra.static_response",
+        "FixedResource.SphereAlgebra.normalized_coefficient",
+        "FixedResource.SphereAlgebra.loss_floor",
+        "FixedResource.SphereAlgebra.loss_upper",
+        "FixedResource.SphereAlgebra.real_permittivity"
+      ],
+      "currentStatementSHA256": "fc0ddfce6a519854bef5dcbdc38bf1d7307f705d245b569aeb21431e12781282",
+      "remaining": "The literal tensor, static response, loss/real caps and exact rational cubic coefficient are proved. Dynamic anisotropic-sphere small-radius error, uniform complete far-field remainder and physical dilation are open."
+    },
+    {
+      "id": "Proposition 7.1",
+      "currentLabel": "prop:six",
+      "status": "open",
+      "exports": [],
+      "currentStatementSHA256": "12025dbe088e8fb8908537402ccf24f3a7810fd08d99c142faddf0d2652cc91f",
+      "remaining": "The general local six-component current response bound is open. The compact paper’s finite dipole theorem is a different statement and is not substituted."
+    }
+  ],
+  "auxiliaryScope": "Unnumbered analytical, dispersion, numerical, bibliography and novelty claims are not completely certified. No human peer review is inferred."
+}

@@ -1,0 +1,19 @@
+name = "oq7_compact_maxwell_cross_sections"
+version = "0.1.0"
+defaultTargets = ["CompactMaxwell"]
+packagesDir = "../../prescribed-extinction/formalization/.lake/packages"
+
+[[require]]
+name = "oq7_quartic_maxwell"
+path = "../../quartic-maxwell/formalization"
+
+[[require]]
+name = "oq7_generalized_research"
+path = "../../generalized-research/formalization"
+
+[[require]]
+name = "oq7_fixed_resource_bounds"
+path = "../../fixed-resource-bounds/formalization"
+
+[[lean_lib]]
+name = "CompactMaxwell"

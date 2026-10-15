@@ -93,6 +93,20 @@ def preflight(repo,paper):
         for name,digest in {**binding['verificationReports'],**binding['coverageLedgers']}.items(): require(sha(read(repo/name))==digest,'Frozen report/coverage changed')
     return root,src,tex,build,status,proof,coverage
 
+def project_owns_status(root, name):
+    """New working proof projects own their status docs, outside old PDF snapshots."""
+    if name not in {'formalization/README.md', 'formalization/CLAIM_STATUS.md'}:
+        return False
+    config = root/'formalization/verification/project.json'
+    if not config.is_file():
+        return False
+    metadata = load(config)
+    require(metadata.get('paper') == root.name, 'Proof project identity mismatch')
+    require(metadata.get('manuscriptsFrozenUntilAllVerificationComplete') is True,
+            'A working proof project must preserve the manuscript update gate')
+    require((root/'formalization/lean-toolchain').is_file(), 'Missing proof toolchain pin')
+    return True
+
 def plan(repo,paper):
     root,src,tex,build,status,proof,coverage=preflight(repo,paper)
     files={}; copies={}; provenance={}
@@ -128,8 +142,10 @@ def plan(repo,paper):
         for match in re.finditer(r'\\begin\{(theorem|lemma|proposition|corollary)\}(?:\[([^]]*)\])?(.*?)(?=\\end\{\1\})',tex,re.S):
             label=re.search(r'\\label\{([^}]+)\}',match[3])
             rows.append([match[1]+(': '+match[2] if match[2] else ''),label[1] if label else '(unlabelled)','No paper-specific Lean correspondence recorded','','Ordinary manuscript statement; no formal declaration assigned'])
-        put('formalization/README.md',f'# {PAPERS[paper]} — formalization status\n\nNo paper-specific Lean proof project or successful fresh-kernel record is supplied for this manuscript. The companion papers\' verification is not transferred to it. This directory provides the same structural entry point as the other papers, not a verification certificate.\n\nSee [claim status](CLAIM_STATUS.md), [publication correspondence](../publication/manuscript/theorem-correspondence.html) and [current manuscript](../arxiv/README.md). No dependency pins or proof code are introduced.\n')
-        put('formalization/CLAIM_STATUS.md','# Claim status\n\nEvery current labelled statement is inventoried in [the correspondence table](../publication/manuscript/theorem-correspondence.csv). No paper-specific formal declaration is assigned. The original PDF, reconstructed source and prior editorial scope record remain distinct evidence.\n')
+        if not project_owns_status(root, 'formalization/README.md'):
+            put('formalization/README.md',f'# {PAPERS[paper]} — formalization status\n\nNo paper-specific Lean proof project or successful fresh-kernel record is supplied for this manuscript. The companion papers\' verification is not transferred to it. This directory provides the same structural entry point as the other papers, not a verification certificate.\n\nSee [claim status](CLAIM_STATUS.md), [publication correspondence](../publication/manuscript/theorem-correspondence.html) and [current manuscript](../arxiv/README.md). No dependency pins or proof code are introduced.\n')
+        if not project_owns_status(root, 'formalization/CLAIM_STATUS.md'):
+            put('formalization/CLAIM_STATUS.md','# Claim status\n\nEvery current labelled statement is inventoried in [the correspondence table](../publication/manuscript/theorem-correspondence.csv). No paper-specific formal declaration is assigned. The original PDF, reconstructed source and prior editorial scope record remain distinct evidence.\n')
     buf=io.StringIO(newline='');writer=csv.writer(buf,lineterminator='\n')
     headings=['Statement identity','Reading-revision label','Recorded scope status','Exact formal exports','Remaining scope / notes']
     writer.writerow(headings);writer.writerows(rows)
@@ -184,10 +200,15 @@ def check(repo,paper):
     state=load(root/'publication/verification/PACKAGE_MANIFEST.json')
     require(state['paper']==paper,'Package identity mismatch')
     count=0
+    delegated=[]
     for name,digest in state['files'].items():
         relative(name)
         require((root/name).resolve().is_relative_to(root.resolve()),'Managed path escapes paper directory')
-        data=read(root/name);require(sha(data)==digest,'Managed package file changed: '+name)
+        data=read(root/name)
+        if project_owns_status(root, name):
+            delegated.append(name)
+        else:
+            require(sha(data)==digest,'Managed package file changed: '+name)
         if name.endswith('.html'):
             parser=Links();parser.feed(data.decode('utf-8'));links=parser.links
         elif name.endswith('.md'):
@@ -204,7 +225,7 @@ def check(repo,paper):
     for line in (root/'publication/SHA256SUMS').read_text().splitlines():
         digest,name=line.split('  ',1)
         require(sha(read(root/'publication'/name))==digest,'Publication checksum differs: '+name)
-    return {'paper':paper,'managedFiles':len(state['files']),'localLinksChecked':count,'snapshotAndProvenanceHashes':'passed','formalScope':state['formalScope']}
+    return {'paper':paper,'managedFiles':len(state['files']),'localLinksChecked':count,'snapshotAndProvenanceHashes':'passed','formalScope':state['formalScope'],'workingProofProjectStatusDocuments':delegated}
 
 def sync(repo,paper):
     root,files=plan(repo,paper)
@@ -214,7 +235,9 @@ def sync(repo,paper):
         for line in (root/'publication/SHA256SUMS').read_text().splitlines():
             digest,name=line.split('  ',1)
             require(sha(read(root/'publication'/name))==digest,'Refusing to overwrite a changed publication record: '+name)
-        for name,digest in state['files'].items(): require(sha(read(root/name))==digest,'Refusing to overwrite a changed managed file: '+name)
+        for name,digest in state['files'].items():
+            if not project_owns_status(root, name):
+                require(sha(read(root/name))==digest,'Refusing to overwrite a changed managed file: '+name)
         owned=set(state['files'])|{'publication/verification/PACKAGE_MANIFEST.json','publication/SHA256SUMS'}
     else:owned=set()
     for name,data in files.items():

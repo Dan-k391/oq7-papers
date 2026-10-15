@@ -1,0 +1,15 @@
+name = "oq7_fixed_resource_bounds"
+version = "0.1.0"
+defaultTargets = ["FixedResource"]
+packagesDir = "../../prescribed-extinction/formalization/.lake/packages"
+
+[[require]]
+name = "oq7_quartic_maxwell"
+path = "../../quartic-maxwell/formalization"
+
+[[require]]
+name = "oq7_generalized_research"
+path = "../../generalized-research/formalization"
+
+[[lean_lib]]
+name = "FixedResource"
