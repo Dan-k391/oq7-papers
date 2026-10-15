@@ -21,3 +21,5 @@ The preserved prescribed-extinction audit identifies commit 686402a6c2d638208287
 Use [the configured primary workspace](WORKSPACE.md) when available. See [reproduction instructions](REPRODUCE.md) and the preserved [reorganization record](archive/REORGANIZATION.md). All collaborators with repository access can read and edit the collection.
 
 Sibling-paper audits follow [AUDIT_WORKFLOW.md](AUDIT_WORKFLOW.md) and are re-run with `scripts/run-paper-audit.py`.
+
+The four companion papers now share the prescribed-extinction package roles: `arxiv/`, `formalization/`, `publication/manuscript/reproducibility/`, `publication/verification/` and `review-package/`. Publication PDFs and TeX are byte-identical snapshots; formalization-status entry points do not imply checked Lean proofs where none exist. See [all package structure changes](PACKAGE_STRUCTURE_CHANGES.md).

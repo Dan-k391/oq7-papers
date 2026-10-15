@@ -1,0 +1,715 @@
+{
+  "schema_version": 1,
+  "description": "Source-bound correspondence inventory; hashing does not itself establish manuscript correctness.",
+  "original": {
+    "path": "papers/generalized-research/manuscript/OQ7_generalized_research_2026-10-10.pdf",
+    "sha256": "3f01036ff6bc99939b1f2b1a8a205ac4e755188930535db1336d841ca7d377bf",
+    "numbering_authority": "dated original PDF"
+  },
+  "current_arxiv": {
+    "path": "papers/generalized-research/arxiv/main.tex",
+    "sha256": "145ce0ae3bfa8bf85fa07a83ffda1d9074756054e208400b86e41dec157f3407",
+    "mapping_policy": "Independent labels, not original counters; re-evaluate after manuscript changes."
+  },
+  "verification": {
+    "report": "papers/generalized-research/formalization/verification/final-all-numbered/report.json",
+    "status_at_inventory": "fresh-kernel-passed",
+    "report_sha256": "d1b3b6fa1956747fdb76083ce3e7e9f4a972d613450e495e6da0747eec17294f",
+    "theorem_count": 1644,
+    "required_public_root_count": 439,
+    "fresh_kernel_passed": true,
+    "types_and_axioms_sha256": "7d87235a037f38bf073d08d33f21020a735edd0fe83a5c8ce3b7711636b912d0",
+    "allowlisted_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "fresh_replay_is_same_kernel": true,
+    "independent_checker_implementation": false,
+    "unchanged_dependency_correspondence": {
+      "scope": "Exact types and transitive standard-axiom census of six unchanged imported OQ7 theorem roots used directly in correspondence. They are imported by the same aggregate; the successful main report binds all preserved source hashes and replays the full transitive environment. This record does not add six new-namespace declarations.",
+      "declaration_count": 6,
+      "audit_record": "correspondence-dependency-audit.json",
+      "audit_record_sha256": "694252cf6e1d2b51490afc381456b7c054ff0712bb839dcab5d9475700e05176",
+      "audit_source": "CorrespondenceDependencies.lean",
+      "audit_source_sha256": "f0f6bd16c06a5b75853180cd7545b1e0f77d05731a08a9c5c13e36ded1bd66b2",
+      "types_and_axioms_log": "correspondence-dependency-types.log",
+      "types_and_axioms_log_sha256": "9091c78e1a701ed62ef685d8efcbb6c046fd932b7affbc4a761e13fe082bf597"
+    }
+  },
+  "scope_policy": {
+    "complete": "Named conclusion under literal modeled hypotheses and described scope; separately inventoried surrounding claims excluded.",
+    "restricted": "Substantial proof exists; stated explicit bridge/endpoint/classification/export remains.",
+    "open": "No complete checked proof in checkpoint.",
+    "not_claimed": "Open problem or expressly disclaimed claim."
+  },
+  "claims": [
+    {
+      "id": "original.prop2.1",
+      "kind": "numbered",
+      "title": "Closed scalar feasibility iff",
+      "status": "complete",
+      "exports": [
+        "GeneralizedResearch.ScalarBenchmark.feasibility_iff",
+        "GeneralizedResearch.ScalarPhaseFeasibility.proposition21",
+        "GeneralizedResearch.ScalarPhaseFeasibility.prescribed_entry_phase_iff",
+        "GeneralizedResearch.ScalarPhaseFeasibility.degenerate_entry_iff",
+        "GeneralizedResearch.ScalarPhaseFeasibility.every_pair_feasible",
+        "GeneralizedResearch.ScalarPhaseFeasibility.interference_phase_formula",
+        "GeneralizedResearch.ScalarPhaseFeasibility.passive_iff_magnitudes_det"
+      ],
+      "verified_scope": "All clauses of original Proposition2.1: complete existential realizability iff for(T,a,delta), all closed endpoints, every valid(T,a) pair realized, literal prescribed nonzero-entry arg/cos Eq6 iff, and the degenerate determinant criterion when T*abs(rL*rR)=0. Actual symmetric complex contraction throughout.",
+      "remaining_obligations": "None for the literal numbered proposition.",
+      "current_arxiv_labels": [
+        "prop:benchmark"
+      ]
+    },
+    {
+      "id": "original.prop2.2",
+      "kind": "numbered",
+      "title": "Two-branch scalar absorption ceiling",
+      "status": "complete",
+      "exports": [
+        "GeneralizedResearch.ScalarBenchmark.sharp_ceiling",
+        "GeneralizedResearch.ScalarBenchmark.optimizer_attains",
+        "GeneralizedResearch.ScalarBenchmark.ceiling_transition"
+      ],
+      "verified_scope": "Universal sharp ceiling and actual literal real-root S* optimizer, including active branch, plateau and closed endpoints.",
+      "remaining_obligations": "",
+      "current_arxiv_labels": [
+        "prop:benchmark"
+      ]
+    },
+    {
+      "id": "original.lem4.1",
+      "kind": "numbered",
+      "title": "Complex modulus comparison",
+      "status": "complete",
+      "exports": [
+        "GeneralizedResearch.HelmholtzProfile.Profile.modulus_comparison"
+      ],
+      "verified_scope": "Actual continuous piecewise Helmholtz fields; p bounded above only on selected interval, q nonnegative. No lower bound on real p or exterior cap.",
+      "remaining_obligations": "",
+      "current_arxiv_labels": [
+        "lem:comparison"
+      ]
+    },
+    {
+      "id": "original.lem4.2",
+      "kind": "numbered",
+      "title": "One-period capped Fourier moment",
+      "status": "complete",
+      "exports": [
+        "OQ7.capped_fourier_moment_Ioo",
+        "OQ7.sineSquare_triangleIntegral_capped_Ioo"
+      ],
+      "verified_scope": "Interval-integrable real q, caps on open interval, exact zero/full endpoints.",
+      "remaining_obligations": "",
+      "current_arxiv_labels": [
+        "lem:moment"
+      ]
+    },
+    {
+      "id": "original.lem4.3",
+      "kind": "numbered",
+      "title": "Cell determinant and combining cells",
+      "status": "complete",
+      "exports": [
+        "GeneralizedResearch.HelmholtzProfile.Profile.deposited_det",
+        "GeneralizedResearch.HelmholtzProfile.Profile.cell_det_lower",
+        "GeneralizedResearch.HelmholtzProfile.Profile.selected_sqrt_aggregate",
+        "GeneralizedResearch.HelmholtzProfile.Profile.lemma43",
+        "GeneralizedResearch.HelmholtzProfile.Profile.unitCellGram_congruence",
+        "GeneralizedResearch.HelmholtzProfile.Profile.unitCellGram_normalized_det",
+        "GeneralizedResearch.HelmholtzProfile.Profile.unitCellGram_total",
+        "GeneralizedResearch.HelmholtzProfile.Profile.lemma43_combining",
+        "GeneralizedResearch.HelmholtzProfile.Profile.disjoint_cell_rest",
+        "GeneralizedResearch.HelmholtzProfile.Profile.disjoint_resource_cells"
+      ],
+      "verified_scope": "Literal original equations25and26: actual unit-incidence left/right Maxwell fields and k-weighted local absorption Gram A_j; actual T>0; exact Gram congruence and det(A_j)/T identity; u_j in[0,pi]; local cell determinant floor; arbitrary finite disjoint selected cells and all complementary absorption derived from the actual complementary Gram. No global lower bound on real permittivity.",
+      "remaining_obligations": "None for the literal numbered lemma.",
+      "current_arxiv_labels": [
+        "lem:gram"
+      ]
+    },
+    {
+      "id": "original.lem4.4",
+      "kind": "numbered",
+      "title": "Convexity and global supporting tangent",
+      "status": "complete",
+      "exports": [
+        "OQ7.ResourceScalar.g_convex_half",
+        "OQ7.ResourceScalar.g_tangent_full",
+        "OQ7.ResourceScalar.f_lower_half"
+      ],
+      "verified_scope": "Exact half-period convexity, small-mean tangent over full period, explicit polynomial lower bound.",
+      "remaining_obligations": "",
+      "current_arxiv_labels": [
+        "lem:tangent"
+      ]
+    },
+    {
+      "id": "original.thm4.5",
+      "kind": "numbered",
+      "title": "Broad selected-interval resource floor",
+      "status": "complete",
+      "exports": [
+        "GeneralizedResearch.HelmholtzProfile.Profile.theorem45_finite",
+        "GeneralizedResearch.HelmholtzProfile.Profile.theorem45_scattering_floor",
+        "GeneralizedResearch.HelmholtzProfile.Profile.theorem45_uniform_asymptotic",
+        "GeneralizedResearch.HelmholtzProfile.Profile.theorem45_sequence_lowerlimit"
+      ],
+      "verified_scope": "Literal piecewise Helmholtz profile PDE model allows p=0 and p<0 and arbitrary passive exterior. Caps only on selected interval; exact normalized actual scattering determinant finite floor and uniform large-L lower limit. Hypotheses specify actual PDE/continuity/integrability, not desired Gram bounds.",
+      "remaining_obligations": "",
+      "current_arxiv_labels": [
+        "thm:floor"
+      ]
+    },
+    {
+      "id": "original.rem4.6",
+      "kind": "numbered",
+      "title": "Strictness of the finite-cell resource-floor inequalities (Remark4.6)",
+      "status": "open",
+      "exports": [],
+      "verified_scope": "Nonnegative finite floors and positive invariant proved; strict inequality above finite beta floor is not asserted.",
+      "remaining_obligations": "Strict modulus comparison on positive-measure lossy field pairs and resulting strict beta resource bound not formalized.",
+      "current_arxiv_labels": []
+    },
+    {
+      "id": "original.thm5.1",
+      "kind": "numbered",
+      "title": "Sharp exact-target finite-layer thickness asymptotic",
+      "status": "complete",
+      "exports": [
+        "GeneralizedResearch.sharp_exact_target_thickness",
+        "GeneralizedResearch.admissible_layer_helmholtz",
+        "GeneralizedResearch.exact_target_field_continuous"
+      ],
+      "verified_scope": "Unchanged OQ7 PhysicalParameters actual finite layers, exact active target, all-budget optimum, eventual exact feasibility, finite strict gap and sharp asymptotic coefficient. Global 1<=p<=P as original Section5.",
+      "remaining_obligations": "",
+      "current_arxiv_labels": [
+        "thm:thickness"
+      ]
+    },
+    {
+      "id": "original.cor5.2",
+      "kind": "numbered",
+      "title": "Minimum-thickness inverse asymptotic",
+      "status": "complete",
+      "exports": [
+        "GeneralizedResearch.corollary52_original_ratio",
+        "GeneralizedResearch.nearOptimalThicknesses_nonempty",
+        "GeneralizedResearch.minimumThickness_tendsto_atTop"
+      ],
+      "verified_scope": "Actual sInf of thicknesses of exact-target stacks within eta of ceiling; literal equation43 ratio tends to1 as eta decreases to0.",
+      "remaining_obligations": "",
+      "current_arxiv_labels": [
+        "cor:min-thickness"
+      ]
+    },
+    {
+      "id": "original.prop6.1",
+      "kind": "numbered",
+      "title": "Reciprocity and signed channel power difference",
+      "status": "complete",
+      "exports": [
+        "GeneralizedResearch.hilbert_forward_reciprocity",
+        "GeneralizedResearch.hilbert_extinction_reciprocity",
+        "GeneralizedResearch.ChannelEquality.reciprocal_power_difference"
+      ],
+      "verified_scope": "Arbitrary complex Hilbert space, genuine conjugation, actual transpose reciprocity/lossless reference. Extinction equality derived.",
+      "remaining_obligations": "",
+      "current_arxiv_labels": [
+        "prop:channel-basic"
+      ]
+    },
+    {
+      "id": "original.thm6.2",
+      "kind": "numbered",
+      "title": "Sharp channel extinction parabola",
+      "status": "complete",
+      "exports": [
+        "GeneralizedResearch.ChannelParabola.theorem62",
+        "GeneralizedResearch.ChannelEquality.reversed_equality_iff",
+        "GeneralizedResearch.ChannelEquality.reversed_endpoint_zero",
+        "GeneralizedResearch.ChannelEquality.reversed_endpoint_four"
+      ],
+      "verified_scope": "Arbitrary Hilbert upper, exact equality iff/endpoints, and same-Hilbert actual finite orthogonal reversed-input sharp witnesses for all X in[0,4].",
+      "remaining_obligations": "",
+      "current_arxiv_labels": [
+        "prop:channel-basic"
+      ]
+    },
+    {
+      "id": "original.thm6.3",
+      "kind": "numbered",
+      "title": "Scalar golden contrast and fixed-X curve",
+      "status": "complete",
+      "exports": [
+        "GeneralizedResearch.ScalarContrast.theorem63",
+        "GeneralizedResearch.ScalarContrast.fixed_extinction_sharp",
+        "GeneralizedResearch.ScalarContrast.fixed_ceiling_formula",
+        "GeneralizedResearch.ScalarPhysicalSharpness.physical_golden_sequence",
+        "GeneralizedResearch.ScalarPhysicalSharpness.physical_scalar_upper",
+        "GeneralizedResearch.GoldenClassification.theorem63",
+        "GeneralizedResearch.GoldenClassification.equality_family_iff",
+        "GeneralizedResearch.GoldenClassification.family_attains",
+        "GeneralizedResearch.GoldenClassification.equality_family_necessary",
+        "GeneralizedResearch.GoldenClassification.saturated_reflection_product",
+        "GeneralizedResearch.ScalarGoldenParameters.equality_parameters",
+        "GeneralizedResearch.ScalarPhaseSymmetry.phase_twist_passive",
+        "GeneralizedResearch.ScalarPhaseSymmetry.swap_passive"
+      ],
+      "verified_scope": "All clauses of original Theorem6.3: universal actual complex reciprocal passive scalar contrast bound, exact Eq52 necessity and sufficiency of every real reflection phase up to port interchange, and actual attaining family. The exact fixed-extinction Eq50 curve and actual finite-layer dielectric approach are also proved separately.",
+      "remaining_obligations": "None for the literal numbered theorem.",
+      "current_arxiv_labels": []
+    },
+    {
+      "id": "original.thm6.4",
+      "kind": "numbered",
+      "title": "Finite-coefficient normal-incidence planar realization",
+      "status": "complete",
+      "exports": [
+        "GeneralizedResearch.PlanarRealization.interface_continuity",
+        "GeneralizedResearch.PlanarRealization.left_boundary",
+        "GeneralizedResearch.PlanarRealization.right_boundary",
+        "GeneralizedResearch.PlanarRealization.absorber_constitutive",
+        "GeneralizedResearch.PlanarPlateBridge.constitutive_current3",
+        "GeneralizedResearch.PlanarPlateBridge.tensor3_bounds",
+        "GeneralizedResearch.PlanarRealization.physical_extinction_values",
+        "GeneralizedResearch.PlanarSharpness.fixed_extinction_supremum",
+        "GeneralizedResearch.PlanarSharpness.relative_supremum",
+        "GeneralizedResearch.PlanarSharpness.positive_budget_zero_absorption"
+      ],
+      "verified_scope": "Actual two-layer E/H fields, constitutive law, interface/exterior matching for every four-port amplitude; full 3D tensor with zz=1, caps and passivity. Exact reference/extinction/asymmetry, fixed-X parabola/relative-one supremum, positive loss budget with one zero absorptance. Frequency-domain theorem only.",
+      "remaining_obligations": "",
+      "current_arxiv_labels": [
+        "prop:vector"
+      ]
+    },
+    {
+      "id": "original.cor6.5",
+      "kind": "numbered",
+      "title": "Finite-power angular-spectrum planar beams",
+      "status": "complete",
+      "exports": [
+        "GeneralizedResearch.PhysicalBeamCorollary.corollary65",
+        "GeneralizedResearch.PhysicalBeamCorollary.realizes",
+        "GeneralizedResearch.PhysicalBeamCorollary.material_caps",
+        "GeneralizedResearch.PhysicalBeamCorollary.radiation",
+        "GeneralizedResearch.PhysicalBeamCorollary.actual_reference",
+        "GeneralizedResearch.PhysicalBeamCorollary.true_time_reverse",
+        "GeneralizedResearch.PhysicalBeamUpper.corollary65_sSup",
+        "GeneralizedResearch.PhysicalBeamUpper.relative_one",
+        "GeneralizedResearch.BoundaryFlux.total_boundary_coordinates",
+        "GeneralizedResearch.BoundaryFlux.total_boundary_integrals_ae",
+        "GeneralizedResearch.BoundaryFlux.net_physical_flux"
+      ],
+      "verified_scope": "Existence for every k>0,P>1,Q>0 and X in(0,4): actual anisotropic absorbing slab/lossless plate, normalized uniform disk aperture, literal oblique Maxwell transfer and derived reciprocal passive scattering, genuine physical inverse Fourier L2 beams, true reversed packet, classical regional fields with matched interfaces and finite transverse L2 components, outgoing vacuum expansions, exact common extinction, supremum X-X^2/4 and relative-one approach. Same constructed design and physical half-real Poynting powers throughout.",
+      "remaining_obligations": "None for the stated existential construction with a uniform disk aperture. A separate global distributional gluing theorem and a theorem for every arbitrary L2 aperture are not asserted.",
+      "current_arxiv_labels": [
+        "cor:beams"
+      ]
+    },
+    {
+      "id": "original.thm7.1",
+      "kind": "numbered",
+      "title": "Full prescribed-overlap envelope for 0<rho<1",
+      "status": "complete",
+      "exports": [
+        "GeneralizedResearch.theorem71",
+        "GeneralizedResearch.theorem71_clm_reference",
+        "GeneralizedResearch.prescribed_extinction_attainment",
+        "GeneralizedResearch.SmallAttainment.theorem71_dimension",
+        "GeneralizedResearch.EnvelopeContinuity.envelope_continuous"
+      ],
+      "verified_scope": "Arbitrary Hilbert reciprocal contraction and reciprocal bounded reference S0 with S0.adjoint.comp S0=id; actual u/reversed-u overlap, all X in[0,4], three branches and exact finite-dimensional same-observable attainability. Literal dimension at most three with two-/three-channel branch witnesses and continuous gluing of the entire piecewise r-envelope are exported.",
+      "remaining_obligations": "None for original Theorem7.1 assumptions 0<rho<1. Unnumbered rho=0/1 discussion is inventoried independently.",
+      "current_arxiv_labels": [
+        "thm:joint"
+      ]
+    },
+    {
+      "id": "original.unnumbered.phase-feasibility",
+      "kind": "unnumbered",
+      "title": "Specified complex-matrix phase criterion after equation4",
+      "status": "complete",
+      "exports": [
+        "GeneralizedResearch.ScalarPhaseFeasibility.prescribed_entry_phase_iff",
+        "GeneralizedResearch.ScalarPhaseFeasibility.degenerate_entry_iff",
+        "GeneralizedResearch.ScalarPhaseFeasibility.interference_phase_formula",
+        "GeneralizedResearch.ScalarPhaseFeasibility.passive_iff_magnitudes_det"
+      ],
+      "verified_scope": "Exact prescribed-entry arg/cos phase feasibility iff and zero-product degenerate determinant iff, derived from actual full complex Hermitian PSD including singular diagonals.",
+      "remaining_obligations": "None for the phase and degenerate clauses of Proposition2.1.",
+      "current_arxiv_labels": [],
+      "scope_classification_correction": "This historical inventory id was labeled unnumbered in the earlier checkpoint. Exact original PDF inspection locates Eq6 and its degenerate clause inside Proposition2.1 before its Proof. The id is retained for traceability; it is a numbered proposition subclaim."
+    },
+    {
+      "id": "original.unnumbered.optimizer-classification",
+      "kind": "unnumbered",
+      "title": "Fixed-(T,a) scalar optimizer phases, ranks and singular spectra following Proposition2.2",
+      "status": "open",
+      "exports": [],
+      "verified_scope": "Sharp fixed-(T,a) values and one actual optimizer across all closed branches are formalized. The separate full golden-ratio phase equality family inside Theorem6.3 is complete and recorded with that numbered theorem.",
+      "remaining_obligations": "The separate unnumbered classification of every fixed-(T,a) maximizing complex matrix and all its degenerate phase/rank/singular-spectrum families remains open.",
+      "current_arxiv_labels": []
+    },
+    {
+      "id": "original.unnumbered.gram-scattering-normalization",
+      "kind": "unnumbered",
+      "title": "Scattering Gram/Wronskian and each-cell normalization",
+      "status": "complete",
+      "exports": [
+        "GeneralizedResearch.HelmholtzProfile.Profile.field_det",
+        "GeneralizedResearch.HelmholtzProfile.Profile.wedge_normSq",
+        "GeneralizedResearch.HelmholtzProfile.Profile.deposited_det",
+        "GeneralizedResearch.HelmholtzProfile.Profile.invariant_scattering",
+        "GeneralizedResearch.HelmholtzProfile.Profile.unitCellGram_congruence",
+        "GeneralizedResearch.HelmholtzProfile.Profile.unitCellGram_normalized_det",
+        "GeneralizedResearch.HelmholtzProfile.Profile.unitCellGram_total"
+      ],
+      "verified_scope": "Actual unit-incidence local absorption Grams derived from Maxwell flux integrals equal one-half input congruence of the fundamental deposited Gram. Their normalized determinant equals the canonical deposited determinant on every cell; actual total equals I-SdaggerS.",
+      "remaining_obligations": "None for the per-cell and total normalization.",
+      "current_arxiv_labels": []
+    },
+    {
+      "id": "original.unnumbered.lossless-coating-invariant",
+      "kind": "unnumbered",
+      "title": "Established normalized determinant coating invariant",
+      "status": "restricted",
+      "exports": [
+        "OQ7.stackResourceInvariant_eq_fluxDefect",
+        "GeneralizedResearch.ScalarPhysicalSharpness.unit_phase_passive"
+      ],
+      "verified_scope": "Total normalized physical invariant and genuine lossless phase correction preserve quantities used in thickness/gamma constructions.",
+      "remaining_obligations": "Generalized-profile arbitrary left/right lossless coating congruence wrapper not exported; no feedback-embedding invariant claimed.",
+      "current_arxiv_labels": []
+    },
+    {
+      "id": "original.unnumbered.eq48-ideal-dilation",
+      "kind": "unnumbered",
+      "title": "Displayed symmetric unitary dilation of ideal four-port matrix",
+      "status": "open",
+      "exports": [],
+      "verified_scope": "Actual reciprocal contractive physical four-port and sharp limit are proved.",
+      "remaining_obligations": "Displayed ideal unitary dilation not separately exported.",
+      "current_arxiv_labels": []
+    },
+    {
+      "id": "original.unnumbered.scalar-phase-repair",
+      "kind": "unnumbered",
+      "title": "Bounded counted dielectric phase adjustment",
+      "status": "complete",
+      "exports": [
+        "GeneralizedResearch.ScalarPhysicalSharpness.physical_golden_sequence",
+        "GeneralizedResearch.ScalarPhysicalSharpness.unit_phase_response"
+      ],
+      "verified_scope": "Actual finite lossless capped-index slab, exact phase correction, bounded counted thickness and physical D/X tending to gamma.",
+      "remaining_obligations": "",
+      "current_arxiv_labels": []
+    },
+    {
+      "id": "original.unnumbered.planar-dispersion",
+      "kind": "unnumbered",
+      "title": "Passive causal Lorentz frequency extension",
+      "status": "open",
+      "exports": [],
+      "verified_scope": "Selected-frequency passive finite tensors formalized.",
+      "remaining_obligations": "Frequency-dependent analytic/causal oscillator extension not in generalized checkpoint.",
+      "current_arxiv_labels": []
+    },
+    {
+      "id": "original.unnumbered.overlap-canonical-reduction",
+      "kind": "unnumbered",
+      "title": "Canonical compression and phase/background reduction",
+      "status": "complete",
+      "exports": [
+        "GeneralizedResearch.CanonicalPair.full_overlap_upper",
+        "GeneralizedResearch.ReferenceIsometry.full_overlap_upper_clm"
+      ],
+      "verified_scope": "Actual arbitrary-Hilbert conjugation-pair phase/frame construction; compressed PSD inequalities derived from projection residuals; reference isometric equivalence proved from actual reciprocal CLM.",
+      "remaining_obligations": "",
+      "current_arxiv_labels": []
+    },
+    {
+      "id": "original.unnumbered.middle-certificate",
+      "kind": "unnumbered",
+      "title": "Middle PSD certificate and equality",
+      "status": "complete",
+      "exports": [
+        "GeneralizedResearch.MiddleParameters.canonical_middle_equality",
+        "GeneralizedResearch.MiddleParameters.finite_complex_middle_equality"
+      ],
+      "verified_scope": "Literal dual certificate, canonical unique equality, finite complex vanishing imaginary block/auxiliary couplings in open middle branch.",
+      "remaining_obligations": "",
+      "current_arxiv_labels": []
+    },
+    {
+      "id": "original.unnumbered.branch-thresholds",
+      "kind": "unnumbered",
+      "title": "First/third equality thresholds",
+      "status": "complete",
+      "exports": [
+        "GeneralizedResearch.TransitionConditions.first_branch_abs_extinction_necessary",
+        "GeneralizedResearch.TransitionConditions.parabola_equality_threshold"
+      ],
+      "verified_scope": "First effect projector uniqueness/necessary |r|<=rho/2, and parabola saturation necessary rho<=r. Actual witnesses separately attain all branches.",
+      "remaining_obligations": "",
+      "current_arxiv_labels": []
+    },
+    {
+      "id": "original.unnumbered.envelope-continuity",
+      "kind": "unnumbered",
+      "title": "Continuous envelope and junctions",
+      "status": "complete",
+      "exports": [
+        "GeneralizedResearch.OverlapParameters.middleCurve_continuousOn",
+        "GeneralizedResearch.OverlapParameters.middleCurve_first_transition",
+        "GeneralizedResearch.OverlapParameters.middleCurve_second_transition",
+        "GeneralizedResearch.OverlapParameters.envelope_at_first_transition",
+        "GeneralizedResearch.OverlapParameters.envelope_at_second_transition",
+        "GeneralizedResearch.EnvelopeContinuity.envelope_continuous"
+      ],
+      "verified_scope": "Actual chosen-middle inverse branch extends continuously through both endpoints; the exact full piecewise envelope is Continuous on all real r, with literal junction values.",
+      "remaining_obligations": "None for the fixed 0<rho<1 envelope.",
+      "current_arxiv_labels": []
+    },
+    {
+      "id": "original.unnumbered.overlap-endpoints",
+      "kind": "unnumbered",
+      "title": "rho=0 and rho=1 discussion",
+      "status": "restricted",
+      "exports": [
+        "GeneralizedResearch.ChannelParabola.theorem62"
+      ],
+      "verified_scope": "rho=0 full sharp parabola with actual orthogonal witnesses.",
+      "remaining_obligations": "rho=1 self-reversal up to phase and zero asymmetry not yet explicit exported wrapper.",
+      "current_arxiv_labels": []
+    },
+    {
+      "id": "original.unnumbered.rational-example",
+      "kind": "unnumbered",
+      "title": "Section7.4 rho=4/5,c=2/5 example",
+      "status": "restricted",
+      "exports": [
+        "GeneralizedResearch.MiddleParameters.canonical_middle_equality"
+      ],
+      "verified_scope": "Generic certificate covers admissible parameters.",
+      "remaining_obligations": "Literal rational constants, matrix and strict separation not newly exported; historical RationalOverlap is separate evidence.",
+      "current_arxiv_labels": []
+    },
+    {
+      "id": "original.unnumbered.witness-dimension",
+      "kind": "unnumbered",
+      "title": "Two-/three-channel witness dimension",
+      "status": "complete",
+      "exports": [
+        "GeneralizedResearch.ChannelAttainment.first_branch_attainment",
+        "GeneralizedResearch.ChannelAttainment.middle_branch_attainment",
+        "GeneralizedResearch.ChannelAttainment.third_branch_attainment",
+        "GeneralizedResearch.SmallAttainment.theorem71_dimension"
+      ],
+      "verified_scope": "Literal n<=3 exact same-Hilbert finite witnesses, with n=2 in first/middle branches and n=3 in the last branch, including signs and all X in[0,4].",
+      "remaining_obligations": "None for the stated dimension bound.",
+      "current_arxiv_labels": []
+    },
+    {
+      "id": "original.unnumbered.finite-L-optimizer",
+      "kind": "unnumbered",
+      "title": "Finite-L minimizing profile characterization",
+      "status": "not_claimed",
+      "exports": [],
+      "verified_scope": "Explicitly disclaimed by manuscript; not inferred from asymptotic sharpness.",
+      "remaining_obligations": "",
+      "current_arxiv_labels": []
+    },
+    {
+      "id": "original.unnumbered.compact3D-bandwidth",
+      "kind": "unnumbered",
+      "title": "Compact 3D cross-sections and bandwidth",
+      "status": "not_claimed",
+      "exports": [],
+      "verified_scope": "Open directions, not conclusions of planar/channel results.",
+      "remaining_obligations": "",
+      "current_arxiv_labels": []
+    }
+  ],
+  "pending_development_not_in_checkpoint": [],
+  "author_and_novelty_policy": "No authorship, novelty, independent human review or acceptance inferred from machine verification.",
+  "verification_bridges": [
+    {
+      "id": "bridge.physical-fourier",
+      "scope": "Actual unitary physical angular-frequency inverse from Mathlib standard2pi transform by two-dimensional dilation and amplitude factor; L1/L2 integral representative.",
+      "exports": [
+        "GeneralizedResearch.PhysicalFourier.inverse_norm",
+        "GeneralizedResearch.PhysicalFourier.inverse_inner",
+        "GeneralizedResearch.PhysicalFourier.inverse_integral_ae",
+        "GeneralizedResearch.BeamPhysicalPackets.packet_inverse_integral_ae",
+        "GeneralizedResearch.BeamPhysicalPackets.packet_inverse_coordinates_ae"
+      ]
+    },
+    {
+      "id": "bridge.classical-fields",
+      "scope": "True derivatives under angular integral; literal classical Maxwell curls in each homogeneous region and actual matching interfaces. No separate global distributional gluing theorem asserted.",
+      "exports": [
+        "GeneralizedResearch.MaxwellIntegrals.superposed_maxwell",
+        "GeneralizedResearch.ActualStackMaxwell.actual_regional_maxwell",
+        "GeneralizedResearch.ActualStackMaxwell.actual_interfaces",
+        "GeneralizedResearch.ActualStackContinuity.actual_states_finite"
+      ]
+    },
+    {
+      "id": "bridge.physical-poynting",
+      "scope": "Explicit sqrt2 physical E/H normalization, half-real time average, right-port orientation and incoming/outgoing interference cancellation; exact net absorption.",
+      "exports": [
+        "GeneralizedResearch.BeamFlux.physical_spatial_flux",
+        "GeneralizedResearch.BoundaryFlux.net_physical_flux",
+        "GeneralizedResearch.BoundaryFlux.normalized_net_absorption",
+        "GeneralizedResearch.BoundaryFlux.total_boundary_integrals_ae"
+      ]
+    },
+    {
+      "id": "bridge.reference-reversal",
+      "scope": "Actual vacuum transfer across the full counted layer length and actual q-to-minus-q time reversal of the normalized packet.",
+      "exports": [
+        "GeneralizedResearch.VacuumReference.vacuum_scattering",
+        "GeneralizedResearch.BeamTimeReversal.actual_reversed_packet",
+        "GeneralizedResearch.PhysicalBeamCorollary.actual_reference",
+        "GeneralizedResearch.PhysicalBeamCorollary.true_time_reverse"
+      ]
+    },
+    {
+      "id": "bridge.exact-target",
+      "scope": "Joint continuity derived for actual oblique family, uniform narrow-disk averaging and IVT tuning for exact common extinction.",
+      "exports": [
+        "GeneralizedResearch.BeamAveraging.narrow_exact_target",
+        "GeneralizedResearch.PhysicalBeamApproximation.narrow_physical",
+        "GeneralizedResearch.PhysicalBeamApproximation.capped_physical_approach",
+        "GeneralizedResearch.PhysicalBeamL2.common_extinction"
+      ]
+    }
+  ],
+  "correspondence_export_kernel_type_sha256": {
+    "GeneralizedResearch.ActualStackContinuity.actual_states_finite": "bbe01b5d2a4c5ccc41583ac9e25224f02e3fb61a296d82b057d554a85681fbc8",
+    "GeneralizedResearch.ActualStackMaxwell.actual_interfaces": "95eb7903f6cd471c95f65be969c32a009a0b936c05ad6b245c58ce7711c26f4d",
+    "GeneralizedResearch.ActualStackMaxwell.actual_regional_maxwell": "e40891ae8ed45ba5d732ac32d26900ece8b2cbda95f8fab36a88aa917c52277b",
+    "GeneralizedResearch.BeamAveraging.narrow_exact_target": "53646e623859a824d40d52d57dfd8e6eefcb544b7e8a87feb50a05b4674bf889",
+    "GeneralizedResearch.BeamFlux.physical_spatial_flux": "57d72805b8cd6810aab3baae4d25be9c6cdda92fb0020057a04a40224bf6b162",
+    "GeneralizedResearch.BeamPhysicalPackets.packet_inverse_coordinates_ae": "f64eb32ea868fa0fb6581f7888779aaf6871f7f74cff64fe322ce364b5c08c17",
+    "GeneralizedResearch.BeamPhysicalPackets.packet_inverse_integral_ae": "9bb3c7e1d5032db6e4a12ceaaa5b0d07bf9131ce53d0b82a0afb8eda3be2b48d",
+    "GeneralizedResearch.BeamTimeReversal.actual_reversed_packet": "c0644eeea19297bd2b7875f8279969446b6a3733e99ee1627ba7fe9353af99b7",
+    "GeneralizedResearch.BoundaryFlux.net_physical_flux": "1ad69170804f7cb57019e57694ea0c3b42a4a3878f5b8a516d056331006610a5",
+    "GeneralizedResearch.BoundaryFlux.normalized_net_absorption": "5f8b814e51262478f3fc17e5f8cf32ad91f3d1754b73fe98f83867636c7cd5c4",
+    "GeneralizedResearch.BoundaryFlux.total_boundary_coordinates": "11b92c1859f99e84fe61f55a5074808b6a609690713ca0dcade8f330ca397dfd",
+    "GeneralizedResearch.BoundaryFlux.total_boundary_integrals_ae": "d6c476ffb5b7b747bcadd123721085a7f4b6cdb259e6eead925ca28a046e8c28",
+    "GeneralizedResearch.CanonicalPair.full_overlap_upper": "96603411382fb10d08707c8a274152035cad19e26838ba60a6f9fb4784e6b5dd",
+    "GeneralizedResearch.ChannelAttainment.first_branch_attainment": "77535aaa5735ccd44ead4a27c86d275f53d4b759f0dcdb18df6c318fc157a9f3",
+    "GeneralizedResearch.ChannelAttainment.middle_branch_attainment": "b79c2a8870d720eca3332833bfbeb7ded6b27d7ccde2ab03e5f9c4792b602e19",
+    "GeneralizedResearch.ChannelAttainment.third_branch_attainment": "3e3a162ffb04496795897327af8f80a899b9db8ee70b09c542d5e2bee0ee058e",
+    "GeneralizedResearch.ChannelEquality.reciprocal_power_difference": "490645a4254298eae94ba2e8a64dc51e036b978632b2e7d0e0af321218c346f8",
+    "GeneralizedResearch.ChannelEquality.reversed_endpoint_four": "977b52a1293017cd987d4c0f644cf8aa5a578086add41a6c7048f7fbd60faeec",
+    "GeneralizedResearch.ChannelEquality.reversed_endpoint_zero": "7ac9aed4a3c878aea4232ac8d1343e7a380a5864806e3cbed7249f276d60c6c0",
+    "GeneralizedResearch.ChannelEquality.reversed_equality_iff": "21c093888f473cda4950cf8ca4354deb085828ef7f10b6dd70a41334f6740884",
+    "GeneralizedResearch.ChannelParabola.theorem62": "456b02233226254cc9554120bb9b9da0bcd04e61f88255eae0080424aca5eef8",
+    "GeneralizedResearch.EnvelopeContinuity.envelope_continuous": "69344b8bb3354f057ed697b7531d81d7c3932063e7d08a2f9216840ab179af74",
+    "GeneralizedResearch.GoldenClassification.equality_family_iff": "746759706750ebef22c09ba93010acd859798375f87d8409042c33777d0e63a5",
+    "GeneralizedResearch.GoldenClassification.equality_family_necessary": "433ec708b0f00109e7111da1e3ae419eeb4366ff56d2ad0332ce2ac32c0ed4ad",
+    "GeneralizedResearch.GoldenClassification.family_attains": "5fd2852aadc72edcb453e9f38a3948be796d87f9d330d8e156ce0799dc3a6070",
+    "GeneralizedResearch.GoldenClassification.saturated_reflection_product": "403bd162448adce67abe90a0ba1f6b65612a5c4efb8898d3762234474c682937",
+    "GeneralizedResearch.GoldenClassification.theorem63": "115024f3c8ac712b0f7dd9ffaf6bb625ec7c01ce1c477332841ccb55b899a1c5",
+    "GeneralizedResearch.HelmholtzProfile.Profile.cell_det_lower": "161e2c32be8918c629d592dca3ce4b00690e8a665af5ed23a8f4ab680cfe20c1",
+    "GeneralizedResearch.HelmholtzProfile.Profile.deposited_det": "ac30fa0e97c9ea517c6c20cba1d52fd83fd14dfd543d403d4f435619d87aae08",
+    "GeneralizedResearch.HelmholtzProfile.Profile.disjoint_cell_rest": "ed4166fedbeb65c25b95975ec2f16ed3234aa401862bb137a78a3e4c394a13cc",
+    "GeneralizedResearch.HelmholtzProfile.Profile.disjoint_resource_cells": "97eb9ec04145b2fb8df13d679825f35acc15810547a0a0ca00ba37b57bb3b723",
+    "GeneralizedResearch.HelmholtzProfile.Profile.field_det": "6fcc0783db4fc7de938cfb04635fc92dc5ab602a0eb471bbb7bd8f76c62941c5",
+    "GeneralizedResearch.HelmholtzProfile.Profile.invariant_scattering": "32f083b18a3047fa17378320ec743bc778c5f10337d6d9cd182e5b58f5a0c15d",
+    "GeneralizedResearch.HelmholtzProfile.Profile.lemma43": "e8e678762a69ed72a8b8df882bf057d56c30dbf615e2ad941013a477e1970d94",
+    "GeneralizedResearch.HelmholtzProfile.Profile.lemma43_combining": "cfbe6fc0f2cd4059ed993024ae56fdc709080871593015b11c1ef63f60160dff",
+    "GeneralizedResearch.HelmholtzProfile.Profile.modulus_comparison": "51bd59d3897b2ba0e0a57757e20f80ec0963a0320d33b03b50c77b26710292d7",
+    "GeneralizedResearch.HelmholtzProfile.Profile.selected_sqrt_aggregate": "fb234368350fc522d6cd5d097dc5e581968248a44970ea28d6aedd43e1232de3",
+    "GeneralizedResearch.HelmholtzProfile.Profile.theorem45_finite": "c1c55520887688f1cc0129327c2de243d1267116d081db86037221398b408286",
+    "GeneralizedResearch.HelmholtzProfile.Profile.theorem45_scattering_floor": "858889c90815a0329fd156fa7533259f8e0c2dd29f812233197134dbfbdbd457",
+    "GeneralizedResearch.HelmholtzProfile.Profile.theorem45_sequence_lowerlimit": "d3391e8a3141ceb3006bb4d7a72e00fd07a74a46ac7d26ee827f4a561672cd33",
+    "GeneralizedResearch.HelmholtzProfile.Profile.theorem45_uniform_asymptotic": "846fadc5aaf9341c66da51f00812d13b7e3ff1e708d09f9d4e5816521ddb1d64",
+    "GeneralizedResearch.HelmholtzProfile.Profile.unitCellGram_congruence": "07fbbf947e369b7260603ea63e78dd0f6b1d54a6f0d31c6e1acf3cdfb82706e8",
+    "GeneralizedResearch.HelmholtzProfile.Profile.unitCellGram_normalized_det": "d74d7208d761f72225c397777ac52427750a6283083d7254c2c3696be3d2bec1",
+    "GeneralizedResearch.HelmholtzProfile.Profile.unitCellGram_total": "58b9e2411dac1fb274d25b8f72c3afc92ae583a13dd73ec646c4f5a50502a5f9",
+    "GeneralizedResearch.HelmholtzProfile.Profile.wedge_normSq": "d0995c822c82f0f17b4ba3782b670decd763b4547230eb3c4bfcf9f922617242",
+    "GeneralizedResearch.MaxwellIntegrals.superposed_maxwell": "97f67a0d1f3eaf5e25f0a606c1072c82ca2ba76db9c0623c9bab1efbaea15e8c",
+    "GeneralizedResearch.MiddleParameters.canonical_middle_equality": "0d48f504aea54c9a430b63ef0cfb607271b1055a00001add3d11f2d44a159bb9",
+    "GeneralizedResearch.MiddleParameters.finite_complex_middle_equality": "59ece273d406cb0149bec03ea9a052d83caefebf246f02fc3fe7e15960443d7c",
+    "GeneralizedResearch.OverlapParameters.envelope_at_first_transition": "3867605c6f111cccfba62adffb83b1589f84b9b6ae3093e65b637ecaf02c5756",
+    "GeneralizedResearch.OverlapParameters.envelope_at_second_transition": "5ed4bb0eb0de3bb10925df29be8ad6aaeea968e641ad64f17d373e1a73564be7",
+    "GeneralizedResearch.OverlapParameters.middleCurve_continuousOn": "a5c3a33dfd1f2598208cf114b0fb671e2c88859729c39ece3ce9e6dbfa6e8e30",
+    "GeneralizedResearch.OverlapParameters.middleCurve_first_transition": "7a95e2c173bc08e405e227d0508b3fb402c6f398d4941e2d04bab8dfd4333489",
+    "GeneralizedResearch.OverlapParameters.middleCurve_second_transition": "efb2c916df5577cb01d1cd9a16efd22c671e2ae9cd5ea04f3edcc50f31b1c6f9",
+    "GeneralizedResearch.PhysicalBeamApproximation.capped_physical_approach": "b59913aae550393c994ec04cda2ac46d0cbda0533c3be6c1d4aae817930afe65",
+    "GeneralizedResearch.PhysicalBeamApproximation.narrow_physical": "3c30351b883f5755ef9b0ec83755ffef4c79a0f94a4240549778c4fe85ad180b",
+    "GeneralizedResearch.PhysicalBeamCorollary.actual_reference": "65ebe1912e08e51dd09c6acc2c53268385c1e2746ea592c835acebecd45677ab",
+    "GeneralizedResearch.PhysicalBeamCorollary.corollary65": "8a11c37c26e47c6fad856d93f0b9b17075462cddb909bec3a045eded432f5ba3",
+    "GeneralizedResearch.PhysicalBeamCorollary.material_caps": "6b644f55ffc8ead09a33e360d4d7a88f8ceb545980d9f300c0bd385b95ae90c4",
+    "GeneralizedResearch.PhysicalBeamCorollary.radiation": "4fe86e3d6da5fde8c5e995ac41f67aef8c5d7971bb05a8f3d00a21606327fd0c",
+    "GeneralizedResearch.PhysicalBeamCorollary.realizes": "118cb6271973d41abfeb746582c4ed6902212feb2808164389906a6d08e50e83",
+    "GeneralizedResearch.PhysicalBeamCorollary.true_time_reverse": "5aaaf125db465f3e88cc3a90ad396179aa2ec7cd779d7605e4c2bd26670b4ad0",
+    "GeneralizedResearch.PhysicalBeamL2.common_extinction": "ebabff13a6ece36d71dc9e914fa94e2e4ddc5ce8d9fce7267e9cc3c86a35a590",
+    "GeneralizedResearch.PhysicalBeamUpper.corollary65_sSup": "39417da6387b3d57e8d188d9ec3bf94b04ea0727feceb282b58fdfcc4226e67a",
+    "GeneralizedResearch.PhysicalBeamUpper.relative_one": "19361280fef76fcfeb0b2cd665ec182e801e6d6ce7a44d5b4f9ffe84126cd0cc",
+    "GeneralizedResearch.PhysicalFourier.inverse_inner": "fce10f66ac6aa84fe54b3d7b94418af89a577e09f5b81dbf0fe3037c8edab751",
+    "GeneralizedResearch.PhysicalFourier.inverse_integral_ae": "dffb112606e54695c599fd1b92ec39ac957a031ec3b56e27645eff1fe8b01bfc",
+    "GeneralizedResearch.PhysicalFourier.inverse_norm": "7d0ca4711535d3bc78a2c73116633d42a3e35e4e1792fbed909e320e6cc10e95",
+    "GeneralizedResearch.PlanarPlateBridge.constitutive_current3": "e4be6f188f60c638fdf44fa7e084bdfbfa3980dba2ae101a6ff2f6662cab5667",
+    "GeneralizedResearch.PlanarPlateBridge.tensor3_bounds": "ec1872059194e791d6c2b377e85c39cff112eade62b7fbea256f6cf818df137a",
+    "GeneralizedResearch.PlanarRealization.absorber_constitutive": "f4853076391e998663af621e60daf6d34db7f5190c79d2bf24060af9836c5efc",
+    "GeneralizedResearch.PlanarRealization.interface_continuity": "ac77f117b7544d8a13f21028ae0f3a8d672ed4f1be42485456bffe75f4a62d76",
+    "GeneralizedResearch.PlanarRealization.left_boundary": "8b83b522a6a1f5a67d72f55acfc4ca62121e3a9fd2d407091a6331a9e9c3a713",
+    "GeneralizedResearch.PlanarRealization.physical_extinction_values": "e9a00ee3b1fdfdcacf9a4af114140d5a7951122fd330fe9d568e90612e1725e6",
+    "GeneralizedResearch.PlanarRealization.right_boundary": "2a82ae1603f80f9c492d3f20d224f3b716139bad61ffe16d16f4789ceefa00b9",
+    "GeneralizedResearch.PlanarSharpness.fixed_extinction_supremum": "31607f6fc3b1de43e1d2d3109ec585419e75cc8dc9709702bbe5db4620240e07",
+    "GeneralizedResearch.PlanarSharpness.positive_budget_zero_absorption": "03c0fef6cbb67a5f115fe693666e3bf6a23af2c1d07a4bc6c82485b7c566b037",
+    "GeneralizedResearch.PlanarSharpness.relative_supremum": "a09c8bcbbf1b6c4d0c5fa9fe79949ab7cd8bca102d97ec16b20f4b454c443acc",
+    "GeneralizedResearch.ReferenceIsometry.full_overlap_upper_clm": "6f993f906191331c10f5aa200618a5219db9b180a7808ebe1722c8a705b4b38b",
+    "GeneralizedResearch.ScalarBenchmark.ceiling_transition": "6e0722db9540392849e89024c74e36ab5d4b463642d31252326de324fa4b025f",
+    "GeneralizedResearch.ScalarBenchmark.feasibility_iff": "9ef47532c427eaf2f60178010348aedf2030639c0848a5998b2ebff2f407288b",
+    "GeneralizedResearch.ScalarBenchmark.optimizer_attains": "e380bdfd982d6c4be480c63e0786691040d8e2e90c9d8b92122316ac5a03950a",
+    "GeneralizedResearch.ScalarBenchmark.sharp_ceiling": "b01d1149ae602256026a2a5a51a714872ad2d57f93868db32824761a41c9d56a",
+    "GeneralizedResearch.ScalarContrast.fixed_ceiling_formula": "d92d2e75bb940632f12c490ec64ab081701506379846bbd085ffb0333c8d5184",
+    "GeneralizedResearch.ScalarContrast.fixed_extinction_sharp": "1ddaaf7f088a29d4094c6a057444b7bfbe9330ab155361a4c421be4269d9237e",
+    "GeneralizedResearch.ScalarContrast.theorem63": "931e1ca5e139f6561855eceeeee191e436a40c86e6154d5105d8c15c47df05ed",
+    "GeneralizedResearch.ScalarGoldenParameters.equality_parameters": "96622f88ca67ce926c5ad37b4d7f1d88af878edf820cc9e067d97e48231bb770",
+    "GeneralizedResearch.ScalarPhaseFeasibility.degenerate_entry_iff": "f3ce055c386c9a2719d63abb10a487ab914523d7fbfa912e41e7860ac8a48e6d",
+    "GeneralizedResearch.ScalarPhaseFeasibility.every_pair_feasible": "a1f75786557b47207ba1e5d98fa77b401f0708297fe4374126841f6190034595",
+    "GeneralizedResearch.ScalarPhaseFeasibility.interference_phase_formula": "cef9065f64dfac563eda07c49f1eeece8b3e9ff9cab7e02f5de560ebcea4e50d",
+    "GeneralizedResearch.ScalarPhaseFeasibility.passive_iff_magnitudes_det": "74ed3ecad298d6fa12e1a49e00225fa2b388adeb52a4c53dbadcc81aa71bbed7",
+    "GeneralizedResearch.ScalarPhaseFeasibility.prescribed_entry_phase_iff": "dcd106cb6ea18eee3d602c9fae013605ff0ea111f94551172537df83d8685709",
+    "GeneralizedResearch.ScalarPhaseFeasibility.proposition21": "2defc576bcb7e9b9d1c88e1a01ff658c0d19297fda8b8a2a292587dc962d5d43",
+    "GeneralizedResearch.ScalarPhaseSymmetry.phase_twist_passive": "4346c24df69d46e504e8d33ac8a01d47a5865a81da86334087f2a9f767676fe3",
+    "GeneralizedResearch.ScalarPhaseSymmetry.swap_passive": "25369c51c47336a500a64ec93a7e417b4723237740c48d7aa5d8afaeb210516f",
+    "GeneralizedResearch.ScalarPhysicalSharpness.physical_golden_sequence": "cb279397e155e0cd222fb593c965d35de8cd122db051b7550b0be88e8aebc5f0",
+    "GeneralizedResearch.ScalarPhysicalSharpness.physical_scalar_upper": "310951bea6e815536d60dcf71deff8befc8b4d5f61fb1e4b067f82c0459c4f65",
+    "GeneralizedResearch.ScalarPhysicalSharpness.unit_phase_passive": "827fcf270c7ab294a80f9371ece122f130bafa87f4e7bddb1e199c3b217f8064",
+    "GeneralizedResearch.ScalarPhysicalSharpness.unit_phase_response": "3ce9fe12fd8141b7e41dbedfcee21e23378848918684489f725a5466e15a74dd",
+    "GeneralizedResearch.SmallAttainment.theorem71_dimension": "2f15d0685d45dca9bc9a94801a0b6219f642f53cc35fb0a34ff88eb3274b2a0f",
+    "GeneralizedResearch.TransitionConditions.first_branch_abs_extinction_necessary": "ee2139c13efc10d289583aba79b670cb2df08726dd5b3f248a2584755e8243a9",
+    "GeneralizedResearch.TransitionConditions.parabola_equality_threshold": "d3eab057dfeccd852637d6a7c416b2ff0b34b38ebde0686f0a5e63fd4b5daa16",
+    "GeneralizedResearch.VacuumReference.vacuum_scattering": "4fbc0036523a0ca792f50b152cb3b0b91c73491772ef5517df3d239e348f283b",
+    "GeneralizedResearch.admissible_layer_helmholtz": "0bcd1950e40fcb4ab30b94147ddfed492d7ada792f7c1d2773c8fc7152957244",
+    "GeneralizedResearch.corollary52_original_ratio": "cfc377ae4d1323fef1f9a03d1c6066e1f0a25ffcb52fdc6ee4eb3fbf7f6c3298",
+    "GeneralizedResearch.exact_target_field_continuous": "7cfd35c9e36ec5f5f612fa957dbe3a58a4cbd6459f46de5f7983280727719d85",
+    "GeneralizedResearch.hilbert_extinction_reciprocity": "480a465e75f93742f96aad69824c853466b6c10597f23795dd027199a8c59184",
+    "GeneralizedResearch.hilbert_forward_reciprocity": "a6b237f8bedacef571412be62f44ffaf256a528c0401483d95a8df6c1a3ecba9",
+    "GeneralizedResearch.minimumThickness_tendsto_atTop": "1a297ccde3049271b0a1f89b7f95183319936a316dab936f252df79de4963126",
+    "GeneralizedResearch.nearOptimalThicknesses_nonempty": "a7802424b71c37b5d8425c767c074275bd692b30c53b607e8f27c24b4df3d579",
+    "GeneralizedResearch.prescribed_extinction_attainment": "0e27cf1984338e2a00a4f5d5e372ca2378a54a94b5485744e21954db97b9f0db",
+    "GeneralizedResearch.sharp_exact_target_thickness": "5f1784152f06606723451b0da6922d549aff894e685bb426734444343aaf9cb6",
+    "GeneralizedResearch.theorem71": "2582402abdb3e07acc2baeefbe3ce3b5a3a4a5e6deb01440e35e2e2c6383a83f",
+    "GeneralizedResearch.theorem71_clm_reference": "cc22cc5dc3ee88bd3c92f3261aae2e2ea7de2c59c276880cf150ae56a52bd03c",
+    "OQ7.ResourceScalar.f_lower_half": "89d5898b048a12173356bbe7045e1127ecf8a8259fe63941c1f16113659729b2",
+    "OQ7.ResourceScalar.g_convex_half": "dda4525609645fe1432f1391ded62b2e086ffa0890c4ec8f6ef68c6d929483c4",
+    "OQ7.ResourceScalar.g_tangent_full": "fc94779c369788ab1083186358d0857f64b9bc1f257665e11570c47bac30417e",
+    "OQ7.capped_fourier_moment_Ioo": "dfddbf74992c3c50e68de471a23710f7150287191333feb3fc9fc87aaa8bd829",
+    "OQ7.sineSquare_triangleIntegral_capped_Ioo": "3bd57bbe72a5183853df35f87478e8fa0656f9ae365c41306d996ea35a5c8d37",
+    "OQ7.stackResourceInvariant_eq_fluxDefect": "74f7388efd65c651d20a93425197495ca91ceae5830c8012795aab3453101b39"
+  },
+  "coverage_binding_policy": "Created after the completed frozen verification as a separate record; report hash and exact kernel types bind this correspondence inventory. Later manuscript revisions require a new explicit source binding."
+}

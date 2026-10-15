@@ -58,3 +58,15 @@ The restoration tool validates paths and creates a new destination. It does not 
     .\scripts\enter-workspace.ps1
 
 This adds the ignored local pinned Lean distribution to the current shell PATH only and selects the primary checkout. It does not install or upgrade global tools. The current chat's sandbox/task directory is not changed by cloning; open D:\\oq7-papers as a project for new Codex tasks.
+
+## Matching companion-paper packages
+
+Quartic Maxwell, generalized research, fixed-resource bounds and compact Maxwell cross sections have the same publication/supplement/review entry points as prescribed-extinction. Their editable sources remain in `arxiv/`; `publication/manuscript/` contains exact snapshots.
+
+```text
+python scripts/sync-paper-packages.py --preflight
+python scripts/sync-paper-packages.py --check
+python scripts/sync-paper-packages.py --sync --paper quartic-maxwell
+```
+
+`--sync` verifies source/build identities and existing proof/manuscript bindings before copying, and refuses to overwrite manually changed managed files. Each publication manuscript has a `build.py` wrapper for the canonical TeX build followed by synchronization. Refresh revision inventories and repository checksums before committing changed outputs. The S1–S4 indexes distinguish actual proof archives from status-only records; no companion theorem is automatically transferred to another paper. Package identity checks reuse the existing mathematical verification and are not new theorem checks. See [the structure change record](PACKAGE_STRUCTURE_CHANGES.md).

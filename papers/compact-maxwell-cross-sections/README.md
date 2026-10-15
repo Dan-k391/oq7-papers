@@ -1,5 +1,14 @@
 # Compact Maxwell cross-sections paper
 
+Package entry points (matching prescribed-extinction):
+
+- [Publication manuscript and S1–S4 supplements](publication/README.md).
+- [Paper-specific formalization or explicit status](formalization/README.md).
+- [Historical review-package index](review-package/RELEASE_INDEX.md).
+- [Canonical editable arXiv manuscript](arxiv/README.md).
+
+The publication manuscript is an exact snapshot; [package reproduction and checks](publication/REPRODUCE.md) keep it synchronized. Historical originals below remain in their original paths.
+
 Current revision:
 
 - [Revised PDF](arxiv/paper.pdf), [reconstructed TeX](arxiv/main.tex), and [source upload](arxiv/arxiv-source.zip).

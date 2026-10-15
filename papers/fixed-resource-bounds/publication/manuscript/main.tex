@@ -1,0 +1,575 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{microtype}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\ReH}{\operatorname{Re}_{\!H}}
+\newcommand{\ImH}{\operatorname{Im}_{\!H}}
+\newcommand{\dd}{\,\mathrm{d}}
+\newcommand{\ip}[2]{\langle #1,#2\rangle}
+\newcommand{\bilin}[2]{[#1,#2]}
+\newcommand{\norm}[1]{\lVert #1\rVert}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\title{Resource-Dependent Bounds on Reciprocal\\Absorption--Scattering Asymmetry}
+\author{Daniel Wang\\McMaster University\\\href{mailto:denialk391@gmail.com}{\texttt{denialk391@gmail.com}}
+\and Junjie Zheng\\Columbia University\\\href{mailto:zjj2785@gmail.com}{\texttt{zjj2785@gmail.com}}}
+\date{14 October 2026}
+\hypersetup{pdfauthor={Daniel Wang and Junjie Zheng},pdftitle={Resource-Dependent Bounds on Reciprocal Absorption--Scattering Asymmetry}}
+\begin{document}
+\maketitle
+\begin{abstract}
+We bound the absolute absorption difference divided by common extinction for time-reversed plane waves incident on compact reciprocal dielectric bodies in vacuum. An integrated loss-weighted response budget $\mathcal M$ gives the all-angle bound $\Gamma\leq k^3\mathcal M/(6\pi+k^3\mathcal M)$. For a bounded local response and support in a radius-$a$ ball, the complete electric-current radiation spectrum satisfies $\norm{\mathcal R_a}\leq ka$ at every frequency. At positive required extinction, a resolvent of this operator supplies a strictly positive scattering floor, and an explicit optimizer proves the exact minimum of the stated current relaxation. A homogeneous, strictly lossy reciprocal anisotropic sphere has the exact-Maxwell expansion $\Gamma=(160/2071)(ka)^3+O((ka)^4)$ for a circular time-reversed polarization pair. This cubic order concerns the general complex-polarization class; opposite real linear polarizations admit a stronger quartic refinement. The response and efficiency principles have established precedents. The bounds here do not determine the sharp fixed-resource Maxwell supremum or establish that two relaxed optimizers can be realized by the same local material.
+\end{abstract}
+
+\section{Admissible class and principal bound}\label{sec:main}
+Reciprocal objects have equal extinction under time-reversed illumination, while absorption and total scattering can differ \citep{SounasAlu2014,Hopkins2015,Hopkins2016}. The corresponding normalized redistribution problem appears among the open questions in the tutorial of Miller and Monticone \citep{MillerMonticone2026}. We study one fixed positive vacuum frequency, with time dependence $e^{-i\omega t}$, wavenumber $k=\omega/c>0$, relative permeability $I$ and relative permittivity $\varepsilon_r=I+\chi$.
+
+Let $D\subset\mathbb R^3$ be a bounded measurable support with compact closure, and let $\chi\in L^\infty(D;\mathbb C^{3\times3})$ be a local susceptibility. Reciprocity means $\chi^T=\chi$ almost everywhere. Define
+\[
+ \ReH\chi=\frac{\chi+\chi^\dagger}{2},\qquad
+ B=\ImH\chi=\frac{\chi-\chi^\dagger}{2i}.
+\]
+For a real unit direction $d\in S^2$ and a complex unit polarization $e^\dagger e=1$, $d\cdot e=0$, the electric incident fields are
+\begin{equation}\label{eq:pair}
+ f_+(x)=e e^{ikd\cdot x},\qquad
+ f_-(x)=\overline e e^{-ikd\cdot x}=\overline{f_+(x)}.
+\end{equation}
+The magnetic fields satisfy $Z_0H_-=-\overline{Z_0H_+}$. Conjugating the constant polarization is essential for elliptical illumination. Write $A_\pm,S_\pm,X_\pm$ for absorption, total scattering and extinction cross sections. Total scattering includes both transverse polarizations over the full sphere. For the common extinction $X=X_+=X_->0$, put
+\begin{equation}\label{eq:gamma}
+ \Gamma=\frac{\abs{A_+-A_-}}{X}
+       =\frac{\abs{S_+-S_-}}{X}.
+\end{equation}
+All three cross sections have units of area.
+
+\begin{theorem}[Fixed-resource gap]\label{thm:main}
+Fix $k>0$, a diameter cap $R>0$, a volume cap $V>0$, $P\geq1$ and $0<\delta\leq Q<\infty$. Suppose $\operatorname{diam}D\leq R$, $\abs D\leq V$ and, almost everywhere,
+\begin{equation}\label{eq:material}
+ \chi^T=\chi,\qquad
+ I\preceq\ReH\varepsilon_r\preceq PI,\qquad
+ \delta I\preceq B\preceq QI.
+\end{equation}
+The outgoing weak Maxwell problem is uniquely solvable. For every pair~\eqref{eq:pair} with $X>0$,
+\begin{equation}\label{eq:main}
+ \Gamma\leq\frac{b_0}{1+b_0}<1,\qquad
+ b_0=\eta_0\min\left\{\frac{k^3V_{\rm eff}}{6\pi},
+                          \sqrt{\frac38}\,kR\right\},
+\end{equation}
+where
+\begin{equation}\label{eq:resources}
+ \eta_0=\frac{(P-1)^2}{\delta}+Q,\qquad
+ V_{\rm eff}=\min\left\{V,\frac{\pi R^3}{6}\right\}.
+\end{equation}
+The same bound holds after imposing any additional extinction floor $X\geq E_0>0$.
+\end{theorem}
+
+The lower real-part assumption in~\eqref{eq:material} is explicit. More generally, $\norm{\ReH\chi}\leq c$ permits $\eta_0=c^2/\delta+Q$. For $0\preceq\ReH\varepsilon_r\preceq PI$, take $c=\max\{1,\abs{P-1}\}$. An upper real-part bound alone does not control arbitrarily negative contrast; Section~\ref{sec:extensions} describes that limitation.
+
+For dimensionless resources $\kappa=kR$, $v=k^3V$ and $e_0=k^2E_0$, one sufficient positive deficit on every nonempty class~\eqref{eq:material} is
+\begin{equation}\label{eq:dimensionless}
+ F(\kappa,v,P,Q,\delta,e_0)=
+ \left[1+\left(\frac{(P-1)^2}{\delta}+Q\right)
+ \min\left\{\frac{\min\{v,\pi\kappa^3/6\}}{6\pi},
+              \sqrt{\frac38}\,\kappa\right\}\right]^{-1}.
+\end{equation}
+Here $\Gamma\leq1-F$. The absence of $e_0$ is intentional; Section~\ref{sec:resolvent} provides an additional positive-extinction improvement. If dimensional $V,E_0$ are retained instead, $k$ must also be fixed or supplied.
+
+\section{Exact Maxwell identities and well-posedness}\label{sec:maxwell}
+Divide electric fields by a nonzero incident amplitude $E_{\rm ref}$ and set $p=\chi E$. The physical polarization is $\varepsilon_0E_{\rm ref}p$. The $L^2$ inner product is conjugate-linear in its first argument. With $g_k(x)=e^{ik\abs x}/(4\pi\abs x)$, define the distributional volume operator, restricted to $D$ after zero extension,
+\begin{equation}\label{eq:volume}
+ T_kp=(k^2I+\nabla\nabla\cdot)(g_k*p),\qquad E=f+T_kp.
+\end{equation}
+The electrostatic contact term belongs to $T_k$ throughout. The far-field amplitude and exact cross sections are
+\begin{align}
+ F_p(n)&=\frac{k^2}{4\pi}\Pi_n\int_Dp(x)e^{-ikn\cdot x}\dd x,
+ &\Pi_n&=I-nn^T,\label{eq:far}\\
+ X&=k\Im\ip f p,
+ &A&=k\int_DE^\dagger BE\dd x,\label{eq:powers}\\
+ S&=\int_{S^2}\abs{F_p(n)}^2\dd\Omega,
+ &X&=A+S.\label{eq:energy}
+\end{align}
+The optical theorem is $X=(4\pi/k)\Im(e^\dagger F_p(d))$. These normalizations divide physical powers by $\abs{E_{\rm ref}}^2/(2Z_0)$.
+
+\begin{lemma}[Bounded dyadic volume operator]\label{lem:operator}
+Let $v_D=\abs D<\infty$ and $a_v=(3v_D/(4\pi))^{1/3}$. On $L^2(D;\mathbb C^3)$,
+\begin{equation}\label{eq:operator}
+ \norm{T_0}\leq1,\qquad
+ \norm{T_k-T_0}\leq\frac34k^2a_v^2.
+\end{equation}
+\end{lemma}
+\begin{proof}
+On $\mathbb R^3$ the Fourier multiplier of $T_0$ is $-\xi\xi^T/\abs\xi^2$ almost everywhere. Zero extension and restriction are contractions, proving the first assertion including the contact term. The difference has an ordinary locally integrable kernel. Put $r=\abs x$, $u=kr$ and $b(u)=e^{iu}(iu-1)+1$. Its radial and tangential eigenvalues are
+\[
+ -\frac{2b(u)}{4\pi r^3},\qquad
+ \frac{u^2e^{iu}+b(u)}{4\pi r^3}.
+\]
+Since $b(0)=0$, $b'(u)=-ue^{iu}$ and $\abs{b(u)}\leq u^2/2$, the kernel norm is at most $3k^2/(8\pi r)$. Rearrangement of the decreasing radial kernel gives $\sup_x\int_D\abs{x-y}^{-1}\dd y\leq2\pi a_v^2$; the same bound holds with $x,y$ exchanged. Schur's test proves~\eqref{eq:operator}.
+\end{proof}
+
+The imaginary part has the exact positive representation
+\begin{equation}\label{eq:radiation-identity}
+ \ip p{(\ImH T_k)p}
+ =\frac{k^3}{16\pi^2}\int_{S^2}
+ \left|\Pi_n\int_Dp(x)e^{-ikn\cdot x}\dd x\right|^2\dd\Omega
+ =\frac Sk.
+\end{equation}
+Indeed $\sin(kr)/(4\pi r)=k(16\pi^2)^{-1}\int_{S^2}e^{ikn\cdot x}\dd\Omega$; applying $k^2I+\nabla\nabla\cdot$ produces the transverse plane-wave kernel. Density extends the identity from smooth compact currents to $L^2(D)$.
+
+\begin{proposition}[Loss coercivity and reciprocal extinction]\label{prop:coercivity}
+If $B\succeq\delta I>0$ and $\norm\chi\leq K<\infty$ almost everywhere,~\eqref{eq:volume} has a unique outgoing weak solution with $p\in L^2(D;\mathbb C^3)$. If also $\chi^T=\chi$, the pair~\eqref{eq:pair} has equal extinction.
+\end{proposition}
+\begin{proof}
+Pointwise $\abs{\chi v}\geq\delta\abs v$, so $\chi^{-1}$ exists and is bounded by $1/\delta$. Define
+\[
+ W=-\ImH\chi^{-1}=\chi^{-\dagger}B\chi^{-1},\qquad L=\chi^{-1}-T_k.
+\]
+Then $v^\dagger Wv\geq(\delta/K^2)\abs v^2$ and, by~\eqref{eq:radiation-identity},
+\[
+ -\Im\ip p{Lp}=\ip p{Wp}+\ip p{(\ImH T_k)p}
+ \geq\frac{\delta}{K^2}\norm p_2^2.
+\]
+The bounded form for $iL$ is coercive; complex Lax--Milgram gives a bounded inverse and the unique current $p=L^{-1}f$. The scalar Helmholtz volume potential of this current is locally $H^2$, so $E=f+T_kp\in H_{\rm loc}(\operatorname{curl})$ and $\nabla\times E=\nabla\times f+k^2\nabla\times(g_k*p)$ is locally $H^1$. The field solves Maxwell's equations distributionally, and its scattered field is outgoing. Conversely, for a locally finite-energy weak scattering solution with outgoing scattered field, subtract the incident field and this volume potential. The remainder is an entire outgoing source-free vacuum Maxwell field, which vanishes by vacuum uniqueness. Taking imaginary parts of $Lp=f$ proves~\eqref{eq:energy}.
+
+For the continuous bilinear pairing $\bilin uv=\int_Du\cdot v\dd x$, the kernel of $T_k$ is symmetric under transpose and interchange of arguments. Thus $L$ and $L^{-1}$ are bilinearly symmetric when $\chi^T=\chi$. Since $f_-=\overline{f_+}$,
+\[
+ \ip{f_+}{p_+}=\bilin{f_-}{L^{-1}f_+}
+ =\bilin{f_+}{L^{-1}f_-}=\ip{f_-}{p_-}.
+\]
+Taking imaginary parts proves extinction equality.
+\end{proof}
+No smooth boundary, component count, feature-size assumption or modal cutoff is used. The full tensor loss floor is required for this well-posedness assertion over the entire essentially bounded class.
+
+\section{Integrated response and all-angle efficiency}\label{sec:response}
+A more general sufficient response hypothesis is
+\begin{equation}\label{eq:response}
+ B\succeq0,\quad \eta:D\to[0,\infty)\text{ measurable},\quad
+ \abs{\chi(x)v}^2\leq\eta(x)v^\dagger B(x)v,\quad
+ 0<\mathcal M:=\int_D\eta\dd x<\infty.
+\end{equation}
+The pointwise inequality holds for all $v\in\mathbb C^3$ almost everywhere. The dimensionless $\eta$ controls response relative to loss; $\mathcal M$ has units of volume. It is neither integrated loss nor a frequency sum rule. In this broader class, the results apply to every well-posed finite-absorption solution;~\eqref{eq:response} alone does not establish existence for arbitrary rough coefficients.
+
+For $B\succ0$ the least admissible $\eta$ is $\norm{\chi B^{-1}\chi^\dagger}$. For singular $B$, it is $\norm{\chi B^+\chi^\dagger}$ provided $\ker B\subseteq\ker\chi$; without that condition the pseudoinverse formula is insufficient. Nonresponding material can have $\eta=0,p=0$. Writing $\chi=A_0+iB$ gives the noncommuting identity
+\begin{equation}\label{eq:response-identity}
+ \chi B^{-1}\chi^\dagger=A_0B^{-1}A_0+B.
+\end{equation}
+Therefore $\norm{A_0}\leq c$ and $\delta I\preceq B\preceq QI$ imply $\eta\leq c^2/\delta+Q$.
+
+\begin{theorem}[Integrated response bound]\label{thm:response}
+Under~\eqref{eq:response}, every unit-amplitude plane-wave solution satisfies
+\begin{equation}\label{eq:response-bounds}
+ S\leq\beta_{\mathcal M}A,\quad X^2\leq k\mathcal M A,\quad
+ X\leq k\mathcal M,\qquad \beta_{\mathcal M}=\frac{k^3\mathcal M}{6\pi}.
+\end{equation}
+For a reciprocal pair with $X>0$,
+\begin{equation}\label{eq:response-gamma}
+ \Gamma\leq\min\left\{\frac{\beta_{\mathcal M}}{1+\beta_{\mathcal M}},
+                          1-\frac{X}{k\mathcal M}\right\}.
+\end{equation}
+\end{theorem}
+\begin{proof}
+The material inequality gives $\int_D\abs p^2/\eta\dd x\leq A/k$, with zero integrand where $\eta=0$. Weighted Cauchy--Schwarz yields $\norm p_1^2\leq\mathcal M A/k$. Only $p\in L^1$ is needed here; $\eta\in L^1$ does not imply $p\in L^2$. Minkowski's inequality and $\int_{S^2}\Pi_n\dd\Omega=(8\pi/3)I$ imply
+\[
+ S^{1/2}\leq\frac{k^2}{4\pi}\int_D
+ \left(\int_{S^2}\abs{\Pi_np(x)}^2\dd\Omega\right)^{1/2}\dd x
+ =\frac{k^2}{4\pi}\sqrt{\frac{8\pi}{3}}\norm p_1.
+\]
+This proves the scattering inequality. Since $\abs f=1$, $X\leq k\norm p_1$, giving $X^2\leq k\mathcal M A$. Since $A\leq X$, $X\leq k\mathcal M$ for $X>0$. With $s=S/X$, the two bounds give
+\[
+ 0\leq s\leq\min\left\{\frac{\beta_{\mathcal M}}{1+\beta_{\mathcal M}},
+                         1-\frac{X}{k\mathcal M}\right\}.
+\]
+Both illuminations occupy this common interval; its width bounds $\abs{s_+-s_-}=\Gamma$.
+\end{proof}
+
+Loss-weighted susceptibility and current optimization are established material-response tools \citep{Miller2016,Schab2020,Gustafsson2020,Kuang2020}. In particular, the largest radiation-to-loss generalized eigenvalue bounds scattering efficiency \citep[Sec.~3.1]{Schab2020}. The elementary paired bound follows from that principle and reciprocal extinction equality.
+
+\begin{corollary}[Necessary costs and absolute differences]\label{cor:costs}
+If $\Gamma\geq1-\epsilon$, $0<\epsilon<1$, then
+\begin{equation}\label{eq:costs}
+ \mathcal M\geq\frac{6\pi}{k^3}\frac{1-\epsilon}{\epsilon}.
+\end{equation}
+If also $X\geq E_0>0$, then $\mathcal M\geq E_0/(k\epsilon)$. For $\Delta=X\Gamma$,
+\begin{equation}\label{eq:absolute}
+ \Delta\leq
+ \begin{cases}
+ k\mathcal M\beta_{\mathcal M}/(1+\beta_{\mathcal M})^2,&\beta_{\mathcal M}\leq1,\\
+ k\mathcal M/4,&\beta_{\mathcal M}\geq1.
+ \end{cases}
+\end{equation}
+\end{corollary}
+\begin{proof}
+Rearrange~\eqref{eq:response-gamma}. For~\eqref{eq:absolute} let $x=X/(k\mathcal M)\in[0,1]$ and $r=\beta_{\mathcal M}/(1+\beta_{\mathcal M})$. Then $\Delta/(k\mathcal M)\leq\min\{rx,x(1-x)\}$. If $r\leq1/2$, its maximum is $r(1-r)$ at $x=1-r$; if $r\geq1/2$, it is $1/4$ at $x=1/2$.
+\end{proof}
+
+\section{Complete ball radiation spectrum}\label{sec:spectrum}
+Suppose $D\subset B_a$ and $\eta\leq\bar\eta<\infty$ on responding material. Extend $p$ by zero to $B_a$; then $\norm p_2^2\leq\bar\eta A/k$. Define
+\begin{equation}\label{eq:angular-operator}
+ (Hp)(n)=\Pi_n\int_{B_a}p(x)e^{-ikn\cdot x}\dd x,\qquad
+ \mathcal R_a=\ImH T_k\big|_{B_a}=\frac{k^3}{16\pi^2}H^\dagger H.
+\end{equation}
+The operator $\mathcal R_a$ is positive, compact and self-adjoint; its eigenvalues are dimensionless.
+
+\begin{lemma}[All positive radiation eigenvalues]\label{lem:spectrum}
+For $z=ka$ and spherical Bessel functions $j_\ell$, the positive eigenvalues are
+\begin{align}
+ \lambda^M_\ell(z)&=\int_0^zs^2j_\ell(s)^2\dd s,\label{eq:lambdaM}\\
+ \lambda^N_\ell(z)&=\int_0^z\left[\ell(\ell+1)j_\ell(s)^2+
+                                  ((sj_\ell(s))')^2\right]\dd s,
+ &\ell&=1,2,\ldots.\label{eq:lambdaN}
+\end{align}
+Each family has multiplicity $2\ell+1$, with added multiplicities at coincidences. The orthogonal complement of these radiating modes is $\ker\mathcal R_a$. For $f=e e^{ikd\cdot x}$ on $B_a$ and $\alpha>0$,
+\begin{equation}\label{eq:resolvent-series}
+ D_\alpha:=\ip f{(\mathcal R_a+\alpha I)^{-1}f}
+ =\frac{2\pi}{k^3}\sum_{\ell=1}^\infty(2\ell+1)
+ \left[\frac{\lambda^M_\ell}{\lambda^M_\ell+\alpha}
+       +\frac{\lambda^N_\ell}{\lambda^N_\ell+\alpha}\right].
+\end{equation}
+In particular,
+\begin{equation}\label{eq:parseval}
+ \frac{2\pi}{k^3}\sum_{\ell=1}^\infty(2\ell+1)(\lambda^M_\ell+\lambda^N_\ell)
+ =\norm f_2^2=\frac{4\pi a^3}{3}.
+\end{equation}
+\end{lemma}
+\begin{proof}
+Take normalized scalar spherical harmonics $Y_{\ell m}$ and orthonormal tangent vector harmonics $X_{\ell m}=-in\times\nabla_{S^2}Y_{\ell m}/\sqrt{\ell(\ell+1)}$ and $n\times X_{\ell m}$. The Rayleigh expansion gives
+\[
+ H^\dagger X_{\ell m}(r)=4\pi i^\ell j_\ell(k\abs r)X_{\ell m}(\widehat r).
+\]
+The other tangent family maps, up to a unit phase, to $k^{-1}\nabla\times H^\dagger X_{\ell m}$. The magnetic squared radial norm is $k^{-3}\int_0^zs^2j_\ell(s)^2\dd s$, and the orthogonal radial and tangential parts of the electric wave give $k^{-3}\int_0^z[\ell(\ell+1)j_\ell(s)^2+((sj_\ell(s))')^2]\dd s$. Distinct modes are orthogonal on $B_a$. The factor $k^3/(16\pi^2)$ in~\eqref{eq:angular-operator} gives~\eqref{eq:lambdaM}--\eqref{eq:lambdaN}. Completeness of the two tangent harmonic families yields every nonzero singular value of $H$.
+
+If $q\in\ker\mathcal R_a$, then $Hq=0$ almost everywhere. Since $q\in L^1(B_a)$, $Hq$ is continuous and vanishes at $d$. Thus $\ip f q=e^\dagger(Hq)(d)=0$, so $f\perp\ker\mathcal R_a$. The vector addition theorem gives
+\[
+ \sum_m\abs{e^\dagger X_{\ell m}(d)}^2=\frac{2\ell+1}{8\pi},
+\]
+with the same expression for the other tangent family, for every complex transverse unit $e$. If a normalized angular eigenmode $u$ has eigenvalue $\lambda$, its normalized volume mode is $q=k^{3/2}H^\dagger u/(4\pi\sqrt\lambda)$ and $Hq=4\pi k^{-3/2}\sqrt\lambda\,u$. Consequently the squared plane-wave projections summed over $m$ are $(2\pi/k^3)(2\ell+1)\lambda$ for each family. The spectral theorem proves~\eqref{eq:resolvent-series} and~\eqref{eq:parseval}; no angular delta distribution is treated as an $L^2$ vector.
+\end{proof}
+
+Spherical radiation modes and their use in material bounds are established \citep{Gustafsson2020,Kuang2020,Gustafsson2024}. The following estimate applies to every angular order.
+\begin{theorem}[Uniform linear size estimate]\label{thm:linear}
+For every $z>0$,
+\begin{equation}\label{eq:lambda-bound}
+ \Lambda(z):=\norm{\mathcal R_a}
+ =\max_{\ell\geq1}\{\lambda^M_\ell(z),\lambda^N_\ell(z)\}
+ \leq\min\left\{\frac{2z^3}{9},z\right\}.
+\end{equation}
+Every current induced in the above response class satisfies
+\begin{equation}\label{eq:efficiency}
+ S\leq\beta A,\qquad
+ \beta=\min\left\{\frac{k^3\mathcal M}{6\pi},\bar\eta\Lambda(ka)\right\}.
+\end{equation}
+\end{theorem}
+\begin{proof}
+The all-angle estimate for any current on $B_a$, combined with $\norm p_1^2\leq\abs{B_a}\norm p_2^2$ and $S/k=\ip p{\mathcal R_ap}$, gives $\Lambda(z)\leq k^3\abs{B_a}/(6\pi)=2z^3/9$.
+
+For fixed integer $\ell\geq1$, put $u(z)=zj_\ell(z)$, $L_\ell=\ell(\ell+1)$ and $E_\ell=u'^2+(1-L_\ell/z^2)u^2$. The Bessel equation yields
+\[
+ u''+(1-L_\ell/z^2)u=0,\qquad E'_\ell(z)=2L_\ell u(z)^2/z^3\geq0.
+\]
+For each fixed $\ell$, the sine and cosine asymptotics imply $E_\ell(z)\to1$ as $z\to\infty$, so $E_\ell(z)\leq1$. Differentiation and the zero limits at $z=0$ give
+\begin{equation}\label{eq:lambda-energy}
+ \lambda^M_\ell=\frac{zE_\ell-uu'}{2},\qquad
+ \lambda^N_\ell=\frac{zE_\ell+uu'}{2}.
+\end{equation}
+Both are nonnegative by their integral definitions, and their sum is $zE_\ell\leq z$. Take the supremum after proving this for each $\ell$; no nonuniform asymptotic limit is interchanged with that supremum. Finally $S=k\ip p{\mathcal R_ap}\leq k\Lambda\norm p_2^2\leq\bar\eta\Lambda A$, and combine with Theorem~\ref{thm:response}.
+\end{proof}
+
+The linear large-size order is sharp for the radiation operator. For $\ell=1$,
+\[
+ E_1(z)=1-z^{-2}+\sin(2z)z^{-3}-\sin^2(z)z^{-4},
+\]
+so the larger eigenvalue is at least
+\[
+ \frac{zE_1(z)}2\geq\frac z2-\frac1{2z}-\frac1{2z^2}-\frac1{2z^3}.
+\]
+Thus $\Lambda(z)=\Theta(z)$ as $z\to\infty$. This does not assert $\Lambda\sim z/2$ or a matching physical asymmetry. A further necessary cost is
+\begin{equation}\label{eq:size-cost}
+ \Gamma\geq1-\epsilon\quad\Longrightarrow\quad
+ \bar\eta ka\geq\frac{1-\epsilon}{\epsilon}.
+\end{equation}
+
+\begin{proof}[Completion of Theorem~\ref{thm:main}]
+Equation~\eqref{eq:response-identity} gives $\eta\leq\eta_0$ and $\mathcal M\leq\eta_0\abs D$. The isodiametric inequality yields $\abs D\leq\pi R^3/6$. To bound an enclosing radius, center a smallest enclosing ball of radius $a$. Its center belongs to the convex hull of its contact set; otherwise a separating hyperplane permits a displacement reducing the largest distance. Carath\'eodory's theorem supplies at most four contact points $y_i$ and weights $\mu_i\geq0$ with $\sum_i\mu_i=1$, $\sum_i\mu_iy_i=0$ and $\abs{y_i}=a$. Therefore
+\[
+ 2a^2=\sum_{i,j}\mu_i\mu_j\abs{y_i-y_j}^2
+ \leq R^2\left(1-\sum_i\mu_i^2\right)\leq\frac34R^2.
+\]
+Hence $a\leq\sqrt{3/8}\,R$. Equations~\eqref{eq:lambda-bound}--\eqref{eq:efficiency} give $\beta\leq b_0$; the common-interval argument proves~\eqref{eq:main}. The bounded susceptibility and positive loss under~\eqref{eq:material} give well-posedness by Proposition~\ref{prop:coercivity}.
+\end{proof}
+A diameter-$R$ body need not fit in a radius-$R/2$ ball. The isodiametric volume and enclosing-ball radius estimates are distinct.
+
+\section{Positive extinction and the exact current relaxation}\label{sec:resolvent}
+The optical theorem fixes forward work, while scattering is an angular integral. We retain every radiation mode rather than assume a directivity cutoff. For $a>0$, $\bar\eta>0$, put $w=1/\bar\eta$ and $t=X/k$. Every physical current extended to $B_a$ obeys
+\begin{equation}\label{eq:relaxation}
+ \Im\ip f p=t,\qquad
+ \ip p{(\mathcal R_a+wI)p}\leq t.
+\end{equation}
+The latter follows from $w\norm p_2^2\leq A/k$ and $X=A+S$. Both $t$ and $D_\alpha$ have units of volume; $w,\alpha$ are dimensionless.
+
+\begin{theorem}[Exact relaxed scattering floor]\label{thm:floor}
+For $0<t\leq D_w$, define
+\begin{equation}\label{eq:rho-dual}
+ \rho_{a,w}(t)=\sup_{0<\alpha<w}
+ \frac{wt/D_\alpha-\alpha}{w-\alpha}.
+\end{equation}
+This function is nondecreasing and strictly positive for $t>0$. It is the exact minimum of $\ip p{\mathcal R_ap}/t$ over $p\in L^2(B_a;\mathbb C^3)$ satisfying~\eqref{eq:relaxation}. The set is empty for $t>D_w$. Every physical solution therefore satisfies $S/X\geq\rho_{a,w}(X/k)$.
+\end{theorem}
+\begin{proof}
+For $0<\alpha<w$, Cauchy--Schwarz in the positive metric $\mathcal R_a+\alpha I$ gives
+\begin{align*}
+ t^2&\leq\abs{\ip f p}^2
+ \leq D_\alpha\ip p{(\mathcal R_a+\alpha I)p}\\
+ &\leq D_\alpha\left[(1-\alpha/w)\ip p{\mathcal R_ap}+(\alpha/w)t\right].
+\end{align*}
+Rearrange for~\eqref{eq:rho-dual}. At $\alpha=w$ the same inequality gives $t\leq D_w$. Each term in the supremum is increasing in $t$. By Lemma~\ref{lem:spectrum}, $f\perp\ker\mathcal R_a$, so dominated convergence in the spectral theorem yields
+\[
+ \alpha D_\alpha=\ip f{\alpha(\mathcal R_a+\alpha I)^{-1}f}\longrightarrow0
+ \quad(\alpha\downarrow0).
+\]
+For fixed $t>0$, choose $\alpha$ with $\alpha D_\alpha<wt$; its dual value is positive.
+
+For exactness define
+\begin{align*}
+ H_\alpha&=\ip f{(\mathcal R_a+\alpha I)^{-2}f}=-D'_\alpha,\qquad
+ K_\alpha=\ip f{(\mathcal R_a+\alpha I)^{-3}f},\\
+ J_\alpha&=D_\alpha+(w-\alpha)H_\alpha,\qquad
+ T(\alpha)=D_\alpha^2/J_\alpha.
+\end{align*}
+Using $H'_\alpha=-2K_\alpha$,
+\begin{equation}\label{eq:Tderivative}
+ T'(\alpha)=\frac{2D_\alpha(w-\alpha)(D_\alpha K_\alpha-H_\alpha^2)}{J_\alpha^2}>0.
+\end{equation}
+Cauchy--Schwarz proves nonnegativity. Strict positivity holds because the plane wave has nonzero aggregate projections onto every magnetic and electric order, hence infinitely many distinct positive eigenvalues of the compact operator. Equality in this Cauchy--Schwarz inequality would require spectral support on a single eigenvalue.
+
+As $\alpha\uparrow w$, $T(\alpha)\to D_w$. As $\alpha\downarrow0$, the positive series~\eqref{eq:resolvent-series} gives $D_\alpha\to\infty$, while $H_\alpha\geq D_\alpha^2/\norm f_2^2\to\infty$. The unit vectors
+\[
+ v_\alpha=(\mathcal R_a+\alpha I)^{-1}f/\sqrt{H_\alpha}
+\]
+converge weakly to zero: their coordinates at each fixed positive eigenvector tend to zero, their kernel coordinates vanish, and approximation by finite spectral spans proves convergence against every test vector. Thus $D_\alpha/\sqrt{H_\alpha}=\ip f{v_\alpha}\to0$. Since $w-\alpha$ remains positive near zero, $T(\alpha)\to0$.
+
+For every $0<t<D_w$ there is consequently a unique $\alpha\in(0,w)$ with $T(\alpha)=t$. The current
+\begin{equation}\label{eq:optimizer}
+ p_\alpha=\frac{it}{D_\alpha}(\mathcal R_a+\alpha I)^{-1}f
+\end{equation}
+satisfies $\Im\ip f{p_\alpha}=t$ and
+\[
+ \ip{p_\alpha}{(\mathcal R_a+wI)p_\alpha}
+ =t^2J_\alpha/D_\alpha^2=t.
+\]
+It makes the metric Cauchy--Schwarz step an equality and attains the lower bound, with
+\begin{equation}\label{eq:rho-primal}
+ \rho_{a,w}(t)=\frac{D_\alpha-\alpha H_\alpha}{D_\alpha+(w-\alpha)H_\alpha},
+ \qquad t=\frac{D_\alpha^2}{D_\alpha+(w-\alpha)H_\alpha}.
+\end{equation}
+At $t=D_w$, equality in the $w$-metric inequality forces the unique feasible current $p=i(\mathcal R_a+wI)^{-1}f$. Its fraction is $1-wH_w/D_w$, the limit of~\eqref{eq:rho-dual} as $\alpha\uparrow w$. Set $\rho_{a,w}(0)=0$ if desired.
+\end{proof}
+
+\begin{corollary}[Uniform positive-extinction bound]\label{cor:positive}
+Suppose $D\subset B_a$, $\eta\leq\bar\eta$, $\mathcal M\leq\mathcal M_0<\infty$ and $X\geq E_0>0$. Put
+\[
+ \beta_0=\min\{k^3\mathcal M_0/(6\pi),\bar\eta\Lambda(ka)\}.
+\]
+On every nonempty admissible class,
+\begin{equation}\label{eq:positive}
+ \Gamma\leq\min\left\{\frac{\beta_0}{1+\beta_0},
+                          1-\frac{E_0}{k\mathcal M_0}\right\}
+             -\rho_{a,1/\bar\eta}(E_0/k).
+\end{equation}
+Necessarily $E_0\leq kD_{1/\bar\eta}$. A negative right-hand side implies that the class is empty.
+\end{corollary}
+\begin{proof}
+Theorem~\ref{thm:floor} gives $S/X\geq\rho(X/k)\geq\rho(E_0/k)$. Theorems~\ref{thm:response} and~\ref{thm:linear} give the common upper endpoint in~\eqref{eq:positive}, using monotonicity in $\mathcal M$ and $X$. The interval width bounds their difference.
+\end{proof}
+For Theorem~\ref{thm:main}, take $a=\sqrt{3/8}\,R$, $\bar\eta=\eta_0$ and $\mathcal M_0=\eta_0V_{\rm eff}$. A smaller known enclosing ball or response budget improves the estimate.
+
+\subsection{An explicit forward-cap correction}
+\begin{proposition}[Angular-cap bound]\label{prop:cap}
+For a solution with $D\subset B_a$, $\mathcal M<\infty$ and $X>0$,
+\begin{equation}\label{eq:cap}
+ SA\geq\frac{kX^4}{96\pi\mathcal M(1+ka)^2}.
+\end{equation}
+\end{proposition}
+\begin{proof}
+Center coordinates on the ball and rephase the incident amplitude there. For $g(n)=e^\dagger F_p(n)$ and $h=kX/(4\pi)>0$, the optical theorem gives $\abs{g(d)}\geq h$. The estimates $\norm{\Pi_n-\Pi_d}=\abs{\sin\theta}\leq\abs{n-d}$ and $\abs{e^{-ikn\cdot x}-e^{-ikd\cdot x}}\leq ka\abs{n-d}$ imply
+\[
+ \abs{g(n)-g(d)}\leq L\abs{n-d},\qquad
+ L=\frac{k^2}{4\pi}(1+ka)\sqrt{\mathcal M A/k}.
+\]
+Also $h\leq k^2\norm p_1/(4\pi)$, so $h/L\leq1/(1+ka)\leq1$. Chord distance $r=\abs{n-d}$ has cap area element $2\pi r\dd r$. Since $\abs{F_p(n)}\geq\abs{g(n)}$,
+\[
+ S\geq2\pi\int_0^{h/L}r(h-Lr)^2\dd r
+ =\frac{\pi h^4}{6L^2}
+ =\frac{kX^4}{96\pi\mathcal M A(1+ka)^2}.
+\]
+Multiplication by $A$ proves the claim.
+\end{proof}
+
+Set
+\begin{equation}\label{eq:cap-resources}
+ C_0=\frac{kE_0^2}{96\pi\mathcal M_0(1+ka)^2},\qquad
+ r_0=\frac{1-\sqrt{1-4C_0}}{2}.
+\end{equation}
+If $C_0>1/4$ the class is empty. Otherwise~\eqref{eq:cap} gives $s(1-s)\geq C_0$, so each scattering fraction lies in $[r_0,1-r_0]$. First check $E_0\leq kD_{1/\bar\eta}$; if it fails the resolvent need not be evaluated. Intersecting all proved intervals gives
+\begin{align}
+ \Gamma&\leq U_0-L_0,\label{eq:combined}\\
+ U_0&=\min\left\{\frac{\beta_0}{1+\beta_0},
+                  1-\frac{E_0}{k\mathcal M_0},1-r_0\right\},\nonumber\\
+ L_0&=\max\{\rho_{a,1/\bar\eta}(E_0/k),r_0\}.\nonumber
+\end{align}
+If $U_0<L_0$ the resource requirements are incompatible. The cap constant is not claimed optimal; the exact resolvent value belongs only to~\eqref{eq:relaxation}.
+
+The series retains arbitrarily small high-order radiation eigenvalues. Superdirective currents radiate weakly relative to their norm, while the loss metric charges that norm and the optical theorem fixes positive forward work. These constraints give $\rho>0$ without a finite multipole count. Directivity--efficiency tradeoffs have established antenna precedents \citep{GustafssonCapek2019}. The bounded-loss inverse also controls resonant amplification in the stated material class.
+
+\section{Exact-Maxwell small-volume scaling}\label{sec:sphere}
+The relaxed optimizer need not arise from a local reciprocal susceptibility or from the same object under both illuminations. A separate physical construction establishes the general complex-polarization exponent.
+
+\begin{theorem}[Reciprocal anisotropic sphere]\label{thm:sphere}
+Let $D=B_a$ be homogeneous with
+\begin{equation}\label{eq:sphere-tensor}
+ \chi=A_0+iB,\qquad A_0=\operatorname{diag}(1,2,1),\qquad
+ B=\begin{pmatrix}1/2&1/5&0\\1/5&1/2&0\\0&0&1/2\end{pmatrix}.
+\end{equation}
+For $d=(0,0,1)^T$, $e=(1,i,0)^T/\sqrt2$ and its time reverse, the exact outgoing Maxwell solution satisfies, at fixed $k$ as $ka\downarrow0$,
+\begin{equation}\label{eq:sphere-asymptotic}
+ \Gamma_a=\frac{160}{2071}(ka)^3+O((ka)^4)
+ =\frac{120}{2071\pi}k^3\abs{B_a}
+       +O(k^3\abs{B_a}\,ka).
+\end{equation}
+The eigenvalues of $\ReH\varepsilon_r$ are $2,3,2$, and those of $B$ are $0.3,0.5,0.7$.
+\end{theorem}
+\begin{proof}
+Rescale $x=ay$ to $B_1$, with $\kappa=ka$. The equation is $(\chi^{-1}-T_\kappa)p_\kappa=f_\kappa$. Lemma~\ref{lem:operator} gives $\norm{T_\kappa-T_0}\leq3\kappa^2/4$ and Proposition~\ref{prop:coercivity} gives a uniform inverse bound for the fixed tensor. For a constant current in a sphere, $T_0p=-p/3$, so the static solution is $Le$ with
+\[
+ L=3\chi(\chi+3I)^{-1}.
+\]
+Since $f_\kappa=e+O(\kappa)$ in $L^2(B_1)$, the resolvent identity gives $p_\kappa=Le+O(\kappa)$ there, and similarly for $\overline e$. All constants depend only on~\eqref{eq:sphere-tensor}. On returning to physical coordinates, $L^2(B_1)\subset L^1(B_1)$ and the uniform estimate $e^{-i\kappa n\cdot y}=1+O(\kappa)$ imply, for $v_a=\abs{B_a}$,
+\begin{align*}
+ F_\pm(n)&=\frac{k^2v_a}{4\pi}\Pi_nLe_\pm+O(k^2v_a\kappa),
+ &e_+&=e,\quad e_-=\overline e,\\
+ S_\pm&=\frac{k^4v_a^2}{6\pi}\norm{Le_\pm}^2+O(k^4v_a^2\kappa),\\
+ X&=kv_a\Im(e^\dagger Le)+O(kv_a\kappa).
+\end{align*}
+The far-field error is uniform over $S^2$; extinction equality follows independently from reciprocity.
+
+For the exact coefficient, put $d_0=(4+i/2)(5+i/2)+1/25=(1979+450i)/100$. The transverse entries are
+\[
+ L_{11}=3-\frac{9(5+i/2)}{d_0},\qquad
+ L_{22}=3-\frac{9(4+i/2)}{d_0},\qquad
+ L_{12}=L_{21}=\frac{9i}{5d_0}.
+\]
+Rational algebra gives
+\begin{equation}\label{eq:sphere-rationals}
+ \Im(e^\dagger Le)=\frac{931950}{4118941}>0,\qquad
+ \norm{Le}^2-\norm{L\overline e}^2=\frac{324000}{4118941}.
+\end{equation}
+Their ratio is $720/2071$. Divide $\abs{S_+-S_-}$ by $X$ and use $v_a=4\pi a^3/3$ for~\eqref{eq:sphere-asymptotic}.
+\end{proof}
+
+The theorem concerns the exact Maxwell solution: higher multipoles are included in the uniform remainder, rather than omitted by assumption. It shows that the general order $k^3V$ cannot be improved over the allowed complex-polarization and anisotropy class. It does not optimize the coefficient or establish sharpness at fixed $E_0>0$, because $X_a\to0$. A homogeneous centrosymmetric sphere has equal opposite-direction absorption for real linear polarization. The cubic example therefore does not contradict the stronger quartic real-linear result in the companion manuscript \citep{WangZhengQuartic2026}. Absorption--scattering dichroism and nonorthogonal lossy modes have prior precedents \citep{Hopkins2015,Hopkins2016}.
+
+The single-frequency tensor is compatible with passive causal dispersion. For $\Omega>\omega_0$ and $\gamma>0$, take
+\begin{equation}\label{eq:causal}
+ \chi(\omega)=\frac{(\Omega^2-\omega_0^2)A_0}{\Omega^2-\omega^2}
+       +\frac{\gamma\omega_0 B}{\omega_0^2-\omega^2-i\gamma\omega},
+\end{equation}
+interpreting the first term as a lossless causal oscillator limit. Both oscillator strengths are positive semidefinite and $\chi(\omega_0)=A_0+iB$. This supplies no finite-bandwidth asymmetry theorem.
+
+\section{Extensions and hypothesis limitations}\label{sec:extensions}
+\subsection{Isotropy and weaker loss assumptions}
+The response estimate includes arbitrary reciprocal local tensors and scalar isotropic media. For scalar $\Im\chi>0$, $\eta=\abs\chi^2/\Im\chi$. The sphere construction is anisotropic; no matching isotropic cubic construction or isotropic optimum is supplied.
+
+Condition~\eqref{eq:response} allows nonuniform or vanishing loss only when responding directions remain controlled. Positive trace loss, positive integrated loss or positivity on one polarization does not imply it. In particular, a lossless direction with nonzero susceptibility violates the finite response condition. A replacement compactness proof without this control would need uniform Maxwell resolvent estimates, an appropriate topology for geometry and coefficients, a justified homogenization closure and uniqueness for the limiting class. Weak coefficient convergence alone supplies none of these requirements.
+
+\subsection{Reciprocal electric--magnetic media}
+With the same normalization, write
+\[
+ \Psi=(E_{\rm phys},Z_0H_{\rm phys})/E_{\rm ref},\qquad
+ q=(P_{\rm phys}/\varepsilon_0,Z_0M_{\rm mag})/E_{\rm ref}=\chi_6\Psi,
+\]
+where $B_{\rm phys}=\mu_0(H_{\rm phys}+M_{\rm mag})$. Thus $D_{\rm phys}/(\varepsilon_0E_{\rm ref})=\Psi_E+q_E$ and $cB_{\rm phys}/E_{\rm ref}=\Psi_H+q_M$. Assume a well-posed vacuum-exterior solution, $B_6=\ImH\chi_6\succeq0$, reciprocity $\chi_6^T=J\chi_6J$ with $J=\operatorname{diag}(I,-I)$, and $\abs{\chi_6v}^2\leq\eta_6v^\dagger B_6v$ for all six-vectors. Let $0<\mathcal M_6=\int_D\eta_6\dd x<\infty$.
+
+\begin{proposition}[Six-component response bound]\label{prop:six}
+For unit electric incident amplitude and a time-reversed pair,
+\begin{equation}\label{eq:six}
+ S\leq\frac{k^3\mathcal M_6}{6\pi}A,\qquad
+ X^2\leq2k\mathcal M_6A,\qquad
+ \Gamma\leq\frac{k^3\mathcal M_6}{6\pi+k^3\mathcal M_6}<1.
+\end{equation}
+If also $D\subset B_a$ and $\eta_6\leq\bar\eta_6$, then $S\leq\bar\eta_6kaA$.
+\end{proposition}
+\begin{proof}
+The cross sections are $A=k\int_D\Psi^\dagger B_6\Psi\dd x$ and $X=k\Im\ip{\Psi_{\rm inc}}q$. Eliminating Maxwell's equations gives $(\nabla\times\nabla\times-k^2)E=k^2q_E+ik\nabla\times q_M$, hence
+\[
+ F(n)=\frac{k^2}{4\pi}\int_D[\Pi_nq_E(x)-n\times q_M(x)]e^{-ikn\cdot x}\dd x.
+\]
+For fixed complex vectors $u,v$,
+\[
+ \int_{S^2}\abs{\Pi_nu-n\times v}^2\dd\Omega
+ =\frac{8\pi}{3}(\abs u^2+\abs v^2);
+\]
+the cross term is odd in $n$. Minkowski and weighted Cauchy--Schwarz prove the first bound as before. The incident six-vector has squared norm two, producing the factor two in the extinction bound. Lorentz reciprocity with $\Psi_-=J\overline{\Psi_+}$ equates forward work and extinctions; energy conservation and the interval-width argument prove~\eqref{eq:six}.
+
+For the radius bound, the angular operator has an electric part and its magnetic copy followed by tangent rotation $v(n)\mapsto-n\times v(n)$. That rotation exchanges the two harmonic families. Thus the positive six-component radiation eigenvalues are $\lambda^M_\ell+\lambda^N_\ell$, each of multiplicity $2(2\ell+1)$. Equation~\eqref{eq:lambda-energy} bounds every eigenvalue by $ka$, and $\norm q_2^2\leq\bar\eta_6A/k$ finishes the proof.
+\end{proof}
+The six-component response framework has precedent \citep{Miller2016}. This proposition assumes well-posedness; it does not extend Proposition~\ref{prop:coercivity} automatically to arbitrary rough six-component coefficients. The electric-only eigenvalues cannot be reused unchanged for magnetic media.
+
+\subsection{A one-sided real cap}
+An upper cap $\ReH\varepsilon_r\preceq PI$ alone admits
+\begin{equation}\label{eq:negative-contrast}
+ \varepsilon_n=(1-n+i\delta)I,\qquad n=1,2,\ldots,
+\end{equation}
+with the same loss floor and imaginary cap $Q\geq\delta$. The response factor $(n^2+\delta^2)/\delta$ diverges. A passive Drude realization at $\omega_0$ is
+\[
+ \varepsilon_n(\omega)=1-\frac{\omega_{p,n}^2}{\omega(\omega+i\gamma_n)},\qquad
+ \gamma_n=\frac{\delta\omega_0}{n},\qquad
+ \omega_{p,n}^2=n(\omega_0^2+\gamma_n^2).
+\]
+Substitution gives~\eqref{eq:negative-contrast}, with positive imaginary part for $\omega>0$. This disproves the inference that one-sided caps bound response. It is not a counterexample to every possible asymmetry gap: a homogeneous isotropic sphere in this family has $\Gamma=0$. No fixed-$R,V,Q,\delta,E_0$ physical sequence with $\Gamma\to1$ is proved here for the enlarged class.
+
+\subsection{Other channels, backgrounds and bandwidth}
+For a general incident electric field, the extinction estimate uses $\int_D\eta\abs f^2\dd x$ in place of $\mathcal M$. A reciprocal pair with equal positive extracted power under one common normalization admits the same interval argument. Finite-power channel fractions and plane-wave cross sections have different units.
+
+For waveguides or substrates, a complete positive radiation operator must include every open and guided outgoing channel. The abstract loss-metric reasoning can then apply, but the vacuum constants and ball spectrum do not transfer automatically. Uncounted outgoing channels cannot be identified with absorption. All main results are single-frequency statements. A sharper bandwidth tradeoff needs causal resources beyond the material values used here.
+
+\section{Relation to existing response bounds and remaining optimization}
+The integrated-response ceiling follows established material-response and radiation-efficiency inequalities \citep{Miller2016,Schab2020,Gustafsson2020,Kuang2020}. The sphere decomposition is also an established current-optimization tool \citep{Gustafsson2024}. Time-reversal response constraints require careful distinctions between loss hypotheses and normalization \citep{SounasAlu2017,Ma2025}. We do not claim a universally new response principle or an optimal fixed-resource Maxwell ceiling.
+
+The explicit all-order estimate and positive-extinction resolvent provide quantitative restrictions for the plane-wave pair. Exactness of the one-current relaxation does not imply joint realizability: the same local reciprocal constitutive tensor must generate both currents, and its reactive Maxwell constraints must also hold. Cross-source and $\mathbb T$-operator frameworks supply antecedents for enforcing such compatibility \citep{Molesky2020,Molesky2022,Shim2024}.
+
+The cubic construction establishes a general complex-polarization small-volume order. It makes no assertion about an optimal coefficient, an isotropic extremizer or a fixed-positive-extinction limit. The later real-linear quartic refinement concerns a narrower illumination class \citep{WangZhengQuartic2026}. The remaining problem is to determine the jointly attainable resource-constrained supremum, with a compatible physical construction or a residual-gap proof. One-sided real caps and uncontrolled lossless responding sectors are separate unresolved classes.
+
+\appendix
+\section{Analytical control of the infinite spectral tail}\label{app:tails}
+The formulas can be evaluated with a controlled tail without imposing a physical modal cutoff. For $0\leq s\leq z$, the integral representation gives $\abs{j_\ell(s)}\leq s^\ell/(2\ell+1)!!$. With $(sj_\ell)'=(\ell+1)j_\ell-sj_{\ell+1}$,
+\begin{align}
+ \lambda^M_\ell&\leq\frac{z^{2\ell+3}}{(2\ell+3)((2\ell+1)!!)^2},\label{eq:tailM}\\
+ \lambda^N_\ell&\leq\left[\ell(\ell+1)+
+ \left(\ell+1+\frac{z^2}{2\ell+3}\right)^2\right]
+ \frac{z^{2\ell+1}}{(2\ell+1)((2\ell+1)!!)^2}.\label{eq:tailN}
+\end{align}
+For integer $L\geq1$, define
+\[
+ C_L=2+\frac{2z^2}{(L+2)^2}
+       +\frac{z^4}{(2L+5)^2(L+2)^2},\qquad
+ r_L=\left(\frac{L+3}{L+2}\right)^2\frac{z^2}{(2L+5)^2}.
+\]
+Combining~\eqref{eq:tailM}--\eqref{eq:tailN} gives, for $\ell\geq L+1$,
+\[
+ (2\ell+1)(\lambda^M_\ell+\lambda^N_\ell)
+ \leq C_L\frac{(\ell+1)^2z^{2\ell+1}}{((2\ell+1)!!)^2}.
+\]
+After factoring $(\ell+1)^2$, the constant term is $(2\ell+1)/(\ell+1)\leq2$. The quadratic term is $(4\ell+3)z^2/((2\ell+3)(\ell+1)^2)\leq2z^2/(L+2)^2$, and the fourth-order term is bounded by the corresponding term in $C_L$. Successive majorants have ratio at most $r_L$. If $r_L<1$,
+\begin{equation}\label{eq:tail}
+ \sum_{\ell>L}(2\ell+1)(\lambda^M_\ell+\lambda^N_\ell)
+ \leq T_L:=\frac{C_L(L+2)^2z^{2L+3}}{((2L+3)!!)^2(1-r_L)}.
+\end{equation}
+The omitted $D_\alpha$ and $H_\alpha$ tails are at most $2\pi T_L/(k^3\alpha)$ and $2\pi T_L/(k^3\alpha^2)$, respectively, and each omitted radiation eigenvalue is at most $T_L/(2L+3)$. These are analytical remainder bounds. Numerical tables or discretized currents are not needed for the ordinary proofs or the exact sphere coefficient.
+
+\bibliographystyle{unsrtnat}
+\bibliography{references}
+\end{document}

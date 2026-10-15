@@ -1,0 +1,592 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs,microtype}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newcommand{\ReH}{\operatorname{Re}_{\!H}}
+\newcommand{\ImH}{\operatorname{Im}_{\!H}}
+\newcommand{\dd}{\,\mathrm{d}}
+\newcommand{\ip}[2]{\langle #1,#2\rangle}
+\newcommand{\bilin}[2]{[#1,#2]}
+\newcommand{\norm}[1]{\lVert #1\rVert}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\ex}{\mathbf e_x}
+\newcommand{\ez}{\mathbf e_z}
+\title{Uniform Quartic Bounds for Reciprocal\\Absorption--Scattering Asymmetry}
+\author{Daniel Wang\\McMaster University\\\href{mailto:denialk391@gmail.com}{\texttt{denialk391@gmail.com}}
+\and Junjie Zheng\\Columbia University\\\href{mailto:zjj2785@gmail.com}{\texttt{zjj2785@gmail.com}}}
+\date{15 October 2026}
+\hypersetup{pdfauthor={Daniel Wang and Junjie Zheng},pdftitle={Uniform Quartic Bounds for Reciprocal Absorption--Scattering Asymmetry}}
+\begin{document}
+\maketitle
+\begin{abstract}
+For opposite real linearly polarized plane waves, a reciprocal dielectric has equal extinction but can have different absorption and total scattering. We bound the absolute absorption difference divided by common extinction for compact nonmagnetic local media with a susceptibility norm cap $M$ and a full tensor loss floor $m>0$. An exact Maxwell inequality gives order $(kR)^4$ uniformly over all positive-volume measurable supports inside a radius-$R$ ball and all measurable admissible tensor patterns, including patterns that vary with size. For a fixed rescaled design, two static volume-response moments determine the quartic coefficient, with an $O((kR)^6)$ remainder. Two finite dielectric spheres with susceptibilities $iI$ and $2iI$ give an explicit positive coefficient interval and a full-Maxwell remainder bound. A homogeneous unequal-sphere construction proves exponent sharpness for every $0<m\leq M$. The asymmetry mechanism and fixed-smooth-shape quartic upper order have prior precedents. The results here concern the geometric uniformity, explicit constants and continuum coefficient certificates; they do not determine an optimal prefactor, an exact finite-size optimum or a fixed-positive-extinction small-size limit.
+\end{abstract}
+
+\section{Scope and principal results}\label{sec:main}
+Reciprocity constrains extinction while allowing absorption and scattering to depend on illumination direction. Extinction symmetry and this redistribution were established by Sounas and Al\`u \citep{SounasAlu2014}; Hopkins and coauthors give opposite linear-polarization examples and transverse coupled-dipole equations \citep{Hopkins2015}. We address a quantitative size limit under fixed material resources.
+
+Use time dependence $e^{-i\omega t}$, vacuum wavenumber $k>0$, relative permeability $I$ and relative permittivity $I+\chi$. Let $D\subset B_R(0)$ be a measurable set of positive volume $V$, and require explicitly
+\begin{equation}\label{eq:class}
+ \chi\in L^\infty(D;\mathbb C^{3\times3}),\qquad
+ \chi^T=\chi,\qquad \norm{\chi}_{\mathrm{op}}\leq M,
+ \qquad B:=\ImH\chi\succeq mI,
+ \qquad 0<m\leq M<\infty
+\end{equation}
+almost everywhere. The susceptibility is zero outside $D$. Here $\ReH T=(T+T^\dagger)/2$ and $\ImH T=(T-T^\dagger)/(2i)$. No sign condition on $\ReH\chi$ is needed. The two experiments use the same spatial tensor. For real unit vectors $e,d$ with $e\cdot d=0$, their electric incident fields and impedance-normalized magnetic fields are
+\begin{equation}\label{eq:incident}
+ f_\pm(x)=e e^{\pm ikd\cdot x},\qquad
+ \mathbf H_{\mathrm{inc},\pm}=Z_0H_{\mathrm{inc},\pm}
+   =\pm(d\times e)e^{\pm ikd\cdot x}.
+\end{equation}
+This is a time-reversed vacuum pair. For general elliptical polarization the two constant electric vectors are conjugates and need not coincide; the quartic theorem below does not cover that larger class.
+
+Let $A_\pm,S_\pm,X_\pm$ denote absorption, total scattering and extinction cross sections. Total scattering includes the entire outgoing sphere and both polarizations. Reciprocity and energy balance give
+\begin{equation}\label{eq:gamma}
+ X_+=X_-=X>0,\qquad X=A_\pm+S_\pm,\qquad
+ \Gamma=\frac{\abs{A_+-A_-}}{X}
+       =\frac{\abs{S_+-S_-}}{X}.
+\end{equation}
+All cross sections have units of area. Incident electric amplitudes have modulus one; no finite total power is assigned to an infinite plane wave. Section~\ref{sec:operators} establishes these statements for outgoing weak Maxwell solutions.
+
+\begin{theorem}[Uniform quartic bound]\label{thm:upper}
+Every support and susceptibility satisfying~\eqref{eq:class} has a unique outgoing weak Maxwell solution. Set
+\begin{equation}\label{eq:constants}
+ a_v=\left(\frac{3V}{4\pi}\right)^{1/3},\qquad
+ \rho=\frac{M^2}{m},\qquad
+ L_k=m^{-1}+1+\frac34 k^2a_v^2.
+\end{equation}
+For the pair~\eqref{eq:incident},
+\begin{equation}\label{eq:upper}
+ \Gamma\leq\min\left\{1,\frac{2}{3\pi}\rho^2L_k k^4RV\right\}.
+\end{equation}
+Consequently, with $t=kR$,
+\begin{equation}\label{eq:ball-upper}
+ \Gamma\leq\min\left\{1,
+ \frac89\rho^2\left(m^{-1}+1+\frac34t^2\right)t^4\right\}.
+\end{equation}
+These inequalities hold at every $k,R>0$. Their constants are uniform over measurable supports, numbers of components and admissible tensor patterns, including patterns that vary with $R$.
+\end{theorem}
+
+\begin{theorem}[Finite-sphere coefficient certificate]\label{thm:hetero}
+At fixed $k$, take spheres centered at $\mp R\ez/2$, with radii $R/20$ and $R/10$, and susceptibilities $iI$ and $2iI$, respectively. For $e=\ex,d=\ez$, the exact Maxwell cross sections satisfy
+\begin{equation}\label{eq:hetero-C}
+ \Gamma(t)=Ct^4+O(t^6),\qquad
+ \frac{36}{1299125}\leq C\leq\frac{44}{1295875}.
+\end{equation}
+More explicitly,
+\begin{equation}\label{eq:hetero-remainder}
+ \abs{\Gamma(t)-Ct^4}\leq\frac{21}{2000}t^6\quad(0<t\leq1/4),
+ \qquad \Gamma(t)\geq\frac{27}{1299125}t^4\quad(0<t\leq1/40).
+\end{equation}
+The spheres lie in $B_R(0)$ and satisfy~\eqref{eq:class} with $m=1,M=2$.
+\end{theorem}
+
+\begin{theorem}[Sharp exponent in every resource class]\label{thm:sharp}
+For every $0<m\leq M$, at a fixed $k>0$,
+\begin{equation}\label{eq:theta}
+ \sup_{D,\chi\text{ satisfying }\eqref{eq:class}}\Gamma
+   =\Theta_{m,M}((kR)^4)\qquad(kR\downarrow0).
+\end{equation}
+The lower family can use $\chi=imI$ on two unequal disjoint spheres. The notation means that positive constants $c,C,t_0$, depending only on $m,M$, bound this supremum between $ct^4$ and $Ct^4$ for $0<t<t_0$.
+\end{theorem}
+
+Theorems~\ref{thm:hetero} and~\ref{thm:sharp} establish sharpness of the exponent, rather than equality in the upper bounds. They do not compute an optimal coefficient or an exact finite-$t$ optimum. Their lower families have extinction tending to zero. The fixed-pattern sixth-order remainder in Section~\ref{sec:coefficient} is not asserted uniform over the entire design class.
+
+The length $R$ in Theorem~\ref{thm:upper} is a specified enclosing-ball radius. In Theorem~\ref{thm:hetero} it is also the center separation. That object lies in $B_{3R/5}(0)$; its minimum enclosing radius is $23R/40$, centered at $R\ez/40$. Changing the normalization to $\tau=k(23R/40)$ multiplies the quartic coefficient by $(40/23)^4$, the remainder coefficient by $(40/23)^6$, and changes the stated remainder and lower-bound intervals to $\tau\leq23/160$ and $\tau\leq23/1600$.
+
+\section{Exact operators, weak fields and the uniform bound}\label{sec:operators}
+On $H=L^2(D;\mathbb C^3)$ use the inner product $\ip{u}{v}=\int_D\overline u\cdot v$ and bilinear pairing $\bilin{u}{v}=\int_Du\cdot v$. Extend currents by zero and define
+\begin{equation}\label{eq:K}
+ K_kp=\left.(k^2I+\nabla\nabla\cdot)(g_k*p)\right|_D,
+ \qquad g_k(x)=\frac{e^{ik\abs{x}}}{4\pi\abs{x}}.
+\end{equation}
+All derivatives are distributional; the static contact term is included. For $p=\chi E$,
+\begin{equation}\label{eq:response}
+ L_k^{\mathrm{op}}p=f,\qquad L_k^{\mathrm{op}}=\chi^{-1}-K_k,
+ \qquad T_k=(L_k^{\mathrm{op}})^{-1},\qquad p_\pm=T_kf_\pm.
+\end{equation}
+The superscript distinguishes the operator from the scalar bound $L_k$ in~\eqref{eq:constants}.
+
+\begin{lemma}[Dyadic Green bound]\label{lem:green}
+On $H$,
+\begin{equation}\label{eq:green-bound}
+ \norm{K_0}\leq1,\qquad \norm{K_k-K_0}\leq\frac34k^2a_v^2.
+\end{equation}
+\end{lemma}
+\begin{proof}
+The whole-space static Fourier multiplier is $-\xi\xi^T/\abs{\xi}^2$, a negative orthogonal projection. Zero extension and restriction are contractions, proving the first claim. In particular, $K_0$ is real and self-adjoint, with $-I\preceq K_0\preceq0$.
+
+For $r=\abs{x-y}$, $u=kr$ and $b(u)=e^{iu}(iu-1)+1$, the radial and tangential eigenvalues of the difference kernel are
+\begin{equation}\label{eq:kernel-eigenvalues}
+ \frac{-2b(u)}{4\pi r^3},\qquad
+ \frac{u^2e^{iu}+b(u)}{4\pi r^3}.
+\end{equation}
+Its contact terms cancel. Since $b(0)=0$ and $b'(u)=-ue^{iu}$, $\abs{b(u)}\leq u^2/2$, so the kernel norm is at most $3k^2/(8\pi r)$. Rearrangement, or layer cake with $\abs{D\cap B_s(x)}\leq\min\{V,4\pi s^3/3\}$, gives
+\[
+ \sup_x\int_D\frac{\dd y}{\abs{x-y}}\leq2\pi a_v^2.
+\]
+The same estimate holds with $x,y$ interchanged. Schur's test proves the second claim without any boundary or separation constant.
+\end{proof}
+
+\begin{lemma}[Complete radiation and power identities]\label{lem:radiation}
+Let $\Pi_n=I-nn^T$ and define the unscaled radiation map
+\begin{equation}\label{eq:F}
+ (\mathcal F_kp)(n)=\Pi_n\int_Dp(x)e^{-ikn\cdot x}\dd x,
+ \qquad n\in S^2.
+\end{equation}
+Then
+\begin{equation}\label{eq:radiation}
+ \ip{p}{(\ImH K_k)p}=\frac{k^3}{16\pi^2}
+ \norm{\mathcal F_kp}_{L^2(S^2)}^2\geq0,
+ \qquad \norm{\mathcal F_k}^2\leq\frac{8\pi}{3}V.
+\end{equation}
+For a solution of~\eqref{eq:response}, put
+\begin{equation}\label{eq:W}
+ W=-\ImH\chi^{-1}=\chi^{-\dagger}B\chi^{-1}.
+\end{equation}
+Its cross sections are
+\begin{equation}\label{eq:powers}
+ X=k\Im\ip{f}{p},\qquad A=k\ip{p}{Wp}
+     =k\int_DE^\dagger BE\dd x,\qquad
+ S=\frac{k^4}{16\pi^2}\norm{\mathcal F_kp}^2,
+ \qquad X=A+S.
+\end{equation}
+\end{lemma}
+\begin{proof}
+Direct angular integration gives
+\[
+ \Im g_k(x)=\frac{k}{16\pi^2}\int_{S^2}e^{ikn\cdot x}\dd\Omega.
+\]
+Applying $k^2I+\nabla\nabla\cdot$ inserts $k^2\Pi_n$. Fubini and compact-support $L^2\subset L^1$ prove the radiation identity. One may equivalently approximate zero extensions by smooth currents in a containing ball; smooth functions supported inside a possibly empty-interior $D$ are not required. At fixed $n$, Cauchy--Schwarz gives
+\[
+ \abs{\mathcal F_kp(n)}^2\leq V\int_D\abs{\Pi_np(x)}^2\dd x.
+\]
+Integrating $\int_{S^2}\Pi_n\dd\Omega=(8\pi/3)I$ proves the norm bound.
+
+The actual electric far-field amplitude is $k^2\mathcal F_kp/(4\pi)$. Its squared angular norm is the scattering cross section. Equivalently, the sphere-integrated time-averaged scattered Poynting flux divided by incident intensity $1/(2Z_0)$ tends to $S$. Taking the imaginary part of the volume equation and using $E=\chi^{-1}p$ gives~\eqref{eq:powers}. Substitution of~\eqref{eq:F} at $n=d$ gives the forward optical theorem $X=(4\pi/k)\Im\{e^\dagger k^2\mathcal F_kp(d)/(4\pi)\}$.
+\end{proof}
+
+\begin{lemma}[Common inverse and physical solutions]\label{lem:inverse}
+Under~\eqref{eq:class},
+\begin{equation}\label{eq:inverse-bounds}
+ W\succeq\rho^{-1}I,\qquad \norm{T_k}\leq\rho,
+ \qquad \norm{L_k^{\mathrm{op}}}\leq L_k.
+\end{equation}
+The volume solution is equivalent to the unique outgoing weak Maxwell solution.
+\end{lemma}
+\begin{proof}
+For every vector $v$, $\abs{\chi v}\geq m\abs v$, by $\Im(v^\dagger\chi v)\geq m\abs v^2$. Thus $\chi^{-1}$ is a measurable bounded multiplier with norm at most $m^{-1}$. Equation~\eqref{eq:W} gives $v^\dagger Wv\geq m\abs{\chi^{-1}v}^2\geq(m/M^2)\abs v^2$. Lemma~\ref{lem:radiation} implies
+\begin{equation}\label{eq:coercivity}
+ -\Im\ip{p}{L_k^{\mathrm{op}}p}
+ =\ip{p}{Wp}+\ip{p}{(\ImH K_k)p}\geq\rho^{-1}\norm p^2.
+\end{equation}
+Complex Lax--Milgram applied to $i\ip{q}{L_k^{\mathrm{op}}p}$ proves surjectivity, injectivity and the inverse bound. Lemma~\ref{lem:green} proves the bound on $L_k^{\mathrm{op}}$.
+
+The scalar volume potential $g_k*p$ lies locally in $H^2$ by constant-coefficient Helmholtz regularity. Reconstruct
+\[
+ E=f+(k^2I+\nabla\nabla\cdot)(g_k*p),\qquad
+ \mathbf H=(ik)^{-1}\nabla\times E.
+\]
+Both fields lie locally in $H(\mathrm{curl})$ and solve $\nabla\times E=ik\mathbf H$, $\nabla\times\mathbf H=-ik(I+\chi\mathbf1_D)E$ distributionally. The scattered fields are outgoing. Their smooth exterior representative satisfies the uniform Silver--M\"uller condition $r\norm{\mathbf H_s(rn)\times n-E_s(rn)}\to0$. Conversely, subtracting this compact-source reconstruction from any outgoing weak solution leaves an entire outgoing vacuum pair, which vanishes by Appendix~\ref{app:vacuum}. No trace or boundary regularity of $D$ enters. Weak-field uniqueness is almost everywhere; exterior radiation uses its smooth representative.
+\end{proof}
+
+\begin{lemma}[Exact reciprocal extinction]\label{lem:reciprocity}
+The pair~\eqref{eq:incident} has $X_+=X_->0$.
+\end{lemma}
+\begin{proof}
+The Green kernel is symmetric under simultaneous transpose and exchange of its arguments. Therefore $L_k^{\mathrm{op}}$ and $T_k$ are symmetric for the bilinear pairing. Since $f_- =\overline{f_+}$,
+\[
+ \ip{f_+}{T_kf_+}=\bilin{f_-}{T_kf_+}
+  =\bilin{f_+}{T_kf_-}=\ip{f_-}{T_kf_-}.
+\]
+Their imaginary parts coincide. Positive $V$ makes $f_\pm\ne0$ in $H$, hence $p_\pm\ne0$, and~\eqref{eq:coercivity} gives $X\geq k\rho^{-1}\norm{p_\pm}^2>0$.
+\end{proof}
+
+The common operator retains all Maxwell compatibility for both sources. For the two-column maps $F=(f_+,f_-)$ and $P=(p_+,p_-)$, the exact identity is
+\begin{equation}\label{eq:joint}
+ \ImH(F^\dagger P)=P^\dagger(W+\ImH K_k)P.
+\end{equation}
+Neither diagonal nor off-diagonal power identities alone are a sufficient local constitutive realizability test. Multi-input $T$-operator constraints have established precedents \citep{Molesky2022}; radiation-to-loss optimization likewise precedes this work \citep{Schab2020}. Here the two currents are kept as images under one local-material Maxwell inverse.
+
+\begin{proof}[Proof of Theorem~\ref{thm:upper}]
+The common inverse supplies
+\begin{equation}\label{eq:current-difference}
+ \norm{p_+-p_-}\leq\rho\norm{f_+-f_-}
+  \leq2\rho kR\sqrt V.
+\end{equation}
+Put $h=(\rho X/k)^{1/2}$. Passivity gives $\norm{p_\pm}\leq h$, while the same volume equation gives
+\begin{equation}\label{eq:denominator}
+ \sqrt V=\norm{f_+}=\norm{L_k^{\mathrm{op}}p_+}
+  \leq L_k\norm{p_+}\leq L_kh.
+\end{equation}
+The difference of radiation quadratic forms, Lemma~\ref{lem:radiation}, and~\eqref{eq:current-difference} yield
+\begin{align*}
+ \abs{S_+-S_-}
+ &\leq\frac{k^4V}{6\pi}\norm{p_+-p_-}
+       (\norm{p_+}+\norm{p_-})\\
+ &\leq\frac{k^4V}{6\pi}(2\rho kR\sqrt V)(2h)
+ \leq\frac{2}{3\pi}\rho^2L_k k^4RVX.
+\end{align*}
+Divide by positive $X$ and use $0\leq A_\pm\leq X$ to obtain~\eqref{eq:upper}. Finally $V\leq4\pi R^3/3$ and $a_v\leq R$ prove~\eqref{eq:ball-upper}. The factor $\sqrt V$ in~\eqref{eq:denominator} is the norm of the incident field on the same support; it does not impose a lower volume fraction or an extinction floor.
+\end{proof}
+
+\section{A coefficient for a fixed rescaled design}\label{sec:coefficient}
+Fix a positive-volume measurable $\Omega\subset B_1$ and a tensor $\chi\in L^\infty(\Omega)$ satisfying~\eqref{eq:class}. The physical body is $R\Omega$ with susceptibility $\chi(x/R)$. Set $t=kR$, and use $K_t,T_t$ on $L^2(\Omega;\mathbb C^3)$. Define
+\begin{equation}\label{eq:moments}
+ q_0=T_0e,\qquad q_1=T_0[(d\cdot y)e],\qquad
+ p_j=\int_\Omega q_j(y)\dd y,\qquad D_0=\Im(e\cdot p_0).
+\end{equation}
+The affine input in $q_1$ need not be curl-free. It is the first term of a Maxwell plane-wave expansion and is a legitimate $L^2$ input to the static volume inverse; it is not assumed to be an independently applied electrostatic field.
+
+\begin{theorem}[Fixed-pattern coefficient]\label{thm:coefficient}
+One has $D_0>0$, and for this fixed rescaled pattern,
+\begin{equation}\label{eq:coefficient}
+ \Gamma(t)=\frac{2\abs{\Im(p_0^\dagger p_1)}}{3\pi D_0}t^4+O(t^6).
+\end{equation}
+If the numerator is zero, this states $\Gamma(t)=O(t^6)$. The remainder here may depend on the fixed pattern.
+\end{theorem}
+\begin{proof}
+Let $a_{v,\Omega}=(3\abs\Omega/(4\pi))^{1/3}$. The resolvent identity gives
+\begin{equation}\label{eq:resolvent-expansion}
+ \norm{T_t-T_0}\leq\frac34\rho^2a_{v,\Omega}^2t^2.
+\end{equation}
+Put $c_t=e\cos(td\cdot y)$, $s_t=e\sin(td\cdot y)$, $u_t=T_tc_t$ and $v_t=T_ts_t$. Taylor inequalities on the bounded support give the exact-solution expansions
+\begin{equation}\label{eq:uv}
+ q_\pm(t)=u_t\pm iv_t,\qquad
+ u_t=q_0+O_{L^2}(t^2),\qquad v_t=tq_1+O_{L^2}(t^3).
+\end{equation}
+Normalize the full radiation operator by
+\begin{equation}\label{eq:Q}
+ Q_t=\frac{\mathcal F_t^\dagger\mathcal F_t}{16\pi^2},\qquad
+ Q_t(x,y)=\frac1{16\pi^2}\int_{S^2}\Pi_n e^{itn\cdot(x-y)}\dd\Omega_n.
+\end{equation}
+Changing $n$ to $-n$ makes the kernel real and even in $t$. For reference diameter $L_\Omega$ and volume $V_\Omega$, the cosine remainder and Schur's test give
+\begin{equation}\label{eq:Q-bound}
+ \norm{Q_t-Q_0}\leq\frac{V_\Omega L_\Omega^2}{8\pi}t^2,
+ \qquad \ip{u}{Q_0v}=\frac1{6\pi}
+ \left(\int_\Omega u\right)^\dagger\int_\Omega v.
+\end{equation}
+Exact physical scaling and~\eqref{eq:uv} therefore give
+\begin{equation}\label{eq:scattering-expansion}
+ \frac{S_+-S_-}{k^4R^6}
+ =-4\Im\ip{u_t}{Q_tv_t}
+ =-\frac{2}{3\pi}t\Im(p_0^\dagger p_1)+O(t^3).
+\end{equation}
+The observation phase has not been discarded: its odd term cancels in the full angular kernel. Bilinear reciprocity cancels the mixed forward-work terms exactly, so
+\begin{equation}\label{eq:extinction-expansion}
+ \frac{X}{kR^3}=\Im\{\bilin{c_t}{T_tc_t}+\bilin{s_t}{T_ts_t}\}
+ =D_0+O(t^2).
+\end{equation}
+At $t=0$, self-adjointness of $K_0$ gives $D_0=\ip{q_0}{Wq_0}>0$. Divide the absolute value of~\eqref{eq:scattering-expansion} by~\eqref{eq:extinction-expansion}, using $k^3R^3=t^3$, to obtain~\eqref{eq:coefficient}. The inequality $\abs{\abs a-\abs b}\leq\abs{a-b}$ covers a vanishing leading coefficient. Full-vector currents, magnetic and electric multipoles, and all interference are retained in $T_t,Q_t$ and their norm remainders.
+\end{proof}
+Translating the reference origin changes $p_1$ by a real multiple of $p_0$ and leaves $\Im(p_0^\dagger p_1)$ unchanged. The coefficient thus respects translation invariance.
+
+\section{An interacting finite-sphere certificate}\label{sec:hetero}
+Work in reference coordinates with
+\begin{equation}\label{eq:spheres}
+ \Omega_1=B_a(-\ez/2),\qquad\Omega_2=B_{2a}(\ez/2),
+ \qquad a=1/20,\qquad\chi_1=iI,\quad\chi_2=2iI.
+\end{equation}
+Write $w=\abs\Omega=12\pi a^3$ for volume, to distinguish it from the loss operator $W$. The surface gap is $17/20$ and $\abs y\leq b:=3/5$ on the support.
+
+\subsection{All electrostatic interactions and isolated-sphere moments}
+Split the static operator into within-sphere and cross blocks, and put
+\[
+ A_b=\operatorname{diag}\{(\chi_j^{-1}-K_{0,jj})^{-1}\}_{j=1,2},
+ \qquad C_o=(K_{0,ij})_{i\ne j}.
+\]
+Since $-\ImH\chi_j^{-1}\succeq I/2$, $\norm{A_b}\leq2$. The cross-sphere kernel is
+\begin{equation}\label{eq:H-kernel}
+ H(r)=\frac{3rr^T-\abs r^2I}{4\pi\abs r^5},\qquad
+ \norm{H(r)}_{\mathrm{op}}=\frac1{2\pi\abs r^3}.
+\end{equation}
+Cauchy--Schwarz in each cross block gives
+\begin{equation}\label{eq:cross-bound}
+ \norm{C_o}\leq c:=\frac{\sqrt{\abs{\Omega_1}\abs{\Omega_2}}}
+ {2\pi(1-3a)^3}=\frac{4\sqrt2}{14739}<\frac1{2500}.
+\end{equation}
+The off-diagonal two-block operator has norm equal to the larger block norm, with no extra factor two. The Neumann resolvent identity gives
+\begin{equation}\label{eq:delta}
+ \delta:=\norm{T_0-A_b}\leq\frac{4c}{1-2c}<\frac1{600}.
+\end{equation}
+This bounds all current components, repeated interactions and static multipoles.
+
+For a scalar susceptibility on a ball, $K_0e=-e/3$ for a constant vector, hence the isolated response is $\beta_je$ with $\beta_j=3\chi_j/(3+\chi_j)$. Bilinear symmetry, tested against any constant vector, proves the arbitrary-input moment identity
+\begin{equation}\label{eq:ball-moment}
+ \int_{\Omega_j}T_jh=\beta_j\int_{\Omega_j}h
+ \qquad(h\in L^2(\Omega_j;\mathbb C^3)).
+\end{equation}
+There is no conjugation of $\beta_j$. This also proves the moment formula for the affine drive $z\ex$: its centered odd part has zero total moment, even though that input has a curl.
+
+The isolated volume polarizabilities and total moments are
+\begin{equation}\label{eq:polarizabilities}
+ \alpha_1=4\pi a^3\frac{1+3i}{10},\quad
+ \alpha_2=32\pi a^3\frac{4+6i}{13},\quad
+ p_0^b=(\alpha_1+\alpha_2)\ex,\quad
+ p_1^b=\tfrac12(\alpha_2-\alpha_1)\ex.
+\end{equation}
+Direct rational arithmetic yields
+\begin{equation}\label{eq:block-values}
+ I_b:=\Im((p_0^b)^\dagger p_1^b)=-\frac8{195}w^2,
+ \qquad D_b:=\Im(\ex\cdot p_0^b)=\frac{173}{130}w.
+\end{equation}
+
+\subsection{A nonzero coefficient for the actual spheres}
+The integration-map norm is $\sqrt w$, so~\eqref{eq:delta} gives
+\[
+ \abs{p_0-p_0^b}\leq\delta w,\quad
+ \abs{p_1-p_1^b}\leq b\delta w,\quad
+ \abs{p_0^b}\leq2w,\quad\abs{p_1^b}\leq2bw.
+\]
+For $I_0=\Im(p_0^\dagger p_1)$, including the product of the two errors gives
+\begin{equation}\label{eq:hetero-error}
+ \abs{I_0-I_b}\leq b(4\delta+\delta^2)w^2
+ <\frac35\left(\frac4{600}+\frac1{600^2}\right)w^2
+ <\frac1{10}\abs{I_b}.
+\end{equation}
+The last relative majorant is $31213/320000=0.097540625<1/10$. Thus $I_0<0$ and
+\begin{equation}\label{eq:moment-enclosure}
+ \frac{12}{325}w^2\leq\abs{I_0}\leq\frac{44}{975}w^2,
+ \qquad\frac{10367}{7800}w\leq D_0\leq\frac{10393}{7800}w.
+\end{equation}
+Theorem~\ref{thm:coefficient} now yields
+\begin{equation}\label{eq:C-enclosure}
+ \frac{2304}{10393}a^3\leq C\leq\frac{2816}{10367}a^3,
+\end{equation}
+which is~\eqref{eq:hetero-C} at $a=1/20$. The isolated comparison has coefficient $(128/519)a^3$; it is not the exact interacting coefficient.
+
+\subsection{An explicit full-Maxwell remainder}
+Use conservative reference diameter $L=6/5$ and $0<t\leq1$. The numerator eigenvalues of the dynamic-minus-static kernel are
+\[
+ A(s)=e^{is}(s^2+is-1)+1,\qquad
+ B(s)=2\{e^{is}(1-is)-1\},\qquad s=t\abs{x-y}.
+\]
+Since $A'(s)=s(1+is)e^{is}$, $B'(s)=2se^{is}$ and $s\leq6/5<\sqrt3$, integration gives $\abs A,\abs B\leq s^2$. The kernel norm is at most $t^2/(4\pi\abs{x-y})$. Schur integration in a radius-$L$ ball gives
+\begin{equation}\label{eq:example-inverses}
+ \norm{K_t-K_0}\leq\frac{18}{25}t^2,\qquad
+ \norm{T_t}\leq2,\qquad\norm{T_t-T_0}\leq\frac{72}{25}t^2.
+\end{equation}
+Exact positive radiation preserves the loss-coercive inverse bound. The Taylor inequalities in~\eqref{eq:uv} then give
+\begin{equation}\label{eq:example-vectors}
+ \begin{aligned}
+ \norm{u_t-q_0}&\leq\frac{81}{25}t^2\sqrt w,&
+ \norm{v_t-tq_1}&\leq\frac95t^3\sqrt w,\\
+ \norm{u_t},\norm{q_0}&\leq2\sqrt w,&
+ \norm{v_t}&\leq2bt\sqrt w,\quad\norm{q_1}\leq2b\sqrt w.
+ \end{aligned}
+\end{equation}
+Here $\norm{Q_0}=w/(6\pi)$ and $\norm{Q_t-Q_0}\leq wL^2t^2/(8\pi)$. Set
+\[
+ \mathcal S(t)=\frac{S_+-S_-}{k^4R^6},\qquad
+ S_0=-\frac{2I_0}{3\pi},\qquad D(t)=\frac{X}{kR^3}.
+\]
+To bound the radiation error, use exactly
+\begin{align*}
+ \ip{u_t}{Q_tv_t}-t\ip{q_0}{Q_0q_1}
+ &=\ip{u_t}{(Q_t-Q_0)v_t}
+ +\ip{u_t-q_0}{Q_0v_t}
+ +\ip{q_0}{Q_0(v_t-tq_1)}.
+\end{align*}
+In units $w^2t^3/\pi$, the three bounds are $54/125$, $81/125$ and $3/5$, whose sum is $42/25$. Multiplication by four gives
+\begin{equation}\label{eq:S-error}
+ \abs{\mathcal S(t)-tS_0}\leq\frac{168}{25\pi}w^2t^3.
+\end{equation}
+For extinction,~\eqref{eq:extinction-expansion} and~\eqref{eq:example-vectors} give
+\[
+ \abs{\bilin{c_t}{u_t}-\bilin e{q_0}}
+ \leq(b^2+81/25)wt^2,\qquad
+ \abs{\bilin{s_t}{v_t}}\leq2b^2wt^2.
+\]
+Consequently
+\begin{equation}\label{eq:D-error}
+ \abs{D(t)-D_0}\leq\frac{108}{25}wt^2.
+\end{equation}
+For $t\leq1/4$,~\eqref{eq:moment-enclosure} and~\eqref{eq:D-error} imply $D(t)\geq w$, $D_0\geq w$ and $\abs{S_0}\leq88w^2/(2925\pi)$. Since $\Gamma=t^3\abs{\mathcal S(t)}/D(t)$,
+\begin{equation}\label{eq:division}
+ \abs{\Gamma(t)/t^4-C}
+ \leq\left(\frac{168}{25}+\frac{88}{2925}\frac{108}{25}\right)
+ \frac w\pi t^2
+ =\frac{55656}{8125}\frac w\pi t^2
+ <\frac{7w}{\pi}t^2.
+\end{equation}
+With $w=12\pi/8000$, this proves the $21t^6/2000$ bound. Finally
+\[
+ \frac{21}{2000}(1/40)^2<\frac14\frac{36}{1299125}
+\]
+proves the positive lower bound in~\eqref{eq:hetero-remainder} and completes Theorem~\ref{thm:hetero}.
+
+\section{Homogeneous unequal spheres in every resource class}\label{sec:homogeneous}
+Fix $\mu>0$ and use $\chi=i\mu I$ on two balls centered at $\mp\ez/2$ with radii $a,2a$. Choose a fixed $0<a\leq1/20$ below. Put
+\begin{equation}\label{eq:homogeneous-parameters}
+ v=\frac{4\pi a^3}{3},\quad v_1=v,\quad v_2=8v,\quad
+ w=9v,\quad h=1-3a\geq4/5,\quad b=3/5,\quad
+ \beta=\frac{3i\mu}{3+i\mu}.
+\end{equation}
+One has $\abs\beta\leq\min\{\mu,3\}$ and $\Im\beta=9\mu/(9+\mu^2)>0$. Let $A=\operatorname{diag}(A_1,A_2)$ be the isolated static inverse, $C_o$ the off-diagonal static operator, and $T$ the full static inverse. Coercivity and~\eqref{eq:H-kernel} give
+\begin{equation}\label{eq:homogeneous-resolvent}
+ \norm A,\norm T\leq\mu,\qquad
+ \norm{C_o}\leq\frac{4\sqrt2a^3}{3h^3}\leq4a^3.
+\end{equation}
+Twice iterating the exact resolvent identity yields
+\begin{equation}\label{eq:second-order}
+ T=A+AC_oA+AC_oAC_oT,\qquad
+ \norm{T-A-AC_oA}\leq\mu^3\norm{C_o}^2.
+\end{equation}
+No Neumann-series convergence hypothesis is used here.
+
+\subsection{The first interaction and its sign}
+Use inputs $f=\ex$, $g=z\ex$, and write moments through the first interaction as $\widetilde p_j=p_j^b+p_j^{(1)}$. The isolated moments are
+\[
+ p_0^b=\beta w\ex,\qquad
+ p_1^b=\tfrac12\beta(v_2-v_1)\ex.
+\]
+Every component of $H(x-y)$ is harmonic away from its singularity. Applying the ball mean-value property twice gives the exact identity
+\begin{equation}\label{eq:mean-value}
+ \int_{\Omega_i}\int_{\Omega_j}H(x-y)\dd y\dd x
+ =v_iv_jH(c_i-c_j)\qquad(i\ne j).
+\end{equation}
+Since $H(\ez)\ex=g_0\ex$, $g_0=-1/(4\pi)$,
+\begin{equation}\label{eq:p0-correction}
+ p_0^{(1)}=2g_0\beta^2v_1v_2\ex,\qquad
+ \abs{\widetilde p_0}\leq\abs\beta w
+ \left(1+\frac{16}{27}\abs\beta a^3\right)\leq2\abs\beta w.
+\end{equation}
+The isolated product $(p_0^b)^\dagger p_1^b$ is real, while the first constant-drive interaction supplies
+\begin{equation}\label{eq:L}
+ L:=\Im((p_0^{(1)})^\dagger p_1^b)
+ =-g_0v_1v_2(v_2-v_1)\abs\beta^2\Im\beta
+ =\frac{2688\pi^2\mu^3}{(9+\mu^2)^2}a^9>0.
+\end{equation}
+
+The affine correction must also be controlled. On sphere $j$, write
+\[
+ A_jg=z_j\beta\ex+q_j^o,\qquad
+ q_j^o=A_j[(z-z_j)\ex].
+\]
+Equation~\eqref{eq:ball-moment} and spherical second moments give
+\begin{equation}\label{eq:odd-source}
+ \int q_j^o=0,\qquad \norm{q_j^o}\leq\mu r_j\sqrt{v_j/5},
+ \qquad\int_{\Omega_j}\abs{y-c_j}\abs{q_j^o(y)}\dd y
+ \leq\frac{\mu\sqrt3}{5}r_j^2v_j.
+\end{equation}
+The uniform center terms cancel because $z_1+z_2=0$. Receiving-ball integration by~\eqref{eq:ball-moment} and harmonic mean value therefore gives
+\[
+ p_1^{(1)}=\beta\sum_{i\ne j}v_i
+       \int_{\Omega_j}H(c_i-y)q_j^o(y)\dd y.
+\]
+For a real unit vector $u$ and $n=r/\abs r$, direct differentiation yields
+\begin{equation}\label{eq:derivative}
+ DH(r)[u]=\frac{3(un^T+nu^T)+3(n\cdot u)I-15(n\cdot u)nn^T}
+ {4\pi\abs r^4},\qquad
+ \norm{DH(r)[u]}\leq\frac6{\pi\abs r^4}.
+\end{equation}
+Subtract $H(c_i-c_j)$ using the zero moment in~\eqref{eq:odd-source}. The intervening segments remain at least distance $h$ from zero, so
+\begin{equation}\label{eq:affine-correction}
+ \abs{p_1^{(1)}}\leq\frac{6\sqrt3\abs\beta\mu}{\pi h^4}
+             a^2v_1v_2.
+\end{equation}
+Equations~\eqref{eq:p0-correction}--\eqref{eq:affine-correction} imply
+\begin{equation}\label{eq:first-error}
+ \frac{\abs{\Im(\widetilde p_0^\dagger\widetilde p_1)-L}}{L}
+ \leq\frac{48\sqrt3}{7h^4}(9+\mu^2)a^2
+ <30(9+\mu^2)a^2.
+\end{equation}
+Thus every affine and constant-current component at the first interaction is included.
+
+\subsection{All remaining interactions and a fixed lower pattern}
+Let $\delta_2=\mu^3\norm{C_o}^2$. Equation~\eqref{eq:second-order} gives $\abs{p_0-\widetilde p_0}\leq\delta_2w$, $\abs{p_1-\widetilde p_1}\leq b\delta_2w$. Using one exact factor, $\abs{p_1}\leq\mu bw$, in the difference of products includes all error products:
+\begin{align}
+ \abs{\Im(p_0^\dagger p_1)-\Im(\widetilde p_0^\dagger\widetilde p_1)}
+ &\leq b\delta_2(\mu+2\abs\beta)w^2\nonumber\\
+ &\leq\frac95\mu^4\norm{C_o}^2w^2.\label{eq:remaining-error}
+\end{align}
+Combining~\eqref{eq:L},~\eqref{eq:first-error} and~\eqref{eq:remaining-error} gives
+\begin{equation}\label{eq:homogeneous-error}
+ \frac{\abs{\Im(p_0^\dagger p_1)-L}}{L}
+ \leq30(9+\mu^2)a^2+\frac{54}{35}\mu(9+\mu^2)^2a^3.
+\end{equation}
+Choose once, before $t\downarrow0$,
+\begin{equation}\label{eq:a-choice}
+ 0<a\leq\min\left\{\frac1{20},\,[120(9+\mu^2)]^{-1/2},
+ \left[\frac{35}{216\mu(9+\mu^2)^2}\right]^{1/3}\right\}.
+\end{equation}
+The right side of~\eqref{eq:homogeneous-error} is then at most $1/2$, so $L/2\leq\Im(p_0^\dagger p_1)\leq3L/2$ for the exact finite spheres. Since $\norm{\chi^{-1}-K_0}\leq\mu^{-1}+1$,
+\[
+ \frac{\mu w}{(1+\mu)^2}\leq D_0=\mu^{-1}\norm{Tf}^2\leq\mu w.
+\]
+Theorem~\ref{thm:coefficient} therefore gives a full-Maxwell family
+\begin{equation}\label{eq:homogeneous-C}
+ \Gamma(t)=C_ht^4+O(t^6),\qquad
+ \frac{224\mu^2}{3(9+\mu^2)^2}a^6
+ \leq C_h\leq\frac{224\mu^2(1+\mu)^2}{(9+\mu^2)^2}a^6.
+\end{equation}
+Set $\mu=m$. This single material obeys~\eqref{eq:class} for every $M\geq m$, including $M=m$. The fixed positive coefficient and its fixed-pattern remainder give a positive lower bound $ct^4$ for all sufficiently small $t$. Theorem~\ref{thm:upper} supplies the uniform upper bound. A rigid rotation covers every fixed real transverse pair and proves Theorem~\ref{thm:sharp}. There is no simultaneous uncontrolled separation and size limit.
+
+\section{Relation to earlier formulas and physical limits}\label{sec:prior}
+The fixed-smooth-shape quartic upper order is already implicit in full-Maxwell small-inclusion expansions. In particular, Ammari, Deng and Millien, Theorem~5.8 and Eq.~(5.32) of the first arXiv version \citep{AmmariDengMillien2014}, give a leading electric and magnetic static polarization term and an $O(\delta^4)$ field remainder. For a fixed smooth homogeneous reference body, fixed lossy scalar contrast and zero magnetic contrast, the leading magnetic term vanishes. Both real opposite electric plane waves have the same value at the shrinking center. Consequently their far fields have the same $\delta^3$ term, so $S_+-S_-=O(\delta^7)$, while positive static dissipation gives $X=\Theta(\delta^3)$. We infer $\Gamma=O(\delta^4)$ under these fixed-shape hypotheses. This inference does not attribute our all-measurable-support quantifier or constants to that theorem.
+
+Hopkins and coauthors' transverse two-dipole equations (12)--(15), and their opposite-linear-polarization example in Fig.~3, are direct mechanism precedents \citep{Hopkins2015}. To compare coefficients, take static volume polarizabilities $\alpha_1,\alpha_2$, unit center separation and transverse coupling $g=-1/(4\pi)$. Their scalar reduction has uniform- and affine-drive total moments
+\[
+ P_0=\frac{\alpha_1+\alpha_2+2g\alpha_1\alpha_2}{\Delta},\qquad
+ P_1=\frac{\alpha_2-\alpha_1}{2\Delta},\qquad
+ \Delta=1-g^2\alpha_1\alpha_2.
+\]
+Our algebraic comparison gives
+\[
+ \Im(P_0^*P_1)=
+ \frac{\Im(\alpha_1^*\alpha_2)
+ +g(\abs{\alpha_1}^2\Im\alpha_2-\abs{\alpha_2}^2\Im\alpha_1)}{\abs\Delta^2}.
+\]
+For one material, $\alpha_j=v_j\beta$ and $v_2>v_1$, this is
+\[
+ \frac{-gv_1v_2(v_2-v_1)\abs\beta^2\Im\beta}
+ {\abs{1-g^2v_1v_2\beta^2}^2}>0.
+\]
+The leading homogeneous interaction sign is thus already present in the old point model. Sections~\ref{sec:hetero}--\ref{sec:homogeneous} supply controlled finite-sphere statements, rather than a new two-dipole effect. Decreasing $t$ alone does not remove a fixed static multipole error for a fixed radius-to-gap ratio.
+
+The contribution is the explicit inequality uniform over arbitrary measurable supports and capped measurable tensors, together with a static moment formula and quantitative continuum certificates for nonzero coefficients. No first-priority claim is made for the precise uniform theorem. The fixed-frequency hypotheses permit passive causal realizations of the displayed examples: for any $\gamma>0$ and operating frequency $\omega_0>0$,
+\begin{equation}\label{eq:lorentz}
+ \chi_j(\omega)=\frac{j\gamma\omega_0}{\omega_0^2-\omega^2-i\gamma\omega}I,
+ \qquad j=1,2,
+\end{equation}
+has poles in the lower half-plane, positive imaginary part for positive frequency, and $\chi_j(\omega_0)=ijI$. Replacing $j$ by $\mu$ realizes the homogeneous example. The geometry shrinks while those material functions stay fixed; no broadband loss floor or bandwidth optimum is implied.
+
+A nonmagnetic constitutive law does not omit emergent magnetic multipoles of dielectric currents. Conversely, magnetic or bianisotropic constitutive response, spatial dispersion, a loss floor only on selected components, general elliptical illumination, or caps that diverge as size shrinks are outside these theorems. Nor do the theorems address a fixed-positive-extinction shrinking-object family: indeed $X\leq k\rho V$ follows directly from $\norm{T_k}\leq\rho$, so $X\to0$ uniformly as $R\to0$ at fixed $k,m,M$.
+
+\section{Conclusion}
+A susceptibility cap and full tensor loss floor give a quartic upper bound for real opposite plane waves, uniformly over measurable geometries and material patterns. Two finite-sphere certificates show that this exponent occurs in the exact Maxwell problem, including within every resource class using one homogeneous material. The coefficient formula and explicit remainder control this assertion beyond a point-particle model. The optimal coefficient, the finite-size joint optimum and any additional fixed-positive-extinction or bandwidth requirement remain separate problems.
+
+\noindent\textbf{AI assistance and verification scope.}
+The accompanying formalization uses Lean 4.34.1 \citep{deMouraUllrich2021} and a pinned Mathlib revision \citep{mathlib2020}. It proves the numbered theorem and lemma conclusions for the stated physical models: the measurable-tensor weak Maxwell problem and uniform bounds, the fixed-pattern coefficient and physical dilation, the interacting heterogeneous-sphere certificate, and homogeneous exponent sharpness for every resource pair, including $M=m$. In the sharpness theorem, resource-dependent constants precede the quantifiers over all real transverse unit illumination pairs. The sphere proofs use actual volume responses, rather than assumed dipole responses or numerical certificates.
+
+The ancillary source supplement records exact formal statement types, source hashes, dependency pins, transitive axiom inventories and fresh kernel-replay results. Its coverage ledger distinguishes these theorem conclusions from auxiliary displays and discussion that have not been separately formalized. A manuscript-version binding links the checked source record to this revision. Fresh replay uses Lean's own kernel implementation; it is not an independently implemented checker or human peer review. AI tools assisted the mathematical development, formalization, document reconstruction, editing and literature comparison.
+
+\appendix
+\section{Entire outgoing weak vacuum uniqueness}\label{app:vacuum}
+Let $E,\mathbf H\in H_{\mathrm{loc}}(\mathrm{curl})$ solve the vacuum equations everywhere and satisfy the uniform outgoing condition. Constant-coefficient Maxwell equations imply componentwise Helmholtz equations distributionally, so the pair has a smooth representative. Choose a smooth radial cutoff $\eta_R$ equal to one for $r\leq R$ and zero for $r\geq2R$, with $w_R=-\eta_R'\geq0$ and $\int_R^{2R}w_R\dd r=1$. Compact integration of the real Poynting identity gives
+\[
+ \int w_R\Re\{E\cdot\overline{\mathbf H\times n}\}\dd x=0,
+ \qquad n=x/\abs x.
+\]
+The norm-square identity and outgoing decay therefore give
+\[
+ \int w_R(\norm E^2+\norm{\mathbf H\times n}^2)\dd x
+ =\int w_R\norm{\mathbf H\times n-E}^2\dd x=o(1),
+\]
+because $\int w_R/r^2\dd x=4\pi$. For any $q\in C_c^\infty(\mathbb R^3;\mathbb C^3)$ let $(E_q,\mathbf H_q)$ be its outgoing volume fields, with $\nabla\times\mathbf H_q=-ik(E_q+q)$. They have $E_q=O(r^{-1})$ and $\mathbf H_q\times n-E_q=O(r^{-2})$. The compact bilinear Lorentz identity is
+\[
+ ik\int\eta_RE\cdot q\dd x
+ =\int w_R\{E\cdot(\mathbf H_q\times n)-E_q\cdot(\mathbf H\times n)\}\dd x.
+\]
+Rewrite the integrand as $E\cdot(\mathbf H_q\times n-E_q)-E_q\cdot(\mathbf H\times n-E)$. The first integral tends to zero by Cauchy--Schwarz, the shell estimate and $\int w_R/r^4\dd x\leq4\pi/R^2$. The second tends to zero by the uniform outgoing condition and $E_q=O(r^{-1})$. For large $R$, $\eta_R=1$ on the support of $q$. Hence $\int E\cdot q=0$ for every test field, so $E=0$ and its curl equation gives $\mathbf H=0$. This supplies the converse volume-representation step independently of any regularity of the material boundary.
+
+\bibliographystyle{unsrtnat}
+\bibliography{references}
+\end{document}
