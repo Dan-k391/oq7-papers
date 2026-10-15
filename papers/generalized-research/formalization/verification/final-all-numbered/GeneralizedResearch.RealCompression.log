@@ -1,0 +1,23 @@
+GeneralizedResearch\RealCompression.lean:68:0: warning: automatically included section variable(s) unused in theorem `GeneralizedResearch.RealCompression.block_symmetric`:
+  [Fintype ι]
+  [DecidableEq ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype ι] [DecidableEq ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+GeneralizedResearch\RealCompression.lean:79:0: warning: automatically included section variable(s) unused in theorem `GeneralizedResearch.RealCompression.compressed_gram_decomposition`:
+  [DecidableEq ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+'GeneralizedResearch.RealCompression.realPart_gram' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GeneralizedResearch.RealCompression.canonical_PSD_relaxation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GeneralizedResearch.RealCompression.no_auxiliary_at_equality' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GeneralizedResearch.RealCompression.reverse_auxiliary_vanishes' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

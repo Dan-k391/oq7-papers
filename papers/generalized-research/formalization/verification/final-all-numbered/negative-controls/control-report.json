@@ -1,0 +1,118 @@
+{
+  "purpose": "Expected-failure controls, separate from successful proof verification",
+  "production_verifier_sha256": "72f85f4b0d3069f56d1aa409d36279566dde848c0bca3201016d03f552115f45",
+  "checks": [
+    {
+      "name": "valid_control",
+      "guard": "production source_graph",
+      "expected_rejection": false,
+      "rejected": false,
+      "passed": true,
+      "diagnostic": "accepted"
+    },
+    {
+      "name": "sorry_rejected",
+      "guard": "production source_graph",
+      "expected_rejection": true,
+      "rejected": true,
+      "passed": true,
+      "diagnostic": "Proof escape hatch in C:\\Users\\ZJJ\\Desktop\\oq7-prescribed-extinction\\.local\\formal-controls-final-75\\sorry_rejected\\GeneralizedResearch\\Control.lean"
+    },
+    {
+      "name": "local_axiom_rejected",
+      "guard": "production source_graph",
+      "expected_rejection": true,
+      "rejected": true,
+      "passed": true,
+      "diagnostic": "Proof escape hatch in C:\\Users\\ZJJ\\Desktop\\oq7-prescribed-extinction\\.local\\formal-controls-final-75\\local_axiom_rejected\\GeneralizedResearch\\Control.lean"
+    },
+    {
+      "name": "missing_module_rejected",
+      "guard": "production source_graph",
+      "expected_rejection": true,
+      "rejected": true,
+      "passed": true,
+      "diagnostic": "Missing new source module GeneralizedResearch.Absent, imported by GeneralizedResearch"
+    },
+    {
+      "name": "omitted_module_rejected",
+      "guard": "production source_graph",
+      "expected_rejection": true,
+      "rejected": true,
+      "passed": true,
+      "diagnostic": "The aggregate omits new modules: GeneralizedResearch.Control"
+    },
+    {
+      "name": "false_proof_rejected",
+      "guard": "exact pinned Lean compiler/axiom allowlist",
+      "expected_exit": "nonzero",
+      "exit_code": 1,
+      "passed": true,
+      "required_diagnostic_marker": "Type mismatch",
+      "source_sha256": "8e6aad1e3b568b29377bf2df4672eff57176b3d6b7c38f15bc586110eaa429db",
+      "log_sha256": "5ad4dbe04e6290433bf2c7ac92d92930adfceba8c76c4f0019aa189eab61379c"
+    },
+    {
+      "name": "missing_declaration_rejected",
+      "guard": "exact pinned Lean compiler/axiom allowlist",
+      "expected_exit": "nonzero",
+      "exit_code": 1,
+      "passed": true,
+      "required_diagnostic_marker": "Unknown identifier",
+      "source_sha256": "408206b653d0ab09e2d3c0c4e20fa5407e3037e5312401b1ef6c634d58cb1a5f",
+      "log_sha256": "adb5c6543aabec067ff9248ced6c9e9fac7c28da43c3ed194a2db9500292d08d"
+    },
+    {
+      "name": "axiom_census_rejected",
+      "guard": "exact pinned Lean compiler/axiom allowlist",
+      "expected_exit": "nonzero",
+      "exit_code": 1,
+      "passed": true,
+      "required_diagnostic_marker": "nonstandard axioms",
+      "source_sha256": "a25a65d2faf803bc831217219a3d6bfc822757384275a653b7732e3211278f70",
+      "log_sha256": "03ad31b3e8e6034572d0ac581342dc2793bc03dc55c9f2ccfbb91bdcad837642"
+    },
+    {
+      "name": "sorry_census_rejected",
+      "guard": "exact pinned Lean compiler/axiom allowlist",
+      "expected_exit": "nonzero",
+      "exit_code": 1,
+      "passed": true,
+      "required_diagnostic_marker": "nonstandard axioms",
+      "source_sha256": "dc274b6d1b4f5fbd09af1895dd713b8495a3954c1d9d115c7fb97c9b81a6dd2b",
+      "log_sha256": "68bcb10d2f8d74e97247f2c3873809517e55cf302ff5b363b5233c3b43767cbb"
+    },
+    {
+      "name": "required_declaration_census_rejected",
+      "guard": "isolated required-declaration assertion, not a production expected-roots manifest",
+      "expected_exit": "nonzero",
+      "exit_code": 1,
+      "passed": true,
+      "required_diagnostic_marker": "required declaration is missing",
+      "source_sha256": "56c462de0de3c407227b1d18250bff7c3c8cacf622bc2eddd5a0e92506dcea3a",
+      "log_sha256": "67052382fb05ee278ee86469b1dddc3d2e33361a8cae39cd7eb3625d4fb96565"
+    },
+    {
+      "name": "retained_expected_roots_positive_control",
+      "guard": "production check_expected_public_roots",
+      "passed": true
+    },
+    {
+      "name": "public_root_missing_rejected",
+      "guard": "production check_expected_public_roots",
+      "expected_rejection": true,
+      "passed": true,
+      "diagnostic": "Required public theorem is missing: GeneralizedResearch.CanonicalPair.full_overlap_upper"
+    },
+    {
+      "name": "public_root_changed_type_rejected",
+      "guard": "production check_expected_public_roots",
+      "expected_rejection": true,
+      "passed": true,
+      "diagnostic": "Required public theorem type changed: GeneralizedResearch.CanonicalPair.full_overlap_upper"
+    }
+  ],
+  "production_expected_roots_sha256": "569e6b700d61699156376aa1f6b964b6a55d65aab8add36482f8361eebb0f607",
+  "status": "all-negative-controls-passed",
+  "control_script_sha256": "49f74361dfb3fdbc33e2f2cc6727fb0d974d516096d71bb67268a0d0c26e8b6a"
+}

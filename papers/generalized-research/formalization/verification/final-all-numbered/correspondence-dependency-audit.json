@@ -1,0 +1,76 @@
+{
+  "status": "all-six-imported-dependency-types-and-axioms-passed",
+  "checked_utc": "2026-10-15T06:19:57.464860+00:00",
+  "scope": "Exact printed types and transitive axioms for unchanged imported roots directly cited by the original-statement correspondence. No new theorem is introduced. The same final D75 aggregate and source/artifact identity were checked before and after.",
+  "main_report": "report.json",
+  "main_report_sha256": "d1b3b6fa1956747fdb76083ce3e7e9f4a972d613450e495e6da0747eec17294f",
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "mathlib_revision": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "command": [
+    "D:\\oq7-papers\\.local\\toolchains\\lean-4.34.1-windows\\bin\\lean.exe",
+    "verification\\final-all-numbered\\CorrespondenceDependencies.lean"
+  ],
+  "cwd": "D:\\oq7-papers\\papers\\generalized-research\\formalization",
+  "exit_code": 0,
+  "audit_source": "CorrespondenceDependencies.lean",
+  "audit_source_sha256": "f0f6bd16c06a5b75853180cd7545b1e0f77d05731a08a9c5c13e36ded1bd66b2",
+  "log": "correspondence-dependency-types.log",
+  "log_sha256": "9091c78e1a701ed62ef685d8efcbb6c046fd932b7affbc4a761e13fe082bf597",
+  "theorems": [
+    {
+      "name": "OQ7.capped_fourier_moment_Ioo",
+      "printed_kernel_type_sha256": "dfddbf74992c3c50e68de471a23710f7150287191333feb3fc9fc87aaa8bd829",
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "OQ7.sineSquare_triangleIntegral_capped_Ioo",
+      "printed_kernel_type_sha256": "3bd57bbe72a5183853df35f87478e8fa0656f9ae365c41306d996ea35a5c8d37",
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "OQ7.ResourceScalar.g_convex_half",
+      "printed_kernel_type_sha256": "dda4525609645fe1432f1391ded62b2e086ffa0890c4ec8f6ef68c6d929483c4",
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "OQ7.ResourceScalar.g_tangent_full",
+      "printed_kernel_type_sha256": "fc94779c369788ab1083186358d0857f64b9bc1f257665e11570c47bac30417e",
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "OQ7.ResourceScalar.f_lower_half",
+      "printed_kernel_type_sha256": "89d5898b048a12173356bbe7045e1127ecf8a8259fe63941c1f16113659729b2",
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "OQ7.stackResourceInvariant_eq_fluxDefect",
+      "printed_kernel_type_sha256": "74f7388efd65c651d20a93425197495ca91ceae5830c8012795aab3453101b39",
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    }
+  ],
+  "verification_boundary": "The final main fresh replay checks the entire imported environment with Lean kernel again. This print-only audit is not an independently implemented kernel or human review."
+}

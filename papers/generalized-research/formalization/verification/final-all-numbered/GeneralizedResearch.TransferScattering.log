@@ -1,0 +1,64 @@
+GeneralizedResearch\TransferScattering.lean:70:78: warning: This simp argument is unused:
+  add_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [leftState, rightState, Matrix.fromBlocks_multiply, mul_one, mul_zero, zero_add, mul_neg, neg_mul,
+    Matrix.mul_assoc, hi, one_mul, add_neg_cancel]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+GeneralizedResearch\TransferScattering.lean:71:12: warning: This simp argument is unused:
+  neg_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [leftState, rightState, Matrix.fromBlocks_multiply, mul_one, mul_zero, add_zero, zero_add, mul_neg,
+    Matrix.mul_assoc, hi, one_mul, add_neg_cancel]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+GeneralizedResearch\TransferScattering.lean:71:40: warning: This simp argument is unused:
+  one_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [leftState, rightState, Matrix.fromBlocks_multiply, mul_one, mul_zero, add_zero, zero_add, mul_neg,
+    neg_mul, Matrix.mul_assoc, hi, add_neg_cancel]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+GeneralizedResearch\TransferScattering.lean:71:48: warning: This simp argument is unused:
+  add_neg_cancel
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [leftState, rightState, Matrix.fromBlocks_multiply, mul_one, mul_zero, add_zero, zero_add, mul_neg,
+    neg_mul, Matrix.mul_assoc, hi, one_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+GeneralizedResearch\TransferScattering.lean:82:38: warning: This simp argument is unused:
+  zero_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [leftState, rightState, scattering, powerFlux, Matrix.fromBlocks_conjTranspose,
+    Matrix.fromBlocks_multiply, Matrix.conjTranspose_zero, Matrix.conjTranspose_one, Matrix.conjTranspose_neg, mul_zero,
+    add_zero, zero_add, mul_one, one_mul, mul_neg, neg_mul, neg_neg]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+GeneralizedResearch\TransferScattering.lean:82:73: warning: This simp argument is unused:
+  one_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [leftState, rightState, scattering, powerFlux, Matrix.fromBlocks_conjTranspose,
+    Matrix.fromBlocks_multiply, Matrix.conjTranspose_zero, Matrix.conjTranspose_one, Matrix.conjTranspose_neg, mul_zero,
+    zero_mul, add_zero, zero_add, mul_one, mul_neg, neg_mul, neg_neg]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+GeneralizedResearch\TransferScattering.lean:110:28: warning: This simp argument is unused:
+  Matrix.one_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.fromBlocks]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+GeneralizedResearch\TransferScattering.lean:134:87: warning: This simp argument is unused:
+  add_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [leftWaves, rightWaves, Matrix.fromBlocks_multiply, mul_one, mul_zero, zero_add] at he
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

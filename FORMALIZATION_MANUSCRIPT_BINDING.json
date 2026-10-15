@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "createdUTC": "2026-10-15T06:20:37.929546+00:00",
+  "revisionDate": "15 October 2026",
+  "proofsUnchangedAfterFinalReplay": true,
+  "verificationReports": {
+    "papers/generalized-research/formalization/verification/final-all-numbered/report.json": "d1b3b6fa1956747fdb76083ce3e7e9f4a972d613450e495e6da0747eec17294f",
+    "papers/quartic-maxwell/formalization/verification/report.json": "e1222d109eafcf5f0a3fbb391642a9e59e77381cdc71c291fb720b9bafeb8d2a"
+  },
+  "coverageLedgers": {
+    "papers/generalized-research/formalization/verification/final-all-numbered/claim-coverage.json": "de368b6964441290d58e3a6b6cbb600a06e3899b269bf42ad641a0051e24791a",
+    "papers/quartic-maxwell/formalization/verification/coverage.json": "8e33b81f03fcdc5f281b2051647c6d2fac16f4654bfb2df4b7afa7e1f5c83007"
+  },
+  "manuscripts": [
+    {
+      "paper": "quartic-maxwell",
+      "reviewedReadingSourceSHA256": "d6240a2fa226ff10177a7de7837418a0a406ee29ef9d0c0c99a793c4cc947746",
+      "revisedSource": "papers/quartic-maxwell/arxiv/main.tex",
+      "revisedSourceSHA256": "037173e61c6039f93f3afead8e4263e95c92992fa80e56222861caf0574e9df4",
+      "changes": [
+        "Updated formal-verification scope and reproducibility statement",
+        "Added primary Lean and Mathlib software citations",
+        "Retained Daniel Wang then Junjie Zheng and both standardized enduring mailto contacts"
+      ],
+      "numberedTheoremStatementsChanged": false
+    },
+    {
+      "paper": "generalized-research",
+      "reviewedReadingSourceSHA256": "145ce0ae3bfa8bf85fa07a83ffda1d9074756054e208400b86e41dec157f3407",
+      "revisedSource": "papers/generalized-research/arxiv/main.tex",
+      "revisedSourceSHA256": "87aec7431baf2e937a790093f4ae249cc896a289f9bf8f6fe84007df59fe35e4",
+      "changes": [
+        "Updated formal-verification scope and reproducibility statement",
+        "Added primary Lean and Mathlib software citations",
+        "Retained Daniel Wang then Junjie Zheng and both standardized enduring mailto contacts",
+        "Specified the normalized uniform disk aperture, physical Fourier/Poynting normalization and direct plate-parameter retuning in the finite-power beam proof"
+      ],
+      "numberedTheoremStatementsChanged": false
+    }
+  ],
+  "softwareCitationSources": [
+    "https://lean-lang.org/papers/lean4.pdf",
+    "https://pp.ipd.kit.edu/publication.php?id=demoura21lean4&lang=en",
+    "https://leanprover-community.github.io/cite.html"
+  ],
+  "scope": "Exact proof statements and remaining auxiliary obligations are in the frozen coverage ledgers. This binding does not rewrite their original source identities or claim human peer review."
+}

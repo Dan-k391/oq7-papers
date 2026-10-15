@@ -24,7 +24,7 @@
 \title{Reciprocal Absorption Asymmetry:\\Sharp Channel Tradeoffs and Dielectric Thickness Asymptotics}
 \author{Daniel Wang\\McMaster University\\\href{mailto:denialk391@gmail.com}{\texttt{denialk391@gmail.com}}
 \and Junjie Zheng\\Columbia University\\\href{mailto:zjj2785@gmail.com}{\texttt{zjj2785@gmail.com}}}
-\date{14 October 2026}
+\date{15 October 2026}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -647,9 +647,19 @@ A planar stack conserves transverse wavevector $\kappa$. For $\abs\kappa<k$, set
 \]
 Layer transfers are finite matrix exponentials, continuous in $\kappa$ and the plate angle. Vacuum has positive admittance $Y_\kappa=(k_z/k)B_\kappa^{-1}$. The laboratory-axis bases $E_t=\sqrt2Y_\kappa^{-1/2}a$, $H_t=\pm\sqrt2Y_\kappa^{1/2}a$ give power $\norm a^2$ and are smooth near normal incidence. The transfer-to-scattering denominator is invertible: a null vector would give an outgoing-only field, and flux balance followed by ODE uniqueness would make it zero. Thus the scattering matrices and powers are continuous near zero and are contractions.
 
-Choose $f\in L^2(\mathbb R^2)$ supported in the unit disk, with $\int\abs f^2=1$, and the left incoming spectrum $f_\sigma(\kappa)e_y=\sigma^{-1}f(\kappa/\sigma)e_y$, $0<\sigma<k$. Its background time reverse is the right incoming spectrum $e^{-ik_z(h+d)}\overline{f_\sigma(-\kappa)}e_y$. Parseval and transverse translation invariance express the powers as fiber-power integrals. The change $\kappa=\sigma p$ and continuity give convergence to~\eqref{eq:vector-powers} as $\sigma\downarrow0$, uniformly over a compact plate-angle interval for each fixed absorber. No estimate uniform in growing $h$ or vanishing $\eta$ is used.
+Use the unitary physical Fourier convention
+\[
+ (\mathcal I a)(x_\perp)=\frac1{2\pi}\int_{\mathbb R^2}
+ e^{i\kappa\cdot x_\perp}a(\kappa)\dd^2\kappa.
+\]
+Choose the explicit disk aperture
+\[
+ f_\sigma(\kappa)=(\pi\sigma^2)^{-1/2}\mathbf1_{\{|\kappa|\leq\sigma\}},
+ \qquad 0<\sigma<k,
+\]
+and the left incoming spectrum $f_\sigma(\kappa)e_y$. Its background time reverse is the right incoming spectrum $e^{-ik_z(h+d)}\overline{f_\sigma(-\kappa)}e_y$. Apply $\mathcal I$ to the electric and magnetic admittance fields above, including their $\sqrt2$ factors. Parseval then identifies the time-averaged transverse Poynting flux with the channel power, so each incident beam has unit power. The actual layer fields are angular superpositions of the matrix-exponential solutions; they satisfy Maxwell's equations in each region and match at every interface. At either exterior boundary the real incoming--outgoing cross terms cancel, giving net absorption as incoming power minus outgoing power. All powers are therefore the corresponding fiber-power integrals. Continuity gives convergence to~\eqref{eq:vector-powers} as $\sigma\downarrow0$, uniformly on each compact plate-parameter interval for a fixed absorber. No estimate uniform in growing $h$ or vanishing $\eta$ is used.
 
-Write the target as $X=2(1-\cos2\theta_0)$ with $0<\theta_0<\pi/2$. Choose shrinking intervals around $\theta_0$. Their normal-incidence extinctions bracket the target because the derivative is $4\sin2\theta>0$. For each fixed absorber $\eta_m=1/m$, $kh_m=m^2$, choose $\sigma_m$ small enough to preserve these endpoint inequalities and approximate all powers uniformly within $1/m$. Continuity and the intermediate value theorem give an angle in the interval with extinction exactly $X$; reciprocity gives the same value for its reversed beam. The angle tends to $\theta_0$ and $A_{x,m}\to1$, proving the limit. A diagonal sequence of targets $X_j\downarrow0$ with absolute approximation error $o(X_j)$ gives relative-contrast supremum one when extinction is free.
+Write $t_0=1-X/2\in(-1,1)$ and choose shrinking closed intervals around $t_0$ inside $(-1,1)$. Their normal-incidence extinctions bracket $X$ because $2(1-t)$ is strictly decreasing. For each fixed absorber $\eta_m=1/m$, $kh_m=m^2$, choose $\sigma_m$ small enough to preserve these endpoint inequalities and approximate all powers uniformly within $1/m$. Continuity and the intermediate value theorem give a plate parameter $t_m$ in the interval with extinction exactly $X$; reciprocity gives the same value for its reversed beam. Then $t_m\to t_0$ and $A_{x,m}\to1$, proving the limit $1-t_0^2=X-X^2/4$. A diagonal sequence of targets $X_j\downarrow0$ with absolute approximation error $o(X_j)$ gives relative-contrast supremum one when extinction is free.
 \end{proof}
 
 \section{Scope, verification and conclusions}\label{sec:scope}
@@ -657,11 +667,13 @@ The sharp thickness law applies to scalar, local, normal-incidence multilayers w
 
 The joint channel theorem is sharp for reciprocal contractions at fixed dimensionless extinction and input overlap. Its equality operators are explicitly constructed, but no Maxwell equality realization at nonzero prescribed overlap is supplied. The planar construction has laterally infinite material extent even for finite-power beams. It establishes neither compact-body cross-section sharpness nor a fixed-resource coercive tensor-loss theorem. All results are monochromatic; they impose no bandwidth constraint.
 
-The mathematical claims in this manuscript are supported by the ordinary proofs above. The earlier research record describes a Lean/Mathlib supplement covering selected algebraic and finite-channel statements and a generic positive-matrix trace certificate. That scope does not include the scalar material floor, sharp thickness theorem, canonical channel compression or complete prescribed-overlap envelope. Formal validity of a selected certificate must not be conflated with formal verification of those full physical or analytic statements. The historical reports and original manuscript retain their separate version identities.
+A separate formalization uses Lean 4.34.1 \citep{deMouraUllrich2021} and a pinned Mathlib revision \citep{mathlib2020}. It covers scalar feasibility, including the prescribed-entry phase criterion and zero-amplitude cases, both sharp ceilings and the complete golden-ratio equality family; the selected-interval material-resource floor; the exact-target thickness and minimum-thickness limits; the channel passivity and reciprocity statements; and the full prescribed-overlap envelope with its two- or three-channel witnesses and continuous transitions. It also proves the actual tensor-layer construction and the finite-power beam construction using the normalized uniform disk aperture specified above. The latter includes the physical Fourier normalization, regional Maxwell equations, all interfaces, incoming and outgoing expansions, physical net flux and exact common-extinction retuning.
+
+The ancillary source supplement provides exact formal statement types, source hashes, dependency pins, axiom inventories and fresh kernel-replay records. A separate manuscript-version binding identifies this revision. The coverage ledger keeps strictness of the finite-cell resource-floor inequalities (Remark 4.6 of the dated manuscript), the full scalar optimizer classification at general $(T,a)$, and unnumbered endpoint examples and dispersion claims outside the verified scope where an exact formal proof is absent. The beam formalization does not assert a separate global distributional gluing theorem or a result for every arbitrary $L^2$ aperture. Fresh replay uses Lean's own kernel implementation and does not constitute an independently implemented checker or human peer review. Historical reports retain their original version identities.
 
 The two main conclusions are a sharp joint refinement of the channel passivity and overlap bounds, and a matching all-profile thickness asymptotic at exact scalar target powers. The planar example identifies the loss-free tensor subspaces that prevent an unrestricted transfer of the scalar resource floor. These conclusions answer specified formulations of directional absorption asymmetry while leaving physical joint-bound realization and finite-resource vector optimization open.
 
-\paragraph{AI assistance.} AI tools assisted reconstruction and editing of this manuscript and preparation of symbolic algebra cross-checks. The earlier research record describes AI-assisted analytical and numerical reviews. Those reviews are distinct from human peer review.
+\paragraph{AI assistance.} AI tools assisted mathematical development, formalization, reconstruction and editing of this manuscript, and preparation of symbolic algebra cross-checks. The earlier research record describes AI-assisted analytical and numerical reviews. Those reviews are distinct from human peer review.
 
 \bibliographystyle{unsrtnat}
 \bibliography{references}

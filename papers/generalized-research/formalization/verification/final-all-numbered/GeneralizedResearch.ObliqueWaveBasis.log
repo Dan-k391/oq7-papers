@@ -1,0 +1,53 @@
+GeneralizedResearch\ObliqueWaveBasis.lean:32:55: warning: This simp argument is unused:
+  neg_add_cancel
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [inverse, basis, smul_mul_assoc, Matrix.fromBlocks_multiply, mul_neg, neg_mul, U_mul_V hk hκ,
+    V_mul_U hk hκ, neg_neg, add_neg_cancel]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+GeneralizedResearch\ObliqueWaveBasis.lean:41:65: warning: This simp argument is unused:
+  zero_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [basis, flux, powerFlux, Matrix.fromBlocks_conjTranspose, U_adjoint, V_adjoint,
+    Matrix.conjTranspose_neg, Matrix.fromBlocks_multiply, mul_zero, add_zero, zero_add, mul_one, one_mul, mul_neg,
+    neg_mul, U_mul_V hk hκ, V_mul_U hk hκ, neg_neg, add_neg_cancel, neg_add_cancel, Matrix.fromBlocks_smul, smul_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+GeneralizedResearch\ObliqueWaveBasis.lean:42:12: warning: This simp argument is unused:
+  one_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [basis, flux, powerFlux, Matrix.fromBlocks_conjTranspose, U_adjoint, V_adjoint,
+    Matrix.conjTranspose_neg, Matrix.fromBlocks_multiply, mul_zero, zero_mul, add_zero, zero_add, mul_one, mul_neg,
+    neg_mul, U_mul_V hk hκ, V_mul_U hk hκ, neg_neg, add_neg_cancel, neg_add_cancel, Matrix.fromBlocks_smul, smul_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+GeneralizedResearch\ObliqueWaveBasis.lean:42:64: warning: This simp argument is unused:
+  neg_neg
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [basis, flux, powerFlux, Matrix.fromBlocks_conjTranspose, U_adjoint, V_adjoint,
+    Matrix.conjTranspose_neg, Matrix.fromBlocks_multiply, mul_zero, zero_mul, add_zero, zero_add, mul_one, one_mul,
+    mul_neg, neg_mul, U_mul_V hk hκ, V_mul_U hk hκ, add_neg_cancel, neg_add_cancel, Matrix.fromBlocks_smul, smul_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+GeneralizedResearch\ObliqueWaveBasis.lean:50:61: warning: This simp argument is unused:
+  zero_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [basis, symplectic, Matrix.fromBlocks_transpose, U_transpose, V_transpose, Matrix.transpose_neg,
+    Matrix.fromBlocks_multiply, mul_zero, add_zero, zero_add, mul_one, one_mul, mul_neg, neg_mul, U_mul_V hk hκ,
+    V_mul_U hk hκ, neg_neg, add_neg_cancel, neg_add_cancel, Matrix.fromBlocks_smul, smul_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+GeneralizedResearch\ObliqueWaveBasis.lean:51:12: warning: This simp argument is unused:
+  one_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [basis, symplectic, Matrix.fromBlocks_transpose, U_transpose, V_transpose, Matrix.transpose_neg,
+    Matrix.fromBlocks_multiply, mul_zero, zero_mul, add_zero, zero_add, mul_one, mul_neg, neg_mul, U_mul_V hk hκ,
+    V_mul_U hk hκ, neg_neg, add_neg_cancel, neg_add_cancel, Matrix.fromBlocks_smul, smul_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

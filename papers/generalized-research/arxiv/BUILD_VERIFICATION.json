@@ -4,24 +4,35 @@
   "local_texlive": "2024",
   "shell_escape": false,
   "fresh_directory": true,
-  "pages": 16,
-  "pdf_sha256": "5347cce2b46c97fdd35f75498f1e33fbebfb5ffd80a02f5fe6aa658f7d8be74d",
-  "zip_sha256": "4989147e38c98723ecc90e80c0eb5be84caee72a6e4724f3dd58284e2d2ff435",
+  "tex_passes": 3,
+  "pages": 17,
+  "pdf_sha256": "0ba0cce0aace00ba570a662022cc8728a7ecf22075f9b7199d6ff05753e96999",
+  "zip_sha256": "8063f3935ad96b87eb574b1360f4c4de056086895627938a124079bca41083a5",
   "inputs": [
     {
+      "path": "anc/README.md",
+      "sha256": "60917e7910c95b7c8d04ceb58982a278550e44379afb8818487439edf0ea3a04",
+      "bytes": 480
+    },
+    {
+      "path": "anc/lean-supplement.zip",
+      "sha256": "e2d76dc2fb59d0f46da6674090df1cf905369498465b138709848326607665ea",
+      "bytes": 1776162
+    },
+    {
       "path": "main.bbl",
-      "sha256": "c651e4b20ff53b9f6649e793605fe2c22300f6e06c9a1534d58ea4b257ce6642",
-      "bytes": 6852
+      "sha256": "8178f2343ce2d36c2c956b9a0c8200ad33bfcbca372f470190fbaa0dc45feebc",
+      "bytes": 7557
     },
     {
       "path": "main.tex",
-      "sha256": "145ce0ae3bfa8bf85fa07a83ffda1d9074756054e208400b86e41dec157f3407",
-      "bytes": 48869
+      "sha256": "87aec7431baf2e937a790093f4ae249cc896a289f9bf8f6fe84007df59fe35e4",
+      "bytes": 50661
     },
     {
       "path": "references.bib",
-      "sha256": "2d8a18c64730dd2e8e6d6286ba5a77e081e3d07a6aefa8d96078314bc43fff6d",
-      "bytes": 6253
+      "sha256": "796ecd753d9e96a43ecadd2a40a10d893993149c42f8be341408ac555521cef9",
+      "bytes": 7013
     }
   ],
   "unresolved_references": false,

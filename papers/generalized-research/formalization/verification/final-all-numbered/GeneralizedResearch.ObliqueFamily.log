@@ -1,0 +1,21 @@
+GeneralizedResearch\ObliqueFamily.lean:85:15: warning: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Matrix.cons_val_one, Matrix.cons_val_fin_one, PlanarPlateBridge.coeffU, PlanarPlateBridge.coeffV]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+GeneralizedResearch\ObliqueFamily.lean:85:36: warning: This simp argument is unused:
+  Matrix.cons_val_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Matrix.cons_val_zero, Matrix.cons_val_fin_one, PlanarPlateBridge.coeffU, PlanarPlateBridge.coeffV]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+GeneralizedResearch\ObliqueFamily.lean:85:56: warning: This simp argument is unused:
+  Matrix.cons_val_fin_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Matrix.cons_val_zero, Matrix.cons_val_one, PlanarPlateBridge.coeffU, PlanarPlateBridge.coeffV]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

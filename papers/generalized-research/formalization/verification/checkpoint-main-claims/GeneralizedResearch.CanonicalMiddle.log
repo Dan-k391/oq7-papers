@@ -1,0 +1,15 @@
+GeneralizedResearch\CanonicalMiddle.lean:94:42: warning: This simp argument is unused:
+  Matrix.mul_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [canonicalE, Matrix.trace_fin_two, Matrix.vecMul, dotProduct, Fin.sum_univ_two, hoff]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'GeneralizedResearch.MiddleParameters.rotated_W' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GeneralizedResearch.MiddleParameters.rotated_E' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GeneralizedResearch.MiddleParameters.canonical_middle_upper_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GeneralizedResearch.MiddleParameters.finite_complex_middle_upper_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

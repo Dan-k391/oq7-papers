@@ -1,0 +1,23 @@
+GeneralizedResearch\FiniteHilbertBridge.lean:18:0: warning: automatically included section variable(s) unused in theorem `GeneralizedResearch.FiniteHilbertBridge.inner_coordinates`:
+  [DecidableEq n]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq n] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+GeneralizedResearch\FiniteHilbertBridge.lean:35:42: warning: This simp argument is unused:
+  ofLp_toLp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [inner_coordinates, vector, star_star]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+GeneralizedResearch\FiniteHilbertBridge.lean:46:40: warning: This simp argument is unused:
+  ofLp_toLp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [inner_coordinates, vector, star_star, Matrix.ofLp_toEuclideanCLM]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'GeneralizedResearch.FiniteHilbertBridge.finite_attainment_to_hilbert' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

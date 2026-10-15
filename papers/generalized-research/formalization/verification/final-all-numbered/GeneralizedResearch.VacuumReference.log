@@ -1,0 +1,51 @@
+GeneralizedResearch\VacuumReference.lean:36:75: warning: This simp argument is unused:
+  one_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [generator, basis, powerFlux, smul_mul_assoc, mul_smul_comm, Matrix.fromBlocks_multiply, mul_zero,
+    zero_mul, zero_add, add_zero, mul_one, mul_neg, neg_mul, he, hm, Matrix.fromBlocks_smul, smul_zero, smul_smul, hc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+GeneralizedResearch\VacuumReference.lean:37:12: warning: This simp argument is unused:
+  neg_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [generator, basis, powerFlux, smul_mul_assoc, mul_smul_comm, Matrix.fromBlocks_multiply, mul_zero,
+    zero_mul, zero_add, add_zero, mul_one, one_mul, mul_neg, he, hm, Matrix.fromBlocks_smul, smul_zero, smul_smul, hc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+GeneralizedResearch\VacuumReference.lean:51:30: warning: This simp argument is unused:
+  smul_mul_assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [traveling, powerFlux, Matrix.fromBlocks_multiply, Matrix.fromBlocks_smul, smul_smul, mul_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+GeneralizedResearch\VacuumReference.lean:57:22: warning: This simp argument is unused:
+  powerFlux
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [traveling, Matrix.fromBlocks_multiply, Matrix.fromBlocks, Matrix.smul_apply, smul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+GeneralizedResearch\VacuumReference.lean:57:32: warning: This simp argument is unused:
+  Matrix.fromBlocks_multiply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [traveling, powerFlux, Matrix.fromBlocks, Matrix.smul_apply, smul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+GeneralizedResearch\VacuumReference.lean:61:22: warning: This simp argument is unused:
+  powerFlux
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [traveling, Matrix.fromBlocks_multiply, Matrix.fromBlocks, Matrix.smul_apply, smul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+GeneralizedResearch\VacuumReference.lean:61:32: warning: This simp argument is unused:
+  Matrix.fromBlocks_multiply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [traveling, powerFlux, Matrix.fromBlocks, Matrix.smul_apply, smul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

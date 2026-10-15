@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "finishedUTC": "2026-10-14T22:46:12.112929+00:00",
+  "scope": "Isolated parser/type-guard rejection controls; mathematical compilation and kernel replay are separate.",
+  "baselinePinnedTypesAccepted": 20,
+  "allControlsPassed": true,
+  "controls": [
+    {
+      "control": "changed-physical-remainder-constant",
+      "passed": true,
+      "rejection": "Public core theorem type changed: QuarticMaxwell.HeterogeneousAttainment.fixed_wavenumber_remainder"
+    },
+    {
+      "control": "missing-original-core-claim",
+      "passed": true,
+      "rejection": "Core theorem type guard must cover all eight original numbered claims"
+    },
+    {
+      "control": "missing-core-type-entry",
+      "passed": true,
+      "rejection": "Core theorem type guards differ from required public roots"
+    },
+    {
+      "control": "corrupted-expected-type-hash",
+      "passed": true,
+      "rejection": "Public core theorem type changed: QuarticMaxwell.HeterogeneousAttainment.fixed_wavenumber_remainder"
+    },
+    {
+      "control": "missing-required-public-core-root",
+      "passed": true,
+      "rejection": "Core theorem type guards differ from required public roots"
+    },
+    {
+      "control": "duplicate-printed-type",
+      "passed": true,
+      "rejection": "Expected exactly one printed type for QuarticMaxwell.HeterogeneousAttainment.fixed_wavenumber_remainder"
+    },
+    {
+      "control": "weakened-every-resource-physical-theorem",
+      "passed": true,
+      "rejection": "Public core theorem type changed: QuarticMaxwell.HomogeneousSharpness.theorem13"
+    }
+  ],
+  "typeManifestSHA256": "ea6143ab0ca5d149b19951a19f7e5e18e6454429cb1bcf86b7aab45a678df14c",
+  "verifierSHA256": "00f0fefef1c493e4b125d807a8a39755ca9e02f6b1f529d823c8cca08b7ac894",
+  "controlScriptSHA256": "6dae70f74d1979f49fba5802791f28fd04df846713036307c44b8748d26e9c54"
+}

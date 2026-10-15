@@ -1,0 +1,1191 @@
+{
+  "schemaVersion": 1,
+  "scope": "Every original numbered theorem/lemma, displayed equation (1)\u2013(66), and listed unnumbered mathematical/empirical claims.",
+  "originalSource": {
+    "pdf": "manuscript/OQ7_quartic_Maxwell_2026-10-10.pdf",
+    "pdfSHA256": "576478ba88fd374e724b96e07c5e3e1648485cd163dc4d8ba9cd0b3ef52eac62",
+    "text": "manuscript/OQ7_quartic_Maxwell_2026-10-10.txt",
+    "textSHA256": "d168ccfa406717dd052e635a5bf136b239917e00611d71b60c0ae50bb6cfba02",
+    "preservedHistoricalSource": true
+  },
+  "readingRevision": {
+    "source": "arxiv/main.tex",
+    "sourceSHA256": "d6240a2fa226ff10177a7de7837418a0a406ee29ef9d0c0c99a793c4cc947746",
+    "numberingIsNotAssumedToMatchOriginal": true
+  },
+  "checkpoint": {
+    "name": "physical-uniform-upper",
+    "verificationReport": "verification/checkpoints/upper-2026-10-14/report.json",
+    "verificationStatus": "all-modules-300-declarations-standard-axioms-fresh-kernel-passed",
+    "verificationReportSHA256": "788a1f33a1b43d693422f053ce62e3b19e11d4af93be38f6fdb844debd8e24b8",
+    "modules": [
+      "Asymptotics",
+      "BallBound",
+      "Certificates",
+      "GreenEigenvalues",
+      "IncidentSources",
+      "MaskedRemainder",
+      "MaterialInverse",
+      "Operator",
+      "PhysicalPowers",
+      "PlaneWaves",
+      "ProjectionGeometry",
+      "ProjectionKernel",
+      "RadiationIdentity",
+      "RadiationMoment",
+      "RadiationOperator",
+      "RadiationPhysical",
+      "Rearrangement",
+      "Reciprocity",
+      "Schur",
+      "SharpVolume",
+      "SquareIntegral",
+      "SupportedOperators",
+      "TensorMultiplier",
+      "UniformBound",
+      "VolumeInverse",
+      "WeakMaterial"
+    ],
+    "sourceSHA256": {
+      "QuarticMaxwell/Asymptotics.lean": "414f3a625fa1e75cc0e4492390945caced5527b00f32f47e28cf20560949b3c0",
+      "QuarticMaxwell/BallBound.lean": "a494627335e0bfde72297c896970dcddcc9fe73405684a2a9012bc5da19ddb24",
+      "QuarticMaxwell/Certificates.lean": "e482b49c72fd77da10e97e8665d4b07329aaacbbc669c31839d2d8504e23f22d",
+      "QuarticMaxwell/GreenEigenvalues.lean": "179f57f119faff4e9750b883b6737fa99aa4f7badf0090dbf630165eda2cf674",
+      "QuarticMaxwell/IncidentSources.lean": "ba7874ba0e8383f03110cc850558d7635c19976a671cface4f8f3fae2631c232",
+      "QuarticMaxwell/MaskedRemainder.lean": "4cfaf26d18a6a56925956cac0be1f32220624d79ca3a61603b3bf12d612280ee",
+      "QuarticMaxwell/MaterialInverse.lean": "4c7badded7fcea8d33afcf7a0bc5000b3069c362b30d13628dbedebca9c02c2b",
+      "QuarticMaxwell/Operator.lean": "23ceeaf90bc49f39a3bd442de944ead114aab32d0cc865d1292260ccf47f80b5",
+      "QuarticMaxwell/PhysicalPowers.lean": "6128371d08047d026e612a64fec9cc54b01a26f6daa890726aa3872c108979e1",
+      "QuarticMaxwell/PlaneWaves.lean": "66a21599f53b1f660588bd2d365a560e20f7493d0dd46ee40c6da06810d5ba88",
+      "QuarticMaxwell/ProjectionGeometry.lean": "ceb94d9e5c1ad65477e62bca635c5d30a41e2ee75a994a906739d9567678095b",
+      "QuarticMaxwell/ProjectionKernel.lean": "ef8f0e2a7c6d30cb5241ce628ee92e906669a65e397e656370ea4ea99b5650f1",
+      "QuarticMaxwell/RadiationIdentity.lean": "68e01ed7d21ee692b472d62fff07eb25df829b82d9a866e7ced54d11ce25945c",
+      "QuarticMaxwell/RadiationMoment.lean": "c6bf843ca0b095d764773afbdbee44cfbb693d0892fd66220a8e50b54ee39921",
+      "QuarticMaxwell/RadiationOperator.lean": "92d0dd3bb3154d1196e00bb5ef4e895fbd4fea907a56a96605d5bb5873664fa7",
+      "QuarticMaxwell/RadiationPhysical.lean": "47141a7ffa13715fe796479e909b5d59eb1d4dfa099885c48f1aeb6111ce7eab",
+      "QuarticMaxwell/Rearrangement.lean": "4325514c20c7aa0fcc3ef99cfc1754bb4756b642527ac5a2dcd074b9aca43586",
+      "QuarticMaxwell/Reciprocity.lean": "e384d066778e1925fdc0bec9d45883085ec63b6deb91eec2687dd79a3ff8aa7a",
+      "QuarticMaxwell/Schur.lean": "3a39af9994fcebdb76aad48caa0cec6cf5ad2a1a3992ef4dfbef5f90e941e0a8",
+      "QuarticMaxwell/SharpVolume.lean": "b4b8195104b9d8a0920e6bf3d243a6b5129ce72065b76fe82e05afed4a22ba97",
+      "QuarticMaxwell/SquareIntegral.lean": "0c664a8148eb83ee4af4d20dce7417aef10182f55852117ba0d41864512da5df",
+      "QuarticMaxwell/SupportedOperators.lean": "3720b404144e14d7d74d74517433a758e2b8d88b30bac4c37928080cff5d1eee",
+      "QuarticMaxwell/TensorMultiplier.lean": "d140fbc11039e72a972456e20c0283dfc3c9afe2fa2806bf2177f5dd3e3617c3",
+      "QuarticMaxwell/UniformBound.lean": "35cffaca7f3076f670bc1107c4a90e12604445ab5e9c010da4d42e6190843b6a",
+      "QuarticMaxwell/VolumeInverse.lean": "d948222906e8b77a652b8722257f6673c3f8e559bbdbd7004ffd0743cef71e08",
+      "QuarticMaxwell/WeakMaterial.lean": "01eea838307862652d8a12e80640c0cb4ff2578bf9ddb8e240df42042dbc36b8"
+    }
+  },
+  "statusMeaning": {
+    "complete": "Exact original mathematical scope has implemented proof exports; consult the matching checkpoint report for kernel verification.",
+    "restricted": "Only the explicitly listed ingredients/arithmetic/conditional implications are proved; the original full claim is not certified.",
+    "open": "No complete matching proof is included in this checkpoint; empirical/bibliographic claims remain outside Lean theorem certification."
+  },
+  "allOriginalManuscriptClaimsComplete": false,
+  "coverage": [
+    {
+      "originalId": "Theorem 1.1",
+      "kind": "numbered-theorem",
+      "scopeStatus": "complete",
+      "claim": "Unique outgoing weak Maxwell solution and both exact uniform quartic bounds for every admissible measurable tensor/support and every independently supplied physical weak state.",
+      "checkedExports": [
+        "QuarticMaxwell.PhysicalPowers.theorem11",
+        "QuarticMaxwell.PhysicalPowers.theorem11_ball",
+        "QuarticMaxwell.WeakMaterial.wellposed",
+        "QuarticMaxwell.WeakMaterial.state_representation"
+      ],
+      "remaining": null,
+      "originalSection": null,
+      "readingRevisionLabel": "thm:upper"
+    },
+    {
+      "originalId": "Theorem 1.2",
+      "kind": "numbered-theorem",
+      "scopeStatus": "restricted",
+      "claim": "Finite heterogeneous spheres: coefficient interval and full quantitative Maxwell remainder.",
+      "checkedExports": [
+        "OQ7Quartic.coefficient_interval",
+        "OQ7Quartic.remainder_constants"
+      ],
+      "remaining": "Continuum isolated-sphere/affine response, all static interactions, actual coefficient enclosure and full Maxwell remainder remain unclosed.",
+      "originalSection": null,
+      "readingRevisionLabel": "thm:hetero"
+    },
+    {
+      "originalId": "Theorem 1.3",
+      "kind": "numbered-theorem",
+      "scopeStatus": "restricted",
+      "claim": "Quartic exponent sharpness for every resource pair, including M=m.",
+      "checkedExports": [
+        "OQ7Quartic.first_interaction_coefficient",
+        "OQ7Quartic.first_interaction_error",
+        "OQ7Quartic.homogeneous_constants",
+        "QuarticMaxwell.positive_coefficient_lower_bound"
+      ],
+      "remaining": "Actual homogeneous finite-sphere continuum coefficient, all-multipole remainder, admissible lower family and rescaling remain unclosed.",
+      "originalSection": null,
+      "readingRevisionLabel": "thm:sharp"
+    },
+    {
+      "originalId": "Lemma 3.1",
+      "kind": "numbered-lemma",
+      "scopeStatus": "complete",
+      "claim": "Actual static Fourier contraction and exact sharp measurable-support dynamic-minus-static operator norm.",
+      "checkedExports": [
+        "QuarticMaxwell.maskedStaticOperator_norm_le",
+        "QuarticMaxwell.maskedOutgoingOperator_difference_norm_le_volume",
+        "QuarticMaxwell.supportCurrent_outgoing_distribution"
+      ],
+      "remaining": null,
+      "originalSection": null,
+      "readingRevisionLabel": "lem:green"
+    },
+    {
+      "originalId": "Lemma 3.2",
+      "kind": "numbered-lemma",
+      "scopeStatus": "complete",
+      "claim": "Complete radiation quadratic identity, sharp 8\u03c0V/3 norm, actual absorption/extinction/scattering and energy balance.",
+      "checkedExports": [
+        "QuarticMaxwell.domainRadiationMap_norm_sq_le",
+        "QuarticMaxwell.maskedOutgoingOperator_imaginary_radiation",
+        "QuarticMaxwell.PhysicalPowers.state_power_balance",
+        "QuarticMaxwell.PhysicalPowers.scattering_physical_flux"
+      ],
+      "remaining": null,
+      "originalSection": null,
+      "readingRevisionLabel": "lem:radiation"
+    },
+    {
+      "originalId": "Lemma 3.3",
+      "kind": "numbered-lemma",
+      "scopeStatus": "complete",
+      "claim": "Actual arbitrary measurable tensor multiplier, m/M\u00b2 loss, common inverse and equivalence with every outgoing weak Maxwell state.",
+      "checkedExports": [
+        "QuarticMaxwell.VolumeInverse.negative_coercive",
+        "QuarticMaxwell.VolumeInverse.inverse_norm_le",
+        "QuarticMaxwell.VolumeInverse.operator_norm_le",
+        "QuarticMaxwell.WeakMaterial.wellposed"
+      ],
+      "remaining": null,
+      "originalSection": null,
+      "readingRevisionLabel": "lem:inverse"
+    },
+    {
+      "originalId": "Lemma 3.4",
+      "kind": "numbered-lemma",
+      "scopeStatus": "complete",
+      "claim": "Exact positive reciprocal extinction for the actual opposite real plane-wave pair.",
+      "checkedExports": [
+        "QuarticMaxwell.VolumeInverse.operator_reciprocity",
+        "QuarticMaxwell.PhysicalPowers.state_extinction_reciprocal"
+      ],
+      "remaining": null,
+      "originalSection": null,
+      "readingRevisionLabel": "lem:reciprocity"
+    },
+    {
+      "originalId": "Theorem 4.1",
+      "kind": "numbered-theorem",
+      "scopeStatus": "restricted",
+      "claim": "Fixed-pattern moment coefficient and sixth-order remainder, including a vanishing leading coefficient.",
+      "checkedExports": [
+        "QuarticMaxwell.quartic_quotient_error",
+        "QuarticMaxwell.coefficient_translation_invariant"
+      ],
+      "remaining": "Actual static/resolvent/source/Gram/moment expansions are in a separate C-only revision; full coefficient, physical dilation and actual quotient assembly not in this checkpoint.",
+      "originalSection": null,
+      "readingRevisionLabel": "thm:coefficient"
+    },
+    {
+      "originalId": "Equation (1)",
+      "kind": "numbered-equation",
+      "scopeStatus": "complete",
+      "claim": "Literal local tensor norm/loss/transpose class.",
+      "checkedExports": [
+        "QuarticMaxwell.VolumeInverse.negative_coercive",
+        "QuarticMaxwell.VolumeInverse.inverse_norm_le",
+        "QuarticMaxwell.VolumeInverse.operator_norm_le",
+        "QuarticMaxwell.WeakMaterial.wellposed",
+        "QuarticMaxwell.VolumeInverse.operator_reciprocity",
+        "QuarticMaxwell.PhysicalPowers.state_extinction_reciprocal"
+      ],
+      "remaining": null,
+      "originalSection": null,
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "Equation (2)",
+      "kind": "numbered-equation",
+      "scopeStatus": "complete",
+      "claim": "Actual real opposite plane waves and magnetic partners.",
+      "checkedExports": [
+        "QuarticMaxwell.incidentWave_first_weakCurl",
+        "QuarticMaxwell.incidentMagneticWave_second_weakCurl"
+      ],
+      "remaining": null,
+      "originalSection": null,
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "Equation (3)",
+      "kind": "numbered-equation",
+      "scopeStatus": "complete",
+      "claim": "Original absorption contrast, common positive extinction, energy-balance equality of absorption/scattering differences.",
+      "checkedExports": [
+        "QuarticMaxwell.PhysicalPowers.theorem11",
+        "QuarticMaxwell.PhysicalPowers.theorem11_ball",
+        "QuarticMaxwell.WeakMaterial.wellposed",
+        "QuarticMaxwell.WeakMaterial.state_representation",
+        "QuarticMaxwell.domainRadiationMap_norm_sq_le",
+        "QuarticMaxwell.maskedOutgoingOperator_imaginary_radiation",
+        "QuarticMaxwell.PhysicalPowers.state_power_balance",
+        "QuarticMaxwell.PhysicalPowers.scattering_physical_flux",
+        "QuarticMaxwell.VolumeInverse.operator_reciprocity",
+        "QuarticMaxwell.PhysicalPowers.state_extinction_reciprocal"
+      ],
+      "remaining": null,
+      "originalSection": null,
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "Equation (4)",
+      "kind": "numbered-equation",
+      "scopeStatus": "complete",
+      "claim": "Exact volume radius, rho=M\u00b2/m and Lk constants.",
+      "checkedExports": [
+        "QuarticMaxwell.volumeRadius_volume",
+        "QuarticMaxwell.VolumeInverse.operator_norm_le"
+      ],
+      "remaining": null,
+      "originalSection": null,
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "Equation (5)",
+      "kind": "numbered-equation",
+      "scopeStatus": "complete",
+      "claim": "Exact measurable-support quartic inequality.",
+      "checkedExports": [
+        "QuarticMaxwell.PhysicalPowers.theorem11"
+      ],
+      "remaining": null,
+      "originalSection": null,
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "Equation (6)",
+      "kind": "numbered-equation",
+      "scopeStatus": "complete",
+      "claim": "Exact enclosing-ball quartic inequality.",
+      "checkedExports": [
+        "QuarticMaxwell.PhysicalPowers.theorem11_ball"
+      ],
+      "remaining": null,
+      "originalSection": null,
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "Equation (7)",
+      "kind": "numbered-equation",
+      "scopeStatus": "restricted",
+      "claim": "Heterogeneous actual continuum coefficient interval.",
+      "checkedExports": [
+        "OQ7Quartic.coefficient_interval",
+        "OQ7Quartic.remainder_constants"
+      ],
+      "remaining": "Only the listed scalar/conditional implications are checked; actual continuum identification remains required.",
+      "originalSection": null,
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "Equation (8)",
+      "kind": "numbered-equation",
+      "scopeStatus": "restricted",
+      "claim": "Explicit 21/2000 sixth-order remainder and finite-t lower bound.",
+      "checkedExports": [
+        "OQ7Quartic.remainder_constants"
+      ],
+      "remaining": "Only the listed scalar/conditional implications are checked; actual continuum identification remains required.",
+      "originalSection": null,
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "Equation (9)",
+      "kind": "numbered-equation",
+      "scopeStatus": "restricted",
+      "claim": "Every-resource-class two-sided quartic asymptotics.",
+      "checkedExports": [
+        "OQ7Quartic.first_interaction_coefficient",
+        "OQ7Quartic.first_interaction_error",
+        "OQ7Quartic.homogeneous_constants"
+      ],
+      "remaining": "Only the listed scalar/conditional implications are checked; actual continuum identification remains required.",
+      "originalSection": null,
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "Equation (10)",
+      "kind": "numbered-equation",
+      "scopeStatus": "complete",
+      "claim": "Actual distributional outgoing Green volume field including static contact term.",
+      "checkedExports": [
+        "QuarticMaxwell.maskedStaticOperator_norm_le",
+        "QuarticMaxwell.maskedOutgoingOperator_difference_norm_le_volume",
+        "QuarticMaxwell.supportCurrent_outgoing_distribution",
+        "QuarticMaxwell.domainOutgoingOperator_electricVolumeField_ae"
+      ],
+      "remaining": null,
+      "originalSection": null,
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "Equation (11)",
+      "kind": "numbered-equation",
+      "scopeStatus": "complete",
+      "claim": "One actual local-material volume inverse for both incident sources.",
+      "checkedExports": [
+        "QuarticMaxwell.VolumeInverse.equiv_apply",
+        "QuarticMaxwell.VolumeInverse.solution_constitutive",
+        "QuarticMaxwell.WeakMaterial.operator_of_volumeEquation"
+      ],
+      "remaining": null,
+      "originalSection": null,
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "Equation (12)",
+      "kind": "numbered-equation",
+      "scopeStatus": "restricted",
+      "claim": "Inverse material loss W and chi-inverse/B quadratic factorization.",
+      "checkedExports": [
+        "QuarticMaxwell.TensorMultiplier.inverse_loss_bound",
+        "QuarticMaxwell.PhysicalPowers.absorption_eq_volume"
+      ],
+      "remaining": "Only the listed scalar/conditional implications are checked; actual continuum identification remains required.",
+      "originalSection": null,
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "Equation (13)",
+      "kind": "numbered-equation",
+      "scopeStatus": "open",
+      "claim": "Literal two-column off-diagonal matrix optical identity.",
+      "checkedExports": [],
+      "remaining": "No exact exported proof of this original claim is in the upper checkpoint.",
+      "originalSection": null,
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "Equation (14)",
+      "kind": "numbered-equation",
+      "scopeStatus": "complete",
+      "claim": "Both sharp dyadic Green operator norms.",
+      "checkedExports": [
+        "QuarticMaxwell.maskedStaticOperator_norm_le",
+        "QuarticMaxwell.maskedOutgoingOperator_difference_norm_le_volume",
+        "QuarticMaxwell.supportCurrent_outgoing_distribution"
+      ],
+      "remaining": null,
+      "originalSection": null,
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "Equation (15)",
+      "kind": "numbered-equation",
+      "scopeStatus": "complete",
+      "claim": "Exact radial/tangential dynamic Green eigenvalues and oscillatory cancellation.",
+      "checkedExports": [
+        "QuarticMaxwell.dyadicRemainder_radial_tangential",
+        "QuarticMaxwell.dyadicRemainder_sharp_norm_le"
+      ],
+      "remaining": null,
+      "originalSection": null,
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "Equation (16)",
+      "kind": "numbered-equation",
+      "scopeStatus": "complete",
+      "claim": "Actual complete vector radiation transform on the physical sphere area measure.",
+      "checkedExports": [
+        "QuarticMaxwell.compactCurrentFarField_eq_radiationField"
+      ],
+      "remaining": null,
+      "originalSection": null,
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "Equation (17)",
+      "kind": "numbered-equation",
+      "scopeStatus": "complete",
+      "claim": "Exact imaginary-Green quadratic radiation identity.",
+      "checkedExports": [
+        "QuarticMaxwell.maskedOutgoingOperator_imaginary_radiation"
+      ],
+      "remaining": null,
+      "originalSection": null,
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "Equation (18)",
+      "kind": "numbered-equation",
+      "scopeStatus": "complete",
+      "claim": "Exact complete-radiation squared operator norm.",
+      "checkedExports": [
+        "QuarticMaxwell.domainRadiationMap_norm_sq_le"
+      ],
+      "remaining": null,
+      "originalSection": null,
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "Equation (19)",
+      "kind": "numbered-equation",
+      "scopeStatus": "complete",
+      "claim": "Original material-loss/incident-work/complete-scattering powers and energy balance.",
+      "checkedExports": [
+        "QuarticMaxwell.domainRadiationMap_norm_sq_le",
+        "QuarticMaxwell.maskedOutgoingOperator_imaginary_radiation",
+        "QuarticMaxwell.PhysicalPowers.state_power_balance",
+        "QuarticMaxwell.PhysicalPowers.scattering_physical_flux"
+      ],
+      "remaining": null,
+      "originalSection": null,
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "Equation (20)",
+      "kind": "numbered-equation",
+      "scopeStatus": "complete",
+      "claim": "Derived negative imaginary coercivity of the actual material volume operator.",
+      "checkedExports": [
+        "QuarticMaxwell.VolumeInverse.negative_coercive"
+      ],
+      "remaining": null,
+      "originalSection": null,
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "Equation (21)",
+      "kind": "numbered-equation",
+      "scopeStatus": "complete",
+      "claim": "Bilinear reciprocity and common exact forward work.",
+      "checkedExports": [
+        "QuarticMaxwell.VolumeInverse.operator_reciprocity",
+        "QuarticMaxwell.PhysicalPowers.state_extinction_reciprocal",
+        "QuarticMaxwell.domain_conjugate_pair_common_work"
+      ],
+      "remaining": null,
+      "originalSection": null,
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "Equation (22)",
+      "kind": "numbered-equation",
+      "scopeStatus": "complete",
+      "claim": "Actual common-inverse current/source-pair difference bound.",
+      "checkedExports": [
+        "QuarticMaxwell.common_inverse_difference",
+        "QuarticMaxwell.domainIncidentSource_opposite_norm_sq",
+        "QuarticMaxwell.UniformBound.uniform_quartic_contrast"
+      ],
+      "remaining": null,
+      "originalSection": null,
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "Equation (23)",
+      "kind": "numbered-equation",
+      "scopeStatus": "complete",
+      "claim": "Same-support incident norm and passivity/denominator norm bounds.",
+      "checkedExports": [
+        "QuarticMaxwell.domainIncidentSource_norm_sq",
+        "QuarticMaxwell.inverse_current_power",
+        "QuarticMaxwell.UniformBound.uniform_quartic_contrast"
+      ],
+      "remaining": null,
+      "originalSection": null,
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "Equation (24)",
+      "kind": "numbered-equation",
+      "scopeStatus": "complete",
+      "claim": "Complete scattering quadratic difference and exact quartic chain.",
+      "checkedExports": [
+        "QuarticMaxwell.radiation_quadratic_difference",
+        "QuarticMaxwell.UniformBound.uniform_quartic_contrast"
+      ],
+      "remaining": null,
+      "originalSection": null,
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "Equation (25)",
+      "kind": "numbered-equation",
+      "scopeStatus": "open",
+      "claim": "Actual static uniform/affine responses, moments and positive D0.",
+      "checkedExports": [],
+      "remaining": "No exact exported proof of this original claim is in the upper checkpoint.",
+      "originalSection": null,
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "Equation (26)",
+      "kind": "numbered-equation",
+      "scopeStatus": "restricted",
+      "claim": "Actual fixed-pattern quartic coefficient and sixth-order error.",
+      "checkedExports": [
+        "QuarticMaxwell.quartic_quotient_error"
+      ],
+      "remaining": "Only the listed scalar/conditional implications are checked; actual continuum identification remains required.",
+      "originalSection": null,
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "Equation (27)",
+      "kind": "numbered-equation",
+      "scopeStatus": "open",
+      "claim": "Actual dynamic/static response resolvent O(t\u00b2).",
+      "checkedExports": [],
+      "remaining": "No exact exported proof of this original claim is in the upper checkpoint.",
+      "originalSection": null,
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "Equation (28)",
+      "kind": "numbered-equation",
+      "scopeStatus": "open",
+      "claim": "Actual cosine/sine response decomposition and L\u00b2 Taylor errors.",
+      "checkedExports": [],
+      "remaining": "No exact exported proof of this original claim is in the upper checkpoint.",
+      "originalSection": null,
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "Equation (29)",
+      "kind": "numbered-equation",
+      "scopeStatus": "open",
+      "claim": "Actual radiation Gram operator and exact cosine-kernel correspondence.",
+      "checkedExports": [],
+      "remaining": "No exact exported proof of this original claim is in the upper checkpoint.",
+      "originalSection": null,
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "Equation (30)",
+      "kind": "numbered-equation",
+      "scopeStatus": "open",
+      "claim": "Exact even Gram norm estimate and zero-frequency moment identity.",
+      "checkedExports": [],
+      "remaining": "No exact exported proof of this original claim is in the upper checkpoint.",
+      "originalSection": null,
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "Equation (31)",
+      "kind": "numbered-equation",
+      "scopeStatus": "open",
+      "claim": "Actual scattering moment expansion with cubic error.",
+      "checkedExports": [],
+      "remaining": "No exact exported proof of this original claim is in the upper checkpoint.",
+      "originalSection": null,
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "Equation (32)",
+      "kind": "numbered-equation",
+      "scopeStatus": "open",
+      "claim": "Actual forward-work expansion and positive static denominator.",
+      "checkedExports": [],
+      "remaining": "No exact exported proof of this original claim is in the upper checkpoint.",
+      "originalSection": null,
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "Equation (33)",
+      "kind": "numbered-equation",
+      "scopeStatus": "restricted",
+      "claim": "Finite two-sphere geometry and exact volume/gap.",
+      "checkedExports": [],
+      "remaining": "Only the listed scalar/conditional implications are checked; actual continuum identification remains required.",
+      "originalSection": null,
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "Equation (34)",
+      "kind": "numbered-equation",
+      "scopeStatus": "open",
+      "claim": "Actual within-/cross-sphere block inverse decomposition.",
+      "checkedExports": [],
+      "remaining": "No exact exported proof of this original claim is in the upper checkpoint.",
+      "originalSection": null,
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "Equation (35)",
+      "kind": "numbered-equation",
+      "scopeStatus": "open",
+      "claim": "Actual cross-sphere static kernel with exact 1/(2\u03c0r\u00b3) norm.",
+      "checkedExports": [],
+      "remaining": "No exact exported proof of this original claim is in the upper checkpoint.",
+      "originalSection": null,
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "Equation (36)",
+      "kind": "numbered-equation",
+      "scopeStatus": "restricted",
+      "claim": "Actual cross-block norm and explicit c<1/2500.",
+      "checkedExports": [
+        "OQ7Quartic.coupling_lt",
+        "OQ7Quartic.coupling_sq"
+      ],
+      "remaining": "Only the listed scalar/conditional implications are checked; actual continuum identification remains required.",
+      "originalSection": null,
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "Equation (37)",
+      "kind": "numbered-equation",
+      "scopeStatus": "restricted",
+      "claim": "Actual full static inverse comparison delta<1/600.",
+      "checkedExports": [
+        "OQ7Quartic.delta_lt"
+      ],
+      "remaining": "Only the listed scalar/conditional implications are checked; actual continuum identification remains required.",
+      "originalSection": null,
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "Equation (38)",
+      "kind": "numbered-equation",
+      "scopeStatus": "open",
+      "claim": "Isolated continuum sphere response and arbitrary-input/affine mean identity.",
+      "checkedExports": [],
+      "remaining": "No exact exported proof of this original claim is in the upper checkpoint.",
+      "originalSection": null,
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "Equation (39)",
+      "kind": "numbered-equation",
+      "scopeStatus": "restricted",
+      "claim": "Isolated actual-sphere polarizabilities.",
+      "checkedExports": [
+        "OQ7Quartic.beta_one",
+        "OQ7Quartic.beta_two",
+        "OQ7Quartic.alpha_one_eq",
+        "OQ7Quartic.alpha_two_eq"
+      ],
+      "remaining": "Only the listed scalar/conditional implications are checked; actual continuum identification remains required.",
+      "originalSection": null,
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "Equation (40)",
+      "kind": "numbered-equation",
+      "scopeStatus": "restricted",
+      "claim": "Actual isolated block moment values.",
+      "checkedExports": [
+        "OQ7Quartic.block_moment_imag",
+        "OQ7Quartic.block_extinction"
+      ],
+      "remaining": "Only the listed scalar/conditional implications are checked; actual continuum identification remains required.",
+      "originalSection": null,
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "Equation (41)",
+      "kind": "numbered-equation",
+      "scopeStatus": "restricted",
+      "claim": "Exact isolated comparison imaginary moment and extinction constants.",
+      "checkedExports": [
+        "OQ7Quartic.block_moment_imag",
+        "OQ7Quartic.block_extinction"
+      ],
+      "remaining": "Only the listed scalar/conditional implications are checked; actual continuum identification remains required.",
+      "originalSection": null,
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "Equation (42)",
+      "kind": "numbered-equation",
+      "scopeStatus": "open",
+      "claim": "Actual total interacting moment errors.",
+      "checkedExports": [],
+      "remaining": "No exact exported proof of this original claim is in the upper checkpoint.",
+      "originalSection": null,
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "Equation (43)",
+      "kind": "numbered-equation",
+      "scopeStatus": "restricted",
+      "claim": "Actual noncancellation relative-error enclosure.",
+      "checkedExports": [
+        "OQ7Quartic.relative_error"
+      ],
+      "remaining": "Only the listed scalar/conditional implications are checked; actual continuum identification remains required.",
+      "originalSection": null,
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "Equation (44)",
+      "kind": "numbered-equation",
+      "scopeStatus": "restricted",
+      "claim": "Actual exact static I0/D0 interval.",
+      "checkedExports": [
+        "OQ7Quartic.coefficient_interval"
+      ],
+      "remaining": "Only the listed scalar/conditional implications are checked; actual continuum identification remains required.",
+      "originalSection": null,
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "Equation (45)",
+      "kind": "numbered-equation",
+      "scopeStatus": "restricted",
+      "claim": "Continuum coefficient interval after moment enclosures.",
+      "checkedExports": [
+        "OQ7Quartic.coefficient_interval"
+      ],
+      "remaining": "Only the listed scalar/conditional implications are checked; actual continuum identification remains required.",
+      "originalSection": null,
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "Equation (46)",
+      "kind": "numbered-equation",
+      "scopeStatus": "restricted",
+      "claim": "Numerical endpoints of continuum coefficient interval.",
+      "checkedExports": [
+        "OQ7Quartic.coefficient_interval"
+      ],
+      "remaining": "Only the listed scalar/conditional implications are checked; actual continuum identification remains required.",
+      "originalSection": null,
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "Equation (47)",
+      "kind": "numbered-equation",
+      "scopeStatus": "open",
+      "claim": "Sharper finite-family dynamic kernel, response and resolvent constants.",
+      "checkedExports": [],
+      "remaining": "No exact exported proof of this original claim is in the upper checkpoint.",
+      "originalSection": null,
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "Equation (48)",
+      "kind": "numbered-equation",
+      "scopeStatus": "open",
+      "claim": "Explicit finite-family u/v/Gram expansion constants.",
+      "checkedExports": [],
+      "remaining": "No exact exported proof of this original claim is in the upper checkpoint.",
+      "originalSection": null,
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "Equation (49)",
+      "kind": "numbered-equation",
+      "scopeStatus": "restricted",
+      "claim": "Actual finite-family scattering error 168/(25\u03c0).",
+      "checkedExports": [
+        "OQ7Quartic.remainder_constants"
+      ],
+      "remaining": "Only the listed scalar/conditional implications are checked; actual continuum identification remains required.",
+      "originalSection": null,
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "Equation (50)",
+      "kind": "numbered-equation",
+      "scopeStatus": "restricted",
+      "claim": "Actual finite-family forward-work error 108/25.",
+      "checkedExports": [
+        "OQ7Quartic.remainder_constants"
+      ],
+      "remaining": "Only the listed scalar/conditional implications are checked; actual continuum identification remains required.",
+      "originalSection": null,
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "Equation (51)",
+      "kind": "numbered-equation",
+      "scopeStatus": "restricted",
+      "claim": "Actual full-Maxwell sixth-order remainder and positive finite-t bound.",
+      "checkedExports": [
+        "OQ7Quartic.remainder_constants",
+        "QuarticMaxwell.positive_coefficient_lower_bound"
+      ],
+      "remaining": "Only the listed scalar/conditional implications are checked; actual continuum identification remains required.",
+      "originalSection": null,
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "Equation (52)",
+      "kind": "numbered-equation",
+      "scopeStatus": "open",
+      "claim": "Passive causal Lorentz realization and pole/positive-loss assertions.",
+      "checkedExports": [],
+      "remaining": "No exact exported proof of this original claim is in the upper checkpoint.",
+      "originalSection": null,
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "Equation (53)",
+      "kind": "numbered-equation",
+      "scopeStatus": "restricted",
+      "claim": "Homogeneous sphere beta bounds and positive imaginary part.",
+      "checkedExports": [
+        "OQ7Quartic.first_interaction_coefficient",
+        "OQ7Quartic.first_interaction_error",
+        "OQ7Quartic.homogeneous_constants"
+      ],
+      "remaining": "Only the listed scalar/conditional implications are checked; actual continuum identification remains required.",
+      "originalSection": null,
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "Equation (54)",
+      "kind": "numbered-equation",
+      "scopeStatus": "restricted",
+      "claim": "Actual homogeneous cross-block estimate.",
+      "checkedExports": [
+        "OQ7Quartic.coupling_homogeneous"
+      ],
+      "remaining": "Only the listed scalar/conditional implications are checked; actual continuum identification remains required.",
+      "originalSection": null,
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "Equation (55)",
+      "kind": "numbered-equation",
+      "scopeStatus": "open",
+      "claim": "Exact twice-iterated physical static resolvent identity and second-order remainder.",
+      "checkedExports": [],
+      "remaining": "No exact exported proof of this original claim is in the upper checkpoint.",
+      "originalSection": null,
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "Equation (56)",
+      "kind": "numbered-equation",
+      "scopeStatus": "open",
+      "claim": "Actual double-ball harmonic mean-value identity for the static tensor kernel.",
+      "checkedExports": [],
+      "remaining": "No exact exported proof of this original claim is in the upper checkpoint.",
+      "originalSection": null,
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "Equation (57)",
+      "kind": "numbered-equation",
+      "scopeStatus": "open",
+      "claim": "Actual first constant-drive interaction and all-source moment norm.",
+      "checkedExports": [],
+      "remaining": "No exact exported proof of this original claim is in the upper checkpoint.",
+      "originalSection": null,
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "Equation (58)",
+      "kind": "numbered-equation",
+      "scopeStatus": "open",
+      "claim": "Actual affine odd response, zero moment and weighted L\u00b2 bounds.",
+      "checkedExports": [],
+      "remaining": "No exact exported proof of this original claim is in the upper checkpoint.",
+      "originalSection": null,
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "Equation (59)",
+      "kind": "numbered-equation",
+      "scopeStatus": "open",
+      "claim": "Actual static tensor derivative and 6/(\u03c0r\u2074) bound.",
+      "checkedExports": [],
+      "remaining": "No exact exported proof of this original claim is in the upper checkpoint.",
+      "originalSection": null,
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "Equation (60)",
+      "kind": "numbered-equation",
+      "scopeStatus": "open",
+      "claim": "Actual full affine interaction correction enclosure.",
+      "checkedExports": [],
+      "remaining": "No exact exported proof of this original claim is in the upper checkpoint.",
+      "originalSection": null,
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "Equation (61)",
+      "kind": "numbered-equation",
+      "scopeStatus": "restricted",
+      "claim": "Actual nonzero first homogeneous interaction.",
+      "checkedExports": [
+        "OQ7Quartic.first_interaction_coefficient"
+      ],
+      "remaining": "Only the listed scalar/conditional implications are checked; actual continuum identification remains required.",
+      "originalSection": null,
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "Equation (62)",
+      "kind": "numbered-equation",
+      "scopeStatus": "restricted",
+      "claim": "Actual first-interaction error compared with the positive leading term.",
+      "checkedExports": [
+        "OQ7Quartic.first_interaction_error"
+      ],
+      "remaining": "Only the listed scalar/conditional implications are checked; actual continuum identification remains required.",
+      "originalSection": null,
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "Equation (63)",
+      "kind": "numbered-equation",
+      "scopeStatus": "open",
+      "claim": "Actual all remaining static interaction and cross-product enclosure.",
+      "checkedExports": [],
+      "remaining": "No exact exported proof of this original claim is in the upper checkpoint.",
+      "originalSection": null,
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "Equation (64)",
+      "kind": "numbered-equation",
+      "scopeStatus": "restricted",
+      "claim": "Actual homogeneous all-multipole relative error.",
+      "checkedExports": [
+        "OQ7Quartic.homogeneous_constants"
+      ],
+      "remaining": "Only the listed scalar/conditional implications are checked; actual continuum identification remains required.",
+      "originalSection": null,
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "Equation (65)",
+      "kind": "numbered-equation",
+      "scopeStatus": "restricted",
+      "claim": "Fixed admissible a(mu) gives actual relative error at most one half.",
+      "checkedExports": [
+        "OQ7Quartic.homogeneous_constants"
+      ],
+      "remaining": "Only the listed scalar/conditional implications are checked; actual continuum identification remains required.",
+      "originalSection": null,
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "Equation (66)",
+      "kind": "numbered-equation",
+      "scopeStatus": "restricted",
+      "claim": "Actual homogeneous Maxwell coefficient interval and quartic family.",
+      "checkedExports": [
+        "OQ7Quartic.first_interaction_coefficient",
+        "OQ7Quartic.first_interaction_error",
+        "OQ7Quartic.homogeneous_constants"
+      ],
+      "remaining": "Only the listed scalar/conditional implications are checked; actual continuum identification remains required.",
+      "originalSection": null,
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "length-convention",
+      "kind": "unnumbered-claim",
+      "scopeStatus": "open",
+      "claim": "Minimum enclosing radius 23R/40, center R ez/40 and resulting coefficient renormalization.",
+      "checkedExports": [],
+      "remaining": "See claim scope; not certified as a complete formal manuscript result.",
+      "originalSection": "1",
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "static-contact-cancellation",
+      "kind": "unnumbered-claim",
+      "scopeStatus": "complete",
+      "claim": "Full distributional static contact term retained and outgoing-minus-static cancellation identified.",
+      "checkedExports": [
+        "QuarticMaxwell.maskedStaticOperator_norm_le",
+        "QuarticMaxwell.maskedOutgoingOperator_difference_norm_le_volume",
+        "QuarticMaxwell.supportCurrent_outgoing_distribution"
+      ],
+      "remaining": null,
+      "originalSection": "2\u20133",
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "Newton-rearrangement",
+      "kind": "unnumbered-claim",
+      "scopeStatus": "complete",
+      "claim": "Exact Newton ball integral and arbitrary measurable-support rearrangement with no boundary regularity.",
+      "checkedExports": [
+        "QuarticMaxwell.measurable_support_newton_uniform"
+      ],
+      "remaining": null,
+      "originalSection": "3.1 proof",
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "vector-Schur",
+      "kind": "unnumbered-claim",
+      "scopeStatus": "complete",
+      "claim": "Actual vector L\u00b2 Schur bound derived with joint integrability and both kernel majorants.",
+      "checkedExports": [
+        "QuarticMaxwell.integral_operator_schur",
+        "QuarticMaxwell.maskedRemainderOperator_pairing"
+      ],
+      "remaining": null,
+      "originalSection": "3.1 proof",
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "weak-vacuum-uniqueness",
+      "kind": "unnumbered-claim",
+      "scopeStatus": "complete",
+      "claim": "Converse weak-field representation uses genuine entire outgoing vacuum uniqueness.",
+      "checkedExports": [
+        "QuarticMaxwell.WeakMaterial.state_representation",
+        "QuarticMaxwell.WeakMaterial.wellposed"
+      ],
+      "remaining": null,
+      "originalSection": "3.3 proof",
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "forward-optical-theorem",
+      "kind": "unnumbered-claim",
+      "scopeStatus": "open",
+      "claim": "Literal forward far-field optical-theorem formula for arbitrary transverse polarization and measurable tensor class.",
+      "checkedExports": [],
+      "remaining": "See claim scope; not certified as a complete formal manuscript result.",
+      "originalSection": "3.2 proof",
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "off-diagonal-design-constraints",
+      "kind": "unnumbered-claim",
+      "scopeStatus": "open",
+      "claim": "Literal matrix two-input compatibility and its off-diagonal material/radiation components.",
+      "checkedExports": [],
+      "remaining": "See claim scope; not certified as a complete formal manuscript result.",
+      "originalSection": "2",
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "translation-invariance",
+      "kind": "unnumbered-claim",
+      "scopeStatus": "restricted",
+      "claim": "Moment coefficient invariant under shifting p1 by a real multiple of p0.",
+      "checkedExports": [
+        "QuarticMaxwell.coefficient_translation_invariant"
+      ],
+      "remaining": "See claim scope; not certified as a complete formal manuscript result.",
+      "originalSection": "4",
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "sphere-affine-parity",
+      "kind": "unnumbered-claim",
+      "scopeStatus": "open",
+      "claim": "Actual continuum centered affine-source parity gives zero total moment.",
+      "checkedExports": [],
+      "remaining": "See claim scope; not certified as a complete formal manuscript result.",
+      "originalSection": "5.2",
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "sphere-exact-static-multipoles",
+      "kind": "unnumbered-claim",
+      "scopeStatus": "open",
+      "claim": "Actual all-static-multipole interaction enclosure, rather than a point-dipole assumption.",
+      "checkedExports": [],
+      "remaining": "See claim scope; not certified as a complete formal manuscript result.",
+      "originalSection": "5.1\u20136.2",
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "finite-t-lower-constant",
+      "kind": "unnumbered-claim",
+      "scopeStatus": "restricted",
+      "claim": "The finite-family quantitative remainder implies a positive quartic lower bound for t\u22641/40.",
+      "checkedExports": [
+        "QuarticMaxwell.positive_coefficient_lower_bound",
+        "OQ7Quartic.remainder_constants"
+      ],
+      "remaining": "See claim scope; not certified as a complete formal manuscript result.",
+      "originalSection": "5.4",
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "homogeneous-D0-bounds",
+      "kind": "unnumbered-claim",
+      "scopeStatus": "open",
+      "claim": "Actual static energy and inverse bounds imply mu*w/(1+mu)^2\u2264D0\u2264mu*w.",
+      "checkedExports": [],
+      "remaining": "See claim scope; not certified as a complete formal manuscript result.",
+      "originalSection": "6.2",
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "rigid-rotation-lower-family",
+      "kind": "unnumbered-claim",
+      "scopeStatus": "open",
+      "claim": "Every real transverse pair is covered by rotating the actual positive lower family.",
+      "checkedExports": [],
+      "remaining": "See claim scope; not certified as a complete formal manuscript result.",
+      "originalSection": "6.2",
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "physical-dilation",
+      "kind": "unnumbered-claim",
+      "scopeStatus": "open",
+      "claim": "Exact physical rescaling R*Omega at fixed k equals the dimensionless t=kR formulation.",
+      "checkedExports": [],
+      "remaining": "See claim scope; not certified as a complete formal manuscript result.",
+      "originalSection": "4\u20136",
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "numerical-VSWF-method",
+      "kind": "unnumbered-claim",
+      "scopeStatus": "open",
+      "claim": "Finite truncation, all-channel counting, quadrature, boundary matching and Mie comparisons are numerical corroboration, not Lean proofs.",
+      "checkedExports": [],
+      "remaining": "See claim scope; not certified as a complete formal manuscript result.",
+      "originalSection": "7.1",
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "numerical-convergence-table",
+      "kind": "unnumbered-claim",
+      "scopeStatus": "open",
+      "claim": "Historical floating-point table and convergence claims require their separate numerical record; no kernel proof is asserted.",
+      "checkedExports": [],
+      "remaining": "See claim scope; not certified as a complete formal manuscript result.",
+      "originalSection": "7.2",
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "prior-work-positioning",
+      "kind": "unnumbered-claim",
+      "scopeStatus": "open",
+      "claim": "Bibliographic mechanism and scientific-priority comparisons are outside the Lean theorem scope.",
+      "checkedExports": [],
+      "remaining": "See claim scope; not certified as a complete formal manuscript result.",
+      "originalSection": "8",
+      "readingRevisionLabel": null
+    },
+    {
+      "originalId": "human-independent-review",
+      "kind": "unnumbered-claim",
+      "scopeStatus": "open",
+      "claim": "No completed human peer review or independently implemented kernel check is inferred from these artifacts.",
+      "checkedExports": [],
+      "remaining": "See claim scope; not certified as a complete formal manuscript result.",
+      "originalSection": "9",
+      "readingRevisionLabel": null
+    }
+  ]
+}

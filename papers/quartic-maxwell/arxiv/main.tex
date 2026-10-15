@@ -21,7 +21,7 @@
 \title{Uniform Quartic Bounds for Reciprocal\\Absorption--Scattering Asymmetry}
 \author{Daniel Wang\\McMaster University\\\href{mailto:denialk391@gmail.com}{\texttt{denialk391@gmail.com}}
 \and Junjie Zheng\\Columbia University\\\href{mailto:zjj2785@gmail.com}{\texttt{zjj2785@gmail.com}}}
-\date{14 October 2026}
+\date{15 October 2026}
 \hypersetup{pdfauthor={Daniel Wang and Junjie Zheng},pdftitle={Uniform Quartic Bounds for Reciprocal Absorption--Scattering Asymmetry}}
 \begin{document}
 \maketitle
@@ -564,7 +564,9 @@ A nonmagnetic constitutive law does not omit emergent magnetic multipoles of die
 A susceptibility cap and full tensor loss floor give a quartic upper bound for real opposite plane waves, uniformly over measurable geometries and material patterns. Two finite-sphere certificates show that this exponent occurs in the exact Maxwell problem, including within every resource class using one homogeneous material. The coefficient formula and explicit remainder control this assertion beyond a point-particle model. The optimal coefficient, the finite-size joint optimum and any additional fixed-positive-extinction or bandwidth requirement remain separate problems.
 
 \noindent\textbf{AI assistance and verification scope.}
-AI assistance was used in the development and review of the mathematical arguments, document reconstruction and editing, literature comparison, algebraic checking and compilation checks. The arguments in this manuscript are ordinary proofs. No Lean verification, independently implemented kernel check or completed human peer review is claimed for these results.
+The accompanying formalization uses Lean 4.34.1 \citep{deMouraUllrich2021} and a pinned Mathlib revision \citep{mathlib2020}. It proves the numbered theorem and lemma conclusions for the stated physical models: the measurable-tensor weak Maxwell problem and uniform bounds, the fixed-pattern coefficient and physical dilation, the interacting heterogeneous-sphere certificate, and homogeneous exponent sharpness for every resource pair, including $M=m$. In the sharpness theorem, resource-dependent constants precede the quantifiers over all real transverse unit illumination pairs. The sphere proofs use actual volume responses, rather than assumed dipole responses or numerical certificates.
+
+The ancillary source supplement records exact formal statement types, source hashes, dependency pins, transitive axiom inventories and fresh kernel-replay results. Its coverage ledger distinguishes these theorem conclusions from auxiliary displays and discussion that have not been separately formalized. A manuscript-version binding links the checked source record to this revision. Fresh replay uses Lean's own kernel implementation; it is not an independently implemented checker or human peer review. AI tools assisted the mathematical development, formalization, document reconstruction, editing and literature comparison.
 
 \appendix
 \section{Entire outgoing weak vacuum uniqueness}\label{app:vacuum}

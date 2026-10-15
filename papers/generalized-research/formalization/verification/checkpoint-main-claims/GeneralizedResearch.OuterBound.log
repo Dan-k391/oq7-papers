@@ -1,0 +1,44 @@
+GeneralizedResearch\OuterBound.lean:36:46: warning: Variable name `hr0` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hr0
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+GeneralizedResearch\OuterBound.lean:36:62: warning: Variable name `hr1` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hr1
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+GeneralizedResearch\OuterBound.lean:66:36: warning: This simp argument is unused:
+  Matrix.mul_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [W, P, Matrix.trace_fin_two, Fin.sum_univ_two]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+GeneralizedResearch\OuterBound.lean:66:54: warning: This simp argument is unused:
+  Fin.sum_univ_two
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [W, P, Matrix.trace_fin_two, Matrix.mul_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+GeneralizedResearch\OuterBound.lean:95:41: warning: This simp argument is unused:
+  Matrix.mul_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [W, P, t, Matrix.trace_fin_two, Fin.sum_univ_two]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+GeneralizedResearch\OuterBound.lean:95:59: warning: This simp argument is unused:
+  Fin.sum_univ_two
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [W, P, t, Matrix.trace_fin_two, Matrix.mul_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'GeneralizedResearch.OuterBound.overlap_branch_upper_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GeneralizedResearch.OuterBound.overlap_branch_SDP_attainment' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

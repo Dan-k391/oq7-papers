@@ -1,0 +1,30 @@
+GeneralizedResearch\TransitionConditions.lean:52:15: warning: This simp argument is unused:
+  sub_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [zero_sub, dotProduct_neg, star_trivial] at hr
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+GeneralizedResearch\TransitionConditions.lean:67:4: warning: This simp argument is unused:
+  Matrix.vecMul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [OuterBound.P, pow_two, Matrix.mulVec, Matrix.mul_apply, dotProduct, Fin.sum_univ_two, hsym, h01,
+    h11] at hv
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+GeneralizedResearch\TransitionConditions.lean:113:17: warning: Variable name `hrho` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hrho
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+'GeneralizedResearch.TransitionConditions.first_branch_effect_unique' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GeneralizedResearch.TransitionConditions.first_branch_extinction_necessary' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GeneralizedResearch.TransitionConditions.parabola_transition_necessary' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

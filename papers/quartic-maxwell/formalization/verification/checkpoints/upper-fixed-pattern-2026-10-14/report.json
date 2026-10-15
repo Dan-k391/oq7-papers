@@ -1,0 +1,4651 @@
+{
+  "leanVersion": "Lean (version 4.34.1, x86_64-w64-windows-gnu, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)",
+  "mathlibCommit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "startedUTC": "2026-10-14T21:41:23.805055+00:00",
+  "finishedUTC": "2026-10-14T22:11:59.091655+00:00",
+  "implementedLemmasKernelVerified": true,
+  "completePhysicalManuscriptTheoremsVerified": false,
+  "sourceHashes": {
+    "QuarticMaxwell\\Certificates.lean": "e482b49c72fd77da10e97e8665d4b07329aaacbbc669c31839d2d8504e23f22d",
+    "QuarticMaxwell\\Operator.lean": "23ceeaf90bc49f39a3bd442de944ead114aab32d0cc865d1292260ccf47f80b5",
+    "QuarticMaxwell\\Asymptotics.lean": "414f3a625fa1e75cc0e4492390945caced5527b00f32f47e28cf20560949b3c0",
+    "QuarticMaxwell\\GreenEigenvalues.lean": "179f57f119faff4e9750b883b6737fa99aa4f7badf0090dbf630165eda2cf674",
+    "QuarticMaxwell\\MaterialInverse.lean": "4c7badded7fcea8d33afcf7a0bc5000b3069c362b30d13628dbedebca9c02c2b",
+    "QuarticMaxwell\\Rearrangement.lean": "4325514c20c7aa0fcc3ef99cfc1754bb4756b642527ac5a2dcd074b9aca43586",
+    "QuarticMaxwell\\SharpVolume.lean": "b4b8195104b9d8a0920e6bf3d243a6b5129ce72065b76fe82e05afed4a22ba97",
+    "QuarticMaxwell\\Schur.lean": "3a39af9994fcebdb76aad48caa0cec6cf5ad2a1a3992ef4dfbef5f90e941e0a8",
+    "QuarticMaxwell\\ProjectionGeometry.lean": "ceb94d9e5c1ad65477e62bca635c5d30a41e2ee75a994a906739d9567678095b",
+    "QuarticMaxwell\\ProjectionKernel.lean": "ef8f0e2a7c6d30cb5241ce628ee92e906669a65e397e656370ea4ea99b5650f1",
+    "QuarticMaxwell\\MaskedRemainder.lean": "4cfaf26d18a6a56925956cac0be1f32220624d79ca3a61603b3bf12d612280ee",
+    "QuarticMaxwell\\RadiationMoment.lean": "c6bf843ca0b095d764773afbdbee44cfbb693d0892fd66220a8e50b54ee39921",
+    "QuarticMaxwell\\SquareIntegral.lean": "0c664a8148eb83ee4af4d20dce7417aef10182f55852117ba0d41864512da5df",
+    "QuarticMaxwell\\RadiationOperator.lean": "92d0dd3bb3154d1196e00bb5ef4e895fbd4fea907a56a96605d5bb5873664fa7",
+    "QuarticMaxwell\\RadiationPhysical.lean": "47141a7ffa13715fe796479e909b5d59eb1d4dfa099885c48f1aeb6111ce7eab",
+    "QuarticMaxwell\\IncidentSources.lean": "ba7874ba0e8383f03110cc850558d7635c19976a671cface4f8f3fae2631c232",
+    "QuarticMaxwell\\RadiationIdentity.lean": "68e01ed7d21ee692b472d62fff07eb25df829b82d9a866e7ced54d11ce25945c",
+    "QuarticMaxwell\\Reciprocity.lean": "e384d066778e1925fdc0bec9d45883085ec63b6deb91eec2687dd79a3ff8aa7a",
+    "QuarticMaxwell\\SupportedOperators.lean": "3720b404144e14d7d74d74517433a758e2b8d88b30bac4c37928080cff5d1eee",
+    "QuarticMaxwell\\TensorMultiplier.lean": "d140fbc11039e72a972456e20c0283dfc3c9afe2fa2806bf2177f5dd3e3617c3",
+    "QuarticMaxwell\\VolumeInverse.lean": "d948222906e8b77a652b8722257f6673c3f8e559bbdbd7004ffd0743cef71e08",
+    "QuarticMaxwell\\UniformBound.lean": "35cffaca7f3076f670bc1107c4a90e12604445ab5e9c010da4d42e6190843b6a",
+    "QuarticMaxwell\\BallBound.lean": "a494627335e0bfde72297c896970dcddcc9fe73405684a2a9012bc5da19ddb24",
+    "QuarticMaxwell\\PlaneWaves.lean": "66a21599f53b1f660588bd2d365a560e20f7493d0dd46ee40c6da06810d5ba88",
+    "QuarticMaxwell\\WeakMaterial.lean": "01eea838307862652d8a12e80640c0cb4ff2578bf9ddb8e240df42042dbc36b8",
+    "QuarticMaxwell\\PhysicalPowers.lean": "6128371d08047d026e612a64fec9cc54b01a26f6daa890726aa3872c108979e1",
+    "QuarticMaxwell\\StaticInverse.lean": "b16dd308810253211774e933f55cfd6c10928b413d11a2eaa4890ace5a6a877e",
+    "QuarticMaxwell\\SourceTaylor.lean": "7b9c218669ab5043e324d385a50d36229d7ef534b914eca4756574c7b4d3d2ae",
+    "QuarticMaxwell\\RadiationGram.lean": "f8eee14ef0acb417249c2dbd196aceee43a0df5c79c5b20a462571ff74b69b56",
+    "QuarticMaxwell\\RadiationTaylor.lean": "9c9361c6f7e4648a2640db98c52e665ca537bd35e50b31d33091cac16701e427",
+    "QuarticMaxwell\\GramEstimates.lean": "687c651b47c4e82c09fad70c7ffbeedfd9f6b918b71b5d906054982f5e2faafd",
+    "QuarticMaxwell\\StaticReciprocity.lean": "2d6dc1f8a03364ed462bede2e905b5be94ac43c979c8a7417ab914975af62d0b",
+    "QuarticMaxwell\\FixedPatternWork.lean": "c9f7dbd33d4bd7fb1f1e80d4e1cdf844797ece2130a5d67404138681571287bd",
+    "QuarticMaxwell\\FixedPatternScattering.lean": "52c5586820a7db8802d40c73ccb98bb8234fdfdeb8cdc1fd4c885718a9e120e3",
+    "QuarticMaxwell\\FixedPatternContrast.lean": "a20cefd427f9e4c448a37bb9dbaf38d385e987365f73f625fa84b3a8f8158c98",
+    "QuarticMaxwell\\LocalTensorClass.lean": "8038370f84bbefdd7e68b439f8ef12f98229d16e8e2d5b347452da00381bfd8d",
+    "QuarticMaxwell\\StaticHessian.lean": "a679b1d3f6791e93e31731c7d057c00d882c33369a49b0d9cd39b7a146e12eba",
+    "QuarticMaxwell\\PhysicalDilation.lean": "e111257ab645d9acab50209c69e2ddba20894cf5502a2edfe59ce07319592eb0",
+    "QuarticMaxwell\\FixedPatternDilation.lean": "f8eb0ea203943f35405eb1c9a151b90bc9ee504cd5e359d8f99c7542d7961e33",
+    "QuarticMaxwell.lean": "78ce75cf0b5d59e32f36fd7f1e1f599d52858d76436fae7fb841016494bf3427",
+    "Audit.lean": "3f5cd14aa440483fa2f751e8e0d7323465b3cff002334c5e1e53273826148240"
+  },
+  "moduleResults": [
+    {
+      "module": "QuarticMaxwell.Certificates",
+      "exitCode": 0,
+      "log": "verification/logs/QuarticMaxwell.Certificates.log"
+    },
+    {
+      "module": "QuarticMaxwell.Operator",
+      "exitCode": 0,
+      "log": "verification/logs/QuarticMaxwell.Operator.log"
+    },
+    {
+      "module": "QuarticMaxwell.Asymptotics",
+      "exitCode": 0,
+      "log": "verification/logs/QuarticMaxwell.Asymptotics.log"
+    },
+    {
+      "module": "QuarticMaxwell.GreenEigenvalues",
+      "exitCode": 0,
+      "log": "verification/logs/QuarticMaxwell.GreenEigenvalues.log"
+    },
+    {
+      "module": "QuarticMaxwell.MaterialInverse",
+      "exitCode": 0,
+      "log": "verification/logs/QuarticMaxwell.MaterialInverse.log"
+    },
+    {
+      "module": "QuarticMaxwell.Rearrangement",
+      "exitCode": 0,
+      "log": "verification/logs/QuarticMaxwell.Rearrangement.log"
+    },
+    {
+      "module": "QuarticMaxwell.SharpVolume",
+      "exitCode": 0,
+      "log": "verification/logs/QuarticMaxwell.SharpVolume.log"
+    },
+    {
+      "module": "QuarticMaxwell.Schur",
+      "exitCode": 0,
+      "log": "verification/logs/QuarticMaxwell.Schur.log"
+    },
+    {
+      "module": "QuarticMaxwell.ProjectionGeometry",
+      "exitCode": 0,
+      "log": "verification/logs/QuarticMaxwell.ProjectionGeometry.log"
+    },
+    {
+      "module": "QuarticMaxwell.ProjectionKernel",
+      "exitCode": 0,
+      "log": "verification/logs/QuarticMaxwell.ProjectionKernel.log"
+    },
+    {
+      "module": "QuarticMaxwell.MaskedRemainder",
+      "exitCode": 0,
+      "log": "verification/logs/QuarticMaxwell.MaskedRemainder.log"
+    },
+    {
+      "module": "QuarticMaxwell.RadiationMoment",
+      "exitCode": 0,
+      "log": "verification/logs/QuarticMaxwell.RadiationMoment.log"
+    },
+    {
+      "module": "QuarticMaxwell.SquareIntegral",
+      "exitCode": 0,
+      "log": "verification/logs/QuarticMaxwell.SquareIntegral.log"
+    },
+    {
+      "module": "QuarticMaxwell.RadiationOperator",
+      "exitCode": 0,
+      "log": "verification/logs/QuarticMaxwell.RadiationOperator.log"
+    },
+    {
+      "module": "QuarticMaxwell.RadiationPhysical",
+      "exitCode": 0,
+      "log": "verification/logs/QuarticMaxwell.RadiationPhysical.log"
+    },
+    {
+      "module": "QuarticMaxwell.IncidentSources",
+      "exitCode": 0,
+      "log": "verification/logs/QuarticMaxwell.IncidentSources.log"
+    },
+    {
+      "module": "QuarticMaxwell.RadiationIdentity",
+      "exitCode": 0,
+      "log": "verification/logs/QuarticMaxwell.RadiationIdentity.log"
+    },
+    {
+      "module": "QuarticMaxwell.Reciprocity",
+      "exitCode": 0,
+      "log": "verification/logs/QuarticMaxwell.Reciprocity.log"
+    },
+    {
+      "module": "QuarticMaxwell.SupportedOperators",
+      "exitCode": 0,
+      "log": "verification/logs/QuarticMaxwell.SupportedOperators.log"
+    },
+    {
+      "module": "QuarticMaxwell.TensorMultiplier",
+      "exitCode": 0,
+      "log": "verification/logs/QuarticMaxwell.TensorMultiplier.log"
+    },
+    {
+      "module": "QuarticMaxwell.VolumeInverse",
+      "exitCode": 0,
+      "log": "verification/logs/QuarticMaxwell.VolumeInverse.log"
+    },
+    {
+      "module": "QuarticMaxwell.UniformBound",
+      "exitCode": 0,
+      "log": "verification/logs/QuarticMaxwell.UniformBound.log"
+    },
+    {
+      "module": "QuarticMaxwell.BallBound",
+      "exitCode": 0,
+      "log": "verification/logs/QuarticMaxwell.BallBound.log"
+    },
+    {
+      "module": "QuarticMaxwell.PlaneWaves",
+      "exitCode": 0,
+      "log": "verification/logs/QuarticMaxwell.PlaneWaves.log"
+    },
+    {
+      "module": "QuarticMaxwell.WeakMaterial",
+      "exitCode": 0,
+      "log": "verification/logs/QuarticMaxwell.WeakMaterial.log"
+    },
+    {
+      "module": "QuarticMaxwell.PhysicalPowers",
+      "exitCode": 0,
+      "log": "verification/logs/QuarticMaxwell.PhysicalPowers.log"
+    },
+    {
+      "module": "QuarticMaxwell.StaticInverse",
+      "exitCode": 0,
+      "log": "verification/logs/QuarticMaxwell.StaticInverse.log"
+    },
+    {
+      "module": "QuarticMaxwell.SourceTaylor",
+      "exitCode": 0,
+      "log": "verification/logs/QuarticMaxwell.SourceTaylor.log"
+    },
+    {
+      "module": "QuarticMaxwell.RadiationGram",
+      "exitCode": 0,
+      "log": "verification/logs/QuarticMaxwell.RadiationGram.log"
+    },
+    {
+      "module": "QuarticMaxwell.RadiationTaylor",
+      "exitCode": 0,
+      "log": "verification/logs/QuarticMaxwell.RadiationTaylor.log"
+    },
+    {
+      "module": "QuarticMaxwell.GramEstimates",
+      "exitCode": 0,
+      "log": "verification/logs/QuarticMaxwell.GramEstimates.log"
+    },
+    {
+      "module": "QuarticMaxwell.StaticReciprocity",
+      "exitCode": 0,
+      "log": "verification/logs/QuarticMaxwell.StaticReciprocity.log"
+    },
+    {
+      "module": "QuarticMaxwell.FixedPatternWork",
+      "exitCode": 0,
+      "log": "verification/logs/QuarticMaxwell.FixedPatternWork.log"
+    },
+    {
+      "module": "QuarticMaxwell.FixedPatternScattering",
+      "exitCode": 0,
+      "log": "verification/logs/QuarticMaxwell.FixedPatternScattering.log"
+    },
+    {
+      "module": "QuarticMaxwell.FixedPatternContrast",
+      "exitCode": 0,
+      "log": "verification/logs/QuarticMaxwell.FixedPatternContrast.log"
+    },
+    {
+      "module": "QuarticMaxwell.LocalTensorClass",
+      "exitCode": 0,
+      "log": "verification/logs/QuarticMaxwell.LocalTensorClass.log"
+    },
+    {
+      "module": "QuarticMaxwell.StaticHessian",
+      "exitCode": 0,
+      "log": "verification/logs/QuarticMaxwell.StaticHessian.log"
+    },
+    {
+      "module": "QuarticMaxwell.PhysicalDilation",
+      "exitCode": 0,
+      "log": "verification/logs/QuarticMaxwell.PhysicalDilation.log"
+    },
+    {
+      "module": "QuarticMaxwell.FixedPatternDilation",
+      "exitCode": 0,
+      "log": "verification/logs/QuarticMaxwell.FixedPatternDilation.log"
+    },
+    {
+      "module": "QuarticMaxwell",
+      "exitCode": 0,
+      "log": "verification/logs/QuarticMaxwell.log"
+    }
+  ],
+  "axiomInventories": [
+    {
+      "theorem": "OQ7Quartic.quartic_chain",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "OQ7Quartic.quartic_coefficient_ball",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "OQ7Quartic.beta_one",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "OQ7Quartic.beta_two",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "OQ7Quartic.\u03b1\u2081",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "OQ7Quartic.\u03b1\u2082",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "OQ7Quartic.alpha_one_eq",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "OQ7Quartic.alpha_two_eq",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "OQ7Quartic.block_moment_imag",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "OQ7Quartic.block_extinction",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "OQ7Quartic.coupling_lt",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "OQ7Quartic.coupling_sq",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "OQ7Quartic.delta_lt",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "OQ7Quartic.relative_error",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "OQ7Quartic.coefficient_interval",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "OQ7Quartic.remainder_constants",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "OQ7Quartic.first_interaction_coefficient",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "OQ7Quartic.first_interaction_error",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "OQ7Quartic.coupling_homogeneous",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "OQ7Quartic.homogeneous_constants",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.radiation_quadratic_difference",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.common_inverse_difference",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.inverse_current_power",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.shared_inverse_quartic_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.normalized_absorption_difference_le_one",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.quartic_quotient_error",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.positive_coefficient_lower_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.coefficient_translation_invariant",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.greenB",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.greenB_hasDerivAt",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.greenB_integral",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.greenB_norm_le",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.radialRemainderEigenvalue",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.tangentialRemainderEigenvalue",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.radial_eigenvalue_norm_le",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.tangential_eigenvalue_norm_le",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.imaginary_coercive_bijective",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.materialInverseEquiv",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.materialInverseEquiv_apply",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.imaginary_coercive_norm_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.materialInverseEquiv_norm_le",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.inverse_loss_resource_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.threshold_rearrangement",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.Position",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.volumeRadius",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.volumeRadius_pos",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.volumeRadius_cube",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.volumeRadius_volume",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.volume_real_ball_three",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.newton_ball_integrable",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.newton_ball_integral",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.newton_same_volume_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.newton_ball_integrable_center",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.newton_ball_integral_center",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.newton_bounded_support_integrable",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.newton_bounded_support_uniform",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.measurable_support_newton_uniform",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.lp_integral_norm_sq",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.weighted_row_integrable",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.weighted_row_integral_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.operator_norm_of_quadratic_pairing",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.kernel_pairing_schur",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.kernel_pairing_integrable",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.integral_operator_schur",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.orthogonal_split_norm_le",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.radialProjection",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.radialProjection_orthogonal",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.dyadicRemainder_radial_tangential",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.dyadicRemainder_sharp_norm_le",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.maskedDyadicKernel",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.maskedDyadicMajorant",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.maskedDyadicKernel_measurable",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.maskedDyadicMajorant_measurable",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.maskedDyadicMajorant_nonneg",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.maskedDyadicKernel_norm_le",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.maskedDyadicMajorant_swap",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.maskedDyadicMajorant_row_integrable",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.maskedDyadicMajorant_row_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.setSupported_le_ball",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.setToBallCLM",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.supportInputCLM",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.maskedRemainderOperator",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.supportInputCLM_coe",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.supportCurrent_outgoing_distribution",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.maskedRemainderOperator_coe",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.maskedPotential_integral",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.maskedKernel_vector_row_integrable",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.maskedRemainderOperator_pairing",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.maskedRemainderOperator_norm_le",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.supportRestrictionCLM",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.supportRestrictionCLM_norm_le",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.supportRestrictionCLM_apply_norm_le",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.maskedStaticOperator",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.maskedStaticOperator_norm_le",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.maskedOutgoingOperator",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.maskedOutgoingOperator_difference_norm_le",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.maskedOutgoingOperator_difference_norm_le_volume",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.angularProjection",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.sphere_inner_norm_sq",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.angularProjection_pythagoras",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.angularProjection_square_integrable",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.angularProjection_integral",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.norm_integral_sq_le_measure_mul_square",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.radiationPhase",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.radiationPhase_norm",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.radiationPhase_measurable",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.angularProjection_continuous",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.angularProjection_apply_norm_le",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.radiationField",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.radiationIntegrand_norm_le",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.radiationIntegrand_memLp",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.radiationIntegrand_integrable",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.radiationField_continuous",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.radiationField_memLp",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.radiationField_pointwise_square_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.projection_square_joint_integrable",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.radiationField_square_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.radiationField_add",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.radiationField_smul",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.radiationLp",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.radiationLp_coe",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.radiationLinear",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.radiationLp_norm_sq_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.radiationLinear_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.radiationMap",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.radiationMap_norm_sq_le",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.compactCurrentFarField_eq_radiationField",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.compactCurrentFarField_power_eq",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.incidentWave",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.incidentWave_norm",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.purePhase_difference_le",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.incidentWave_opposite_difference",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.incidentSource_memLp",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.incidentSource",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.incidentSource_coe",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.incidentSource_norm_sq",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.incidentSource_opposite_norm_sq",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.supportRestrictionCLM_inner",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.supportRestrictionCLM_compactRestrictionLp",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.maskedOutgoingOperator_eq_restriction",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.maskedOutgoingOperator_inner_eq_compact",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.maskedOutgoingOperator_radiation_work",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.maskedOutgoingOperator_imaginary_radiation",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.maskedOutgoingOperator_im_nonneg",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.maskedStaticOperator_quadratic_im",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.conjugateL2",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.conjugateL2_coe",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.conjugateL2_involutive",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.conjugateL2_restriction",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.supportedConjugate_input",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.maskedOutgoingOperator_bilinear_eq_compact",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.maskedOutgoingOperator_reciprocity",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.conjugateL2_pairing_comm",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.inverse_bilinear_reciprocity",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.conjugate_pair_common_work",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.radiationPhase_conjugate",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.incidentSource_conjugate",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.DomainL2",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.domainCompleteSpace",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.supportRestrictionCLM_eq_self",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.supportRestrictionCLM_idempotent",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.supportRestrictionCLM_maskedStatic",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.supportRestrictionCLM_maskedOutgoing",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.domainStaticOperator",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.domainStaticOperator_coe",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.domainOutgoingOperator",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.domainOutgoingOperator_coe",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.domainStaticOperator_norm_le",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.domainOutgoingOperator_difference_norm_le",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.domainRadiationMap",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.domainRadiationMap_norm_sq_le",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.domainOutgoingOperator_radiation_work",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.domainOutgoingOperator_im_nonneg",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.domainStaticOperator_quadratic_im",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.conjugateL2_norm_le",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.domainConjugateLinear",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.domainConjugate",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.domainConjugate_coe",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.domainConjugate_involutive",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.domainConjugate_pairing_comm",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.domainOutgoingOperator_reciprocity",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.incidentSource_supported",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.domainIncidentSource",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.domainIncidentSource_norm_sq",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.domainIncidentSource_opposite_norm_sq",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.domainIncidentSource_conjugate",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.domain_inverse_bilinear_reciprocity",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.domain_conjugate_pair_common_work",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.domainPolarization",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.domainPolarization_current_ae",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.domainPolarization_toLp",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.domainOutgoingOperator_electricVolumeField_ae",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.domainPolarization_farField_power",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.TensorMultiplier.pointwise_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.TensorMultiplier.action_memLp",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.TensorMultiplier.action",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.TensorMultiplier.action_coe",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.TensorMultiplier.action_add",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.TensorMultiplier.action_smul",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.TensorMultiplier.linear",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.TensorMultiplier.action_norm_le",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.TensorMultiplier.operator",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.TensorMultiplier.operator_coe",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.TensorMultiplier.operator_norm_le",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.TensorMultiplier.operator_coercive",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.TensorMultiplier.inverse",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.TensorMultiplier.operator_inverse",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.TensorMultiplier.inverse_operator",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.TensorMultiplier.inverse_norm_le",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.TensorMultiplier.inverse_loss_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.TensorMultiplier.inverse_constitutive",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.VolumeInverse.inverseSusceptibility",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.VolumeInverse.operator",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.VolumeInverse.negative_coercive",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.VolumeInverse.operator_norm_le",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.VolumeInverse.negative_coercive_bijective",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.VolumeInverse.equiv",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.VolumeInverse.equiv_apply",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.VolumeInverse.inverse_norm_le",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.VolumeInverse.susceptibility_reciprocity",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.VolumeInverse.inverseSusceptibility_reciprocity",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.VolumeInverse.operator_reciprocity",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.VolumeInverse.solution_inverseSusceptibility_eq",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.VolumeInverse.solution_constitutive",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.UniformBound.absorptionPower",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.UniformBound.scatteringPower",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.UniformBound.extinctionPower",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.UniformBound.extinction_pos",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.UniformBound.uniform_quartic_contrast",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.volume_real_closedBall_three",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.bounded_support_volume_le",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.bounded_support_volumeRadius_le",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.quartic_coefficient_ball_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.UniformBound.uniform_ball_contrast",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.radiationPhase_contDiff",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.radiationPhase_hasFDerivAt",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.realInner_basis",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.radiationPhase_basis_derivative",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.phase_vector_curl",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.incidentMagneticWave",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.incidentWave_contDiff",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.incidentMagneticWave_contDiff",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.incidentWave_first_curl",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.incidentMagneticWave_second_curl",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.incidentWave_first_weakCurl",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.incidentMagneticWave_second_weakCurl",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.real_transverse",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.incidentWave_locallySquareIntegrable",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.incidentMagneticWave_locallySquareIntegrable",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.WeakMaterial.currentField",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.WeakMaterial.currentField_memLp",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.WeakMaterial.polarization",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.WeakMaterial.currentL2",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.WeakMaterial.currentL2_coe",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.WeakMaterial.totalElectric",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.WeakMaterial.totalMagnetic",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.WeakMaterial.totalElectric_locallySquareIntegrable",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.WeakMaterial.totalMagnetic_locallySquareIntegrable",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.WeakMaterial.totalElectric_weakCurl",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.WeakMaterial.totalMagnetic_weakCurl",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.WeakMaterial.stateOfVolumeEquation",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.WeakMaterial.volumeEquation_of_operator",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.WeakMaterial.response",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.WeakMaterial.response_equation",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.WeakMaterial.operator_of_volumeEquation",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.WeakMaterial.solution",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.WeakMaterial.state_representation",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.WeakMaterial.outgoingElectric_congr",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.WeakMaterial.outgoingMagnetic_congr",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.WeakMaterial.totalElectric_congr",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.WeakMaterial.totalMagnetic_congr",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.WeakMaterial.state_current_response",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.WeakMaterial.wellposed",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.PhysicalPowers.field_memLp",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.PhysicalPowers.fieldRestriction",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.PhysicalPowers.fieldRestriction_coe",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.PhysicalPowers.currentL2_multiplier",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.PhysicalPowers.inverse_currentL2",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.PhysicalPowers.field_inner_current",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.PhysicalPowers.source_inner_current",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.PhysicalPowers.absorption",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.PhysicalPowers.extinction",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.PhysicalPowers.scattering",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.PhysicalPowers.absorption_eq_volume",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.PhysicalPowers.state_absorption",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.PhysicalPowers.state_extinction",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.PhysicalPowers.scattering_eq_volume",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.PhysicalPowers.scattering_physical_flux",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.PhysicalPowers.opposite",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.PhysicalPowers.opposite_transverse",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.PhysicalPowers.incidentWave_opposite",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.PhysicalPowers.source_opposite",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.PhysicalPowers.response_opposite",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.PhysicalPowers.theorem11",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.PhysicalPowers.theorem11_ball",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.PhysicalPowers.volume_extinction_reciprocal",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.PhysicalPowers.state_extinction_reciprocal",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.PhysicalPowers.state_power_balance",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.PhysicalPowers.absorption_nonneg",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.PhysicalPowers.scattering_nonneg",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.inverse_difference_eq",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.inverse_difference_norm_le",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.StaticInverse.operator",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.StaticInverse.negative_coercive",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.StaticInverse.equiv",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.StaticInverse.equiv_apply",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.StaticInverse.inverse_norm_le",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.StaticInverse.dynamic_static_resolvent_norm_le",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.StaticInverse.forward_work_pos",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.SourceTaylor.scalar_memLp",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.SourceTaylor.scalarSource",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.SourceTaylor.scalarSource_coe",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.SourceTaylor.constantSource",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.SourceTaylor.cosSource",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.SourceTaylor.sinSource",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.SourceTaylor.direction_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.SourceTaylor.momentSource",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.SourceTaylor.constantSource_coe",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.SourceTaylor.cosSource_coe",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.SourceTaylor.sinSource_coe",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.SourceTaylor.momentSource_coe",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.SourceTaylor.norm_comparison",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.SourceTaylor.cos_scalar_remainder",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.SourceTaylor.cosine_remainder",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.SourceTaylor.sine_remainder",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.SourceTaylor.moment_norm",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.SourceTaylor.sine_norm",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.SourceTaylor.cosine_norm",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.SourceTaylor.phase_cos_sin",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.SourceTaylor.source_decomposition",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.SourceTaylor.cosine_neg",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.SourceTaylor.sine_neg",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.SourceTaylor.source_reverse_decomposition",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.SourceTaylor.constant_eq_source_zero",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.SourceTaylor.constant_norm_sq",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.SourceTaylor.vectorConjugate_real_smul",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.SourceTaylor.scalarSource_fixed",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.SourceTaylor.cosine_fixed",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.SourceTaylor.sine_fixed",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.linear_inner_of_norm_sq",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.sphereAntipode",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.sphereAntipode_coe",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.angularProjection_antipode",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.radiationPhase_antipode",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.radiationField_antipode",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.domainRadiationMap_norm_sq_even",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.radiationGram",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.radiationGram_inner",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.radiationGram_even",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.supportMomentLinear",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.radiationField_zero_moment",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.domainRadiationMap_zero_norm_sq",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.radiationGram_zero_moment",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.constantSource_inner_moment",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.boundedRadiation_integrand_memLp",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.boundedRadiation_field_square_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.operator_norm_sq_of_apply_sq",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.radiationPhase_sub_one_norm_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.radiationPhase_even_remainder",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.radiationField_difference_integral",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.radiationField_even_remainder_integral",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.domainRadiationMap_difference_apply_sq",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.domainRadiationMap_even_remainder_apply_sq",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.nonnegative_norm_of_square_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.domainRadiationMap_difference_apply_norm_le",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.domainRadiationMap_even_remainder_apply_norm_le",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.inner_central_difference",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.even_gram_pairing_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.domainRadiationMap_apply_norm_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.radiationGram_norm_le",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.radiationGram_difference_pairing_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.radiationGram_difference_norm_le",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.nonpositive_of_le_mul_sq",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.domainStaticOperator_reciprocity",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.StaticInverse.operator_reciprocity",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.StaticInverse.inverse_reciprocity",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.FixedPatternWork.rho",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.FixedPatternWork.correction",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.FixedPatternWork.rho_pos",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.FixedPatternWork.correction_nonneg",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.FixedPatternWork.staticResponse",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.FixedPatternWork.dynamicResponse",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.FixedPatternWork.constantInput",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.FixedPatternWork.linearInput",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.FixedPatternWork.cosineInput",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.FixedPatternWork.sineInput",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.FixedPatternWork.q0",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.FixedPatternWork.q1",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.FixedPatternWork.u",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.FixedPatternWork.v",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.FixedPatternWork.D0",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.FixedPatternWork.static_norm_le",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.FixedPatternWork.dynamic_norm_le",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.FixedPatternWork.resolvent_norm_le",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.FixedPatternWork.u_norm",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.FixedPatternWork.v_norm",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.FixedPatternWork.q0_norm",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.FixedPatternWork.q1_norm",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.FixedPatternWork.u_error",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.FixedPatternWork.v_error",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.FixedPatternWork.D0_pos",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.FixedPatternWork.inner_im_error",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.FixedPatternWork.forwardWork",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.FixedPatternWork.forward_work_error",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.FixedPatternWork.actual_forward_decomposition",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.norm_sq_opposite_i",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.gram_cross_error",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.FixedPatternScattering.moment0",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.FixedPatternScattering.moment1",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.FixedPatternScattering.leading",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.FixedPatternScattering.gramBound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.FixedPatternScattering.gramCorrection",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.FixedPatternScattering.errorConstant",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.FixedPatternScattering.signedScattering",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.FixedPatternScattering.signedScattering_inner",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.FixedPatternScattering.leading_moment",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.FixedPatternScattering.denominator_moment",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.FixedPatternScattering.errorConstant_nonneg",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.FixedPatternScattering.signedScattering_error",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.FixedPatternContrast.denominatorError",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.FixedPatternContrast.coefficient",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.FixedPatternContrast.remainderConstant",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.FixedPatternContrast.interval",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.FixedPatternContrast.contrast",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.FixedPatternContrast.denominatorError_nonneg",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.FixedPatternContrast.state_extinction_forwardWork",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.FixedPatternContrast.state_scattering_difference",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.FixedPatternContrast.contrast_eq_quotient",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.FixedPatternContrast.interval_pos",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.FixedPatternContrast.coefficient_moment",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.FixedPatternContrast.fixed_pattern_quartic",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.LocalTensorClass.zeroExtension",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.LocalTensorClass.zeroExtension_measurable",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.LocalTensorClass.zeroExtension_on_domain",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.LocalTensorClass.zeroExtension_outside",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.LocalTensorClass.zeroExtension_cap",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.LocalTensorClass.zeroExtension_loss",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.LocalTensorClass.zeroExtension_reciprocal",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.LocalTensorClass.matrixOperator",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.LocalTensorClass.matrixOperator_apply",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.LocalTensorClass.matrixOperator_norm",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.LocalTensorClass.matrixOperator_bijective",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.LocalTensorClass.bilinear_transpose",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.LocalTensorClass.matrixOperator_reciprocal",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.LocalTensorClass.matrixOperator_measurable",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.StaticHessian.newtonHessianOperator",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.StaticHessian.newtonHessianOperator_measurable",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.StaticHessian.newtonHessianOperator_apply",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.StaticHessian.projectionTriple_norm_le",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.StaticHessian.newtonHessianOperator_norm_le",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.StaticHessian.normalizedComplex",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.StaticHessian.normalizedComplex_norm",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.StaticHessian.normalizedComplex_projection",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.StaticHessian.normalizedComplex_difference",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.StaticHessian.radialProjection_difference",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.StaticHessian.reciprocal_cube_difference",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.StaticHessian.hessian_scalar_difference",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.StaticHessian.newtonHessianOperator_difference",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.PhysicalDilation.scaleEquiv",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.PhysicalDilation.scaleEquiv_apply",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.PhysicalDilation.integral_scale",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.PhysicalDilation.memLp_scale",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.PhysicalDilation.locallySquareIntegrable_scale",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.PhysicalDilation.curl_scale",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.PhysicalDilation.bilinear_scale_right",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.PhysicalDilation.bilinear_scale_left",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.PhysicalDilation.weakCurl_scale",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.PhysicalDilation.radial_scale",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.PhysicalDilation.outgoing_scale",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.PhysicalDilation.scaled_subset_ball",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.PhysicalDilation.medium",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.PhysicalDilation.currentField_scale",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.PhysicalDilation.phase_scale",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.PhysicalDilation.incident_scale",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.PhysicalDilation.magnetic_scale",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.PhysicalDilation.factor_scale",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.PhysicalDilation.state",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.PhysicalDilation.setIntegral_inverse_scale",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.PhysicalDilation.absorption_scale",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.PhysicalDilation.extinction_scale",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.PhysicalDilation.absorption_congr",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.PhysicalDilation.extinction_congr",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.PhysicalDilation.state_electric_unique",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.FixedPatternDilation.contrast_congr",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.FixedPatternDilation.contrast_scale",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.FixedPatternDilation.fixed_wavenumber_quartic",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "QuarticMaxwell.FixedPatternDilation.interval_pos",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    }
+  ],
+  "allExportedDeclarationsAudited": true,
+  "exportedDeclarationNames": [
+    "OQ7Quartic.quartic_chain",
+    "OQ7Quartic.quartic_coefficient_ball",
+    "OQ7Quartic.beta_one",
+    "OQ7Quartic.beta_two",
+    "OQ7Quartic.\u03b1\u2081",
+    "OQ7Quartic.\u03b1\u2082",
+    "OQ7Quartic.alpha_one_eq",
+    "OQ7Quartic.alpha_two_eq",
+    "OQ7Quartic.block_moment_imag",
+    "OQ7Quartic.block_extinction",
+    "OQ7Quartic.coupling_lt",
+    "OQ7Quartic.coupling_sq",
+    "OQ7Quartic.delta_lt",
+    "OQ7Quartic.relative_error",
+    "OQ7Quartic.coefficient_interval",
+    "OQ7Quartic.remainder_constants",
+    "OQ7Quartic.first_interaction_coefficient",
+    "OQ7Quartic.first_interaction_error",
+    "OQ7Quartic.coupling_homogeneous",
+    "OQ7Quartic.homogeneous_constants",
+    "QuarticMaxwell.radiation_quadratic_difference",
+    "QuarticMaxwell.common_inverse_difference",
+    "QuarticMaxwell.inverse_current_power",
+    "QuarticMaxwell.shared_inverse_quartic_bound",
+    "QuarticMaxwell.normalized_absorption_difference_le_one",
+    "QuarticMaxwell.quartic_quotient_error",
+    "QuarticMaxwell.positive_coefficient_lower_bound",
+    "QuarticMaxwell.coefficient_translation_invariant",
+    "QuarticMaxwell.greenB",
+    "QuarticMaxwell.greenB_hasDerivAt",
+    "QuarticMaxwell.greenB_integral",
+    "QuarticMaxwell.greenB_norm_le",
+    "QuarticMaxwell.radialRemainderEigenvalue",
+    "QuarticMaxwell.tangentialRemainderEigenvalue",
+    "QuarticMaxwell.radial_eigenvalue_norm_le",
+    "QuarticMaxwell.tangential_eigenvalue_norm_le",
+    "QuarticMaxwell.imaginary_coercive_bijective",
+    "QuarticMaxwell.materialInverseEquiv",
+    "QuarticMaxwell.materialInverseEquiv_apply",
+    "QuarticMaxwell.imaginary_coercive_norm_bound",
+    "QuarticMaxwell.materialInverseEquiv_norm_le",
+    "QuarticMaxwell.inverse_loss_resource_bound",
+    "QuarticMaxwell.threshold_rearrangement",
+    "QuarticMaxwell.Position",
+    "QuarticMaxwell.volumeRadius",
+    "QuarticMaxwell.volumeRadius_pos",
+    "QuarticMaxwell.volumeRadius_cube",
+    "QuarticMaxwell.volumeRadius_volume",
+    "QuarticMaxwell.volume_real_ball_three",
+    "QuarticMaxwell.newton_ball_integrable",
+    "QuarticMaxwell.newton_ball_integral",
+    "QuarticMaxwell.newton_same_volume_bound",
+    "QuarticMaxwell.newton_ball_integrable_center",
+    "QuarticMaxwell.newton_ball_integral_center",
+    "QuarticMaxwell.newton_bounded_support_integrable",
+    "QuarticMaxwell.newton_bounded_support_uniform",
+    "QuarticMaxwell.measurable_support_newton_uniform",
+    "QuarticMaxwell.lp_integral_norm_sq",
+    "QuarticMaxwell.weighted_row_integrable",
+    "QuarticMaxwell.weighted_row_integral_bound",
+    "QuarticMaxwell.operator_norm_of_quadratic_pairing",
+    "QuarticMaxwell.kernel_pairing_schur",
+    "QuarticMaxwell.kernel_pairing_integrable",
+    "QuarticMaxwell.integral_operator_schur",
+    "QuarticMaxwell.orthogonal_split_norm_le",
+    "QuarticMaxwell.radialProjection",
+    "QuarticMaxwell.radialProjection_orthogonal",
+    "QuarticMaxwell.dyadicRemainder_radial_tangential",
+    "QuarticMaxwell.dyadicRemainder_sharp_norm_le",
+    "QuarticMaxwell.maskedDyadicKernel",
+    "QuarticMaxwell.maskedDyadicMajorant",
+    "QuarticMaxwell.maskedDyadicKernel_measurable",
+    "QuarticMaxwell.maskedDyadicMajorant_measurable",
+    "QuarticMaxwell.maskedDyadicMajorant_nonneg",
+    "QuarticMaxwell.maskedDyadicKernel_norm_le",
+    "QuarticMaxwell.maskedDyadicMajorant_swap",
+    "QuarticMaxwell.maskedDyadicMajorant_row_integrable",
+    "QuarticMaxwell.maskedDyadicMajorant_row_bound",
+    "QuarticMaxwell.setSupported_le_ball",
+    "QuarticMaxwell.setToBallCLM",
+    "QuarticMaxwell.supportInputCLM",
+    "QuarticMaxwell.maskedRemainderOperator",
+    "QuarticMaxwell.supportInputCLM_coe",
+    "QuarticMaxwell.supportCurrent_outgoing_distribution",
+    "QuarticMaxwell.maskedRemainderOperator_coe",
+    "QuarticMaxwell.maskedPotential_integral",
+    "QuarticMaxwell.maskedKernel_vector_row_integrable",
+    "QuarticMaxwell.maskedRemainderOperator_pairing",
+    "QuarticMaxwell.maskedRemainderOperator_norm_le",
+    "QuarticMaxwell.supportRestrictionCLM",
+    "QuarticMaxwell.supportRestrictionCLM_norm_le",
+    "QuarticMaxwell.supportRestrictionCLM_apply_norm_le",
+    "QuarticMaxwell.maskedStaticOperator",
+    "QuarticMaxwell.maskedStaticOperator_norm_le",
+    "QuarticMaxwell.maskedOutgoingOperator",
+    "QuarticMaxwell.maskedOutgoingOperator_difference_norm_le",
+    "QuarticMaxwell.maskedOutgoingOperator_difference_norm_le_volume",
+    "QuarticMaxwell.angularProjection",
+    "QuarticMaxwell.sphere_inner_norm_sq",
+    "QuarticMaxwell.angularProjection_pythagoras",
+    "QuarticMaxwell.angularProjection_square_integrable",
+    "QuarticMaxwell.angularProjection_integral",
+    "QuarticMaxwell.norm_integral_sq_le_measure_mul_square",
+    "QuarticMaxwell.radiationPhase",
+    "QuarticMaxwell.radiationPhase_norm",
+    "QuarticMaxwell.radiationPhase_measurable",
+    "QuarticMaxwell.angularProjection_continuous",
+    "QuarticMaxwell.angularProjection_apply_norm_le",
+    "QuarticMaxwell.radiationField",
+    "QuarticMaxwell.radiationIntegrand_norm_le",
+    "QuarticMaxwell.radiationIntegrand_memLp",
+    "QuarticMaxwell.radiationIntegrand_integrable",
+    "QuarticMaxwell.radiationField_continuous",
+    "QuarticMaxwell.radiationField_memLp",
+    "QuarticMaxwell.radiationField_pointwise_square_bound",
+    "QuarticMaxwell.projection_square_joint_integrable",
+    "QuarticMaxwell.radiationField_square_bound",
+    "QuarticMaxwell.radiationField_add",
+    "QuarticMaxwell.radiationField_smul",
+    "QuarticMaxwell.radiationLp",
+    "QuarticMaxwell.radiationLp_coe",
+    "QuarticMaxwell.radiationLinear",
+    "QuarticMaxwell.radiationLp_norm_sq_bound",
+    "QuarticMaxwell.radiationLinear_bound",
+    "QuarticMaxwell.radiationMap",
+    "QuarticMaxwell.radiationMap_norm_sq_le",
+    "QuarticMaxwell.compactCurrentFarField_eq_radiationField",
+    "QuarticMaxwell.compactCurrentFarField_power_eq",
+    "QuarticMaxwell.incidentWave",
+    "QuarticMaxwell.incidentWave_norm",
+    "QuarticMaxwell.purePhase_difference_le",
+    "QuarticMaxwell.incidentWave_opposite_difference",
+    "QuarticMaxwell.incidentSource_memLp",
+    "QuarticMaxwell.incidentSource",
+    "QuarticMaxwell.incidentSource_coe",
+    "QuarticMaxwell.incidentSource_norm_sq",
+    "QuarticMaxwell.incidentSource_opposite_norm_sq",
+    "QuarticMaxwell.supportRestrictionCLM_inner",
+    "QuarticMaxwell.supportRestrictionCLM_compactRestrictionLp",
+    "QuarticMaxwell.maskedOutgoingOperator_eq_restriction",
+    "QuarticMaxwell.maskedOutgoingOperator_inner_eq_compact",
+    "QuarticMaxwell.maskedOutgoingOperator_radiation_work",
+    "QuarticMaxwell.maskedOutgoingOperator_imaginary_radiation",
+    "QuarticMaxwell.maskedOutgoingOperator_im_nonneg",
+    "QuarticMaxwell.maskedStaticOperator_quadratic_im",
+    "QuarticMaxwell.conjugateL2",
+    "QuarticMaxwell.conjugateL2_coe",
+    "QuarticMaxwell.conjugateL2_involutive",
+    "QuarticMaxwell.conjugateL2_restriction",
+    "QuarticMaxwell.supportedConjugate_input",
+    "QuarticMaxwell.maskedOutgoingOperator_bilinear_eq_compact",
+    "QuarticMaxwell.maskedOutgoingOperator_reciprocity",
+    "QuarticMaxwell.conjugateL2_pairing_comm",
+    "QuarticMaxwell.inverse_bilinear_reciprocity",
+    "QuarticMaxwell.conjugate_pair_common_work",
+    "QuarticMaxwell.radiationPhase_conjugate",
+    "QuarticMaxwell.incidentSource_conjugate",
+    "QuarticMaxwell.DomainL2",
+    "QuarticMaxwell.domainCompleteSpace",
+    "QuarticMaxwell.supportRestrictionCLM_eq_self",
+    "QuarticMaxwell.supportRestrictionCLM_idempotent",
+    "QuarticMaxwell.supportRestrictionCLM_maskedStatic",
+    "QuarticMaxwell.supportRestrictionCLM_maskedOutgoing",
+    "QuarticMaxwell.domainStaticOperator",
+    "QuarticMaxwell.domainStaticOperator_coe",
+    "QuarticMaxwell.domainOutgoingOperator",
+    "QuarticMaxwell.domainOutgoingOperator_coe",
+    "QuarticMaxwell.domainStaticOperator_norm_le",
+    "QuarticMaxwell.domainOutgoingOperator_difference_norm_le",
+    "QuarticMaxwell.domainRadiationMap",
+    "QuarticMaxwell.domainRadiationMap_norm_sq_le",
+    "QuarticMaxwell.domainOutgoingOperator_radiation_work",
+    "QuarticMaxwell.domainOutgoingOperator_im_nonneg",
+    "QuarticMaxwell.domainStaticOperator_quadratic_im",
+    "QuarticMaxwell.conjugateL2_norm_le",
+    "QuarticMaxwell.domainConjugateLinear",
+    "QuarticMaxwell.domainConjugate",
+    "QuarticMaxwell.domainConjugate_coe",
+    "QuarticMaxwell.domainConjugate_involutive",
+    "QuarticMaxwell.domainConjugate_pairing_comm",
+    "QuarticMaxwell.domainOutgoingOperator_reciprocity",
+    "QuarticMaxwell.incidentSource_supported",
+    "QuarticMaxwell.domainIncidentSource",
+    "QuarticMaxwell.domainIncidentSource_norm_sq",
+    "QuarticMaxwell.domainIncidentSource_opposite_norm_sq",
+    "QuarticMaxwell.domainIncidentSource_conjugate",
+    "QuarticMaxwell.domain_inverse_bilinear_reciprocity",
+    "QuarticMaxwell.domain_conjugate_pair_common_work",
+    "QuarticMaxwell.domainPolarization",
+    "QuarticMaxwell.domainPolarization_current_ae",
+    "QuarticMaxwell.domainPolarization_toLp",
+    "QuarticMaxwell.domainOutgoingOperator_electricVolumeField_ae",
+    "QuarticMaxwell.domainPolarization_farField_power",
+    "QuarticMaxwell.TensorMultiplier.pointwise_bound",
+    "QuarticMaxwell.TensorMultiplier.action_memLp",
+    "QuarticMaxwell.TensorMultiplier.action",
+    "QuarticMaxwell.TensorMultiplier.action_coe",
+    "QuarticMaxwell.TensorMultiplier.action_add",
+    "QuarticMaxwell.TensorMultiplier.action_smul",
+    "QuarticMaxwell.TensorMultiplier.linear",
+    "QuarticMaxwell.TensorMultiplier.action_norm_le",
+    "QuarticMaxwell.TensorMultiplier.operator",
+    "QuarticMaxwell.TensorMultiplier.operator_coe",
+    "QuarticMaxwell.TensorMultiplier.operator_norm_le",
+    "QuarticMaxwell.TensorMultiplier.operator_coercive",
+    "QuarticMaxwell.TensorMultiplier.inverse",
+    "QuarticMaxwell.TensorMultiplier.operator_inverse",
+    "QuarticMaxwell.TensorMultiplier.inverse_operator",
+    "QuarticMaxwell.TensorMultiplier.inverse_norm_le",
+    "QuarticMaxwell.TensorMultiplier.inverse_loss_bound",
+    "QuarticMaxwell.TensorMultiplier.inverse_constitutive",
+    "QuarticMaxwell.VolumeInverse.inverseSusceptibility",
+    "QuarticMaxwell.VolumeInverse.operator",
+    "QuarticMaxwell.VolumeInverse.negative_coercive",
+    "QuarticMaxwell.VolumeInverse.operator_norm_le",
+    "QuarticMaxwell.VolumeInverse.negative_coercive_bijective",
+    "QuarticMaxwell.VolumeInverse.equiv",
+    "QuarticMaxwell.VolumeInverse.equiv_apply",
+    "QuarticMaxwell.VolumeInverse.inverse_norm_le",
+    "QuarticMaxwell.VolumeInverse.susceptibility_reciprocity",
+    "QuarticMaxwell.VolumeInverse.inverseSusceptibility_reciprocity",
+    "QuarticMaxwell.VolumeInverse.operator_reciprocity",
+    "QuarticMaxwell.VolumeInverse.solution_inverseSusceptibility_eq",
+    "QuarticMaxwell.VolumeInverse.solution_constitutive",
+    "QuarticMaxwell.UniformBound.absorptionPower",
+    "QuarticMaxwell.UniformBound.scatteringPower",
+    "QuarticMaxwell.UniformBound.extinctionPower",
+    "QuarticMaxwell.UniformBound.extinction_pos",
+    "QuarticMaxwell.UniformBound.uniform_quartic_contrast",
+    "QuarticMaxwell.volume_real_closedBall_three",
+    "QuarticMaxwell.bounded_support_volume_le",
+    "QuarticMaxwell.bounded_support_volumeRadius_le",
+    "QuarticMaxwell.quartic_coefficient_ball_bound",
+    "QuarticMaxwell.UniformBound.uniform_ball_contrast",
+    "QuarticMaxwell.radiationPhase_contDiff",
+    "QuarticMaxwell.radiationPhase_hasFDerivAt",
+    "QuarticMaxwell.realInner_basis",
+    "QuarticMaxwell.radiationPhase_basis_derivative",
+    "QuarticMaxwell.phase_vector_curl",
+    "QuarticMaxwell.incidentMagneticWave",
+    "QuarticMaxwell.incidentWave_contDiff",
+    "QuarticMaxwell.incidentMagneticWave_contDiff",
+    "QuarticMaxwell.incidentWave_first_curl",
+    "QuarticMaxwell.incidentMagneticWave_second_curl",
+    "QuarticMaxwell.incidentWave_first_weakCurl",
+    "QuarticMaxwell.incidentMagneticWave_second_weakCurl",
+    "QuarticMaxwell.real_transverse",
+    "QuarticMaxwell.incidentWave_locallySquareIntegrable",
+    "QuarticMaxwell.incidentMagneticWave_locallySquareIntegrable",
+    "QuarticMaxwell.WeakMaterial.currentField",
+    "QuarticMaxwell.WeakMaterial.currentField_memLp",
+    "QuarticMaxwell.WeakMaterial.polarization",
+    "QuarticMaxwell.WeakMaterial.currentL2",
+    "QuarticMaxwell.WeakMaterial.currentL2_coe",
+    "QuarticMaxwell.WeakMaterial.totalElectric",
+    "QuarticMaxwell.WeakMaterial.totalMagnetic",
+    "QuarticMaxwell.WeakMaterial.totalElectric_locallySquareIntegrable",
+    "QuarticMaxwell.WeakMaterial.totalMagnetic_locallySquareIntegrable",
+    "QuarticMaxwell.WeakMaterial.totalElectric_weakCurl",
+    "QuarticMaxwell.WeakMaterial.totalMagnetic_weakCurl",
+    "QuarticMaxwell.WeakMaterial.stateOfVolumeEquation",
+    "QuarticMaxwell.WeakMaterial.volumeEquation_of_operator",
+    "QuarticMaxwell.WeakMaterial.response",
+    "QuarticMaxwell.WeakMaterial.response_equation",
+    "QuarticMaxwell.WeakMaterial.operator_of_volumeEquation",
+    "QuarticMaxwell.WeakMaterial.solution",
+    "QuarticMaxwell.WeakMaterial.state_representation",
+    "QuarticMaxwell.WeakMaterial.outgoingElectric_congr",
+    "QuarticMaxwell.WeakMaterial.outgoingMagnetic_congr",
+    "QuarticMaxwell.WeakMaterial.totalElectric_congr",
+    "QuarticMaxwell.WeakMaterial.totalMagnetic_congr",
+    "QuarticMaxwell.WeakMaterial.state_current_response",
+    "QuarticMaxwell.WeakMaterial.wellposed",
+    "QuarticMaxwell.PhysicalPowers.field_memLp",
+    "QuarticMaxwell.PhysicalPowers.fieldRestriction",
+    "QuarticMaxwell.PhysicalPowers.fieldRestriction_coe",
+    "QuarticMaxwell.PhysicalPowers.currentL2_multiplier",
+    "QuarticMaxwell.PhysicalPowers.inverse_currentL2",
+    "QuarticMaxwell.PhysicalPowers.field_inner_current",
+    "QuarticMaxwell.PhysicalPowers.source_inner_current",
+    "QuarticMaxwell.PhysicalPowers.absorption",
+    "QuarticMaxwell.PhysicalPowers.extinction",
+    "QuarticMaxwell.PhysicalPowers.scattering",
+    "QuarticMaxwell.PhysicalPowers.absorption_eq_volume",
+    "QuarticMaxwell.PhysicalPowers.state_absorption",
+    "QuarticMaxwell.PhysicalPowers.state_extinction",
+    "QuarticMaxwell.PhysicalPowers.scattering_eq_volume",
+    "QuarticMaxwell.PhysicalPowers.scattering_physical_flux",
+    "QuarticMaxwell.PhysicalPowers.opposite",
+    "QuarticMaxwell.PhysicalPowers.opposite_transverse",
+    "QuarticMaxwell.PhysicalPowers.incidentWave_opposite",
+    "QuarticMaxwell.PhysicalPowers.source_opposite",
+    "QuarticMaxwell.PhysicalPowers.response_opposite",
+    "QuarticMaxwell.PhysicalPowers.theorem11",
+    "QuarticMaxwell.PhysicalPowers.theorem11_ball",
+    "QuarticMaxwell.PhysicalPowers.volume_extinction_reciprocal",
+    "QuarticMaxwell.PhysicalPowers.state_extinction_reciprocal",
+    "QuarticMaxwell.PhysicalPowers.state_power_balance",
+    "QuarticMaxwell.PhysicalPowers.absorption_nonneg",
+    "QuarticMaxwell.PhysicalPowers.scattering_nonneg",
+    "QuarticMaxwell.inverse_difference_eq",
+    "QuarticMaxwell.inverse_difference_norm_le",
+    "QuarticMaxwell.StaticInverse.operator",
+    "QuarticMaxwell.StaticInverse.negative_coercive",
+    "QuarticMaxwell.StaticInverse.equiv",
+    "QuarticMaxwell.StaticInverse.equiv_apply",
+    "QuarticMaxwell.StaticInverse.inverse_norm_le",
+    "QuarticMaxwell.StaticInverse.dynamic_static_resolvent_norm_le",
+    "QuarticMaxwell.StaticInverse.forward_work_pos",
+    "QuarticMaxwell.SourceTaylor.scalar_memLp",
+    "QuarticMaxwell.SourceTaylor.scalarSource",
+    "QuarticMaxwell.SourceTaylor.scalarSource_coe",
+    "QuarticMaxwell.SourceTaylor.constantSource",
+    "QuarticMaxwell.SourceTaylor.cosSource",
+    "QuarticMaxwell.SourceTaylor.sinSource",
+    "QuarticMaxwell.SourceTaylor.direction_bound",
+    "QuarticMaxwell.SourceTaylor.momentSource",
+    "QuarticMaxwell.SourceTaylor.constantSource_coe",
+    "QuarticMaxwell.SourceTaylor.cosSource_coe",
+    "QuarticMaxwell.SourceTaylor.sinSource_coe",
+    "QuarticMaxwell.SourceTaylor.momentSource_coe",
+    "QuarticMaxwell.SourceTaylor.norm_comparison",
+    "QuarticMaxwell.SourceTaylor.cos_scalar_remainder",
+    "QuarticMaxwell.SourceTaylor.cosine_remainder",
+    "QuarticMaxwell.SourceTaylor.sine_remainder",
+    "QuarticMaxwell.SourceTaylor.moment_norm",
+    "QuarticMaxwell.SourceTaylor.sine_norm",
+    "QuarticMaxwell.SourceTaylor.cosine_norm",
+    "QuarticMaxwell.SourceTaylor.phase_cos_sin",
+    "QuarticMaxwell.SourceTaylor.source_decomposition",
+    "QuarticMaxwell.SourceTaylor.cosine_neg",
+    "QuarticMaxwell.SourceTaylor.sine_neg",
+    "QuarticMaxwell.SourceTaylor.source_reverse_decomposition",
+    "QuarticMaxwell.SourceTaylor.constant_eq_source_zero",
+    "QuarticMaxwell.SourceTaylor.constant_norm_sq",
+    "QuarticMaxwell.SourceTaylor.vectorConjugate_real_smul",
+    "QuarticMaxwell.SourceTaylor.scalarSource_fixed",
+    "QuarticMaxwell.SourceTaylor.cosine_fixed",
+    "QuarticMaxwell.SourceTaylor.sine_fixed",
+    "QuarticMaxwell.linear_inner_of_norm_sq",
+    "QuarticMaxwell.sphereAntipode",
+    "QuarticMaxwell.sphereAntipode_coe",
+    "QuarticMaxwell.angularProjection_antipode",
+    "QuarticMaxwell.radiationPhase_antipode",
+    "QuarticMaxwell.radiationField_antipode",
+    "QuarticMaxwell.domainRadiationMap_norm_sq_even",
+    "QuarticMaxwell.radiationGram",
+    "QuarticMaxwell.radiationGram_inner",
+    "QuarticMaxwell.radiationGram_even",
+    "QuarticMaxwell.supportMomentLinear",
+    "QuarticMaxwell.radiationField_zero_moment",
+    "QuarticMaxwell.domainRadiationMap_zero_norm_sq",
+    "QuarticMaxwell.radiationGram_zero_moment",
+    "QuarticMaxwell.constantSource_inner_moment",
+    "QuarticMaxwell.boundedRadiation_integrand_memLp",
+    "QuarticMaxwell.boundedRadiation_field_square_bound",
+    "QuarticMaxwell.operator_norm_sq_of_apply_sq",
+    "QuarticMaxwell.radiationPhase_sub_one_norm_bound",
+    "QuarticMaxwell.radiationPhase_even_remainder",
+    "QuarticMaxwell.radiationField_difference_integral",
+    "QuarticMaxwell.radiationField_even_remainder_integral",
+    "QuarticMaxwell.domainRadiationMap_difference_apply_sq",
+    "QuarticMaxwell.domainRadiationMap_even_remainder_apply_sq",
+    "QuarticMaxwell.nonnegative_norm_of_square_bound",
+    "QuarticMaxwell.domainRadiationMap_difference_apply_norm_le",
+    "QuarticMaxwell.domainRadiationMap_even_remainder_apply_norm_le",
+    "QuarticMaxwell.inner_central_difference",
+    "QuarticMaxwell.even_gram_pairing_bound",
+    "QuarticMaxwell.domainRadiationMap_apply_norm_bound",
+    "QuarticMaxwell.radiationGram_norm_le",
+    "QuarticMaxwell.radiationGram_difference_pairing_bound",
+    "QuarticMaxwell.radiationGram_difference_norm_le",
+    "QuarticMaxwell.nonpositive_of_le_mul_sq",
+    "QuarticMaxwell.domainStaticOperator_reciprocity",
+    "QuarticMaxwell.StaticInverse.operator_reciprocity",
+    "QuarticMaxwell.StaticInverse.inverse_reciprocity",
+    "QuarticMaxwell.FixedPatternWork.rho",
+    "QuarticMaxwell.FixedPatternWork.correction",
+    "QuarticMaxwell.FixedPatternWork.rho_pos",
+    "QuarticMaxwell.FixedPatternWork.correction_nonneg",
+    "QuarticMaxwell.FixedPatternWork.staticResponse",
+    "QuarticMaxwell.FixedPatternWork.dynamicResponse",
+    "QuarticMaxwell.FixedPatternWork.constantInput",
+    "QuarticMaxwell.FixedPatternWork.linearInput",
+    "QuarticMaxwell.FixedPatternWork.cosineInput",
+    "QuarticMaxwell.FixedPatternWork.sineInput",
+    "QuarticMaxwell.FixedPatternWork.q0",
+    "QuarticMaxwell.FixedPatternWork.q1",
+    "QuarticMaxwell.FixedPatternWork.u",
+    "QuarticMaxwell.FixedPatternWork.v",
+    "QuarticMaxwell.FixedPatternWork.D0",
+    "QuarticMaxwell.FixedPatternWork.static_norm_le",
+    "QuarticMaxwell.FixedPatternWork.dynamic_norm_le",
+    "QuarticMaxwell.FixedPatternWork.resolvent_norm_le",
+    "QuarticMaxwell.FixedPatternWork.u_norm",
+    "QuarticMaxwell.FixedPatternWork.v_norm",
+    "QuarticMaxwell.FixedPatternWork.q0_norm",
+    "QuarticMaxwell.FixedPatternWork.q1_norm",
+    "QuarticMaxwell.FixedPatternWork.u_error",
+    "QuarticMaxwell.FixedPatternWork.v_error",
+    "QuarticMaxwell.FixedPatternWork.D0_pos",
+    "QuarticMaxwell.FixedPatternWork.inner_im_error",
+    "QuarticMaxwell.FixedPatternWork.forwardWork",
+    "QuarticMaxwell.FixedPatternWork.forward_work_error",
+    "QuarticMaxwell.FixedPatternWork.actual_forward_decomposition",
+    "QuarticMaxwell.norm_sq_opposite_i",
+    "QuarticMaxwell.gram_cross_error",
+    "QuarticMaxwell.FixedPatternScattering.moment0",
+    "QuarticMaxwell.FixedPatternScattering.moment1",
+    "QuarticMaxwell.FixedPatternScattering.leading",
+    "QuarticMaxwell.FixedPatternScattering.gramBound",
+    "QuarticMaxwell.FixedPatternScattering.gramCorrection",
+    "QuarticMaxwell.FixedPatternScattering.errorConstant",
+    "QuarticMaxwell.FixedPatternScattering.signedScattering",
+    "QuarticMaxwell.FixedPatternScattering.signedScattering_inner",
+    "QuarticMaxwell.FixedPatternScattering.leading_moment",
+    "QuarticMaxwell.FixedPatternScattering.denominator_moment",
+    "QuarticMaxwell.FixedPatternScattering.errorConstant_nonneg",
+    "QuarticMaxwell.FixedPatternScattering.signedScattering_error",
+    "QuarticMaxwell.FixedPatternContrast.denominatorError",
+    "QuarticMaxwell.FixedPatternContrast.coefficient",
+    "QuarticMaxwell.FixedPatternContrast.remainderConstant",
+    "QuarticMaxwell.FixedPatternContrast.interval",
+    "QuarticMaxwell.FixedPatternContrast.contrast",
+    "QuarticMaxwell.FixedPatternContrast.denominatorError_nonneg",
+    "QuarticMaxwell.FixedPatternContrast.state_extinction_forwardWork",
+    "QuarticMaxwell.FixedPatternContrast.state_scattering_difference",
+    "QuarticMaxwell.FixedPatternContrast.contrast_eq_quotient",
+    "QuarticMaxwell.FixedPatternContrast.interval_pos",
+    "QuarticMaxwell.FixedPatternContrast.coefficient_moment",
+    "QuarticMaxwell.FixedPatternContrast.fixed_pattern_quartic",
+    "QuarticMaxwell.LocalTensorClass.zeroExtension",
+    "QuarticMaxwell.LocalTensorClass.zeroExtension_measurable",
+    "QuarticMaxwell.LocalTensorClass.zeroExtension_on_domain",
+    "QuarticMaxwell.LocalTensorClass.zeroExtension_outside",
+    "QuarticMaxwell.LocalTensorClass.zeroExtension_cap",
+    "QuarticMaxwell.LocalTensorClass.zeroExtension_loss",
+    "QuarticMaxwell.LocalTensorClass.zeroExtension_reciprocal",
+    "QuarticMaxwell.LocalTensorClass.matrixOperator",
+    "QuarticMaxwell.LocalTensorClass.matrixOperator_apply",
+    "QuarticMaxwell.LocalTensorClass.matrixOperator_norm",
+    "QuarticMaxwell.LocalTensorClass.matrixOperator_bijective",
+    "QuarticMaxwell.LocalTensorClass.bilinear_transpose",
+    "QuarticMaxwell.LocalTensorClass.matrixOperator_reciprocal",
+    "QuarticMaxwell.LocalTensorClass.matrixOperator_measurable",
+    "QuarticMaxwell.StaticHessian.newtonHessianOperator",
+    "QuarticMaxwell.StaticHessian.newtonHessianOperator_measurable",
+    "QuarticMaxwell.StaticHessian.newtonHessianOperator_apply",
+    "QuarticMaxwell.StaticHessian.projectionTriple_norm_le",
+    "QuarticMaxwell.StaticHessian.newtonHessianOperator_norm_le",
+    "QuarticMaxwell.StaticHessian.normalizedComplex",
+    "QuarticMaxwell.StaticHessian.normalizedComplex_norm",
+    "QuarticMaxwell.StaticHessian.normalizedComplex_projection",
+    "QuarticMaxwell.StaticHessian.normalizedComplex_difference",
+    "QuarticMaxwell.StaticHessian.radialProjection_difference",
+    "QuarticMaxwell.StaticHessian.reciprocal_cube_difference",
+    "QuarticMaxwell.StaticHessian.hessian_scalar_difference",
+    "QuarticMaxwell.StaticHessian.newtonHessianOperator_difference",
+    "QuarticMaxwell.PhysicalDilation.scaleEquiv",
+    "QuarticMaxwell.PhysicalDilation.scaleEquiv_apply",
+    "QuarticMaxwell.PhysicalDilation.integral_scale",
+    "QuarticMaxwell.PhysicalDilation.memLp_scale",
+    "QuarticMaxwell.PhysicalDilation.locallySquareIntegrable_scale",
+    "QuarticMaxwell.PhysicalDilation.curl_scale",
+    "QuarticMaxwell.PhysicalDilation.bilinear_scale_right",
+    "QuarticMaxwell.PhysicalDilation.bilinear_scale_left",
+    "QuarticMaxwell.PhysicalDilation.weakCurl_scale",
+    "QuarticMaxwell.PhysicalDilation.radial_scale",
+    "QuarticMaxwell.PhysicalDilation.outgoing_scale",
+    "QuarticMaxwell.PhysicalDilation.scaled_subset_ball",
+    "QuarticMaxwell.PhysicalDilation.medium",
+    "QuarticMaxwell.PhysicalDilation.currentField_scale",
+    "QuarticMaxwell.PhysicalDilation.phase_scale",
+    "QuarticMaxwell.PhysicalDilation.incident_scale",
+    "QuarticMaxwell.PhysicalDilation.magnetic_scale",
+    "QuarticMaxwell.PhysicalDilation.factor_scale",
+    "QuarticMaxwell.PhysicalDilation.state",
+    "QuarticMaxwell.PhysicalDilation.setIntegral_inverse_scale",
+    "QuarticMaxwell.PhysicalDilation.absorption_scale",
+    "QuarticMaxwell.PhysicalDilation.extinction_scale",
+    "QuarticMaxwell.PhysicalDilation.absorption_congr",
+    "QuarticMaxwell.PhysicalDilation.extinction_congr",
+    "QuarticMaxwell.PhysicalDilation.state_electric_unique",
+    "QuarticMaxwell.FixedPatternDilation.contrast_congr",
+    "QuarticMaxwell.FixedPatternDilation.contrast_scale",
+    "QuarticMaxwell.FixedPatternDilation.fixed_wavenumber_quartic",
+    "QuarticMaxwell.FixedPatternDilation.interval_pos"
+  ],
+  "exportedTypesAndAxioms": "verification/logs/Audit.log",
+  "inventorySHA256": "675908f7e518ba21e293d52d6aa87f2917fcea3d501681f3f0fb59d070d21f52",
+  "verifierSHA256": "63aab8ee5beaa98f8cf4546e35a9c182c1838ab7254c4ae3dfacac6100f3b108",
+  "publicRootManifestSHA256": "7a7aaa4c36943aacb958e97a3d041a246cbb4371ab5a84dc826fe712bebf36f2",
+  "claimCoverageSHA256": "3d39da863b28aaf613fdb1bade0c2997d85055e1945a3fe06325edceac1b1df7",
+  "freshKernelReplay": {
+    "exitCode": 0,
+    "sameKernelImplementation": true,
+    "log": "verification/logs/fresh-kernel.log"
+  }
+}

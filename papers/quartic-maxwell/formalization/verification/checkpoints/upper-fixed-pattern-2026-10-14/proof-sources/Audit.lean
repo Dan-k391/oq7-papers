@@ -1,0 +1,37 @@
+import QuarticMaxwell
+
+#print axioms QuarticMaxwell.PhysicalPowers.theorem11
+#print axioms QuarticMaxwell.PhysicalPowers.theorem11_ball
+#print axioms QuarticMaxwell.WeakMaterial.wellposed
+#print axioms QuarticMaxwell.radiationGram_zero_moment
+#print axioms QuarticMaxwell.radiationGram_even
+#print axioms QuarticMaxwell.radiationGram_difference_norm_le
+#print axioms QuarticMaxwell.FixedPatternScattering.signedScattering_error
+#print axioms QuarticMaxwell.FixedPatternContrast.fixed_pattern_quartic
+#print axioms QuarticMaxwell.FixedPatternDilation.fixed_wavenumber_quartic
+#print axioms QuarticMaxwell.StaticHessian.newtonHessianOperator_norm_le
+#print axioms QuarticMaxwell.StaticHessian.newtonHessianOperator_difference
+
+#print axioms QuarticMaxwell.radiation_quadratic_difference
+#print axioms QuarticMaxwell.common_inverse_difference
+#print axioms QuarticMaxwell.inverse_current_power
+#print axioms QuarticMaxwell.shared_inverse_quartic_bound
+#print axioms QuarticMaxwell.normalized_absorption_difference_le_one
+#print axioms QuarticMaxwell.quartic_quotient_error
+#print axioms QuarticMaxwell.positive_coefficient_lower_bound
+#print axioms QuarticMaxwell.coefficient_translation_invariant
+#print axioms QuarticMaxwell.greenB_hasDerivAt
+#print axioms QuarticMaxwell.greenB_integral
+#print axioms QuarticMaxwell.greenB_norm_le
+#print axioms QuarticMaxwell.radial_eigenvalue_norm_le
+#print axioms QuarticMaxwell.tangential_eigenvalue_norm_le
+#print axioms QuarticMaxwell.imaginary_coercive_bijective
+#print axioms QuarticMaxwell.materialInverseEquiv_apply
+#print axioms QuarticMaxwell.imaginary_coercive_norm_bound
+#print axioms QuarticMaxwell.materialInverseEquiv_norm_le
+#print axioms QuarticMaxwell.inverse_loss_resource_bound
+#print axioms QuarticMaxwell.threshold_rearrangement
+#print axioms QuarticMaxwell.volume_real_ball_three
+#print axioms QuarticMaxwell.newton_ball_integrable
+#print axioms QuarticMaxwell.newton_ball_integral
+#print axioms QuarticMaxwell.newton_same_volume_bound

@@ -1,0 +1,2679 @@
+@OQ7Quartic.quartic_chain : ∀ {k R V X ρ Lk hX np nm dp dS sV : ℝ},
+  LT.lt.{0} 0 k →
+    LE.le.{0} 0 R →
+      LE.le.{0} 0 ρ →
+        LE.le.{0} 0 sV →
+          Eq.{1} (HPow.hPow.{0, 0, 0} sV 2) V →
+            LE.le.{0} 0 hX →
+              Eq.{1} (HPow.hPow.{0, 0, 0} hX 2) (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} ρ X) k) →
+                LE.le.{0} 0 np →
+                  LE.le.{0} 0 nm →
+                    LE.le.{0} np hX →
+                      LE.le.{0} nm hX →
+                        LE.le.{0} sV (HMul.hMul.{0, 0, 0} Lk hX) →
+                          LE.le.{0} 0 dp →
+                            LE.le.{0} dp
+                                (HMul.hMul.{0, 0, 0}
+                                  (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 ρ) k) R) sV) →
+                              LE.le.{0} (abs.{0} dS)
+                                  (HMul.hMul.{0, 0, 0}
+                                    (HMul.hMul.{0, 0, 0}
+                                      (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} k 4) V)
+                                        (HMul.hMul.{0, 0, 0} 6 Real.pi))
+                                      dp)
+                                    (HAdd.hAdd.{0, 0, 0} np nm)) →
+                                LE.le.{0} (abs.{0} dS)
+                                  (HMul.hMul.{0, 0, 0}
+                                    (HMul.hMul.{0, 0, 0}
+                                      (HMul.hMul.{0, 0, 0}
+                                        (HMul.hMul.{0, 0, 0}
+                                          (HMul.hMul.{0, 0, 0}
+                                            (HMul.hMul.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} 2 (HMul.hMul.{0, 0, 0} 3 Real.pi))
+                                              (HPow.hPow.{0, 0, 0} ρ 2))
+                                            Lk)
+                                          (HPow.hPow.{0, 0, 0} k 4))
+                                        R)
+                                      V)
+                                    X)
+'OQ7Quartic.quartic_chain' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+OQ7Quartic.quartic_coefficient_ball : Eq.{1}
+  (HMul.hMul.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} 2 (HMul.hMul.{0, 0, 0} 3 Real.pi))
+    (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} 4 Real.pi) 3))
+  (8 / 9)
+'OQ7Quartic.quartic_coefficient_ball' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+OQ7Quartic.beta_one : Eq.{1}
+  (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (3 / 10) (HAdd.hAdd.{0, 0, 0} 1 (HMul.hMul.{0, 0, 0} 3 Complex.I)))
+    (HAdd.hAdd.{0, 0, 0} 3 Complex.I))
+  (HMul.hMul.{0, 0, 0} 3 Complex.I)
+'OQ7Quartic.beta_one' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+OQ7Quartic.beta_two : Eq.{1}
+  (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (6 / 13) (HAdd.hAdd.{0, 0, 0} 2 (HMul.hMul.{0, 0, 0} 3 Complex.I)))
+    (HAdd.hAdd.{0, 0, 0} 3 (HMul.hMul.{0, 0, 0} 2 Complex.I)))
+  (HMul.hMul.{0, 0, 0} 3 (HMul.hMul.{0, 0, 0} 2 Complex.I))
+'OQ7Quartic.beta_two' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+OQ7Quartic.α₁ : ℂ
+'OQ7Quartic.α₁' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+OQ7Quartic.α₂ : ℂ
+'OQ7Quartic.α₂' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+OQ7Quartic.alpha_one_eq : Eq.{1} OQ7Quartic.α₁
+  (HMul.hMul.{0, 0, 0} (4 / 3) (HMul.hMul.{0, 0, 0} (3 / 10) (HAdd.hAdd.{0, 0, 0} 1 (HMul.hMul.{0, 0, 0} 3 Complex.I))))
+'OQ7Quartic.alpha_one_eq' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+OQ7Quartic.alpha_two_eq : Eq.{1} OQ7Quartic.α₂
+  (HMul.hMul.{0, 0, 0} (32 / 3)
+    (HMul.hMul.{0, 0, 0} (6 / 13) (HAdd.hAdd.{0, 0, 0} 2 (HMul.hMul.{0, 0, 0} 3 Complex.I))))
+'OQ7Quartic.alpha_two_eq' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+OQ7Quartic.block_moment_imag : Eq.{1}
+  (HMul.hMul.{0, 0, 0} ((starRingEnd.{0} ℂ) (HAdd.hAdd.{0, 0, 0} OQ7Quartic.α₁ OQ7Quartic.α₂))
+      (HMul.hMul.{0, 0, 0} (1 / 2) (HSub.hSub.{0, 0, 0} OQ7Quartic.α₂ OQ7Quartic.α₁))).im
+  (HMul.hMul.{0, 0, 0} (Neg.neg.{0} (8 / 195)) (HPow.hPow.{0, 0, 0} 12 2))
+'OQ7Quartic.block_moment_imag' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+OQ7Quartic.block_extinction : Eq.{1} (HAdd.hAdd.{0, 0, 0} OQ7Quartic.α₁ OQ7Quartic.α₂).im
+  (HMul.hMul.{0, 0, 0} (173 / 130) 12)
+'OQ7Quartic.block_extinction' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+OQ7Quartic.coupling_lt : LT.lt.{0} (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} 4 √2) 14739) (1 / 2500)
+'OQ7Quartic.coupling_lt' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+OQ7Quartic.coupling_sq : Eq.{1}
+  (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (16 / 9) 8) (HPow.hPow.{0, 0, 0} (1 / 20) 6))
+    (HMul.hMul.{0, 0, 0} 4 (HPow.hPow.{0, 0, 0} (17 / 20) 6)))
+  (HPow.hPow.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} 4 √2) 14739) 2)
+'OQ7Quartic.coupling_sq' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@OQ7Quartic.delta_lt : ∀ {c : ℝ},
+  LE.le.{0} 0 c →
+    LT.lt.{0} c (1 / 2500) →
+      LT.lt.{0} (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} 4 c) (HSub.hSub.{0, 0, 0} 1 (HMul.hMul.{0, 0, 0} 2 c)))
+        (1 / 600)
+'OQ7Quartic.delta_lt' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+OQ7Quartic.relative_error : Eq.{1}
+    (HDiv.hDiv.{0, 0, 0}
+      (HMul.hMul.{0, 0, 0} (3 / 5)
+        (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} 4 (1 / 600)) (HPow.hPow.{0, 0, 0} (1 / 600) 2)))
+      (8 / 195))
+    (1404585 / 14400000) ∧
+  LT.lt.{0} (1404585 / 14400000) (1 / 10)
+'OQ7Quartic.relative_error' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+OQ7Quartic.coefficient_interval : Eq.{1}
+    (HDiv.hDiv.{0, 0, 0}
+      (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 (12 / 325)) 12) (7800 / 10393)) 3)
+    (2304 / 10393) ∧
+  Eq.{1}
+      (HDiv.hDiv.{0, 0, 0}
+        (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 (44 / 975)) 12) (7800 / 10367)) 3)
+      (2816 / 10367) ∧
+    Eq.{1} (HMul.hMul.{0, 0, 0} (2304 / 10393) (HPow.hPow.{0, 0, 0} (1 / 20) 3)) (36 / 1299125) ∧
+      Eq.{1} (HMul.hMul.{0, 0, 0} (2816 / 10367) (HPow.hPow.{0, 0, 0} (1 / 20) 3)) (44 / 1295875) ∧
+        LT.lt.{0} (36 / 1299125) (HMul.hMul.{0, 0, 0} (128 / 519) (HPow.hPow.{0, 0, 0} (1 / 20) 3)) ∧
+          LT.lt.{0} (HMul.hMul.{0, 0, 0} (128 / 519) (HPow.hPow.{0, 0, 0} (1 / 20) 3)) (44 / 1295875)
+'OQ7Quartic.coefficient_interval' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+OQ7Quartic.remainder_constants : Eq.{1} (HAdd.hAdd.{0, 0, 0} (HPow.hPow.{0, 0, 0} (3 / 5) 2) (72 / 25)) (81 / 25) ∧
+  Eq.{1}
+      (HAdd.hAdd.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 (HPow.hPow.{0, 0, 0} (3 / 5) 3)) 6)
+        (HMul.hMul.{0, 0, 0} (72 / 25) (3 / 5)))
+      (9 / 5) ∧
+    Eq.{1} (HAdd.hAdd.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} (54 / 125) (81 / 125)) (3 / 5)) (42 / 25) ∧
+      Eq.{1}
+          (HAdd.hAdd.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} (HPow.hPow.{0, 0, 0} (3 / 5) 2) (81 / 25))
+            (HMul.hMul.{0, 0, 0} 2 (HPow.hPow.{0, 0, 0} (3 / 5) 2)))
+          (108 / 25) ∧
+        LE.le.{0} 1 (HSub.hSub.{0, 0, 0} (10367 / 7800) (HDiv.hDiv.{0, 0, 0} (108 / 25) 16)) ∧
+          Eq.{1} (HAdd.hAdd.{0, 0, 0} (168 / 25) (HMul.hMul.{0, 0, 0} (88 / 2925) (108 / 25))) (55656 / 8125) ∧
+            LT.lt.{0} (55656 / 8125) 7 ∧
+              Eq.{1} (HMul.hMul.{0, 0, 0} 7 (12 / 8000)) (21 / 2000) ∧
+                LT.lt.{0} (HMul.hMul.{0, 0, 0} (21 / 2000) (HPow.hPow.{0, 0, 0} (1 / 40) 2))
+                    (HMul.hMul.{0, 0, 0} (1 / 4) (36 / 1299125)) ∧
+                  Eq.{1} (HMul.hMul.{0, 0, 0} (3 / 4) (36 / 1299125)) (27 / 1299125)
+'OQ7Quartic.remainder_constants' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+OQ7Quartic.first_interaction_coefficient : Eq.{1}
+  (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (1 / 4) 56) (64 / 27)) 81) 2688
+'OQ7Quartic.first_interaction_coefficient' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+OQ7Quartic.first_interaction_error : LT.lt.{0}
+  (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} 48 √3) (HMul.hMul.{0, 0, 0} 7 (HPow.hPow.{0, 0, 0} (4 / 5) 4))) 30
+'OQ7Quartic.first_interaction_error' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+OQ7Quartic.coupling_homogeneous : LE.le.{0}
+  (HDiv.hDiv.{0, 0, 0} (√2) (HMul.hMul.{0, 0, 0} 3 (HPow.hPow.{0, 0, 0} (4 / 5) 3))) 1
+'OQ7Quartic.coupling_homogeneous' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+OQ7Quartic.homogeneous_constants : Eq.{1}
+    (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (9 / 5) 16) 144) 2688) (54 / 35) ∧
+  Eq.{1} (HAdd.hAdd.{0, 0, 0} (30 / 120) (HMul.hMul.{0, 0, 0} (54 / 35) (35 / 216))) (1 / 2) ∧
+    Eq.{1} (2688 / 36) (224 / 3) ∧
+      Eq.{1}
+          (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 30 10) (HPow.hPow.{0, 0, 0} (1 / 100) 2))
+            (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (54 / 35) 100) (HPow.hPow.{0, 0, 0} (1 / 100) 3)))
+          (5277 / 175000) ∧
+        LT.lt.{0} (5277 / 175000) (31 / 1000)
+'OQ7Quartic.homogeneous_constants' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@QuarticMaxwell.radiation_quadratic_difference.{u_1,
+    u_2} : ∀ {H : Type u_1} {E : Type u_2} [inst : NormedAddCommGroup.{u_1} H] [inst_1 : InnerProductSpace.{0, u_1} ℂ H]
+  [inst_2 : NormedAddCommGroup.{u_2} E] [inst_3 : InnerProductSpace.{0, u_2} ℂ E]
+  (F : ContinuousLinearMap.{0, 0, u_1, u_2} (RingHom.id.{0} ℂ) H E) (p q : H),
+  LE.le.{0}
+    (abs.{0}
+      (HSub.hSub.{0, 0, 0} (HPow.hPow.{0, 0, 0} (Norm.norm.{u_2} (F p)) 2)
+        (HPow.hPow.{0, 0, 0} (Norm.norm.{u_2} (F q)) 2)))
+    (HMul.hMul.{0, 0, 0}
+      (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} (Norm.norm.{max u_1 u_2} F) 2)
+        (Norm.norm.{u_1} (HSub.hSub.{u_1, u_1, u_1} p q)))
+      (HAdd.hAdd.{0, 0, 0} (Norm.norm.{u_1} p) (Norm.norm.{u_1} q)))
+'QuarticMaxwell.radiation_quadratic_difference' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@QuarticMaxwell.common_inverse_difference.{u_1} : ∀ {H : Type u_1} [inst : NormedAddCommGroup.{u_1} H]
+  [inst_1 : InnerProductSpace.{0, u_1} ℂ H] (A : ContinuousLinearEquiv.{0, 0, u_1, u_1} (RingHom.id.{0} ℂ) H H) (ρ : ℝ),
+  LE.le.{0} (Norm.norm.{u_1} ↑(ContinuousLinearEquiv.symm.{0, 0, u_1, u_1} A)) ρ →
+    ∀ (f g : H),
+      LE.le.{0}
+        (Norm.norm.{u_1}
+          (HSub.hSub.{u_1, u_1, u_1} ((ContinuousLinearEquiv.symm.{0, 0, u_1, u_1} A) f)
+            ((ContinuousLinearEquiv.symm.{0, 0, u_1, u_1} A) g)))
+        (HMul.hMul.{0, 0, 0} ρ (Norm.norm.{u_1} (HSub.hSub.{u_1, u_1, u_1} f g)))
+'QuarticMaxwell.common_inverse_difference' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@QuarticMaxwell.inverse_current_power.{u_1} : ∀ {H : Type u_1} [inst : NormedAddCommGroup.{u_1} H]
+  [inst_1 : InnerProductSpace.{0, u_1} ℂ H] (A : ContinuousLinearEquiv.{0, 0, u_1, u_1} (RingHom.id.{0} ℂ) H H)
+  {k ρ X : ℝ},
+  LT.lt.{0} 0 k →
+    LT.lt.{0} 0 ρ →
+      (∀ (p : H),
+          LE.le.{0} (HDiv.hDiv.{0, 0, 0} (HPow.hPow.{0, 0, 0} (Norm.norm.{u_1} p) 2) ρ)
+            (Neg.neg.{0} (Inner.inner.{0, u_1} ℂ p (A p)).im)) →
+        ∀ (f : H),
+          Eq.{1} X
+              (HMul.hMul.{0, 0, 0} (Neg.neg.{0} k)
+                (Inner.inner.{0, u_1} ℂ ((ContinuousLinearEquiv.symm.{0, 0, u_1, u_1} A) f) f).im) →
+            LE.le.{0} (HPow.hPow.{0, 0, 0} (Norm.norm.{u_1} ((ContinuousLinearEquiv.symm.{0, 0, u_1, u_1} A) f)) 2)
+              (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} ρ X) k)
+'QuarticMaxwell.inverse_current_power' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@QuarticMaxwell.shared_inverse_quartic_bound.{u_1,
+    u_2} : ∀ {H : Type u_1} {E : Type u_2} [inst : NormedAddCommGroup.{u_1} H] [inst_1 : InnerProductSpace.{0, u_1} ℂ H]
+  [inst_2 : NormedAddCommGroup.{u_2} E] [inst_3 : InnerProductSpace.{0, u_2} ℂ E]
+  (A : ContinuousLinearEquiv.{0, 0, u_1, u_1} (RingHom.id.{0} ℂ) H H)
+  (F : ContinuousLinearMap.{0, 0, u_1, u_2} (RingHom.id.{0} ℂ) H E) {k R V ρ L X : ℝ},
+  LT.lt.{0} 0 k →
+    LE.le.{0} 0 R →
+      LE.le.{0} 0 V →
+        LT.lt.{0} 0 ρ →
+          LE.le.{0} 0 L →
+            LT.lt.{0} 0 X →
+              LE.le.{0} (Norm.norm.{u_1} ↑A) L →
+                LE.le.{0} (Norm.norm.{u_1} ↑(ContinuousLinearEquiv.symm.{0, 0, u_1, u_1} A)) ρ →
+                  (∀ (p : H),
+                      LE.le.{0} (HDiv.hDiv.{0, 0, 0} (HPow.hPow.{0, 0, 0} (Norm.norm.{u_1} p) 2) ρ)
+                        (Neg.neg.{0} (Inner.inner.{0, u_1} ℂ p (A p)).im)) →
+                    LE.le.{0} (HPow.hPow.{0, 0, 0} (Norm.norm.{max u_1 u_2} F) 2)
+                        (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 8 Real.pi) V) 3) →
+                      ∀ (f g : H),
+                        LE.le.{0} (Norm.norm.{u_1} (HSub.hSub.{u_1, u_1, u_1} f g))
+                            (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 k) R)
+                              (Norm.norm.{u_1} f)) →
+                          Eq.{1} X
+                              (HMul.hMul.{0, 0, 0} (Neg.neg.{0} k)
+                                (Inner.inner.{0, u_1} ℂ ((ContinuousLinearEquiv.symm.{0, 0, u_1, u_1} A) f) f).im) →
+                            Eq.{1} X
+                                (HMul.hMul.{0, 0, 0} (Neg.neg.{0} k)
+                                  (Inner.inner.{0, u_1} ℂ ((ContinuousLinearEquiv.symm.{0, 0, u_1, u_1} A) g) g).im) →
+                              LE.le.{0}
+                                (HDiv.hDiv.{0, 0, 0}
+                                  (abs.{0}
+                                    (HMul.hMul.{0, 0, 0}
+                                      (HDiv.hDiv.{0, 0, 0} (HPow.hPow.{0, 0, 0} k 4)
+                                        (HMul.hMul.{0, 0, 0} 16 (HPow.hPow.{0, 0, 0} Real.pi 2)))
+                                      (HSub.hSub.{0, 0, 0}
+                                        (HPow.hPow.{0, 0, 0}
+                                          (Norm.norm.{u_2} (F ((ContinuousLinearEquiv.symm.{0, 0, u_1, u_1} A) f))) 2)
+                                        (HPow.hPow.{0, 0, 0}
+                                          (Norm.norm.{u_2} (F ((ContinuousLinearEquiv.symm.{0, 0, u_1, u_1} A) g)))
+                                          2))))
+                                  X)
+                                (HMul.hMul.{0, 0, 0}
+                                  (HMul.hMul.{0, 0, 0}
+                                    (HMul.hMul.{0, 0, 0}
+                                      (HMul.hMul.{0, 0, 0}
+                                        (HMul.hMul.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} 2 (HMul.hMul.{0, 0, 0} 3 Real.pi))
+                                          (HPow.hPow.{0, 0, 0} ρ 2))
+                                        L)
+                                      (HPow.hPow.{0, 0, 0} k 4))
+                                    R)
+                                  V)
+'QuarticMaxwell.shared_inverse_quartic_bound' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@QuarticMaxwell.normalized_absorption_difference_le_one : ∀ {A₁ A₂ X : ℝ},
+  LT.lt.{0} 0 X →
+    LE.le.{0} 0 A₁ →
+      LE.le.{0} 0 A₂ →
+        LE.le.{0} A₁ X → LE.le.{0} A₂ X → LE.le.{0} (HDiv.hDiv.{0, 0, 0} (abs.{0} (HSub.hSub.{0, 0, 0} A₁ A₂)) X) 1
+'QuarticMaxwell.normalized_absorption_difference_le_one' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@QuarticMaxwell.quartic_quotient_error : ∀ {t s d N D B E : ℝ},
+  LE.le.{0} 0 t →
+    LT.lt.{0} 0 D →
+      LE.le.{0} 0 B →
+        LE.le.{0} 0 E →
+          LE.le.{0} (HDiv.hDiv.{0, 0, 0} D 2) d →
+            LE.le.{0} (abs.{0} (HSub.hSub.{0, 0, 0} s (HMul.hMul.{0, 0, 0} N t)))
+                (HMul.hMul.{0, 0, 0} B (HPow.hPow.{0, 0, 0} t 3)) →
+              LE.le.{0} (abs.{0} (HSub.hSub.{0, 0, 0} d D)) (HMul.hMul.{0, 0, 0} E (HPow.hPow.{0, 0, 0} t 2)) →
+                LE.le.{0}
+                  (abs.{0}
+                    (HSub.hSub.{0, 0, 0}
+                      (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} t 3) (abs.{0} s)) d)
+                      (HMul.hMul.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} (abs.{0} N) D) (HPow.hPow.{0, 0, 0} t 4))))
+                  (HMul.hMul.{0, 0, 0}
+                    (HAdd.hAdd.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 B) D)
+                      (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 (abs.{0} N)) E)
+                        (HPow.hPow.{0, 0, 0} D 2)))
+                    (HPow.hPow.{0, 0, 0} t 6))
+'QuarticMaxwell.quartic_quotient_error' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@QuarticMaxwell.positive_coefficient_lower_bound : ∀ {Γ C c B t : ℝ},
+  LE.le.{0} 0 t →
+    LE.le.{0} c C →
+      LE.le.{0} 0 B →
+        LE.le.{0} (abs.{0} (HSub.hSub.{0, 0, 0} Γ (HMul.hMul.{0, 0, 0} C (HPow.hPow.{0, 0, 0} t 4))))
+            (HMul.hMul.{0, 0, 0} B (HPow.hPow.{0, 0, 0} t 6)) →
+          LE.le.{0} (HMul.hMul.{0, 0, 0} B (HPow.hPow.{0, 0, 0} t 2)) (HDiv.hDiv.{0, 0, 0} c 2) →
+            LE.le.{0} (HMul.hMul.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} c 2) (HPow.hPow.{0, 0, 0} t 4)) Γ
+'QuarticMaxwell.positive_coefficient_lower_bound' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@QuarticMaxwell.coefficient_translation_invariant.{u_1} : ∀ {H : Type u_1} [inst : NormedAddCommGroup.{u_1} H]
+  [inst_1 : InnerProductSpace.{0, u_1} ℂ H] (p₀ p₁ : H) (r : ℝ),
+  Eq.{1} (Inner.inner.{0, u_1} ℂ p₀ (HAdd.hAdd.{u_1, u_1, u_1} p₁ (HSMul.hSMul.{0, u_1, u_1} (↑r) p₀))).im
+    (Inner.inner.{0, u_1} ℂ p₀ p₁).im
+'QuarticMaxwell.coefficient_translation_invariant' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.greenB : ℝ → ℂ
+'QuarticMaxwell.greenB' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.greenB_hasDerivAt : ∀ (u : ℝ),
+  HasDerivAt.{0, 0} QuarticMaxwell.greenB
+    (HMul.hMul.{0, 0, 0} (Neg.neg.{0} ↑u) (Complex.exp (HMul.hMul.{0, 0, 0} Complex.I ↑u))) u
+'QuarticMaxwell.greenB_hasDerivAt' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.greenB_integral : ∀ (u : ℝ),
+  Eq.{1} (QuarticMaxwell.greenB u)
+    (∫ (s : ℝ) in 0..u, HMul.hMul.{0, 0, 0} (Neg.neg.{0} ↑s) (Complex.exp (HMul.hMul.{0, 0, 0} Complex.I ↑s)))
+'QuarticMaxwell.greenB_integral' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@QuarticMaxwell.greenB_norm_le : ∀ {u : ℝ},
+  LE.le.{0} 0 u → LE.le.{0} (Norm.norm.{0} (QuarticMaxwell.greenB u)) (HDiv.hDiv.{0, 0, 0} (HPow.hPow.{0, 0, 0} u 2) 2)
+'QuarticMaxwell.greenB_norm_le' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.radialRemainderEigenvalue : ℝ → ℝ → ℂ
+'QuarticMaxwell.radialRemainderEigenvalue' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.tangentialRemainderEigenvalue : ℝ → ℝ → ℂ
+'QuarticMaxwell.tangentialRemainderEigenvalue' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@QuarticMaxwell.radial_eigenvalue_norm_le : ∀ {k r : ℝ},
+  LE.le.{0} 0 k →
+    LT.lt.{0} 0 r →
+      LE.le.{0} (Norm.norm.{0} (QuarticMaxwell.radialRemainderEigenvalue k r))
+        (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} 3 (HPow.hPow.{0, 0, 0} k 2))
+          (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 8 Real.pi) r))
+'QuarticMaxwell.radial_eigenvalue_norm_le' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@QuarticMaxwell.tangential_eigenvalue_norm_le : ∀ {k r : ℝ},
+  LE.le.{0} 0 k →
+    LT.lt.{0} 0 r →
+      LE.le.{0} (Norm.norm.{0} (QuarticMaxwell.tangentialRemainderEigenvalue k r))
+        (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} 3 (HPow.hPow.{0, 0, 0} k 2))
+          (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 8 Real.pi) r))
+'QuarticMaxwell.tangential_eigenvalue_norm_le' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@QuarticMaxwell.imaginary_coercive_bijective.{u_1} : ∀ {H : Type u_1} [inst : NormedAddCommGroup.{u_1} H]
+  [inst_1 : InnerProductSpace.{0, u_1} ℂ H] [CompleteSpace.{u_1} H]
+  (A : ContinuousLinearMap.{0, 0, u_1, u_1} (RingHom.id.{0} ℂ) H H) {m : ℝ},
+  LT.lt.{0} 0 m →
+    (∀ (u : H),
+        LE.le.{0} (HMul.hMul.{0, 0, 0} m (HPow.hPow.{0, 0, 0} (Norm.norm.{u_1} u) 2))
+          (Inner.inner.{0, u_1} ℂ u (A u)).im) →
+      Function.Bijective.{u_1 + 1, u_1 + 1} ⇑A
+'QuarticMaxwell.imaginary_coercive_bijective' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@QuarticMaxwell.materialInverseEquiv.{u_1} : {H : Type u_1} →
+  [inst : NormedAddCommGroup.{u_1} H] →
+    [inst_1 : InnerProductSpace.{0, u_1} ℂ H] →
+      [CompleteSpace.{u_1} H] →
+        (A : ContinuousLinearMap.{0, 0, u_1, u_1} (RingHom.id.{0} ℂ) H H) →
+          {m : ℝ} →
+            LT.lt.{0} 0 m →
+              (∀ (u : H),
+                  LE.le.{0} (HMul.hMul.{0, 0, 0} m (HPow.hPow.{0, 0, 0} (Norm.norm.{u_1} u) 2))
+                    (Inner.inner.{0, u_1} ℂ u (A u)).im) →
+                ContinuousLinearEquiv.{0, 0, u_1, u_1} (RingHom.id.{0} ℂ) H H
+'QuarticMaxwell.materialInverseEquiv' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@QuarticMaxwell.materialInverseEquiv_apply.{u_1} : ∀ {H : Type u_1} [inst : NormedAddCommGroup.{u_1} H]
+  [inst_1 : InnerProductSpace.{0, u_1} ℂ H] [inst_2 : CompleteSpace.{u_1} H]
+  (A : ContinuousLinearMap.{0, 0, u_1, u_1} (RingHom.id.{0} ℂ) H H) {m : ℝ} (hm : LT.lt.{0} 0 m)
+  (hA :
+    ∀ (u : H),
+      LE.le.{0} (HMul.hMul.{0, 0, 0} m (HPow.hPow.{0, 0, 0} (Norm.norm.{u_1} u) 2)) (Inner.inner.{0, u_1} ℂ u (A u)).im)
+  (u : H), Eq.{u_1 + 1} ((QuarticMaxwell.materialInverseEquiv.{u_1} A hm hA) u) (A u)
+'QuarticMaxwell.materialInverseEquiv_apply' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@QuarticMaxwell.imaginary_coercive_norm_bound.{u_1} : ∀ {H : Type u_1} [inst : NormedAddCommGroup.{u_1} H]
+  [inst_1 : InnerProductSpace.{0, u_1} ℂ H] [CompleteSpace.{u_1} H]
+  (A : ContinuousLinearMap.{0, 0, u_1, u_1} (RingHom.id.{0} ℂ) H H) {m : ℝ},
+  LT.lt.{0} 0 m →
+    (∀ (u : H),
+        LE.le.{0} (HMul.hMul.{0, 0, 0} m (HPow.hPow.{0, 0, 0} (Norm.norm.{u_1} u) 2))
+          (Inner.inner.{0, u_1} ℂ u (A u)).im) →
+      ∀ (u : H), LE.le.{0} (HMul.hMul.{0, 0, 0} m (Norm.norm.{u_1} u)) (Norm.norm.{u_1} (A u))
+'QuarticMaxwell.imaginary_coercive_norm_bound' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@QuarticMaxwell.materialInverseEquiv_norm_le.{u_1} : ∀ {H : Type u_1} [inst : NormedAddCommGroup.{u_1} H]
+  [inst_1 : InnerProductSpace.{0, u_1} ℂ H] [inst_2 : CompleteSpace.{u_1} H]
+  (A : ContinuousLinearMap.{0, 0, u_1, u_1} (RingHom.id.{0} ℂ) H H) {m : ℝ} (hm : LT.lt.{0} 0 m)
+  (hA :
+    ∀ (u : H),
+      LE.le.{0} (HMul.hMul.{0, 0, 0} m (HPow.hPow.{0, 0, 0} (Norm.norm.{u_1} u) 2))
+        (Inner.inner.{0, u_1} ℂ u (A u)).im),
+  LE.le.{0}
+    (Norm.norm.{u_1} ↑(ContinuousLinearEquiv.symm.{0, 0, u_1, u_1} (QuarticMaxwell.materialInverseEquiv.{u_1} A hm hA)))
+    (HDiv.hDiv.{0, 0, 0} 1 m)
+'QuarticMaxwell.materialInverseEquiv_norm_le' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@QuarticMaxwell.inverse_loss_resource_bound.{u_1} : ∀ {H : Type u_1} [inst : NormedAddCommGroup.{u_1} H]
+  [inst_1 : InnerProductSpace.{0, u_1} ℂ H] [inst_2 : CompleteSpace.{u_1} H]
+  (A : ContinuousLinearMap.{0, 0, u_1, u_1} (RingHom.id.{0} ℂ) H H) {m M : ℝ} (hm : LT.lt.{0} 0 m),
+  LT.lt.{0} 0 M →
+    LE.le.{0} (Norm.norm.{u_1} A) M →
+      ∀
+        (hA :
+          ∀ (u : H),
+            LE.le.{0} (HMul.hMul.{0, 0, 0} m (HPow.hPow.{0, 0, 0} (Norm.norm.{u_1} u) 2))
+              (Inner.inner.{0, u_1} ℂ u (A u)).im)
+        (v : H),
+        LE.le.{0}
+          (HMul.hMul.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} m (HPow.hPow.{0, 0, 0} M 2))
+            (HPow.hPow.{0, 0, 0} (Norm.norm.{u_1} v) 2))
+          (Neg.neg.{0}
+            (Inner.inner.{0, u_1} ℂ v
+                ((ContinuousLinearEquiv.symm.{0, 0, u_1, u_1} (QuarticMaxwell.materialInverseEquiv.{u_1} A hm hA))
+                  v)).im)
+'QuarticMaxwell.inverse_loss_resource_bound' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@QuarticMaxwell.threshold_rearrangement.{u_1} : ∀ {α : Type u_1} [inst : MeasurableSpace.{u_1} α]
+  (μ : MeasureTheory.Measure.{u_1} α) (s b : Set.{u_1} α),
+  MeasurableSet.{u_1} s →
+    MeasurableSet.{u_1} b →
+      Ne.{1} (μ s) Top.top.{0} →
+        Ne.{1} (μ b) Top.top.{0} →
+          Eq.{1} (MeasureTheory.Measure.real.{u_1} μ s) (MeasureTheory.Measure.real.{u_1} μ b) →
+            ∀ (f : α → ℝ),
+              MeasureTheory.IntegrableOn.{u_1, 0} f s μ →
+                MeasureTheory.IntegrableOn.{u_1, 0} f b μ →
+                  ∀ (c : ℝ),
+                    (∀ᵐ (x : α) ∂μ, Membership.mem.{u_1, u_1} b x → LE.le.{0} c (f x)) →
+                      (∀ᵐ (x : α) ∂μ, x ∉ b → LE.le.{0} (f x) c) →
+                        LE.le.{0} (∫ (x : α) in s, f x ∂μ) (∫ (x : α) in b, f x ∂μ)
+'QuarticMaxwell.threshold_rearrangement' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.Position : Type
+'QuarticMaxwell.Position' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.volumeRadius : ℝ → ℝ
+'QuarticMaxwell.volumeRadius' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@QuarticMaxwell.volumeRadius_pos : ∀ {V : ℝ}, LT.lt.{0} 0 V → LT.lt.{0} 0 (QuarticMaxwell.volumeRadius V)
+'QuarticMaxwell.volumeRadius_pos' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@QuarticMaxwell.volumeRadius_cube : ∀ {V : ℝ},
+  LE.le.{0} 0 V →
+    Eq.{1} (HPow.hPow.{0, 0, 0} (QuarticMaxwell.volumeRadius V) 3)
+      (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} 3 V) (HMul.hMul.{0, 0, 0} 4 Real.pi))
+'QuarticMaxwell.volumeRadius_cube' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@QuarticMaxwell.volumeRadius_volume : ∀ {V : ℝ},
+  LE.le.{0} 0 V →
+    Eq.{1}
+      (HMul.hMul.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} 4 Real.pi) 3)
+        (HPow.hPow.{0, 0, 0} (QuarticMaxwell.volumeRadius V) 3))
+      V
+'QuarticMaxwell.volumeRadius_volume' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.volume_real_ball_three : ∀ (a : ℝ),
+  LE.le.{0} 0 a →
+    Eq.{1} (MeasureTheory.Measure.real.{0} MeasureTheory.MeasureSpace.volume.{0} (Metric.ball.{0} 0 a))
+      (HMul.hMul.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} 4 Real.pi) 3) (HPow.hPow.{0, 0, 0} a 3))
+'QuarticMaxwell.volume_real_ball_three' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.newton_ball_integrable : ∀ (a : ℝ),
+  MeasureTheory.IntegrableOn.{0, 0} (fun x => Inv.inv.{0} (Norm.norm.{0} x)) (Metric.ball.{0} 0 a)
+    MeasureTheory.MeasureSpace.volume.{0}
+'QuarticMaxwell.newton_ball_integrable' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@QuarticMaxwell.newton_ball_integral : ∀ {a : ℝ},
+  LT.lt.{0} 0 a →
+    Eq.{1} (∫ (x : QuarticMaxwell.Position) in Metric.ball.{0} 0 a, Inv.inv.{0} (Norm.norm.{0} x))
+      (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 Real.pi) (HPow.hPow.{0, 0, 0} a 2))
+'QuarticMaxwell.newton_ball_integral' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.newton_same_volume_bound : ∀ (s : Set.{0} QuarticMaxwell.Position),
+  MeasurableSet.{0} s →
+    Ne.{1} (MeasureTheory.MeasureSpace.volume.{0} s) Top.top.{0} →
+      ∀ {a : ℝ},
+        LT.lt.{0} 0 a →
+          Eq.{1} (MeasureTheory.Measure.real.{0} MeasureTheory.MeasureSpace.volume.{0} s)
+              (HMul.hMul.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} 4 Real.pi) 3) (HPow.hPow.{0, 0, 0} a 3)) →
+            MeasureTheory.IntegrableOn.{0, 0} (fun x => Inv.inv.{0} (Norm.norm.{0} x)) s
+                MeasureTheory.MeasureSpace.volume.{0} →
+              LE.le.{0} (∫ (x : QuarticMaxwell.Position) in s, Inv.inv.{0} (Norm.norm.{0} x))
+                (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 Real.pi) (HPow.hPow.{0, 0, 0} a 2))
+'QuarticMaxwell.newton_same_volume_bound' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.newton_ball_integrable_center : ∀ (x : QuarticMaxwell.Position) (a : ℝ),
+  MeasureTheory.IntegrableOn.{0, 0} (fun y => Inv.inv.{0} (Norm.norm.{0} (HSub.hSub.{0, 0, 0} y x)))
+    (Metric.ball.{0} x a) MeasureTheory.MeasureSpace.volume.{0}
+'QuarticMaxwell.newton_ball_integrable_center' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.newton_ball_integral_center : ∀ (x : QuarticMaxwell.Position) {a : ℝ},
+  LT.lt.{0} 0 a →
+    Eq.{1}
+      (∫ (y : QuarticMaxwell.Position) in Metric.ball.{0} x a, Inv.inv.{0} (Norm.norm.{0} (HSub.hSub.{0, 0, 0} y x)))
+      (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 Real.pi) (HPow.hPow.{0, 0, 0} a 2))
+'QuarticMaxwell.newton_ball_integral_center' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.newton_bounded_support_integrable : ∀ (s : Set.{0} QuarticMaxwell.Position) {R : ℝ},
+  s ⊆ Metric.closedBall.{0} 0 R →
+    ∀ (x : QuarticMaxwell.Position),
+      MeasureTheory.IntegrableOn.{0, 0} (fun y => Inv.inv.{0} (Norm.norm.{0} (HSub.hSub.{0, 0, 0} y x))) s
+        MeasureTheory.MeasureSpace.volume.{0}
+'QuarticMaxwell.newton_bounded_support_integrable' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.newton_bounded_support_uniform : ∀ (s : Set.{0} QuarticMaxwell.Position),
+  MeasurableSet.{0} s →
+    ∀ {R a : ℝ},
+      LE.le.{0} 0 R →
+        LT.lt.{0} 0 a →
+          s ⊆ Metric.closedBall.{0} 0 R →
+            Eq.{1} (MeasureTheory.Measure.real.{0} MeasureTheory.MeasureSpace.volume.{0} s)
+                (HMul.hMul.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} 4 Real.pi) 3)
+                  (HPow.hPow.{0, 0, 0} a 3)) →
+              ∀ (x : QuarticMaxwell.Position),
+                LE.le.{0} (∫ (y : QuarticMaxwell.Position) in s, Inv.inv.{0} (Norm.norm.{0} (HSub.hSub.{0, 0, 0} x y)))
+                  (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 Real.pi) (HPow.hPow.{0, 0, 0} a 2))
+'QuarticMaxwell.newton_bounded_support_uniform' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.measurable_support_newton_uniform : ∀ (s : Set.{0} QuarticMaxwell.Position),
+  MeasurableSet.{0} s →
+    ∀ {R : ℝ},
+      LE.le.{0} 0 R →
+        s ⊆ Metric.closedBall.{0} 0 R →
+          LT.lt.{0} 0 (MeasureTheory.Measure.real.{0} MeasureTheory.MeasureSpace.volume.{0} s) →
+            ∀ (x : QuarticMaxwell.Position),
+              LE.le.{0} (∫ (y : QuarticMaxwell.Position) in s, Inv.inv.{0} (Norm.norm.{0} (HSub.hSub.{0, 0, 0} x y)))
+                (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 Real.pi)
+                  (HPow.hPow.{0, 0, 0}
+                    (QuarticMaxwell.volumeRadius
+                      (MeasureTheory.Measure.real.{0} MeasureTheory.MeasureSpace.volume.{0} s))
+                    2))
+'QuarticMaxwell.measurable_support_newton_uniform' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@QuarticMaxwell.lp_integral_norm_sq.{u_1,
+    u_2} : ∀ {α : Type u_1} {E : Type u_2} [inst : MeasurableSpace.{u_1} α] [inst_1 : NormedAddCommGroup.{u_2} E]
+  [InnerProductSpace.{0, u_2} ℂ E] (μ : MeasureTheory.Measure.{u_1} α) (f : ↥(MeasureTheory.Lp.{u_2, u_1} E 2 μ)),
+  Eq.{1} (∫ (x : α), HPow.hPow.{0, 0, 0} (Norm.norm.{u_2} (↑↑f x)) 2 ∂μ)
+    (HPow.hPow.{0, 0, 0} (Norm.norm.{max u_1 u_2} f) 2)
+'QuarticMaxwell.lp_integral_norm_sq' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@QuarticMaxwell.weighted_row_integrable.{u_1} : ∀ {α : Type u_1} [inst : MeasurableSpace.{u_1} α]
+  (μ : MeasureTheory.Measure.{u_1} α) [MeasureTheory.SFinite.{u_1} μ] (k : Prod.{u_1, u_1} α α → ℝ),
+  MeasureTheory.AEStronglyMeasurable.{u_1, 0} k (MeasureTheory.Measure.prod.{u_1, u_1} μ μ) →
+    (∀ (z : Prod.{u_1, u_1} α α), LE.le.{0} 0 (k z)) →
+      ∀ {C : ℝ},
+        LE.le.{0} 0 C →
+          (∀ (x : α), MeasureTheory.Integrable.{0, u_1} (fun y => k (Prod.mk.{u_1, u_1} x y)) μ) →
+            (∀ (x : α), LE.le.{0} (∫ (y : α), k (Prod.mk.{u_1, u_1} x y) ∂μ) C) →
+              ∀ (g : α → ℝ),
+                MeasureTheory.AEStronglyMeasurable.{u_1, 0} g μ →
+                  MeasureTheory.Integrable.{0, u_1} (fun x => HPow.hPow.{0, 0, 0} (g x) 2) μ →
+                    MeasureTheory.Integrable.{0, u_1}
+                      (fun z => HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} (g z.1) 2) (k z))
+                      (MeasureTheory.Measure.prod.{u_1, u_1} μ μ)
+'QuarticMaxwell.weighted_row_integrable' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@QuarticMaxwell.weighted_row_integral_bound.{u_1} : ∀ {α : Type u_1} [inst : MeasurableSpace.{u_1} α]
+  (μ : MeasureTheory.Measure.{u_1} α) [MeasureTheory.SFinite.{u_1} μ] (k : Prod.{u_1, u_1} α α → ℝ),
+  MeasureTheory.AEStronglyMeasurable.{u_1, 0} k (MeasureTheory.Measure.prod.{u_1, u_1} μ μ) →
+    (∀ (z : Prod.{u_1, u_1} α α), LE.le.{0} 0 (k z)) →
+      ∀ {C : ℝ},
+        LE.le.{0} 0 C →
+          (∀ (x : α), MeasureTheory.Integrable.{0, u_1} (fun y => k (Prod.mk.{u_1, u_1} x y)) μ) →
+            (∀ (x : α), LE.le.{0} (∫ (y : α), k (Prod.mk.{u_1, u_1} x y) ∂μ) C) →
+              ∀ (g : α → ℝ),
+                MeasureTheory.AEStronglyMeasurable.{u_1, 0} g μ →
+                  MeasureTheory.Integrable.{0, u_1} (fun x => HPow.hPow.{0, 0, 0} (g x) 2) μ →
+                    LE.le.{0}
+                      (∫ (z : Prod.{u_1, u_1} α α),
+                        HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} (g z.1) 2)
+                          (k z) ∂MeasureTheory.Measure.prod.{u_1, u_1} μ μ)
+                      (HMul.hMul.{0, 0, 0} C (∫ (x : α), HPow.hPow.{0, 0, 0} (g x) 2 ∂μ))
+'QuarticMaxwell.weighted_row_integral_bound' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@QuarticMaxwell.operator_norm_of_quadratic_pairing.{u_1} : ∀ {H : Type u_1} [inst : NormedAddCommGroup.{u_1} H]
+  [inst_1 : InnerProductSpace.{0, u_1} ℂ H] (S : ContinuousLinearMap.{0, 0, u_1, u_1} (RingHom.id.{0} ℂ) H H) {C : ℝ},
+  LE.le.{0} 0 C →
+    (∀ (f g : H),
+        LE.le.{0} (Norm.norm.{0} (Inner.inner.{0, u_1} ℂ g (S f)))
+          (HMul.hMul.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} C 2)
+            (HAdd.hAdd.{0, 0, 0} (HPow.hPow.{0, 0, 0} (Norm.norm.{u_1} g) 2)
+              (HPow.hPow.{0, 0, 0} (Norm.norm.{u_1} f) 2)))) →
+      LE.le.{0} (Norm.norm.{u_1} S) C
+'QuarticMaxwell.operator_norm_of_quadratic_pairing' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@QuarticMaxwell.kernel_pairing_schur.{u_1,
+    u_2} : ∀ {α : Type u_1} {E : Type u_2} [inst : MeasurableSpace.{u_1} α] [inst_1 : NormedAddCommGroup.{u_2} E]
+  [inst_2 : InnerProductSpace.{0, u_2} ℂ E] (μ : MeasureTheory.Measure.{u_1} α) [MeasureTheory.SFinite.{u_1} μ]
+  (K : Prod.{u_1, u_1} α α → ContinuousLinearMap.{0, 0, u_2, u_2} (RingHom.id.{0} ℂ) E E),
+  MeasureTheory.AEStronglyMeasurable.{u_1, u_2} K (MeasureTheory.Measure.prod.{u_1, u_1} μ μ) →
+    ∀ (k : Prod.{u_1, u_1} α α → ℝ),
+      MeasureTheory.AEStronglyMeasurable.{u_1, 0} k (MeasureTheory.Measure.prod.{u_1, u_1} μ μ) →
+        (∀ (z : Prod.{u_1, u_1} α α), LE.le.{0} 0 (k z)) →
+          (∀ (z : Prod.{u_1, u_1} α α), LE.le.{0} (Norm.norm.{u_2} (K z)) (k z)) →
+            ∀ {C : ℝ},
+              LE.le.{0} 0 C →
+                (∀ (x : α), MeasureTheory.Integrable.{0, u_1} (fun y => k (Prod.mk.{u_1, u_1} x y)) μ) →
+                  (∀ (x : α), LE.le.{0} (∫ (y : α), k (Prod.mk.{u_1, u_1} x y) ∂μ) C) →
+                    (∀ (y : α), MeasureTheory.Integrable.{0, u_1} (fun x => k (Prod.mk.{u_1, u_1} x y)) μ) →
+                      (∀ (y : α), LE.le.{0} (∫ (x : α), k (Prod.mk.{u_1, u_1} x y) ∂μ) C) →
+                        ∀ (f g : ↥(MeasureTheory.Lp.{u_2, u_1} E 2 μ)),
+                          LE.le.{0}
+                            (Norm.norm.{0}
+                              (∫ (z : Prod.{u_1, u_1} α α),
+                                Inner.inner.{0, u_2} ℂ (↑↑g z.1)
+                                  ((K z) (↑↑f z.2)) ∂MeasureTheory.Measure.prod.{u_1, u_1} μ μ))
+                            (HMul.hMul.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} C 2)
+                              (HAdd.hAdd.{0, 0, 0} (HPow.hPow.{0, 0, 0} (Norm.norm.{max u_1 u_2} g) 2)
+                                (HPow.hPow.{0, 0, 0} (Norm.norm.{max u_1 u_2} f) 2)))
+'QuarticMaxwell.kernel_pairing_schur' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@QuarticMaxwell.kernel_pairing_integrable.{u_1,
+    u_2} : ∀ {α : Type u_1} {E : Type u_2} [inst : MeasurableSpace.{u_1} α] [inst_1 : NormedAddCommGroup.{u_2} E]
+  [inst_2 : InnerProductSpace.{0, u_2} ℂ E] (μ : MeasureTheory.Measure.{u_1} α) [MeasureTheory.SFinite.{u_1} μ]
+  (K : Prod.{u_1, u_1} α α → ContinuousLinearMap.{0, 0, u_2, u_2} (RingHom.id.{0} ℂ) E E),
+  MeasureTheory.AEStronglyMeasurable.{u_1, u_2} K (MeasureTheory.Measure.prod.{u_1, u_1} μ μ) →
+    ∀ (k : Prod.{u_1, u_1} α α → ℝ),
+      MeasureTheory.AEStronglyMeasurable.{u_1, 0} k (MeasureTheory.Measure.prod.{u_1, u_1} μ μ) →
+        (∀ (z : Prod.{u_1, u_1} α α), LE.le.{0} 0 (k z)) →
+          (∀ (z : Prod.{u_1, u_1} α α), LE.le.{0} (Norm.norm.{u_2} (K z)) (k z)) →
+            ∀ {C : ℝ},
+              LE.le.{0} 0 C →
+                (∀ (x : α), MeasureTheory.Integrable.{0, u_1} (fun y => k (Prod.mk.{u_1, u_1} x y)) μ) →
+                  (∀ (x : α), LE.le.{0} (∫ (y : α), k (Prod.mk.{u_1, u_1} x y) ∂μ) C) →
+                    (∀ (y : α), MeasureTheory.Integrable.{0, u_1} (fun x => k (Prod.mk.{u_1, u_1} x y)) μ) →
+                      (∀ (y : α), LE.le.{0} (∫ (x : α), k (Prod.mk.{u_1, u_1} x y) ∂μ) C) →
+                        ∀ (f g : ↥(MeasureTheory.Lp.{u_2, u_1} E 2 μ)),
+                          MeasureTheory.Integrable.{0, u_1}
+                            (fun z => Inner.inner.{0, u_2} ℂ (↑↑g z.1) ((K z) (↑↑f z.2)))
+                            (MeasureTheory.Measure.prod.{u_1, u_1} μ μ)
+'QuarticMaxwell.kernel_pairing_integrable' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@QuarticMaxwell.integral_operator_schur.{u_1,
+    u_2} : ∀ {α : Type u_1} {E : Type u_2} [inst : MeasurableSpace.{u_1} α] [inst_1 : NormedAddCommGroup.{u_2} E]
+  [inst_2 : InnerProductSpace.{0, u_2} ℂ E] (μ : MeasureTheory.Measure.{u_1} α) [MeasureTheory.SFinite.{u_1} μ]
+  (S :
+    ContinuousLinearMap.{0, 0, max u_1 u_2, max u_1 u_2} (RingHom.id.{0} ℂ) ↥(MeasureTheory.Lp.{u_2, u_1} E 2 μ)
+      ↥(MeasureTheory.Lp.{u_2, u_1} E 2 μ))
+  (K : Prod.{u_1, u_1} α α → ContinuousLinearMap.{0, 0, u_2, u_2} (RingHom.id.{0} ℂ) E E),
+  MeasureTheory.AEStronglyMeasurable.{u_1, u_2} K (MeasureTheory.Measure.prod.{u_1, u_1} μ μ) →
+    ∀ (k : Prod.{u_1, u_1} α α → ℝ),
+      MeasureTheory.AEStronglyMeasurable.{u_1, 0} k (MeasureTheory.Measure.prod.{u_1, u_1} μ μ) →
+        (∀ (z : Prod.{u_1, u_1} α α), LE.le.{0} 0 (k z)) →
+          (∀ (z : Prod.{u_1, u_1} α α), LE.le.{0} (Norm.norm.{u_2} (K z)) (k z)) →
+            ∀ {C : ℝ},
+              LE.le.{0} 0 C →
+                (∀ (x : α), MeasureTheory.Integrable.{0, u_1} (fun y => k (Prod.mk.{u_1, u_1} x y)) μ) →
+                  (∀ (x : α), LE.le.{0} (∫ (y : α), k (Prod.mk.{u_1, u_1} x y) ∂μ) C) →
+                    (∀ (y : α), MeasureTheory.Integrable.{0, u_1} (fun x => k (Prod.mk.{u_1, u_1} x y)) μ) →
+                      (∀ (y : α), LE.le.{0} (∫ (x : α), k (Prod.mk.{u_1, u_1} x y) ∂μ) C) →
+                        (∀ (f g : ↥(MeasureTheory.Lp.{u_2, u_1} E 2 μ)),
+                            Eq.{1} (Inner.inner.{0, max u_1 u_2} ℂ g (S f))
+                              (∫ (z : Prod.{u_1, u_1} α α),
+                                Inner.inner.{0, u_2} ℂ (↑↑g z.1)
+                                  ((K z) (↑↑f z.2)) ∂MeasureTheory.Measure.prod.{u_1, u_1} μ μ)) →
+                          LE.le.{0} (Norm.norm.{max u_1 u_2} S) C
+'QuarticMaxwell.integral_operator_schur' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@QuarticMaxwell.orthogonal_split_norm_le.{u_1} : ∀ {E : Type u_1} [inst : NormedAddCommGroup.{u_1} E]
+  [inst_1 : InnerProductSpace.{0, u_1} ℂ E] (P : ContinuousLinearMap.{0, 0, u_1, u_1} (RingHom.id.{0} ℂ) E E),
+  (∀ (v : E), Eq.{1} (Inner.inner.{0, u_1} ℂ (P v) (HSub.hSub.{u_1, u_1, u_1} v (P v))) 0) →
+    ∀ (a b : ℂ) (C : ℝ),
+      LE.le.{0} 0 C →
+        LE.le.{0} (Norm.norm.{0} a) C →
+          LE.le.{0} (Norm.norm.{0} b) C →
+            LE.le.{0}
+              (Norm.norm.{u_1}
+                (HAdd.hAdd.{u_1, u_1, u_1} (HSMul.hSMul.{0, u_1, u_1} a P)
+                  (HSMul.hSMul.{0, u_1, u_1} b (HSub.hSub.{u_1, u_1, u_1} (ContinuousLinearMap.id.{0, u_1} ℂ E) P))))
+              C
+'QuarticMaxwell.orthogonal_split_norm_le' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.radialProjection : OQ7Prescribed.Position →
+  ContinuousLinearMap.{0, 0, 0, 0} (RingHom.id.{0} ℂ) OQ7Prescribed.Vector OQ7Prescribed.Vector
+'QuarticMaxwell.radialProjection' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.radialProjection_orthogonal : ∀ (x : OQ7Prescribed.Position),
+  Ne.{1} x 0 →
+    ∀ (v : OQ7Prescribed.Vector),
+      Eq.{1}
+        (Inner.inner.{0, 0} ℂ ((QuarticMaxwell.radialProjection x) v)
+          (HSub.hSub.{0, 0, 0} v ((QuarticMaxwell.radialProjection x) v)))
+        0
+'QuarticMaxwell.radialProjection_orthogonal' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.dyadicRemainder_radial_tangential : ∀ (k : ℝ) (x : OQ7Prescribed.Position),
+  Ne.{1} x 0 →
+    Eq.{1} (OQ7Prescribed.dyadicRemainder k x)
+      (HAdd.hAdd.{0, 0, 0}
+        (HSMul.hSMul.{0, 0, 0} (QuarticMaxwell.radialRemainderEigenvalue k (Norm.norm.{0} x))
+          (QuarticMaxwell.radialProjection x))
+        (HSMul.hSMul.{0, 0, 0} (QuarticMaxwell.tangentialRemainderEigenvalue k (Norm.norm.{0} x))
+          (HSub.hSub.{0, 0, 0} (ContinuousLinearMap.id.{0, 0} ℂ OQ7Prescribed.Vector)
+            (QuarticMaxwell.radialProjection x))))
+'QuarticMaxwell.dyadicRemainder_radial_tangential' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@QuarticMaxwell.dyadicRemainder_sharp_norm_le : ∀ {k : ℝ},
+  LE.le.{0} 0 k →
+    ∀ (x : OQ7Prescribed.Position),
+      LE.le.{0} (Norm.norm.{0} (OQ7Prescribed.dyadicRemainder k x))
+        (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} 3 (HPow.hPow.{0, 0, 0} k 2))
+          (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 8 Real.pi) (Norm.norm.{0} x)))
+'QuarticMaxwell.dyadicRemainder_sharp_norm_le' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.maskedDyadicKernel : ℝ →
+  Set.{0} QuarticMaxwell.Position →
+    Prod.{0, 0} QuarticMaxwell.Position QuarticMaxwell.Position →
+      ContinuousLinearMap.{0, 0, 0, 0} (RingHom.id.{0} ℂ) OQ7Prescribed.Vector OQ7Prescribed.Vector
+'QuarticMaxwell.maskedDyadicKernel' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.maskedDyadicMajorant : ℝ →
+  Set.{0} QuarticMaxwell.Position → Prod.{0, 0} QuarticMaxwell.Position QuarticMaxwell.Position → ℝ
+'QuarticMaxwell.maskedDyadicMajorant' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.maskedDyadicKernel_measurable : ∀ (k : ℝ) (D : Set.{0} QuarticMaxwell.Position),
+  MeasurableSet.{0} D → Measurable.{0, 0} (QuarticMaxwell.maskedDyadicKernel k D)
+'QuarticMaxwell.maskedDyadicKernel_measurable' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.maskedDyadicMajorant_measurable : ∀ (k : ℝ) (D : Set.{0} QuarticMaxwell.Position),
+  MeasurableSet.{0} D → Measurable.{0, 0} (QuarticMaxwell.maskedDyadicMajorant k D)
+'QuarticMaxwell.maskedDyadicMajorant_measurable' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.maskedDyadicMajorant_nonneg : ∀ (k : ℝ) (D : Set.{0} QuarticMaxwell.Position)
+  (z : Prod.{0, 0} QuarticMaxwell.Position QuarticMaxwell.Position),
+  LE.le.{0} 0 (QuarticMaxwell.maskedDyadicMajorant k D z)
+'QuarticMaxwell.maskedDyadicMajorant_nonneg' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@QuarticMaxwell.maskedDyadicKernel_norm_le : ∀ {k : ℝ},
+  LE.le.{0} 0 k →
+    ∀ (D : Set.{0} QuarticMaxwell.Position) (z : Prod.{0, 0} QuarticMaxwell.Position QuarticMaxwell.Position),
+      LE.le.{0} (Norm.norm.{0} (QuarticMaxwell.maskedDyadicKernel k D z)) (QuarticMaxwell.maskedDyadicMajorant k D z)
+'QuarticMaxwell.maskedDyadicKernel_norm_le' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.maskedDyadicMajorant_swap : ∀ (k : ℝ) (D : Set.{0} QuarticMaxwell.Position)
+  (x y : QuarticMaxwell.Position),
+  Eq.{1} (QuarticMaxwell.maskedDyadicMajorant k D (Prod.mk.{0, 0} y x))
+    (QuarticMaxwell.maskedDyadicMajorant k D (Prod.mk.{0, 0} x y))
+'QuarticMaxwell.maskedDyadicMajorant_swap' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.maskedDyadicMajorant_row_integrable : ∀ (k : ℝ) (D : Set.{0} QuarticMaxwell.Position),
+  MeasurableSet.{0} D →
+    ∀ {R : ℝ},
+      D ⊆ Metric.closedBall.{0} 0 R →
+        ∀ (x : QuarticMaxwell.Position),
+          MeasureTheory.Integrable.{0, 0} (fun y => QuarticMaxwell.maskedDyadicMajorant k D (Prod.mk.{0, 0} x y))
+            MeasureTheory.MeasureSpace.volume.{0}
+'QuarticMaxwell.maskedDyadicMajorant_row_integrable' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.maskedDyadicMajorant_row_bound : ∀ (k : ℝ) (D : Set.{0} QuarticMaxwell.Position),
+  MeasurableSet.{0} D →
+    ∀ {R a : ℝ},
+      LE.le.{0} 0 R →
+        LT.lt.{0} 0 a →
+          D ⊆ Metric.closedBall.{0} 0 R →
+            Eq.{1} (MeasureTheory.Measure.real.{0} MeasureTheory.MeasureSpace.volume.{0} D)
+                (HMul.hMul.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} 4 Real.pi) 3)
+                  (HPow.hPow.{0, 0, 0} a 3)) →
+              ∀ (x : QuarticMaxwell.Position),
+                LE.le.{0}
+                  (∫ (y : QuarticMaxwell.Position), QuarticMaxwell.maskedDyadicMajorant k D (Prod.mk.{0, 0} x y))
+                  (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (3 / 4) (HPow.hPow.{0, 0, 0} k 2))
+                    (HPow.hPow.{0, 0, 0} a 2))
+'QuarticMaxwell.maskedDyadicMajorant_row_bound' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.setSupported_le_ball : ∀ (D : Set.{0} QuarticMaxwell.Position) {R : ℝ},
+  D ⊆ Metric.closedBall.{0} 0 R →
+    LE.le.{0} (OQ7Prescribed.setSupportedL2.{0, 0} MeasureTheory.MeasureSpace.volume.{0} D)
+      (OQ7Prescribed.supportedVectorL2 R)
+'QuarticMaxwell.setSupported_le_ball' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.setToBallCLM : (D : Set.{0} QuarticMaxwell.Position) →
+  {R : ℝ} →
+    D ⊆ Metric.closedBall.{0} 0 R →
+      ContinuousLinearMap.{0, 0, 0, 0} (RingHom.id.{0} ℂ)
+        ↥(OQ7Prescribed.SetSupportedL2.{0, 0} MeasureTheory.MeasureSpace.volume.{0} D)
+        ↥(OQ7Prescribed.SupportedVectorL2 R)
+'QuarticMaxwell.setToBallCLM' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.supportInputCLM : (D : Set.{0} QuarticMaxwell.Position) →
+  MeasurableSet.{0} D →
+    {R : ℝ} →
+      D ⊆ Metric.closedBall.{0} 0 R →
+        ContinuousLinearMap.{0, 0, 0, 0} (RingHom.id.{0} ℂ) ↥OQ7Prescribed.VectorL2 ↥(OQ7Prescribed.SupportedVectorL2 R)
+'QuarticMaxwell.supportInputCLM' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.maskedRemainderOperator : ℝ →
+  (D : Set.{0} QuarticMaxwell.Position) →
+    MeasurableSet.{0} D →
+      {R : ℝ} →
+        LE.le.{0} 0 R →
+          D ⊆ Metric.closedBall.{0} 0 R →
+            ContinuousLinearMap.{0, 0, 0, 0} (RingHom.id.{0} ℂ) ↥OQ7Prescribed.VectorL2 ↥OQ7Prescribed.VectorL2
+'QuarticMaxwell.maskedRemainderOperator' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.supportInputCLM_coe : ∀ (D : Set.{0} QuarticMaxwell.Position) (hD : MeasurableSet.{0} D) {R : ℝ}
+  (hsub : D ⊆ Metric.closedBall.{0} 0 R) (f : ↥OQ7Prescribed.VectorL2),
+  ↑↑↑((QuarticMaxwell.supportInputCLM D hD hsub) f) =ᵐ[MeasureTheory.MeasureSpace.volume.{0}]
+    Set.indicator.{0, 0} D fun x => ↑↑f x
+'QuarticMaxwell.supportInputCLM_coe' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.supportCurrent_outgoing_distribution : ∀ (k : ℝ) (D : Set.{0} QuarticMaxwell.Position)
+  (hD : MeasurableSet.{0} D) {R : ℝ} (hR : LE.le.{0} 0 R) (hsub : D ⊆ Metric.closedBall.{0} 0 R)
+  (f : ↥OQ7Prescribed.VectorL2) (i : Fin 3),
+  Eq.{1}
+    (OQ7Prescribed.outgoingVolumeDistribution k
+      (OQ7Prescribed.supportedPolarization R hR ((QuarticMaxwell.supportInputCLM D hD hsub) f)) i)
+    (HAdd.hAdd.{0, 0, 0}
+      (OQ7Prescribed.vectorL2ComponentDistribution
+        (OQ7Prescribed.staticFourierOperator ↑((QuarticMaxwell.supportInputCLM D hD hsub) f)) i)
+      (OQ7Prescribed.remainderPotentialComponentDistribution k
+        (OQ7Prescribed.supportedPolarization R hR ((QuarticMaxwell.supportInputCLM D hD hsub) f)) i))
+'QuarticMaxwell.supportCurrent_outgoing_distribution' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.maskedRemainderOperator_coe : ∀ (k : ℝ) (D : Set.{0} QuarticMaxwell.Position) (hD : MeasurableSet.{0} D)
+  {R : ℝ} (hR : LE.le.{0} 0 R) (hsub : D ⊆ Metric.closedBall.{0} 0 R) (f : ↥OQ7Prescribed.VectorL2),
+  ↑↑((QuarticMaxwell.maskedRemainderOperator k D hD hR hsub) f) =ᵐ[MeasureTheory.MeasureSpace.volume.{0}]
+    Set.indicator.{0, 0} D
+      (OQ7Prescribed.remainderPotential k
+        (OQ7Prescribed.supportedPolarization R hR ((QuarticMaxwell.supportInputCLM D hD hsub) f)))
+'QuarticMaxwell.maskedRemainderOperator_coe' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.maskedPotential_integral : ∀ (k : ℝ) (D : Set.{0} QuarticMaxwell.Position) (hD : MeasurableSet.{0} D)
+  {R : ℝ} (hR : LE.le.{0} 0 R) (hsub : D ⊆ Metric.closedBall.{0} 0 R) (f : ↥OQ7Prescribed.VectorL2)
+  (x : QuarticMaxwell.Position),
+  Eq.{1}
+    (Set.indicator.{0, 0} D
+      (OQ7Prescribed.remainderPotential k
+        (OQ7Prescribed.supportedPolarization R hR ((QuarticMaxwell.supportInputCLM D hD hsub) f)))
+      x)
+    (∫ (y : QuarticMaxwell.Position), (QuarticMaxwell.maskedDyadicKernel k D (Prod.mk.{0, 0} x y)) (↑↑f y))
+'QuarticMaxwell.maskedPotential_integral' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.maskedKernel_vector_row_integrable : ∀ (k : ℝ) (D : Set.{0} QuarticMaxwell.Position),
+  MeasurableSet.{0} D →
+    ∀ {R : ℝ},
+      LE.le.{0} 0 R →
+        D ⊆ Metric.closedBall.{0} 0 R →
+          ∀ (f : ↥OQ7Prescribed.VectorL2) (x : QuarticMaxwell.Position),
+            MeasureTheory.Integrable.{0, 0}
+              (fun y => (QuarticMaxwell.maskedDyadicKernel k D (Prod.mk.{0, 0} x y)) (↑↑f y))
+              MeasureTheory.MeasureSpace.volume.{0}
+'QuarticMaxwell.maskedKernel_vector_row_integrable' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@QuarticMaxwell.maskedRemainderOperator_pairing : ∀ {k : ℝ},
+  LE.le.{0} 0 k →
+    ∀ (D : Set.{0} QuarticMaxwell.Position) (hD : MeasurableSet.{0} D) {R a : ℝ} (hR : LE.le.{0} 0 R),
+      LT.lt.{0} 0 a →
+        ∀ (hsub : D ⊆ Metric.closedBall.{0} 0 R),
+          Eq.{1} (MeasureTheory.Measure.real.{0} MeasureTheory.MeasureSpace.volume.{0} D)
+              (HMul.hMul.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} 4 Real.pi) 3) (HPow.hPow.{0, 0, 0} a 3)) →
+            ∀ (f g : ↥OQ7Prescribed.VectorL2),
+              Eq.{1} (Inner.inner.{0, 0} ℂ g ((QuarticMaxwell.maskedRemainderOperator k D hD hR hsub) f))
+                (∫ (z : Prod.{0, 0} QuarticMaxwell.Position QuarticMaxwell.Position),
+                  Inner.inner.{0, 0} ℂ (↑↑g z.1) ((QuarticMaxwell.maskedDyadicKernel k D z) (↑↑f z.2)))
+'QuarticMaxwell.maskedRemainderOperator_pairing' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@QuarticMaxwell.maskedRemainderOperator_norm_le : ∀ {k : ℝ},
+  LE.le.{0} 0 k →
+    ∀ (D : Set.{0} QuarticMaxwell.Position) (hD : MeasurableSet.{0} D) {R a : ℝ} (hR : LE.le.{0} 0 R),
+      LT.lt.{0} 0 a →
+        ∀ (hsub : D ⊆ Metric.closedBall.{0} 0 R),
+          Eq.{1} (MeasureTheory.Measure.real.{0} MeasureTheory.MeasureSpace.volume.{0} D)
+              (HMul.hMul.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} 4 Real.pi) 3) (HPow.hPow.{0, 0, 0} a 3)) →
+            LE.le.{0} (Norm.norm.{0} (QuarticMaxwell.maskedRemainderOperator k D hD hR hsub))
+              (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (3 / 4) (HPow.hPow.{0, 0, 0} k 2)) (HPow.hPow.{0, 0, 0} a 2))
+'QuarticMaxwell.maskedRemainderOperator_norm_le' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.supportRestrictionCLM : (D : Set.{0} QuarticMaxwell.Position) →
+  MeasurableSet.{0} D →
+    ContinuousLinearMap.{0, 0, 0, 0} (RingHom.id.{0} ℂ) ↥OQ7Prescribed.VectorL2 ↥OQ7Prescribed.VectorL2
+'QuarticMaxwell.supportRestrictionCLM' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.supportRestrictionCLM_norm_le : ∀ (D : Set.{0} QuarticMaxwell.Position) (hD : MeasurableSet.{0} D),
+  LE.le.{0} (Norm.norm.{0} (QuarticMaxwell.supportRestrictionCLM D hD)) 1
+'QuarticMaxwell.supportRestrictionCLM_norm_le' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.supportRestrictionCLM_apply_norm_le : ∀ (D : Set.{0} QuarticMaxwell.Position) (hD : MeasurableSet.{0} D)
+  (f : ↥OQ7Prescribed.VectorL2),
+  LE.le.{0} (Norm.norm.{0} ((QuarticMaxwell.supportRestrictionCLM D hD) f)) (Norm.norm.{0} f)
+'QuarticMaxwell.supportRestrictionCLM_apply_norm_le' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.maskedStaticOperator : (D : Set.{0} QuarticMaxwell.Position) →
+  MeasurableSet.{0} D →
+    ContinuousLinearMap.{0, 0, 0, 0} (RingHom.id.{0} ℂ) ↥OQ7Prescribed.VectorL2 ↥OQ7Prescribed.VectorL2
+'QuarticMaxwell.maskedStaticOperator' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.maskedStaticOperator_norm_le : ∀ (D : Set.{0} QuarticMaxwell.Position) (hD : MeasurableSet.{0} D),
+  LE.le.{0} (Norm.norm.{0} (QuarticMaxwell.maskedStaticOperator D hD)) 1
+'QuarticMaxwell.maskedStaticOperator_norm_le' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.maskedOutgoingOperator : ℝ →
+  (D : Set.{0} QuarticMaxwell.Position) →
+    MeasurableSet.{0} D →
+      {R : ℝ} →
+        LE.le.{0} 0 R →
+          D ⊆ Metric.closedBall.{0} 0 R →
+            ContinuousLinearMap.{0, 0, 0, 0} (RingHom.id.{0} ℂ) ↥OQ7Prescribed.VectorL2 ↥OQ7Prescribed.VectorL2
+'QuarticMaxwell.maskedOutgoingOperator' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@QuarticMaxwell.maskedOutgoingOperator_difference_norm_le : ∀ {k : ℝ},
+  LE.le.{0} 0 k →
+    ∀ (D : Set.{0} QuarticMaxwell.Position) (hD : MeasurableSet.{0} D) {R a : ℝ} (hR : LE.le.{0} 0 R),
+      LT.lt.{0} 0 a →
+        ∀ (hsub : D ⊆ Metric.closedBall.{0} 0 R),
+          Eq.{1} (MeasureTheory.Measure.real.{0} MeasureTheory.MeasureSpace.volume.{0} D)
+              (HMul.hMul.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} 4 Real.pi) 3) (HPow.hPow.{0, 0, 0} a 3)) →
+            LE.le.{0}
+              (Norm.norm.{0}
+                (HSub.hSub.{0, 0, 0} (QuarticMaxwell.maskedOutgoingOperator k D hD hR hsub)
+                  (QuarticMaxwell.maskedStaticOperator D hD)))
+              (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (3 / 4) (HPow.hPow.{0, 0, 0} k 2)) (HPow.hPow.{0, 0, 0} a 2))
+'QuarticMaxwell.maskedOutgoingOperator_difference_norm_le' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@QuarticMaxwell.maskedOutgoingOperator_difference_norm_le_volume : ∀ {k : ℝ},
+  LE.le.{0} 0 k →
+    ∀ (D : Set.{0} QuarticMaxwell.Position) (hD : MeasurableSet.{0} D) {R : ℝ} (hR : LE.le.{0} 0 R)
+      (hsub : D ⊆ Metric.closedBall.{0} 0 R),
+      LT.lt.{0} 0 (MeasureTheory.Measure.real.{0} MeasureTheory.MeasureSpace.volume.{0} D) →
+        LE.le.{0}
+          (Norm.norm.{0}
+            (HSub.hSub.{0, 0, 0} (QuarticMaxwell.maskedOutgoingOperator k D hD hR hsub)
+              (QuarticMaxwell.maskedStaticOperator D hD)))
+          (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (3 / 4) (HPow.hPow.{0, 0, 0} k 2))
+            (HPow.hPow.{0, 0, 0}
+              (QuarticMaxwell.volumeRadius (MeasureTheory.Measure.real.{0} MeasureTheory.MeasureSpace.volume.{0} D)) 2))
+'QuarticMaxwell.maskedOutgoingOperator_difference_norm_le_volume' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+QuarticMaxwell.angularProjection : ↑OQ7Prescribed.UnitSphere →
+  ContinuousLinearMap.{0, 0, 0, 0} (RingHom.id.{0} ℂ) OQ7Prescribed.Vector OQ7Prescribed.Vector
+'QuarticMaxwell.angularProjection' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.sphere_inner_norm_sq : ∀ (v : OQ7Prescribed.Vector),
+  Eq.{1}
+    (∫ (n : ↑OQ7Prescribed.UnitSphere),
+      HPow.hPow.{0, 0, 0} (Norm.norm.{0} (Inner.inner.{0, 0} ℂ (OQ7Prescribed.complexify ↑n) v))
+        2 ∂OQ7Prescribed.sphereArea)
+    (HMul.hMul.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} 4 Real.pi) 3)
+      (HPow.hPow.{0, 0, 0} (Norm.norm.{0} v) 2))
+'QuarticMaxwell.sphere_inner_norm_sq' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.angularProjection_pythagoras : ∀ (n : ↑OQ7Prescribed.UnitSphere) (v : OQ7Prescribed.Vector),
+  Eq.{1}
+    (HAdd.hAdd.{0, 0, 0} (HPow.hPow.{0, 0, 0} (Norm.norm.{0} ((QuarticMaxwell.angularProjection n) v)) 2)
+      (HPow.hPow.{0, 0, 0} (Norm.norm.{0} (Inner.inner.{0, 0} ℂ (OQ7Prescribed.complexify ↑n) v)) 2))
+    (HPow.hPow.{0, 0, 0} (Norm.norm.{0} v) 2)
+'QuarticMaxwell.angularProjection_pythagoras' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.angularProjection_square_integrable : ∀ (v : OQ7Prescribed.Vector),
+  MeasureTheory.Integrable.{0, 0}
+    (fun n => HPow.hPow.{0, 0, 0} (Norm.norm.{0} ((QuarticMaxwell.angularProjection n) v)) 2) OQ7Prescribed.sphereArea
+'QuarticMaxwell.angularProjection_square_integrable' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.angularProjection_integral : ∀ (v : OQ7Prescribed.Vector),
+  Eq.{1}
+    (∫ (n : ↑OQ7Prescribed.UnitSphere),
+      HPow.hPow.{0, 0, 0} (Norm.norm.{0} ((QuarticMaxwell.angularProjection n) v)) 2 ∂OQ7Prescribed.sphereArea)
+    (HMul.hMul.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} 8 Real.pi) 3)
+      (HPow.hPow.{0, 0, 0} (Norm.norm.{0} v) 2))
+'QuarticMaxwell.angularProjection_integral' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@QuarticMaxwell.norm_integral_sq_le_measure_mul_square.{u_1,
+    u_2} : ∀ {α : Type u_1} {E : Type u_2} [inst : MeasurableSpace.{u_1} α] [inst_1 : NormedAddCommGroup.{u_2} E]
+  [inst_2 : InnerProductSpace.{0, u_2} ℂ E] [CompleteSpace.{u_2} E] (μ : MeasureTheory.Measure.{u_1} α)
+  [MeasureTheory.IsFiniteMeasure.{u_1} μ] (f : α → E),
+  MeasureTheory.MemLp.{u_1, u_2} f 2 μ →
+    LE.le.{0} (HPow.hPow.{0, 0, 0} (Norm.norm.{u_2} (∫ (x : α), f x ∂μ)) 2)
+      (HMul.hMul.{0, 0, 0} (MeasureTheory.Measure.real.{u_1} μ Set.univ.{u_1})
+        (∫ (x : α), HPow.hPow.{0, 0, 0} (Norm.norm.{u_2} (f x)) 2 ∂μ))
+'QuarticMaxwell.norm_integral_sq_le_measure_mul_square' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+QuarticMaxwell.radiationPhase : ℝ → ↑OQ7Prescribed.UnitSphere → OQ7Prescribed.Position → ℂ
+'QuarticMaxwell.radiationPhase' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.radiationPhase_norm : ∀ (k : ℝ) (n : ↑OQ7Prescribed.UnitSphere) (y : OQ7Prescribed.Position),
+  Eq.{1} (Norm.norm.{0} (QuarticMaxwell.radiationPhase k n y)) 1
+'QuarticMaxwell.radiationPhase_norm' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.radiationPhase_measurable : ∀ (k : ℝ) (n : ↑OQ7Prescribed.UnitSphere),
+  Measurable.{0, 0} (QuarticMaxwell.radiationPhase k n)
+'QuarticMaxwell.radiationPhase_measurable' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.angularProjection_continuous : Continuous.{0, 0} QuarticMaxwell.angularProjection
+'QuarticMaxwell.angularProjection_continuous' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.angularProjection_apply_norm_le : ∀ (n : ↑OQ7Prescribed.UnitSphere) (v : OQ7Prescribed.Vector),
+  LE.le.{0} (Norm.norm.{0} ((QuarticMaxwell.angularProjection n) v)) (Norm.norm.{0} v)
+'QuarticMaxwell.angularProjection_apply_norm_le' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.radiationField : ℝ →
+  Set.{0} OQ7Prescribed.Position → ↥OQ7Prescribed.VectorL2 → ↑OQ7Prescribed.UnitSphere → OQ7Prescribed.Vector
+'QuarticMaxwell.radiationField' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.radiationIntegrand_norm_le : ∀ (k : ℝ) (f : ↥OQ7Prescribed.VectorL2) (n : ↑OQ7Prescribed.UnitSphere)
+  (y : OQ7Prescribed.Position),
+  LE.le.{0}
+    (Norm.norm.{0}
+      (HSMul.hSMul.{0, 0, 0} (QuarticMaxwell.radiationPhase k n y) ((QuarticMaxwell.angularProjection n) (↑↑f y))))
+    (Norm.norm.{0} (↑↑f y))
+'QuarticMaxwell.radiationIntegrand_norm_le' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.radiationIntegrand_memLp : ∀ (k : ℝ) (D : Set.{0} OQ7Prescribed.Position) (f : ↥OQ7Prescribed.VectorL2)
+  (n : ↑OQ7Prescribed.UnitSphere),
+  MeasureTheory.MemLp.{0, 0}
+    (fun y =>
+      HSMul.hSMul.{0, 0, 0} (QuarticMaxwell.radiationPhase k n y) ((QuarticMaxwell.angularProjection n) (↑↑f y)))
+    2 (MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0} D)
+'QuarticMaxwell.radiationIntegrand_memLp' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.radiationIntegrand_integrable : ∀ (k : ℝ) (D : Set.{0} OQ7Prescribed.Position),
+  Ne.{1} (MeasureTheory.MeasureSpace.volume.{0} D) Top.top.{0} →
+    ∀ (f : ↥OQ7Prescribed.VectorL2) (n : ↑OQ7Prescribed.UnitSphere),
+      MeasureTheory.IntegrableOn.{0, 0}
+        (fun y =>
+          HSMul.hSMul.{0, 0, 0} (QuarticMaxwell.radiationPhase k n y) ((QuarticMaxwell.angularProjection n) (↑↑f y)))
+        D MeasureTheory.MeasureSpace.volume.{0}
+'QuarticMaxwell.radiationIntegrand_integrable' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.radiationField_continuous : ∀ (k : ℝ) (D : Set.{0} OQ7Prescribed.Position),
+  Ne.{1} (MeasureTheory.MeasureSpace.volume.{0} D) Top.top.{0} →
+    ∀ (f : ↥OQ7Prescribed.VectorL2), Continuous.{0, 0} (QuarticMaxwell.radiationField k D f)
+'QuarticMaxwell.radiationField_continuous' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.radiationField_memLp : ∀ (k : ℝ) (D : Set.{0} OQ7Prescribed.Position),
+  Ne.{1} (MeasureTheory.MeasureSpace.volume.{0} D) Top.top.{0} →
+    ∀ (f : ↥OQ7Prescribed.VectorL2),
+      MeasureTheory.MemLp.{0, 0} (QuarticMaxwell.radiationField k D f) 2 OQ7Prescribed.sphereArea
+'QuarticMaxwell.radiationField_memLp' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.radiationField_pointwise_square_bound : ∀ (k : ℝ) (D : Set.{0} OQ7Prescribed.Position),
+  MeasurableSet.{0} D →
+    Ne.{1} (MeasureTheory.MeasureSpace.volume.{0} D) Top.top.{0} →
+      ∀ (f : ↥OQ7Prescribed.VectorL2) (n : ↑OQ7Prescribed.UnitSphere),
+        LE.le.{0} (HPow.hPow.{0, 0, 0} (Norm.norm.{0} (QuarticMaxwell.radiationField k D f n)) 2)
+          (HMul.hMul.{0, 0, 0} (MeasureTheory.Measure.real.{0} MeasureTheory.MeasureSpace.volume.{0} D)
+            (∫ (y : OQ7Prescribed.Position) in D,
+              HPow.hPow.{0, 0, 0} (Norm.norm.{0} ((QuarticMaxwell.angularProjection n) (↑↑f y))) 2))
+'QuarticMaxwell.radiationField_pointwise_square_bound' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+QuarticMaxwell.projection_square_joint_integrable : ∀ (D : Set.{0} OQ7Prescribed.Position)
+  (f : ↥OQ7Prescribed.VectorL2),
+  MeasureTheory.Integrable.{0, 0}
+    (fun z => HPow.hPow.{0, 0, 0} (Norm.norm.{0} ((QuarticMaxwell.angularProjection z.1) (↑↑f z.2))) 2)
+    (MeasureTheory.Measure.prod.{0, 0} OQ7Prescribed.sphereArea
+      (MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0} D))
+'QuarticMaxwell.projection_square_joint_integrable' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.radiationField_square_bound : ∀ (k : ℝ) (D : Set.{0} OQ7Prescribed.Position),
+  MeasurableSet.{0} D →
+    Ne.{1} (MeasureTheory.MeasureSpace.volume.{0} D) Top.top.{0} →
+      ∀ (f : ↥OQ7Prescribed.VectorL2),
+        LE.le.{0}
+          (∫ (n : ↑OQ7Prescribed.UnitSphere),
+            HPow.hPow.{0, 0, 0} (Norm.norm.{0} (QuarticMaxwell.radiationField k D f n)) 2 ∂OQ7Prescribed.sphereArea)
+          (HMul.hMul.{0, 0, 0}
+            (HDiv.hDiv.{0, 0, 0}
+              (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 8 Real.pi)
+                (MeasureTheory.Measure.real.{0} MeasureTheory.MeasureSpace.volume.{0} D))
+              3)
+            (HPow.hPow.{0, 0, 0} (Norm.norm.{0} f) 2))
+'QuarticMaxwell.radiationField_square_bound' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.radiationField_add : ∀ (k : ℝ) (D : Set.{0} OQ7Prescribed.Position),
+  Ne.{1} (MeasureTheory.MeasureSpace.volume.{0} D) Top.top.{0} →
+    ∀ (f g : ↥OQ7Prescribed.VectorL2),
+      Eq.{1} (QuarticMaxwell.radiationField k D (HAdd.hAdd.{0, 0, 0} f g))
+        (HAdd.hAdd.{0, 0, 0} (QuarticMaxwell.radiationField k D f) (QuarticMaxwell.radiationField k D g))
+'QuarticMaxwell.radiationField_add' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.radiationField_smul : ∀ (k : ℝ) (D : Set.{0} OQ7Prescribed.Position),
+  Ne.{1} (MeasureTheory.MeasureSpace.volume.{0} D) Top.top.{0} →
+    ∀ (z : ℂ) (f : ↥OQ7Prescribed.VectorL2),
+      Eq.{1} (QuarticMaxwell.radiationField k D (HSMul.hSMul.{0, 0, 0} z f))
+        (HSMul.hSMul.{0, 0, 0} z (QuarticMaxwell.radiationField k D f))
+'QuarticMaxwell.radiationField_smul' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.radiationLp : ℝ →
+  (D : Set.{0} OQ7Prescribed.Position) →
+    Ne.{1} (MeasureTheory.MeasureSpace.volume.{0} D) Top.top.{0} →
+      ↥OQ7Prescribed.VectorL2 → ↥(MeasureTheory.Lp.{0, 0} OQ7Prescribed.Vector 2 OQ7Prescribed.sphereArea)
+'QuarticMaxwell.radiationLp' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.radiationLp_coe : ∀ (k : ℝ) (D : Set.{0} OQ7Prescribed.Position)
+  (hfin : Ne.{1} (MeasureTheory.MeasureSpace.volume.{0} D) Top.top.{0}) (f : ↥OQ7Prescribed.VectorL2),
+  ↑↑(QuarticMaxwell.radiationLp k D hfin f) =ᵐ[OQ7Prescribed.sphereArea] QuarticMaxwell.radiationField k D f
+'QuarticMaxwell.radiationLp_coe' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.radiationLinear : ℝ →
+  (D : Set.{0} OQ7Prescribed.Position) →
+    Ne.{1} (MeasureTheory.MeasureSpace.volume.{0} D) Top.top.{0} →
+      LinearMap.{0, 0, 0, 0} (RingHom.id.{0} ℂ) ↥OQ7Prescribed.VectorL2
+        ↥(MeasureTheory.Lp.{0, 0} OQ7Prescribed.Vector 2 OQ7Prescribed.sphereArea)
+'QuarticMaxwell.radiationLinear' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.radiationLp_norm_sq_bound : ∀ (k : ℝ) (D : Set.{0} OQ7Prescribed.Position),
+  MeasurableSet.{0} D →
+    ∀ (hfin : Ne.{1} (MeasureTheory.MeasureSpace.volume.{0} D) Top.top.{0}) (f : ↥OQ7Prescribed.VectorL2),
+      LE.le.{0} (HPow.hPow.{0, 0, 0} (Norm.norm.{0} (QuarticMaxwell.radiationLp k D hfin f)) 2)
+        (HMul.hMul.{0, 0, 0}
+          (HDiv.hDiv.{0, 0, 0}
+            (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 8 Real.pi)
+              (MeasureTheory.Measure.real.{0} MeasureTheory.MeasureSpace.volume.{0} D))
+            3)
+          (HPow.hPow.{0, 0, 0} (Norm.norm.{0} f) 2))
+'QuarticMaxwell.radiationLp_norm_sq_bound' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.radiationLinear_bound : ∀ (k : ℝ) (D : Set.{0} OQ7Prescribed.Position),
+  MeasurableSet.{0} D →
+    ∀ (hfin : Ne.{1} (MeasureTheory.MeasureSpace.volume.{0} D) Top.top.{0}) (f : ↥OQ7Prescribed.VectorL2),
+      LE.le.{0} (Norm.norm.{0} ((QuarticMaxwell.radiationLinear k D hfin) f))
+        (HMul.hMul.{0, 0, 0}
+          (√(HDiv.hDiv.{0, 0, 0}
+              (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 8 Real.pi)
+                (MeasureTheory.Measure.real.{0} MeasureTheory.MeasureSpace.volume.{0} D))
+              3))
+          (Norm.norm.{0} f))
+'QuarticMaxwell.radiationLinear_bound' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.radiationMap : ℝ →
+  (D : Set.{0} OQ7Prescribed.Position) →
+    MeasurableSet.{0} D →
+      Ne.{1} (MeasureTheory.MeasureSpace.volume.{0} D) Top.top.{0} →
+        ContinuousLinearMap.{0, 0, 0, 0} (RingHom.id.{0} ℂ) ↥OQ7Prescribed.VectorL2
+          ↥(MeasureTheory.Lp.{0, 0} OQ7Prescribed.Vector 2 OQ7Prescribed.sphereArea)
+'QuarticMaxwell.radiationMap' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.radiationMap_norm_sq_le : ∀ (k : ℝ) (D : Set.{0} OQ7Prescribed.Position) (hD : MeasurableSet.{0} D)
+  (hfin : Ne.{1} (MeasureTheory.MeasureSpace.volume.{0} D) Top.top.{0}),
+  LE.le.{0} (HPow.hPow.{0, 0, 0} (Norm.norm.{0} (QuarticMaxwell.radiationMap k D hD hfin)) 2)
+    (HDiv.hDiv.{0, 0, 0}
+      (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 8 Real.pi)
+        (MeasureTheory.Measure.real.{0} MeasureTheory.MeasureSpace.volume.{0} D))
+      3)
+'QuarticMaxwell.radiationMap_norm_sq_le' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.compactCurrentFarField_eq_radiationField : ∀ (k : ℝ) (D : Set.{0} QuarticMaxwell.Position)
+  (hD : MeasurableSet.{0} D) {R : ℝ} (hR : LE.le.{0} 0 R) (hsub : D ⊆ Metric.closedBall.{0} 0 R)
+  (f : ↥OQ7Prescribed.VectorL2) (n : ↑OQ7Prescribed.UnitSphere),
+  Eq.{1}
+    (OQ7Prescribed.compactCurrentFarField k
+      (OQ7Prescribed.supportedPolarization R hR ((QuarticMaxwell.supportInputCLM D hD hsub) f)) ↑n)
+    (HSMul.hSMul.{0, 0, 0} (↑(HDiv.hDiv.{0, 0, 0} (HPow.hPow.{0, 0, 0} k 2) (HMul.hMul.{0, 0, 0} 4 Real.pi)))
+      (QuarticMaxwell.radiationField k D f n))
+'QuarticMaxwell.compactCurrentFarField_eq_radiationField' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+QuarticMaxwell.compactCurrentFarField_power_eq : ∀ (k : ℝ) (D : Set.{0} QuarticMaxwell.Position)
+  (hD : MeasurableSet.{0} D) (hfin : Ne.{1} (MeasureTheory.MeasureSpace.volume.{0} D) Top.top.{0}) {R : ℝ}
+  (hR : LE.le.{0} 0 R) (hsub : D ⊆ Metric.closedBall.{0} 0 R) (f : ↥OQ7Prescribed.VectorL2),
+  Eq.{1}
+    (∫ (n : ↑OQ7Prescribed.UnitSphere),
+      HPow.hPow.{0, 0, 0}
+        (Norm.norm.{0}
+          (OQ7Prescribed.compactCurrentFarField k
+            (OQ7Prescribed.supportedPolarization R hR ((QuarticMaxwell.supportInputCLM D hD hsub) f)) ↑n))
+        2 ∂OQ7Prescribed.sphereArea)
+    (HMul.hMul.{0, 0, 0}
+      (HDiv.hDiv.{0, 0, 0} (HPow.hPow.{0, 0, 0} k 4) (HMul.hMul.{0, 0, 0} 16 (HPow.hPow.{0, 0, 0} Real.pi 2)))
+      (HPow.hPow.{0, 0, 0} (Norm.norm.{0} ((QuarticMaxwell.radiationMap k D hD hfin) f)) 2))
+'QuarticMaxwell.compactCurrentFarField_power_eq' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.incidentWave : ℝ →
+  ↑OQ7Prescribed.UnitSphere → OQ7Prescribed.Vector → OQ7Prescribed.Position → OQ7Prescribed.Vector
+'QuarticMaxwell.incidentWave' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.incidentWave_norm : ∀ (k : ℝ) (n : ↑OQ7Prescribed.UnitSphere) (e : OQ7Prescribed.Vector)
+  (x : OQ7Prescribed.Position), Eq.{1} (Norm.norm.{0} (QuarticMaxwell.incidentWave k n e x)) (Norm.norm.{0} e)
+'QuarticMaxwell.incidentWave_norm' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.purePhase_difference_le : ∀ (a b : ℝ),
+  LE.le.{0}
+    (Norm.norm.{0}
+      (HSub.hSub.{0, 0, 0} (Complex.exp (HMul.hMul.{0, 0, 0} Complex.I ↑a))
+        (Complex.exp (HMul.hMul.{0, 0, 0} Complex.I ↑b))))
+    (abs.{0} (HSub.hSub.{0, 0, 0} a b))
+'QuarticMaxwell.purePhase_difference_le' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.incidentWave_opposite_difference : ∀ (k : ℝ),
+  LE.le.{0} 0 k →
+    ∀ (n : ↑OQ7Prescribed.UnitSphere) (e : OQ7Prescribed.Vector) (x : OQ7Prescribed.Position),
+      LE.le.{0}
+        (Norm.norm.{0}
+          (HSub.hSub.{0, 0, 0} (QuarticMaxwell.incidentWave k n e x)
+            (QuarticMaxwell.incidentWave (Neg.neg.{0} k) n e x)))
+        (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 k) (Norm.norm.{0} x)) (Norm.norm.{0} e))
+'QuarticMaxwell.incidentWave_opposite_difference' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.incidentSource_memLp : ∀ (k : ℝ) (n : ↑OQ7Prescribed.UnitSphere) (e : OQ7Prescribed.Vector)
+  (D : Set.{0} OQ7Prescribed.Position),
+  MeasurableSet.{0} D →
+    Ne.{1} (MeasureTheory.MeasureSpace.volume.{0} D) Top.top.{0} →
+      MeasureTheory.MemLp.{0, 0} (Set.indicator.{0, 0} D (QuarticMaxwell.incidentWave k n e)) 2
+        MeasureTheory.MeasureSpace.volume.{0}
+'QuarticMaxwell.incidentSource_memLp' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.incidentSource : ℝ →
+  ↑OQ7Prescribed.UnitSphere →
+    OQ7Prescribed.Vector →
+      (D : Set.{0} OQ7Prescribed.Position) →
+        MeasurableSet.{0} D → Ne.{1} (MeasureTheory.MeasureSpace.volume.{0} D) Top.top.{0} → ↥OQ7Prescribed.VectorL2
+'QuarticMaxwell.incidentSource' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.incidentSource_coe : ∀ (k : ℝ) (n : ↑OQ7Prescribed.UnitSphere) (e : OQ7Prescribed.Vector)
+  (D : Set.{0} OQ7Prescribed.Position) (hD : MeasurableSet.{0} D)
+  (hfin : Ne.{1} (MeasureTheory.MeasureSpace.volume.{0} D) Top.top.{0}),
+  ↑↑(QuarticMaxwell.incidentSource k n e D hD hfin) =ᵐ[MeasureTheory.MeasureSpace.volume.{0}]
+    Set.indicator.{0, 0} D (QuarticMaxwell.incidentWave k n e)
+'QuarticMaxwell.incidentSource_coe' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.incidentSource_norm_sq : ∀ (k : ℝ) (n : ↑OQ7Prescribed.UnitSphere) (e : OQ7Prescribed.Vector)
+  (D : Set.{0} OQ7Prescribed.Position) (hD : MeasurableSet.{0} D)
+  (hfin : Ne.{1} (MeasureTheory.MeasureSpace.volume.{0} D) Top.top.{0}),
+  Eq.{1} (HPow.hPow.{0, 0, 0} (Norm.norm.{0} (QuarticMaxwell.incidentSource k n e D hD hfin)) 2)
+    (HMul.hMul.{0, 0, 0} (MeasureTheory.Measure.real.{0} MeasureTheory.MeasureSpace.volume.{0} D)
+      (HPow.hPow.{0, 0, 0} (Norm.norm.{0} e) 2))
+'QuarticMaxwell.incidentSource_norm_sq' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.incidentSource_opposite_norm_sq : ∀ (k : ℝ),
+  LE.le.{0} 0 k →
+    ∀ (n : ↑OQ7Prescribed.UnitSphere) (e : OQ7Prescribed.Vector) (D : Set.{0} OQ7Prescribed.Position)
+      (hD : MeasurableSet.{0} D) (hfin : Ne.{1} (MeasureTheory.MeasureSpace.volume.{0} D) Top.top.{0}) {R : ℝ},
+      LE.le.{0} 0 R →
+        D ⊆ Metric.closedBall.{0} 0 R →
+          LE.le.{0}
+            (HPow.hPow.{0, 0, 0}
+              (Norm.norm.{0}
+                (HSub.hSub.{0, 0, 0} (QuarticMaxwell.incidentSource k n e D hD hfin)
+                  (QuarticMaxwell.incidentSource (Neg.neg.{0} k) n e D hD hfin)))
+              2)
+            (HMul.hMul.{0, 0, 0}
+              (HMul.hMul.{0, 0, 0}
+                (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 4 (HPow.hPow.{0, 0, 0} k 2)) (HPow.hPow.{0, 0, 0} R 2))
+                (MeasureTheory.Measure.real.{0} MeasureTheory.MeasureSpace.volume.{0} D))
+              (HPow.hPow.{0, 0, 0} (Norm.norm.{0} e) 2))
+'QuarticMaxwell.incidentSource_opposite_norm_sq' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.supportRestrictionCLM_inner : ∀ (D : Set.{0} QuarticMaxwell.Position) (hD : MeasurableSet.{0} D)
+  (f g : ↥OQ7Prescribed.VectorL2),
+  Eq.{1}
+    (Inner.inner.{0, 0} ℂ ((QuarticMaxwell.supportRestrictionCLM D hD) f)
+      ((QuarticMaxwell.supportRestrictionCLM D hD) g))
+    (Inner.inner.{0, 0} ℂ ((QuarticMaxwell.supportRestrictionCLM D hD) f) g)
+'QuarticMaxwell.supportRestrictionCLM_inner' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.supportRestrictionCLM_compactRestrictionLp : ∀ (D : Set.{0} QuarticMaxwell.Position)
+  (hD : MeasurableSet.{0} D) {R : ℝ},
+  D ⊆ Metric.closedBall.{0} 0 R →
+    ∀ (g : ↥OQ7Prescribed.VectorL2),
+      Eq.{1} ((QuarticMaxwell.supportRestrictionCLM D hD) (OQ7Prescribed.compactRestrictionLp R g))
+        ((QuarticMaxwell.supportRestrictionCLM D hD) g)
+'QuarticMaxwell.supportRestrictionCLM_compactRestrictionLp' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+QuarticMaxwell.maskedOutgoingOperator_eq_restriction : ∀ (k : ℝ) (D : Set.{0} QuarticMaxwell.Position)
+  (hD : MeasurableSet.{0} D) {R : ℝ} (hR : LE.le.{0} 0 R) (hsub : D ⊆ Metric.closedBall.{0} 0 R)
+  (f : ↥OQ7Prescribed.VectorL2),
+  Eq.{1} ((QuarticMaxwell.maskedOutgoingOperator k D hD hR hsub) f)
+    ((QuarticMaxwell.supportRestrictionCLM D hD)
+      ↑((OQ7Prescribed.compactOutgoingOperator k R hR) ((QuarticMaxwell.supportInputCLM D hD hsub) f)))
+'QuarticMaxwell.maskedOutgoingOperator_eq_restriction' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+QuarticMaxwell.maskedOutgoingOperator_inner_eq_compact : ∀ (k : ℝ) (D : Set.{0} QuarticMaxwell.Position)
+  (hD : MeasurableSet.{0} D) {R : ℝ} (hR : LE.le.{0} 0 R) (hsub : D ⊆ Metric.closedBall.{0} 0 R)
+  (f : ↥OQ7Prescribed.VectorL2),
+  Eq.{1}
+    (Inner.inner.{0, 0} ℂ ((QuarticMaxwell.supportRestrictionCLM D hD) f)
+      ((QuarticMaxwell.maskedOutgoingOperator k D hD hR hsub) f))
+    (Inner.inner.{0, 0} ℂ ((QuarticMaxwell.supportInputCLM D hD hsub) f)
+      ((OQ7Prescribed.compactOutgoingOperator k R hR) ((QuarticMaxwell.supportInputCLM D hD hsub) f)))
+'QuarticMaxwell.maskedOutgoingOperator_inner_eq_compact' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+QuarticMaxwell.maskedOutgoingOperator_radiation_work : ∀ (k : ℝ) (D : Set.{0} QuarticMaxwell.Position)
+  (hD : MeasurableSet.{0} D) (hfin : Ne.{1} (MeasureTheory.MeasureSpace.volume.{0} D) Top.top.{0}) {R : ℝ}
+  (hR : LE.le.{0} 0 R) (hsub : D ⊆ Metric.closedBall.{0} 0 R) (f : ↥OQ7Prescribed.VectorL2),
+  Eq.{1}
+    (HMul.hMul.{0, 0, 0} k
+      (Inner.inner.{0, 0} ℂ ((QuarticMaxwell.supportRestrictionCLM D hD) f)
+          ((QuarticMaxwell.maskedOutgoingOperator k D hD hR hsub) f)).im)
+    (HMul.hMul.{0, 0, 0}
+      (HDiv.hDiv.{0, 0, 0} (HPow.hPow.{0, 0, 0} k 4) (HMul.hMul.{0, 0, 0} 16 (HPow.hPow.{0, 0, 0} Real.pi 2)))
+      (HPow.hPow.{0, 0, 0} (Norm.norm.{0} ((QuarticMaxwell.radiationMap k D hD hfin) f)) 2))
+'QuarticMaxwell.maskedOutgoingOperator_radiation_work' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@QuarticMaxwell.maskedOutgoingOperator_imaginary_radiation : ∀ {k : ℝ},
+  LT.lt.{0} 0 k →
+    ∀ (D : Set.{0} QuarticMaxwell.Position) (hD : MeasurableSet.{0} D)
+      (hfin : Ne.{1} (MeasureTheory.MeasureSpace.volume.{0} D) Top.top.{0}) {R : ℝ} (hR : LE.le.{0} 0 R)
+      (hsub : D ⊆ Metric.closedBall.{0} 0 R) (f : ↥OQ7Prescribed.VectorL2),
+      Eq.{1}
+        (Inner.inner.{0, 0} ℂ ((QuarticMaxwell.supportRestrictionCLM D hD) f)
+            ((QuarticMaxwell.maskedOutgoingOperator k D hD hR hsub) f)).im
+        (HMul.hMul.{0, 0, 0}
+          (HDiv.hDiv.{0, 0, 0} (HPow.hPow.{0, 0, 0} k 3) (HMul.hMul.{0, 0, 0} 16 (HPow.hPow.{0, 0, 0} Real.pi 2)))
+          (HPow.hPow.{0, 0, 0} (Norm.norm.{0} ((QuarticMaxwell.radiationMap k D hD hfin) f)) 2))
+'QuarticMaxwell.maskedOutgoingOperator_imaginary_radiation' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@QuarticMaxwell.maskedOutgoingOperator_im_nonneg : ∀ {k : ℝ},
+  LT.lt.{0} 0 k →
+    ∀ (D : Set.{0} QuarticMaxwell.Position) (hD : MeasurableSet.{0} D),
+      Ne.{1} (MeasureTheory.MeasureSpace.volume.{0} D) Top.top.{0} →
+        ∀ {R : ℝ} (hR : LE.le.{0} 0 R) (hsub : D ⊆ Metric.closedBall.{0} 0 R) (f : ↥OQ7Prescribed.VectorL2),
+          LE.le.{0} 0
+            (Inner.inner.{0, 0} ℂ ((QuarticMaxwell.supportRestrictionCLM D hD) f)
+                ((QuarticMaxwell.maskedOutgoingOperator k D hD hR hsub) f)).im
+'QuarticMaxwell.maskedOutgoingOperator_im_nonneg' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.maskedStaticOperator_quadratic_im : ∀ (D : Set.{0} QuarticMaxwell.Position) (hD : MeasurableSet.{0} D)
+  (f : ↥OQ7Prescribed.VectorL2),
+  Eq.{1}
+    (Inner.inner.{0, 0} ℂ ((QuarticMaxwell.supportRestrictionCLM D hD) f)
+        ((QuarticMaxwell.maskedStaticOperator D hD) f)).im
+    0
+'QuarticMaxwell.maskedStaticOperator_quadratic_im' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.conjugateL2 : ContinuousLinearMap.{0, 0, 0, 0} (RingHom.id.{0} ℝ) ↥OQ7Prescribed.VectorL2
+  ↥OQ7Prescribed.VectorL2
+'QuarticMaxwell.conjugateL2' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.conjugateL2_coe : ∀ (f : ↥OQ7Prescribed.VectorL2),
+  ↑↑(QuarticMaxwell.conjugateL2 f) =ᵐ[MeasureTheory.MeasureSpace.volume.{0}] fun x =>
+    OQ7Prescribed.vectorConjugate (↑↑f x)
+'QuarticMaxwell.conjugateL2_coe' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.conjugateL2_involutive : ∀ (f : ↥OQ7Prescribed.VectorL2),
+  Eq.{1} (QuarticMaxwell.conjugateL2 (QuarticMaxwell.conjugateL2 f)) f
+'QuarticMaxwell.conjugateL2_involutive' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.conjugateL2_restriction : ∀ (D : Set.{0} QuarticMaxwell.Position) (hD : MeasurableSet.{0} D)
+  (f : ↥OQ7Prescribed.VectorL2),
+  Eq.{1} (QuarticMaxwell.conjugateL2 ((QuarticMaxwell.supportRestrictionCLM D hD) f))
+    ((QuarticMaxwell.supportRestrictionCLM D hD) (QuarticMaxwell.conjugateL2 f))
+'QuarticMaxwell.conjugateL2_restriction' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.supportedConjugate_input : ∀ (D : Set.{0} QuarticMaxwell.Position) (hD : MeasurableSet.{0} D) {R : ℝ}
+  (hsub : D ⊆ Metric.closedBall.{0} 0 R) (f : ↥OQ7Prescribed.VectorL2),
+  Eq.{1} (↑((OQ7Prescribed.supportedVectorConjugate R) ((QuarticMaxwell.supportInputCLM D hD hsub) f)))
+    (QuarticMaxwell.conjugateL2 ((QuarticMaxwell.supportRestrictionCLM D hD) f))
+'QuarticMaxwell.supportedConjugate_input' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.maskedOutgoingOperator_bilinear_eq_compact : ∀ (k : ℝ) (D : Set.{0} QuarticMaxwell.Position)
+  (hD : MeasurableSet.{0} D) {R : ℝ} (hR : LE.le.{0} 0 R) (hsub : D ⊆ Metric.closedBall.{0} 0 R)
+  (f g : ↥OQ7Prescribed.VectorL2),
+  Eq.{1}
+    (Inner.inner.{0, 0} ℂ (QuarticMaxwell.conjugateL2 ((QuarticMaxwell.supportRestrictionCLM D hD) f))
+      ((QuarticMaxwell.maskedOutgoingOperator k D hD hR hsub) g))
+    (Inner.inner.{0, 0} ℂ ((OQ7Prescribed.supportedVectorConjugate R) ((QuarticMaxwell.supportInputCLM D hD hsub) f))
+      ((OQ7Prescribed.compactOutgoingOperator k R hR) ((QuarticMaxwell.supportInputCLM D hD hsub) g)))
+'QuarticMaxwell.maskedOutgoingOperator_bilinear_eq_compact' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@QuarticMaxwell.maskedOutgoingOperator_reciprocity : ∀ {k : ℝ},
+  LT.lt.{0} 0 k →
+    ∀ (D : Set.{0} QuarticMaxwell.Position) (hD : MeasurableSet.{0} D) {R : ℝ} (hR : LE.le.{0} 0 R)
+      (hsub : D ⊆ Metric.closedBall.{0} 0 R) (f g : ↥OQ7Prescribed.VectorL2),
+      Eq.{1}
+        (Inner.inner.{0, 0} ℂ (QuarticMaxwell.conjugateL2 ((QuarticMaxwell.supportRestrictionCLM D hD) f))
+          ((QuarticMaxwell.maskedOutgoingOperator k D hD hR hsub) g))
+        (Inner.inner.{0, 0} ℂ (QuarticMaxwell.conjugateL2 ((QuarticMaxwell.supportRestrictionCLM D hD) g))
+          ((QuarticMaxwell.maskedOutgoingOperator k D hD hR hsub) f))
+'QuarticMaxwell.maskedOutgoingOperator_reciprocity' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.conjugateL2_pairing_comm : ∀ (f g : ↥OQ7Prescribed.VectorL2),
+  Eq.{1} (Inner.inner.{0, 0} ℂ (QuarticMaxwell.conjugateL2 f) g) (Inner.inner.{0, 0} ℂ (QuarticMaxwell.conjugateL2 g) f)
+'QuarticMaxwell.conjugateL2_pairing_comm' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.inverse_bilinear_reciprocity : ∀
+  (A : ContinuousLinearEquiv.{0, 0, 0, 0} (RingHom.id.{0} ℂ) ↥OQ7Prescribed.VectorL2 ↥OQ7Prescribed.VectorL2),
+  (∀ (p q : ↥OQ7Prescribed.VectorL2),
+      Eq.{1} (Inner.inner.{0, 0} ℂ (QuarticMaxwell.conjugateL2 p) (A q))
+        (Inner.inner.{0, 0} ℂ (QuarticMaxwell.conjugateL2 q) (A p))) →
+    ∀ (f g : ↥OQ7Prescribed.VectorL2),
+      Eq.{1} (Inner.inner.{0, 0} ℂ (QuarticMaxwell.conjugateL2 f) ((ContinuousLinearEquiv.symm.{0, 0, 0, 0} A) g))
+        (Inner.inner.{0, 0} ℂ (QuarticMaxwell.conjugateL2 g) ((ContinuousLinearEquiv.symm.{0, 0, 0, 0} A) f))
+'QuarticMaxwell.inverse_bilinear_reciprocity' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.conjugate_pair_common_work : ∀
+  (A : ContinuousLinearEquiv.{0, 0, 0, 0} (RingHom.id.{0} ℂ) ↥OQ7Prescribed.VectorL2 ↥OQ7Prescribed.VectorL2),
+  (∀ (p q : ↥OQ7Prescribed.VectorL2),
+      Eq.{1} (Inner.inner.{0, 0} ℂ (QuarticMaxwell.conjugateL2 p) (A q))
+        (Inner.inner.{0, 0} ℂ (QuarticMaxwell.conjugateL2 q) (A p))) →
+    ∀ (f : ↥OQ7Prescribed.VectorL2),
+      Eq.{1} (Inner.inner.{0, 0} ℂ f ((ContinuousLinearEquiv.symm.{0, 0, 0, 0} A) f))
+        (Inner.inner.{0, 0} ℂ (QuarticMaxwell.conjugateL2 f)
+          ((ContinuousLinearEquiv.symm.{0, 0, 0, 0} A) (QuarticMaxwell.conjugateL2 f)))
+'QuarticMaxwell.conjugate_pair_common_work' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.radiationPhase_conjugate : ∀ (k : ℝ) (n : ↑OQ7Prescribed.UnitSphere) (x : QuarticMaxwell.Position),
+  Eq.{1} (Star.star.{0} (QuarticMaxwell.radiationPhase k n x)) (QuarticMaxwell.radiationPhase (Neg.neg.{0} k) n x)
+'QuarticMaxwell.radiationPhase_conjugate' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.incidentSource_conjugate : ∀ (k : ℝ) (n : ↑OQ7Prescribed.UnitSphere) (e : OQ7Prescribed.Vector),
+  Eq.{1} (OQ7Prescribed.vectorConjugate e) e →
+    ∀ (D : Set.{0} QuarticMaxwell.Position) (hD : MeasurableSet.{0} D)
+      (hfin : Ne.{1} (MeasureTheory.MeasureSpace.volume.{0} D) Top.top.{0}),
+      Eq.{1} (QuarticMaxwell.conjugateL2 (QuarticMaxwell.incidentSource k n e D hD hfin))
+        (QuarticMaxwell.incidentSource (Neg.neg.{0} k) n e D hD hfin)
+'QuarticMaxwell.incidentSource_conjugate' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.DomainL2 : Set.{0} QuarticMaxwell.Position →
+  Submodule.{0, 0} ℂ ↥(MeasureTheory.Lp.{0, 0} OQ7Prescribed.Vector 2 MeasureTheory.MeasureSpace.volume.{0})
+'QuarticMaxwell.DomainL2' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.domainCompleteSpace : ∀ (D : Set.{0} QuarticMaxwell.Position),
+  MeasurableSet.{0} D → CompleteSpace.{0} ↥(QuarticMaxwell.DomainL2 D)
+'QuarticMaxwell.domainCompleteSpace' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.supportRestrictionCLM_eq_self : ∀ (D : Set.{0} QuarticMaxwell.Position) (hD : MeasurableSet.{0} D)
+  (f : ↥(QuarticMaxwell.DomainL2 D)), Eq.{1} ((QuarticMaxwell.supportRestrictionCLM D hD) ↑f) ↑f
+'QuarticMaxwell.supportRestrictionCLM_eq_self' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.supportRestrictionCLM_idempotent : ∀ (D : Set.{0} QuarticMaxwell.Position) (hD : MeasurableSet.{0} D)
+  (f : ↥OQ7Prescribed.VectorL2),
+  Eq.{1} ((QuarticMaxwell.supportRestrictionCLM D hD) ((QuarticMaxwell.supportRestrictionCLM D hD) f))
+    ((QuarticMaxwell.supportRestrictionCLM D hD) f)
+'QuarticMaxwell.supportRestrictionCLM_idempotent' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.supportRestrictionCLM_maskedStatic : ∀ (D : Set.{0} QuarticMaxwell.Position) (hD : MeasurableSet.{0} D)
+  (f : ↥OQ7Prescribed.VectorL2),
+  Eq.{1} ((QuarticMaxwell.supportRestrictionCLM D hD) ((QuarticMaxwell.maskedStaticOperator D hD) f))
+    ((QuarticMaxwell.maskedStaticOperator D hD) f)
+'QuarticMaxwell.supportRestrictionCLM_maskedStatic' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.supportRestrictionCLM_maskedOutgoing : ∀ (k : ℝ) (D : Set.{0} QuarticMaxwell.Position)
+  (hD : MeasurableSet.{0} D) {R : ℝ} (hR : LE.le.{0} 0 R) (hsub : D ⊆ Metric.closedBall.{0} 0 R)
+  (f : ↥OQ7Prescribed.VectorL2),
+  Eq.{1} ((QuarticMaxwell.supportRestrictionCLM D hD) ((QuarticMaxwell.maskedOutgoingOperator k D hD hR hsub) f))
+    ((QuarticMaxwell.maskedOutgoingOperator k D hD hR hsub) f)
+'QuarticMaxwell.supportRestrictionCLM_maskedOutgoing' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.domainStaticOperator : (D : Set.{0} QuarticMaxwell.Position) →
+  MeasurableSet.{0} D →
+    ContinuousLinearMap.{0, 0, 0, 0} (RingHom.id.{0} ℂ) ↥(QuarticMaxwell.DomainL2 D) ↥(QuarticMaxwell.DomainL2 D)
+'QuarticMaxwell.domainStaticOperator' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.domainStaticOperator_coe : ∀ (D : Set.{0} QuarticMaxwell.Position) (hD : MeasurableSet.{0} D)
+  (f : ↥(QuarticMaxwell.DomainL2 D)),
+  Eq.{1} (↑((QuarticMaxwell.domainStaticOperator D hD) f)) ((QuarticMaxwell.maskedStaticOperator D hD) ↑f)
+'QuarticMaxwell.domainStaticOperator_coe' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.domainOutgoingOperator : ℝ →
+  (D : Set.{0} QuarticMaxwell.Position) →
+    MeasurableSet.{0} D →
+      {R : ℝ} →
+        LE.le.{0} 0 R →
+          D ⊆ Metric.closedBall.{0} 0 R →
+            ContinuousLinearMap.{0, 0, 0, 0} (RingHom.id.{0} ℂ) ↥(QuarticMaxwell.DomainL2 D)
+              ↥(QuarticMaxwell.DomainL2 D)
+'QuarticMaxwell.domainOutgoingOperator' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.domainOutgoingOperator_coe : ∀ (k : ℝ) (D : Set.{0} QuarticMaxwell.Position) (hD : MeasurableSet.{0} D)
+  {R : ℝ} (hR : LE.le.{0} 0 R) (hsub : D ⊆ Metric.closedBall.{0} 0 R) (f : ↥(QuarticMaxwell.DomainL2 D)),
+  Eq.{1} (↑((QuarticMaxwell.domainOutgoingOperator k D hD hR hsub) f))
+    ((QuarticMaxwell.maskedOutgoingOperator k D hD hR hsub) ↑f)
+'QuarticMaxwell.domainOutgoingOperator_coe' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.domainStaticOperator_norm_le : ∀ (D : Set.{0} QuarticMaxwell.Position) (hD : MeasurableSet.{0} D),
+  LE.le.{0} (Norm.norm.{0} (QuarticMaxwell.domainStaticOperator D hD)) 1
+'QuarticMaxwell.domainStaticOperator_norm_le' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@QuarticMaxwell.domainOutgoingOperator_difference_norm_le : ∀ {k : ℝ},
+  LE.le.{0} 0 k →
+    ∀ (D : Set.{0} QuarticMaxwell.Position) (hD : MeasurableSet.{0} D) {R : ℝ} (hR : LE.le.{0} 0 R)
+      (hsub : D ⊆ Metric.closedBall.{0} 0 R),
+      LT.lt.{0} 0 (MeasureTheory.Measure.real.{0} MeasureTheory.MeasureSpace.volume.{0} D) →
+        LE.le.{0}
+          (Norm.norm.{0}
+            (HSub.hSub.{0, 0, 0} (QuarticMaxwell.domainOutgoingOperator k D hD hR hsub)
+              (QuarticMaxwell.domainStaticOperator D hD)))
+          (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (3 / 4) (HPow.hPow.{0, 0, 0} k 2))
+            (HPow.hPow.{0, 0, 0}
+              (QuarticMaxwell.volumeRadius (MeasureTheory.Measure.real.{0} MeasureTheory.MeasureSpace.volume.{0} D)) 2))
+'QuarticMaxwell.domainOutgoingOperator_difference_norm_le' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+QuarticMaxwell.domainRadiationMap : ℝ →
+  (D : Set.{0} QuarticMaxwell.Position) →
+    MeasurableSet.{0} D →
+      Ne.{1} (MeasureTheory.MeasureSpace.volume.{0} D) Top.top.{0} →
+        ContinuousLinearMap.{0, 0, 0, 0} (RingHom.id.{0} ℂ) ↥(QuarticMaxwell.DomainL2 D)
+          ↥(MeasureTheory.Lp.{0, 0} OQ7Prescribed.Vector 2 OQ7Prescribed.sphereArea)
+'QuarticMaxwell.domainRadiationMap' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.domainRadiationMap_norm_sq_le : ∀ (k : ℝ) (D : Set.{0} QuarticMaxwell.Position)
+  (hD : MeasurableSet.{0} D) (hfin : Ne.{1} (MeasureTheory.MeasureSpace.volume.{0} D) Top.top.{0}),
+  LE.le.{0} (HPow.hPow.{0, 0, 0} (Norm.norm.{0} (QuarticMaxwell.domainRadiationMap k D hD hfin)) 2)
+    (HDiv.hDiv.{0, 0, 0}
+      (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 8 Real.pi)
+        (MeasureTheory.Measure.real.{0} MeasureTheory.MeasureSpace.volume.{0} D))
+      3)
+'QuarticMaxwell.domainRadiationMap_norm_sq_le' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.domainOutgoingOperator_radiation_work : ∀ (k : ℝ) (D : Set.{0} QuarticMaxwell.Position)
+  (hD : MeasurableSet.{0} D) (hfin : Ne.{1} (MeasureTheory.MeasureSpace.volume.{0} D) Top.top.{0}) {R : ℝ}
+  (hR : LE.le.{0} 0 R) (hsub : D ⊆ Metric.closedBall.{0} 0 R) (f : ↥(QuarticMaxwell.DomainL2 D)),
+  Eq.{1} (HMul.hMul.{0, 0, 0} k (Inner.inner.{0, 0} ℂ f ((QuarticMaxwell.domainOutgoingOperator k D hD hR hsub) f)).im)
+    (HMul.hMul.{0, 0, 0}
+      (HDiv.hDiv.{0, 0, 0} (HPow.hPow.{0, 0, 0} k 4) (HMul.hMul.{0, 0, 0} 16 (HPow.hPow.{0, 0, 0} Real.pi 2)))
+      (HPow.hPow.{0, 0, 0} (Norm.norm.{0} ((QuarticMaxwell.domainRadiationMap k D hD hfin) f)) 2))
+'QuarticMaxwell.domainOutgoingOperator_radiation_work' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@QuarticMaxwell.domainOutgoingOperator_im_nonneg : ∀ {k : ℝ},
+  LT.lt.{0} 0 k →
+    ∀ (D : Set.{0} QuarticMaxwell.Position) (hD : MeasurableSet.{0} D),
+      Ne.{1} (MeasureTheory.MeasureSpace.volume.{0} D) Top.top.{0} →
+        ∀ {R : ℝ} (hR : LE.le.{0} 0 R) (hsub : D ⊆ Metric.closedBall.{0} 0 R) (f : ↥(QuarticMaxwell.DomainL2 D)),
+          LE.le.{0} 0 (Inner.inner.{0, 0} ℂ f ((QuarticMaxwell.domainOutgoingOperator k D hD hR hsub) f)).im
+'QuarticMaxwell.domainOutgoingOperator_im_nonneg' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.domainStaticOperator_quadratic_im : ∀ (D : Set.{0} QuarticMaxwell.Position) (hD : MeasurableSet.{0} D)
+  (f : ↥(QuarticMaxwell.DomainL2 D)),
+  Eq.{1} (Inner.inner.{0, 0} ℂ f ((QuarticMaxwell.domainStaticOperator D hD) f)).im 0
+'QuarticMaxwell.domainStaticOperator_quadratic_im' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.conjugateL2_norm_le : ∀ (f : ↥OQ7Prescribed.VectorL2),
+  LE.le.{0} (Norm.norm.{0} (QuarticMaxwell.conjugateL2 f)) (Norm.norm.{0} f)
+'QuarticMaxwell.conjugateL2_norm_le' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.domainConjugateLinear : (D : Set.{0} QuarticMaxwell.Position) →
+  LinearMap.{0, 0, 0, 0} (RingHom.id.{0} ℝ) ↥(QuarticMaxwell.DomainL2 D) ↥(QuarticMaxwell.DomainL2 D)
+'QuarticMaxwell.domainConjugateLinear' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.domainConjugate : (D : Set.{0} QuarticMaxwell.Position) →
+  ContinuousLinearMap.{0, 0, 0, 0} (RingHom.id.{0} ℝ) ↥(QuarticMaxwell.DomainL2 D) ↥(QuarticMaxwell.DomainL2 D)
+'QuarticMaxwell.domainConjugate' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.domainConjugate_coe : ∀ (D : Set.{0} QuarticMaxwell.Position) (f : ↥(QuarticMaxwell.DomainL2 D)),
+  Eq.{1} (↑((QuarticMaxwell.domainConjugate D) f)) (QuarticMaxwell.conjugateL2 ↑f)
+'QuarticMaxwell.domainConjugate_coe' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.domainConjugate_involutive : ∀ (D : Set.{0} QuarticMaxwell.Position) (f : ↥(QuarticMaxwell.DomainL2 D)),
+  Eq.{1} ((QuarticMaxwell.domainConjugate D) ((QuarticMaxwell.domainConjugate D) f)) f
+'QuarticMaxwell.domainConjugate_involutive' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.domainConjugate_pairing_comm : ∀ (D : Set.{0} QuarticMaxwell.Position)
+  (f g : ↥(QuarticMaxwell.DomainL2 D)),
+  Eq.{1} (Inner.inner.{0, 0} ℂ ((QuarticMaxwell.domainConjugate D) f) g)
+    (Inner.inner.{0, 0} ℂ ((QuarticMaxwell.domainConjugate D) g) f)
+'QuarticMaxwell.domainConjugate_pairing_comm' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@QuarticMaxwell.domainOutgoingOperator_reciprocity : ∀ {k : ℝ},
+  LT.lt.{0} 0 k →
+    ∀ (D : Set.{0} QuarticMaxwell.Position) (hD : MeasurableSet.{0} D) {R : ℝ} (hR : LE.le.{0} 0 R)
+      (hsub : D ⊆ Metric.closedBall.{0} 0 R) (f g : ↥(QuarticMaxwell.DomainL2 D)),
+      Eq.{1}
+        (Inner.inner.{0, 0} ℂ ((QuarticMaxwell.domainConjugate D) f)
+          ((QuarticMaxwell.domainOutgoingOperator k D hD hR hsub) g))
+        (Inner.inner.{0, 0} ℂ ((QuarticMaxwell.domainConjugate D) g)
+          ((QuarticMaxwell.domainOutgoingOperator k D hD hR hsub) f))
+'QuarticMaxwell.domainOutgoingOperator_reciprocity' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.incidentSource_supported : ∀ (k : ℝ) (n : ↑OQ7Prescribed.UnitSphere) (e : OQ7Prescribed.Vector)
+  (D : Set.{0} QuarticMaxwell.Position) (hD : MeasurableSet.{0} D)
+  (hfin : Ne.{1} (MeasureTheory.MeasureSpace.volume.{0} D) Top.top.{0}),
+  Membership.mem.{0, 0} (OQ7Prescribed.setSupportedL2.{0, 0} MeasureTheory.MeasureSpace.volume.{0} D)
+    (QuarticMaxwell.incidentSource k n e D hD hfin)
+'QuarticMaxwell.incidentSource_supported' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.domainIncidentSource : ℝ →
+  ↑OQ7Prescribed.UnitSphere →
+    OQ7Prescribed.Vector →
+      (D : Set.{0} QuarticMaxwell.Position) →
+        MeasurableSet.{0} D →
+          Ne.{1} (MeasureTheory.MeasureSpace.volume.{0} D) Top.top.{0} → ↥(QuarticMaxwell.DomainL2 D)
+'QuarticMaxwell.domainIncidentSource' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.domainIncidentSource_norm_sq : ∀ (k : ℝ) (n : ↑OQ7Prescribed.UnitSphere) (e : OQ7Prescribed.Vector)
+  (D : Set.{0} QuarticMaxwell.Position) (hD : MeasurableSet.{0} D)
+  (hfin : Ne.{1} (MeasureTheory.MeasureSpace.volume.{0} D) Top.top.{0}),
+  Eq.{1} (HPow.hPow.{0, 0, 0} (Norm.norm.{0} (QuarticMaxwell.domainIncidentSource k n e D hD hfin)) 2)
+    (HMul.hMul.{0, 0, 0} (MeasureTheory.Measure.real.{0} MeasureTheory.MeasureSpace.volume.{0} D)
+      (HPow.hPow.{0, 0, 0} (Norm.norm.{0} e) 2))
+'QuarticMaxwell.domainIncidentSource_norm_sq' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.domainIncidentSource_opposite_norm_sq : ∀ (k : ℝ),
+  LE.le.{0} 0 k →
+    ∀ (n : ↑OQ7Prescribed.UnitSphere) (e : OQ7Prescribed.Vector) (D : Set.{0} QuarticMaxwell.Position)
+      (hD : MeasurableSet.{0} D) (hfin : Ne.{1} (MeasureTheory.MeasureSpace.volume.{0} D) Top.top.{0}) {R : ℝ},
+      LE.le.{0} 0 R →
+        D ⊆ Metric.closedBall.{0} 0 R →
+          LE.le.{0}
+            (HPow.hPow.{0, 0, 0}
+              (Norm.norm.{0}
+                (HSub.hSub.{0, 0, 0} (QuarticMaxwell.domainIncidentSource k n e D hD hfin)
+                  (QuarticMaxwell.domainIncidentSource (Neg.neg.{0} k) n e D hD hfin)))
+              2)
+            (HMul.hMul.{0, 0, 0}
+              (HMul.hMul.{0, 0, 0}
+                (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 4 (HPow.hPow.{0, 0, 0} k 2)) (HPow.hPow.{0, 0, 0} R 2))
+                (MeasureTheory.Measure.real.{0} MeasureTheory.MeasureSpace.volume.{0} D))
+              (HPow.hPow.{0, 0, 0} (Norm.norm.{0} e) 2))
+'QuarticMaxwell.domainIncidentSource_opposite_norm_sq' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+QuarticMaxwell.domainIncidentSource_conjugate : ∀ (k : ℝ) (n : ↑OQ7Prescribed.UnitSphere) (e : OQ7Prescribed.Vector),
+  Eq.{1} (OQ7Prescribed.vectorConjugate e) e →
+    ∀ (D : Set.{0} QuarticMaxwell.Position) (hD : MeasurableSet.{0} D)
+      (hfin : Ne.{1} (MeasureTheory.MeasureSpace.volume.{0} D) Top.top.{0}),
+      Eq.{1} ((QuarticMaxwell.domainConjugate D) (QuarticMaxwell.domainIncidentSource k n e D hD hfin))
+        (QuarticMaxwell.domainIncidentSource (Neg.neg.{0} k) n e D hD hfin)
+'QuarticMaxwell.domainIncidentSource_conjugate' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.domain_inverse_bilinear_reciprocity : ∀ (D : Set.{0} QuarticMaxwell.Position)
+  (A : ContinuousLinearEquiv.{0, 0, 0, 0} (RingHom.id.{0} ℂ) ↥(QuarticMaxwell.DomainL2 D) ↥(QuarticMaxwell.DomainL2 D)),
+  (∀ (p q : ↥(QuarticMaxwell.DomainL2 D)),
+      Eq.{1} (Inner.inner.{0, 0} ℂ ((QuarticMaxwell.domainConjugate D) p) (A q))
+        (Inner.inner.{0, 0} ℂ ((QuarticMaxwell.domainConjugate D) q) (A p))) →
+    ∀ (f g : ↥(QuarticMaxwell.DomainL2 D)),
+      Eq.{1}
+        (Inner.inner.{0, 0} ℂ ((QuarticMaxwell.domainConjugate D) f) ((ContinuousLinearEquiv.symm.{0, 0, 0, 0} A) g))
+        (Inner.inner.{0, 0} ℂ ((QuarticMaxwell.domainConjugate D) g) ((ContinuousLinearEquiv.symm.{0, 0, 0, 0} A) f))
+'QuarticMaxwell.domain_inverse_bilinear_reciprocity' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.domain_conjugate_pair_common_work : ∀ (D : Set.{0} QuarticMaxwell.Position)
+  (A : ContinuousLinearEquiv.{0, 0, 0, 0} (RingHom.id.{0} ℂ) ↥(QuarticMaxwell.DomainL2 D) ↥(QuarticMaxwell.DomainL2 D)),
+  (∀ (p q : ↥(QuarticMaxwell.DomainL2 D)),
+      Eq.{1} (Inner.inner.{0, 0} ℂ ((QuarticMaxwell.domainConjugate D) p) (A q))
+        (Inner.inner.{0, 0} ℂ ((QuarticMaxwell.domainConjugate D) q) (A p))) →
+    ∀ (f : ↥(QuarticMaxwell.DomainL2 D)),
+      Eq.{1} (Inner.inner.{0, 0} ℂ f ((ContinuousLinearEquiv.symm.{0, 0, 0, 0} A) f))
+        (Inner.inner.{0, 0} ℂ ((QuarticMaxwell.domainConjugate D) f)
+          ((ContinuousLinearEquiv.symm.{0, 0, 0, 0} A) ((QuarticMaxwell.domainConjugate D) f)))
+'QuarticMaxwell.domain_conjugate_pair_common_work' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.domainPolarization : (D : Set.{0} QuarticMaxwell.Position) →
+  MeasurableSet.{0} D →
+    {R : ℝ} →
+      LE.le.{0} 0 R → D ⊆ Metric.closedBall.{0} 0 R → ↥(QuarticMaxwell.DomainL2 D) → OQ7Prescribed.CompactPolarization
+'QuarticMaxwell.domainPolarization' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.domainPolarization_current_ae : ∀ (D : Set.{0} QuarticMaxwell.Position) (hD : MeasurableSet.{0} D)
+  {R : ℝ} (hR : LE.le.{0} 0 R) (hsub : D ⊆ Metric.closedBall.{0} 0 R) (f : ↥(QuarticMaxwell.DomainL2 D)),
+  (QuarticMaxwell.domainPolarization D hD hR hsub f).current =ᵐ[MeasureTheory.MeasureSpace.volume.{0}] ↑↑↑f
+'QuarticMaxwell.domainPolarization_current_ae' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.domainPolarization_toLp : ∀ (D : Set.{0} QuarticMaxwell.Position) (hD : MeasurableSet.{0} D) {R : ℝ}
+  (hR : LE.le.{0} 0 R) (hsub : D ⊆ Metric.closedBall.{0} 0 R) (f : ↥(QuarticMaxwell.DomainL2 D)),
+  Eq.{1} (MeasureTheory.MemLp.toLp.{0, 0} (QuarticMaxwell.domainPolarization D hD hR hsub f).current ⋯) ↑f
+'QuarticMaxwell.domainPolarization_toLp' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.domainOutgoingOperator_electricVolumeField_ae : ∀ (k : ℝ) (D : Set.{0} QuarticMaxwell.Position)
+  (hD : MeasurableSet.{0} D) {R : ℝ} (hR : LE.le.{0} 0 R) (hsub : D ⊆ Metric.closedBall.{0} 0 R)
+  (f : ↥(QuarticMaxwell.DomainL2 D)),
+  ∀ᵐ (x : QuarticMaxwell.Position),
+    Membership.mem.{0, 0} D x →
+      Eq.{1} (↑↑↑((QuarticMaxwell.domainOutgoingOperator k D hD hR hsub) f) x)
+        (OQ7Prescribed.electricVolumeField k (QuarticMaxwell.domainPolarization D hD hR hsub f) x)
+'QuarticMaxwell.domainOutgoingOperator_electricVolumeField_ae' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+QuarticMaxwell.domainPolarization_farField_power : ∀ (k : ℝ) (D : Set.{0} QuarticMaxwell.Position)
+  (hD : MeasurableSet.{0} D) (hfin : Ne.{1} (MeasureTheory.MeasureSpace.volume.{0} D) Top.top.{0}) {R : ℝ}
+  (hR : LE.le.{0} 0 R) (hsub : D ⊆ Metric.closedBall.{0} 0 R) (f : ↥(QuarticMaxwell.DomainL2 D)),
+  Eq.{1}
+    (∫ (n : ↑OQ7Prescribed.UnitSphere),
+      HPow.hPow.{0, 0, 0}
+        (Norm.norm.{0} (OQ7Prescribed.compactCurrentFarField k (QuarticMaxwell.domainPolarization D hD hR hsub f) ↑n))
+        2 ∂OQ7Prescribed.sphereArea)
+    (HMul.hMul.{0, 0, 0}
+      (HDiv.hDiv.{0, 0, 0} (HPow.hPow.{0, 0, 0} k 4) (HMul.hMul.{0, 0, 0} 16 (HPow.hPow.{0, 0, 0} Real.pi 2)))
+      (HPow.hPow.{0, 0, 0} (Norm.norm.{0} ((QuarticMaxwell.domainRadiationMap k D hD hfin) f)) 2))
+'QuarticMaxwell.domainPolarization_farField_power' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@QuarticMaxwell.TensorMultiplier.pointwise_bound.{u_1,
+    u_2} : ∀ {α : Type u_1} {E : Type u_2} [inst : MeasurableSpace.{u_1} α] [inst_1 : NormedAddCommGroup.{u_2} E]
+  [inst_2 : InnerProductSpace.{0, u_2} ℂ E] (μ : MeasureTheory.Measure.{u_1} α) (D : Set.{u_1} α)
+  (A : α → ContinuousLinearMap.{0, 0, u_2, u_2} (RingHom.id.{0} ℂ) E E) (M : ℝ),
+  (∀ᵐ (x : α) ∂μ, Membership.mem.{u_1, u_1} D x → LE.le.{0} (Norm.norm.{u_2} (A x)) M) →
+    ∀ (f : ↥(OQ7Prescribed.SetSupportedL2.{u_1, u_2} μ D)),
+      ∀ᵐ (x : α) ∂μ, LE.le.{0} (Norm.norm.{u_2} ((A x) (↑↑↑f x))) (HMul.hMul.{0, 0, 0} M (Norm.norm.{u_2} (↑↑↑f x)))
+'QuarticMaxwell.TensorMultiplier.pointwise_bound' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@QuarticMaxwell.TensorMultiplier.action_memLp.{u_1,
+    u_2} : ∀ {α : Type u_1} {E : Type u_2} [inst : MeasurableSpace.{u_1} α] [inst_1 : NormedAddCommGroup.{u_2} E]
+  [inst_2 : InnerProductSpace.{0, u_2} ℂ E] (μ : MeasureTheory.Measure.{u_1} α) (D : Set.{u_1} α)
+  (A : α → ContinuousLinearMap.{0, 0, u_2, u_2} (RingHom.id.{0} ℂ) E E),
+  MeasureTheory.AEStronglyMeasurable.{u_1, u_2} A μ →
+    ∀ (M : ℝ),
+      (∀ᵐ (x : α) ∂μ, Membership.mem.{u_1, u_1} D x → LE.le.{0} (Norm.norm.{u_2} (A x)) M) →
+        ∀ (f : ↥(OQ7Prescribed.SetSupportedL2.{u_1, u_2} μ D)),
+          MeasureTheory.MemLp.{u_1, u_2} (fun x => (A x) (↑↑↑f x)) 2 μ
+'QuarticMaxwell.TensorMultiplier.action_memLp' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@QuarticMaxwell.TensorMultiplier.action.{u_1,
+    u_2} : {α : Type u_1} →
+  {E : Type u_2} →
+    [inst : MeasurableSpace.{u_1} α] →
+      [inst_1 : NormedAddCommGroup.{u_2} E] →
+        [inst_2 : InnerProductSpace.{0, u_2} ℂ E] →
+          (μ : MeasureTheory.Measure.{u_1} α) →
+            (D : Set.{u_1} α) →
+              (A : α → ContinuousLinearMap.{0, 0, u_2, u_2} (RingHom.id.{0} ℂ) E E) →
+                MeasureTheory.AEStronglyMeasurable.{u_1, u_2} A μ →
+                  (M : ℝ) →
+                    (∀ᵐ (x : α) ∂μ, Membership.mem.{u_1, u_1} D x → LE.le.{0} (Norm.norm.{u_2} (A x)) M) →
+                      ↥(OQ7Prescribed.SetSupportedL2.{u_1, u_2} μ D) → ↥(OQ7Prescribed.SetSupportedL2.{u_1, u_2} μ D)
+'QuarticMaxwell.TensorMultiplier.action' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@QuarticMaxwell.TensorMultiplier.action_coe.{u_1,
+    u_2} : ∀ {α : Type u_1} {E : Type u_2} [inst : MeasurableSpace.{u_1} α] [inst_1 : NormedAddCommGroup.{u_2} E]
+  [inst_2 : InnerProductSpace.{0, u_2} ℂ E] (μ : MeasureTheory.Measure.{u_1} α) (D : Set.{u_1} α)
+  (A : α → ContinuousLinearMap.{0, 0, u_2, u_2} (RingHom.id.{0} ℂ) E E)
+  (hA : MeasureTheory.AEStronglyMeasurable.{u_1, u_2} A μ) (M : ℝ)
+  (hcap : ∀ᵐ (x : α) ∂μ, Membership.mem.{u_1, u_1} D x → LE.le.{0} (Norm.norm.{u_2} (A x)) M)
+  (f : ↥(OQ7Prescribed.SetSupportedL2.{u_1, u_2} μ D)),
+  ↑↑↑(QuarticMaxwell.TensorMultiplier.action.{u_1, u_2} μ D A hA M hcap f) =ᵐ[μ] fun x => (A x) (↑↑↑f x)
+'QuarticMaxwell.TensorMultiplier.action_coe' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@QuarticMaxwell.TensorMultiplier.action_add.{u_1,
+    u_2} : ∀ {α : Type u_1} {E : Type u_2} [inst : MeasurableSpace.{u_1} α] [inst_1 : NormedAddCommGroup.{u_2} E]
+  [inst_2 : InnerProductSpace.{0, u_2} ℂ E] (μ : MeasureTheory.Measure.{u_1} α) (D : Set.{u_1} α)
+  (A : α → ContinuousLinearMap.{0, 0, u_2, u_2} (RingHom.id.{0} ℂ) E E)
+  (hA : MeasureTheory.AEStronglyMeasurable.{u_1, u_2} A μ) (M : ℝ)
+  (hcap : ∀ᵐ (x : α) ∂μ, Membership.mem.{u_1, u_1} D x → LE.le.{0} (Norm.norm.{u_2} (A x)) M)
+  (f g : ↥(OQ7Prescribed.SetSupportedL2.{u_1, u_2} μ D)),
+  Eq.{max (u_1 + 1) (u_2 + 1)}
+    (QuarticMaxwell.TensorMultiplier.action.{u_1, u_2} μ D A hA M hcap
+      (HAdd.hAdd.{max u_1 u_2, max u_1 u_2, max u_1 u_2} f g))
+    (HAdd.hAdd.{max u_1 u_2, max u_1 u_2, max u_1 u_2}
+      (QuarticMaxwell.TensorMultiplier.action.{u_1, u_2} μ D A hA M hcap f)
+      (QuarticMaxwell.TensorMultiplier.action.{u_1, u_2} μ D A hA M hcap g))
+'QuarticMaxwell.TensorMultiplier.action_add' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@QuarticMaxwell.TensorMultiplier.action_smul.{u_1,
+    u_2} : ∀ {α : Type u_1} {E : Type u_2} [inst : MeasurableSpace.{u_1} α] [inst_1 : NormedAddCommGroup.{u_2} E]
+  [inst_2 : InnerProductSpace.{0, u_2} ℂ E] (μ : MeasureTheory.Measure.{u_1} α) (D : Set.{u_1} α)
+  (A : α → ContinuousLinearMap.{0, 0, u_2, u_2} (RingHom.id.{0} ℂ) E E)
+  (hA : MeasureTheory.AEStronglyMeasurable.{u_1, u_2} A μ) (M : ℝ)
+  (hcap : ∀ᵐ (x : α) ∂μ, Membership.mem.{u_1, u_1} D x → LE.le.{0} (Norm.norm.{u_2} (A x)) M) (z : ℂ)
+  (f : ↥(OQ7Prescribed.SetSupportedL2.{u_1, u_2} μ D)),
+  Eq.{max (u_1 + 1) (u_2 + 1)}
+    (QuarticMaxwell.TensorMultiplier.action.{u_1, u_2} μ D A hA M hcap (HSMul.hSMul.{0, max u_1 u_2, max u_1 u_2} z f))
+    (HSMul.hSMul.{0, max u_1 u_2, max u_1 u_2} z (QuarticMaxwell.TensorMultiplier.action.{u_1, u_2} μ D A hA M hcap f))
+'QuarticMaxwell.TensorMultiplier.action_smul' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@QuarticMaxwell.TensorMultiplier.linear.{u_1,
+    u_2} : {α : Type u_1} →
+  {E : Type u_2} →
+    [inst : MeasurableSpace.{u_1} α] →
+      [inst_1 : NormedAddCommGroup.{u_2} E] →
+        [inst_2 : InnerProductSpace.{0, u_2} ℂ E] →
+          (μ : MeasureTheory.Measure.{u_1} α) →
+            (D : Set.{u_1} α) →
+              (A : α → ContinuousLinearMap.{0, 0, u_2, u_2} (RingHom.id.{0} ℂ) E E) →
+                MeasureTheory.AEStronglyMeasurable.{u_1, u_2} A μ →
+                  (M : ℝ) →
+                    (∀ᵐ (x : α) ∂μ, Membership.mem.{u_1, u_1} D x → LE.le.{0} (Norm.norm.{u_2} (A x)) M) →
+                      LinearMap.{0, 0, max u_1 u_2, max u_1 u_2} (RingHom.id.{0} ℂ)
+                        ↥(OQ7Prescribed.SetSupportedL2.{u_1, u_2} μ D) ↥(OQ7Prescribed.SetSupportedL2.{u_1, u_2} μ D)
+'QuarticMaxwell.TensorMultiplier.linear' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@QuarticMaxwell.TensorMultiplier.action_norm_le.{u_1,
+    u_2} : ∀ {α : Type u_1} {E : Type u_2} [inst : MeasurableSpace.{u_1} α] [inst_1 : NormedAddCommGroup.{u_2} E]
+  [inst_2 : InnerProductSpace.{0, u_2} ℂ E] (μ : MeasureTheory.Measure.{u_1} α) (D : Set.{u_1} α)
+  (A : α → ContinuousLinearMap.{0, 0, u_2, u_2} (RingHom.id.{0} ℂ) E E)
+  (hA : MeasureTheory.AEStronglyMeasurable.{u_1, u_2} A μ) (M : ℝ)
+  (hcap : ∀ᵐ (x : α) ∂μ, Membership.mem.{u_1, u_1} D x → LE.le.{0} (Norm.norm.{u_2} (A x)) M)
+  (f : ↥(OQ7Prescribed.SetSupportedL2.{u_1, u_2} μ D)),
+  LE.le.{0} (Norm.norm.{max u_1 u_2} (QuarticMaxwell.TensorMultiplier.action.{u_1, u_2} μ D A hA M hcap f))
+    (HMul.hMul.{0, 0, 0} M (Norm.norm.{max u_1 u_2} f))
+'QuarticMaxwell.TensorMultiplier.action_norm_le' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@QuarticMaxwell.TensorMultiplier.operator.{u_1,
+    u_2} : {α : Type u_1} →
+  {E : Type u_2} →
+    [inst : MeasurableSpace.{u_1} α] →
+      [inst_1 : NormedAddCommGroup.{u_2} E] →
+        [inst_2 : InnerProductSpace.{0, u_2} ℂ E] →
+          (μ : MeasureTheory.Measure.{u_1} α) →
+            (D : Set.{u_1} α) →
+              (A : α → ContinuousLinearMap.{0, 0, u_2, u_2} (RingHom.id.{0} ℂ) E E) →
+                MeasureTheory.AEStronglyMeasurable.{u_1, u_2} A μ →
+                  (M : ℝ) →
+                    (∀ᵐ (x : α) ∂μ, Membership.mem.{u_1, u_1} D x → LE.le.{0} (Norm.norm.{u_2} (A x)) M) →
+                      ContinuousLinearMap.{0, 0, max u_1 u_2, max u_1 u_2} (RingHom.id.{0} ℂ)
+                        ↥(OQ7Prescribed.SetSupportedL2.{u_1, u_2} μ D) ↥(OQ7Prescribed.SetSupportedL2.{u_1, u_2} μ D)
+'QuarticMaxwell.TensorMultiplier.operator' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@QuarticMaxwell.TensorMultiplier.operator_coe.{u_1,
+    u_2} : ∀ {α : Type u_1} {E : Type u_2} [inst : MeasurableSpace.{u_1} α] [inst_1 : NormedAddCommGroup.{u_2} E]
+  [inst_2 : InnerProductSpace.{0, u_2} ℂ E] (μ : MeasureTheory.Measure.{u_1} α) (D : Set.{u_1} α)
+  (A : α → ContinuousLinearMap.{0, 0, u_2, u_2} (RingHom.id.{0} ℂ) E E)
+  (hA : MeasureTheory.AEStronglyMeasurable.{u_1, u_2} A μ) (M : ℝ)
+  (hcap : ∀ᵐ (x : α) ∂μ, Membership.mem.{u_1, u_1} D x → LE.le.{0} (Norm.norm.{u_2} (A x)) M)
+  (f : ↥(OQ7Prescribed.SetSupportedL2.{u_1, u_2} μ D)),
+  ↑↑↑((QuarticMaxwell.TensorMultiplier.operator.{u_1, u_2} μ D A hA M hcap) f) =ᵐ[μ] fun x => (A x) (↑↑↑f x)
+'QuarticMaxwell.TensorMultiplier.operator_coe' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@QuarticMaxwell.TensorMultiplier.operator_norm_le.{u_1,
+    u_2} : ∀ {α : Type u_1} {E : Type u_2} [inst : MeasurableSpace.{u_1} α] [inst_1 : NormedAddCommGroup.{u_2} E]
+  [inst_2 : InnerProductSpace.{0, u_2} ℂ E] (μ : MeasureTheory.Measure.{u_1} α) (D : Set.{u_1} α)
+  (A : α → ContinuousLinearMap.{0, 0, u_2, u_2} (RingHom.id.{0} ℂ) E E)
+  (hA : MeasureTheory.AEStronglyMeasurable.{u_1, u_2} A μ) (M : ℝ)
+  (hcap : ∀ᵐ (x : α) ∂μ, Membership.mem.{u_1, u_1} D x → LE.le.{0} (Norm.norm.{u_2} (A x)) M),
+  LE.le.{0} 0 M →
+    LE.le.{0} (Norm.norm.{max u_1 u_2} (QuarticMaxwell.TensorMultiplier.operator.{u_1, u_2} μ D A hA M hcap)) M
+'QuarticMaxwell.TensorMultiplier.operator_norm_le' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@QuarticMaxwell.TensorMultiplier.operator_coercive.{u_1,
+    u_2} : ∀ {α : Type u_1} {E : Type u_2} [inst : MeasurableSpace.{u_1} α] [inst_1 : NormedAddCommGroup.{u_2} E]
+  [inst_2 : InnerProductSpace.{0, u_2} ℂ E] (μ : MeasureTheory.Measure.{u_1} α) (D : Set.{u_1} α)
+  (A : α → ContinuousLinearMap.{0, 0, u_2, u_2} (RingHom.id.{0} ℂ) E E)
+  (hA : MeasureTheory.AEStronglyMeasurable.{u_1, u_2} A μ) (M : ℝ)
+  (hcap : ∀ᵐ (x : α) ∂μ, Membership.mem.{u_1, u_1} D x → LE.le.{0} (Norm.norm.{u_2} (A x)) M) {m : ℝ},
+  (∀ᵐ (x : α) ∂μ,
+      Membership.mem.{u_1, u_1} D x →
+        ∀ (v : E),
+          LE.le.{0} (HMul.hMul.{0, 0, 0} m (HPow.hPow.{0, 0, 0} (Norm.norm.{u_2} v) 2))
+            (Inner.inner.{0, u_2} ℂ v ((A x) v)).im) →
+    ∀ (f : ↥(OQ7Prescribed.SetSupportedL2.{u_1, u_2} μ D)),
+      LE.le.{0} (HMul.hMul.{0, 0, 0} m (HPow.hPow.{0, 0, 0} (Norm.norm.{max u_1 u_2} f) 2))
+        (Inner.inner.{0, max u_1 u_2} ℂ f ((QuarticMaxwell.TensorMultiplier.operator.{u_1, u_2} μ D A hA M hcap) f)).im
+'QuarticMaxwell.TensorMultiplier.operator_coercive' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@QuarticMaxwell.TensorMultiplier.inverse.{u_1,
+    u_2} : {α : Type u_1} →
+  {E : Type u_2} →
+    [inst : MeasurableSpace.{u_1} α] →
+      [inst_1 : NormedAddCommGroup.{u_2} E] →
+        [inst_2 : InnerProductSpace.{0, u_2} ℂ E] →
+          (μ : MeasureTheory.Measure.{u_1} α) →
+            (D : Set.{u_1} α) →
+              (A : α → ContinuousLinearMap.{0, 0, u_2, u_2} (RingHom.id.{0} ℂ) E E) →
+                MeasureTheory.AEStronglyMeasurable.{u_1, u_2} A μ →
+                  (M : ℝ) →
+                    (∀ᵐ (x : α) ∂μ, Membership.mem.{u_1, u_1} D x → LE.le.{0} (Norm.norm.{u_2} (A x)) M) →
+                      [CompleteSpace.{u_2} E] →
+                        MeasurableSet.{u_1} D →
+                          {m : ℝ} →
+                            LT.lt.{0} 0 m →
+                              (∀ᵐ (x : α) ∂μ,
+                                  Membership.mem.{u_1, u_1} D x →
+                                    ∀ (v : E),
+                                      LE.le.{0} (HMul.hMul.{0, 0, 0} m (HPow.hPow.{0, 0, 0} (Norm.norm.{u_2} v) 2))
+                                        (Inner.inner.{0, u_2} ℂ v ((A x) v)).im) →
+                                ContinuousLinearMap.{0, 0, max u_1 u_2, max u_1 u_2} (RingHom.id.{0} ℂ)
+                                  ↥(OQ7Prescribed.SetSupportedL2.{u_1, u_2} μ D)
+                                  ↥(OQ7Prescribed.SetSupportedL2.{u_1, u_2} μ D)
+'QuarticMaxwell.TensorMultiplier.inverse' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@QuarticMaxwell.TensorMultiplier.operator_inverse.{u_1,
+    u_2} : ∀ {α : Type u_1} {E : Type u_2} [inst : MeasurableSpace.{u_1} α] [inst_1 : NormedAddCommGroup.{u_2} E]
+  [inst_2 : InnerProductSpace.{0, u_2} ℂ E] (μ : MeasureTheory.Measure.{u_1} α) (D : Set.{u_1} α)
+  (A : α → ContinuousLinearMap.{0, 0, u_2, u_2} (RingHom.id.{0} ℂ) E E)
+  (hA : MeasureTheory.AEStronglyMeasurable.{u_1, u_2} A μ) (M : ℝ)
+  (hcap : ∀ᵐ (x : α) ∂μ, Membership.mem.{u_1, u_1} D x → LE.le.{0} (Norm.norm.{u_2} (A x)) M)
+  [inst_3 : CompleteSpace.{u_2} E] (hD : MeasurableSet.{u_1} D) {m : ℝ} (hm : LT.lt.{0} 0 m)
+  (hloss :
+    ∀ᵐ (x : α) ∂μ,
+      Membership.mem.{u_1, u_1} D x →
+        ∀ (v : E),
+          LE.le.{0} (HMul.hMul.{0, 0, 0} m (HPow.hPow.{0, 0, 0} (Norm.norm.{u_2} v) 2))
+            (Inner.inner.{0, u_2} ℂ v ((A x) v)).im)
+  (f : ↥(OQ7Prescribed.SetSupportedL2.{u_1, u_2} μ D)),
+  Eq.{max (u_1 + 1) (u_2 + 1)}
+    ((QuarticMaxwell.TensorMultiplier.operator.{u_1, u_2} μ D A hA M hcap)
+      ((QuarticMaxwell.TensorMultiplier.inverse.{u_1, u_2} μ D A hA M hcap hD hm hloss) f))
+    f
+'QuarticMaxwell.TensorMultiplier.operator_inverse' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@QuarticMaxwell.TensorMultiplier.inverse_operator.{u_1,
+    u_2} : ∀ {α : Type u_1} {E : Type u_2} [inst : MeasurableSpace.{u_1} α] [inst_1 : NormedAddCommGroup.{u_2} E]
+  [inst_2 : InnerProductSpace.{0, u_2} ℂ E] (μ : MeasureTheory.Measure.{u_1} α) (D : Set.{u_1} α)
+  (A : α → ContinuousLinearMap.{0, 0, u_2, u_2} (RingHom.id.{0} ℂ) E E)
+  (hA : MeasureTheory.AEStronglyMeasurable.{u_1, u_2} A μ) (M : ℝ)
+  (hcap : ∀ᵐ (x : α) ∂μ, Membership.mem.{u_1, u_1} D x → LE.le.{0} (Norm.norm.{u_2} (A x)) M)
+  [inst_3 : CompleteSpace.{u_2} E] (hD : MeasurableSet.{u_1} D) {m : ℝ} (hm : LT.lt.{0} 0 m)
+  (hloss :
+    ∀ᵐ (x : α) ∂μ,
+      Membership.mem.{u_1, u_1} D x →
+        ∀ (v : E),
+          LE.le.{0} (HMul.hMul.{0, 0, 0} m (HPow.hPow.{0, 0, 0} (Norm.norm.{u_2} v) 2))
+            (Inner.inner.{0, u_2} ℂ v ((A x) v)).im)
+  (f : ↥(OQ7Prescribed.SetSupportedL2.{u_1, u_2} μ D)),
+  Eq.{max (u_1 + 1) (u_2 + 1)}
+    ((QuarticMaxwell.TensorMultiplier.inverse.{u_1, u_2} μ D A hA M hcap hD hm hloss)
+      ((QuarticMaxwell.TensorMultiplier.operator.{u_1, u_2} μ D A hA M hcap) f))
+    f
+'QuarticMaxwell.TensorMultiplier.inverse_operator' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@QuarticMaxwell.TensorMultiplier.inverse_norm_le.{u_1,
+    u_2} : ∀ {α : Type u_1} {E : Type u_2} [inst : MeasurableSpace.{u_1} α] [inst_1 : NormedAddCommGroup.{u_2} E]
+  [inst_2 : InnerProductSpace.{0, u_2} ℂ E] (μ : MeasureTheory.Measure.{u_1} α) (D : Set.{u_1} α)
+  (A : α → ContinuousLinearMap.{0, 0, u_2, u_2} (RingHom.id.{0} ℂ) E E)
+  (hA : MeasureTheory.AEStronglyMeasurable.{u_1, u_2} A μ) (M : ℝ)
+  (hcap : ∀ᵐ (x : α) ∂μ, Membership.mem.{u_1, u_1} D x → LE.le.{0} (Norm.norm.{u_2} (A x)) M)
+  [inst_3 : CompleteSpace.{u_2} E] (hD : MeasurableSet.{u_1} D) {m : ℝ} (hm : LT.lt.{0} 0 m)
+  (hloss :
+    ∀ᵐ (x : α) ∂μ,
+      Membership.mem.{u_1, u_1} D x →
+        ∀ (v : E),
+          LE.le.{0} (HMul.hMul.{0, 0, 0} m (HPow.hPow.{0, 0, 0} (Norm.norm.{u_2} v) 2))
+            (Inner.inner.{0, u_2} ℂ v ((A x) v)).im),
+  LE.le.{0} (Norm.norm.{max u_1 u_2} (QuarticMaxwell.TensorMultiplier.inverse.{u_1, u_2} μ D A hA M hcap hD hm hloss))
+    (HDiv.hDiv.{0, 0, 0} 1 m)
+'QuarticMaxwell.TensorMultiplier.inverse_norm_le' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@QuarticMaxwell.TensorMultiplier.inverse_loss_bound.{u_1,
+    u_2} : ∀ {α : Type u_1} {E : Type u_2} [inst : MeasurableSpace.{u_1} α] [inst_1 : NormedAddCommGroup.{u_2} E]
+  [inst_2 : InnerProductSpace.{0, u_2} ℂ E] (μ : MeasureTheory.Measure.{u_1} α) (D : Set.{u_1} α)
+  (A : α → ContinuousLinearMap.{0, 0, u_2, u_2} (RingHom.id.{0} ℂ) E E)
+  (hA : MeasureTheory.AEStronglyMeasurable.{u_1, u_2} A μ) (M : ℝ)
+  (hcap : ∀ᵐ (x : α) ∂μ, Membership.mem.{u_1, u_1} D x → LE.le.{0} (Norm.norm.{u_2} (A x)) M)
+  [inst_3 : CompleteSpace.{u_2} E] (hD : MeasurableSet.{u_1} D) {m : ℝ} (hm : LT.lt.{0} 0 m)
+  (hloss :
+    ∀ᵐ (x : α) ∂μ,
+      Membership.mem.{u_1, u_1} D x →
+        ∀ (v : E),
+          LE.le.{0} (HMul.hMul.{0, 0, 0} m (HPow.hPow.{0, 0, 0} (Norm.norm.{u_2} v) 2))
+            (Inner.inner.{0, u_2} ℂ v ((A x) v)).im),
+  LT.lt.{0} 0 M →
+    ∀ (f : ↥(OQ7Prescribed.SetSupportedL2.{u_1, u_2} μ D)),
+      LE.le.{0}
+        (HMul.hMul.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} m (HPow.hPow.{0, 0, 0} M 2))
+          (HPow.hPow.{0, 0, 0} (Norm.norm.{max u_1 u_2} f) 2))
+        (Neg.neg.{0}
+          (Inner.inner.{0, max u_1 u_2} ℂ f
+              ((QuarticMaxwell.TensorMultiplier.inverse.{u_1, u_2} μ D A hA M hcap hD hm hloss) f)).im)
+'QuarticMaxwell.TensorMultiplier.inverse_loss_bound' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@QuarticMaxwell.TensorMultiplier.inverse_constitutive.{u_1,
+    u_2} : ∀ {α : Type u_1} {E : Type u_2} [inst : MeasurableSpace.{u_1} α] [inst_1 : NormedAddCommGroup.{u_2} E]
+  [inst_2 : InnerProductSpace.{0, u_2} ℂ E] (μ : MeasureTheory.Measure.{u_1} α) (D : Set.{u_1} α)
+  (A : α → ContinuousLinearMap.{0, 0, u_2, u_2} (RingHom.id.{0} ℂ) E E)
+  (hA : MeasureTheory.AEStronglyMeasurable.{u_1, u_2} A μ) (M : ℝ)
+  (hcap : ∀ᵐ (x : α) ∂μ, Membership.mem.{u_1, u_1} D x → LE.le.{0} (Norm.norm.{u_2} (A x)) M)
+  [inst_3 : CompleteSpace.{u_2} E] (hD : MeasurableSet.{u_1} D) {m : ℝ} (hm : LT.lt.{0} 0 m)
+  (hloss :
+    ∀ᵐ (x : α) ∂μ,
+      Membership.mem.{u_1, u_1} D x →
+        ∀ (v : E),
+          LE.le.{0} (HMul.hMul.{0, 0, 0} m (HPow.hPow.{0, 0, 0} (Norm.norm.{u_2} v) 2))
+            (Inner.inner.{0, u_2} ℂ v ((A x) v)).im)
+  (f : ↥(OQ7Prescribed.SetSupportedL2.{u_1, u_2} μ D)),
+  (fun x => (A x) (↑↑↑((QuarticMaxwell.TensorMultiplier.inverse.{u_1, u_2} μ D A hA M hcap hD hm hloss) f) x)) =ᵐ[μ]
+    ↑↑↑f
+'QuarticMaxwell.TensorMultiplier.inverse_constitutive' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+QuarticMaxwell.VolumeInverse.inverseSusceptibility : (D : Set.{0} QuarticMaxwell.Position) →
+  MeasurableSet.{0} D →
+    (χ :
+        QuarticMaxwell.Position →
+          ContinuousLinearMap.{0, 0, 0, 0} (RingHom.id.{0} ℂ) OQ7Prescribed.Vector OQ7Prescribed.Vector) →
+      MeasureTheory.AEStronglyMeasurable.{0, 0} χ MeasureTheory.MeasureSpace.volume.{0} →
+        (M : ℝ) →
+          (∀ᵐ (x : QuarticMaxwell.Position), Membership.mem.{0, 0} D x → LE.le.{0} (Norm.norm.{0} (χ x)) M) →
+            {m : ℝ} →
+              LT.lt.{0} 0 m →
+                (∀ᵐ (x : QuarticMaxwell.Position),
+                    Membership.mem.{0, 0} D x →
+                      ∀ (v : OQ7Prescribed.Vector),
+                        LE.le.{0} (HMul.hMul.{0, 0, 0} m (HPow.hPow.{0, 0, 0} (Norm.norm.{0} v) 2))
+                          (Inner.inner.{0, 0} ℂ v ((χ x) v)).im) →
+                  ContinuousLinearMap.{0, 0, 0, 0} (RingHom.id.{0} ℂ) ↥(QuarticMaxwell.DomainL2 D)
+                    ↥(QuarticMaxwell.DomainL2 D)
+'QuarticMaxwell.VolumeInverse.inverseSusceptibility' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.VolumeInverse.operator : (D : Set.{0} QuarticMaxwell.Position) →
+  MeasurableSet.{0} D →
+    (χ :
+        QuarticMaxwell.Position →
+          ContinuousLinearMap.{0, 0, 0, 0} (RingHom.id.{0} ℂ) OQ7Prescribed.Vector OQ7Prescribed.Vector) →
+      MeasureTheory.AEStronglyMeasurable.{0, 0} χ MeasureTheory.MeasureSpace.volume.{0} →
+        (M : ℝ) →
+          (∀ᵐ (x : QuarticMaxwell.Position), Membership.mem.{0, 0} D x → LE.le.{0} (Norm.norm.{0} (χ x)) M) →
+            {m : ℝ} →
+              LT.lt.{0} 0 m →
+                (∀ᵐ (x : QuarticMaxwell.Position),
+                    Membership.mem.{0, 0} D x →
+                      ∀ (v : OQ7Prescribed.Vector),
+                        LE.le.{0} (HMul.hMul.{0, 0, 0} m (HPow.hPow.{0, 0, 0} (Norm.norm.{0} v) 2))
+                          (Inner.inner.{0, 0} ℂ v ((χ x) v)).im) →
+                  ℝ →
+                    {R : ℝ} →
+                      LE.le.{0} 0 R →
+                        D ⊆ Metric.closedBall.{0} 0 R →
+                          ContinuousLinearMap.{0, 0, 0, 0} (RingHom.id.{0} ℂ) ↥(QuarticMaxwell.DomainL2 D)
+                            ↥(QuarticMaxwell.DomainL2 D)
+'QuarticMaxwell.VolumeInverse.operator' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.VolumeInverse.negative_coercive : ∀ (D : Set.{0} QuarticMaxwell.Position) (hD : MeasurableSet.{0} D)
+  (χ :
+    QuarticMaxwell.Position →
+      ContinuousLinearMap.{0, 0, 0, 0} (RingHom.id.{0} ℂ) OQ7Prescribed.Vector OQ7Prescribed.Vector)
+  (hχ : MeasureTheory.AEStronglyMeasurable.{0, 0} χ MeasureTheory.MeasureSpace.volume.{0}) (M : ℝ)
+  (hcap : ∀ᵐ (x : QuarticMaxwell.Position), Membership.mem.{0, 0} D x → LE.le.{0} (Norm.norm.{0} (χ x)) M) {m : ℝ}
+  (hm : LT.lt.{0} 0 m)
+  (hloss :
+    ∀ᵐ (x : QuarticMaxwell.Position),
+      Membership.mem.{0, 0} D x →
+        ∀ (v : OQ7Prescribed.Vector),
+          LE.le.{0} (HMul.hMul.{0, 0, 0} m (HPow.hPow.{0, 0, 0} (Norm.norm.{0} v) 2))
+            (Inner.inner.{0, 0} ℂ v ((χ x) v)).im)
+  {k : ℝ},
+  LT.lt.{0} 0 k →
+    LT.lt.{0} 0 M →
+      Ne.{1} (MeasureTheory.MeasureSpace.volume.{0} D) Top.top.{0} →
+        ∀ {R : ℝ} (hR : LE.le.{0} 0 R) (hsub : D ⊆ Metric.closedBall.{0} 0 R) (p : ↥(QuarticMaxwell.DomainL2 D)),
+          LE.le.{0}
+            (HMul.hMul.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} m (HPow.hPow.{0, 0, 0} M 2))
+              (HPow.hPow.{0, 0, 0} (Norm.norm.{0} p) 2))
+            (Neg.neg.{0}
+              (Inner.inner.{0, 0} ℂ p
+                  ((QuarticMaxwell.VolumeInverse.operator D hD χ hχ M hcap hm hloss k hR hsub) p)).im)
+'QuarticMaxwell.VolumeInverse.negative_coercive' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.VolumeInverse.operator_norm_le : ∀ (D : Set.{0} QuarticMaxwell.Position) (hD : MeasurableSet.{0} D)
+  (χ :
+    QuarticMaxwell.Position →
+      ContinuousLinearMap.{0, 0, 0, 0} (RingHom.id.{0} ℂ) OQ7Prescribed.Vector OQ7Prescribed.Vector)
+  (hχ : MeasureTheory.AEStronglyMeasurable.{0, 0} χ MeasureTheory.MeasureSpace.volume.{0}) (M : ℝ)
+  (hcap : ∀ᵐ (x : QuarticMaxwell.Position), Membership.mem.{0, 0} D x → LE.le.{0} (Norm.norm.{0} (χ x)) M) {m : ℝ}
+  (hm : LT.lt.{0} 0 m)
+  (hloss :
+    ∀ᵐ (x : QuarticMaxwell.Position),
+      Membership.mem.{0, 0} D x →
+        ∀ (v : OQ7Prescribed.Vector),
+          LE.le.{0} (HMul.hMul.{0, 0, 0} m (HPow.hPow.{0, 0, 0} (Norm.norm.{0} v) 2))
+            (Inner.inner.{0, 0} ℂ v ((χ x) v)).im)
+  {k : ℝ},
+  LE.le.{0} 0 k →
+    ∀ {R : ℝ} (hR : LE.le.{0} 0 R) (hsub : D ⊆ Metric.closedBall.{0} 0 R),
+      LT.lt.{0} 0 (MeasureTheory.Measure.real.{0} MeasureTheory.MeasureSpace.volume.{0} D) →
+        LE.le.{0} (Norm.norm.{0} (QuarticMaxwell.VolumeInverse.operator D hD χ hχ M hcap hm hloss k hR hsub))
+          (HAdd.hAdd.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} 1 m) 1)
+            (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (3 / 4) (HPow.hPow.{0, 0, 0} k 2))
+              (HPow.hPow.{0, 0, 0}
+                (QuarticMaxwell.volumeRadius (MeasureTheory.Measure.real.{0} MeasureTheory.MeasureSpace.volume.{0} D))
+                2)))
+'QuarticMaxwell.VolumeInverse.operator_norm_le' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.VolumeInverse.negative_coercive_bijective : ∀ (D : Set.{0} QuarticMaxwell.Position)
+  (hD : MeasurableSet.{0} D)
+  (χ :
+    QuarticMaxwell.Position →
+      ContinuousLinearMap.{0, 0, 0, 0} (RingHom.id.{0} ℂ) OQ7Prescribed.Vector OQ7Prescribed.Vector)
+  (hχ : MeasureTheory.AEStronglyMeasurable.{0, 0} χ MeasureTheory.MeasureSpace.volume.{0}) (M : ℝ)
+  (hcap : ∀ᵐ (x : QuarticMaxwell.Position), Membership.mem.{0, 0} D x → LE.le.{0} (Norm.norm.{0} (χ x)) M) {m : ℝ}
+  (hm : LT.lt.{0} 0 m)
+  (hloss :
+    ∀ᵐ (x : QuarticMaxwell.Position),
+      Membership.mem.{0, 0} D x →
+        ∀ (v : OQ7Prescribed.Vector),
+          LE.le.{0} (HMul.hMul.{0, 0, 0} m (HPow.hPow.{0, 0, 0} (Norm.norm.{0} v) 2))
+            (Inner.inner.{0, 0} ℂ v ((χ x) v)).im)
+  {k : ℝ},
+  LT.lt.{0} 0 k →
+    LT.lt.{0} 0 M →
+      Ne.{1} (MeasureTheory.MeasureSpace.volume.{0} D) Top.top.{0} →
+        ∀ {R : ℝ} (hR : LE.le.{0} 0 R) (hsub : D ⊆ Metric.closedBall.{0} 0 R),
+          Function.Bijective.{1, 1} ⇑(QuarticMaxwell.VolumeInverse.operator D hD χ hχ M hcap hm hloss k hR hsub)
+'QuarticMaxwell.VolumeInverse.negative_coercive_bijective' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+QuarticMaxwell.VolumeInverse.equiv : (D : Set.{0} QuarticMaxwell.Position) →
+  MeasurableSet.{0} D →
+    (χ :
+        QuarticMaxwell.Position →
+          ContinuousLinearMap.{0, 0, 0, 0} (RingHom.id.{0} ℂ) OQ7Prescribed.Vector OQ7Prescribed.Vector) →
+      MeasureTheory.AEStronglyMeasurable.{0, 0} χ MeasureTheory.MeasureSpace.volume.{0} →
+        (M : ℝ) →
+          (∀ᵐ (x : QuarticMaxwell.Position), Membership.mem.{0, 0} D x → LE.le.{0} (Norm.norm.{0} (χ x)) M) →
+            {m : ℝ} →
+              LT.lt.{0} 0 m →
+                (∀ᵐ (x : QuarticMaxwell.Position),
+                    Membership.mem.{0, 0} D x →
+                      ∀ (v : OQ7Prescribed.Vector),
+                        LE.le.{0} (HMul.hMul.{0, 0, 0} m (HPow.hPow.{0, 0, 0} (Norm.norm.{0} v) 2))
+                          (Inner.inner.{0, 0} ℂ v ((χ x) v)).im) →
+                  {k : ℝ} →
+                    LT.lt.{0} 0 k →
+                      LT.lt.{0} 0 M →
+                        Ne.{1} (MeasureTheory.MeasureSpace.volume.{0} D) Top.top.{0} →
+                          {R : ℝ} →
+                            LE.le.{0} 0 R →
+                              D ⊆ Metric.closedBall.{0} 0 R →
+                                ContinuousLinearEquiv.{0, 0, 0, 0} (RingHom.id.{0} ℂ) ↥(QuarticMaxwell.DomainL2 D)
+                                  ↥(QuarticMaxwell.DomainL2 D)
+'QuarticMaxwell.VolumeInverse.equiv' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.VolumeInverse.equiv_apply : ∀ (D : Set.{0} QuarticMaxwell.Position) (hD : MeasurableSet.{0} D)
+  (χ :
+    QuarticMaxwell.Position →
+      ContinuousLinearMap.{0, 0, 0, 0} (RingHom.id.{0} ℂ) OQ7Prescribed.Vector OQ7Prescribed.Vector)
+  (hχ : MeasureTheory.AEStronglyMeasurable.{0, 0} χ MeasureTheory.MeasureSpace.volume.{0}) (M : ℝ)
+  (hcap : ∀ᵐ (x : QuarticMaxwell.Position), Membership.mem.{0, 0} D x → LE.le.{0} (Norm.norm.{0} (χ x)) M) {m : ℝ}
+  (hm : LT.lt.{0} 0 m)
+  (hloss :
+    ∀ᵐ (x : QuarticMaxwell.Position),
+      Membership.mem.{0, 0} D x →
+        ∀ (v : OQ7Prescribed.Vector),
+          LE.le.{0} (HMul.hMul.{0, 0, 0} m (HPow.hPow.{0, 0, 0} (Norm.norm.{0} v) 2))
+            (Inner.inner.{0, 0} ℂ v ((χ x) v)).im)
+  {k : ℝ} (hk : LT.lt.{0} 0 k) (hM : LT.lt.{0} 0 M)
+  (hfin : Ne.{1} (MeasureTheory.MeasureSpace.volume.{0} D) Top.top.{0}) {R : ℝ} (hR : LE.le.{0} 0 R)
+  (hsub : D ⊆ Metric.closedBall.{0} 0 R) (p : ↥(QuarticMaxwell.DomainL2 D)),
+  Eq.{1} ((QuarticMaxwell.VolumeInverse.equiv D hD χ hχ M hcap hm hloss hk hM hfin hR hsub) p)
+    ((QuarticMaxwell.VolumeInverse.operator D hD χ hχ M hcap hm hloss k hR hsub) p)
+'QuarticMaxwell.VolumeInverse.equiv_apply' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.VolumeInverse.inverse_norm_le : ∀ (D : Set.{0} QuarticMaxwell.Position) (hD : MeasurableSet.{0} D)
+  (χ :
+    QuarticMaxwell.Position →
+      ContinuousLinearMap.{0, 0, 0, 0} (RingHom.id.{0} ℂ) OQ7Prescribed.Vector OQ7Prescribed.Vector)
+  (hχ : MeasureTheory.AEStronglyMeasurable.{0, 0} χ MeasureTheory.MeasureSpace.volume.{0}) (M : ℝ)
+  (hcap : ∀ᵐ (x : QuarticMaxwell.Position), Membership.mem.{0, 0} D x → LE.le.{0} (Norm.norm.{0} (χ x)) M) {m : ℝ}
+  (hm : LT.lt.{0} 0 m)
+  (hloss :
+    ∀ᵐ (x : QuarticMaxwell.Position),
+      Membership.mem.{0, 0} D x →
+        ∀ (v : OQ7Prescribed.Vector),
+          LE.le.{0} (HMul.hMul.{0, 0, 0} m (HPow.hPow.{0, 0, 0} (Norm.norm.{0} v) 2))
+            (Inner.inner.{0, 0} ℂ v ((χ x) v)).im)
+  {k : ℝ} (hk : LT.lt.{0} 0 k) (hM : LT.lt.{0} 0 M)
+  (hfin : Ne.{1} (MeasureTheory.MeasureSpace.volume.{0} D) Top.top.{0}) {R : ℝ} (hR : LE.le.{0} 0 R)
+  (hsub : D ⊆ Metric.closedBall.{0} 0 R),
+  LE.le.{0}
+    (Norm.norm.{0}
+      ↑(ContinuousLinearEquiv.symm.{0, 0, 0, 0}
+          (QuarticMaxwell.VolumeInverse.equiv D hD χ hχ M hcap hm hloss hk hM hfin hR hsub)))
+    (HDiv.hDiv.{0, 0, 0} (HPow.hPow.{0, 0, 0} M 2) m)
+'QuarticMaxwell.VolumeInverse.inverse_norm_le' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.VolumeInverse.susceptibility_reciprocity : ∀ (D : Set.{0} QuarticMaxwell.Position)
+  (χ :
+    QuarticMaxwell.Position →
+      ContinuousLinearMap.{0, 0, 0, 0} (RingHom.id.{0} ℂ) OQ7Prescribed.Vector OQ7Prescribed.Vector)
+  (hχ : MeasureTheory.AEStronglyMeasurable.{0, 0} χ MeasureTheory.MeasureSpace.volume.{0}) (M : ℝ)
+  (hcap : ∀ᵐ (x : QuarticMaxwell.Position), Membership.mem.{0, 0} D x → LE.le.{0} (Norm.norm.{0} (χ x)) M),
+  (∀ᵐ (x : QuarticMaxwell.Position),
+      Membership.mem.{0, 0} D x →
+        ∀ (u v : OQ7Prescribed.Vector),
+          Eq.{1} (OQ7Prescribed.bilinear u ((χ x) v)) (OQ7Prescribed.bilinear v ((χ x) u))) →
+    ∀ (p q : ↥(QuarticMaxwell.DomainL2 D)),
+      Eq.{1}
+        (Inner.inner.{0, 0} ℂ ((QuarticMaxwell.domainConjugate D) p)
+          ((QuarticMaxwell.TensorMultiplier.operator.{0, 0} MeasureTheory.MeasureSpace.volume.{0} D χ hχ M hcap) q))
+        (Inner.inner.{0, 0} ℂ ((QuarticMaxwell.domainConjugate D) q)
+          ((QuarticMaxwell.TensorMultiplier.operator.{0, 0} MeasureTheory.MeasureSpace.volume.{0} D χ hχ M hcap) p))
+'QuarticMaxwell.VolumeInverse.susceptibility_reciprocity' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+QuarticMaxwell.VolumeInverse.inverseSusceptibility_reciprocity : ∀ (D : Set.{0} QuarticMaxwell.Position)
+  (hD : MeasurableSet.{0} D)
+  (χ :
+    QuarticMaxwell.Position →
+      ContinuousLinearMap.{0, 0, 0, 0} (RingHom.id.{0} ℂ) OQ7Prescribed.Vector OQ7Prescribed.Vector)
+  (hχ : MeasureTheory.AEStronglyMeasurable.{0, 0} χ MeasureTheory.MeasureSpace.volume.{0}) (M : ℝ)
+  (hcap : ∀ᵐ (x : QuarticMaxwell.Position), Membership.mem.{0, 0} D x → LE.le.{0} (Norm.norm.{0} (χ x)) M) {m : ℝ}
+  (hm : LT.lt.{0} 0 m)
+  (hloss :
+    ∀ᵐ (x : QuarticMaxwell.Position),
+      Membership.mem.{0, 0} D x →
+        ∀ (v : OQ7Prescribed.Vector),
+          LE.le.{0} (HMul.hMul.{0, 0, 0} m (HPow.hPow.{0, 0, 0} (Norm.norm.{0} v) 2))
+            (Inner.inner.{0, 0} ℂ v ((χ x) v)).im),
+  (∀ᵐ (x : QuarticMaxwell.Position),
+      Membership.mem.{0, 0} D x →
+        ∀ (u v : OQ7Prescribed.Vector),
+          Eq.{1} (OQ7Prescribed.bilinear u ((χ x) v)) (OQ7Prescribed.bilinear v ((χ x) u))) →
+    ∀ (p q : ↥(QuarticMaxwell.DomainL2 D)),
+      Eq.{1}
+        (Inner.inner.{0, 0} ℂ ((QuarticMaxwell.domainConjugate D) p)
+          ((QuarticMaxwell.VolumeInverse.inverseSusceptibility D hD χ hχ M hcap hm hloss) q))
+        (Inner.inner.{0, 0} ℂ ((QuarticMaxwell.domainConjugate D) q)
+          ((QuarticMaxwell.VolumeInverse.inverseSusceptibility D hD χ hχ M hcap hm hloss) p))
+'QuarticMaxwell.VolumeInverse.inverseSusceptibility_reciprocity' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+QuarticMaxwell.VolumeInverse.operator_reciprocity : ∀ (D : Set.{0} QuarticMaxwell.Position) (hD : MeasurableSet.{0} D)
+  (χ :
+    QuarticMaxwell.Position →
+      ContinuousLinearMap.{0, 0, 0, 0} (RingHom.id.{0} ℂ) OQ7Prescribed.Vector OQ7Prescribed.Vector)
+  (hχ : MeasureTheory.AEStronglyMeasurable.{0, 0} χ MeasureTheory.MeasureSpace.volume.{0}) (M : ℝ)
+  (hcap : ∀ᵐ (x : QuarticMaxwell.Position), Membership.mem.{0, 0} D x → LE.le.{0} (Norm.norm.{0} (χ x)) M) {m : ℝ}
+  (hm : LT.lt.{0} 0 m)
+  (hloss :
+    ∀ᵐ (x : QuarticMaxwell.Position),
+      Membership.mem.{0, 0} D x →
+        ∀ (v : OQ7Prescribed.Vector),
+          LE.le.{0} (HMul.hMul.{0, 0, 0} m (HPow.hPow.{0, 0, 0} (Norm.norm.{0} v) 2))
+            (Inner.inner.{0, 0} ℂ v ((χ x) v)).im)
+  {k : ℝ},
+  LT.lt.{0} 0 k →
+    (∀ᵐ (x : QuarticMaxwell.Position),
+        Membership.mem.{0, 0} D x →
+          ∀ (u v : OQ7Prescribed.Vector),
+            Eq.{1} (OQ7Prescribed.bilinear u ((χ x) v)) (OQ7Prescribed.bilinear v ((χ x) u))) →
+      ∀ {R : ℝ} (hR : LE.le.{0} 0 R) (hsub : D ⊆ Metric.closedBall.{0} 0 R) (p q : ↥(QuarticMaxwell.DomainL2 D)),
+        Eq.{1}
+          (Inner.inner.{0, 0} ℂ ((QuarticMaxwell.domainConjugate D) p)
+            ((QuarticMaxwell.VolumeInverse.operator D hD χ hχ M hcap hm hloss k hR hsub) q))
+          (Inner.inner.{0, 0} ℂ ((QuarticMaxwell.domainConjugate D) q)
+            ((QuarticMaxwell.VolumeInverse.operator D hD χ hχ M hcap hm hloss k hR hsub) p))
+'QuarticMaxwell.VolumeInverse.operator_reciprocity' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.VolumeInverse.solution_inverseSusceptibility_eq : ∀ (D : Set.{0} QuarticMaxwell.Position)
+  (hD : MeasurableSet.{0} D)
+  (χ :
+    QuarticMaxwell.Position →
+      ContinuousLinearMap.{0, 0, 0, 0} (RingHom.id.{0} ℂ) OQ7Prescribed.Vector OQ7Prescribed.Vector)
+  (hχ : MeasureTheory.AEStronglyMeasurable.{0, 0} χ MeasureTheory.MeasureSpace.volume.{0}) (M : ℝ)
+  (hcap : ∀ᵐ (x : QuarticMaxwell.Position), Membership.mem.{0, 0} D x → LE.le.{0} (Norm.norm.{0} (χ x)) M) {m : ℝ}
+  (hm : LT.lt.{0} 0 m)
+  (hloss :
+    ∀ᵐ (x : QuarticMaxwell.Position),
+      Membership.mem.{0, 0} D x →
+        ∀ (v : OQ7Prescribed.Vector),
+          LE.le.{0} (HMul.hMul.{0, 0, 0} m (HPow.hPow.{0, 0, 0} (Norm.norm.{0} v) 2))
+            (Inner.inner.{0, 0} ℂ v ((χ x) v)).im)
+  {k : ℝ} (hk : LT.lt.{0} 0 k) (hM : LT.lt.{0} 0 M)
+  (hfin : Ne.{1} (MeasureTheory.MeasureSpace.volume.{0} D) Top.top.{0}) {R : ℝ} (hR : LE.le.{0} 0 R)
+  (hsub : D ⊆ Metric.closedBall.{0} 0 R) (f : ↥(QuarticMaxwell.DomainL2 D)),
+  Eq.{1}
+    ((QuarticMaxwell.VolumeInverse.inverseSusceptibility D hD χ hχ M hcap hm hloss)
+      ((ContinuousLinearEquiv.symm.{0, 0, 0, 0}
+          (QuarticMaxwell.VolumeInverse.equiv D hD χ hχ M hcap hm hloss hk hM hfin hR hsub))
+        f))
+    (HAdd.hAdd.{0, 0, 0} f
+      ((QuarticMaxwell.domainOutgoingOperator k D hD hR hsub)
+        ((ContinuousLinearEquiv.symm.{0, 0, 0, 0}
+            (QuarticMaxwell.VolumeInverse.equiv D hD χ hχ M hcap hm hloss hk hM hfin hR hsub))
+          f)))
+'QuarticMaxwell.VolumeInverse.solution_inverseSusceptibility_eq' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+QuarticMaxwell.VolumeInverse.solution_constitutive : ∀ (D : Set.{0} QuarticMaxwell.Position) (hD : MeasurableSet.{0} D)
+  (χ :
+    QuarticMaxwell.Position →
+      ContinuousLinearMap.{0, 0, 0, 0} (RingHom.id.{0} ℂ) OQ7Prescribed.Vector OQ7Prescribed.Vector)
+  (hχ : MeasureTheory.AEStronglyMeasurable.{0, 0} χ MeasureTheory.MeasureSpace.volume.{0}) (M : ℝ)
+  (hcap : ∀ᵐ (x : QuarticMaxwell.Position), Membership.mem.{0, 0} D x → LE.le.{0} (Norm.norm.{0} (χ x)) M) {m : ℝ}
+  (hm : LT.lt.{0} 0 m)
+  (hloss :
+    ∀ᵐ (x : QuarticMaxwell.Position),
+      Membership.mem.{0, 0} D x →
+        ∀ (v : OQ7Prescribed.Vector),
+          LE.le.{0} (HMul.hMul.{0, 0, 0} m (HPow.hPow.{0, 0, 0} (Norm.norm.{0} v) 2))
+            (Inner.inner.{0, 0} ℂ v ((χ x) v)).im)
+  {k : ℝ} (hk : LT.lt.{0} 0 k) (hM : LT.lt.{0} 0 M)
+  (hfin : Ne.{1} (MeasureTheory.MeasureSpace.volume.{0} D) Top.top.{0}) {R : ℝ} (hR : LE.le.{0} 0 R)
+  (hsub : D ⊆ Metric.closedBall.{0} 0 R) (f : ↥(QuarticMaxwell.DomainL2 D)),
+  have p :=
+    (ContinuousLinearEquiv.symm.{0, 0, 0, 0}
+        (QuarticMaxwell.VolumeInverse.equiv D hD χ hχ M hcap hm hloss hk hM hfin hR hsub))
+      f;
+  (fun x =>
+      (χ x)
+        (HAdd.hAdd.{0, 0, 0} (↑↑↑f x)
+          (↑↑↑((QuarticMaxwell.domainOutgoingOperator k D hD hR hsub) p) x))) =ᵐ[MeasureTheory.MeasureSpace.volume.{0}]
+    ↑↑↑p
+'QuarticMaxwell.VolumeInverse.solution_constitutive' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@QuarticMaxwell.UniformBound.absorptionPower : {D : Set.{0} QuarticMaxwell.Position} →
+  ℝ →
+    ContinuousLinearMap.{0, 0, 0, 0} (RingHom.id.{0} ℂ) ↥(QuarticMaxwell.DomainL2 D) ↥(QuarticMaxwell.DomainL2 D) →
+      ↥(QuarticMaxwell.DomainL2 D) → ℝ
+'QuarticMaxwell.UniformBound.absorptionPower' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@QuarticMaxwell.UniformBound.scatteringPower : {D : Set.{0} QuarticMaxwell.Position} →
+  ℝ →
+    ContinuousLinearMap.{0, 0, 0, 0} (RingHom.id.{0} ℂ) ↥(QuarticMaxwell.DomainL2 D)
+        ↥(MeasureTheory.Lp.{0, 0} OQ7Prescribed.Vector 2 OQ7Prescribed.sphereArea) →
+      ↥(QuarticMaxwell.DomainL2 D) → ℝ
+'QuarticMaxwell.UniformBound.scatteringPower' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@QuarticMaxwell.UniformBound.extinctionPower : {D : Set.{0} QuarticMaxwell.Position} →
+  ℝ →
+    ContinuousLinearEquiv.{0, 0, 0, 0} (RingHom.id.{0} ℂ) ↥(QuarticMaxwell.DomainL2 D) ↥(QuarticMaxwell.DomainL2 D) →
+      ↥(QuarticMaxwell.DomainL2 D) → ℝ
+'QuarticMaxwell.UniformBound.extinctionPower' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@QuarticMaxwell.UniformBound.extinction_pos : ∀ {D : Set.{0} QuarticMaxwell.Position}
+  (A : ContinuousLinearEquiv.{0, 0, 0, 0} (RingHom.id.{0} ℂ) ↥(QuarticMaxwell.DomainL2 D) ↥(QuarticMaxwell.DomainL2 D))
+  {k ρ : ℝ},
+  LT.lt.{0} 0 k →
+    LT.lt.{0} 0 ρ →
+      (∀ (p : ↥(QuarticMaxwell.DomainL2 D)),
+          LE.le.{0} (HDiv.hDiv.{0, 0, 0} (HPow.hPow.{0, 0, 0} (Norm.norm.{0} p) 2) ρ)
+            (Neg.neg.{0} (Inner.inner.{0, 0} ℂ p (A p)).im)) →
+        ∀ (f : ↥(QuarticMaxwell.DomainL2 D)),
+          Ne.{1} f 0 → LT.lt.{0} 0 (QuarticMaxwell.UniformBound.extinctionPower k A f)
+'QuarticMaxwell.UniformBound.extinction_pos' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.UniformBound.uniform_quartic_contrast : ∀ (D : Set.{0} QuarticMaxwell.Position)
+  (hD : MeasurableSet.{0} D)
+  (χ :
+    QuarticMaxwell.Position →
+      ContinuousLinearMap.{0, 0, 0, 0} (RingHom.id.{0} ℂ) OQ7Prescribed.Vector OQ7Prescribed.Vector)
+  (hχ : MeasureTheory.AEStronglyMeasurable.{0, 0} χ MeasureTheory.MeasureSpace.volume.{0}) (M : ℝ)
+  (hcap : ∀ᵐ (x : QuarticMaxwell.Position), Membership.mem.{0, 0} D x → LE.le.{0} (Norm.norm.{0} (χ x)) M) {m : ℝ}
+  (hm : LT.lt.{0} 0 m)
+  (hloss :
+    ∀ᵐ (x : QuarticMaxwell.Position),
+      Membership.mem.{0, 0} D x →
+        ∀ (v : OQ7Prescribed.Vector),
+          LE.le.{0} (HMul.hMul.{0, 0, 0} m (HPow.hPow.{0, 0, 0} (Norm.norm.{0} v) 2))
+            (Inner.inner.{0, 0} ℂ v ((χ x) v)).im)
+  {k : ℝ} (hk : LT.lt.{0} 0 k) (hM : LT.lt.{0} 0 M),
+  (∀ᵐ (x : QuarticMaxwell.Position),
+      Membership.mem.{0, 0} D x →
+        ∀ (u v : OQ7Prescribed.Vector),
+          Eq.{1} (OQ7Prescribed.bilinear u ((χ x) v)) (OQ7Prescribed.bilinear v ((χ x) u))) →
+    ∀ (hfin : Ne.{1} (MeasureTheory.MeasureSpace.volume.{0} D) Top.top.{0}),
+      LT.lt.{0} 0 (MeasureTheory.Measure.real.{0} MeasureTheory.MeasureSpace.volume.{0} D) →
+        ∀ {R : ℝ} (hR : LE.le.{0} 0 R) (hsub : D ⊆ Metric.closedBall.{0} 0 R) (n : ↑OQ7Prescribed.UnitSphere)
+          (e : OQ7Prescribed.Vector),
+          Eq.{1} (OQ7Prescribed.vectorConjugate e) e →
+            Eq.{1} (Norm.norm.{0} e) 1 →
+              have A := QuarticMaxwell.VolumeInverse.equiv D hD χ hχ M hcap hm hloss hk hM hfin hR hsub;
+              have W := QuarticMaxwell.VolumeInverse.inverseSusceptibility D hD χ hχ M hcap hm hloss;
+              have f := QuarticMaxwell.domainIncidentSource k n e D hD hfin;
+              have g := QuarticMaxwell.domainIncidentSource (Neg.neg.{0} k) n e D hD hfin;
+              have X := QuarticMaxwell.UniformBound.extinctionPower k A f;
+              LT.lt.{0} 0 X ∧
+                LE.le.{0}
+                  (HDiv.hDiv.{0, 0, 0}
+                    (abs.{0}
+                      (HSub.hSub.{0, 0, 0}
+                        (QuarticMaxwell.UniformBound.absorptionPower k W
+                          ((ContinuousLinearEquiv.symm.{0, 0, 0, 0} A) f))
+                        (QuarticMaxwell.UniformBound.absorptionPower k W
+                          ((ContinuousLinearEquiv.symm.{0, 0, 0, 0} A) g))))
+                    X)
+                  (Min.min.{0} 1
+                    (HMul.hMul.{0, 0, 0}
+                      (HMul.hMul.{0, 0, 0}
+                        (HMul.hMul.{0, 0, 0}
+                          (HMul.hMul.{0, 0, 0}
+                            (HMul.hMul.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} 2 (HMul.hMul.{0, 0, 0} 3 Real.pi))
+                              (HPow.hPow.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} (HPow.hPow.{0, 0, 0} M 2) m) 2))
+                            (HAdd.hAdd.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} 1 m) 1)
+                              (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (3 / 4) (HPow.hPow.{0, 0, 0} k 2))
+                                (HPow.hPow.{0, 0, 0}
+                                  (QuarticMaxwell.volumeRadius
+                                    (MeasureTheory.Measure.real.{0} MeasureTheory.MeasureSpace.volume.{0} D))
+                                  2))))
+                          (HPow.hPow.{0, 0, 0} k 4))
+                        R)
+                      (MeasureTheory.Measure.real.{0} MeasureTheory.MeasureSpace.volume.{0} D)))
+'QuarticMaxwell.UniformBound.uniform_quartic_contrast' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+QuarticMaxwell.volume_real_closedBall_three : ∀ (R : ℝ),
+  LE.le.{0} 0 R →
+    Eq.{1} (MeasureTheory.Measure.real.{0} MeasureTheory.MeasureSpace.volume.{0} (Metric.closedBall.{0} 0 R))
+      (HMul.hMul.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} 4 Real.pi) 3) (HPow.hPow.{0, 0, 0} R 3))
+'QuarticMaxwell.volume_real_closedBall_three' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.bounded_support_volume_le : ∀ (D : Set.{0} QuarticMaxwell.Position) {R : ℝ},
+  LE.le.{0} 0 R →
+    D ⊆ Metric.closedBall.{0} 0 R →
+      LE.le.{0} (MeasureTheory.Measure.real.{0} MeasureTheory.MeasureSpace.volume.{0} D)
+        (HMul.hMul.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} 4 Real.pi) 3) (HPow.hPow.{0, 0, 0} R 3))
+'QuarticMaxwell.bounded_support_volume_le' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.bounded_support_volumeRadius_le : ∀ (D : Set.{0} QuarticMaxwell.Position),
+  LT.lt.{0} 0 (MeasureTheory.Measure.real.{0} MeasureTheory.MeasureSpace.volume.{0} D) →
+    ∀ {R : ℝ},
+      LE.le.{0} 0 R →
+        D ⊆ Metric.closedBall.{0} 0 R →
+          LE.le.{0}
+            (QuarticMaxwell.volumeRadius (MeasureTheory.Measure.real.{0} MeasureTheory.MeasureSpace.volume.{0} D)) R
+'QuarticMaxwell.bounded_support_volumeRadius_le' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.quartic_coefficient_ball_bound : ∀ (D : Set.{0} QuarticMaxwell.Position),
+  LT.lt.{0} 0 (MeasureTheory.Measure.real.{0} MeasureTheory.MeasureSpace.volume.{0} D) →
+    ∀ {k R m ρ : ℝ},
+      LE.le.{0} 0 k →
+        LE.le.{0} 0 R →
+          LT.lt.{0} 0 m →
+            D ⊆ Metric.closedBall.{0} 0 R →
+              LE.le.{0}
+                (HMul.hMul.{0, 0, 0}
+                  (HMul.hMul.{0, 0, 0}
+                    (HMul.hMul.{0, 0, 0}
+                      (HMul.hMul.{0, 0, 0}
+                        (HMul.hMul.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} 2 (HMul.hMul.{0, 0, 0} 3 Real.pi))
+                          (HPow.hPow.{0, 0, 0} ρ 2))
+                        (HAdd.hAdd.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} 1 m) 1)
+                          (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (3 / 4) (HPow.hPow.{0, 0, 0} k 2))
+                            (HPow.hPow.{0, 0, 0}
+                              (QuarticMaxwell.volumeRadius
+                                (MeasureTheory.Measure.real.{0} MeasureTheory.MeasureSpace.volume.{0} D))
+                              2))))
+                      (HPow.hPow.{0, 0, 0} k 4))
+                    R)
+                  (MeasureTheory.Measure.real.{0} MeasureTheory.MeasureSpace.volume.{0} D))
+                (HMul.hMul.{0, 0, 0}
+                  (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (8 / 9) (HPow.hPow.{0, 0, 0} ρ 2))
+                    (HAdd.hAdd.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} 1 m) 1)
+                      (HMul.hMul.{0, 0, 0} (3 / 4) (HPow.hPow.{0, 0, 0} (HMul.hMul.{0, 0, 0} k R) 2))))
+                  (HPow.hPow.{0, 0, 0} (HMul.hMul.{0, 0, 0} k R) 4))
+'QuarticMaxwell.quartic_coefficient_ball_bound' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.UniformBound.uniform_ball_contrast : ∀ (D : Set.{0} QuarticMaxwell.Position) (hD : MeasurableSet.{0} D)
+  (χ :
+    QuarticMaxwell.Position →
+      ContinuousLinearMap.{0, 0, 0, 0} (RingHom.id.{0} ℂ) OQ7Prescribed.Vector OQ7Prescribed.Vector)
+  (hχ : MeasureTheory.AEStronglyMeasurable.{0, 0} χ MeasureTheory.MeasureSpace.volume.{0}) (M : ℝ)
+  (hcap : ∀ᵐ (x : QuarticMaxwell.Position), Membership.mem.{0, 0} D x → LE.le.{0} (Norm.norm.{0} (χ x)) M) {m : ℝ}
+  (hm : LT.lt.{0} 0 m)
+  (hloss :
+    ∀ᵐ (x : QuarticMaxwell.Position),
+      Membership.mem.{0, 0} D x →
+        ∀ (v : OQ7Prescribed.Vector),
+          LE.le.{0} (HMul.hMul.{0, 0, 0} m (HPow.hPow.{0, 0, 0} (Norm.norm.{0} v) 2))
+            (Inner.inner.{0, 0} ℂ v ((χ x) v)).im)
+  {k : ℝ} (hk : LT.lt.{0} 0 k) (hM : LT.lt.{0} 0 M),
+  (∀ᵐ (x : QuarticMaxwell.Position),
+      Membership.mem.{0, 0} D x →
+        ∀ (u v : OQ7Prescribed.Vector),
+          Eq.{1} (OQ7Prescribed.bilinear u ((χ x) v)) (OQ7Prescribed.bilinear v ((χ x) u))) →
+    ∀ (hfin : Ne.{1} (MeasureTheory.MeasureSpace.volume.{0} D) Top.top.{0}),
+      LT.lt.{0} 0 (MeasureTheory.Measure.real.{0} MeasureTheory.MeasureSpace.volume.{0} D) →
+        ∀ {R : ℝ} (hR : LE.le.{0} 0 R) (hsub : D ⊆ Metric.closedBall.{0} 0 R) (n : ↑OQ7Prescribed.UnitSphere)
+          (e : OQ7Prescribed.Vector),
+          Eq.{1} (OQ7Prescribed.vectorConjugate e) e →
+            Eq.{1} (Norm.norm.{0} e) 1 →
+              have A := QuarticMaxwell.VolumeInverse.equiv D hD χ hχ M hcap hm hloss hk hM hfin hR hsub;
+              have W := QuarticMaxwell.VolumeInverse.inverseSusceptibility D hD χ hχ M hcap hm hloss;
+              have f := QuarticMaxwell.domainIncidentSource k n e D hD hfin;
+              have g := QuarticMaxwell.domainIncidentSource (Neg.neg.{0} k) n e D hD hfin;
+              have X := QuarticMaxwell.UniformBound.extinctionPower k A f;
+              LT.lt.{0} 0 X ∧
+                LE.le.{0}
+                  (HDiv.hDiv.{0, 0, 0}
+                    (abs.{0}
+                      (HSub.hSub.{0, 0, 0}
+                        (QuarticMaxwell.UniformBound.absorptionPower k W
+                          ((ContinuousLinearEquiv.symm.{0, 0, 0, 0} A) f))
+                        (QuarticMaxwell.UniformBound.absorptionPower k W
+                          ((ContinuousLinearEquiv.symm.{0, 0, 0, 0} A) g))))
+                    X)
+                  (Min.min.{0} 1
+                    (HMul.hMul.{0, 0, 0}
+                      (HMul.hMul.{0, 0, 0}
+                        (HMul.hMul.{0, 0, 0} (8 / 9)
+                          (HPow.hPow.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} (HPow.hPow.{0, 0, 0} M 2) m) 2))
+                        (HAdd.hAdd.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} 1 m) 1)
+                          (HMul.hMul.{0, 0, 0} (3 / 4) (HPow.hPow.{0, 0, 0} (HMul.hMul.{0, 0, 0} k R) 2))))
+                      (HPow.hPow.{0, 0, 0} (HMul.hMul.{0, 0, 0} k R) 4)))
+'QuarticMaxwell.UniformBound.uniform_ball_contrast' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.radiationPhase_contDiff : ∀ (k : ℝ) (n : ↑OQ7Prescribed.UnitSphere),
+  ContDiff.{0, 0, 0} ℝ (↑Top.top.{0}) (QuarticMaxwell.radiationPhase k n)
+'QuarticMaxwell.radiationPhase_contDiff' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.radiationPhase_hasFDerivAt : ∀ (k : ℝ) (n : ↑OQ7Prescribed.UnitSphere) (x : OQ7Prescribed.Position),
+  HasFDerivAt.{0, 0, 0} (QuarticMaxwell.radiationPhase k n)
+    (HSMul.hSMul.{0, 0, 0}
+      (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (Neg.neg.{0} Complex.I) ↑k) (QuarticMaxwell.radiationPhase k n x))
+      (ContinuousLinearMap.comp.{0, 0, 0, 0, 0, 0} Complex.ofRealCLM ((innerSL.{0, 0} ℝ) ↑n)))
+    x
+'QuarticMaxwell.radiationPhase_hasFDerivAt' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.realInner_basis : ∀ (n : OQ7Prescribed.Position) (j : Fin 3),
+  Eq.{1} (Inner.inner.{0, 0} ℝ n (OQ7Prescribed.basisR j)) (WithLp.ofLp.{0} n j)
+'QuarticMaxwell.realInner_basis' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.radiationPhase_basis_derivative : ∀ (k : ℝ) (n : ↑OQ7Prescribed.UnitSphere) (x : OQ7Prescribed.Position)
+  (j : Fin 3),
+  Eq.{1} ((fderiv.{0, 0, 0} ℝ (QuarticMaxwell.radiationPhase k n) x) (OQ7Prescribed.basisR j))
+    (HMul.hMul.{0, 0, 0}
+      (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (Neg.neg.{0} Complex.I) ↑k) (QuarticMaxwell.radiationPhase k n x))
+      ↑(WithLp.ofLp.{0} (↑n) j))
+'QuarticMaxwell.radiationPhase_basis_derivative' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.phase_vector_curl : ∀ (k : ℝ) (n : ↑OQ7Prescribed.UnitSphere) (e : OQ7Prescribed.Vector)
+  (x : OQ7Prescribed.Position),
+  Eq.{1} (OQ7Prescribed.curl (fun y => HSMul.hSMul.{0, 0, 0} (QuarticMaxwell.radiationPhase k n y) e) x)
+    (HSMul.hSMul.{0, 0, 0}
+      (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (Neg.neg.{0} Complex.I) ↑k) (QuarticMaxwell.radiationPhase k n x))
+      (OQ7Prescribed.cross (OQ7Prescribed.complexify ↑n) e))
+'QuarticMaxwell.phase_vector_curl' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.incidentMagneticWave : ℝ →
+  ↑OQ7Prescribed.UnitSphere → OQ7Prescribed.Vector → OQ7Prescribed.Position → OQ7Prescribed.Vector
+'QuarticMaxwell.incidentMagneticWave' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.incidentWave_contDiff : ∀ (k : ℝ) (n : ↑OQ7Prescribed.UnitSphere) (e : OQ7Prescribed.Vector),
+  ContDiff.{0, 0, 0} ℝ (↑Top.top.{0}) (QuarticMaxwell.incidentWave k n e)
+'QuarticMaxwell.incidentWave_contDiff' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.incidentMagneticWave_contDiff : ∀ (k : ℝ) (n : ↑OQ7Prescribed.UnitSphere) (e : OQ7Prescribed.Vector),
+  ContDiff.{0, 0, 0} ℝ (↑Top.top.{0}) (QuarticMaxwell.incidentMagneticWave k n e)
+'QuarticMaxwell.incidentMagneticWave_contDiff' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.incidentWave_first_curl : ∀ (k : ℝ) (n : ↑OQ7Prescribed.UnitSphere) (e : OQ7Prescribed.Vector)
+  (x : OQ7Prescribed.Position),
+  Eq.{1} (OQ7Prescribed.curl (QuarticMaxwell.incidentWave k n e) x)
+    (HSMul.hSMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} Complex.I ↑k) (QuarticMaxwell.incidentMagneticWave k n e x))
+'QuarticMaxwell.incidentWave_first_curl' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.incidentMagneticWave_second_curl : ∀ (k : ℝ) (n : ↑OQ7Prescribed.UnitSphere) (e : OQ7Prescribed.Vector),
+  Eq.{1} (OQ7Prescribed.bilinear (OQ7Prescribed.complexify ↑n) e) 0 →
+    ∀ (x : OQ7Prescribed.Position),
+      Eq.{1} (OQ7Prescribed.curl (QuarticMaxwell.incidentMagneticWave k n e) x)
+        (HSMul.hSMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (Neg.neg.{0} Complex.I) ↑k) (QuarticMaxwell.incidentWave k n e x))
+'QuarticMaxwell.incidentMagneticWave_second_curl' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.incidentWave_first_weakCurl : ∀ (k : ℝ) (n : ↑OQ7Prescribed.UnitSphere) (e : OQ7Prescribed.Vector),
+  OQ7Prescribed.HasWeakCurl (QuarticMaxwell.incidentWave k n e) fun x =>
+    HSMul.hSMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} Complex.I ↑k) (QuarticMaxwell.incidentMagneticWave k n e x)
+'QuarticMaxwell.incidentWave_first_weakCurl' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.incidentMagneticWave_second_weakCurl : ∀ (k : ℝ) (n : ↑OQ7Prescribed.UnitSphere)
+  (e : OQ7Prescribed.Vector),
+  Eq.{1} (OQ7Prescribed.bilinear (OQ7Prescribed.complexify ↑n) e) 0 →
+    OQ7Prescribed.HasWeakCurl (QuarticMaxwell.incidentMagneticWave k n e) fun x =>
+      HSMul.hSMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (Neg.neg.{0} Complex.I) ↑k) (QuarticMaxwell.incidentWave k n e x)
+'QuarticMaxwell.incidentMagneticWave_second_weakCurl' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@QuarticMaxwell.real_transverse : ∀ {n : ↑OQ7Prescribed.UnitSphere} {v : OQ7Prescribed.Position},
+  Eq.{1} (Inner.inner.{0, 0} ℝ (↑n) v) 0 →
+    Eq.{1} (OQ7Prescribed.bilinear (OQ7Prescribed.complexify ↑n) (OQ7Prescribed.complexify v)) 0
+'QuarticMaxwell.real_transverse' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.incidentWave_locallySquareIntegrable : ∀ (k : ℝ) (n : ↑OQ7Prescribed.UnitSphere)
+  (e : OQ7Prescribed.Vector), OQ7Prescribed.LocallySquareIntegrable (QuarticMaxwell.incidentWave k n e)
+'QuarticMaxwell.incidentWave_locallySquareIntegrable' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.incidentMagneticWave_locallySquareIntegrable : ∀ (k : ℝ) (n : ↑OQ7Prescribed.UnitSphere)
+  (e : OQ7Prescribed.Vector), OQ7Prescribed.LocallySquareIntegrable (QuarticMaxwell.incidentMagneticWave k n e)
+'QuarticMaxwell.incidentMagneticWave_locallySquareIntegrable' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+QuarticMaxwell.WeakMaterial.currentField : QuarticMaxwell.WeakMaterial.Medium →
+  OQ7Prescribed.Field → OQ7Prescribed.Field
+'QuarticMaxwell.WeakMaterial.currentField' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.WeakMaterial.currentField_memLp : ∀ (B : QuarticMaxwell.WeakMaterial.Medium) (E : OQ7Prescribed.Field),
+  OQ7Prescribed.LocallySquareIntegrable E →
+    MeasureTheory.MemLp.{0, 0} (QuarticMaxwell.WeakMaterial.currentField B E) 2 MeasureTheory.MeasureSpace.volume.{0}
+'QuarticMaxwell.WeakMaterial.currentField_memLp' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.WeakMaterial.polarization : QuarticMaxwell.WeakMaterial.Medium →
+  (E : OQ7Prescribed.Field) → OQ7Prescribed.LocallySquareIntegrable E → OQ7Prescribed.CompactPolarization
+'QuarticMaxwell.WeakMaterial.polarization' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.WeakMaterial.currentL2 : (B : QuarticMaxwell.WeakMaterial.Medium) →
+  (E : OQ7Prescribed.Field) → OQ7Prescribed.LocallySquareIntegrable E → ↥(QuarticMaxwell.DomainL2 B.domain)
+'QuarticMaxwell.WeakMaterial.currentL2' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.WeakMaterial.currentL2_coe : ∀ (B : QuarticMaxwell.WeakMaterial.Medium) (E : OQ7Prescribed.Field)
+  (hE : OQ7Prescribed.LocallySquareIntegrable E),
+  ↑↑↑(QuarticMaxwell.WeakMaterial.currentL2 B E hE) =ᵐ[MeasureTheory.MeasureSpace.volume.{0}]
+    QuarticMaxwell.WeakMaterial.currentField B E
+'QuarticMaxwell.WeakMaterial.currentL2_coe' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.WeakMaterial.totalElectric : ℝ →
+  ↑OQ7Prescribed.UnitSphere → OQ7Prescribed.Vector → OQ7Prescribed.CompactPolarization → OQ7Prescribed.Field
+'QuarticMaxwell.WeakMaterial.totalElectric' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.WeakMaterial.totalMagnetic : ℝ →
+  ↑OQ7Prescribed.UnitSphere → OQ7Prescribed.Vector → OQ7Prescribed.CompactPolarization → OQ7Prescribed.Field
+'QuarticMaxwell.WeakMaterial.totalMagnetic' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.WeakMaterial.totalElectric_locallySquareIntegrable : ∀ (k : ℝ) (n : ↑OQ7Prescribed.UnitSphere)
+  (e : OQ7Prescribed.Vector) (p : OQ7Prescribed.CompactPolarization),
+  OQ7Prescribed.LocallySquareIntegrable (QuarticMaxwell.WeakMaterial.totalElectric k n e p)
+'QuarticMaxwell.WeakMaterial.totalElectric_locallySquareIntegrable' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+QuarticMaxwell.WeakMaterial.totalMagnetic_locallySquareIntegrable : ∀ (k : ℝ) (n : ↑OQ7Prescribed.UnitSphere)
+  (e : OQ7Prescribed.Vector) (p : OQ7Prescribed.CompactPolarization),
+  OQ7Prescribed.LocallySquareIntegrable (QuarticMaxwell.WeakMaterial.totalMagnetic k n e p)
+'QuarticMaxwell.WeakMaterial.totalMagnetic_locallySquareIntegrable' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+QuarticMaxwell.WeakMaterial.totalElectric_weakCurl : ∀ (k : ℝ) (n : ↑OQ7Prescribed.UnitSphere)
+  (e : OQ7Prescribed.Vector) (p : OQ7Prescribed.CompactPolarization),
+  OQ7Prescribed.HasWeakCurl (QuarticMaxwell.WeakMaterial.totalElectric k n e p) fun x =>
+    HSMul.hSMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} Complex.I ↑k) (QuarticMaxwell.WeakMaterial.totalMagnetic k n e p x)
+'QuarticMaxwell.WeakMaterial.totalElectric_weakCurl' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.WeakMaterial.totalMagnetic_weakCurl : ∀ (k : ℝ) (n : ↑OQ7Prescribed.UnitSphere)
+  (e : OQ7Prescribed.Vector),
+  Eq.{1} (OQ7Prescribed.bilinear (OQ7Prescribed.complexify ↑n) e) 0 →
+    ∀ (p : OQ7Prescribed.CompactPolarization),
+      OQ7Prescribed.HasWeakCurl (QuarticMaxwell.WeakMaterial.totalMagnetic k n e p) fun x =>
+        HSMul.hSMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (Neg.neg.{0} Complex.I) ↑k)
+          (HAdd.hAdd.{0, 0, 0} (QuarticMaxwell.WeakMaterial.totalElectric k n e p x) (p.current x))
+'QuarticMaxwell.WeakMaterial.totalMagnetic_weakCurl' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.WeakMaterial.stateOfVolumeEquation : (B : QuarticMaxwell.WeakMaterial.Medium) →
+  (k : ℝ) →
+    (n : ↑OQ7Prescribed.UnitSphere) →
+      (e : OQ7Prescribed.Vector) →
+        Eq.{1} (OQ7Prescribed.bilinear (OQ7Prescribed.complexify ↑n) e) 0 →
+          (p : OQ7Prescribed.CompactPolarization) →
+            p.current =ᵐ[MeasureTheory.MeasureSpace.volume.{0}]
+                QuarticMaxwell.WeakMaterial.currentField B (QuarticMaxwell.WeakMaterial.totalElectric k n e p) →
+              QuarticMaxwell.WeakMaterial.State B k n e
+'QuarticMaxwell.WeakMaterial.stateOfVolumeEquation' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.WeakMaterial.volumeEquation_of_operator : ∀ (B : QuarticMaxwell.WeakMaterial.Medium) (k : ℝ)
+  (n : ↑OQ7Prescribed.UnitSphere) (e : OQ7Prescribed.Vector) (p : ↥(QuarticMaxwell.DomainL2 B.domain)),
+  Eq.{1} ((QuarticMaxwell.VolumeInverse.operator B.domain ⋯ B.susceptibility ⋯ B.M ⋯ ⋯ ⋯ k ⋯ ⋯) p)
+      (QuarticMaxwell.domainIncidentSource k n e B.domain ⋯ ⋯) →
+    (QuarticMaxwell.domainPolarization B.domain ⋯ ⋯ ⋯ p).current =ᵐ[MeasureTheory.MeasureSpace.volume.{0}]
+      QuarticMaxwell.WeakMaterial.currentField B
+        (QuarticMaxwell.WeakMaterial.totalElectric k n e (QuarticMaxwell.domainPolarization B.domain ⋯ ⋯ ⋯ p))
+'QuarticMaxwell.WeakMaterial.volumeEquation_of_operator' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+QuarticMaxwell.WeakMaterial.response : (B : QuarticMaxwell.WeakMaterial.Medium) →
+  (k : ℝ) → LT.lt.{0} 0 k → ↑OQ7Prescribed.UnitSphere → OQ7Prescribed.Vector → ↥(QuarticMaxwell.DomainL2 B.domain)
+'QuarticMaxwell.WeakMaterial.response' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.WeakMaterial.response_equation : ∀ (B : QuarticMaxwell.WeakMaterial.Medium) (k : ℝ) (hk : LT.lt.{0} 0 k)
+  (n : ↑OQ7Prescribed.UnitSphere) (e : OQ7Prescribed.Vector),
+  Eq.{1}
+    ((QuarticMaxwell.VolumeInverse.operator B.domain ⋯ B.susceptibility ⋯ B.M ⋯ ⋯ ⋯ k ⋯ ⋯)
+      (QuarticMaxwell.WeakMaterial.response B k hk n e))
+    (QuarticMaxwell.domainIncidentSource k n e B.domain ⋯ ⋯)
+'QuarticMaxwell.WeakMaterial.response_equation' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.WeakMaterial.operator_of_volumeEquation : ∀ (B : QuarticMaxwell.WeakMaterial.Medium) (k : ℝ)
+  (n : ↑OQ7Prescribed.UnitSphere) (e : OQ7Prescribed.Vector) (p : ↥(QuarticMaxwell.DomainL2 B.domain)),
+  (QuarticMaxwell.domainPolarization B.domain ⋯ ⋯ ⋯ p).current =ᵐ[MeasureTheory.MeasureSpace.volume.{0}]
+      QuarticMaxwell.WeakMaterial.currentField B
+        (QuarticMaxwell.WeakMaterial.totalElectric k n e (QuarticMaxwell.domainPolarization B.domain ⋯ ⋯ ⋯ p)) →
+    Eq.{1} ((QuarticMaxwell.VolumeInverse.operator B.domain ⋯ B.susceptibility ⋯ B.M ⋯ ⋯ ⋯ k ⋯ ⋯) p)
+      (QuarticMaxwell.domainIncidentSource k n e B.domain ⋯ ⋯)
+'QuarticMaxwell.WeakMaterial.operator_of_volumeEquation' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+QuarticMaxwell.WeakMaterial.solution : (B : QuarticMaxwell.WeakMaterial.Medium) →
+  (k : ℝ) →
+    LT.lt.{0} 0 k →
+      (n : ↑OQ7Prescribed.UnitSphere) →
+        (e : OQ7Prescribed.Vector) →
+          Eq.{1} (OQ7Prescribed.bilinear (OQ7Prescribed.complexify ↑n) e) 0 → QuarticMaxwell.WeakMaterial.State B k n e
+'QuarticMaxwell.WeakMaterial.solution' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.WeakMaterial.state_representation : ∀ (B : QuarticMaxwell.WeakMaterial.Medium) {k : ℝ},
+  LT.lt.{0} 0 k →
+    ∀ (n : ↑OQ7Prescribed.UnitSphere) (e : OQ7Prescribed.Vector),
+      Eq.{1} (OQ7Prescribed.bilinear (OQ7Prescribed.complexify ↑n) e) 0 →
+        ∀ (s : QuarticMaxwell.WeakMaterial.State B k n e),
+          have p := QuarticMaxwell.WeakMaterial.polarization B s.electric ⋯;
+          s.electric =ᵐ[MeasureTheory.MeasureSpace.volume.{0}] QuarticMaxwell.WeakMaterial.totalElectric k n e p ∧
+            s.magnetic =ᵐ[MeasureTheory.MeasureSpace.volume.{0}] QuarticMaxwell.WeakMaterial.totalMagnetic k n e p
+'QuarticMaxwell.WeakMaterial.state_representation' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.WeakMaterial.outgoingElectric_congr : ∀ (k : ℝ) (p q : OQ7Prescribed.CompactPolarization),
+  p.current =ᵐ[MeasureTheory.MeasureSpace.volume.{0}] q.current →
+    OQ7Prescribed.outgoingElectricField k p =ᵐ[MeasureTheory.MeasureSpace.volume.{0}]
+      OQ7Prescribed.outgoingElectricField k q
+'QuarticMaxwell.WeakMaterial.outgoingElectric_congr' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.WeakMaterial.outgoingMagnetic_congr : ∀ (k : ℝ) (p q : OQ7Prescribed.CompactPolarization),
+  p.current =ᵐ[MeasureTheory.MeasureSpace.volume.{0}] q.current →
+    Eq.{1} (OQ7Prescribed.outgoingMagneticField k p) (OQ7Prescribed.outgoingMagneticField k q)
+'QuarticMaxwell.WeakMaterial.outgoingMagnetic_congr' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.WeakMaterial.totalElectric_congr : ∀ (k : ℝ) (n : ↑OQ7Prescribed.UnitSphere) (e : OQ7Prescribed.Vector)
+  (p q : OQ7Prescribed.CompactPolarization),
+  p.current =ᵐ[MeasureTheory.MeasureSpace.volume.{0}] q.current →
+    QuarticMaxwell.WeakMaterial.totalElectric k n e p =ᵐ[MeasureTheory.MeasureSpace.volume.{0}]
+      QuarticMaxwell.WeakMaterial.totalElectric k n e q
+'QuarticMaxwell.WeakMaterial.totalElectric_congr' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.WeakMaterial.totalMagnetic_congr : ∀ (k : ℝ) (n : ↑OQ7Prescribed.UnitSphere) (e : OQ7Prescribed.Vector)
+  (p q : OQ7Prescribed.CompactPolarization),
+  p.current =ᵐ[MeasureTheory.MeasureSpace.volume.{0}] q.current →
+    Eq.{1} (QuarticMaxwell.WeakMaterial.totalMagnetic k n e p) (QuarticMaxwell.WeakMaterial.totalMagnetic k n e q)
+'QuarticMaxwell.WeakMaterial.totalMagnetic_congr' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.WeakMaterial.state_current_response : ∀ (B : QuarticMaxwell.WeakMaterial.Medium) {k : ℝ}
+  (hk : LT.lt.{0} 0 k) (n : ↑OQ7Prescribed.UnitSphere) (e : OQ7Prescribed.Vector),
+  Eq.{1} (OQ7Prescribed.bilinear (OQ7Prescribed.complexify ↑n) e) 0 →
+    ∀ (s : QuarticMaxwell.WeakMaterial.State B k n e),
+      Eq.{1} (QuarticMaxwell.WeakMaterial.currentL2 B s.electric ⋯) (QuarticMaxwell.WeakMaterial.response B k hk n e)
+'QuarticMaxwell.WeakMaterial.state_current_response' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.WeakMaterial.wellposed : ∀ (B : QuarticMaxwell.WeakMaterial.Medium) {k : ℝ},
+  LT.lt.{0} 0 k →
+    ∀ (n : ↑OQ7Prescribed.UnitSphere) (e : OQ7Prescribed.Vector),
+      Eq.{1} (OQ7Prescribed.bilinear (OQ7Prescribed.complexify ↑n) e) 0 →
+        ∃ s,
+          ∀ (t : QuarticMaxwell.WeakMaterial.State B k n e),
+            t.electric =ᵐ[MeasureTheory.MeasureSpace.volume.{0}] s.electric ∧
+              t.magnetic =ᵐ[MeasureTheory.MeasureSpace.volume.{0}] s.magnetic
+'QuarticMaxwell.WeakMaterial.wellposed' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.PhysicalPowers.field_memLp : ∀ (B : QuarticMaxwell.WeakMaterial.Medium) (E : OQ7Prescribed.Field),
+  OQ7Prescribed.LocallySquareIntegrable E →
+    MeasureTheory.MemLp.{0, 0} (Set.indicator.{0, 0} B.domain E) 2 MeasureTheory.MeasureSpace.volume.{0}
+'QuarticMaxwell.PhysicalPowers.field_memLp' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.PhysicalPowers.fieldRestriction : (B : QuarticMaxwell.WeakMaterial.Medium) →
+  (E : OQ7Prescribed.Field) → OQ7Prescribed.LocallySquareIntegrable E → ↥(QuarticMaxwell.DomainL2 B.domain)
+'QuarticMaxwell.PhysicalPowers.fieldRestriction' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.PhysicalPowers.fieldRestriction_coe : ∀ (B : QuarticMaxwell.WeakMaterial.Medium)
+  (E : OQ7Prescribed.Field) (hE : OQ7Prescribed.LocallySquareIntegrable E),
+  ↑↑↑(QuarticMaxwell.PhysicalPowers.fieldRestriction B E hE) =ᵐ[MeasureTheory.MeasureSpace.volume.{0}]
+    Set.indicator.{0, 0} B.domain E
+'QuarticMaxwell.PhysicalPowers.fieldRestriction_coe' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.PhysicalPowers.currentL2_multiplier : ∀ (B : QuarticMaxwell.WeakMaterial.Medium)
+  (E : OQ7Prescribed.Field) (hE : OQ7Prescribed.LocallySquareIntegrable E),
+  Eq.{1} (QuarticMaxwell.WeakMaterial.currentL2 B E hE)
+    ((QuarticMaxwell.TensorMultiplier.operator.{0, 0} MeasureTheory.MeasureSpace.volume.{0} B.domain B.susceptibility ⋯
+        B.M ⋯)
+      (QuarticMaxwell.PhysicalPowers.fieldRestriction B E hE))
+'QuarticMaxwell.PhysicalPowers.currentL2_multiplier' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.PhysicalPowers.inverse_currentL2 : ∀ (B : QuarticMaxwell.WeakMaterial.Medium) (E : OQ7Prescribed.Field)
+  (hE : OQ7Prescribed.LocallySquareIntegrable E),
+  Eq.{1}
+    ((QuarticMaxwell.VolumeInverse.inverseSusceptibility B.domain ⋯ B.susceptibility ⋯ B.M ⋯ ⋯ ⋯)
+      (QuarticMaxwell.WeakMaterial.currentL2 B E hE))
+    (QuarticMaxwell.PhysicalPowers.fieldRestriction B E hE)
+'QuarticMaxwell.PhysicalPowers.inverse_currentL2' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.PhysicalPowers.field_inner_current : ∀ (B : QuarticMaxwell.WeakMaterial.Medium) (E : OQ7Prescribed.Field)
+  (hE : OQ7Prescribed.LocallySquareIntegrable E),
+  Eq.{1}
+    (Inner.inner.{0, 0} ℂ (QuarticMaxwell.PhysicalPowers.fieldRestriction B E hE)
+      (QuarticMaxwell.WeakMaterial.currentL2 B E hE))
+    (∫ (x : QuarticMaxwell.Position) in B.domain, Inner.inner.{0, 0} ℂ (E x) ((B.susceptibility x) (E x)))
+'QuarticMaxwell.PhysicalPowers.field_inner_current' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.PhysicalPowers.source_inner_current : ∀ (B : QuarticMaxwell.WeakMaterial.Medium)
+  (E : OQ7Prescribed.Field) (hE : OQ7Prescribed.LocallySquareIntegrable E) (k : ℝ) (n : ↑OQ7Prescribed.UnitSphere)
+  (e : OQ7Prescribed.Vector),
+  Eq.{1}
+    (Inner.inner.{0, 0} ℂ (QuarticMaxwell.domainIncidentSource k n e B.domain ⋯ ⋯)
+      (QuarticMaxwell.WeakMaterial.currentL2 B E hE))
+    (∫ (x : QuarticMaxwell.Position) in B.domain,
+      Inner.inner.{0, 0} ℂ (QuarticMaxwell.incidentWave k n e x) ((B.susceptibility x) (E x)))
+'QuarticMaxwell.PhysicalPowers.source_inner_current' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.PhysicalPowers.absorption : QuarticMaxwell.WeakMaterial.Medium → ℝ → OQ7Prescribed.Field → ℝ
+'QuarticMaxwell.PhysicalPowers.absorption' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.PhysicalPowers.extinction : QuarticMaxwell.WeakMaterial.Medium →
+  ℝ → ↑OQ7Prescribed.UnitSphere → OQ7Prescribed.Vector → OQ7Prescribed.Field → ℝ
+'QuarticMaxwell.PhysicalPowers.extinction' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.PhysicalPowers.scattering : QuarticMaxwell.WeakMaterial.Medium →
+  ℝ → (E : OQ7Prescribed.Field) → OQ7Prescribed.LocallySquareIntegrable E → ℝ
+'QuarticMaxwell.PhysicalPowers.scattering' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.PhysicalPowers.absorption_eq_volume : ∀ (B : QuarticMaxwell.WeakMaterial.Medium) (k : ℝ)
+  (E : OQ7Prescribed.Field) (hE : OQ7Prescribed.LocallySquareIntegrable E),
+  Eq.{1} (QuarticMaxwell.PhysicalPowers.absorption B k E)
+    (QuarticMaxwell.UniformBound.absorptionPower k
+      (QuarticMaxwell.VolumeInverse.inverseSusceptibility B.domain ⋯ B.susceptibility ⋯ B.M ⋯ ⋯ ⋯)
+      (QuarticMaxwell.WeakMaterial.currentL2 B E hE))
+'QuarticMaxwell.PhysicalPowers.absorption_eq_volume' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.PhysicalPowers.state_absorption : ∀ (B : QuarticMaxwell.WeakMaterial.Medium) {k : ℝ} (hk : LT.lt.{0} 0 k)
+  (n : ↑OQ7Prescribed.UnitSphere) (e : OQ7Prescribed.Vector),
+  Eq.{1} (OQ7Prescribed.bilinear (OQ7Prescribed.complexify ↑n) e) 0 →
+    ∀ (s : QuarticMaxwell.WeakMaterial.State B k n e),
+      Eq.{1} (QuarticMaxwell.PhysicalPowers.absorption B k s.electric)
+        (QuarticMaxwell.UniformBound.absorptionPower k
+          (QuarticMaxwell.VolumeInverse.inverseSusceptibility B.domain ⋯ B.susceptibility ⋯ B.M ⋯ ⋯ ⋯)
+          (QuarticMaxwell.WeakMaterial.response B k hk n e))
+'QuarticMaxwell.PhysicalPowers.state_absorption' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.PhysicalPowers.state_extinction : ∀ (B : QuarticMaxwell.WeakMaterial.Medium) {k : ℝ} (hk : LT.lt.{0} 0 k)
+  (n : ↑OQ7Prescribed.UnitSphere) (e : OQ7Prescribed.Vector),
+  Eq.{1} (OQ7Prescribed.bilinear (OQ7Prescribed.complexify ↑n) e) 0 →
+    ∀ (s : QuarticMaxwell.WeakMaterial.State B k n e),
+      Eq.{1} (QuarticMaxwell.PhysicalPowers.extinction B k n e s.electric)
+        (QuarticMaxwell.UniformBound.extinctionPower k
+          (QuarticMaxwell.VolumeInverse.equiv B.domain ⋯ B.susceptibility ⋯ B.M ⋯ ⋯ ⋯ hk ⋯ ⋯ ⋯ ⋯)
+          (QuarticMaxwell.domainIncidentSource k n e B.domain ⋯ ⋯))
+'QuarticMaxwell.PhysicalPowers.state_extinction' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.PhysicalPowers.scattering_eq_volume : ∀ (B : QuarticMaxwell.WeakMaterial.Medium) (k : ℝ)
+  (E : OQ7Prescribed.Field) (hE : OQ7Prescribed.LocallySquareIntegrable E),
+  Eq.{1} (QuarticMaxwell.PhysicalPowers.scattering B k E hE)
+    (QuarticMaxwell.UniformBound.scatteringPower k (QuarticMaxwell.domainRadiationMap k B.domain ⋯ ⋯)
+      (QuarticMaxwell.WeakMaterial.currentL2 B E hE))
+'QuarticMaxwell.PhysicalPowers.scattering_eq_volume' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.PhysicalPowers.scattering_physical_flux : ∀ (B : QuarticMaxwell.WeakMaterial.Medium) (k : ℝ)
+  (E : OQ7Prescribed.Field) (hE : OQ7Prescribed.LocallySquareIntegrable E),
+  Filter.Tendsto.{0, 0} (OQ7Prescribed.exteriorSphereFlux k (QuarticMaxwell.WeakMaterial.polarization B E hE))
+    Filter.atTop.{0} (nhds.{0} (QuarticMaxwell.PhysicalPowers.scattering B k E hE))
+'QuarticMaxwell.PhysicalPowers.scattering_physical_flux' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+QuarticMaxwell.PhysicalPowers.opposite : ↑OQ7Prescribed.UnitSphere → ↑OQ7Prescribed.UnitSphere
+'QuarticMaxwell.PhysicalPowers.opposite' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.PhysicalPowers.opposite_transverse : ∀ (n : ↑OQ7Prescribed.UnitSphere) (e : OQ7Prescribed.Vector),
+  Eq.{1} (OQ7Prescribed.bilinear (OQ7Prescribed.complexify ↑n) e) 0 →
+    Eq.{1} (OQ7Prescribed.bilinear (OQ7Prescribed.complexify ↑(QuarticMaxwell.PhysicalPowers.opposite n)) e) 0
+'QuarticMaxwell.PhysicalPowers.opposite_transverse' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.PhysicalPowers.incidentWave_opposite : ∀ (k : ℝ) (n : ↑OQ7Prescribed.UnitSphere)
+  (e : OQ7Prescribed.Vector),
+  Eq.{1} (QuarticMaxwell.incidentWave k (QuarticMaxwell.PhysicalPowers.opposite n) e)
+    (QuarticMaxwell.incidentWave (Neg.neg.{0} k) n e)
+'QuarticMaxwell.PhysicalPowers.incidentWave_opposite' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.PhysicalPowers.source_opposite : ∀ (B : QuarticMaxwell.WeakMaterial.Medium) (k : ℝ)
+  (n : ↑OQ7Prescribed.UnitSphere) (e : OQ7Prescribed.Vector),
+  Eq.{1} (QuarticMaxwell.domainIncidentSource k (QuarticMaxwell.PhysicalPowers.opposite n) e B.domain ⋯ ⋯)
+    (QuarticMaxwell.domainIncidentSource (Neg.neg.{0} k) n e B.domain ⋯ ⋯)
+'QuarticMaxwell.PhysicalPowers.source_opposite' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.PhysicalPowers.response_opposite : ∀ (B : QuarticMaxwell.WeakMaterial.Medium) {k : ℝ}
+  (hk : LT.lt.{0} 0 k) (n : ↑OQ7Prescribed.UnitSphere) (e : OQ7Prescribed.Vector),
+  Eq.{1} (QuarticMaxwell.WeakMaterial.response B k hk (QuarticMaxwell.PhysicalPowers.opposite n) e)
+    ((ContinuousLinearEquiv.symm.{0, 0, 0, 0}
+        (QuarticMaxwell.VolumeInverse.equiv B.domain ⋯ B.susceptibility ⋯ B.M ⋯ ⋯ ⋯ hk ⋯ ⋯ ⋯ ⋯))
+      (QuarticMaxwell.domainIncidentSource (Neg.neg.{0} k) n e B.domain ⋯ ⋯))
+'QuarticMaxwell.PhysicalPowers.response_opposite' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.PhysicalPowers.theorem11 : ∀ (B : QuarticMaxwell.WeakMaterial.Medium) {k : ℝ},
+  LT.lt.{0} 0 k →
+    LT.lt.{0} 0 (MeasureTheory.Measure.real.{0} MeasureTheory.MeasureSpace.volume.{0} B.domain) →
+      (∀ᵐ (x : QuarticMaxwell.Position),
+          Membership.mem.{0, 0} B.domain x →
+            ∀ (u v : OQ7Prescribed.Vector),
+              Eq.{1} (OQ7Prescribed.bilinear u ((B.susceptibility x) v))
+                (OQ7Prescribed.bilinear v ((B.susceptibility x) u))) →
+        ∀ (n : ↑OQ7Prescribed.UnitSphere) (e : OQ7Prescribed.Vector),
+          Eq.{1} (OQ7Prescribed.vectorConjugate e) e →
+            Eq.{1} (Norm.norm.{0} e) 1 →
+              Eq.{1} (OQ7Prescribed.bilinear (OQ7Prescribed.complexify ↑n) e) 0 →
+                ∀ (s : QuarticMaxwell.WeakMaterial.State B k n e)
+                  (t : QuarticMaxwell.WeakMaterial.State B k (QuarticMaxwell.PhysicalPowers.opposite n) e),
+                  LT.lt.{0} 0 (QuarticMaxwell.PhysicalPowers.extinction B k n e s.electric) ∧
+                    LE.le.{0}
+                      (HDiv.hDiv.{0, 0, 0}
+                        (abs.{0}
+                          (HSub.hSub.{0, 0, 0} (QuarticMaxwell.PhysicalPowers.absorption B k s.electric)
+                            (QuarticMaxwell.PhysicalPowers.absorption B k t.electric)))
+                        (QuarticMaxwell.PhysicalPowers.extinction B k n e s.electric))
+                      (Min.min.{0} 1
+                        (HMul.hMul.{0, 0, 0}
+                          (HMul.hMul.{0, 0, 0}
+                            (HMul.hMul.{0, 0, 0}
+                              (HMul.hMul.{0, 0, 0}
+                                (HMul.hMul.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} 2 (HMul.hMul.{0, 0, 0} 3 Real.pi))
+                                  (HPow.hPow.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} (HPow.hPow.{0, 0, 0} B.M 2) B.m) 2))
+                                (HAdd.hAdd.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} 1 B.m) 1)
+                                  (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (3 / 4) (HPow.hPow.{0, 0, 0} k 2))
+                                    (HPow.hPow.{0, 0, 0}
+                                      (QuarticMaxwell.volumeRadius
+                                        (MeasureTheory.Measure.real.{0} MeasureTheory.MeasureSpace.volume.{0} B.domain))
+                                      2))))
+                              (HPow.hPow.{0, 0, 0} k 4))
+                            B.radius)
+                          (MeasureTheory.Measure.real.{0} MeasureTheory.MeasureSpace.volume.{0} B.domain)))
+'QuarticMaxwell.PhysicalPowers.theorem11' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.PhysicalPowers.theorem11_ball : ∀ (B : QuarticMaxwell.WeakMaterial.Medium) {k : ℝ},
+  LT.lt.{0} 0 k →
+    LT.lt.{0} 0 (MeasureTheory.Measure.real.{0} MeasureTheory.MeasureSpace.volume.{0} B.domain) →
+      (∀ᵐ (x : QuarticMaxwell.Position),
+          Membership.mem.{0, 0} B.domain x →
+            ∀ (u v : OQ7Prescribed.Vector),
+              Eq.{1} (OQ7Prescribed.bilinear u ((B.susceptibility x) v))
+                (OQ7Prescribed.bilinear v ((B.susceptibility x) u))) →
+        ∀ (n : ↑OQ7Prescribed.UnitSphere) (e : OQ7Prescribed.Vector),
+          Eq.{1} (OQ7Prescribed.vectorConjugate e) e →
+            Eq.{1} (Norm.norm.{0} e) 1 →
+              Eq.{1} (OQ7Prescribed.bilinear (OQ7Prescribed.complexify ↑n) e) 0 →
+                ∀ (s : QuarticMaxwell.WeakMaterial.State B k n e)
+                  (t : QuarticMaxwell.WeakMaterial.State B k (QuarticMaxwell.PhysicalPowers.opposite n) e),
+                  LT.lt.{0} 0 (QuarticMaxwell.PhysicalPowers.extinction B k n e s.electric) ∧
+                    LE.le.{0}
+                      (HDiv.hDiv.{0, 0, 0}
+                        (abs.{0}
+                          (HSub.hSub.{0, 0, 0} (QuarticMaxwell.PhysicalPowers.absorption B k s.electric)
+                            (QuarticMaxwell.PhysicalPowers.absorption B k t.electric)))
+                        (QuarticMaxwell.PhysicalPowers.extinction B k n e s.electric))
+                      (Min.min.{0} 1
+                        (HMul.hMul.{0, 0, 0}
+                          (HMul.hMul.{0, 0, 0}
+                            (HMul.hMul.{0, 0, 0} (8 / 9)
+                              (HPow.hPow.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} (HPow.hPow.{0, 0, 0} B.M 2) B.m) 2))
+                            (HAdd.hAdd.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} 1 B.m) 1)
+                              (HMul.hMul.{0, 0, 0} (3 / 4) (HPow.hPow.{0, 0, 0} (HMul.hMul.{0, 0, 0} k B.radius) 2))))
+                          (HPow.hPow.{0, 0, 0} (HMul.hMul.{0, 0, 0} k B.radius) 4)))
+'QuarticMaxwell.PhysicalPowers.theorem11_ball' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.PhysicalPowers.volume_extinction_reciprocal : ∀ (B : QuarticMaxwell.WeakMaterial.Medium) {k : ℝ}
+  (hk : LT.lt.{0} 0 k),
+  (∀ᵐ (x : QuarticMaxwell.Position),
+      Membership.mem.{0, 0} B.domain x →
+        ∀ (u v : OQ7Prescribed.Vector),
+          Eq.{1} (OQ7Prescribed.bilinear u ((B.susceptibility x) v))
+            (OQ7Prescribed.bilinear v ((B.susceptibility x) u))) →
+    ∀ (n : ↑OQ7Prescribed.UnitSphere) (e : OQ7Prescribed.Vector),
+      Eq.{1} (OQ7Prescribed.vectorConjugate e) e →
+        have A := QuarticMaxwell.VolumeInverse.equiv B.domain ⋯ B.susceptibility ⋯ B.M ⋯ ⋯ ⋯ hk ⋯ ⋯ ⋯ ⋯;
+        Eq.{1}
+          (QuarticMaxwell.UniformBound.extinctionPower k A (QuarticMaxwell.domainIncidentSource k n e B.domain ⋯ ⋯))
+          (QuarticMaxwell.UniformBound.extinctionPower k A
+            (QuarticMaxwell.domainIncidentSource (Neg.neg.{0} k) n e B.domain ⋯ ⋯))
+'QuarticMaxwell.PhysicalPowers.volume_extinction_reciprocal' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+QuarticMaxwell.PhysicalPowers.state_extinction_reciprocal : ∀ (B : QuarticMaxwell.WeakMaterial.Medium) {k : ℝ},
+  LT.lt.{0} 0 k →
+    (∀ᵐ (x : QuarticMaxwell.Position),
+        Membership.mem.{0, 0} B.domain x →
+          ∀ (u v : OQ7Prescribed.Vector),
+            Eq.{1} (OQ7Prescribed.bilinear u ((B.susceptibility x) v))
+              (OQ7Prescribed.bilinear v ((B.susceptibility x) u))) →
+      ∀ (n : ↑OQ7Prescribed.UnitSphere) (e : OQ7Prescribed.Vector),
+        Eq.{1} (OQ7Prescribed.vectorConjugate e) e →
+          Eq.{1} (OQ7Prescribed.bilinear (OQ7Prescribed.complexify ↑n) e) 0 →
+            ∀ (s : QuarticMaxwell.WeakMaterial.State B k n e)
+              (t : QuarticMaxwell.WeakMaterial.State B k (QuarticMaxwell.PhysicalPowers.opposite n) e),
+              Eq.{1} (QuarticMaxwell.PhysicalPowers.extinction B k n e s.electric)
+                (QuarticMaxwell.PhysicalPowers.extinction B k (QuarticMaxwell.PhysicalPowers.opposite n) e t.electric)
+'QuarticMaxwell.PhysicalPowers.state_extinction_reciprocal' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+QuarticMaxwell.PhysicalPowers.state_power_balance : ∀ (B : QuarticMaxwell.WeakMaterial.Medium) {k : ℝ},
+  LT.lt.{0} 0 k →
+    ∀ (n : ↑OQ7Prescribed.UnitSphere) (e : OQ7Prescribed.Vector),
+      Eq.{1} (OQ7Prescribed.bilinear (OQ7Prescribed.complexify ↑n) e) 0 →
+        ∀ (s : QuarticMaxwell.WeakMaterial.State B k n e),
+          Eq.{1} (QuarticMaxwell.PhysicalPowers.extinction B k n e s.electric)
+            (HAdd.hAdd.{0, 0, 0} (QuarticMaxwell.PhysicalPowers.absorption B k s.electric)
+              (QuarticMaxwell.PhysicalPowers.scattering B k s.electric ⋯))
+'QuarticMaxwell.PhysicalPowers.state_power_balance' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.PhysicalPowers.absorption_nonneg : ∀ (B : QuarticMaxwell.WeakMaterial.Medium) (k : ℝ),
+  LE.le.{0} 0 k →
+    ∀ (E : OQ7Prescribed.Field),
+      OQ7Prescribed.LocallySquareIntegrable E → LE.le.{0} 0 (QuarticMaxwell.PhysicalPowers.absorption B k E)
+'QuarticMaxwell.PhysicalPowers.absorption_nonneg' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+QuarticMaxwell.PhysicalPowers.scattering_nonneg : ∀ (B : QuarticMaxwell.WeakMaterial.Medium) (k : ℝ)
+  (E : OQ7Prescribed.Field) (hE : OQ7Prescribed.LocallySquareIntegrable E),
+  LE.le.{0} 0 (QuarticMaxwell.PhysicalPowers.scattering B k E hE)
+'QuarticMaxwell.PhysicalPowers.scattering_nonneg' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]

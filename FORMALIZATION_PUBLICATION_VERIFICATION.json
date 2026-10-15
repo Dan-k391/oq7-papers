@@ -1,0 +1,224 @@
+{
+  "schemaVersion": 1,
+  "createdUTC": "2026-10-15T06:23:12.529717+00:00",
+  "baselineCommit": "2c8e3a4b31a9cd5f0e690c3c2ef588c687b851e6",
+  "proofRecordHashes": {
+    "papers/generalized-research/formalization/verification/final-all-numbered/report.json": "d1b3b6fa1956747fdb76083ce3e7e9f4a972d613450e495e6da0747eec17294f",
+    "papers/quartic-maxwell/formalization/verification/report.json": "e1222d109eafcf5f0a3fbb391642a9e59e77381cdc71c291fb720b9bafeb8d2a"
+  },
+  "coverageLedgerHashes": {
+    "papers/generalized-research/formalization/verification/final-all-numbered/claim-coverage.json": "de368b6964441290d58e3a6b6cbb600a06e3899b269bf42ad641a0051e24791a",
+    "papers/quartic-maxwell/formalization/verification/coverage.json": "8e33b81f03fcdc5f281b2051647c6d2fac16f4654bfb2df4b7afa7e1f5c83007"
+  },
+  "manuscriptBindingSHA256": "f627f65ea099e9a00280f4658d20b326a726e24329dda536d5f553d23e20cb65",
+  "scopeReviewRecordHashes": {
+    "FORMALIZATION_SCOPE_REVIEW.md": "63c6bc559795d92f58c2b42f229ab3b2beb85b752df285b141c84b477079a737",
+    "FORMALIZATION_SCOPE_REVIEW.json": "0151cb30edc0c315788d31ae0dcc2a912aaa21f8ef3500d94a479bd51b23096d"
+  },
+  "papers": [
+    {
+      "paper": "quartic-maxwell",
+      "pages": 13,
+      "numberedStatementBlocksUnchanged": 8,
+      "pdfSHA256": "b6856d70520389f2a9f7cb8b69c02dbdd2beef110af263984e5f553ec180689f",
+      "sourceSHA256": "037173e61c6039f93f3afead8e4263e95c92992fa80e56222861caf0574e9df4",
+      "arxivSourceZIP_SHA256": "b074448404e1ba5d141b75f0039f0821a2a1de38b2d720c1b9f115ae1cd0415c",
+      "leanSupplementZIP_SHA256": "670c0fd09ca776d992ab4dddb23337a19e267ad0aa4cf9748a7289b0669c4f17",
+      "authorMetadata": "Daniel Wang and Junjie Zheng",
+      "contacts": [
+        "mailto:denialk391@gmail.com",
+        "mailto:zjj2785@gmail.com"
+      ],
+      "sourcePackageMatchesBuildRecord": true,
+      "nestedSourceSupplementFinalGate": true,
+      "noPDFJavaScript": true,
+      "pdfSecurityInspection": {
+        "inspector": "pypdf",
+        "version": "6.10.0",
+        "readOnly": true,
+        "encrypted": false,
+        "indirectObjectsScanned": 403,
+        "javaScriptActionKeysFound": [],
+        "openActionJavaScriptFound": false
+      },
+      "leanSupplementValidation": {
+        "pathSafety": "passed",
+        "noTeXOrBinaryCaches": "passed",
+        "crc": "passed",
+        "payloadAndManifestHashes": "passed",
+        "finalReportSourceGate": "passed",
+        "sourceImportGraph": "passed",
+        "payloadFiles": 564,
+        "uncompressedBytes": 4311995
+      },
+      "noTextOutsidePageBounds": true,
+      "unresolvedReferences": false,
+      "overfullBoxes": [],
+      "allPagesRenderedWithPopplerAndVisuallyReviewed": true
+    },
+    {
+      "paper": "generalized-research",
+      "pages": 17,
+      "numberedStatementBlocksUnchanged": 12,
+      "pdfSHA256": "0ba0cce0aace00ba570a662022cc8728a7ecf22075f9b7199d6ff05753e96999",
+      "sourceSHA256": "87aec7431baf2e937a790093f4ae249cc896a289f9bf8f6fe84007df59fe35e4",
+      "arxivSourceZIP_SHA256": "8063f3935ad96b87eb574b1360f4c4de056086895627938a124079bca41083a5",
+      "leanSupplementZIP_SHA256": "e2d76dc2fb59d0f46da6674090df1cf905369498465b138709848326607665ea",
+      "authorMetadata": "Daniel Wang and Junjie Zheng",
+      "contacts": [
+        "mailto:denialk391@gmail.com",
+        "mailto:zjj2785@gmail.com"
+      ],
+      "sourcePackageMatchesBuildRecord": true,
+      "nestedSourceSupplementFinalGate": true,
+      "noPDFJavaScript": true,
+      "pdfSecurityInspection": {
+        "inspector": "pypdf",
+        "version": "6.10.0",
+        "readOnly": true,
+        "encrypted": false,
+        "indirectObjectsScanned": 412,
+        "javaScriptActionKeysFound": [],
+        "openActionJavaScriptFound": false
+      },
+      "leanSupplementValidation": {
+        "pathSafety": "passed",
+        "noTeXOrBinaryCaches": "passed",
+        "crc": "passed",
+        "payloadAndManifestHashes": "passed",
+        "finalReportSourceGate": "passed",
+        "sourceImportGraph": "passed",
+        "payloadFiles": 561,
+        "uncompressedBytes": 4965081
+      },
+      "noTextOutsidePageBounds": true,
+      "unresolvedReferences": false,
+      "overfullBoxes": [],
+      "allPagesRenderedWithPopplerAndVisuallyReviewed": true
+    }
+  ],
+  "arxivServerTested": false,
+  "uploadedOrSubmitted": false,
+  "interpretation": "Fresh replay uses Lean's own kernel implementation. Exact numbered conclusions and auxiliary exclusions are defined by the source-bound coverage ledgers. No human peer review or novelty certification is inferred.",
+  "repositoryWhitespaceReview": {
+    "publicationAndNavigationCheckPassed": true,
+    "frozenProofAndEvidenceCosmeticExceptions": [
+      {
+        "path": "papers/generalized-research/formalization/GeneralizedResearch/PhysicalBeamUpper.lean",
+        "line": 23,
+        "diagnostic": "trailing whitespace."
+      },
+      {
+        "path": "papers/generalized-research/formalization/GeneralizedResearch/ScalarPhysicalSharpness.lean",
+        "line": 99,
+        "diagnostic": "trailing whitespace."
+      },
+      {
+        "path": "papers/generalized-research/formalization/negative_controls.py",
+        "line": 114,
+        "diagnostic": "trailing whitespace."
+      },
+      {
+        "path": "papers/generalized-research/formalization/verification/checkpoint-main-claims/source-snapshot/GeneralizedResearch/ScalarPhysicalSharpness.lean",
+        "line": 99,
+        "diagnostic": "trailing whitespace."
+      },
+      {
+        "path": "papers/generalized-research/formalization/verification/final-all-numbered/GeneralizedResearch.NormalScattering.log",
+        "line": 51,
+        "diagnostic": "trailing whitespace."
+      },
+      {
+        "path": "papers/generalized-research/formalization/verification/final-all-numbered/GeneralizedResearch.NormalScattering.log",
+        "line": 53,
+        "diagnostic": "trailing whitespace."
+      },
+      {
+        "path": "papers/generalized-research/formalization/verification/final-all-numbered/source-snapshot/GeneralizedResearch/PhysicalBeamUpper.lean",
+        "line": 23,
+        "diagnostic": "trailing whitespace."
+      },
+      {
+        "path": "papers/generalized-research/formalization/verification/final-all-numbered/source-snapshot/GeneralizedResearch/ScalarPhysicalSharpness.lean",
+        "line": 99,
+        "diagnostic": "trailing whitespace."
+      },
+      {
+        "path": "papers/generalized-research/formalization/verification/final-all-numbered/source-snapshot/negative_controls.py",
+        "line": 114,
+        "diagnostic": "trailing whitespace."
+      },
+      {
+        "path": "papers/quartic-maxwell/formalization/QuarticMaxwell/StaticOffSupport.lean",
+        "line": 420,
+        "diagnostic": "new blank line at EOF."
+      },
+      {
+        "path": "papers/quartic-maxwell/formalization/verification/checkpoints/all-numbered-theorems-2026-10-15/logs/QuarticMaxwell.HomogeneousMoments.log",
+        "line": 3,
+        "diagnostic": "trailing whitespace."
+      },
+      {
+        "path": "papers/quartic-maxwell/formalization/verification/checkpoints/all-numbered-theorems-2026-10-15/logs/QuarticMaxwell.HomogeneousMoments.log",
+        "line": 5,
+        "diagnostic": "trailing whitespace."
+      },
+      {
+        "path": "papers/quartic-maxwell/formalization/verification/checkpoints/all-numbered-theorems-2026-10-15/logs/QuarticMaxwell.HomogeneousMoments.log",
+        "line": 9,
+        "diagnostic": "trailing whitespace."
+      },
+      {
+        "path": "papers/quartic-maxwell/formalization/verification/checkpoints/all-numbered-theorems-2026-10-15/logs/QuarticMaxwell.HomogeneousMoments.log",
+        "line": 11,
+        "diagnostic": "trailing whitespace."
+      },
+      {
+        "path": "papers/quartic-maxwell/formalization/verification/checkpoints/all-numbered-theorems-2026-10-15/logs/QuarticMaxwell.MaterialInverse.log",
+        "line": 1,
+        "diagnostic": "trailing whitespace."
+      },
+      {
+        "path": "papers/quartic-maxwell/formalization/verification/checkpoints/all-numbered-theorems-2026-10-15/proof-sources/QuarticMaxwell/StaticOffSupport.lean",
+        "line": 420,
+        "diagnostic": "new blank line at EOF."
+      },
+      {
+        "path": "papers/quartic-maxwell/formalization/verification/checkpoints/upper-2026-10-14/logs/QuarticMaxwell.MaterialInverse.log",
+        "line": 1,
+        "diagnostic": "trailing whitespace."
+      },
+      {
+        "path": "papers/quartic-maxwell/formalization/verification/checkpoints/upper-fixed-pattern-2026-10-14/logs/QuarticMaxwell.MaterialInverse.log",
+        "line": 1,
+        "diagnostic": "trailing whitespace."
+      },
+      {
+        "path": "papers/quartic-maxwell/formalization/verification/logs/QuarticMaxwell.HomogeneousMoments.log",
+        "line": 3,
+        "diagnostic": "trailing whitespace."
+      },
+      {
+        "path": "papers/quartic-maxwell/formalization/verification/logs/QuarticMaxwell.HomogeneousMoments.log",
+        "line": 5,
+        "diagnostic": "trailing whitespace."
+      },
+      {
+        "path": "papers/quartic-maxwell/formalization/verification/logs/QuarticMaxwell.HomogeneousMoments.log",
+        "line": 9,
+        "diagnostic": "trailing whitespace."
+      },
+      {
+        "path": "papers/quartic-maxwell/formalization/verification/logs/QuarticMaxwell.HomogeneousMoments.log",
+        "line": 11,
+        "diagnostic": "trailing whitespace."
+      },
+      {
+        "path": "papers/quartic-maxwell/formalization/verification/logs/QuarticMaxwell.MaterialInverse.log",
+        "line": 1,
+        "diagnostic": "trailing whitespace."
+      }
+    ],
+    "decision": "Retain exact verified proof-source, snapshot and diagnostic-log bytes. Exceptions are trailing whitespace or a final blank line only; changing these would break the frozen source/log hashes. No conflict-marker exception is permitted."
+  }
+}

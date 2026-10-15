@@ -1,0 +1,17 @@
+D:\oq7-papers\papers\quartic-maxwell\formalization\QuarticMaxwell\Schur.lean:101:25: warning: This simp argument is unused:
+  RCLike.norm_ofReal
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Complex.norm_real, Real.norm_eq_abs]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\oq7-papers\papers\quartic-maxwell\formalization\QuarticMaxwell\Schur.lean:101:64: warning: This simp argument is unused:
+  Real.norm_eq_abs
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [RCLike.norm_ofReal, Complex.norm_real]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\oq7-papers\papers\quartic-maxwell\formalization\QuarticMaxwell\Schur.lean:101:15: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`

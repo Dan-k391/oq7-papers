@@ -1,0 +1,20 @@
+GeneralizedResearch\NormalFamily.lean:32:100: warning: This simp argument is unused:
+  Matrix.vecMulVec_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [H, projection, ChannelAttainment.complexify, PlanarPlateBridge.H, PlanarPlateBridge.principal]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+GeneralizedResearch\NormalFamily.lean:40:58: warning: This simp argument is unused:
+  smul_smul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [sub_mul, mul_sub, smul_mul_assoc, mul_smul_comm, projection_idempotent ht0 ht1, mul_one, one_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+GeneralizedResearch\NormalFamily.lean:52:41: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+GeneralizedResearch\NormalFamily.lean:52:41: warning: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`

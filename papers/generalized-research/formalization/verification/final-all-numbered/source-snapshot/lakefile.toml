@@ -1,0 +1,11 @@
+name = "oq7_generalized_research"
+version = "0.1.0"
+defaultTargets = ["GeneralizedResearch"]
+packagesDir = "../../prescribed-extinction/formalization/.lake/packages"
+
+[[require]]
+name = "oq7_prescribed_extinction"
+path = "../../prescribed-extinction/formalization"
+
+[[lean_lib]]
+name = "GeneralizedResearch"

@@ -1,0 +1,54 @@
+GeneralizedResearch\NormalScattering.lean:27:6: warning: This simp argument is unused:
+  mul_add
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [vacuumBasis, TransferScattering.leftWaves, candidate, J, Matrix.fromBlocks_multiply, mul_sub, sub_mul,
+    add_mul, mul_assoc, sub_eq_add_neg]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+GeneralizedResearch\NormalScattering.lean:27:14: warning: This simp argument is unused:
+  mul_sub
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [vacuumBasis, TransferScattering.leftWaves, candidate, J, Matrix.fromBlocks_multiply, mul_add, sub_mul,
+    add_mul, mul_assoc, sub_eq_add_neg]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+GeneralizedResearch\NormalScattering.lean:27:22: warning: This simp argument is unused:
+  sub_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [vacuumBasis, TransferScattering.leftWaves, candidate, J, Matrix.fromBlocks_multiply, mul_add, mul_sub,
+    add_mul, mul_assoc, sub_eq_add_neg]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+GeneralizedResearch\NormalScattering.lean:27:30: warning: This simp argument is unused:
+  add_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [vacuumBasis, TransferScattering.leftWaves, candidate, J, Matrix.fromBlocks_multiply, mul_add, mul_sub,
+    sub_mul, mul_assoc, sub_eq_add_neg]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+GeneralizedResearch\NormalScattering.lean:31:14: warning: This simp argument is unused:
+  mul_sub
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [vacuumBasis, TransferScattering.rightWaves, candidate, J, Matrix.fromBlocks_multiply, mul_add, sub_mul,
+    add_mul, mul_assoc, hH, sub_eq_add_neg, add_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+GeneralizedResearch\NormalScattering.lean:31:22: warning: This simp argument is unused:
+  sub_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [vacuumBasis, TransferScattering.rightWaves, candidate, J, Matrix.fromBlocks_multiply, mul_add, mul_sub,
+    add_mul, mul_assoc, hH, sub_eq_add_neg, add_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.

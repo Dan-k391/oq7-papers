@@ -1,0 +1,69 @@
+THEOREM_CENSUS_COUNT 6
+THEOREM OQ7.capped_fourier_moment_Ioo
+TYPE ∀ {q : ℝ → ℝ} {a b K Q : ℝ},
+  LE.le.{0} a b →
+    LT.lt.{0} 0 K →
+      LT.lt.{0} 0 Q →
+        LE.le.{0} (HSub.hSub.{0, 0, 0} b a) (HDiv.hDiv.{0, 0, 0} Real.pi K) →
+          IntervalIntegrable.{0} q MeasureTheory.MeasureSpace.volume.{0} a b →
+            (∀ (z : ℝ), Membership.mem.{0, 0} (Set.Ioo.{0} a b) z → LE.le.{0} 0 (q z) ∧ LE.le.{0} (q z) Q) →
+              LE.le.{0}
+                (Norm.norm.{0}
+                  (∫ (z : ℝ) in a..b,
+                    HMul.hMul.{0, 0, 0} (↑(q z))
+                      (Complex.exp
+                        (HMul.hMul.{0, 0, 0} (↑(HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 K) z)) Complex.I))))
+                (HMul.hMul.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} Q K)
+                  (Real.sin (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} K (∫ (z : ℝ) in a..b, q z)) Q)))
+AXIOMS [propext, Classical.choice, Quot.sound]
+THEOREM OQ7.sineSquare_triangleIntegral_capped_Ioo
+TYPE ∀ {q : ℝ → ℝ} {a b K Q : ℝ},
+  LE.le.{0} a b →
+    LT.lt.{0} 0 K →
+      LT.lt.{0} 0 Q →
+        LE.le.{0} (HSub.hSub.{0, 0, 0} b a) (HDiv.hDiv.{0, 0, 0} Real.pi K) →
+          IntervalIntegrable.{0} q MeasureTheory.MeasureSpace.volume.{0} a b →
+            (∀ (z : ℝ), Membership.mem.{0, 0} (Set.Ioo.{0} a b) z → LE.le.{0} 0 (q z) ∧ LE.le.{0} (q z) Q) →
+              LE.le.{0}
+                (HMul.hMul.{0, 0, 0}
+                  (HDiv.hDiv.{0, 0, 0} (HPow.hPow.{0, 0, 0} Q 2) (HMul.hMul.{0, 0, 0} 4 (HPow.hPow.{0, 0, 0} K 2)))
+                  (HSub.hSub.{0, 0, 0}
+                    (HPow.hPow.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} K (∫ (z : ℝ) in a..b, q z)) Q) 2)
+                    (HPow.hPow.{0, 0, 0}
+                      (Real.sin (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} K (∫ (z : ℝ) in a..b, q z)) Q)) 2)))
+                (∫ (p : Prod.{0, 0} ℝ ℝ) in Set.ofPred.{0} fun (p : Prod.{0, 0} ℝ ℝ) => LT.lt.{0} p.1 p.2,
+                  HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (q p.1) (q p.2))
+                    (HPow.hPow.{0, 0, 0} (Real.sin (HMul.hMul.{0, 0, 0} K (HSub.hSub.{0, 0, 0} p.2 p.1)))
+                      2) ∂MeasureTheory.Measure.prod.{0, 0}
+                    (MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0} (Set.Ioc.{0} a b))
+                    (MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0} (Set.Ioc.{0} a b)))
+AXIOMS [propext, Classical.choice, Quot.sound]
+THEOREM OQ7.ResourceScalar.g_convex_half
+TYPE ConvexOn.{0, 0, 0} ℝ (Set.Icc.{0} 0 (HDiv.hDiv.{0, 0, 0} Real.pi 2)) OQ7.ResourceScalar.g
+AXIOMS [propext, Classical.choice, Quot.sound]
+THEOREM OQ7.ResourceScalar.g_tangent_full
+TYPE ∀ {x v : ℝ},
+  LT.lt.{0} 0 x →
+    LE.le.{0} x (1 / 3) →
+      Membership.mem.{0, 0} (Set.Icc.{0} 0 Real.pi) v →
+        LE.le.{0}
+          (HAdd.hAdd.{0, 0, 0} (OQ7.ResourceScalar.g x)
+            (HMul.hMul.{0, 0, 0} (OQ7.ResourceScalar.slope x) (HSub.hSub.{0, 0, 0} v x)))
+          (OQ7.ResourceScalar.g v)
+AXIOMS [propext, Classical.choice, Quot.sound]
+THEOREM OQ7.ResourceScalar.f_lower_half
+TYPE ∀ {u : ℝ},
+  Membership.mem.{0, 0} (Set.Icc.{0} 0 (HDiv.hDiv.{0, 0, 0} Real.pi 2)) u →
+    LE.le.{0}
+      (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} 4 (HPow.hPow.{0, 0, 0} u 4))
+        (HMul.hMul.{0, 0, 0} 3 (HPow.hPow.{0, 0, 0} Real.pi 2)))
+      (OQ7.ResourceScalar.f u)
+AXIOMS [propext, Classical.choice, Quot.sound]
+THEOREM OQ7.stackResourceInvariant_eq_fluxDefect
+TYPE ∀ {k P Q : ℝ},
+  LT.lt.{0} 0 k →
+    ∀ {layers : List.{0} OQ7.HomogeneousLayer},
+      OQ7.StackAdmissible P Q layers →
+        Eq.{1} (OQ7.stackResourceInvariant k layers)
+          (Matrix.det.{0, 0} (OQ7.fluxDefect (OQ7.stackTransfer k layers))).re
+AXIOMS [propext, Classical.choice, Quot.sound]

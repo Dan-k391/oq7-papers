@@ -22,9 +22,27 @@ From papers/prescribed-extinction/formalization/:
 
 The restorer is for a new checkout with no dependency directories. A compatible cache must have exactly those pinned revisions. Do not run lake update. The pinned compiler is a member of the complete private archive listed in shared/ASSET_REGISTRY.json; large tool/runtime files live in ignored .local/toolchains/, not ordinary Git source.
 
-Existing complete replay logs are preserved in review-package/. Reorganization does not create a new independent-kernel check or certify the other papers. If a new fresh replay is requested, use the pinned version:
+Existing complete prescribed-extinction replay logs are preserved in review-package/. Those historical records do not certify the other papers; the quartic and generalized projects below have their own checks. If a new fresh replay is requested, use the pinned version:
 
     lake env leanchecker --fresh --verbose PrescribedExtinction.PhysicalTheorem11
+
+## Quartic and generalized formalizations
+
+Both use the same unchanged Lean/Mathlib pins above. Their current arXiv source ZIPs contain `anc/lean-supplement.zip`, which can be reproduced without access to the private repository. Extract a supplement into an empty directory, run `python verify_supplement.py`, and follow its root README to restore the nine exact public dependency commits and build `OQ7 PrescribedExtinction`. The supplement excludes caches, tool binaries and TeX. Do not run `lake update`.
+
+After restoring those libraries, run the quartic verifier from its `formalization/` directory, supplying the absolute pinned toolchain bin directory:
+
+```text
+python verify.py --lean-bin PATH_TO_PINNED_LEAN_BIN --fresh-kernel
+```
+
+For generalized research use its default fresh replay and preserve the included final record by choosing a new output directory:
+
+```text
+python verify.py --lean-bin PATH_TO_PINNED_LEAN_BIN --output-dir verification/new-run
+```
+
+Read [quartic scope](papers/quartic-maxwell/formalization/README.md) and [generalized scope](papers/generalized-research/formalization/README.md) for the exact statements, isolated expected-failure controls and remaining auxiliary obligations. Compilation, exhaustive type/axiom inventories and fresh replay are separate recorded stages. Fresh replay uses Lean's own kernel implementation; it is not an independently implemented checker or human review.
 
 ## Collection integrity and prior-work restoration
 

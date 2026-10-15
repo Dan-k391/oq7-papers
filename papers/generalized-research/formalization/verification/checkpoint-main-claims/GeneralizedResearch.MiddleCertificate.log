@@ -1,0 +1,72 @@
+GeneralizedResearch\MiddleCertificate.lean:70:19: warning: This simp argument is unused:
+  Matrix.mul_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [B, Z, W, Fin.sum_univ_two]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+GeneralizedResearch\MiddleCertificate.lean:70:37: warning: This simp argument is unused:
+  Fin.sum_univ_two
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [B, Z, W, Matrix.mul_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+GeneralizedResearch\MiddleCertificate.lean:71:33: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+GeneralizedResearch\MiddleCertificate.lean:82:38: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+GeneralizedResearch\MiddleCertificate.lean:102:21: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+GeneralizedResearch\MiddleCertificate.lean:123:22: warning: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+GeneralizedResearch\MiddleCertificate.lean:123:22: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+GeneralizedResearch\MiddleCertificate.lean:136:31: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+GeneralizedResearch\MiddleCertificate.lean:179:36: warning: This simp argument is unused:
+  Matrix.mul_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [E, h, Matrix.trace_fin_two, Fin.sum_univ_two]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+GeneralizedResearch\MiddleCertificate.lean:179:54: warning: This simp argument is unused:
+  Fin.sum_univ_two
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [E, h, Matrix.trace_fin_two, Matrix.mul_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+GeneralizedResearch\MiddleCertificate.lean:190:30: warning: This simp argument is unused:
+  Matrix.mul_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.trace_fin_two, Matrix.mulVec, Matrix.vecMul, dotProduct, Fin.sum_univ_two, remainder, hMoff]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+GeneralizedResearch\MiddleCertificate.lean:192:31: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+GeneralizedResearch\MiddleCertificate.lean:232:33: warning: This simp argument is unused:
+  Matrix.mul_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [H, Matrix.trace_fin_two, Matrix.vecMul, dotProduct, Fin.sum_univ_two]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+GeneralizedResearch\MiddleCertificate.lean:306:4: warning: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+'GeneralizedResearch.MiddleParameters.H_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GeneralizedResearch.MiddleParameters.determinant_Z' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GeneralizedResearch.MiddleParameters.Z_posSemidef' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GeneralizedResearch.MiddleParameters.middle_SDP_upper_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GeneralizedResearch.MiddleParameters.middle_SDP_attainment' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GeneralizedResearch.MiddleParameters.middle_SDP_equality' depends on axioms: [propext, Classical.choice, Quot.sound]

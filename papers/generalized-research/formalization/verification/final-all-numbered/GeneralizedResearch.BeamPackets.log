@@ -1,0 +1,7 @@
+GeneralizedResearch\BeamPackets.lean:63:35: warning: This simp argument is unused:
+  Complex.norm_real
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [packet, norm_smul, mul_pow, Real.norm_eq_abs, sq_abs]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

@@ -1,0 +1,128 @@
+{
+  "schemaVersion": 1,
+  "originalPDFSHA256": "576478ba88fd374e724b96e07c5e3e1648485cd163dc4d8ba9cd0b3ef52eac62",
+  "normalization": "Fully qualified #check @constant with pp.universes, deepTerms, maxSteps1000000; whitespace collapsed.",
+  "claims": {
+    "Theorem 1.1": [
+      "QuarticMaxwell.PhysicalPowers.theorem11",
+      "QuarticMaxwell.PhysicalPowers.theorem11_ball",
+      "QuarticMaxwell.WeakMaterial.wellposed",
+      "QuarticMaxwell.WeakMaterial.state_representation"
+    ],
+    "Theorem 1.2": [
+      "QuarticMaxwell.HeterogeneousCertificate.coefficient_interval",
+      "QuarticMaxwell.HeterogeneousAttainment.fixed_wavenumber_remainder",
+      "QuarticMaxwell.HeterogeneousAttainment.fixed_wavenumber_lower",
+      "QuarticMaxwell.PaperSignConvention.contrastPaper_eq"
+    ],
+    "Theorem 1.3": [
+      "QuarticMaxwell.HomogeneousSharpness.theorem13",
+      "QuarticMaxwell.HomogeneousSharpness.sSup_sandwich"
+    ],
+    "Theorem 4.1": [
+      "QuarticMaxwell.FixedPatternDilation.fixed_wavenumber_quartic",
+      "QuarticMaxwell.FixedPatternContrast.coefficient_moment"
+    ],
+    "Lemma 3.1": [
+      "QuarticMaxwell.maskedStaticOperator_norm_le",
+      "QuarticMaxwell.maskedOutgoingOperator_difference_norm_le_volume",
+      "QuarticMaxwell.supportCurrent_outgoing_distribution"
+    ],
+    "Lemma 3.2": [
+      "QuarticMaxwell.domainRadiationMap_norm_sq_le",
+      "QuarticMaxwell.PhysicalPowers.state_power_balance",
+      "QuarticMaxwell.PhysicalPowers.scattering_physical_flux"
+    ],
+    "Lemma 3.3": [
+      "QuarticMaxwell.VolumeInverse.inverse_norm_le",
+      "QuarticMaxwell.WeakMaterial.wellposed",
+      "QuarticMaxwell.WeakMaterial.state_representation"
+    ],
+    "Lemma 3.4": [
+      "QuarticMaxwell.PhysicalPowers.state_extinction_reciprocal",
+      "QuarticMaxwell.PhysicalPowers.theorem11"
+    ]
+  },
+  "types": {
+    "QuarticMaxwell.FixedPatternContrast.coefficient_moment": {
+      "type": "QuarticMaxwell.FixedPatternContrast.coefficient_moment : \u2200 (B : QuarticMaxwell.WeakMaterial.Medium) (n : \u2191OQ7Prescribed.UnitSphere) (e : OQ7Prescribed.Vector), Eq.{1} (QuarticMaxwell.FixedPatternContrast.coefficient B n e) (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} 2 (HMul.hMul.{0, 0, 0} 3 Real.pi)) (abs.{0} (Inner.inner.{0, 0} \u2102 (QuarticMaxwell.FixedPatternScattering.moment0 B e) (QuarticMaxwell.FixedPatternScattering.moment1 B n e)).im)) (Inner.inner.{0, 0} \u2102 e (QuarticMaxwell.FixedPatternScattering.moment0 B e)).im)",
+      "sha256": "192a1928899375dca86357a370a2f0b092a87edcb1942e4488ade209236d7f5b"
+    },
+    "QuarticMaxwell.FixedPatternDilation.fixed_wavenumber_quartic": {
+      "type": "QuarticMaxwell.FixedPatternDilation.fixed_wavenumber_quartic : \u2200 (B : QuarticMaxwell.WeakMaterial.Medium), LT.lt.{0} 0 (MeasureTheory.Measure.real.{0} MeasureTheory.MeasureSpace.volume.{0} B.domain) \u2192 (\u2200\u1d50 (x : QuarticMaxwell.Position), Membership.mem.{0, 0} B.domain x \u2192 \u2200 (a b : OQ7Prescribed.Vector), Eq.{1} (OQ7Prescribed.bilinear a ((B.susceptibility x) b)) (OQ7Prescribed.bilinear b ((B.susceptibility x) a))) \u2192 \u2200 (k : \u211d), LT.lt.{0} 0 k \u2192 \u2200 (n : \u2191OQ7Prescribed.UnitSphere) (e : OQ7Prescribed.Vector), Eq.{1} (OQ7Prescribed.vectorConjugate e) e \u2192 Eq.{1} (Norm.norm.{0} e) 1 \u2192 Eq.{1} (OQ7Prescribed.bilinear (OQ7Prescribed.complexify \u2191n) e) 0 \u2192 \u2200 (r : \u211d) (hr : LT.lt.{0} 0 r), LE.le.{0} r (HDiv.hDiv.{0, 0, 0} (QuarticMaxwell.FixedPatternContrast.interval B e) k) \u2192 \u2200 (s : QuarticMaxwell.WeakMaterial.State (QuarticMaxwell.PhysicalDilation.medium B r hr) k n e) (t : QuarticMaxwell.WeakMaterial.State (QuarticMaxwell.PhysicalDilation.medium B r hr) k (QuarticMaxwell.PhysicalPowers.opposite n) e), LE.le.{0} (abs.{0} (HSub.hSub.{0, 0, 0} (QuarticMaxwell.FixedPatternContrast.contrast (QuarticMaxwell.PhysicalDilation.medium B r hr) k n e s t) (HMul.hMul.{0, 0, 0} (QuarticMaxwell.FixedPatternContrast.coefficient B n e) (HPow.hPow.{0, 0, 0} (HMul.hMul.{0, 0, 0} k r) 4)))) (HMul.hMul.{0, 0, 0} (QuarticMaxwell.FixedPatternContrast.remainderConstant B n e) (HPow.hPow.{0, 0, 0} (HMul.hMul.{0, 0, 0} k r) 6))",
+      "sha256": "d18104b0d52a23ee6396ea65deb3db44a3c0d3891717aba8a7d92af56a63c263"
+    },
+    "QuarticMaxwell.HeterogeneousAttainment.fixed_wavenumber_lower": {
+      "type": "QuarticMaxwell.HeterogeneousAttainment.fixed_wavenumber_lower : \u2200 (k : \u211d), LT.lt.{0} 0 k \u2192 \u2200 (n : \u2191OQ7Prescribed.UnitSphere) (e : OQ7Prescribed.Vector), Eq.{1} (OQ7Prescribed.vectorConjugate e) e \u2192 Eq.{1} (Norm.norm.{0} e) 1 \u2192 Eq.{1} (OQ7Prescribed.bilinear (OQ7Prescribed.complexify \u2191n) e) 0 \u2192 \u2200 (r : \u211d) (hr : LT.lt.{0} 0 r), LE.le.{0} (HMul.hMul.{0, 0, 0} k r) (1 / 40) \u2192 \u2200 (s : QuarticMaxwell.WeakMaterial.State (QuarticMaxwell.PhysicalDilation.medium (QuarticMaxwell.HeterogeneousCertificate.body n) r hr) k n e) (q : QuarticMaxwell.WeakMaterial.State (QuarticMaxwell.PhysicalDilation.medium (QuarticMaxwell.HeterogeneousCertificate.body n) r hr) k (QuarticMaxwell.PhysicalPowers.opposite n) e), LE.le.{0} (HMul.hMul.{0, 0, 0} (27 / 1299125) (HPow.hPow.{0, 0, 0} (HMul.hMul.{0, 0, 0} k r) 4)) (QuarticMaxwell.FixedPatternContrast.contrast (QuarticMaxwell.PhysicalDilation.medium (QuarticMaxwell.HeterogeneousCertificate.body n) r hr) k n e s q)",
+      "sha256": "cd305b50941ca5b0518a2cd88628c2b039eb634ac306ff7993bcbe3fd546147f"
+    },
+    "QuarticMaxwell.HeterogeneousAttainment.fixed_wavenumber_remainder": {
+      "type": "QuarticMaxwell.HeterogeneousAttainment.fixed_wavenumber_remainder : \u2200 (k : \u211d), LT.lt.{0} 0 k \u2192 \u2200 (n : \u2191OQ7Prescribed.UnitSphere) (e : OQ7Prescribed.Vector), Eq.{1} (OQ7Prescribed.vectorConjugate e) e \u2192 Eq.{1} (Norm.norm.{0} e) 1 \u2192 Eq.{1} (OQ7Prescribed.bilinear (OQ7Prescribed.complexify \u2191n) e) 0 \u2192 \u2200 (r : \u211d) (hr : LT.lt.{0} 0 r), LE.le.{0} (HMul.hMul.{0, 0, 0} k r) (1 / 4) \u2192 \u2200 (s : QuarticMaxwell.WeakMaterial.State (QuarticMaxwell.PhysicalDilation.medium (QuarticMaxwell.HeterogeneousCertificate.body n) r hr) k n e) (q : QuarticMaxwell.WeakMaterial.State (QuarticMaxwell.PhysicalDilation.medium (QuarticMaxwell.HeterogeneousCertificate.body n) r hr) k (QuarticMaxwell.PhysicalPowers.opposite n) e), LE.le.{0} (abs.{0} (HSub.hSub.{0, 0, 0} (QuarticMaxwell.FixedPatternContrast.contrast (QuarticMaxwell.PhysicalDilation.medium (QuarticMaxwell.HeterogeneousCertificate.body n) r hr) k n e s q) (HMul.hMul.{0, 0, 0} (QuarticMaxwell.FixedPatternContrast.coefficient (QuarticMaxwell.HeterogeneousCertificate.body n) n e) (HPow.hPow.{0, 0, 0} (HMul.hMul.{0, 0, 0} k r) 4)))) (HMul.hMul.{0, 0, 0} (21 / 2000) (HPow.hPow.{0, 0, 0} (HMul.hMul.{0, 0, 0} k r) 6))",
+      "sha256": "78404bad774727438d0b09c37a73eb71290d14bd3e55fd0b447d56a4b868e23d"
+    },
+    "QuarticMaxwell.HeterogeneousCertificate.coefficient_interval": {
+      "type": "QuarticMaxwell.HeterogeneousCertificate.coefficient_interval : \u2200 (n : \u2191OQ7Prescribed.UnitSphere) (e : OQ7Prescribed.Vector), Eq.{1} (Norm.norm.{0} e) 1 \u2192 LE.le.{0} (36 / 1299125) (QuarticMaxwell.FixedPatternContrast.coefficient (QuarticMaxwell.HeterogeneousCertificate.body n) n e) \u2227 LE.le.{0} (QuarticMaxwell.FixedPatternContrast.coefficient (QuarticMaxwell.HeterogeneousCertificate.body n) n e) (44 / 1295875)",
+      "sha256": "b620808e83b06c903dac4c0fdf9a69e05ee71a1746295e528dcde9736f0b2be6"
+    },
+    "QuarticMaxwell.HomogeneousSharpness.sSup_sandwich": {
+      "type": "QuarticMaxwell.HomogeneousSharpness.sSup_sandwich : \u2200 (m M : \u211d) (hm : LT.lt.{0} 0 m), LE.le.{0} m M \u2192 \u2200 (n : \u2191OQ7Prescribed.UnitSphere) (e : QuarticMaxwell.Position), Eq.{1} (Norm.norm.{0} e) 1 \u2192 Eq.{1} (Inner.inner.{0, 0} \u211d (\u2191n) e) 0 \u2192 \u2200 (k R : \u211d), LT.lt.{0} 0 k \u2192 LT.lt.{0} 0 R \u2192 LE.le.{0} (HMul.hMul.{0, 0, 0} k R) (QuarticMaxwell.HomogeneousSharpness.cutoff m hm) \u2192 LE.le.{0} (HMul.hMul.{0, 0, 0} (QuarticMaxwell.HomogeneousSharpness.lowerConstant m hm) (HPow.hPow.{0, 0, 0} (HMul.hMul.{0, 0, 0} k R) 4)) (SupSet.sSup.{0} (QuarticMaxwell.SharpnessClass.values m M k R n (OQ7Prescribed.complexify e))) \u2227 LE.le.{0} (SupSet.sSup.{0} (QuarticMaxwell.SharpnessClass.values m M k R n (OQ7Prescribed.complexify e))) (HMul.hMul.{0, 0, 0} (QuarticMaxwell.SharpnessClass.upperConstant m M) (HPow.hPow.{0, 0, 0} (HMul.hMul.{0, 0, 0} k R) 4))",
+      "sha256": "c34a7143ecbcc44f44dd308db991779bc0b05f9f382749c7c3d380a70b397f8b"
+    },
+    "QuarticMaxwell.HomogeneousSharpness.theorem13": {
+      "type": "QuarticMaxwell.HomogeneousSharpness.theorem13 : \u2200 (m M : \u211d), LT.lt.{0} 0 m \u2192 LE.le.{0} m M \u2192 \u2203 c C t0, LT.lt.{0} 0 c \u2227 LT.lt.{0} 0 C \u2227 LT.lt.{0} 0 t0 \u2227 \u2200 (n : \u2191OQ7Prescribed.UnitSphere) (e : QuarticMaxwell.Position), Eq.{1} (Norm.norm.{0} e) 1 \u2192 Eq.{1} (Inner.inner.{0, 0} \u211d (\u2191n) e) 0 \u2192 \u2200 (k R : \u211d), LT.lt.{0} 0 k \u2192 LT.lt.{0} 0 R \u2192 LE.le.{0} (HMul.hMul.{0, 0, 0} k R) t0 \u2192 LE.le.{0} (HMul.hMul.{0, 0, 0} c (HPow.hPow.{0, 0, 0} (HMul.hMul.{0, 0, 0} k R) 4)) (SupSet.sSup.{0} (QuarticMaxwell.SharpnessClass.values m M k R n (OQ7Prescribed.complexify e))) \u2227 LE.le.{0} (SupSet.sSup.{0} (QuarticMaxwell.SharpnessClass.values m M k R n (OQ7Prescribed.complexify e))) (HMul.hMul.{0, 0, 0} C (HPow.hPow.{0, 0, 0} (HMul.hMul.{0, 0, 0} k R) 4))",
+      "sha256": "f5f3b41dbdbf4ff578ecb3a2a74f005c95d96e71ea7c4d714c53db2ebf794406"
+    },
+    "QuarticMaxwell.PaperSignConvention.contrastPaper_eq": {
+      "type": "QuarticMaxwell.PaperSignConvention.contrastPaper_eq : \u2200 (B : QuarticMaxwell.WeakMaterial.Medium) (t : \u211d), LT.lt.{0} 0 t \u2192 (\u2200\u1d50 (x : QuarticMaxwell.Position), Membership.mem.{0, 0} B.domain x \u2192 \u2200 (a b : OQ7Prescribed.Vector), Eq.{1} (OQ7Prescribed.bilinear a ((B.susceptibility x) b)) (OQ7Prescribed.bilinear b ((B.susceptibility x) a))) \u2192 \u2200 (n : \u2191OQ7Prescribed.UnitSphere) (e : OQ7Prescribed.Vector), Eq.{1} (OQ7Prescribed.vectorConjugate e) e \u2192 Eq.{1} (OQ7Prescribed.bilinear (OQ7Prescribed.complexify \u2191n) e) 0 \u2192 \u2200 (plus : QuarticMaxwell.WeakMaterial.State B t (QuarticMaxwell.PhysicalPowers.opposite n) e) (minus : QuarticMaxwell.WeakMaterial.State B t n e), Eq.{1} (QuarticMaxwell.PaperSignConvention.contrastPaper B t n e plus minus) (QuarticMaxwell.FixedPatternContrast.contrast B t n e minus plus)",
+      "sha256": "969243f5c0b5dcfe9dec8c3f4af30f8ab74138e815388fb8bb6b9b1f1af7cb05"
+    },
+    "QuarticMaxwell.PhysicalPowers.scattering_physical_flux": {
+      "type": "QuarticMaxwell.PhysicalPowers.scattering_physical_flux : \u2200 (B : QuarticMaxwell.WeakMaterial.Medium) (k : \u211d) (E : OQ7Prescribed.Field) (hE : OQ7Prescribed.LocallySquareIntegrable E), Filter.Tendsto.{0, 0} (OQ7Prescribed.exteriorSphereFlux k (QuarticMaxwell.WeakMaterial.polarization B E hE)) Filter.atTop.{0} (nhds.{0} (QuarticMaxwell.PhysicalPowers.scattering B k E hE))",
+      "sha256": "bf732c2821c087f1e26bfb20d3103c0120c184d6aedc5d723e054c2abefb6983"
+    },
+    "QuarticMaxwell.PhysicalPowers.state_extinction_reciprocal": {
+      "type": "QuarticMaxwell.PhysicalPowers.state_extinction_reciprocal : \u2200 (B : QuarticMaxwell.WeakMaterial.Medium) {k : \u211d}, LT.lt.{0} 0 k \u2192 (\u2200\u1d50 (x : QuarticMaxwell.Position), Membership.mem.{0, 0} B.domain x \u2192 \u2200 (u v : OQ7Prescribed.Vector), Eq.{1} (OQ7Prescribed.bilinear u ((B.susceptibility x) v)) (OQ7Prescribed.bilinear v ((B.susceptibility x) u))) \u2192 \u2200 (n : \u2191OQ7Prescribed.UnitSphere) (e : OQ7Prescribed.Vector), Eq.{1} (OQ7Prescribed.vectorConjugate e) e \u2192 Eq.{1} (OQ7Prescribed.bilinear (OQ7Prescribed.complexify \u2191n) e) 0 \u2192 \u2200 (s : QuarticMaxwell.WeakMaterial.State B k n e) (t : QuarticMaxwell.WeakMaterial.State B k (QuarticMaxwell.PhysicalPowers.opposite n) e), Eq.{1} (QuarticMaxwell.PhysicalPowers.extinction B k n e s.electric) (QuarticMaxwell.PhysicalPowers.extinction B k (QuarticMaxwell.PhysicalPowers.opposite n) e t.electric)",
+      "sha256": "6f94cf0958e42dd821ca0468fa23df3bd4ced36ceb3935011d01c6eabd78724d"
+    },
+    "QuarticMaxwell.PhysicalPowers.state_power_balance": {
+      "type": "QuarticMaxwell.PhysicalPowers.state_power_balance : \u2200 (B : QuarticMaxwell.WeakMaterial.Medium) {k : \u211d}, LT.lt.{0} 0 k \u2192 \u2200 (n : \u2191OQ7Prescribed.UnitSphere) (e : OQ7Prescribed.Vector), Eq.{1} (OQ7Prescribed.bilinear (OQ7Prescribed.complexify \u2191n) e) 0 \u2192 \u2200 (s : QuarticMaxwell.WeakMaterial.State B k n e), Eq.{1} (QuarticMaxwell.PhysicalPowers.extinction B k n e s.electric) (HAdd.hAdd.{0, 0, 0} (QuarticMaxwell.PhysicalPowers.absorption B k s.electric) (QuarticMaxwell.PhysicalPowers.scattering B k s.electric \u22ef))",
+      "sha256": "4170fb13894fb02508a4bcb6d4de44fd7e16f87ad7c1bea207e7f26e04bea0a7"
+    },
+    "QuarticMaxwell.PhysicalPowers.theorem11": {
+      "type": "QuarticMaxwell.PhysicalPowers.theorem11 : \u2200 (B : QuarticMaxwell.WeakMaterial.Medium) {k : \u211d}, LT.lt.{0} 0 k \u2192 LT.lt.{0} 0 (MeasureTheory.Measure.real.{0} MeasureTheory.MeasureSpace.volume.{0} B.domain) \u2192 (\u2200\u1d50 (x : QuarticMaxwell.Position), Membership.mem.{0, 0} B.domain x \u2192 \u2200 (u v : OQ7Prescribed.Vector), Eq.{1} (OQ7Prescribed.bilinear u ((B.susceptibility x) v)) (OQ7Prescribed.bilinear v ((B.susceptibility x) u))) \u2192 \u2200 (n : \u2191OQ7Prescribed.UnitSphere) (e : OQ7Prescribed.Vector), Eq.{1} (OQ7Prescribed.vectorConjugate e) e \u2192 Eq.{1} (Norm.norm.{0} e) 1 \u2192 Eq.{1} (OQ7Prescribed.bilinear (OQ7Prescribed.complexify \u2191n) e) 0 \u2192 \u2200 (s : QuarticMaxwell.WeakMaterial.State B k n e) (t : QuarticMaxwell.WeakMaterial.State B k (QuarticMaxwell.PhysicalPowers.opposite n) e), LT.lt.{0} 0 (QuarticMaxwell.PhysicalPowers.extinction B k n e s.electric) \u2227 LE.le.{0} (HDiv.hDiv.{0, 0, 0} (abs.{0} (HSub.hSub.{0, 0, 0} (QuarticMaxwell.PhysicalPowers.absorption B k s.electric) (QuarticMaxwell.PhysicalPowers.absorption B k t.electric))) (QuarticMaxwell.PhysicalPowers.extinction B k n e s.electric)) (Min.min.{0} 1 (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} 2 (HMul.hMul.{0, 0, 0} 3 Real.pi)) (HPow.hPow.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} (HPow.hPow.{0, 0, 0} B.M 2) B.m) 2)) (HAdd.hAdd.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} 1 B.m) 1) (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (3 / 4) (HPow.hPow.{0, 0, 0} k 2)) (HPow.hPow.{0, 0, 0} (QuarticMaxwell.volumeRadius (MeasureTheory.Measure.real.{0} MeasureTheory.MeasureSpace.volume.{0} B.domain)) 2)))) (HPow.hPow.{0, 0, 0} k 4)) B.radius) (MeasureTheory.Measure.real.{0} MeasureTheory.MeasureSpace.volume.{0} B.domain)))",
+      "sha256": "cdca9dc6439436ff7b2258ac5cafca016ca8baafe841415bedd230614a1034ba"
+    },
+    "QuarticMaxwell.PhysicalPowers.theorem11_ball": {
+      "type": "QuarticMaxwell.PhysicalPowers.theorem11_ball : \u2200 (B : QuarticMaxwell.WeakMaterial.Medium) {k : \u211d}, LT.lt.{0} 0 k \u2192 LT.lt.{0} 0 (MeasureTheory.Measure.real.{0} MeasureTheory.MeasureSpace.volume.{0} B.domain) \u2192 (\u2200\u1d50 (x : QuarticMaxwell.Position), Membership.mem.{0, 0} B.domain x \u2192 \u2200 (u v : OQ7Prescribed.Vector), Eq.{1} (OQ7Prescribed.bilinear u ((B.susceptibility x) v)) (OQ7Prescribed.bilinear v ((B.susceptibility x) u))) \u2192 \u2200 (n : \u2191OQ7Prescribed.UnitSphere) (e : OQ7Prescribed.Vector), Eq.{1} (OQ7Prescribed.vectorConjugate e) e \u2192 Eq.{1} (Norm.norm.{0} e) 1 \u2192 Eq.{1} (OQ7Prescribed.bilinear (OQ7Prescribed.complexify \u2191n) e) 0 \u2192 \u2200 (s : QuarticMaxwell.WeakMaterial.State B k n e) (t : QuarticMaxwell.WeakMaterial.State B k (QuarticMaxwell.PhysicalPowers.opposite n) e), LT.lt.{0} 0 (QuarticMaxwell.PhysicalPowers.extinction B k n e s.electric) \u2227 LE.le.{0} (HDiv.hDiv.{0, 0, 0} (abs.{0} (HSub.hSub.{0, 0, 0} (QuarticMaxwell.PhysicalPowers.absorption B k s.electric) (QuarticMaxwell.PhysicalPowers.absorption B k t.electric))) (QuarticMaxwell.PhysicalPowers.extinction B k n e s.electric)) (Min.min.{0} 1 (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (8 / 9) (HPow.hPow.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} (HPow.hPow.{0, 0, 0} B.M 2) B.m) 2)) (HAdd.hAdd.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} 1 B.m) 1) (HMul.hMul.{0, 0, 0} (3 / 4) (HPow.hPow.{0, 0, 0} (HMul.hMul.{0, 0, 0} k B.radius) 2)))) (HPow.hPow.{0, 0, 0} (HMul.hMul.{0, 0, 0} k B.radius) 4)))",
+      "sha256": "cbdc61812d39c5cd79167248be3d731d138cd029c1a0dcf6c72fc8346998e016"
+    },
+    "QuarticMaxwell.VolumeInverse.inverse_norm_le": {
+      "type": "QuarticMaxwell.VolumeInverse.inverse_norm_le : \u2200 (D : Set.{0} QuarticMaxwell.Position) (hD : MeasurableSet.{0} D) (\u03c7 : QuarticMaxwell.Position \u2192 ContinuousLinearMap.{0, 0, 0, 0} (RingHom.id.{0} \u2102) OQ7Prescribed.Vector OQ7Prescribed.Vector) (h\u03c7 : MeasureTheory.AEStronglyMeasurable.{0, 0} \u03c7 MeasureTheory.MeasureSpace.volume.{0}) (M : \u211d) (hcap : \u2200\u1d50 (x : QuarticMaxwell.Position), Membership.mem.{0, 0} D x \u2192 LE.le.{0} (Norm.norm.{0} (\u03c7 x)) M) {m : \u211d} (hm : LT.lt.{0} 0 m) (hloss : \u2200\u1d50 (x : QuarticMaxwell.Position), Membership.mem.{0, 0} D x \u2192 \u2200 (v : OQ7Prescribed.Vector), LE.le.{0} (HMul.hMul.{0, 0, 0} m (HPow.hPow.{0, 0, 0} (Norm.norm.{0} v) 2)) (Inner.inner.{0, 0} \u2102 v ((\u03c7 x) v)).im) {k : \u211d} (hk : LT.lt.{0} 0 k) (hM : LT.lt.{0} 0 M) (hfin : Ne.{1} (MeasureTheory.MeasureSpace.volume.{0} D) Top.top.{0}) {R : \u211d} (hR : LE.le.{0} 0 R) (hsub : D \u2286 Metric.closedBall.{0} 0 R), LE.le.{0} (Norm.norm.{0} \u2191(ContinuousLinearEquiv.symm.{0, 0, 0, 0} (QuarticMaxwell.VolumeInverse.equiv D hD \u03c7 h\u03c7 M hcap hm hloss hk hM hfin hR hsub))) (HDiv.hDiv.{0, 0, 0} (HPow.hPow.{0, 0, 0} M 2) m)",
+      "sha256": "f812db3ea57548cf7219138ce08ca79d7b11f3b0605f50f2a2d9158ae786b5ce"
+    },
+    "QuarticMaxwell.WeakMaterial.state_representation": {
+      "type": "QuarticMaxwell.WeakMaterial.state_representation : \u2200 (B : QuarticMaxwell.WeakMaterial.Medium) {k : \u211d}, LT.lt.{0} 0 k \u2192 \u2200 (n : \u2191OQ7Prescribed.UnitSphere) (e : OQ7Prescribed.Vector), Eq.{1} (OQ7Prescribed.bilinear (OQ7Prescribed.complexify \u2191n) e) 0 \u2192 \u2200 (s : QuarticMaxwell.WeakMaterial.State B k n e), have p := QuarticMaxwell.WeakMaterial.polarization B s.electric \u22ef; s.electric =\u1d50[MeasureTheory.MeasureSpace.volume.{0}] QuarticMaxwell.WeakMaterial.totalElectric k n e p \u2227 s.magnetic =\u1d50[MeasureTheory.MeasureSpace.volume.{0}] QuarticMaxwell.WeakMaterial.totalMagnetic k n e p",
+      "sha256": "875fb8ac7a9beb8b669ba39fe0a7145e826b4da1c4e3d304318b0e8db769eee9"
+    },
+    "QuarticMaxwell.WeakMaterial.wellposed": {
+      "type": "QuarticMaxwell.WeakMaterial.wellposed : \u2200 (B : QuarticMaxwell.WeakMaterial.Medium) {k : \u211d}, LT.lt.{0} 0 k \u2192 \u2200 (n : \u2191OQ7Prescribed.UnitSphere) (e : OQ7Prescribed.Vector), Eq.{1} (OQ7Prescribed.bilinear (OQ7Prescribed.complexify \u2191n) e) 0 \u2192 \u2203 s, \u2200 (t : QuarticMaxwell.WeakMaterial.State B k n e), t.electric =\u1d50[MeasureTheory.MeasureSpace.volume.{0}] s.electric \u2227 t.magnetic =\u1d50[MeasureTheory.MeasureSpace.volume.{0}] s.magnetic",
+      "sha256": "65d499cc556cf57a0b95b68571a5169aecd5cba5bacbfa416da5d8aba446f2f6"
+    },
+    "QuarticMaxwell.domainRadiationMap_norm_sq_le": {
+      "type": "QuarticMaxwell.domainRadiationMap_norm_sq_le : \u2200 (k : \u211d) (D : Set.{0} QuarticMaxwell.Position) (hD : MeasurableSet.{0} D) (hfin : Ne.{1} (MeasureTheory.MeasureSpace.volume.{0} D) Top.top.{0}), LE.le.{0} (HPow.hPow.{0, 0, 0} (Norm.norm.{0} (QuarticMaxwell.domainRadiationMap k D hD hfin)) 2) (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 8 Real.pi) (MeasureTheory.Measure.real.{0} MeasureTheory.MeasureSpace.volume.{0} D)) 3)",
+      "sha256": "483e80e444157706bc110bee841170f376f09991e2aee6b3d674fb099f5fbdc4"
+    },
+    "QuarticMaxwell.maskedOutgoingOperator_difference_norm_le_volume": {
+      "type": "@QuarticMaxwell.maskedOutgoingOperator_difference_norm_le_volume : \u2200 {k : \u211d}, LE.le.{0} 0 k \u2192 \u2200 (D : Set.{0} QuarticMaxwell.Position) (hD : MeasurableSet.{0} D) {R : \u211d} (hR : LE.le.{0} 0 R) (hsub : D \u2286 Metric.closedBall.{0} 0 R), LT.lt.{0} 0 (MeasureTheory.Measure.real.{0} MeasureTheory.MeasureSpace.volume.{0} D) \u2192 LE.le.{0} (Norm.norm.{0} (HSub.hSub.{0, 0, 0} (QuarticMaxwell.maskedOutgoingOperator k D hD hR hsub) (QuarticMaxwell.maskedStaticOperator D hD))) (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (3 / 4) (HPow.hPow.{0, 0, 0} k 2)) (HPow.hPow.{0, 0, 0} (QuarticMaxwell.volumeRadius (MeasureTheory.Measure.real.{0} MeasureTheory.MeasureSpace.volume.{0} D)) 2))",
+      "sha256": "bf14ddac72e6a28117258dc43e75c4b3c60c8c26e1b563dbedb042b639a981fb"
+    },
+    "QuarticMaxwell.maskedStaticOperator_norm_le": {
+      "type": "QuarticMaxwell.maskedStaticOperator_norm_le : \u2200 (D : Set.{0} QuarticMaxwell.Position) (hD : MeasurableSet.{0} D), LE.le.{0} (Norm.norm.{0} (QuarticMaxwell.maskedStaticOperator D hD)) 1",
+      "sha256": "555b30b0705a705b329d7189c232af5524068485072c87dc2c94e2b759428dca"
+    },
+    "QuarticMaxwell.supportCurrent_outgoing_distribution": {
+      "type": "QuarticMaxwell.supportCurrent_outgoing_distribution : \u2200 (k : \u211d) (D : Set.{0} QuarticMaxwell.Position) (hD : MeasurableSet.{0} D) {R : \u211d} (hR : LE.le.{0} 0 R) (hsub : D \u2286 Metric.closedBall.{0} 0 R) (f : \u21a5OQ7Prescribed.VectorL2) (i : Fin 3), Eq.{1} (OQ7Prescribed.outgoingVolumeDistribution k (OQ7Prescribed.supportedPolarization R hR ((QuarticMaxwell.supportInputCLM D hD hsub) f)) i) (HAdd.hAdd.{0, 0, 0} (OQ7Prescribed.vectorL2ComponentDistribution (OQ7Prescribed.staticFourierOperator \u2191((QuarticMaxwell.supportInputCLM D hD hsub) f)) i) (OQ7Prescribed.remainderPotentialComponentDistribution k (OQ7Prescribed.supportedPolarization R hR ((QuarticMaxwell.supportInputCLM D hD hsub) f)) i))",
+      "sha256": "80ac9fd11421cd7631abd805bdbbe6d20f7e7e1614d6dec99ad3534c9d54224c"
+    }
+  }
+}

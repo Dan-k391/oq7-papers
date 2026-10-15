@@ -14,6 +14,6 @@ Preserved originals:
 
 The original PDF was recovered on 14 October 2026. Original TeX is unavailable; the current TeX is reconstructed from the PDF and substantially revised with the user's authorization. Daniel Wang is first author and Junjie Zheng second, with McMaster University and Columbia University affiliations and lasting personal contact addresses.
 
-The ordinary mathematical argument and analytic constants were reviewed in this revision. Historical numerical diagnostics remain historical evidence. The prescribed-extinction kernel verification does not certify this paper, and no Lean code was reviewed or executed. Existing mixed-scope records remain under [historical projects](../../historical-notes/README.md).
+The separate [quartic formalization](formalization/README.md) now provides source-bound Lean proofs and fresh kernel replay for the numbered theorem and lemma conclusions. Its [claim ledger](formalization/verification/coverage.json) separately records restricted auxiliary identities and discussion. The current source upload includes a [portable Lean source supplement](arxiv/anc/README.md). See the [formalization change record](../../FORMALIZATION_CHANGES.md) and [manuscript-version binding](../../FORMALIZATION_MANUSCRIPT_BINDING.json). Historical numerical diagnostics and earlier mixed-scope reports retain their own versions under [historical projects](../../historical-notes/README.md).
 
 Audit of the original 10 October PDF, 14 October 2026: [audit-2026-10-14](audit-2026-10-14/README.md) (AI-assisted; not human review).

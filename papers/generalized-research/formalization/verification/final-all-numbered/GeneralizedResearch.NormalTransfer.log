@@ -1,0 +1,14 @@
+GeneralizedResearch\NormalTransfer.lean:84:73: warning: This simp argument is unused:
+  Matrix.vecMulVec_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [electricBlock, radial]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+GeneralizedResearch\NormalTransfer.lean:93:84: warning: This simp argument is unused:
+  Matrix.one_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [lift, OQ7.maxwellGenerator, Matrix.fromBlocks, Matrix.smul_apply, smul_eq_mul, hij]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

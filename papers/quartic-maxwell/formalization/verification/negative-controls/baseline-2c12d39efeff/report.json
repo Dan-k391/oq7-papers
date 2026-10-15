@@ -1,0 +1,58 @@
+{
+  "timestampUTC": "2026-10-14T22:46:57.670462+00:00",
+  "expectedFailureControlsOnly": true,
+  "notPartOfSuccessfulProofProject": true,
+  "verifierSHA256": "00f0fefef1c493e4b125d807a8a39755ca9e02f6b1f529d823c8cca08b7ac894",
+  "runnerSHA256": "bed0a3ca6de9c2dceadf69de81562cffdeebe77362df1dd792f634d4314db884",
+  "allControlsPassed": true,
+  "controls": [
+    {
+      "control": "sorry_preflight",
+      "expected": "preflight rejection",
+      "passed": true,
+      "source": "namespace Control\ntheorem escaped : False := by sorry\nend Control\n",
+      "sourceSHA256": "4507fb6665b795473ae65508011f71f00b25121592fc2e5ffd40c0ff66c1ce78",
+      "diagnostic": "Prohibited proof escape in C:\\Users\\ZJJ\\Desktop\\oq7-prescribed-extinction\\.local\\quartic-negative-final\\sorry_preflight.lean"
+    },
+    {
+      "control": "axiom_preflight",
+      "expected": "preflight rejection",
+      "passed": true,
+      "source": "namespace Control\naxiom escaped : False\nend Control\n",
+      "sourceSHA256": "92d24e7e79a4a678161c0c6fba748fea0fe8570961172a6870b5854ccdbd7375",
+      "diagnostic": "Prohibited proof escape in C:\\Users\\ZJJ\\Desktop\\oq7-prescribed-extinction\\.local\\quartic-negative-final\\axiom_preflight.lean"
+    },
+    {
+      "control": "false_proof_compiler",
+      "expected": "Lean compilation failure",
+      "passed": true,
+      "compilerExitCode": 1,
+      "source": "namespace Control\ntheorem falseEquality : (1 : Nat) = 2 := by rfl\nend Control\n",
+      "sourceSHA256": "a8cdd5ab15d70eeafaa84ccc9a35a3f843b9beb878ac7e813aa1588a3ead8e76"
+    },
+    {
+      "control": "axiom_allowlist",
+      "expected": "compiled axiom dependency rejected by allowlist",
+      "passed": true,
+      "compilerExitCode": 0,
+      "unexpectedAxioms": [
+        "Control.untrusted"
+      ],
+      "source": "set_option pp.fullNames true\nnamespace Control\naxiom untrusted : False\ntheorem escaped : False := untrusted\n#print axioms escaped\nend Control\n",
+      "sourceSHA256": "4233a20398ff0a23fc58170d04c9dd45e0083eac59e75c00523cc7abd84c1b8e"
+    },
+    {
+      "control": "missing_module_census",
+      "expected": "unregistered module rejected",
+      "passed": true,
+      "diagnostic": "Module census differs from verifier: {'QuarticMaxwell.Orphan'}",
+      "registered": [
+        "QuarticMaxwell.Known"
+      ],
+      "discovered": [
+        "QuarticMaxwell.Known",
+        "QuarticMaxwell.Orphan"
+      ]
+    }
+  ]
+}
