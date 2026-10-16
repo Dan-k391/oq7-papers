@@ -1,6 +1,8 @@
 # OQ7 papers
 
-Private collection of OQ7 manuscripts, proof sources, audits and reproducibility material. Current arXiv revisions are separate from the preserved historical manuscripts.
+[Read the five papers in HTML, with PDF and source downloads](https://dan-k391.github.io/oq7-papers/).
+
+Collection of OQ7 manuscripts, proof sources, audits and reproducibility material. Current arXiv revisions are separate from the preserved historical manuscripts.
 
 | Paper | Current material |
 |---|---|
