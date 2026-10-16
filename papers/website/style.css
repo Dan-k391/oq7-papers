@@ -1,0 +1,72 @@
+:root{color-scheme:light;--ink:#202b29;--muted:#5e6b66;--accent:#1c6353;--paper:#fbfaf7;--line:#d8ddd5;--soft:#eff3ed}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:2rem}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.65 Georgia,"Times New Roman",serif}
+a{color:var(--accent);text-underline-offset:.2em;text-decoration-thickness:1px}
+a:hover{color:#123f35}
+a:focus-visible,summary:focus-visible,.equation:focus-visible{outline:2px solid var(--accent);outline-offset:5px}
+.skip-link{position:absolute;left:1rem;top:-5rem;z-index:5;padding:.5rem 1rem;background:#fff}
+.skip-link:focus{top:.5rem}
+.site-bar{max-width:1120px;margin:auto;padding:25px 36px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:24px;font:13px/1.5 system-ui,sans-serif}
+.site-bar a{text-decoration:none}
+.wordmark{font-weight:700;letter-spacing:.045em;color:var(--ink)}
+.wordmark span{font-weight:400;letter-spacing:0;color:var(--muted);padding-left:8px}
+.site-bar nav{display:flex;gap:24px}
+.directory{max-width:980px;margin:auto;padding:0 36px}
+.directory-header{padding:73px 0 54px;border-bottom:1px solid var(--ink)}
+.eyebrow,.paper-topic{font:11px/1.6 system-ui,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:var(--accent);margin:0 0 19px}
+h1,h2,h3{font-weight:400}
+.directory h1{font-size:clamp(2.6rem,5.4vw,4.4rem);letter-spacing:-.035em;line-height:1.07;margin:0 0 27px}
+.intro{font-size:19px;max-width:600px;line-height:1.65;margin:0 0 27px;color:#48564f}
+.byline{font:13px/1.9 system-ui,sans-serif;margin:0}
+.byline span{font-size:12px;color:var(--muted);margin-left:12px}
+.paper-row{display:grid;grid-template-columns:72px 1fr;gap:8px;padding:34px 0 35px;border-bottom:1px solid var(--line)}
+.paper-number{font:14px/1.5 system-ui,sans-serif;color:#809087;padding-top:4px;font-variant-numeric:tabular-nums}
+.paper-topic{margin-bottom:10px;font-size:10px}
+.paper-row h2{font-size:25px;line-height:1.35;letter-spacing:-.012em;max-width:740px;margin:0 0 11px}
+.paper-row h2 a{color:var(--ink);text-decoration:none}
+.paper-row h2 a:hover{color:var(--accent);text-decoration:underline}
+.paper-description{font-size:16px;line-height:1.55;color:var(--muted);margin:0 0 9px}
+.paper-date{font:11px/1.6 system-ui,sans-serif;color:var(--muted);margin:0 0 18px}
+.paper-links{display:flex;align-items:center;flex-wrap:wrap;gap:26px;font:12px/1.6 system-ui,sans-serif}
+.read-link{font-weight:600}
+.read-link span{padding-left:5px}
+.directory-footer{padding:29px 0 50px;font:12px/1.8 system-ui,sans-serif;color:var(--muted)}
+.directory-footer p{margin:0 0 4px}
+.directory-footer>a{display:inline-block;margin-top:10px}
+.manuscript{max-width:1000px;margin:auto;padding:50px 54px 40px;background:#fff;border-left:1px solid #eceee8;border-right:1px solid #eceee8;font-size:18px;line-height:1.75;overflow-wrap:break-word}
+.article-header{padding-bottom:28px;margin-bottom:23px;border-bottom:1px solid var(--line)}
+.article-header h1{font-size:clamp(1.85rem,3.3vw,2.65rem);line-height:1.22;letter-spacing:-.025em;margin:0 0 24px;text-wrap:balance}
+.authors{display:flex;flex-wrap:wrap;gap:18px 50px;font:13px/1.6 system-ui,sans-serif}
+.authors p{margin:0}.authors code{font-family:inherit}
+.contents{padding:0 0 22px;margin-bottom:28px;border-bottom:1px solid var(--line);font:13px/1.8 system-ui,sans-serif}
+.contents summary{cursor:pointer;color:var(--accent)}
+.contents ul{padding-left:22px}
+.manuscript h2{font-size:1.45rem;line-height:1.4;margin:2.3em 0 .85em;color:#24453c}
+.manuscript h3{font-size:1.18rem;line-height:1.4;margin:1.8em 0 .65em}
+.manuscript p{margin:.85em 0}
+.abstract{padding-bottom:22px;border-bottom:1px solid var(--line);font-size:.96em}
+.abstract h2{font:12px/1.5 system-ui,sans-serif;text-transform:uppercase;letter-spacing:.1em;margin:0 0 14px}
+.theorem,.lemma,.proposition,.corollary,.remark{padding:10px 20px;margin:1.5em 0;border-left:2px solid #92b3a1;background:#f6f8f4}
+.theorem p:first-child,.lemma p:first-child,.proposition p:first-child,.corollary p:first-child,.remark p:first-child{margin-top:0}
+.proof{margin-bottom:1.6em}
+.equation{display:block;position:relative;max-width:100%;overflow-x:auto;overflow-y:hidden;margin:1.2em 0;padding:10px 52px 10px 0;font-style:normal;scrollbar-width:thin;scrollbar-color:#a6b7aa transparent}
+.equation>math{min-width:max-content}
+.equation-number{position:absolute;right:0;top:50%;transform:translateY(-50%);font-size:.9em}
+.equation.unnumbered,.equation.align-equation{padding-right:0}
+math[display="block"]{margin:0}
+math{font-size:1.04em;font-style:normal;overflow-wrap:normal}
+math[display="inline"]{max-width:100%;vertical-align:middle}
+.center{text-align:center}
+code{font:.82em/1.5 Consolas,monospace;overflow-wrap:anywhere}
+figure{margin:1.6em 0}figure img{width:100%;max-width:100%;height:auto}figcaption{font-size:.9em;line-height:1.55;margin-top:.7em}
+blockquote{margin:1.2em 1.5em}
+.references{font-size:.87em;line-height:1.65;padding-left:2.5em}
+.references li{margin:1em 0;overflow-wrap:anywhere;padding-left:.25em}
+.references li p{margin:0}
+.article-footer{margin-top:3em;border-top:1px solid var(--line);padding-top:25px;font:12px/1.8 system-ui,sans-serif;color:var(--muted)}
+.article-footer>a{font-size:13px}
+:target{scroll-margin-top:2rem}
+@media(max-width:700px){.site-bar{padding:19px 22px}.directory{padding:0 23px}.directory-header{padding:45px 0 34px}.intro{font-size:17px}.paper-row{grid-template-columns:34px 1fr;padding:27px 0;gap:7px}.paper-row h2{font-size:22px}.paper-description{font-size:15px}.paper-links{gap:22px}.byline span{margin-left:7px}.manuscript{padding:33px 23px;border:0;font-size:17px}.article-header h1{font-size:1.85rem}.manuscript h2{font-size:1.3rem}.theorem,.lemma,.proposition,.corollary,.remark{padding:8px 13px}.equation{padding-right:0;padding-bottom:27px}.equation-number{top:auto;bottom:0;transform:none}.equation.unnumbered,.equation.align-equation{padding-bottom:10px}.authors{gap:16px 35px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media print{body{background:#fff;font-size:11pt}.site-bar,.contents,.skip-link,.article-footer{display:none}.manuscript{max-width:none;margin:0;padding:0;border:0;font-size:11pt}.equation{overflow:visible}.article-header h1{font-size:22pt}a{color:inherit}.theorem,.lemma,.proposition,.corollary,.remark{break-inside:avoid}}

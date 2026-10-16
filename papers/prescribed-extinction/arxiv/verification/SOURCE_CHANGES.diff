@@ -1,0 +1,29 @@
+--- baseline-4012322/arxiv/main.tex
++++ 2026-10-15/arxiv/main.tex
+@@ -24,7 +24,7 @@
+ \author{Daniel Wang\\McMaster University\\\href{mailto:denialk391@gmail.com}{\texttt{denialk391@gmail.com}}
+ \and Junjie Zheng\\Columbia University\\\href{mailto:zjj2785@gmail.com}{\texttt{zjj2785@gmail.com}}}
+ \hypersetup{pdfauthor={Daniel Wang and Junjie Zheng},pdftitle={Unit Supremum of Absorption Asymmetry at Prescribed Extinction for Compact Reciprocal Dielectrics}}
+-\date{14 October 2026}
++\date{15 October 2026}
+ \begin{document}
+ \maketitle
+ \begin{abstract}
+@@ -172,6 +172,8 @@
+ \end{proof}
+ 
+ \section{Planar dielectric construction and rotation factorization}\label{sec:planar}
++The mechanism combines selective absorption with polarization conversion. In the auxiliary infinite planar model with zero plate loss, the absorber acts only on the $x$ component and is vacuum-equivalent for $y$ polarization, while the plate is a reflectionless half-wave plate. From the absorber side, incident $y$ polarization passes through the absorber before conversion in transmission. From the plate side, conversion occurs first, so an $x$ component reaches the absorber. The ideal plate produces no backward reflection; any reflection of the stack originates at the absorber, and scattering also includes the change in transmission relative to vacuum. This auxiliary model supplies intuition and a limiting target. The final objects are finite and compact, with positive active plate loss and added positive isotropic loss in both layers, followed by exact extinction retuning.
++
+ Initially use passive rank-one susceptibilities
+ \begin{equation}\label{eq:rankone}
+  \chi_A=i\eta\ex\ex^T,\qquad
+@@ -230,6 +232,8 @@
+  p_j=\left(\frac{2j}{2j-1}\right)^2\leq P,\qquad
+  a=p_j-1,\qquad kd=(2j-1)\pi.
+ \end{equation}
++As $j$ increases, $p_j$ decreases to one while $d=(2j-1)\pi/k$ increases: smaller permitted dielectric contrast requires a thicker plate. For each fixed cap $P>1$, choose a permitted integer $j$ once and keep it fixed throughout the construction.
++
+ At $\delta=0$, the phase along $\uvec$ is $2j\pi$, and the orthogonal transverse phase is $(2j-1)\pi$. Matching tangential $E,\mathbf H$, equivalently the scalar $E,E'$, gives zero reflection in both principal directions. The boundary-plane Jones transmission and the vacuum plate phase are
+ \begin{equation}\label{eq:jones}
+  H_\theta=2\uvec\uvec^T-I_2,\qquad v_W=e^{ikd}=-1.

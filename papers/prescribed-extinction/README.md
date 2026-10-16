@@ -7,7 +7,7 @@
 - [Audited proof project](formalization/README.md).
 - [Reproduction](../../REPRODUCE.md).
 
-The earlier named publication package remains unchanged from commit 8db3b0434e1cffcdd989359c747af428e71e6463. The arXiv revision adds enduring contact emails, a fixed date and portable ancillary evidence; its mathematical statements and proofs are unchanged. The earlier anonymous review package also remains byte-preserved.
+The earlier named publication package remains unchanged from commit 8db3b0434e1cffcdd989359c747af428e71e6463. The current arXiv revision is dated 15 October 2026. It retains the prior author/contact metadata and ancillary evidence, adds Section 6 intuition for the absorber--waveplate mechanism and the fixed plate integer, and preserves every theorem, lemma, proposition, proof body and displayed equation. See [revision and verification notes](arxiv/CHANGES.md). The earlier anonymous review package also remains byte-preserved.
 
 The formal theorem is OQ7Prescribed.theorem11_complete at audited commit 686402a6c2d63820828729cc7ab02504632e3fe7. Its main-statement scope, standard axiom report and same-kernel replay are documented in the supplied exact-version records. They do not certify every intermediate statement of every manuscript revision or establish human peer review, an independently implemented kernel checker, or first priority.
 

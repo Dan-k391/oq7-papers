@@ -1,12 +1,33 @@
 {
   "paper": "prescribed-extinction",
-  "engine": "pdfLaTeX",
-  "local_texlive": "2024",
+  "revision_date": "2026-10-15",
+  "baseline_commit": "4012322cee9e3156dea70e1e923ff1bff3b4463b",
+  "engine": "Tectonic",
+  "engine_version": "0.17.0",
+  "engine_sha256": "99ffcfdbf1ebf8bdda9e791942e3d06aedb12463fddc33f07de6f5211c8bf08d",
+  "bundle_sha256": "6ffe055852f8faf66c0acbe1a7fb27f87b869a90bad1204f3bf4d9683f597c7c",
+  "command": [
+    "tectonic",
+    "--only-cached",
+    "--untrusted",
+    "--keep-logs",
+    "--keep-intermediates",
+    "--outdir",
+    "build",
+    "main.tex"
+  ],
+  "environment": {
+    "TECTONIC_CACHE_DIR": "isolated restored cache; all 385 preserved entries checked; five missing font resources fetched from the same TeX bundle",
+    "FONTCONFIG_FILE": "isolated minimal <fontconfig/> configuration; manuscript uses bundled Type 1 fonts",
+    "SOURCE_DATE_EPOCH": "1792065600"
+  },
   "shell_escape": false,
+  "offline_cached_resources": true,
   "fresh_directory": true,
-  "pages": 15,
-  "pdf_sha256": "2a8a322802dde03d76d3ea2f9d0f440107eeb9c816750bf6518c4df118294dff",
-  "zip_sha256": "3f012c7ba105d6dda2978fb251b31704d4793e138235ddbcbe95e3f9ad41ddd3",
+  "fresh_bibliography": true,
+  "pages": 16,
+  "pdf_sha256": "1b15256cfd1608ddc583652dba8a65efdf4d6dfcd2f5c3408d2a64fbcf6e6a02",
+  "zip_sha256": "063b51f6990bcb1b2e7bef3eeee5a3519b7ca78ce69ca7660fa96fb66b8d4c31",
   "inputs": [
     {
       "path": "anc/AUDIT_PROVENANCE.md",
@@ -65,8 +86,8 @@
     },
     {
       "path": "main.tex",
-      "sha256": "806b3b0672fd0ddbbb2c994d78e3d876b9096f8eaac8b501c7183dfe47a2aa2d",
-      "bytes": 49000
+      "sha256": "b82ede97dcce749d912e65d69457c08ffb4fe90e0a62995e9851840ebda0b301",
+      "bytes": 50136
     },
     {
       "path": "references.bib",
@@ -76,6 +97,13 @@
   ],
   "unresolved_references": false,
   "overfull_boxes": [],
+  "underfull_boxes": [],
   "arxiv_server_tested": false,
-  "proof_code_executed": false
+  "proof_code_executed": false,
+  "new_general_audit": false,
+  "logs": [
+    "verification/tectonic-console.txt",
+    "verification/main.log",
+    "verification/main.blg"
+  ]
 }

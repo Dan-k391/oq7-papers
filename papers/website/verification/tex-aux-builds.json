@@ -1,0 +1,433 @@
+{
+  "started_utc": "2026-10-16T02:02:32.891106+00:00",
+  "engine": "D:\\oq7-papers\\.local\\prescribed-finalization-20261015\\tectonic.exe",
+  "engine_version": "Tectonic 0.17.0",
+  "engine_sha256": "99ffcfdbf1ebf8bdda9e791942e3d06aedb12463fddc33f07de6f5211c8bf08d",
+  "cache": "D:\\oq7-papers\\.local\\prescribed-finalization-20261015\\tectonic-cache",
+  "source_date_epoch": "1792065600",
+  "offline_only_cached": true,
+  "untrusted_mode": true,
+  "current_sources_modified": false,
+  "scratch_pdf_outputs_only": true,
+  "proof_code_executed": false,
+  "papers": {
+    "generalized-research": {
+      "source_directory": "D:\\oq7-papers\\papers\\generalized-research\\arxiv",
+      "scratch_directory": "D:\\oq7-papers\\.local\\pages-release-20261015\\tex\\generalized-research",
+      "command": [
+        "D:\\oq7-papers\\.local\\prescribed-finalization-20261015\\tectonic.exe",
+        "--only-cached",
+        "--untrusted",
+        "--outfmt",
+        "xdv",
+        "--keep-logs",
+        "--keep-intermediates",
+        "--outdir",
+        "build",
+        "main.tex"
+      ],
+      "exit_code": 0,
+      "seconds": 0.753,
+      "inputs": [
+        {
+          "path": "main.tex",
+          "source_sha256": "87aec7431baf2e937a790093f4ae249cc896a289f9bf8f6fe84007df59fe35e4",
+          "copied_sha256": "87aec7431baf2e937a790093f4ae249cc896a289f9bf8f6fe84007df59fe35e4"
+        },
+        {
+          "path": "main.bbl",
+          "source_sha256": "8178f2343ce2d36c2c956b9a0c8200ad33bfcbca372f470190fbaa0dc45feebc",
+          "copied_sha256": "8178f2343ce2d36c2c956b9a0c8200ad33bfcbca372f470190fbaa0dc45feebc"
+        },
+        {
+          "path": "references.bib",
+          "source_sha256": "796ecd753d9e96a43ecadd2a40a10d893993149c42f8be341408ac555521cef9",
+          "copied_sha256": "796ecd753d9e96a43ecadd2a40a10d893993149c42f8be341408ac555521cef9"
+        }
+      ],
+      "outputs": {
+        "main.aux": {
+          "path": "D:\\oq7-papers\\.local\\pages-release-20261015\\tex\\generalized-research\\build\\main.aux",
+          "sha256": "54a3c20865bf4efd264847ba9642665b116b369f0776c87a64ac8b5661c3c35d",
+          "bytes": 9420
+        },
+        "main.bbl": {
+          "path": "D:\\oq7-papers\\.local\\pages-release-20261015\\tex\\generalized-research\\build\\main.bbl",
+          "sha256": "8178f2343ce2d36c2c956b9a0c8200ad33bfcbca372f470190fbaa0dc45feebc",
+          "bytes": 7557
+        },
+        "main.blg": {
+          "path": "D:\\oq7-papers\\.local\\pages-release-20261015\\tex\\generalized-research\\build\\main.blg",
+          "sha256": "88ff146c68f1a74ad3ca0fa7fa89d6084b2ad9f6cb7a8f121f29633abe860b4a",
+          "bytes": 194
+        },
+        "main.log": {
+          "path": "D:\\oq7-papers\\.local\\pages-release-20261015\\tex\\generalized-research\\build\\main.log",
+          "sha256": "2ff629f580fe4a3ea5b54bf45f9fd71ba5e8fec5f5231634c40fde1a56cf7484",
+          "bytes": 20355
+        },
+        "main.out": {
+          "path": "D:\\oq7-papers\\.local\\pages-release-20261015\\tex\\generalized-research\\build\\main.out",
+          "sha256": "308c336b843f8b92cdef0c7dcd382d9a32b8cd8bfd60eb29a1d1c9ad26310da9",
+          "bytes": 4035
+        },
+        "main.xdv": {
+          "path": "D:\\oq7-papers\\.local\\pages-release-20261015\\tex\\generalized-research\\build\\main.xdv",
+          "sha256": "8975885914890ffed6183c0a087cba0a53c8f37c7063e330f0c341632abfc09a",
+          "bytes": 115360
+        }
+      },
+      "console": {
+        "path": "D:\\oq7-papers\\.local\\pages-release-20261015\\tex\\generalized-research\\tectonic-console.txt",
+        "sha256": "57a92d0c7051fac418b8ad82c9bf398dfc8b217c366cb5ac43bc4d467c73e42f"
+      },
+      "final_log_unresolved_references_or_citations": [],
+      "final_log_warnings": [
+        "Overfull \\hbox (2.48941pt too wide) in paragraph at lines 43--44",
+        "Overfull \\hbox (5.0955pt too wide) in paragraph at lines 43--44",
+        "Overfull \\hbox (11.42303pt too wide) in paragraph at lines 301--303"
+      ],
+      "cited_key_count": 23,
+      "bibcite_count": 23,
+      "bibitem_count": 23,
+      "missing_citation_keys": [],
+      "source_bbl_identical_to_generated": true,
+      "bibtex_ran": true,
+      "passed": true
+    },
+    "prescribed-extinction": {
+      "source_directory": "D:\\oq7-papers\\papers\\prescribed-extinction\\arxiv",
+      "scratch_directory": "D:\\oq7-papers\\.local\\pages-release-20261015\\tex\\prescribed-extinction",
+      "command": [
+        "D:\\oq7-papers\\.local\\prescribed-finalization-20261015\\tectonic.exe",
+        "--only-cached",
+        "--untrusted",
+        "--outfmt",
+        "xdv",
+        "--keep-logs",
+        "--keep-intermediates",
+        "--outdir",
+        "build",
+        "main.tex"
+      ],
+      "exit_code": 0,
+      "seconds": 1.065,
+      "inputs": [
+        {
+          "path": "main.tex",
+          "source_sha256": "b82ede97dcce749d912e65d69457c08ffb4fe90e0a62995e9851840ebda0b301",
+          "copied_sha256": "b82ede97dcce749d912e65d69457c08ffb4fe90e0a62995e9851840ebda0b301"
+        },
+        {
+          "path": "main.bbl",
+          "source_sha256": "9dcd61ecedcc52e6465abb8bb475ed31d858d2f15085074d9d25ab212b4d9f1b",
+          "copied_sha256": "9dcd61ecedcc52e6465abb8bb475ed31d858d2f15085074d9d25ab212b4d9f1b"
+        },
+        {
+          "path": "references.bib",
+          "source_sha256": "5e05914c33ed047fb2d7bf7105667830b8d101477ab3b043c2951721c8b3f858",
+          "copied_sha256": "5e05914c33ed047fb2d7bf7105667830b8d101477ab3b043c2951721c8b3f858"
+        },
+        {
+          "path": "figures/two-layer-geometry.pdf",
+          "source_sha256": "207782709129f44927b81438b4fee1615e531f05dbf9b834f13deeb94f6a6d3d",
+          "copied_sha256": "207782709129f44927b81438b4fee1615e531f05dbf9b834f13deeb94f6a6d3d"
+        }
+      ],
+      "outputs": {
+        "main.aux": {
+          "path": "D:\\oq7-papers\\.local\\pages-release-20261015\\tex\\prescribed-extinction\\build\\main.aux",
+          "sha256": "eaf281fd2dab84ae241db40c9c8aa129067f5bdb66630f2be1cef01fe05bd8e0",
+          "bytes": 13206
+        },
+        "main.bbl": {
+          "path": "D:\\oq7-papers\\.local\\pages-release-20261015\\tex\\prescribed-extinction\\build\\main.bbl",
+          "sha256": "9dcd61ecedcc52e6465abb8bb475ed31d858d2f15085074d9d25ab212b4d9f1b",
+          "bytes": 8287
+        },
+        "main.blg": {
+          "path": "D:\\oq7-papers\\.local\\pages-release-20261015\\tex\\prescribed-extinction\\build\\main.blg",
+          "sha256": "88ff146c68f1a74ad3ca0fa7fa89d6084b2ad9f6cb7a8f121f29633abe860b4a",
+          "bytes": 194
+        },
+        "main.log": {
+          "path": "D:\\oq7-papers\\.local\\pages-release-20261015\\tex\\prescribed-extinction\\build\\main.log",
+          "sha256": "ff020e7067e8d6674ec4fcc9eba5f17783c3c138c8f737b52791b4a2f2e725c6",
+          "bytes": 19880
+        },
+        "main.out": {
+          "path": "D:\\oq7-papers\\.local\\pages-release-20261015\\tex\\prescribed-extinction\\build\\main.out",
+          "sha256": "ff3efeb9e75a3ad9aedd9f24eb7eddb3dc8551536834d80908a45b4bfd842749",
+          "bytes": 4611
+        },
+        "main.xdv": {
+          "path": "D:\\oq7-papers\\.local\\pages-release-20261015\\tex\\prescribed-extinction\\build\\main.xdv",
+          "sha256": "cb345bdd8795e488158987d99356dc193ab0df24f2c677de7ed263af299dadcf",
+          "bytes": 109252
+        }
+      },
+      "console": {
+        "path": "D:\\oq7-papers\\.local\\pages-release-20261015\\tex\\prescribed-extinction\\tectonic-console.txt",
+        "sha256": "3fc0f220d5d53ad6e2089245a2c790f3e0f563c0121f19dda3dd5f7e6599da3d"
+      },
+      "final_log_unresolved_references_or_citations": [],
+      "final_log_warnings": [],
+      "cited_key_count": 20,
+      "bibcite_count": 20,
+      "bibitem_count": 20,
+      "missing_citation_keys": [],
+      "source_bbl_identical_to_generated": true,
+      "bibtex_ran": true,
+      "passed": true
+    },
+    "quartic-maxwell": {
+      "source_directory": "D:\\oq7-papers\\papers\\quartic-maxwell\\arxiv",
+      "scratch_directory": "D:\\oq7-papers\\.local\\pages-release-20261015\\tex\\quartic-maxwell",
+      "command": [
+        "D:\\oq7-papers\\.local\\prescribed-finalization-20261015\\tectonic.exe",
+        "--only-cached",
+        "--untrusted",
+        "--outfmt",
+        "xdv",
+        "--keep-logs",
+        "--keep-intermediates",
+        "--outdir",
+        "build",
+        "main.tex"
+      ],
+      "exit_code": 0,
+      "seconds": 0.608,
+      "inputs": [
+        {
+          "path": "main.tex",
+          "source_sha256": "037173e61c6039f93f3afead8e4263e95c92992fa80e56222861caf0574e9df4",
+          "copied_sha256": "037173e61c6039f93f3afead8e4263e95c92992fa80e56222861caf0574e9df4"
+        },
+        {
+          "path": "main.bbl",
+          "source_sha256": "942ed158d89f2cc1c22e587d000c3e8a9669c1e8407b9fb69a0a1c35e6e6d90f",
+          "copied_sha256": "942ed158d89f2cc1c22e587d000c3e8a9669c1e8407b9fb69a0a1c35e6e6d90f"
+        },
+        {
+          "path": "references.bib",
+          "source_sha256": "362d50150832f33c8882d0a09cd5270d0baeb4f892aa9a2906ccc7ada3ad26fe",
+          "copied_sha256": "362d50150832f33c8882d0a09cd5270d0baeb4f892aa9a2906ccc7ada3ad26fe"
+        }
+      ],
+      "outputs": {
+        "main.aux": {
+          "path": "D:\\oq7-papers\\.local\\pages-release-20261015\\tex\\quartic-maxwell\\build\\main.aux",
+          "sha256": "b4ee3236db9ab09d020d45e53c11adb61086da8ef76f7635fd8115bc353fe472",
+          "bytes": 10265
+        },
+        "main.bbl": {
+          "path": "D:\\oq7-papers\\.local\\pages-release-20261015\\tex\\quartic-maxwell\\build\\main.bbl",
+          "sha256": "942ed158d89f2cc1c22e587d000c3e8a9669c1e8407b9fb69a0a1c35e6e6d90f",
+          "bytes": 3265
+        },
+        "main.blg": {
+          "path": "D:\\oq7-papers\\.local\\pages-release-20261015\\tex\\quartic-maxwell\\build\\main.blg",
+          "sha256": "88ff146c68f1a74ad3ca0fa7fa89d6084b2ad9f6cb7a8f121f29633abe860b4a",
+          "bytes": 194
+        },
+        "main.log": {
+          "path": "D:\\oq7-papers\\.local\\pages-release-20261015\\tex\\quartic-maxwell\\build\\main.log",
+          "sha256": "4e6d0ef0b5af74c6fa30c922f8efbf9775e627463836a933e457646f0409a542",
+          "bytes": 19538
+        },
+        "main.out": {
+          "path": "D:\\oq7-papers\\.local\\pages-release-20261015\\tex\\quartic-maxwell\\build\\main.out",
+          "sha256": "dadabe2d6c806d2a221eeb143d0cc820ebf397148e469f64168bf6a230d2c9d7",
+          "bytes": 3452
+        },
+        "main.xdv": {
+          "path": "D:\\oq7-papers\\.local\\pages-release-20261015\\tex\\quartic-maxwell\\build\\main.xdv",
+          "sha256": "595d3799d55ab38cbab41eb45f6da8137fa131bf6922d9dddbcd3b5a07ad031b",
+          "bytes": 87760
+        }
+      },
+      "console": {
+        "path": "D:\\oq7-papers\\.local\\pages-release-20261015\\tex\\quartic-maxwell\\tectonic-console.txt",
+        "sha256": "1c6cee2ec8ca2f35e62560c7aa27807718f7417a152d547df527c986a4691bd5"
+      },
+      "final_log_unresolved_references_or_citations": [],
+      "final_log_warnings": [],
+      "cited_key_count": 7,
+      "bibcite_count": 7,
+      "bibitem_count": 7,
+      "missing_citation_keys": [],
+      "source_bbl_identical_to_generated": true,
+      "bibtex_ran": true,
+      "passed": true
+    },
+    "fixed-resource-bounds": {
+      "source_directory": "D:\\oq7-papers\\papers\\fixed-resource-bounds\\arxiv",
+      "scratch_directory": "D:\\oq7-papers\\.local\\pages-release-20261015\\tex\\fixed-resource-bounds",
+      "command": [
+        "D:\\oq7-papers\\.local\\prescribed-finalization-20261015\\tectonic.exe",
+        "--only-cached",
+        "--untrusted",
+        "--outfmt",
+        "xdv",
+        "--keep-logs",
+        "--keep-intermediates",
+        "--outdir",
+        "build",
+        "main.tex"
+      ],
+      "exit_code": 0,
+      "seconds": 0.592,
+      "inputs": [
+        {
+          "path": "main.tex",
+          "source_sha256": "bb530c25d461d87be90d82ccad4767dc156d53744c3aefe771da11757c8a28cc",
+          "copied_sha256": "bb530c25d461d87be90d82ccad4767dc156d53744c3aefe771da11757c8a28cc"
+        },
+        {
+          "path": "main.bbl",
+          "source_sha256": "dfa2fe9eb5053f831baa045f1cf9e4616f84f0e014bf8995f983eeee5e243100",
+          "copied_sha256": "dfa2fe9eb5053f831baa045f1cf9e4616f84f0e014bf8995f983eeee5e243100"
+        },
+        {
+          "path": "references.bib",
+          "source_sha256": "49bbef970da54aafa4280e83d1c1a985d0d1746235ff39e2d7c340edb3e99bb2",
+          "copied_sha256": "49bbef970da54aafa4280e83d1c1a985d0d1746235ff39e2d7c340edb3e99bb2"
+        }
+      ],
+      "outputs": {
+        "main.aux": {
+          "path": "D:\\oq7-papers\\.local\\pages-release-20261015\\tex\\fixed-resource-bounds\\build\\main.aux",
+          "sha256": "f1a00d698bdbccb28d41151c8469cd8fe8cd0832573ac5d8ccd3071fc9e85ba1",
+          "bytes": 10133
+        },
+        "main.bbl": {
+          "path": "D:\\oq7-papers\\.local\\pages-release-20261015\\tex\\fixed-resource-bounds\\build\\main.bbl",
+          "sha256": "dfa2fe9eb5053f831baa045f1cf9e4616f84f0e014bf8995f983eeee5e243100",
+          "bytes": 6469
+        },
+        "main.blg": {
+          "path": "D:\\oq7-papers\\.local\\pages-release-20261015\\tex\\fixed-resource-bounds\\build\\main.blg",
+          "sha256": "88ff146c68f1a74ad3ca0fa7fa89d6084b2ad9f6cb7a8f121f29633abe860b4a",
+          "bytes": 194
+        },
+        "main.log": {
+          "path": "D:\\oq7-papers\\.local\\pages-release-20261015\\tex\\fixed-resource-bounds\\build\\main.log",
+          "sha256": "4d412a9f40653a0dde933894ff945cde6629c7b1533ff7d84788a2a9dacd4d52",
+          "bytes": 19045
+        },
+        "main.out": {
+          "path": "D:\\oq7-papers\\.local\\pages-release-20261015\\tex\\fixed-resource-bounds\\build\\main.out",
+          "sha256": "b02254849e0ae15d892a38662af7b5ecae4f4db738d7df662332479e0e8748c8",
+          "bytes": 3616
+        },
+        "main.xdv": {
+          "path": "D:\\oq7-papers\\.local\\pages-release-20261015\\tex\\fixed-resource-bounds\\build\\main.xdv",
+          "sha256": "d17b8630c85c2c7744bb33b5832df7ec73f07d08453019ebddebf78313ea1b11",
+          "bytes": 98660
+        }
+      },
+      "console": {
+        "path": "D:\\oq7-papers\\.local\\pages-release-20261015\\tex\\fixed-resource-bounds\\tectonic-console.txt",
+        "sha256": "179b7cd336836611cf0fd23dda2169c02ab09a6d498fa5d517e7393fd5ad0c25"
+      },
+      "final_log_unresolved_references_or_citations": [],
+      "final_log_warnings": [],
+      "cited_key_count": 16,
+      "bibcite_count": 16,
+      "bibitem_count": 16,
+      "missing_citation_keys": [],
+      "source_bbl_identical_to_generated": true,
+      "bibtex_ran": true,
+      "passed": true
+    },
+    "compact-maxwell-cross-sections": {
+      "source_directory": "D:\\oq7-papers\\papers\\compact-maxwell-cross-sections\\arxiv",
+      "scratch_directory": "D:\\oq7-papers\\.local\\pages-release-20261015\\tex\\compact-maxwell-cross-sections",
+      "command": [
+        "D:\\oq7-papers\\.local\\prescribed-finalization-20261015\\tectonic.exe",
+        "--only-cached",
+        "--untrusted",
+        "--outfmt",
+        "xdv",
+        "--keep-logs",
+        "--keep-intermediates",
+        "--outdir",
+        "build",
+        "main.tex"
+      ],
+      "exit_code": 0,
+      "seconds": 0.582,
+      "inputs": [
+        {
+          "path": "main.tex",
+          "source_sha256": "2d00da7c7e4b327d6d1fa86c94b8f94e510f57796959a7d8173dea6e76ece4ea",
+          "copied_sha256": "2d00da7c7e4b327d6d1fa86c94b8f94e510f57796959a7d8173dea6e76ece4ea"
+        },
+        {
+          "path": "main.bbl",
+          "source_sha256": "ff7fdcf5939a9b59fbd5f513446a13133fa01a2edb96602d39066a7485e07e3a",
+          "copied_sha256": "ff7fdcf5939a9b59fbd5f513446a13133fa01a2edb96602d39066a7485e07e3a"
+        },
+        {
+          "path": "references.bib",
+          "source_sha256": "c3f9ccc9c25e4d89c44bbe2c5f00723b69b107ac25790fd55ec5fec64aee0125",
+          "copied_sha256": "c3f9ccc9c25e4d89c44bbe2c5f00723b69b107ac25790fd55ec5fec64aee0125"
+        }
+      ],
+      "outputs": {
+        "main.aux": {
+          "path": "D:\\oq7-papers\\.local\\pages-release-20261015\\tex\\compact-maxwell-cross-sections\\build\\main.aux",
+          "sha256": "fc1dff2503ccd09ee4b627c17e61c999538109cff5bdc5a8b3fea8a085d2fbc6",
+          "bytes": 8466
+        },
+        "main.bbl": {
+          "path": "D:\\oq7-papers\\.local\\pages-release-20261015\\tex\\compact-maxwell-cross-sections\\build\\main.bbl",
+          "sha256": "ff7fdcf5939a9b59fbd5f513446a13133fa01a2edb96602d39066a7485e07e3a",
+          "bytes": 6128
+        },
+        "main.blg": {
+          "path": "D:\\oq7-papers\\.local\\pages-release-20261015\\tex\\compact-maxwell-cross-sections\\build\\main.blg",
+          "sha256": "88ff146c68f1a74ad3ca0fa7fa89d6084b2ad9f6cb7a8f121f29633abe860b4a",
+          "bytes": 194
+        },
+        "main.log": {
+          "path": "D:\\oq7-papers\\.local\\pages-release-20261015\\tex\\compact-maxwell-cross-sections\\build\\main.log",
+          "sha256": "c97b9838e640c1cc567c6fac4764764baebd68d120149b49f20d7fc250ca2da8",
+          "bytes": 20480
+        },
+        "main.out": {
+          "path": "D:\\oq7-papers\\.local\\pages-release-20261015\\tex\\compact-maxwell-cross-sections\\build\\main.out",
+          "sha256": "4411f0307488d02dd565e5467bf3af593fa89f8f952e4d292754eb32513c0876",
+          "bytes": 3329
+        },
+        "main.xdv": {
+          "path": "D:\\oq7-papers\\.local\\pages-release-20261015\\tex\\compact-maxwell-cross-sections\\build\\main.xdv",
+          "sha256": "b8dc5af1d85c91767561432b1d997d9a9c3be9c1250212592f2162e66ebf3f27",
+          "bytes": 92116
+        }
+      },
+      "console": {
+        "path": "D:\\oq7-papers\\.local\\pages-release-20261015\\tex\\compact-maxwell-cross-sections\\tectonic-console.txt",
+        "sha256": "432493d979a5db789fc3f85d4590a5b41dfce408ac10a59638fed86f724acb5c"
+      },
+      "final_log_unresolved_references_or_citations": [],
+      "final_log_warnings": [
+        "Overfull \\hbox (3.05556pt too wide) in paragraph at lines 406--407",
+        "Underfull \\hbox (badness 1077) in paragraph at lines 46--53",
+        "Underfull \\hbox (badness 2573) in paragraph at lines 46--53"
+      ],
+      "cited_key_count": 16,
+      "bibcite_count": 16,
+      "bibitem_count": 16,
+      "missing_citation_keys": [],
+      "source_bbl_identical_to_generated": true,
+      "bibtex_ran": true,
+      "passed": true
+    }
+  },
+  "original_arxiv_file_count": 65,
+  "originals_preserved_byte_for_byte": true,
+  "original_changes": {},
+  "finished_utc": "2026-10-16T02:02:34.938650+00:00",
+  "passed": true
+}
