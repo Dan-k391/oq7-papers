@@ -77,3 +77,9 @@ record; the deployment record below applies only to the earlier scope revision.
 ## Historical 17 October scope deployment
 
 The earlier 17 October scope revision was deployed to the public directory above. Source commit `22fed75636f16309ccd0fb471e8674d62d258dc5` supplied the static files deployed by `gh-pages` commit `d2568df53e2116d75890c5e15dc2755960b8eafc`. GitHub's Pages workflow succeeded, and all 24 served files matched the verified local release byte-for-byte. See [the dated deployment record](verification/deployment-2026-10-17.json); the earlier `verification/deployment.json` remains historical.
+
+## Boundary candidate deployment
+
+The labeled boundary candidate release is live at the public directory. Source commit `5dd4e1a6346c77232bf788ee87d6442d5f8614fc` supplied the verified static tree deployed by `gh-pages` commit `cfaa6c1b3833ea43203711d10ea6b0cf78b2d758`. GitHub Pages completed successfully. All 28 served files and the directory landing page matched the verified release byte-for-byte; `.nojekyll` is additionally present in the 29-file deployment tree. The live landing-page candidate label and links were also checked in the browser.
+
+See [the candidate deployment record](verification/deployment-boundary-candidate-2026-10-17.json) and [the publication-format checks](verification/boundary-candidate-2026-10-17.json). These verify publication identity and format, not the mathematical validity of the candidate proof. Original research-stage status files remain historical evidence.
