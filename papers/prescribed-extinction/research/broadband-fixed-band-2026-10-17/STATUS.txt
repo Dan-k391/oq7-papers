@@ -1,0 +1,71 @@
+BROADBAND FIXED-BAND RESEARCH DRAFT - 17 October 2026
+
+Current result
+A proposed constructive proof that the worst-frequency absorption-asymmetry
+supremum is one on any fixed finite positive-frequency band, in the base
+paper's general homogeneous two-layer reciprocal tensor class, for every
+strict extinction floor 0 < E_min < E_star, with exact X(omega_c) = E_star.
+Each selected body has one finite passive causal Lorentz-sum material law.
+The bandwise real-permittivity and loss upper caps are retained.
+
+Essential assumptions and scope
+No common bounds on aperture, thickness, volume, oscillator strengths,
+oscillator count, or a positive loss lower bound across the sequence.
+Caps apply on the prescribed band. General tensor dispersion is essential
+for the all-strict-floor statement; individual oscillator axes remain fixed.
+The proof inherits the base manuscript's weak-Maxwell volume representation,
+radiation identity, optical theorem, and bounded-domain operator framework.
+
+New analytical steps
+1. Approximate a positive conversion target by signed resolvent sums.
+2. Complete each signed off-diagonal residue to a positive semidefinite
+   matrix, paying for it with a potentially enormous yy entry.
+3. Derive normalized weak/thick matrix-slab and selective-absorber limits.
+4. Extend the auxiliary-current factorization and aperture localization
+   uniformly over a compact positive-frequency band.
+5. Use a tight coupling bracket to preserve the entire-band extinction floor,
+   add small isotropic loss, and retune only once at the center frequency.
+
+Review and verification
+Three GPT-6.1-sol subagents independently addressed planar construction,
+frequency-uniform Maxwell localization, and adversarial floor/causality scope.
+Their final draft reviews reported no substantive gap in the assigned scope.
+The root reviewed the argument, incorporated clarifications, and reran the
+numerical script. A separate agent inspected the numerical descriptions.
+This is AI-assisted analytical work, not external human peer review and not
+formal verification. The inherited Lean project does not verify this extension.
+
+Numerical scope
+The exact planar-stack convergence tests use a moderate matrix and sampled
+frequencies. Separate eight-pole dispersion shaping evaluates only the ideal
+normalized coefficient. It is not a simulation of a shaped finite device.
+Independent standing-wave volume absorption is checked for plus incidence.
+The algebraic outgoing-amplitude energy residuals are not independent tests.
+No finite three-dimensional aperture simulation or interval certificate was run.
+
+Still open
+- E_min = E_star: an exact global minimum at the selected interior center.
+- Exactly constant extinction across the band.
+- Fixed-resource optima and useful quantitative resource rates.
+- An all-isotropic construction.
+- Independent review and formal verification of the new argument.
+
+Files
+main.tex                 Editable derivation and exact scope.
+research-note.pdf        Nine-page rendered research note.
+planar_checks.py         Reproducible NumPy planar calculations.
+numerical_results.json   Saved numerical output.
+verification.json        Source hashes, build and review scope.
+verification/            Final TeX log and console output.
+
+Run the numerical checks with Python 3 and NumPy:
+  python planar_checks.py
+Compile main.tex with a normal LaTeX installation, or Tectonic. The saved build
+used Tectonic 0.17.0, cached resources, shell escape disabled, and a fixed epoch.
+Render and build scratch files are under .local/broadband-research-20261017/.
+
+Repository scope
+Work was performed in D:\oq7-papers. This new research directory is separate
+from the published manuscripts, website, frozen audits and formalization.
+Those published files were not edited by this research operation.
+The research draft has not been committed, pushed or deployed.

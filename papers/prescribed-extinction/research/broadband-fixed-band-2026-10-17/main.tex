@@ -1,0 +1,616 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools,microtype}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Proposed theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newcommand{\ReH}{\operatorname{Re}_{H}}
+\newcommand{\ImH}{\operatorname{Im}_{H}}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\ip}[2]{\left\langle#1,#2\right\rangle}
+\newcommand{\dd}{\,\mathrm d}
+\newcommand{\ex}{e_x}
+\newcommand{\ey}{e_y}
+\newcommand{\ee}{\mathrm e}
+\title{Uniform absorption asymmetry on a fixed frequency band\\
+\large A constructive draft for a strict extinction floor}
+\author{Research working note}
+\date{17 October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We give a proposed constructive extension of the compact two-layer
+prescribed-extinction argument to a fixed frequency band. For every band
+bounded away from zero, every positive center-frequency extinction, and every
+strictly smaller positive extinction floor, the argument yields compact
+reciprocal nonmagnetic dielectric bodies whose worst-case normalized absorption
+asymmetry approaches one. Each body has a single passive causal constitutive
+law, made from finitely many Lorentz oscillators, and obeys arbitrary prescribed
+upper dielectric and loss caps throughout the band. The additional ingredient
+is a passive matrix-valued dispersion construction that shapes polarization
+conversion; a fixed-axis weak plate alone gives a weaker floor range.
+The argument is an analytical research draft. It is separate from the existing
+manuscript and frozen formalization. The boundary case in which the floor equals
+the prescribed center extinction is not established.
+\end{abstract}
+
+\section{Statement and exact scope}
+Fix
+\[
+ B=[\omega_1,\omega_2],\qquad
+ 0<\omega_1<\omega_c<\omega_2,\qquad
+ k=\omega/c_{\rm v},
+\]
+where $c_{\rm v}$ is the vacuum speed. Use the opposite incident electric fields
+$f_\pm=\ey\ee^{\pm ikz}$ with equal incident intensity. The object comprises two
+homogeneous layers with common square aperture $S_R=(-R/2,R/2)^2$, thicknesses
+$h,d>0$, and vacuum outside. Each layer has a spatially constant, symmetric
+$3\times3$ dielectric tensor depending on frequency; $\mu=I$. The total
+extinction, absorption and full-sphere scattering cross sections satisfy
+\[
+ X_+=X_-=X=A_\pm+S_\pm,\qquad
+ \Gamma=\frac{\abs{A_+-A_-}}{X}.
+\]
+These are plane-wave cross sections, not fractions of a finite incident power.
+
+\begin{theorem}[Fixed band with a strict extinction floor]\label{thm:main}
+Fix $P>1$, $Q>0$, $E_*>0$, and $0<E_{\min}<E_*$. For every
+$0<\epsilon<1$, the construction below supplies a finite two-layer body and
+one passive causal reciprocal dielectric law in each layer such that, for
+every $\omega\in B$,
+\begin{gather}
+ I\preceq\ReH\varepsilon(\omega)\preceq PI,\qquad
+ 0\prec\ImH\varepsilon(\omega)\preceq QI,\label{eq:caps}\\
+ X(\omega_c)=E_*,\qquad
+ X(\omega)\ge E_{\min},\qquad
+ 1-\epsilon<\Gamma(\omega)<1.\label{eq:target}
+\end{gather}
+Each susceptibility is a finite sum of damped Lorentz oscillators with real
+positive semidefinite matrix residues, and tends to zero at infinite frequency.
+Consequently, within this resource-unrestricted class,
+\[
+ \sup_{\text{admissible bodies}}\ \inf_{\omega\in B}\Gamma(\omega)=1.
+\]
+The supremum is not attained.
+\end{theorem}
+
+Material caps are imposed on $B$, not on all real frequencies. There is no
+common aperture, thickness, volume, oscillator-strength, number-of-oscillators
+or positive-loss-floor bound across the sequence. Frequencies do not select
+different bodies: all geometrical and oscillator parameters are fixed for each
+selected body. The constituent oscillator axes are fixed; the principal axes
+of their summed tensor may vary with frequency. This is permitted by the
+two-layer tensor class of the base manuscript \cite{base}.
+
+The proof uses the weak-Maxwell volume representation, radiation identity and
+optical theorem established in the base manuscript. The new frequency-uniform
+localization, matrix factorization, dispersion shaping and parameter selection
+are supplied here. This is not a new Lean verification or an independent audit
+of all inherited Maxwell foundations.
+
+\section{Passive dispersion can shape the conversion amplitude}
+For $F>0$, $\Omega>0$, $\gamma>0$, define
+\[
+ \ell(z)=\frac{F}{\Omega^2-z^2-i\gamma z}.
+\]
+Its poles lie in the lower half-plane, it obeys the real-time symmetry
+$\ell(-\overline z)=\overline{\ell(z)}$, and for $\Im z>0$,
+\begin{equation}\label{eq:herglotz}
+ \Im\{z\ell(z)\}
+ =
+ F\frac{(\Im z)(\Omega^2+\abs z^2)+\gamma\abs z^2}
+        {\abs{\Omega^2-z^2-i\gamma z}^2}>0.
+\end{equation}
+Thus $z\ell(z)$ is Herglotz, the passivity condition for electric susceptibility.
+Multiplication by a real positive semidefinite matrix, finite summation, and
+congruence by a fixed real matrix preserve this condition. If
+$\Omega>\omega_2$, both real and imaginary parts of $\ell(\omega)$ are positive
+throughout $B$. Matrix oscillator positivity is also central in general
+broadband scattering representations \cite{oscillators}; the local construction
+used here is explicit.
+
+\begin{lemma}[Signed resolvent approximation]\label{lem:density}
+The real linear span of $(t-x)^{-1}$, $t>T>\omega_2^2$, is dense in
+$C([\omega_1^2,\omega_2^2];\mathbb R)$.
+\end{lemma}
+\begin{proof}
+An annihilating finite signed measure $\mu$ would have Stieltjes transform
+$\int(t-x)^{-1}\dd\mu(x)=0$ for every $t>T$. Expanding at infinity gives
+$\int x^n\dd\mu(x)=0$ for every nonnegative integer $n$. Polynomial density on
+the compact interval implies $\mu=0$. The Hahn--Banach theorem and the Riesz
+representation theorem now give density. Every approximant is a finite sum;
+repeated poles may be merged.
+\end{proof}
+
+Fix $a_0>0$ and choose
+\begin{equation}\label{eq:tau}
+ \tau=\frac{2\pi}{\omega_1+\omega_2}.
+\end{equation}
+In particular $0<\tau\omega_1<\tau\omega_2<2\pi$. The positive continuous target
+\[
+ f(\omega)=\frac{a_0}{2\sin(\tau\omega/2)}
+\]
+is bounded on $B$. Lemma~\ref{lem:density} gives a finite real rational sum
+\[
+ r(\omega)=\sum_{j=1}^m\frac{\beta_j}{t_j-\omega^2}
+\]
+arbitrarily close to $f$. The $\beta_j$ may have either sign. For any
+$\eta_j>0$, the residue
+\[
+ M_j=
+ \begin{pmatrix}\eta_j&\beta_j\\
+                 \beta_j&\beta_j^2/\eta_j\end{pmatrix}
+\]
+is positive semidefinite. Choose the $\eta_j$ small enough that
+$\sum_j\eta_j/(t_j-\omega_2^2)$ is arbitrarily small. Define the lossless
+intermediate matrix
+\begin{equation}\label{eq:C0}
+ C_0(\omega)=
+ \frac{a_0T_0}{T_0-\omega^2}\ex\ex^T+
+ \sum_{j=1}^m\frac{M_j}{t_j-\omega^2}+
+ \frac{\kappa I_2}{T_*-\omega^2}
+ =
+ \begin{pmatrix}a(\omega)&b(\omega)\\ b(\omega)&c(\omega)\end{pmatrix}.
+\end{equation}
+All poles exceed $\omega_2^2$. Take $T_0$ sufficiently large and $\kappa>0$
+sufficiently small. Then $C_0\succ0$, $a$ is arbitrarily close to $a_0$, and
+$b=r$ is arbitrarily close to $f$. The entry $c$ may be extremely large, but
+it is finite and continuous. Its unrestricted size is an essential resource
+in this construction.
+
+Replace every denominator in \eqref{eq:C0} by
+$t-\omega^2-i\gamma_t\omega$, using positive damping also for the isotropic
+term. The resulting $C_\gamma$ obeys
+\[
+ \ReH C_\gamma\succ0,\qquad \ImH C_\gamma\succ0,\qquad
+ C_\gamma\longrightarrow C_0
+\]
+uniformly on $B$ as all dampings tend to zero. It is a finite passive reciprocal
+oscillator sum with high-frequency decay. All these choices describe one
+material law across the whole band.
+
+\section{The weak thick plate and the selective absorber}
+Set $D_\theta=\operatorname{diag}(1,\theta)$, $0\le\theta\le1$. Before final
+isotropic regularization, use the plate susceptibility
+\begin{equation}\label{eq:plate}
+ \chi_{W,N,\theta}(\omega)=
+ \frac1N D_\theta C_\gamma(\omega)D_\theta
+ \quad\text{in the $xy$ block},\qquad
+ d_N=\frac{2c_{\rm v}\tau N}{a_0},
+\end{equation}
+with zero $z$ susceptibility. The absorber has susceptibility
+\begin{equation}\label{eq:absorber}
+ \chi_{A,N}(z)=\alpha_{A,N}(z)\ex\ex^T,\quad
+ \alpha_{A,N}(z)=\frac{4\omega_2^2/N}
+                         {4\omega_2^2-z^2-i\omega_2 z},\quad
+ h_N=\frac{N^2c_{\rm v}}{\omega_c}.
+\end{equation}
+For each fixed oscillator matrix, sufficiently large $N$ gives strict upper
+margins in both material caps, uniformly in $\theta\in[0,1]$ and $\omega\in B$.
+The lower real bound follows from positive real oscillator coefficients and
+positive semidefinite residues.
+
+\subsection{Uniform absorber limit}
+Write $x=\omega/\omega_2$ and $a_B=\omega_1/\omega_2>0$. Then
+$\alpha_{A,N}=4/[N(4-x^2-ix)]$. On $B$,
+\[
+ \abs{\alpha_{A,N}}\le\frac4{3N},\qquad
+ \Im\alpha_{A,N}\ge\frac{a_B}{4N}.
+\]
+For the passive square root $n_A=\sqrt{1+\alpha_{A,N}}$,
+$\Im n_A\ge c_A/N$ with $c_A>0$ independent of $\omega$.
+The slab propagation amplitude $p_A=\exp(ikn_Ah_N)$ therefore satisfies
+$\abs{p_A}\le\exp(-cN)$. Its Fresnel amplitude is $O(N^{-1})$. The exact
+scalar slab formulas give, uniformly on $B$,
+\begin{equation}\label{eq:absorber-limit}
+ r_A=O(N^{-1}),\qquad t_A=O(\exp(-cN)).
+\end{equation}
+The $y$ channel remains vacuum-equivalent in this intermediate absorber.
+
+\subsection{Uniform plate limit after normalization}
+First take $C_\gamma=C_0$, and put
+$M_\theta=D_\theta C_0D_\theta$ and $t=\tau\omega/a_0$. The index matrix is
+$n_N=(I+M_\theta/N)^{1/2}$. All its slab amplitudes are matrix functions of
+$M_\theta$:
+\begin{align}
+ r_0&=(I-n_N)(I+n_N)^{-1},& p_N&=\exp(ikd_Nn_N),\nonumber\\
+ R_W&=r_0(I-p_N^2)(I-r_0^2p_N^2)^{-1},&
+ T_W&=(I-r_0^2)p_N(I-r_0^2p_N^2)^{-1}.\label{eq:matrix-slab}
+\end{align}
+For fixed $C_0$, these expressions are holomorphic in $\theta$ on a fixed
+complex disk for all sufficiently large $N$. There,
+\[
+ n_N=I+\frac{M_\theta}{2N}+O(N^{-2}),\quad
+ R_W=O(N^{-1}),\quad
+ \frac{T_W}{v_W}=Q_\theta+O(N^{-1}),\quad
+ Q_\theta=\exp(itM_\theta),\quad v_W=\ee^{ikd_N}.
+\]
+The estimates are uniform in real frequency on $B$ and on the complex
+$\theta$ disk. Although complex $\theta$ is only an analytic device, its
+propagation matrices have a finite uniform norm on the disk; hence the
+denominators in \eqref{eq:matrix-slab} are invertible for large $N$.
+
+Parity under $\theta\mapsto-\theta$ makes offdiagonal entries odd and diagonal
+entries even. At $\theta=0$ the $yy$ slab is exactly vacuum. Applying Cauchy
+estimates on a smaller disk therefore gives
+\begin{gather}
+ (R_W)_{xy}/\theta=O(N^{-1}),\qquad
+ (R_W)_{yy}/\theta^2=O(N^{-1}),\nonumber\\
+ (T_W/v_W-Q_\theta)_{xy}/\theta=O(N^{-1}),\qquad
+ (T_W/v_W-Q_\theta)_{yy}/\theta^2=O(N^{-1}).\label{eq:normalized-slab}
+\end{gather}
+These are the needed normalized estimates; unnormalized convergence alone
+would not control vanishing coupling.
+
+Direct expansion of the exponential, with $\phi=ta$, gives
+\begin{align}
+ (Q_\theta)_{xy}
+ &=\theta\frac ba(\ee^{i\phi}-1)+O(\theta^3),\label{eq:Qxy}\\
+ (Q_\theta)_{yy}
+ &=1+\theta^2\left[
+ itc+\frac{b^2}{a^2}(\ee^{i\phi}-1-i\phi)\right]+O(\theta^4).\label{eq:Qyy}
+\end{align}
+The large $c$ contributes only an imaginary quadratic forward phase and does
+not enter the quadratic extinction coefficient.
+
+\subsection{Actual stack amplitudes and the normalized spectrum}
+Let $P_x=\ex\ex^T$, $P_y=\ey\ey^T$, $v_A=\ee^{ikh_N}$,
+$R_A=r_AP_x$, $T_A=t_AP_x+v_AP_y$. Exact cascade matching gives
+\begin{align*}
+ t_+&=T_W(I-R_AR_W)^{-1}T_A\ey,\\
+ r_+&=T_AR_W(I-R_AR_W)^{-1}T_A\ey,\\
+ t_-&=T_A(I-R_WR_A)^{-1}T_W\ey,\\
+ r_-&=\left[R_W+T_WR_A(I-R_WR_A)^{-1}T_W\right]\ey.
+\end{align*}
+The unlisted direct $R_A\ey$ term is zero. Reciprocal transmission gives the
+same co-polar forward coefficient. With $v=v_Av_W$, the planar extinction is
+\[
+ X_\infty=2\Re(1-\ey^Tt_\pm/v),
+\]
+and scattered transmission is $t_\pm-v\ey$. Define
+$Y_\infty=X_\infty/\theta^2$, and similarly normalized scattering
+$C_\infty^\pm$ and absorption $B_\infty^\pm$, with
+$\gamma_\infty=\abs{B_\infty^+-B_\infty^-}/Y_\infty$.
+Equations \eqref{eq:absorber-limit} and \eqref{eq:normalized-slab} justify their
+limits at $\theta=0$.
+
+In the ideal selective-absorber and reflectionless-plate limit,
+\[
+ t_+=vQ_\theta\ey,\qquad t_-=vP_yQ_\theta\ey,\qquad r_\pm=0.
+\]
+Equations \eqref{eq:Qxy}--\eqref{eq:Qyy}, or unitarity of $Q_\theta$, give
+\begin{equation}\label{eq:flat-limit}
+ Y_0(\omega)=4\left(\frac{b(\omega)}{a(\omega)}\right)^2
+          \sin^2\!\left(\frac{\tau\omega a(\omega)}{2a_0}\right),
+ \quad C_0^+=Y_0,\quad C_0^-=0.
+\end{equation}
+Thus $B_0^+=0$, $B_0^-=Y_0$ and the limiting contrast is one.
+This is an actual dielectric-stack calculation, not a choice of independent
+scattering matrices.
+
+The choices $a\approx a_0$ and
+$b\approx a_0/[2\sin(\tau\omega/2)]$ make $Y_0$ arbitrarily close to one
+uniformly on $B$. Positivity of the sine on the compact band makes this
+approximation stable. For each fixed lossless matrix, first choose finite
+$N$ sufficiently large. Next choose positive damping sufficiently small.
+The exact finite-layer amplitudes and their normalized Taylor coefficients
+depend continuously on that damping. Real-frequency outgoing uniqueness
+follows from the passive flux identity and finite-interval ODE uniqueness,
+so no real pole obstructs the perturbation. We obtain a fixed, strictly
+damped active planar stage whose $Y_\infty(\omega,0)$ is arbitrarily close
+to one and whose $\gamma_\infty(\omega,0)$ is arbitrarily close to one,
+uniformly on $B$.
+
+\section{Matrix factorization at vanishing coupling}
+For the compact aperture, let
+\[
+ \mathcal H_R=L^2(S_R\times(0,h);\mathbb C)
+ \oplus L^2(S_R\times(h,h+d);\mathbb C^2).
+\]
+Define $J_\theta$ to map the absorber scalar to the $x$ component and the
+plate vector through $D_\theta$ into the $xy$ plane. It is a contraction for
+$0\le\theta\le1$, and is continuous in norm. It need not be injective at zero.
+Set
+\[
+ \alpha(\omega)=\operatorname{diag}(\alpha_A(\omega),C_\gamma(\omega)/N),
+ \quad \chi_\theta=J_\theta\alpha J_\theta^*,\quad
+ L_{R,\theta}=\alpha^{-1}-J_\theta^*K_{D_R}(k)J_\theta.
+\]
+The material weight is
+\begin{equation}\label{eq:W}
+ W=-\ImH\alpha^{-1}
+   =\alpha^{-*}(\ImH\alpha)\alpha^{-1}\succ0.
+\end{equation}
+For this fixed stage, compactness of $B$ gives a uniform constant $c_*>0$
+such that $W\succeq c_*I$. The Green radiation identity implies
+\[
+ -\Im\ip{r}{L_{R,\theta}r}
+ =\ip{r}{Wr}+\Im\ip{J_\theta r}{K_{D_R}J_\theta r}
+ \ge c_*\norm r^2.
+\]
+The coercive sesquilinear form yields invertibility and
+$\norm{L_{R,\theta}^{-1}}\le c_*^{-1}$ independently of $R,\omega,\theta$.
+This argument does not require $J_\theta$ to be an isometry.
+
+The projected incident field is exactly $J_\theta^*f_\pm=\theta g_\pm$,
+where $g_\pm$ is zero in the absorber and $\ey\ee^{\pm ikz}$ in the
+two-component plate space. Therefore
+\begin{equation}\label{eq:factorization}
+ r_{R,\theta}^\pm=L_{R,\theta}^{-1}g_\pm,\quad
+ p_\pm=\theta J_\theta r_{R,\theta}^\pm,\quad
+ X_R=\theta^2Y_R,\quad A_R^\pm=\theta^2B_R^\pm,
+\end{equation}
+with
+\[
+ Y_R=k\Im\ip{g_\pm}{r_{R,\theta}^\pm},\qquad
+ B_R^\pm=k\ip{r_{R,\theta}^\pm}{Wr_{R,\theta}^\pm},\qquad
+ C_R^\pm=Y_R-B_R^\pm.
+\]
+For example, with the physical auxiliary current $q=\alpha J_\theta^*E$,
+one has $q=\theta r$ and
+$E^*(\ImH\chi_\theta)E=q^*Wq$. This also proves the absorption identity.
+The normalized quantities extend continuously to zero coupling through
+$L^{-1}$, even though the physical incident response then vanishes.
+
+\section{Frequency-uniform finite-aperture localization}
+\begin{proposition}\label{prop:aperture}
+Freeze positive thicknesses and continuous active matrix laws with
+$\ImH\alpha\succ0$ on $B$. On every compact coupling interval in $[0,1]$,
+\[
+ \sup_{\omega,\theta}
+ R^{-1}\norm{r_{R,\theta}^\pm-r_{\infty,\theta}^\pm}_{\mathcal H_R}
+ \longrightarrow0,
+\]
+where the planar current is extended constantly across the aperture. Uniformly
+on the same parameters,
+\[
+ R^{-2}(Y_R,B_R^\pm,C_R^\pm)
+ \longrightarrow(Y_\infty,B_\infty^\pm,C_\infty^\pm).
+\]
+The contrast ratios converge uniformly wherever $Y_\infty$ has a positive
+lower bound; here it does on each compact parameter set.
+\end{proposition}
+\begin{proof}
+Let $K_\kappa(k)$ be the transverse Weyl fiber on the fixed height interval,
+$\beta=(k^2-\abs\kappa^2)^{1/2}$ with outgoing branch. Its kernels contain
+$G_\kappa(z)=i\ee^{i\beta\abs z}/(2\beta)$ and its first derivatives, together
+with the longitudinal local term. The explicit bounds from the base paper
+are uniform for $k\in[k_1,k_2]$, where $k_i=\omega_i/c_{\rm v}$:
+\[
+ \norm{K_\kappa}\le C\left(1+\abs\kappa+
+              \frac{k^2+\abs\kappa^2}{\abs\beta}\right),\qquad
+ \norm{K_\kappa-K_0}\le C_1\abs\kappa
+ \quad(\abs\kappa\le k_1/2).
+\]
+Projection by $J_\theta$ cannot increase these bounds. The low disk is fixed
+independently of frequency.
+
+For a fixed smooth window $v$ supported in the unit square and
+$v_R(x)=v(x/R)$, the Fourier transform of the localization commutator is
+\[
+ R^2\widehat v(R\kappa)
+ (J_\theta^*K_\kappa J_\theta-J_\theta^*K_0J_\theta)r.
+\]
+The low disk has global $L^2$ bound $C\norm r\norm{\nabla v}_2$ by Plancherel.
+For the complement, Schwartz decay and an integer $m>3$ give
+$R^2\abs{\widehat v(R\kappa)}\le C_{v,m}R^{2-m}\abs\kappa^{-m}$.
+Its fiber bound is uniformly integrable in $\omega$: on
+$k_1/2\le\rho\le2k_2$,
+\[
+ \abs{k^2-\rho^2}^{-1/2}
+ \le k_1^{-1/2}\abs{\rho-k}^{-1/2},
+\]
+whose radial integral is uniformly finite as the grazing circle moves.
+For $\rho>2k_2$, the radial tail is $O(\rho^{2-m})$.
+Fourier $L^1$ inversion thus bounds the high-frequency part in transverse
+$L^\infty$ by $C_{v,m}R^{2-m}\norm r$, and its aperture $L^2$ norm by
+$C_{v,m}R^{3-m}\norm r$. No square of the grazing singularity is used.
+
+For completeness, the transverse zero fiber is
+$K_0p(z)=(ik/2)\int\ee^{ik\abs{z-z'}}p(z')\dd z'$. It satisfies
+\[
+ \Im\ip p{K_0p}=\frac{k}{4}\left(
+ \norm{\int\ee^{ikz}p(z)\dd z}^2+
+ \norm{\int\ee^{-ikz}p(z)\dd z}^2\right)\ge0.
+\]
+Thus the same coercivity proof applies to the planar projected operator.
+The planar inverse has the same $c_*^{-1}$ bound and its currents have uniformly
+bounded height norm. Applying the inverse to the windowed-current residual
+gives
+\[
+ \sup_{\omega,\theta}
+ \frac{\norm{r_R-r_\infty}_{\mathcal H_R}}R
+ \le C\norm{1-v}_{L^2(S_1)}
+       +\frac{C_v}{R}+O(R^{2-m}).
+\]
+First let $R\to\infty$ for fixed $v$, then approximate one in $L^2(S_1)$.
+Density identifies the distributional Fourier construction with the restricted
+volume field, as in the base proof. Uniform bounds on $k,W,g$ and currents
+of norm $O(R)$ give the work and absorption limits by Cauchy--Schwarz;
+energy balance gives the scattering limit.
+
+Finally, the planar kernels, active matrices and drives are continuous in
+$(\omega,\theta)$ in operator or Hilbert norm. The inverse identity gives
+continuous planar currents. They are nonzero because $g\ne0$ and $L$ is
+invertible. Hence $Y_\infty\ge k\ip r{Wr}>0$ pointwise, and continuity on
+the compact parameter set supplies a positive minimum. This justifies
+uniform division.
+\end{proof}
+
+\section{One center-frequency tuning and strict tensor loss}
+We now prove the proposed theorem, using a tight bracket so that the floor
+holds throughout it. Put $q=E_{\min}/E_*<1$. Choose the oscillator shaping
+accuracy so that $Y_0$ is sufficiently close to one that
+$\min_B Y_0/Y_0(\omega_c)>q$. Choose finite $N$ and then positive damping as
+above, retaining strict material-cap margins, so that the fixed active stage has
+\[
+ m:=\min_B Y_\infty(\omega,0)>0,\qquad
+ \frac{m}{Y_c}>q,\qquad
+ \inf_B\gamma_\infty(\omega,0)>1-\epsilon/4,
+ \quad Y_c:=Y_\infty(\omega_c,0).
+\]
+Choose two fixed positive coupling-scale constants $s_-<s_+$ with
+\begin{equation}\label{eq:bracket}
+ \sqrt{E_{\min}/m}<s_-<\sqrt{E_*/Y_c}<s_+.
+\end{equation}
+In particular $s_-^2m>E_{\min}$, while the center-frequency extinctions at the
+two bracket endpoints straddle $E_*$. The bracket for a physical aperture is
+$\theta\in[s_-/R,s_+/R]$.
+
+By uniform continuity and Proposition~\ref{prop:aperture}, for all sufficiently
+large finite $R$, this entire bracket lies in $[0,1]$ and satisfies, with
+strict margins,
+\[
+ X_R(\omega,\theta)>E_{\min}\quad(\omega\in B),\qquad
+ \Gamma_R(\omega,\theta)>1-3\epsilon/4,
+\]
+and
+\[
+ X_R(\omega_c,s_-/R)<E_*<
+ X_R(\omega_c,s_+/R).
+\]
+Indeed, uniformly in $\omega$ and $s\in[s_-,s_+]$,
+\[
+ R^{-2}Y_R(\omega,s/R)\to Y_\infty(\omega,0),\qquad
+ X_R(\omega,s/R)=s^2R^{-2}Y_R(\omega,s/R).
+\]
+The second relation is exact.
+The factor-two bracket from the single-frequency paper would not in general
+preserve an arbitrarily high floor; \eqref{eq:bracket} supplies the needed
+replacement.
+
+The intermediate tensor is only semidefinitely lossy. For the selected finite
+$R$, add the same isotropic passive oscillator $\nu f_0(z)I$ to each layer, where
+\[
+ f_0(z)=\frac{F_0}{\Omega_0^2-z^2-i\gamma_0z},
+ \qquad F_0,\gamma_0>0,\quad\Omega_0>\omega_2.
+\]
+The full-vector electric inverse before this addition is
+\[
+ (I-K_{D_R}J_\theta\alpha J_\theta^*)^{-1}
+ =I+K_{D_R}J_\theta L_{R,\theta}^{-1}J_\theta^*.
+\]
+For fixed $R$, $K_{D_R}(k)$ is norm-continuous and uniformly bounded on $B$:
+its static singular part is independent of $k$, and its remaining weakly
+singular kernel varies continuously on the bounded domain. In detail,
+$g_k-g_0=ik/(4\pi)-k^2\abs x/(8\pi)+O(\abs x^2)$ near zero.
+The second derivatives of this difference and $k^2g_k$ are $O(\abs x^{-1})$,
+uniformly on compact $k$ intervals; an integrable Schur bound gives the asserted
+norm continuity. If
+$M_R=\sup_B\norm{K_{D_R}(k)}$, the inverse norm is at most $1+M_R/c_*$.
+Thus
+\[
+ \nu\sup_B\abs{f_0}\,M_R(1+M_R/c_*)<1
+\]
+gives a uniform Neumann perturbation on the band and bracket. Choosing $\nu>0$
+still smaller preserves all strict floor, contrast and center-endpoint
+margins. Positive real part of $f_0$ preserves the lower real cap; the
+preallocated upper margins preserve the upper caps; its positive imaginary
+part gives strictly positive tensor loss in every direction.
+
+The final extinction is continuous in $\theta$. A single intermediate-value
+argument at $\omega_c$ supplies a fixed $\theta$ in the bracket with
+$X(\omega_c)=E_*$ exactly. Since the floor and contrast inequalities hold
+throughout the bracket and band, they hold for this one retuned body.
+Every selected thickness, aperture, oscillator count and parameter is finite.
+The order is essential: shape, choose finite weak/thick stage, give positive
+active damping, choose a tight bracket, enlarge the aperture, then add final
+isotropic loss and retune. No uniform estimate in all these limits jointly
+has been invoked.
+
+Passivity gives $\Gamma\le1$. At any frequency, equality for a compact body
+with positive extinction would require one incidence to have zero total
+scattering and absorption equal to extinction. Its continuous far field would
+then vanish everywhere, contradicting the forward optical theorem. Therefore
+$\Gamma(\omega_c)<1$ for every admissible body, so the worst-case supremum
+cannot be attained. This completes the analytical construction.
+
+\section{Reproducible planar checks and their limits}
+The accompanying \texttt{planar\_checks.py} uses NumPy and exact homogeneous
+slab/cascade formulas, with separate standing-wave quadrature of volume loss.
+The numerical output is saved in \texttt{numerical\_results.json}.
+These tests sample frequency and check algebra; they are not interval
+certificates or a three-dimensional finite-aperture calculation.
+
+For a moderate damped tensor, independent volume absorption and outgoing-flux
+absorption agree within $2.9\times10^{-16}$; opposite-incidence extinction
+agrees at the displayed precision. A separate lossless matrix-plate check
+has maximum unitarity residual $9.4\times10^{-16}$ over 31 frequencies.
+For the moderate lossless plate matrix
+$\left(\begin{smallmatrix}1&0.4\\0.4&1.5\end{smallmatrix}\right)$,
+the exact slab plus damped absorber gives the following values over a
+21-point grid on $[1,2]$ at $\theta=0.003$:
+\[
+\begin{array}{c|cc}
+N & \max\abs{Y-Y_0} & \min\Gamma\\ \hline
+10 & 0.027083 & 0.587407\\
+30 & 0.009758 & 0.935600\\
+100 & 0.003172 & 0.999431\\
+300 & 0.001259 & 0.999437
+\end{array}
+\]
+The $\theta\to0$ limit is essential: increasing $N$ alone at a fixed nonzero
+coupling need not drive the contrast all the way to one.
+
+A \emph{separate} rational PSD shaping calculation uses eight poles and
+501 frequencies on $[1,2]$, with $\omega_c=1.5$ and target $Y_0=1$.
+Its ideal normalized coefficient ranges from $0.997495$ to $1.001077$,
+with sampled floor-to-center ratio $0.996766$. The fixed-axis comparison has
+ratio $0.75$. The compensation cost is large:
+$\max c\approx1.2464\times10^{14}$, while
+$\max\abs{a-1}\approx1.04\times10^{-5}$.
+This shaped example evaluates \eqref{eq:flat-limit}; it is not the moderate
+matrix used in the finite-stack test, and no finite device dimensions are
+claimed for it. The analytic argument allows the subsequent scales to be
+arbitrarily large but finite. These calculations do not provide useful
+engineering resource bounds.
+
+\section{What the draft does and does not settle}
+The proposed theorem answers the resource-unrestricted fixed-band question
+for every strict floor $0<E_{\min}<E_*$. The tensor shaping is within the
+stated two-layer material class, but goes beyond the fixed-principal-axis
+rank-one intermediate ansatz used in the original proof.
+
+For that simpler ansatz, a weak plate can give
+$q_W=t_W/\ee^{ikd}\to\ee^{i\tau\omega}$ and hence
+$Y_0=4\sin^2(\tau\omega/2)$. Center tuning then guarantees only floor ratios
+strictly below
+\[
+ \rho_0=
+ \frac{\sin^2(\pi\omega_1/(\omega_1+\omega_2))}
+      {\sin^2(\pi\omega_c/(\omega_1+\omega_2))}.
+\]
+This is a useful restricted-class result, not a bound on the full tensor class.
+
+When $E_{\min}=E_*$, the center must be a global minimum of the exact finite-body
+extinction spectrum. Uniform approximation to a flat spectrum and a single
+center tuning do not ensure that condition. The present argument establishes
+neither existence nor a strict contrast gap in that boundary case.
+Exactly constant extinction throughout $B$ is a stronger unresolved condition.
+Fixed-resource optima, quantitative resource rates and an all-isotropic
+realization also remain outside this construction.
+
+The inherited single-frequency formalization does not verify the new rational
+density lemma, matrix aperture extension or broadband selection argument.
+Numerical planar calculations can check algebra and illustrate convergence;
+they cannot certify the finite three-dimensional Maxwell limit.
+No novelty or human-peer-review claim is made.
+
+\begin{thebibliography}{9}
+\bibitem{base}
+D. Wang and J. Zheng,
+\emph{Unit Supremum of Absorption Asymmetry at Prescribed Extinction for
+Compact Reciprocal Dielectrics}, manuscript dated 17 October 2026.
+Source revision \texttt{22fed75}, Sections 3, 5--9 and Appendix B.
+\url{https://dan-k391.github.io/oq7-papers/prescribed-extinction/}.
+\bibitem{oscillators}
+L. Zhang, F. Monticone and O. D. Miller,
+\emph{All electromagnetic scattering bodies are matrix-valued oscillators},
+Nature Communications \textbf{14} (2023).
+\url{https://doi.org/10.1038/s41467-023-43221-2}.
+\end{thebibliography}
+\end{document}

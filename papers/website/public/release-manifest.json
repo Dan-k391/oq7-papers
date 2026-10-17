@@ -1,7 +1,76 @@
 {
   "edition": "2026-10-17",
   "edition_basis": "Latest manuscript date; individual manuscript dates are recorded below.",
-  "scope": "Five current manuscript releases; broadband directions are open research targets, with no new scientific verification or peer-review claim.",
+  "scope": "Five current manuscript releases plus two candidate proof supplements; no new formal verification or independent human review.",
+  "supplements": [
+    {
+      "id": "boundary-candidate",
+      "status": "CANDIDATE proof",
+      "source_directory": "papers/prescribed-extinction/research/broadband-boundary-2026-10-17",
+      "claim_scope": "Fixed positive band; interior center X = E* = min_B X, strict elsewhere; inf_B Gamma arbitrarily close to one.",
+      "dependencies": [
+        "Earlier weak-Maxwell/operator framework",
+        "Strict-floor C0 frequency-uniform aperture theorem"
+      ],
+      "limitations": "Bandwise caps; unrestricted two-layer reciprocal tensor class; no common geometry/resource bound, linewidth floor or positive material-loss floor; no new formal verification or independent human review.",
+      "pdf": "prescribed-extinction/boundary-candidate.pdf",
+      "pdf_sha256": "3284139bb19fcf6c6af1a0ec0bfa4455bccd11253d96912ab3aa6038bbb3d42a",
+      "source_zip": "prescribed-extinction/boundary-candidate-source.zip",
+      "source_zip_sha256": "9ae518fb9bf49c4151f33dbace27c4e2414fe8fff6fe48df23e840af9ef31964",
+      "source_files": [
+        "STATUS.txt",
+        "boundary_checks.py",
+        "main.tex",
+        "numerical_results.json",
+        "verification.json",
+        "verification/console.txt",
+        "verification/main.log"
+      ],
+      "source_sha256": {
+        "STATUS.txt": "7da6f89bb4b4c425c3d90edfbd6d184721e8ea1217cd6e8374b7254e7f66e243",
+        "boundary_checks.py": "dced5fffc89de94b7b44eec30c339bcdd42a35bc6cc81caa5b5fb5326f10b936",
+        "main.tex": "b07806b5432ed189234bdc475c0f3c9731d13198493af31ea96d34fcaa8e98d1",
+        "numerical_results.json": "a35751c891b5d5dc29a3f55d538c15e51d2b8b02cc9314ef4b62aaec5d8dc308",
+        "verification.json": "3d6b98deda9198be486390e3a7745c24eaa6dd495e0c9d67dffba11cc9c94364",
+        "verification/console.txt": "2f661f497046e43f4e69c5eb43530b88827d4f8bc757008a378f9f01f23a88ec",
+        "verification/main.log": "30812bbc1c39082fba7b709b76f6cf7ed512ba6bdc464c18173e6f6387706456"
+      },
+      "research_pdf_sha256": "3284139bb19fcf6c6af1a0ec0bfa4455bccd11253d96912ab3aa6038bbb3d42a"
+    },
+    {
+      "id": "fixed-band-candidate",
+      "status": "CANDIDATE proof",
+      "source_directory": "papers/prescribed-extinction/research/broadband-fixed-band-2026-10-17",
+      "claim_scope": "Fixed positive band; strict floor 0 < E_min < E*; exact center extinction E*; inf_B Gamma arbitrarily close to one.",
+      "dependencies": [
+        "Earlier weak-Maxwell/operator framework"
+      ],
+      "limitations": "Bandwise caps; unrestricted two-layer reciprocal tensor class; no common geometry/resource bound, linewidth floor or positive material-loss floor; no new formal verification or independent human review.",
+      "pdf": "prescribed-extinction/fixed-band-candidate.pdf",
+      "pdf_sha256": "2cfe02100b61a6e76facdf7f94d6d7926bfc460389e495692d26153f736e6e4d",
+      "source_zip": "prescribed-extinction/fixed-band-candidate-source.zip",
+      "source_zip_sha256": "4a8662b78b20decdcfe9dba8cb17c89e283ce5284e9a2f3ff21e9969a314e53f",
+      "source_files": [
+        "STATUS.txt",
+        "main.tex",
+        "numerical_results.json",
+        "planar_checks.py",
+        "verification.json",
+        "verification/console.txt",
+        "verification/main.log"
+      ],
+      "source_sha256": {
+        "STATUS.txt": "043e651ec2f01ee8186d7035059def3cecbf74b17696ded568632c00acc14768",
+        "main.tex": "1947dd3a23343d78146415c2760a1ac53699f1caa0a0fc44b79af55c560d8f10",
+        "numerical_results.json": "c2bbf8eed02e1f3008824e7846e870e8a7adf609fa639b6892a4e39a0329fb49",
+        "planar_checks.py": "cbc1ebcd33312598b7cc8d7d2d845d0a8beaba20b42b61689251d33a1f52cb2f",
+        "verification.json": "a9e4570d976a049bf9038cefee2aa56530e65f57bc82a88963d8c1defd08f4a1",
+        "verification/console.txt": "beff70e70daa562dc1673a7a0728cf34594f8cedfe420920ed02c5e7af2d7f3b",
+        "verification/main.log": "63de4b640ba8a72a4c6d5e769138a770bbf0e159e0719991a42df2fc26275044"
+      },
+      "research_pdf_sha256": "2cfe02100b61a6e76facdf7f94d6d7926bfc460389e495692d26153f736e6e4d"
+    }
+  ],
   "pandoc_version": "pandoc 3.12.1",
   "papers": [
     {
@@ -10,16 +79,16 @@
       "date": "17 October 2026",
       "source_directory": "papers/prescribed-extinction/arxiv",
       "source_sha256": {
-        "main.tex": "817792aa24a4f7a0b30ccfaf3e93ae8f9b9890ca92c86d7b77588a0f9185ebea",
+        "main.tex": "6d0645dec60b36e1be8553e973446c3bfd2aa7e5185463b971d3b52fe4ad21f7",
         "references.bib": "5e05914c33ed047fb2d7bf7105667830b8d101477ab3b043c2951721c8b3f858",
         "main.bbl": "9dcd61ecedcc52e6465abb8bb475ed31d858d2f15085074d9d25ab212b4d9f1b",
-        "paper.pdf": "997956b75d44afc2a29c6d7c2c164da361b53e05ae00cc51cc13637e4492f05e",
-        "arxiv-source.zip": "eaaff2e2df6a9c4841ed7fa1ee41b86ecf063009318e740d2052e7c9e01540cb"
+        "paper.pdf": "502462117816ba6ea04ae92e5fc3819563e0452f3f2c39eb4983bb3e4929ef5d",
+        "arxiv-source.zip": "094e57dd2d63bbc1ce497529079fe09e382d4422e730a5966c6db8811c40c7ab"
       },
-      "html_sha256": "88ae28735f6d7c8f2a21781744fdb7c3b43d6a5d6326b395a1c2f0dd2590270c",
-      "aux_sha256": "fc7e267b2893ee15030c9ac7e08b7058c390be701fb2a62f2031f7ca9abb0054",
+      "html_sha256": "3347776e623f8708e2215c5db104e2c796fcc0a8d0d284d8126d501d9b3a16ca",
+      "aux_sha256": "c57bf00e1773f708694b1deb58d988b56d6ef52d766af553ee3f1736eca13729",
       "bbl_sha256": "9dcd61ecedcc52e6465abb8bb475ed31d858d2f15085074d9d25ab212b4d9f1b",
-      "math_expressions": 440,
+      "math_expressions": 449,
       "equation_labels": [
         "eq:incident",
         "eq:material",

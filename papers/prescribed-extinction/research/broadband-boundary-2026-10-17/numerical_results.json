@@ -1,0 +1,565 @@
+{
+  "diagnostic_kind": "ANALYTIC SURROGATE; NOT A MAXWELL OR DEVICE SIMULATION",
+  "scope": [
+    "Checks Fano algebra and curvature, Lorentz parametrization and sampled positive loss, scaled C2 convergence, center-slope roots, amplitude IVT, and dense sampled minima.",
+    "The holomorphic nonlinear work response is an explicit surrogate and is not asserted to satisfy all Maxwell realizability constraints.",
+    "No dielectric device dimensions, material caps, scattering, absorption, or asymmetry ratio are computed.",
+    "Dense-grid minima and finite numerical residuals do not certify a continuum-band inequality or the manuscript theorem."
+  ],
+  "source_sha256": "dced5fffc89de94b7b44eec30c339bcdd42a35bc6cc81caa5b5fb5326f10b936",
+  "manuscript_sha256_at_run": "b07806b5432ed189234bdc475c0f3c9731d13198493af31ea96d34fcaa8e98d1",
+  "numpy_version": "2.3.5",
+  "model": {
+    "kind": "Explicit analytic surrogate, not a Maxwell response",
+    "normalized_extinction": "Y(omega,s,zeta)=baseline(omega,s)+Im[(A(s)+i B(s))*zeta+(0.15-0.10i)*zeta^2]",
+    "cross_section_surrogate": "X=s^2*Y",
+    "baseline": "1+0.08*x^2+6e-5*sin(900*x+phase1(s))+3e-5*cos(1370*x+phase2(s)); x=omega-1.5",
+    "phase1": "0.90+0.40*(s-s_mid)",
+    "phase2": "-0.35+0.20*(s-s_mid)",
+    "A": "0.25+0.015*(s-s_mid)",
+    "B": "0.80+0.010*(s-s_mid)",
+    "s_mid": 1.3829316685939332,
+    "notch": "zeta=rho*gamma*omega_c/(Omega_v^2-omega^2-i*gamma*omega); Omega_v^2=omega_c^2-gamma*omega_c*v",
+    "passivity_scope": "The added scalar Lorentz oscillator has positive residue and damping. No passivity or Maxwell realizability assertion is made for the surrogate work function itself.",
+    "ordering": "The baseline ripples and work coefficients are fixed before the linewidth is narrowed."
+  },
+  "parameters": {
+    "band": [
+      1.0,
+      2.0
+    ],
+    "center_frequency": 1.5,
+    "rho": 0.02,
+    "bowl_coefficient": 0.08,
+    "ripple_amplitudes": [
+      6e-05,
+      3e-05
+    ],
+    "ripple_frequencies": [
+      900.0,
+      1370.0
+    ],
+    "rigorous_algebraic_baseline_lower_bound": 0.99991,
+    "quadratic_work_coefficient": [
+      0.15,
+      -0.1
+    ],
+    "root_bracket_tolerance": 2e-14,
+    "frequency_grid_count": 200001,
+    "inner_grid_count": 60001,
+    "inner_grid_half_width_in_t": 25.0,
+    "C2_error_grid_t_interval": [
+      -4.0,
+      4.0
+    ],
+    "C2_error_grid_t_count": 121,
+    "C2_error_grid_v_interval": [
+      0.755812561774115,
+      1.955812561774115
+    ],
+    "C2_error_grid_v_count": 91,
+    "C2_error_scope": "Maximum sampled absolute error over all partial derivatives of total order at most two; not an interval bound."
+  },
+  "fano_algebra": {
+    "A": 0.25,
+    "B1": 0.8,
+    "rho": 0.02,
+    "leading_minimum_location_formula": 1.360190913390013,
+    "leading_minimum_location_golden_search": 1.3601909272613686,
+    "location_absolute_difference": 1.3871355619698988e-08,
+    "leading_minimum_value_formula": -0.2940763653560053,
+    "leading_minimum_value_evaluated": -0.2940763653560053,
+    "leading_curvature_formula": 0.20636073949799869,
+    "leading_curvature_differentiated": 0.20636073949799869,
+    "leading_curvature_finite_difference": 0.20636075070967763,
+    "finite_difference_step": 0.0001,
+    "nonlinear_frozen_minimum_location": 1.355812561774115,
+    "nonlinear_frozen_minimum_depth": 0.005905846805807635,
+    "nonlinear_frozen_curvature": 0.004178601363070456,
+    "nonlinear_frozen_derivative_residual": 3.686287386450715e-18
+  },
+  "scaled_C2_convergence": [
+    {
+      "gamma": 0.03,
+      "max_absolute_errors_by_partial": {
+        "value": 0.0006465590347740273,
+        "t": 0.0010943294969670767,
+        "v": 0.0012480984899274792,
+        "tt": 0.0031075359203823817,
+        "tv": 0.0033402838723302734,
+        "vv": 0.0036964646658697235
+      },
+      "max_C2_error": 0.0036964646658697235,
+      "direct_vs_scaled_formula_max_absolute_error": 3.1205741909635733e-16
+    },
+    {
+      "gamma": 0.01,
+      "max_absolute_errors_by_partial": {
+        "value": 0.00021127711442120879,
+        "t": 0.00035754778227135506,
+        "v": 0.00040510071871599447,
+        "tt": 0.0010164818955470851,
+        "tv": 0.001084666624960049,
+        "vv": 0.0011920345369067027
+      },
+      "max_C2_error": 0.0011920345369067027,
+      "direct_vs_scaled_formula_max_absolute_error": 9.693083278681433e-16
+    },
+    {
+      "gamma": 0.003,
+      "max_absolute_errors_by_partial": {
+        "value": 6.294762580113523e-05,
+        "t": 0.00010651639912522859,
+        "v": 0.00012041101849503536,
+        "tt": 0.00030291995407419505,
+        "tv": 0.00032243477154374,
+        "vv": 0.0003535162503098903
+      },
+      "max_C2_error": 0.0003535162503098903,
+      "direct_vs_scaled_formula_max_absolute_error": 3.011103215754833e-15
+    },
+    {
+      "gamma": 0.001,
+      "max_absolute_errors_by_partial": {
+        "value": 2.0941375428068358e-05,
+        "t": 3.543458889433715e-05,
+        "v": 4.0031311599210915e-05,
+        "tt": 0.00010078081647505534,
+        "tv": 0.00010719760302839132,
+        "vv": 0.00011745253699879153
+      },
+      "max_C2_error": 0.00011745253699879153,
+      "direct_vs_scaled_formula_max_absolute_error": 9.230329174439176e-15
+    },
+    {
+      "gamma": 0.0003,
+      "max_absolute_errors_by_partial": {
+        "value": 6.278099866130005e-06,
+        "t": 1.0622945723349168e-05,
+        "v": 1.1998323607189498e-05,
+        "tt": 3.0214042801615553e-05,
+        "tv": 3.212986734663488e-05,
+        "vv": 3.519532469561166e-05
+      },
+      "max_C2_error": 3.519532469561166e-05,
+      "direct_vs_scaled_formula_max_absolute_error": 2.918434899897457e-14
+    },
+    {
+      "gamma": 0.0001,
+      "max_absolute_errors_by_partial": {
+        "value": 2.092289524138808e-06,
+        "t": 3.5402745542171674e-06,
+        "v": 3.998387818033799e-06,
+        "tt": 1.0069423925590464e-05,
+        "tv": 1.0707156241285083e-05,
+        "vv": 1.1727927487919059e-05
+      },
+      "max_C2_error": 1.1727927487919059e-05,
+      "direct_vs_scaled_formula_max_absolute_error": 7.22612436545193e-14
+    },
+    {
+      "gamma": 3e-05,
+      "max_absolute_errors_by_partial": {
+        "value": 6.276437716589456e-07,
+        "t": 1.0620081053388738e-06,
+        "v": 1.1994057680488576e-06,
+        "tt": 3.0206252025162413e-06,
+        "tv": 3.211852975737137e-06,
+        "vv": 3.5179743839755104e-06
+      },
+      "max_C2_error": 3.5179743839755104e-06,
+      "direct_vs_scaled_formula_max_absolute_error": 3.198657367653439e-13
+    }
+  ],
+  "fixed_ripple_linewidth_diagnostics": [
+    {
+      "gamma": 0.03,
+      "centered_v": 1.2051514736045559,
+      "center_material_identity_absolute_error": 1.734723475976807e-18,
+      "resonance_frequency_squared": 2.195768183687795,
+      "positive_residue": 0.0009,
+      "minimum_sampled_imaginary_susceptibility_on_band": 1.657025007371008e-05,
+      "maximum_sampled_modulus_over_rho": 1.0123257103535748,
+      "center_frequency_derivative_residual": 3.427813588530171e-15,
+      "scaled_center_derivative_residual": 5.1417203827952563e-17,
+      "center_curvature": -63.212073588224584,
+      "sampled_global_check": {
+        "sample_count": 234596,
+        "sampled_minimum_frequency": 1.5030999999999999,
+        "sampled_minimum_offset_from_center": 0.0030999999999998806,
+        "sampled_minimum_minus_center": -0.0001645844319149159,
+        "center_is_sampled_minimum_to_2e-12": false,
+        "scope": "Dense sampled check only; not a continuum-band certificate."
+      }
+    },
+    {
+      "gamma": 0.01,
+      "centered_v": 1.2986955344984294,
+      "center_material_identity_absolute_error": 8.673617379884035e-19,
+      "resonance_frequency_squared": 2.2305195669825237,
+      "positive_residue": 0.00030000000000000003,
+      "minimum_sampled_imaginary_susceptibility_on_band": 1.9160385502403907e-06,
+      "maximum_sampled_modulus_over_rho": 1.0043629192592285,
+      "center_frequency_derivative_residual": 6.147859998861804e-15,
+      "scaled_center_derivative_residual": 3.073929999430902e-17,
+      "center_curvature": 104.09613996713011,
+      "sampled_global_check": {
+        "sample_count": 251883,
+        "sampled_minimum_frequency": 1.5,
+        "sampled_minimum_offset_from_center": 0.0,
+        "sampled_minimum_minus_center": 0.0,
+        "center_is_sampled_minimum_to_2e-12": true,
+        "scope": "Dense sampled check only; not a continuum-band certificate."
+      }
+    },
+    {
+      "gamma": 0.003,
+      "centered_v": 1.3377364964873686,
+      "center_material_identity_absolute_error": 8.673617379884035e-19,
+      "resonance_frequency_squared": 2.243980185765807,
+      "positive_residue": 9e-05,
+      "minimum_sampled_imaginary_susceptibility_on_band": 1.744754441322288e-07,
+      "maximum_sampled_modulus_over_rho": 1.0013408616785904,
+      "center_frequency_derivative_residual": 2.360611706109239e-14,
+      "scaled_center_derivative_residual": 3.5409175591638585e-17,
+      "center_curvature": 1859.8063288668623,
+      "sampled_global_check": {
+        "sample_count": 248118,
+        "sampled_minimum_frequency": 1.5,
+        "sampled_minimum_offset_from_center": 0.0,
+        "sampled_minimum_minus_center": 0.0,
+        "center_is_sampled_minimum_to_2e-12": true,
+        "scope": "Dense sampled check only; not a continuum-band certificate."
+      }
+    },
+    {
+      "gamma": 0.001,
+      "centered_v": 1.349688033307367,
+      "center_material_identity_absolute_error": 1.939479807224432e-18,
+      "resonance_frequency_squared": 2.247975467950039,
+      "positive_residue": 3.0000000000000004e-05,
+      "minimum_sampled_imaginary_susceptibility_on_band": 1.926233267918794e-08,
+      "maximum_sampled_modulus_over_rho": 1.0004502025573636,
+      "center_frequency_derivative_residual": 1.6056600493641326e-14,
+      "scaled_center_derivative_residual": 8.028300246820663e-18,
+      "center_curvature": 16904.813441169666,
+      "sampled_global_check": {
+        "sample_count": 256075,
+        "sampled_minimum_frequency": 1.5,
+        "sampled_minimum_offset_from_center": 0.0,
+        "sampled_minimum_minus_center": 0.0,
+        "center_is_sampled_minimum_to_2e-12": true,
+        "scope": "Dense sampled check only; not a continuum-band certificate."
+      }
+    },
+    {
+      "gamma": 0.0003,
+      "centered_v": 1.3539644482525337,
+      "center_material_identity_absolute_error": 4.336808689942018e-18,
+      "resonance_frequency_squared": 2.2493907159982864,
+      "positive_residue": 8.999999999999999e-06,
+      "minimum_sampled_imaginary_susceptibility_on_band": 1.7296856811238562e-09,
+      "maximum_sampled_modulus_over_rho": 1.0000571709391792,
+      "center_frequency_derivative_residual": 6.387945727936994e-14,
+      "scaled_center_derivative_residual": 9.58191859190549e-18,
+      "center_curvature": 186563.1959856967,
+      "sampled_global_check": {
+        "sample_count": 258826,
+        "sampled_minimum_frequency": 1.5,
+        "sampled_minimum_offset_from_center": 0.0,
+        "sampled_minimum_minus_center": 0.0,
+        "center_is_sampled_minimum_to_2e-12": true,
+        "scope": "Dense sampled check only; not a continuum-band certificate."
+      }
+    },
+    {
+      "gamma": 0.0001,
+      "centered_v": 1.3551954883549882,
+      "center_material_identity_absolute_error": 8.673617379884035e-19,
+      "resonance_frequency_squared": 2.2497967206767466,
+      "positive_residue": 3.0000000000000005e-06,
+      "minimum_sampled_imaginary_susceptibility_on_band": 1.9206246141492768e-10,
+      "maximum_sampled_modulus_over_rho": 0.9990457740868328,
+      "center_frequency_derivative_residual": 5.898198596199222e-13,
+      "scaled_center_derivative_residual": 2.949099298099611e-17,
+      "center_curvature": 1674165.7647601203,
+      "sampled_global_check": {
+        "sample_count": 259609,
+        "sampled_minimum_frequency": 1.5,
+        "sampled_minimum_offset_from_center": 0.0,
+        "sampled_minimum_minus_center": 0.0,
+        "center_is_sampled_minimum_to_2e-12": true,
+        "scope": "Dense sampled check only; not a continuum-band certificate."
+      }
+    },
+    {
+      "gamma": 3e-05,
+      "centered_v": 1.3556273306519495,
+      "center_material_identity_absolute_error": 2.4532694666933987e-18,
+      "resonance_frequency_squared": 2.249938996770121,
+      "positive_residue": 9.000000000000001e-07,
+      "minimum_sampled_imaginary_susceptibility_on_band": 1.728168673081944e-11,
+      "maximum_sampled_modulus_over_rho": 0.9997647069480078,
+      "center_frequency_derivative_residual": 3.12569414795405e-13,
+      "scaled_center_derivative_residual": 4.688541221931075e-18,
+      "center_curvature": 18580858.5741242,
+      "sampled_global_check": {
+        "sample_count": 259885,
+        "sampled_minimum_frequency": 1.5,
+        "sampled_minimum_offset_from_center": 0.0,
+        "sampled_minimum_minus_center": 0.0,
+        "center_is_sampled_minimum_to_2e-12": true,
+        "scope": "Dense sampled check only; not a continuum-band certificate."
+      }
+    }
+  ],
+  "positive_amplitude_bracket_samples": [
+    {
+      "s": 0.9219544457292888,
+      "v": 1.3467164012737451,
+      "center_cross_section": 0.8450324163652341,
+      "center_derivative_residual": 3.5889347049788967e-13,
+      "center_curvature": 18758056.12715716,
+      "sampled_global_check": {
+        "sample_count": 259885,
+        "sampled_minimum_frequency": 1.5,
+        "sampled_minimum_offset_from_center": 0.0,
+        "sampled_minimum_minus_center": 0.0,
+        "center_is_sampled_minimum_to_2e-12": true,
+        "scope": "Dense sampled check only; not a continuum-band certificate."
+      }
+    },
+    {
+      "s": 0.9987839828733962,
+      "v": 1.348205325180389,
+      "center_cross_section": 0.9917418251844805,
+      "center_derivative_residual": 1.5881185255750552e-12,
+      "center_curvature": 18728257.407512404,
+      "sampled_global_check": {
+        "sample_count": 259885,
+        "sampled_minimum_frequency": 1.5,
+        "sampled_minimum_offset_from_center": 0.0,
+        "sampled_minimum_minus_center": 0.0,
+        "center_is_sampled_minimum_to_2e-12": true,
+        "scope": "Dense sampled check only; not a continuum-band certificate."
+      }
+    },
+    {
+      "s": 1.0756135200175034,
+      "v": 1.3496927461154025,
+      "center_cross_section": 1.1501884970018843,
+      "center_derivative_residual": 1.8971421655855636e-12,
+      "center_curvature": 18698565.353985563,
+      "sampled_global_check": {
+        "sample_count": 259885,
+        "sampled_minimum_frequency": 1.5,
+        "sampled_minimum_offset_from_center": 0.0,
+        "sampled_minimum_minus_center": 0.0,
+        "center_is_sampled_minimum_to_2e-12": true,
+        "scope": "Dense sampled check only; not a continuum-band certificate."
+      }
+    },
+    {
+      "s": 1.1524430571616109,
+      "v": 1.3511786607062546,
+      "center_cross_section": 1.3203724872375815,
+      "center_derivative_residual": 1.2456355391599061e-12,
+      "center_curvature": 18668979.69871257,
+      "sampled_global_check": {
+        "sample_count": 259885,
+        "sampled_minimum_frequency": 1.5,
+        "sampled_minimum_offset_from_center": 0.0,
+        "sampled_minimum_minus_center": 0.0,
+        "center_is_sampled_minimum_to_2e-12": true,
+        "scope": "Dense sampled check only; not a continuum-band certificate."
+      }
+    },
+    {
+      "s": 1.2292725943057183,
+      "v": 1.3526630654434757,
+      "center_cross_section": 1.502293846604299,
+      "center_derivative_residual": 1.91894417023164e-12,
+      "center_curvature": 18639500.18261393,
+      "sampled_global_check": {
+        "sample_count": 259885,
+        "sampled_minimum_frequency": 1.5,
+        "sampled_minimum_offset_from_center": 0.0,
+        "sampled_minimum_minus_center": 0.0,
+        "center_is_sampled_minimum_to_2e-12": true,
+        "scope": "Dense sampled check only; not a continuum-band certificate."
+      }
+    },
+    {
+      "s": 1.3061021314498258,
+      "v": 1.3541459566835994,
+      "center_cross_section": 1.6959526209974176,
+      "center_derivative_residual": 1.1165998681228473e-12,
+      "center_curvature": 18610126.555156182,
+      "sampled_global_check": {
+        "sample_count": 259885,
+        "sampled_minimum_frequency": 1.5,
+        "sampled_minimum_offset_from_center": 0.0,
+        "sampled_minimum_minus_center": 0.0,
+        "center_is_sampled_minimum_to_2e-12": true,
+        "scope": "Dense sampled check only; not a continuum-band certificate."
+      }
+    },
+    {
+      "s": 1.3829316685939332,
+      "v": 1.3556273306519495,
+      "center_cross_section": 1.9013488513932943,
+      "center_derivative_residual": 3.12569414795405e-13,
+      "center_curvature": 18580858.5741242,
+      "sampled_global_check": {
+        "sample_count": 259885,
+        "sampled_minimum_frequency": 1.5,
+        "sampled_minimum_offset_from_center": 0.0,
+        "sampled_minimum_minus_center": 0.0,
+        "center_is_sampled_minimum_to_2e-12": true,
+        "scope": "Dense sampled check only; not a continuum-band certificate."
+      }
+    },
+    {
+      "s": 1.4597612057380405,
+      "v": 1.3571071834457635,
+      "center_cross_section": 2.1184825737560855,
+      "center_derivative_residual": 6.880190861480173e-13,
+      "center_curvature": 18551696.005378205,
+      "sampled_global_check": {
+        "sample_count": 259885,
+        "sampled_minimum_frequency": 1.5,
+        "sampled_minimum_offset_from_center": 0.0,
+        "sampled_minimum_minus_center": 0.0,
+        "center_is_sampled_minimum_to_2e-12": true,
+        "scope": "Dense sampled check only; not a continuum-band certificate."
+      }
+    },
+    {
+      "s": 1.536590742882148,
+      "v": 1.358585511037432,
+      "center_cross_section": 2.347353818953275,
+      "center_derivative_residual": 1.535396809693168e-12,
+      "center_curvature": 18522638.62260729,
+      "sampled_global_check": {
+        "sample_count": 259885,
+        "sampled_minimum_frequency": 1.5,
+        "sampled_minimum_offset_from_center": 0.0,
+        "sampled_minimum_minus_center": 0.0,
+        "center_is_sampled_minimum_to_2e-12": true,
+        "scope": "Dense sampled check only; not a continuum-band certificate."
+      }
+    },
+    {
+      "s": 1.6134202800262554,
+      "v": 1.3600623092778412,
+      "center_cross_section": 2.58796261268011,
+      "center_derivative_residual": 6.794148577071724e-13,
+      "center_curvature": 18493686.207080197,
+      "sampled_global_check": {
+        "sample_count": 259885,
+        "sampled_minimum_frequency": 1.5,
+        "sampled_minimum_offset_from_center": 0.0,
+        "sampled_minimum_minus_center": 0.0,
+        "center_is_sampled_minimum_to_2e-12": true,
+        "scope": "Dense sampled check only; not a continuum-band certificate."
+      }
+    },
+    {
+      "s": 1.6902498171703626,
+      "v": 1.3615375738998758,
+      "center_cross_section": 2.8403089753931443,
+      "center_derivative_residual": 1.396049942314903e-12,
+      "center_curvature": 18464838.54739033,
+      "sampled_global_check": {
+        "sample_count": 259885,
+        "sampled_minimum_frequency": 1.5,
+        "sampled_minimum_offset_from_center": 0.0,
+        "sampled_minimum_minus_center": 0.0,
+        "center_is_sampled_minimum_to_2e-12": true,
+        "scope": "Dense sampled check only; not a continuum-band certificate."
+      }
+    },
+    {
+      "s": 1.76707935431447,
+      "v": 1.3630113005220617,
+      "center_cross_section": 3.104392922253046,
+      "center_derivative_residual": 4.1368991565704505e-13,
+      "center_curvature": 18436095.4391965,
+      "sampled_global_check": {
+        "sample_count": 259885,
+        "sampled_minimum_frequency": 1.5,
+        "sampled_minimum_offset_from_center": 0.0,
+        "sampled_minimum_minus_center": 0.0,
+        "center_is_sampled_minimum_to_2e-12": true,
+        "scope": "Dense sampled check only; not a continuum-band certificate."
+      }
+    },
+    {
+      "s": 1.8439088914585775,
+      "v": 1.3644834846524003,
+      "center_cross_section": 3.3802144630768316,
+      "center_derivative_residual": 1.3612236338111927e-12,
+      "center_curvature": 18407456.68495609,
+      "sampled_global_check": {
+        "sample_count": 259885,
+        "sampled_minimum_frequency": 1.5,
+        "sampled_minimum_offset_from_center": 0.0,
+        "sampled_minimum_minus_center": 0.0,
+        "center_is_sampled_minimum_to_2e-12": true,
+        "scope": "Dense sampled check only; not a continuum-band certificate."
+      }
+    }
+  ],
+  "two_parameter_selection": {
+    "target_cross_section": 1.7,
+    "selected_gamma": 3e-05,
+    "s_bracket": [
+      0.9219544457292888,
+      1.8439088914585775
+    ],
+    "endpoint_center_cross_sections": [
+      0.8450324163652341,
+      3.3802144630768316
+    ],
+    "selected_s": 1.3076596759116055,
+    "selected_v": 1.354176003258876,
+    "center_cross_section": 1.699999999999989,
+    "cross_section_target_absolute_residual": 1.0880185641326534e-14,
+    "center_cross_section_derivative_absolute_residual": 2.1232053388422665e-12,
+    "center_cross_section_curvature": 31821812.953438856,
+    "equation_jacobian_finite_difference": [
+      [
+        2.6001126094299387,
+        -1.371036617570098e-06
+      ],
+      [
+        -8.077481679303646e-05,
+        0.00418722177036912
+      ]
+    ],
+    "equation_jacobian_determinant": 0.010887248012871074,
+    "jacobian_finite_difference_step": 1e-05,
+    "sampled_global_check": {
+      "sample_count": 259885,
+      "sampled_minimum_frequency": 1.5,
+      "sampled_minimum_offset_from_center": 0.0,
+      "sampled_minimum_minus_center": 0.0,
+      "center_is_sampled_minimum_to_2e-12": true,
+      "scope": "Dense sampled check only; not a continuum-band certificate."
+    }
+  },
+  "numerical_consistency_checks": {
+    "fano_golden_location_matches_within_1e-6": true,
+    "fano_curvature_formula_matches_differentiation_within_1e-12": true,
+    "scaled_C2_errors_decrease_at_each_width": true,
+    "all_sampled_Lorentz_imaginary_parts_positive": true,
+    "broadest_stationary_center_fails_sampled_minimum": true,
+    "all_13_selected_width_bracket_samples_pass_sampled_minimum": true,
+    "amplitude_endpoints_straddle_target": true,
+    "final_target_residual_below_1e-10": true,
+    "final_derivative_residual_below_1e-6": true,
+    "final_center_curvature_positive": true,
+    "final_jacobian_determinant_positive": true,
+    "final_center_passes_sampled_minimum": true
+  }
+}

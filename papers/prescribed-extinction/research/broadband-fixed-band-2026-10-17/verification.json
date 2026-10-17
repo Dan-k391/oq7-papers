@@ -1,0 +1,122 @@
+{
+  "date": "2026-10-17",
+  "status": "proposed analytical construction; not formally verified or externally peer reviewed",
+  "repository_head": "174b54e5313b1285497abc47824fe93d0d72def9",
+  "base_manuscript_source_revision": "22fed75636f16309ccd0fb471e8674d62d258dc5",
+  "new_claim": "sup_D inf_{omega in B} Gamma_D(omega) = 1 for every strict floor 0 < E_min < E_star, with exact center extinction, in the resource-unrestricted two-layer tensor class",
+  "boundary_equal_floor": "unresolved",
+  "formal_proof_executed": false,
+  "human_peer_review": false,
+  "novelty_established": false,
+  "inherited_foundations": [
+    "weak-Maxwell volume representation",
+    "radiation identity",
+    "optical theorem",
+    "bounded-domain operator framework"
+  ],
+  "ai_reviews": [
+    {
+      "agent": "broadband_planar_construction",
+      "model": "gpt-6.1-sol",
+      "scope": "density, PSD completion, matrix slab and cascade, normalized limits; author of numerical script",
+      "outcome": "no substantive defect reported"
+    },
+    {
+      "agent": "broadband_uniform_maxwell",
+      "model": "gpt-6.1-sol",
+      "scope": "coercivity, compact-band aperture localization, tight bracket, final regularization",
+      "outcome": "no blocker; notation, zero-fiber positivity and continuity clarifications incorporated"
+    },
+    {
+      "agent": "broadband_skeptic_floor",
+      "model": "gpt-6.1-sol",
+      "scope": "adversarial full-draft read and separate inspection of numerical code/results/descriptions",
+      "outcome": "no substantive defect; equality-floor unresolved and resource costs retained"
+    }
+  ],
+  "build": {
+    "engine": "Tectonic 0.17.0",
+    "engine_sha256": "99ffcfdbf1ebf8bdda9e791942e3d06aedb12463fddc33f07de6f5211c8bf08d",
+    "bundle_sha256": "6ffe055852f8faf66c0acbe1a7fb27f87b869a90bad1204f3bf4d9683f597c7c",
+    "final_command": [
+      "tectonic",
+      "--only-cached",
+      "--untrusted",
+      "--keep-logs",
+      "--keep-intermediates",
+      "main.tex"
+    ],
+    "source_date_epoch": "1792238400",
+    "shell_escape": false,
+    "final_build_offline": true,
+    "dependency_note": "One missing lmri8.pfb font fetched from the same pinned bundle before final offline build.",
+    "builtin_compiler_note": "Built-in compile tool could not initialize its Windows restricted-token sandbox; existing repository Tectonic used through approved execution.",
+    "pages": 9,
+    "overfull_boxes": [],
+    "underfull_boxes": [
+      "Underfull \\hbox (badness 1661) in paragraph at lines 611--615"
+    ],
+    "unresolved_references": false,
+    "visual_review": "All 9 pages rendered with Poppler at 105 dpi and inspected in 3 contact sheets; pages 6 and 7 additionally inspected individually. No clipping, missing glyphs or overlaps observed; underfull bibliography spacing acceptable."
+  },
+  "numerics": {
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "script_rerun_by_root": true,
+    "checks_passed": [
+      "independent plus-side volume absorption residual < 1e-12",
+      "reciprocal extinction residual < 1e-12",
+      "lossless plate unitarity residual < 1e-12",
+      "all sampled minimum contrasts in [0,1]",
+      "sampled ideal shaped floor ratio > 0.99"
+    ],
+    "not_verified": [
+      "continuum-band interval bounds by numerical enclosure",
+      "finite three-dimensional aperture response",
+      "practical resource bound",
+      "single shaped finite-device simulation"
+    ],
+    "energy_residual_caveat": "X,A,S are derived from the same outgoing amplitudes; their algebraic balance residuals are not independent conservation tests."
+  },
+  "published_manuscripts_and_website_changed": false,
+  "new_work_committed": false,
+  "new_work_pushed": false,
+  "new_work_deployed": false,
+  "files": [
+    {
+      "path": "main.tex",
+      "sha256": "1947dd3a23343d78146415c2760a1ac53699f1caa0a0fc44b79af55c560d8f10",
+      "bytes": 27827
+    },
+    {
+      "path": "numerical_results.json",
+      "sha256": "c2bbf8eed02e1f3008824e7846e870e8a7adf609fa639b6892a4e39a0329fb49",
+      "bytes": 4363
+    },
+    {
+      "path": "planar_checks.py",
+      "sha256": "cbc1ebcd33312598b7cc8d7d2d845d0a8beaba20b42b61689251d33a1f52cb2f",
+      "bytes": 5097
+    },
+    {
+      "path": "research-note.pdf",
+      "sha256": "2cfe02100b61a6e76facdf7f94d6d7926bfc460389e495692d26153f736e6e4d",
+      "bytes": 107971
+    },
+    {
+      "path": "STATUS.txt",
+      "sha256": "043e651ec2f01ee8186d7035059def3cecbf74b17696ded568632c00acc14768",
+      "bytes": 3948
+    },
+    {
+      "path": "verification/console.txt",
+      "sha256": "beff70e70daa562dc1673a7a0728cf34594f8cedfe420920ed02c5e7af2d7f3b",
+      "bytes": 592
+    },
+    {
+      "path": "verification/main.log",
+      "sha256": "63de4b640ba8a72a4c6d5e769138a770bbf0e159e0719991a42df2fc26275044",
+      "bytes": 18529
+    }
+  ]
+}

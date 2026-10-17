@@ -1,0 +1,148 @@
+{
+  "scope": "Planar finite homogeneous layers and ideal theta-Taylor shaping only; no finite 3D/aperture or formal verification.",
+  "finite_stack_energy_reciprocity": {
+    "X_plus": 0.0030670254193903013,
+    "X_minus": 0.0030670254193903013,
+    "A_plus_flux": 0.0013899038630389438,
+    "A_plus_volume": 0.0013899038630392306,
+    "A_minus_flux": 0.0016694464760763639,
+    "energy_residual_plus": 3.883612181843077e-16,
+    "energy_residual_minus": 2.8406096919120216e-16,
+    "reciprocal_extinction_residual": 0.0,
+    "volume_absorption_residual": 2.8687989483966447e-16
+  },
+  "max_lossless_plate_unitarity_residual": 9.308791768991491e-16,
+  "normalized_finite_stack_convergence": [
+    {
+      "N": 10,
+      "theta": 0.03,
+      "max_abs_Y_error": 0.05613406978082586,
+      "min_gamma": 0.577748699579251,
+      "max_normalized_reciprocity_residual": 4.934324553889585e-13
+    },
+    {
+      "N": 10,
+      "theta": 0.01,
+      "max_abs_Y_error": 0.03005112882807054,
+      "min_gamma": 0.5864053549848555,
+      "max_normalized_reciprocity_residual": 2.220446049250313e-12
+    },
+    {
+      "N": 10,
+      "theta": 0.003,
+      "max_abs_Y_error": 0.027082901125678294,
+      "min_gamma": 0.5874074378062135,
+      "max_normalized_reciprocity_residual": 4.9343245538895846e-11
+    },
+    {
+      "N": 30,
+      "theta": 0.03,
+      "max_abs_Y_error": 0.038756568260848556,
+      "min_gamma": 0.9205373459910735,
+      "max_normalized_reciprocity_residual": 4.934324553889585e-13
+    },
+    {
+      "N": 30,
+      "theta": 0.01,
+      "max_abs_Y_error": 0.012720228568721403,
+      "min_gamma": 0.9340379225193804,
+      "max_normalized_reciprocity_residual": 4.440892098500626e-12
+    },
+    {
+      "N": 30,
+      "theta": 0.003,
+      "max_abs_Y_error": 0.009757407888073055,
+      "min_gamma": 0.9356002140294881,
+      "max_normalized_reciprocity_residual": 4.9343245538895846e-11
+    },
+    {
+      "N": 100,
+      "theta": 0.03,
+      "max_abs_Y_error": 0.03215226017771905,
+      "min_gamma": 0.9472334935855236,
+      "max_normalized_reciprocity_residual": 4.934324553889585e-13
+    },
+    {
+      "N": 100,
+      "theta": 0.01,
+      "max_abs_Y_error": 0.006132621122514614,
+      "min_gamma": 0.9938118388473651,
+      "max_normalized_reciprocity_residual": 4.440892098500626e-12
+    },
+    {
+      "N": 100,
+      "theta": 0.003,
+      "max_abs_Y_error": 0.003171736447789786,
+      "min_gamma": 0.9994306722454546,
+      "max_normalized_reciprocity_residual": 4.9343245538895846e-11
+    },
+    {
+      "N": 300,
+      "theta": 0.03,
+      "max_abs_Y_error": 0.030233122605896334,
+      "min_gamma": 0.9470548325682491,
+      "max_normalized_reciprocity_residual": 4.934324553889585e-13
+    },
+    {
+      "N": 300,
+      "theta": 0.01,
+      "max_abs_Y_error": 0.004218353933307661,
+      "min_gamma": 0.9937973949105305,
+      "max_normalized_reciprocity_residual": 4.440892098500626e-12
+    },
+    {
+      "N": 300,
+      "theta": 0.003,
+      "max_abs_Y_error": 0.001258033621953647,
+      "min_gamma": 0.9994372311977755,
+      "max_normalized_reciprocity_residual": 4.9343245538895846e-11
+    }
+  ],
+  "rational_PSD_shaping_ideal_coefficient": {
+    "band": [
+      1,
+      2
+    ],
+    "center": 1.5,
+    "target_H": 1,
+    "max_b_error": 0.0007221852934865547,
+    "max_a_error": 1.0400001201782416e-05,
+    "max_c": 124637835726383.3,
+    "min_Y": 0.9974950110809215,
+    "max_Y": 1.0010769825838655,
+    "center_Y": 1.0007315803847143,
+    "floor_ratio": 0.9967657967758462,
+    "fixed_axes_floor_ratio": 0.7499999999999999,
+    "poles_squared": [
+      4.5,
+      5.0,
+      6.0,
+      8.0,
+      12.0,
+      20.0,
+      40.0,
+      80.0
+    ],
+    "signed_beta": [
+      -0.600059220418884,
+      15.598447341439877,
+      -248.41050059250574,
+      2926.9524517874565,
+      -23767.697266986324,
+      109327.04271892775,
+      -321766.10195517517,
+      338550.72692553094
+    ],
+    "positive_eta": [
+      6.25e-07,
+      1.25e-06,
+      2.5e-06,
+      5e-06,
+      1e-05,
+      2e-05,
+      4.5e-05,
+      9.5e-05
+    ],
+    "residue_psd_note": "Each residue is exactly vv^T with v=(sqrt(eta), beta/sqrt(eta)); floating point eigenvalues are not a PSD certificate."
+  }
+}

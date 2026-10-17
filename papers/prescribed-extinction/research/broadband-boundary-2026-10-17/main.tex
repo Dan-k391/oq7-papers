@@ -1,0 +1,601 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools,microtype}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Proposed theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newcommand{\ReH}{\operatorname{Re}_{H}}
+\newcommand{\ImH}{\operatorname{Im}_{H}}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\ip}[2]{\left\langle#1,#2\right\rangle}
+\newcommand{\dd}{\,\mathrm d}
+\newcommand{\ee}{\mathrm e}
+\title{The exact-floor boundary in broadband absorption asymmetry\\
+\large A passive narrow-resonance construction}
+\author{Research working note}
+\date{17 October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We propose a constructive resolution of the boundary condition
+$E_{\min}=E_*$ in the resource-unrestricted two-layer tensor class.
+A single compact body has exactly prescribed extinction at a chosen interior
+frequency, that frequency is its strict global extinction minimum on the
+prescribed band, and its absorption-asymmetry ratio is uniformly arbitrarily
+close to one. The new ingredient is a small passive Lorentz resonance with a
+negative extinction-interference lobe. We first align a minimum of a fixed
+planar reference spectrum, then choose a finite aperture, and only afterwards
+narrow the added resonance. Material-parameter analyticity transfers the
+shape of this lobe to the finite body; ordinary smoothness of that selected
+body suffices to place its minimum exactly. No frequency-derivative aperture
+limit is assumed. This is an analytical research draft building on the earlier
+fixed-band note, not a new formal verification or external peer review.
+\end{abstract}
+
+\section{Statement and dependencies}
+Let $B=[\omega_1,\omega_2]$, with
+$0<\omega_1<\omega_c<\omega_2$, and let $k=\omega/c_{\rm v}$.
+Use the two opposite real linearly polarized incident waves
+$f_\pm=e_y\ee^{\pm ikz}$.
+The bodies have two homogeneous layers, a common finite square aperture,
+symmetric local dielectric tensors, vacuum exterior and $\mu=I$.
+As in \cite{base,strict}, reciprocal extinction and power balance give
+\[
+ X_+=X_-=X=A_\pm+S_\pm,\qquad
+ \Gamma=\frac{\abs{A_+-A_-}}{X}.
+\]
+
+\begin{theorem}[Exact extinction floor at an interior center]\label{thm:main}
+Fix $P>1$, $Q>0$, $E_*>0$ and $0<\epsilon<1$.
+There is a finite two-layer body with one fixed passive causal reciprocal
+dielectric law in each layer such that, on $B$,
+\begin{gather}
+ I\preceq\ReH\varepsilon\preceq PI,\qquad
+ 0\prec\ImH\varepsilon\preceq QI,\label{eq:caps}\\
+ X(\omega_c)=E_*,\qquad
+ X(\omega)>E_*\quad(\omega\ne\omega_c),\qquad
+ 1-\epsilon<\Gamma(\omega)<1.\label{eq:target}
+\end{gather}
+The selected susceptibilities $\chi=\varepsilon-I$ are finite sums of damped
+Lorentz oscillators with real
+positive semidefinite residues and strictly positive damping.
+In particular, for the class satisfying $X(\omega_c)=E_*=\min_B X$,
+\[
+ \sup_D\inf_{\omega\in B}\Gamma_D(\omega)=1,
+\]
+and the supremum is not attained.
+\end{theorem}
+
+The same qualifications as in \cite{strict} apply: caps are imposed on the
+specified band, and there is no common bound on aperture, thickness, volume,
+oscillator strength or count, or a positive lower bound on material loss or
+resonance linewidth. All selected parameters are finite and every damping is
+positive. The final spectrum has a dip at the center; it is not constant.
+
+We inherit the weak-Maxwell volume representation, radiation identity,
+optical theorem and bounded-domain operator framework of \cite{base}.
+We also use the normalized matrix factorization and the $C^0$ frequency-uniform
+aperture theorem of \cite{strict}. The additions proved below are an extension
+to a complex material parameter, a nonzero material sensitivity, and a
+finite-body narrow-resonance minimum argument. Neither the earlier Lean
+project nor the numerical checks formally verify this extension.
+
+\section{Why the straightforward repairs are insufficient}
+Uniform approximation to a flat or convex spectrum does not control its
+derivatives. Small ripples can create competing minima. Maxwell scaling of a
+\emph{finite} body obeys
+\[
+ D\mapsto\lambda D,\qquad
+ \chi_{\rm new}(\omega)=\chi_{\rm old}(\lambda\omega),\qquad
+ X_{\rm new}(\omega)=\lambda^2X_{\rm old}(\lambda\omega).
+\]
+Selecting a minimizer $\omega_m$ and setting $\lambda=\omega_m/\omega_c$
+places a minimum at the center but changes its value. If the selected
+minimizer jumps during amplitude tuning, the resulting
+$(\omega_m/\omega_c)^2\min X$ can jump too; a scalar intermediate-value
+argument then fails.
+
+Nor may one simply differentiate the old aperture proof twice.
+The absolute Weyl-kernel estimate has an integrable
+$\abs{\rho-k}^{-1/2}$ grazing singularity; differentiating introduces
+nonintegrable absolute majorants. Even the weak thick planar limit need not
+converge in $C^2$: an $O(N^{-2})$ Fabry--Perot term oscillating at frequency
+$O(N)$ has a second derivative of order one. These observations invalidate
+those shortcuts, not the boundary statement itself.
+
+Our scaling is performed on a single \emph{planar density}, once, before
+any finite aperture is selected. The later sharp minimum is controlled by a
+material parameter rather than an aperture-uniform frequency derivative.
+
+\section{Freeze a planar minimum and a nonzero sensitivity}
+We first work on a slightly enlarged compact band $J\Subset(0,\infty)$.
+Choose an interval $U$ about $\omega_c$ so small that
+\[
+ \frac{\nu}{\omega_c}B\subset J\quad\text{for every }\nu\in U.
+\]
+In the shaping construction of \cite{strict}, replace the positive target
+$Y_0=1$ by $G(\omega)=1+K(\omega-\omega_c)^2$, $K>0$.
+This only replaces the real offdiagonal target by
+\[
+ b(\omega)\approx
+ \frac{a_0\sqrt{G(\omega)}}{2\sin(\tau\omega/2)},\qquad
+ \tau=\frac{2\pi}{\inf J+\sup J}.
+\]
+The signed-resolvent approximation and positive-semidefinite residue
+completion are unchanged. The limiting normalized spectrum is
+\begin{equation}\label{eq:ideal}
+ Y_0=4(b/a)^2\sin^2(\tau\omega a/(2a_0)),\qquad \Gamma_0=1.
+\end{equation}
+Choose the total uniform error, including the finite-stage and damping
+perturbations, smaller than one quarter of
+$\min_{J\setminus U}[G-G(\omega_c)]$. The finite weak/thick stage and positive
+active damping can then be fixed so that its actual
+$Y_\infty(\omega,0)$ is positive, all its global minimizers on $J$ lie in $U$,
+and its contrast exceeds $1-\epsilon/8$ throughout $J$.
+Retain strict upper material-cap margins and strict positive real and
+imaginary parts in the active material spaces.
+
+Choose any one actual minimizer $\nu\in U$, put $\lambda=\nu/\omega_c$, and
+scale the planar thicknesses by $\lambda$ and its complete material laws by
+$\omega\mapsto\lambda\omega$.
+Planar power densities satisfy
+\[
+ Y_{\infty,{\rm new}}(\omega,\theta)
+   =Y_{\infty,{\rm old}}(\lambda\omega,\theta),
+ \qquad
+ \gamma_{\infty,{\rm new}}(\omega,\theta)
+   =\gamma_{\infty,{\rm old}}(\lambda\omega,\theta).
+\]
+There is no area factor for these per-area quantities. Henceforth freeze this
+scaled stage and write
+\begin{equation}\label{eq:baseline-min}
+ Y_c:=Y_\infty(\omega_c,0)>0,\qquad
+ Y_\infty(\omega,0)\ge Y_c\quad(\omega\in B).
+\end{equation}
+No choice of a minimizer as a function of a later tuning parameter occurs.
+Several baseline minima cause no difficulty.
+
+Scaling preserves the Lorentz class: a term
+$R/(\Omega^2-z^2-i\gamma z)$ evaluated at $\lambda z$ has residue
+$R/\lambda^2$, resonance $\Omega/\lambda$ and damping $\gamma/\lambda$.
+
+\begin{lemma}[A passive direction with nonzero real sensitivity]\label{lem:sensitivity}
+The stage can be selected so that a real rank-one positive semidefinite
+$2\times2$ matrix $T$ in the plate has
+\[
+ \left.\frac{\partial}{\partial x}
+ Y_\infty(\omega_c,0;\zeta=x)\right|_{x=0}\ne0.
+\]
+Here the plate's active matrix $C$ is changed to $C+\zeta T$;
+the physical change is $N^{-1}D_\theta(\zeta T)D_\theta$,
+where $D_\theta=\operatorname{diag}(1,\theta)$.
+\end{lemma}
+\begin{proof}
+In \eqref{eq:ideal}, with $a,c$ fixed and $b$ the shared offdiagonal entry,
+$\partial_bY_0=2Y_0/b>0$ uniformly on the compact enlarged band.
+The exact slab amplitudes and the corresponding normalized complex forward
+work are holomorphic in a small complex variation of $b$. The weak/thick
+estimates are locally uniform on that disk, as follows from the same bounded
+matrix exponentials and small interface reflections used in \cite{strict}.
+Apply Cauchy's formula to the complex work, then take the imaginary part of
+its real-$b$ derivative. This transfers the displayed extinction derivative
+to a sufficiently large finite weak/thick stage; $Y$ itself is not asserted
+to be holomorphic. Small positive damping preserves it by finite-stage
+continuity. This is a material derivative, not a frequency derivative.
+
+Let $T_\pm=(e_x\pm e_y)(e_x\pm e_y)^T$. Their directional derivatives differ by
+$2\partial_bY$, which is nonzero. At least one is therefore nonzero at the
+chosen $\nu$. Choose that matrix for $T$ and perform the planar scaling above.
+The sensitivity and its nonzero sign are preserved.
+\end{proof}
+
+\section{Uniform analyticity in a material parameter}
+We state explicitly the strengthening of the old aperture theorem that is
+needed. Only the material parameter is differentiated.
+
+Write $\mathcal H_R$ for the absorber scalar and plate two-component auxiliary
+current space, and let
+\[
+ \alpha(\omega,\zeta)
+ =\operatorname{diag}\!\left(\alpha_A(\omega),
+           [C(\omega)+\zeta T]/N\right),\qquad
+ L_{R,\theta}(\omega,\zeta)=
+ \alpha(\omega,\zeta)^{-1}-J_\theta^*K_{D_R}(k)J_\theta .
+\]
+The scaled stage's thicknesses and laws are understood in this notation.
+Choose a disk $\abs\zeta<r$ so small that, throughout $B$ and its closure,
+$\ReH\alpha$ and $\ImH\alpha$ remain strictly positive on the active spaces,
+and the physical upper caps retain margins for a small fixed interval
+$0\le\theta\le\theta_0$.
+This is possible by compactness and the frozen positive active losses.
+The disk includes slight negative imaginary perturbations as an analytic
+device; every actual added oscillator will be passive.
+
+As in \cite{strict}, put
+\[
+ W=-\ImH\alpha^{-1}\succeq c_*I,\qquad
+ -\Im\ip r{L_{R,\theta}r}\ge c_*\norm r^2 ,
+\]
+uniformly in the compact parameters and independently of $R$.
+Define the \emph{complex} normalized work
+\[
+ \mathcal F_R(\omega,\theta,\zeta)
+ =kR^{-2}\ip{g_+}{L_{R,\theta}(\omega,\zeta)^{-1}g_+},
+ \qquad
+ \Im\mathcal F_R=R^{-2}Y_R.
+\]
+The fixed incident vector $g_+$ does not depend on $\zeta$, so this expression
+is holomorphic in $\zeta$.
+
+\begin{lemma}[Material-parameter aperture transfer]\label{lem:cauchy}
+On compact subdisks and on the fixed real frequency and coupling intervals,
+\[
+ \partial_\zeta^j\mathcal F_R
+   \longrightarrow\partial_\zeta^j\mathcal F_\infty
+ \quad\text{uniformly},\qquad j=0,1,2,\ldots .
+\]
+The normalized absorption and contrast converge uniformly in value wherever
+the planar extinction is positive.
+\end{lemma}
+\begin{proof}
+The current-localization proof of \cite{strict} is uniform when the continuous
+active matrices range over this compact disk: their inverse coercivity
+constant, weights and height norms have common bounds, and the same Weyl
+estimates apply. Its $o(R)$ current error and the $O(R)$ incident norm imply
+convergence of the full complex work, not just its imaginary part.
+Apply Cauchy's integral formula on a slightly larger subdisk to obtain every
+fixed material derivative. The absorption and contrast statement uses the
+original quadratic work estimates and positive denominator.
+\end{proof}
+
+In particular, for $s$ in any fixed positive compact interval and
+$\theta=s/R$, the limiting complex work is
+$\mathcal F_\infty(\omega,0,\zeta)$, with the same material-derivative
+convergence. No derivative in $\omega$ is asserted.
+
+\section{A weak passive oscillator creates an extinction dip}
+At the frozen center let
+\[
+ F(\zeta)=\mathcal F_\infty(\omega_c,0,\zeta),\qquad
+ F'(0)=A+iB_1 .
+\]
+Here $F$ includes the factor $k_c$; Lemma~\ref{lem:sensitivity} gives
+$B_1=\partial_{\Re\zeta}Y_\infty\ne0$.
+Put
+\[
+ \ell(u)=\frac1{-u-i}=\frac{-u+i}{1+u^2},\qquad
+ \Phi_\rho(u)=\Im F(\rho\ell(u)).
+\]
+For small $\rho>0$,
+\begin{equation}\label{eq:fano}
+ \Phi_\rho(u)=Y_c+
+       \rho\,\frac{A-B_1u}{1+u^2}+O(\rho^2).
+\end{equation}
+The error is uniform on the compactified real line and in $C^2$ on bounded
+$u$ intervals. The positive imaginary part of $\ell$ will be supplied by an
+ordinary passive Lorentz oscillator.
+
+\begin{lemma}[Strict frozen-profile minimum]\label{lem:fano}
+For sufficiently small $\rho$, $\Phi_\rho$ has a unique global minimum
+at a finite $u_\rho$, with positive second derivative there, and
+\[
+ m_\rho:=\Phi_\rho(u_\rho)=Y_c-d_\rho,\qquad
+ 0<d_\rho<Y_c/4.
+\]
+The minimum has a strict gap away from any sufficiently small neighborhood
+of $u_\rho$.
+\end{lemma}
+\begin{proof}
+Let $D=(A^2+B_1^2)^{1/2}$. The leading rational function in
+\eqref{eq:fano} has its unique minimum at
+\[
+ u_*=\frac{A+D}{B_1},\qquad
+ h(u_*)=\frac{A-D}{2}<0,\qquad
+ h''(u_*)=\frac{2D}{(1+u_*^2)^2}>0.
+\]
+Its value tends to zero at both ends of the real line. It therefore has a
+positive value gap outside a small neighborhood of $u_*$. Uniform $C^0$
+control preserves that gap, and $C^2$ control preserves strict convexity
+inside the neighborhood. This proves uniqueness, nondegeneracy and
+$d_\rho=\rho(D-A)/2+O(\rho^2)>0$. Decrease $\rho$ to obtain the displayed
+upper bound and to stay in the analytic disk.
+\end{proof}
+
+Choose $\rho$ still smaller if necessary so that all material values
+$\abs\zeta\le2\rho$ preserve the cap margins, positive extinction, and planar
+contrast greater than $1-\epsilon/4$ on the band and near $\theta=0$.
+This use of continuity is legitimate even if $d_\rho$ becomes very small:
+the aperture has not yet been chosen. The added resonance reduces extinction
+by interference; passivity does not require extinction to increase under every
+positive-semidefinite material perturbation.
+
+\section{Choose the finite aperture before narrowing the resonance}
+Set
+\[
+ s_-=\sqrt{\frac{E_*}{2Y_c}},\qquad
+ s_+=\sqrt{\frac{2E_*}{Y_c}},\qquad I_s=[s_-,s_+].
+\]
+Choose a sufficiently large \emph{finite} $R$, so that $\theta=s/R$ is in the
+small coupling interval for all $s\in I_s$.
+By Lemma~\ref{lem:cauchy}, the frozen finite profiles
+\[
+ \Phi_{R,s}(u)=R^{-2}Y_R(\omega_c,s/R;\rho\ell(u))
+\]
+are uniformly close to $\Phi_\rho$ in $C^2$ near its minimum and in $C^0$
+on the full profile. They therefore have unique minima in one common compact
+$u$ interval, uniformly positive local curvature, and uniform gaps away from
+that interval. Moreover the unperturbed whole-band spectra satisfy
+\[
+ R^{-2}Y_R(\omega,s/R;0)\ge Y_c-\delta_R,\qquad
+ \delta_R\longrightarrow0.
+\]
+Choose $R$ so large that all these errors are much smaller than $d_\rho$.
+The contrast is uniformly greater than $1-\epsilon/2$ for the material
+parameters under consideration.
+
+At this selected finite aperture add a sufficiently small common isotropic
+Lorentz susceptibility $\nu f_0(\omega)I$ in both layers, with positive
+residue and damping and resonance above the band.
+The electric resolvent formula and Neumann perturbation from \cite{strict}
+apply uniformly in $\omega,s,\zeta$ on a compact subdisk. They preserve the
+strict caps and contrast margins. For fixed $R$, complex work is still
+holomorphic in $\zeta$, so Cauchy's formula preserves the required
+material-derivative margins as $\nu\downarrow0$.
+
+The physical extinction no longer factors at zero coupling after this
+addition. On the positive bracket define, using the physical polarization
+current $p_\nu$,
+\begin{equation}\label{eq:finite-F}
+ \mathcal W_\nu(\omega,s,\zeta)=\frac{k}{s^2}\ip{f_+}{p_\nu},
+ \qquad
+ \mathcal Y(\omega,s,\zeta)=\Im\mathcal W_\nu
+ =\frac{X^{(\nu)}_R(\omega,s/R;\zeta)}{s^2}.
+\end{equation}
+The complex work $\mathcal W_\nu$ is holomorphic in $\zeta$ and converges
+uniformly as $\nu\downarrow0$ on a slightly larger subdisk. Cauchy's formula
+therefore supplies convergence of its material derivatives on the working
+disk. Before regularization, $\mathcal Y=R^{-2}Y_R$ exactly. Since $s_-$ is
+positive, this normalization is uniformly harmless on the full bracket.
+Choose all errors small enough that, uniformly in $s$,
+\begin{align}
+ \mathcal Y(\omega,s,0)&\ge Y_c-d_\rho/8
+       &&(\omega\in B),\label{eq:baseline-gap}\\
+ \phi_s(u):=\mathcal Y(\omega_c,s,\rho\ell(u))
+ &\text{ has a unique nondegenerate minimum }u_s,\nonumber\\
+ \phi_s(u_s)&\le Y_c-7d_\rho/8,\label{eq:dip-gap}\\
+ \tfrac34Y_c&<\phi_s(u)<\tfrac54Y_c
+       &&\text{near the minima}.\label{eq:value-bracket}
+\end{align}
+The intervals of strict curvature and the gaps can be chosen uniformly.
+The minimum locations $u_s$ depend continuously on $s$.
+All original oscillators and the isotropic regularizer already have positive
+damping. Nothing has yet required a narrow frequency resonance.
+
+For fixed $R$, the baseline and its complex work are smooth in real frequency
+on a neighborhood of $B$, jointly with the finite parameter sets.
+Indeed, the static singular part of $K_{D_R}(k)$ is independent of $k$;
+its remaining kernel is weakly singular and operator-norm holomorphic on
+bounded complex frequency sets. The invertible volume operator then has a
+holomorphic inverse locally about each real frequency.
+Only this fixed-body regularity is used below.
+
+\section{Put the actual minimum exactly at the center}
+For a positive width $\gamma$ and a real location parameter $v$ in a fixed
+compact interval about the $u_s$, add to the active plate the Lorentz term
+$\zeta_{\gamma,v}(\omega)T/N$, where
+\begin{equation}\label{eq:notch}
+ \Omega_v^2=\omega_c^2-\gamma\omega_cv,\qquad
+ \zeta_{\gamma,v}(\omega)=
+ \frac{\rho\gamma\omega_c}
+      {\Omega_v^2-\omega^2-i\gamma\omega}.
+\end{equation}
+For sufficiently small $\gamma$, $\Omega_v^2>0$ uniformly in $v$.
+The final physical residue is
+$(\rho\gamma\omega_c/N)D_\theta TD_\theta\succeq0$.
+Thus this is one ordinary passive reciprocal oscillator with positive damping.
+Its peak perturbation is small, although its frequency derivatives may be large.
+
+At the center its material value is \emph{exactly}
+\[
+ \zeta_{\gamma,v}(\omega_c)=\rho\ell(v).
+\]
+With $\omega=\omega_c+\gamma t/2$, direct algebra gives
+\begin{equation}\label{eq:scaled-lorentz}
+ \zeta_{\gamma,v}(\omega_c+\gamma t/2)=
+ \frac{\rho}
+ {-v-t-\gamma t^2/(4\omega_c)-i(1+\gamma t/(2\omega_c))}
+ \longrightarrow \rho\ell(t+v)
+\end{equation}
+in $C^2(t,v)$ on every fixed compact set. Also
+$\sup_{\omega\in B,v}\abs{\zeta_{\gamma,v}(\omega)}
+\le(1+o(1))\rho$, so the perturbation remains in the material disk.
+For sufficiently large $\abs t$ and $\omega\in B$,
+\begin{equation}\label{eq:tail}
+ \abs{\zeta_{\gamma,v}(\omega)}\le C_B\rho/\abs t.
+\end{equation}
+For example the real part of the denominator in \eqref{eq:scaled-lorentz}
+is $-v-t(\omega+\omega_c)/(2\omega_c)$, proving this bound for bounded $v$.
+
+At the now-fixed aperture define
+\[
+ H_\gamma(s,t,v)=
+ \mathcal Y(\omega_c+\gamma t/2,s,
+               \zeta_{\gamma,v}(\omega_c+\gamma t/2)).
+\]
+Fixed-body smoothness and \eqref{eq:scaled-lorentz} imply
+\begin{equation}\label{eq:inner-limit}
+ H_\gamma(s,t,v)\longrightarrow\phi_s(t+v)
+ \quad\text{in }C^2(t,v),
+\end{equation}
+uniformly for $s\in I_s$ and bounded $t,v$.
+At $\gamma=0$, the equation $\partial_tH_0(s,0,v)=0$ has the unique relevant
+root $v=u_s$, with $\partial_v\partial_tH_0=\phi_s''(u_s)>0$.
+The uniform implicit-function argument therefore supplies a continuous
+$v_\gamma(s)$ for all sufficiently small fixed $\gamma>0$, with
+\begin{equation}\label{eq:stationary}
+ \partial_\omega X_R^{(\nu)}(
+   \omega_c,s/R;\zeta_{\gamma,v_\gamma(s)}(\omega))=0
+\end{equation}
+where the derivative is of the complete composed frequency response.
+The local curvature is positive. One may also obtain the root directly by
+strict monotonicity and opposite endpoint signs of
+$\partial_tH_\gamma(s,0,v)$.
+
+We verify \emph{global}, not just local, minimality.
+First choose a finite $T$ sufficiently large that the tail bound
+\eqref{eq:tail} and the fixed-body material Lipschitz bound change
+$\mathcal Y$ by less than $d_\rho/8$ whenever $\abs t\ge T$.
+This choice can be made after $R$; it introduces no aperture-uniform
+frequency estimate. By \eqref{eq:baseline-gap}, every such outer value is at
+least $Y_c-d_\rho/4$, while the center remains below $Y_c-3d_\rho/4$.
+For the bounded inner interval choose $a,\mu>0$ so that
+$\phi_s''\ge\mu$ on $\abs{u-u_s}\le2a$, and a uniform positive value gap
+on $\abs{u-u_s}\ge a/2$. Take $\gamma$ so small that
+$\abs{v_\gamma(s)-u_s}<a/2$ and
+$\partial_t^2H_\gamma\ge\mu/2$ on $\abs t\le a$.
+Stationarity at zero then gives strict minimality on that interval.
+For $a\le\abs t\le T$, the frozen profile gap and uniform $C^0$ convergence
+in \eqref{eq:inner-limit} give $H_\gamma(s,t,v_\gamma(s))>
+H_\gamma(s,0,v_\gamma(s))$.
+Decrease $\gamma$ also so that the inner interval lies in $B$.
+These two regions cover the band. Hence, for every $s\in I_s$,
+\begin{equation}\label{eq:exact-min}
+ X(\omega,s)>X(\omega_c,s)\quad
+      (\omega\in B\setminus\{\omega_c\}).
+\end{equation}
+
+Finally the center values depend continuously on $s$. By
+\eqref{eq:value-bracket} and a sufficiently small choice of $\gamma$,
+\[
+ X(\omega_c,s_-)<\tfrac58E_*<E_*,
+ \qquad
+ X(\omega_c,s_+)>\tfrac32E_*>E_*.
+\]
+One intermediate-value argument supplies $s_*\in I_s$ with
+$X(\omega_c,s_*)=E_*$ exactly.
+Take the single resulting $\theta=s_*/R$, resonance location
+$v_\gamma(s_*)$, geometry and complete material laws.
+Equation~\eqref{eq:exact-min}, the preserved caps, and the uniform contrast
+margin prove the proposed theorem.
+The strict optical-theorem argument of \cite{base} gives $\Gamma<1$ for every
+selected compact body, hence nonattainment.
+
+\section{Parameter order and scope of verification}
+The dependency order is:
+\[
+ \begin{gathered}
+ \text{guarded planar bowl and finite weak/thick stage}\\
+ \longrightarrow\text{one planar minimum alignment and freezing}\\
+ \longrightarrow\text{material direction and small notch peak }\rho\\
+ \longrightarrow\text{large finite aperture }R\\
+ \longrightarrow\text{small isotropic regularization }\nu\\
+ \longrightarrow\text{finite tail window }T
+ \longrightarrow\text{small positive linewidth }\gamma\\
+ \longrightarrow\text{continuous resonance centering}
+ \longrightarrow\text{exact amplitude tuning}.
+ \end{gathered}
+\]
+The very narrow linewidth is an additional unrestricted resource.
+The proof does not provide a practical size, loss or linewidth bound.
+It does not establish the optimum with fixed resources or an isotropic
+realization. Material oscillator axes, resonance parameters and geometry are
+fixed after the final selections; the frequency does not choose another device.
+
+Three GPT-6.1-sol agents separately examined the construction, the
+material-parameter aperture argument and the minimum/global-tail logic.
+Their reviews reported no substantive blocker after the stated corrections.
+This is AI-assisted analytical checking, not independent human review.
+The accompanying \texttt{boundary\_checks.py} and
+\texttt{numerical\_results.json} give a reproducible NumPy diagnostic of the
+selection argument. The model is an \emph{analytic surrogate}, consisting of
+a smooth bowl, fixed small rapid ripples, and a holomorphic quadratic work
+response to the added Lorentz susceptibility. It is not asserted to be a
+realizable Maxwell response, and no absorption-asymmetry ratio is computed.
+
+The diagnostic checks the Fano minimum and curvature formulas, the exact
+center material identity, and the scaled Lorentz derivatives through order
+two. Their maximum sampled error decreases from $3.70\times10^{-3}$ at
+$\gamma=0.03$ to $3.52\times10^{-6}$ at $\gamma=3\times10^{-5}$.
+The broad centered resonance fails the sampled global-minimum check in the
+presence of the fixed ripples. At the narrow selected width, nested centering
+and amplitude tuning reach the surrogate target $E_*=1.7$ with magnitude
+residual below $1.1\times10^{-14}$ and frequency-derivative residual below
+$2.2\times10^{-12}$. The center is the sampled minimum on a 259,885-point
+hybrid grid, and all 13 sampled amplitude-bracket values pass the analogous
+check. These are numerical diagnostics, not a continuum-band certificate or
+a finite three-dimensional device calculation.
+
+\section{A separate obstruction to exactly constant extinction}
+The boundary theorem requires a minimum, not a constant spectrum.
+In fact exactly constant positive extinction on an open band is excluded
+for the finite, positively damped Lorentz subclass constructed here.
+
+\begin{proposition}[No positive flat interval in this Lorentz subclass]
+Let a fixed compact body have finitely many homogeneous regions and, in each,
+a finite oscillator sum
+\[
+ \chi_j(z)=\sum_l
+ \frac{R_{jl}}{\Omega_{jl}^2-z^2-i\gamma_{jl}z},\qquad
+ R_{jl}\succeq0,\quad
+ \Omega_{jl},\gamma_{jl}>0,\quad
+ \sum_lR_{jl}\succ0.
+\]
+Its plane-wave extinction cannot equal a positive constant on any open
+frequency interval.
+\end{proposition}
+\begin{proof}
+For every real $\omega>0$, $\ImH\chi_j(\omega)\succ0$, so $\chi_j$ is
+invertible. With $L(\omega)=\chi(\omega)^{-1}-K_D(\omega/c_{\rm v})$,
+the radiation identity gives
+$-\Im\ip p{L(\omega)p}\ge c_\omega\norm p^2$ for some $c_\omega>0$.
+The finitely many regions give a common constant at each fixed frequency.
+Complex Lax--Milgram implies bounded invertibility.
+
+On a bounded domain $K_D(z)$ is operator-norm holomorphic: its static
+singular part is fixed, and its remaining kernel and all local complex
+frequency derivatives have integrable weak singularities.
+Local inversion therefore makes the forward complex work
+\[
+ W(z)=\int_D e_y\ee^{-izx_3/c_{\rm v}}\cdot
+ [L(z)^{-1}(e_y\ee^{izx_3/c_{\rm v}})]\,\dd x
+\]
+holomorphic in a neighborhood of each positive real frequency.
+Thus $X(\omega)=(\omega/c_{\rm v})\Im W(\omega)$ is real analytic on
+the connected interval $(0,\infty)$.
+
+At zero, $\chi(0)\succ0$ and the static volume operator is self-adjoint
+nonpositive: its whole-space Fourier symbol is
+$-\xi\xi^T/\abs\xi^2$ after extension by zero.
+Consequently $L(0)=\chi(0)^{-1}-K_D(0)$ is strictly positive and invertible.
+The current and $W$ remain bounded near zero, so $X(\omega)\to0$.
+Indeed $W(0)$ is real and $X=O(\omega^2)$.
+If $X$ were a positive constant on an open interval, the real-analytic
+identity theorem would make it that constant throughout $(0,\infty)$,
+contradicting this limit.
+\end{proof}
+
+This proposition concerns the stated finite Lorentz subclass. It is not a
+claim about every possible passive law with nonanalytic boundary values.
+It sharpens the stronger-flat-spectrum caveat in the earlier working note;
+it places no obstruction on the isolated center minimum constructed here.
+
+\begin{thebibliography}{9}
+\bibitem{base}
+D. Wang and J. Zheng,
+\emph{Unit Supremum of Absorption Asymmetry at Prescribed Extinction for
+Compact Reciprocal Dielectrics}, manuscript dated 17 October 2026,
+source revision \texttt{22fed75}.
+\url{https://dan-k391.github.io/oq7-papers/prescribed-extinction/}.
+\bibitem{strict}
+\emph{Uniform absorption asymmetry on a fixed frequency band:
+A constructive draft for a strict extinction floor},
+research working note, 17 October 2026, Sections 2--6.
+Local source in the sibling directory
+\texttt{broadband-fixed-band-2026-10-17/main.tex}.
+Source SHA-256:
+\texttt{1947dd3a23343d78146415c2760a1ac53699f1caa0a0fc44b79af55c560d8f10}.
+\end{thebibliography}
+\end{document}

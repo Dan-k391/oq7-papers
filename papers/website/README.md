@@ -6,12 +6,12 @@ The `public/` directory contains complete HTML editions of the five current
 `papers/<slug>/arxiv/` manuscripts, exact copies of their PDFs and source ZIPs,
 and source/numbering manifests. The prescribed-extinction and fixed-resource manuscripts include
 17 October scope clarifications distinguishing their single-frequency results
-from proposed broadband extensions; the other manuscripts retain their own
+from the separately labeled broadband candidate extensions; the other manuscripts retain their own
 release dates. The older `publication/manuscript/` HTML remains historical.
 The geometry SVG is reused from that preserved publication snapshot.
 
 Only `public/` is deployed to the `gh-pages` branch. Historical archives, local
-work, new closure notes, credentials, and dependency caches are excluded.
+work, credentials, and dependency caches are excluded. Two explicitly selected candidate research notes are released as supplements.
 GitHub Pages serves the branch root; `.nojekyll` makes this a plain static site.
 No remote scripts, fonts, accounts, analytics, or paid services are needed.
 
@@ -54,8 +54,26 @@ for the published input and output hashes. Preserve older paper and audit record
 The release manifest derives its edition date from the latest manuscript date
 and records each paper's individual date and hashes. New builds require their
 own verification report; the historical counts above do not certify a later
-revision. The landing-page broadband section describes proposed research,
-not a sixth paper or a verified broadband result.
-## 17 October deployment
+revision. The landing-page broadband section labels the boundary and strict-floor notes as
+CANDIDATE proofs. These are two supplements to prescribed-extinction, not a sixth
+paper, new formal verification, or independent human review.
 
-The 17 October scope revision is live at the public directory above. Source commit `22fed75636f16309ccd0fb471e8674d62d258dc5` supplied the static files deployed by `gh-pages` commit `d2568df53e2116d75890c5e15dc2755960b8eafc`. GitHub's Pages workflow succeeded, and all 24 served files matched the verified local release byte-for-byte. See [the dated deployment record](verification/deployment-2026-10-17.json); the earlier `verification/deployment.json` remains historical.
+The boundary candidate proposes X(center) = E* = min_B X, strict elsewhere on a
+fixed positive band, with inf_B Gamma arbitrarily close to one in the unrestricted
+two-layer reciprocal tensor class. It inherits the earlier Maxwell framework and
+the strict-floor C0 aperture theorem. Caps are bandwise; no common geometry,
+resource, linewidth, or positive material-loss floor is imposed.
+
+The builder copies each original research-note.pdf byte-for-byte and creates a
+deterministic source ZIP with an explicit allowlist: main.tex, STATUS.txt,
+verification.json, the numerical script and results, and the two final compiler
+logs. It records dependencies, candidate scope, filenames and hashes separately
+under supplements in release-manifest.json. The verifier independently checks
+those files, ZIP contents and scope labels. Original research sources, including
+their historical publication-state statements, remain byte-for-byte preserved.
+This candidate revision requires its own build, verification and deployment
+record; the deployment record below applies only to the earlier scope revision.
+
+## Historical 17 October scope deployment
+
+The earlier 17 October scope revision was deployed to the public directory above. Source commit `22fed75636f16309ccd0fb471e8674d62d258dc5` supplied the static files deployed by `gh-pages` commit `d2568df53e2116d75890c5e15dc2755960b8eafc`. GitHub's Pages workflow succeeded, and all 24 served files matched the verified local release byte-for-byte. See [the dated deployment record](verification/deployment-2026-10-17.json); the earlier `verification/deployment.json` remains historical.

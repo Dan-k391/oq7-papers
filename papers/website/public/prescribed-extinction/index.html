@@ -78,11 +78,16 @@ auxiliary limit. This permits the coupling angle to decrease as the
 aperture grows while extinction remains fixed. Positive isotropic loss
 is then added, and continuity permits exact retuning to the target. The
 approximating sequence has no common geometric resource bound or
-positive loss floor, and no bandwidth guarantee is asserted. The
+positive loss floor, and the main theorem is monochromatic. The
 contribution is the controlled compact Maxwell realization at prescribed
 extinction. An accompanying Lean 4 formalization verifies the main
-existence and supremum statements and physical power identities; its
-verification and review scope are specified separately.</p>
+single-frequency existence and supremum statements and physical power
+identities; its verification and review scope are specified separately.
+A separately labeled candidate proof proposes the same unit
+worst-frequency supremum on any prescribed finite positive-frequency
+band, including an exact extinction floor attained at the selected
+interior frequency. This broadband extension is not covered by the
+existing formalization or external human peer review.</p>
 </section>
 <h2 id="sec:intro">1 Introduction and relation to OQ7</h2>
 <p>Open Question 7 in the tutorial of Miller and Monticone asks for
@@ -97,9 +102,13 @@ dielectric bodies at one frequency.</p>
 <p>The result is an existence and supremum theorem. It states that a
 finite object can have exactly any prescribed positive extinction and an
 absorption difference arbitrarily close to that extinction, while its
-real permittivity and loss obey fixed pointwise upper bounds. It
-establishes neither a finite-resource optimum nor finite-bandwidth
-performance. The same material tensor is used in both experiments, and
+real permittivity and loss obey fixed pointwise upper bounds. The main
+theorem establishes neither a finite-resource optimum nor
+finite-bandwidth performance. Section <a href="#sec:boundary-candidate"
+data-reference-type="ref"
+data-reference="sec:boundary-candidate">9.1</a> separately presents a
+candidate broadband extension and its additional analytical
+dependencies. The same material tensor is used in both experiments, and
 scattering includes the whole outgoing sphere and both
 polarizations.</p>
 <p>At a fixed coupling angle, enlarging a planar-like aperture increases
@@ -1276,32 +1285,100 @@ For continuous responses with positive worst-case contrast,
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>A</mi><mo>+</mo></msub><mo>−</mo><msub><mi>A</mi><mo>−</mo></msub></mrow><annotation encoding="application/x-tex">A_+-A_-</annotation></semantics></math>
 has constant sign on the connected band, so the more absorbing side
 cannot switch within it.</p>
-<p>Two different extensions remain outside this theorem: whether the
-unit worst-case supremum survives on a prescribed band with only
-bandwise upper material caps and no common geometric bound or positive
-loss floor, and the sharp value of
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>G</mi><mi>B</mi></msub><annotation encoding="application/x-tex">G_B</annotation></semantics></math>
-for a fixed resource class. A frequencywise resource ceiling
+<h3 id="sec:boundary-candidate">9.1 Candidate proof: the exact broadband
+extinction floor</h3>
+<p><strong>Status and proposed statement.</strong> The following is a
+candidate analytical extension, separate from the proved
+single-frequency theorem and its frozen formal verification. Fix the
+band and interior center above,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo>&gt;</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">P&gt;1</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Q</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">Q&gt;0</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>E</mi><mo>*</mo></msub><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">E_*&gt;0</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>&lt;</mo><mi>ϵ</mi><mo>&lt;</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">0&lt;\epsilon&lt;1</annotation></semantics></math>.
+The candidate construction gives one finite compact two-layer reciprocal
+tensor body, with one fixed passive causal dielectric law in each layer,
+such that the material caps <a href="#eq:material"
+data-reference-type="eqref" data-reference="eq:material">(2)</a> hold
+throughout
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>
+and <span
+class="equation unnumbered"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>ω</mi><mi>c</mi></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msub><mi>E</mi><mo>*</mo></msub><mo>,</mo><mspace width="2.0em"></mspace><mi>X</mi><mo stretchy="false" form="prefix">(</mo><mi>ω</mi><mo stretchy="false" form="postfix">)</mo><mo>&gt;</mo><msub><mi>E</mi><mo>*</mo></msub><mspace width="1.0em"></mspace><mo stretchy="false" form="prefix">(</mo><mi>ω</mi><mo>∈</mo><mi>B</mi><mo>\</mo><mo stretchy="false" form="prefix">{</mo><msub><mi>ω</mi><mi>c</mi></msub><mo stretchy="false" form="postfix">}</mo><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mspace width="2.0em"></mspace><munder><mi mathvariant="normal">inf</mi><mrow><mi>ω</mi><mo>∈</mo><mi>B</mi></mrow></munder><mi mathvariant="normal">Γ</mi><mo stretchy="false" form="prefix">(</mo><mi>ω</mi><mo stretchy="false" form="postfix">)</mo><mo>&gt;</mo><mn>1</mn><mo>−</mo><mi>ϵ</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">X(\omega_c)=E_*,\qquad
+ X(\omega)&gt;E_*\quad(\omega\in B\setminus\{\omega_c\}),\qquad
+ \inf_{\omega\in B}\Gamma(\omega)&gt;1-\epsilon.</annotation></semantics></math></span>
+Each susceptibility is a finite sum of Lorentz oscillators with real
+positive semidefinite residues and strictly positive damping. If the
+candidate proof is valid, the unrestricted class with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>E</mi><mi mathvariant="normal">min</mi></msub><mo>=</mo><msub><mi>E</mi><mo>*</mo></msub><mo>=</mo><msub><mrow><mi mathvariant="normal">min</mi><mo>&#8289;</mo></mrow><mi>B</mi></msub><mi>X</mi></mrow><annotation encoding="application/x-tex">E_{\min}=E_*=\min_BX</annotation></semantics></math>
+therefore has worst-frequency supremum one, without attainment. This
+also supplies every weaker floor
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>&lt;</mo><msub><mi>E</mi><mi mathvariant="normal">min</mi></msub><mo>&lt;</mo><msub><mi>E</mi><mo>*</mo></msub></mrow><annotation encoding="application/x-tex">0&lt;E_{\min}&lt;E_*</annotation></semantics></math>.
+The spectrum has a strict minimum at the chosen center; it is not
+constant across the band.</p>
+<p><strong>Construction and dependencies.</strong> The full derivation
+is in the accompanying <a
+href="https://dan-k391.github.io/oq7-papers/prescribed-extinction/boundary-candidate.pdf">boundary-case
+candidate proof</a>, with <a
+href="https://dan-k391.github.io/oq7-papers/prescribed-extinction/boundary-candidate-source.zip">source
+and diagnostic records</a>. It depends on this paper’s weak-Maxwell
+volume representation, radiation identity, optical theorem and
+bounded-domain operator framework, together with the normalized
+factorization and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>C</mi><mn>0</mn></msup><annotation encoding="application/x-tex">C^0</annotation></semantics></math>
+frequency-uniform aperture argument in the earlier <a
+href="https://dan-k391.github.io/oq7-papers/prescribed-extinction/fixed-band-candidate.pdf">fixed-band
+candidate proof</a>. That earlier note’s open-boundary discussion
+records its earlier stage; the present candidate addresses that
+boundary.</p>
+<p>First shape a positive planar extinction spectrum and use frequency
+scaling to align one of its actual minima with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ω</mi><mi>c</mi></msub><annotation encoding="application/x-tex">\omega_c</annotation></semantics></math>,
+before varying the finite-device coupling. Freeze this planar stage. A
+positive semidefinite material perturbation has nonzero extinction
+sensitivity; a small passive Lorentz oscillator in that direction
+produces a negative interference lobe in extinction. Analyticity of the
+complex forward work in the material parameter, combined with Cauchy
+estimates, transfers this lobe to a sufficiently large finite aperture.
+Choose that aperture and a small strictly positive isotropic loss before
+choosing the added resonance’s linewidth.</p>
+<p>Only after the body is finite is the resonance narrowed. Ordinary
+frequency smoothness of this fixed body and the rescaled Lorentz profile
+permit continuous tuning of the resonance position so that the center is
+stationary with positive curvature. A local curvature estimate and an
+outer-frequency tail estimate make this center the strict global minimum
+on
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>.
+Varying the coupling amplitude then crosses the prescribed extinction
+target while retaining the minimum. The selected geometry and all
+oscillator parameters are fixed throughout the band. This argument does
+not assume convergence of frequency derivatives as the aperture grows;
+uniform spectral approximation alone would not exclude small competing
+minima.</p>
+<p><strong>Scope and verification limits.</strong> Caps are bandwise.
+There is no common bound on aperture, thickness, volume, oscillator
+strength or count, and no positive lower bound on loss or resonance
+linewidth across the sequence. All parameters of each selected body are
+finite. The new material-parameter estimates and minimum argument remain
+candidate analytical steps. Three GPT-6.1-sol subagents reviewed the
+draft and their corrections were incorporated; this is AI-assisted
+review, not external human peer review or formal verification. The
+accompanying numerical checks concern an explicit analytic surrogate of
+the tuning argument, not a Maxwell device simulation. They compute
+neither the asymmetry ratio nor device material caps, and sampled minima
+do not certify a continuum-band inequality.</p>
+<p><strong>Remaining questions.</strong> Sharp fixed-resource optima,
+useful quantitative resource costs and an all-isotropic construction
+remain open here. A frequencywise resource ceiling
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Γ</mi><mo stretchy="false" form="prefix">(</mo><mi>ω</mi><mo stretchy="false" form="postfix">)</mo><mo>≤</mo><mi>U</mi><mo stretchy="false" form="prefix">(</mo><mi>ω</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\Gamma(\omega)\leq U(\omega)</annotation></semantics></math>
 already implies
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>G</mi><mi>B</mi></msub><mo>≤</mo><msub><mrow><mi mathvariant="normal">inf</mi><mo>&#8289;</mo></mrow><mrow><mi>ω</mi><mo>∈</mo><mi>B</mi></mrow></msub><mi>U</mi><mo stretchy="false" form="prefix">(</mo><mi>ω</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">G_B\leq\inf_{\omega\in B}U(\omega)</annotation></semantics></math>;
 an additional causal tradeoff must go beyond that ceiling and account
-for one jointly realizable dispersion law. No gap caused by bandwidth
-alone is asserted here. Extending the present construction would require
-frequency-uniform aperture and loss-regularization estimates, and
-control of the extinction floor with one center-frequency retuning.
-Requiring
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo stretchy="false" form="prefix">(</mo><mi>ω</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msub><mi>E</mi><mo>*</mo></msub></mrow><annotation encoding="application/x-tex">X(\omega)=E_*</annotation></semantics></math>
-throughout
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>
-is a separate stronger condition. These broadband formulations are
-outlook questions, not additional proved or formally verified
-results.</p>
-<p>The theorem supplies no practical finite-size optimizer, quantitative
-universal resource cost, common positive loss floor, or all-isotropic
-realization. Aperture and absorber thickness can grow, and the final
-isotropic loss can shrink. The fixed-resource and quartic small-object
-questions require different quantifiers and remain separate.</p>
+for one jointly realizable dispersion law. The boundary note also gives
+a separate candidate obstruction to exactly constant positive extinction
+on an open interval for finitely many homogeneous regions with finite
+positively damped Lorentz sums and positive definite total residues in
+each region. That restricted analyticity argument does not settle the
+constant-spectrum question for arbitrary passive laws.</p>
 <h2 id="sec:formal">10 Formal verification correspondence</h2>
 <p>The accompanying Lean 4 formalization is frozen at commit</p>
 <div class="center">
@@ -1330,8 +1407,12 @@ different organizations. The correspondence of the main theorem does not
 certify every intermediate estimate or paragraph of this manuscript’s
 proof presentation. The causal-dispersion observation in Section <a
 href="#sec:consequences" data-reference-type="ref"
-data-reference="sec:consequences">9</a> also lies outside the formal
-main theorem.</p>
+data-reference="sec:consequences">9</a> and the entire candidate
+broadband extension in Section <a href="#sec:boundary-candidate"
+data-reference-type="ref"
+data-reference="sec:boundary-candidate">9.1</a>, including its research
+supplements, lie outside the formal main theorem and the archived
+audit.</p>
 <p>The archived final AI-assisted audit examines the frozen declaration
 and reports kernel validity, semantic fidelity to the original main
 theorem and lemma, Maxwell correctness within the formal model, both
@@ -1354,12 +1435,16 @@ files in the directory. They comprise the source archive</p>
 <p>and . The ancillary manifest, final audit report, status summary and
 provenance identify the exact source version and the scope of its
 verification. Historical checking records retain their original dates
-and scope; they do not certify every paragraph of this manuscript. No
-experimental or simulation datasets are used.</p>
+and scope; they do not certify every paragraph of this manuscript. The
+single-frequency theorem uses no experimental or simulation datasets.
+The candidate supplement supplies separately scoped analytic-surrogate
+diagnostics; these are not evidence of a simulated finite Maxwell
+device.</p>
 <p><strong>AI assistance.</strong> AI assistance was used for document
 preparation, source-to-claim comparison, compilation checks and focused
 literature-priority analysis. The accompanying mathematical and semantic
-reviews are AI-assisted.</p>
+reviews are AI-assisted. AI assistance was also used to develop and
+review the separately labeled broadband candidate proof.</p>
 <h2 id="sec:conclusion">11 Conclusion</h2>
 <p>The prescribed-extinction problem has a unit normalized supremum
 within finite compact two-layer reciprocal anisotropic dielectrics at
@@ -1369,8 +1454,15 @@ aperture localization, and two finite-object continuity arguments. Each
 selected object retains the exact extinction target and strictly
 positive tensor loss, while strict optical-theorem nonattainment
 prevents equality for an individual body. This establishes the
-resource-unrestricted supremum for the stated formulation of OQ7;
-finite-resource optima and bandwidth remain separate questions.</p>
+resource-unrestricted single-frequency supremum for the stated
+formulation of OQ7. The separately labeled candidate in Section <a
+href="#sec:boundary-candidate" data-reference-type="ref"
+data-reference="sec:boundary-candidate">9.1</a> proposes that the unit
+worst-frequency supremum survives on a prescribed finite band even at
+the exact-floor boundary
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>E</mi><mi mathvariant="normal">min</mi></msub><mo>=</mo><msub><mi>E</mi><mo>*</mo></msub></mrow><annotation encoding="application/x-tex">E_{\min}=E_*</annotation></semantics></math>.
+Its additional analytical steps require further validation;
+fixed-resource optima remain separate questions.</p>
 <h2 id="app:weak">A Entire outgoing weak vacuum uniqueness</h2>
 <p>This appendix supplies the converse-representation step without
 assuming classical traces of arbitrary weak representatives. Let

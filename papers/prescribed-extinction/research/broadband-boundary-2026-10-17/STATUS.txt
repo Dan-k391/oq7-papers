@@ -1,0 +1,72 @@
+BOUNDARY CASE E_min = E_* -- RESEARCH STATUS
+Date: 17 October 2026
+
+Result: constructive candidate analytical proof, in the unrestricted two-layer
+reciprocal tensor class of the cited manuscript and earlier fixed-band note.
+For any finite positive-frequency band B, interior center omega_c, material
+caps P > 1 and Q > 0, target E_* > 0, and epsilon > 0, the proposed construction
+gives one finite body with fixed passive causal finite Lorentz laws satisfying:
+  X(omega_c) = E_*;
+  X(omega) > E_* at every other frequency in B;
+  inf_B Gamma > 1 - epsilon.
+Consequently the proposed boundary-class worst-case supremum is one and is
+not attained. The spectrum is not exactly flat.
+
+Order of construction:
+1. Shape and align a minimum of a fixed damped planar reference spectrum.
+2. Establish a nonzero passive material direction and a negative Fano lobe.
+3. Choose finite aperture and small strictly positive isotropic loss.
+4. Only then narrow a positive-residue Lorentz resonance.
+5. Tune its center to stationarity and use coupling amplitude to hit E_*.
+The proof uses material-parameter Cauchy estimates, not frequency-derivative
+convergence as the aperture grows. The global minimum is treated with separate
+inner curvature/gap estimates and an outer tail estimate.
+
+Dependencies and limitations:
+This draft inherits the original manuscript's weak-Maxwell/operator framework
+and the earlier draft's C0 frequency-uniform aperture theorem. It is not a new
+Lean verification, formal certification, external human review, or novelty
+certification. Three GPT-6.1-sol subagents reviewed the construction; their
+identified technical corrections were incorporated. No remaining substantive
+blocker was identified in those AI reviews, which are not independent human
+peer review. Caps apply on B. No common geometry/resource bound, linewidth
+floor, or positive material-loss floor is imposed. Fixed-resource bounds and
+restricted isotropic classes are not resolved by this note.
+
+A separate proposition excludes exactly constant positive extinction on an
+open interval for the finite positively damped Lorentz subclass specified in
+the note. It is not stated for arbitrary passive constitutive laws.
+
+Numerical diagnostics:
+boundary_checks.py checks an explicit analytic surrogate of the tuning lemma,
+not a Maxwell/device simulation. All twelve recorded consistency checks pass.
+The surrogate is not asserted to obey all Maxwell realizability constraints;
+only the added scalar Lorentz oscillator is checked for positive loss.
+No asymmetry ratio, material caps, or device dimensions are computed. Dense
+sampling is not a continuum-band certificate or a proof of the theorem.
+The broadest resonance tested fails the sampled global-minimum check despite
+center stationarity; narrower resonances pass, illustrating the order of limits.
+The root independently reran the script after the final source edit. Exact
+source/script hashes and numerical residuals are in numerical_results.json.
+
+Build and visual verification:
+Nine-page PDF compiled with the existing pinned Tectonic 0.17.0 executable and
+bundle cache, in offline/untrusted mode after fetching one missing font from
+that same bundle. No undefined references, undefined citations, or overfull
+boxes. One underfull bibliography box was visually acceptable. All nine pages
+were rendered and inspected; pages 6 and 7 were additionally inspected alone.
+Build logs and machine-readable provenance are saved alongside this status.
+
+Files:
+main.tex -- complete candidate derivation and scope
+research-note.pdf -- compiled research note
+boundary_checks.py -- reproducible analytic-surrogate diagnostics
+numerical_results.json -- exact diagnostic results and source bindings
+verification.json -- source hashes, build and review record
+verification/ -- final compiler console and TeX logs
+
+Publication state:
+New research work only. No commit, push, deployment, preprint upload, or external
+contact was performed for this boundary-case task. Published manuscripts,
+website, formalization, frozen archives, and the earlier fixed-band note were
+not edited. Existing unrelated repository changes were preserved.

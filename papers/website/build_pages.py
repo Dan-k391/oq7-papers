@@ -5,7 +5,7 @@ release. Scientific text is converted, never separately copied or summarized.
 """
 from pathlib import Path
 from datetime import datetime
-import argparse, copy, hashlib, html, json, re, shutil, subprocess
+import argparse, copy, hashlib, html, json, re, shutil, subprocess, zipfile
 import xml.etree.ElementTree as ET
 
 PAPERS = [
@@ -267,6 +267,41 @@ def build_paper(root, out, aux_root, exe, slug):
     (target / 'format-correspondence.json').write_text(json.dumps(info, indent=2) + '\n', encoding='utf-8')
     return info
 
+# Explicit release allowlists: research records are copied byte-for-byte.
+SUPPLEMENTS = (
+    ('boundary-candidate', 'broadband-boundary-2026-10-17', 'boundary_checks.py',
+     ['Earlier weak-Maxwell/operator framework', 'Strict-floor C0 frequency-uniform aperture theorem'],
+     'Fixed positive band; interior center X = E* = min_B X, strict elsewhere; inf_B Gamma arbitrarily close to one.'),
+    ('fixed-band-candidate', 'broadband-fixed-band-2026-10-17', 'planar_checks.py',
+     ['Earlier weak-Maxwell/operator framework'],
+     'Fixed positive band; strict floor 0 < E_min < E*; exact center extinction E*; inf_B Gamma arbitrarily close to one.'),
+)
+
+def build_supplements(root, out):
+    records = []
+    for ident, directory, script, dependencies, claim in SUPPLEMENTS:
+        source = root / 'papers/prescribed-extinction/research' / directory
+        files = sorted(['main.tex', 'STATUS.txt', 'verification.json', script,
+                        'numerical_results.json', 'verification/console.txt', 'verification/main.log'])
+        target = out / 'prescribed-extinction'
+        pdf, archive = target / (ident + '.pdf'), target / (ident + '-source.zip')
+        shutil.copyfile(source / 'research-note.pdf', pdf)
+        with zipfile.ZipFile(archive, 'w', compression=zipfile.ZIP_STORED) as z:
+            for name in files:
+                entry = zipfile.ZipInfo(name, date_time=(1980, 1, 1, 0, 0, 0))
+                entry.create_system = 3
+                entry.external_attr = 0o100644 << 16
+                z.writestr(entry, (source / name).read_bytes())
+        records.append({'id': ident, 'status': 'CANDIDATE proof',
+                        'source_directory': source.relative_to(root).as_posix(),
+                        'claim_scope': claim, 'dependencies': dependencies,
+                        'limitations': 'Bandwise caps; unrestricted two-layer reciprocal tensor class; no common geometry/resource bound, linewidth floor or positive material-loss floor; no new formal verification or independent human review.',
+                        'pdf': pdf.relative_to(out).as_posix(), 'pdf_sha256': sha(pdf),
+                        'source_zip': archive.relative_to(out).as_posix(), 'source_zip_sha256': sha(archive),
+                        'source_files': files, 'source_sha256': {name: sha(source / name) for name in files},
+                        'research_pdf_sha256': sha(source / 'research-note.pdf')})
+    return records
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--root', type=Path, default=Path(__file__).resolve().parents[2])
@@ -285,7 +320,8 @@ def main():
     (args.output / '.nojekyll').write_text('', encoding='utf-8')
     edition = max(datetime.strptime(record['date'], '%d %B %Y').date() for record in records).isoformat()
     manifest = {'edition': edition, 'edition_basis': 'Latest manuscript date; individual manuscript dates are recorded below.',
-                'scope': 'Five current manuscript releases; broadband directions are open research targets, with no new scientific verification or peer-review claim.',
+                'scope': 'Five current manuscript releases plus two candidate proof supplements; no new formal verification or independent human review.',
+                'supplements': build_supplements(args.root, args.output),
                 'pandoc_version': pandoc_run(args.pandoc, ['--version']).splitlines()[0], 'papers': records}
     (args.output / 'release-manifest.json').write_text(json.dumps(manifest, indent=2) + '\n', encoding='utf-8')
     print(json.dumps([{'paper': r['slug'], 'equations': len(r['equation_labels']), 'references': r['references']} for r in records]))

@@ -323,6 +323,62 @@ def run(args):
                         'references':len(bblkeys),'nativeMathML':len(math_nodes),
                         'nativeMathMLBody':len(body_math_nodes),'nativeMathMLBibliography':len(math_nodes)-len(body_math_nodes),
                         'pdfSHA256':sha(source/'paper.pdf'),'sourceZipSHA256':sha(source/'arxiv-source.zip')})
+    # Independently specified supplement allowlists; supplements never enter PAPERS.
+    manifest_path = site/'release-manifest.json'
+    manifest = json.loads(manifest_path.read_text(encoding='utf-8')) if manifest_path.is_file() else {}
+    check([r.get('slug') for r in manifest.get('papers', [])] == list(PAPERS),
+          'Release manifest must retain exactly the five manuscript records')
+    expected_supplements = {
+        'boundary-candidate': ('broadband-boundary-2026-10-17', 'boundary_checks.py',
+            ['Earlier weak-Maxwell/operator framework', 'Strict-floor C0 frequency-uniform aperture theorem'],
+            'Fixed positive band; interior center X = E* = min_B X, strict elsewhere; inf_B Gamma arbitrarily close to one.'),
+        'fixed-band-candidate': ('broadband-fixed-band-2026-10-17', 'planar_checks.py',
+            ['Earlier weak-Maxwell/operator framework'],
+            'Fixed positive band; strict floor 0 < E_min < E*; exact center extinction E*; inf_B Gamma arbitrarily close to one.'),
+    }
+    supplements = manifest.get('supplements', [])
+    check(len(supplements) == 2 and {r.get('id') for r in supplements} == set(expected_supplements),
+          'Candidate supplement manifest inventory differs')
+    for record in supplements:
+        ident = record.get('id')
+        if ident not in expected_supplements:
+            continue
+        directory, script, dependencies, claim = expected_supplements[ident]
+        source = root/'papers/prescribed-extinction/research'/directory
+        files = sorted(['main.tex', 'STATUS.txt', 'verification.json', script,
+                        'numerical_results.json', 'verification/console.txt', 'verification/main.log'])
+        check(record.get('status') == 'CANDIDATE proof' and record.get('claim_scope') == claim,
+              ident+': candidate status/claim scope differs')
+        check(record.get('dependencies') == dependencies, ident+': inherited dependencies differ')
+        check(record.get('limitations') == 'Bandwise caps; unrestricted two-layer reciprocal tensor class; no common geometry/resource bound, linewidth floor or positive material-loss floor; no new formal verification or independent human review.',
+              ident+': candidate limitations differ')
+        check(record.get('source_directory') == source.relative_to(root).as_posix(), ident+': source directory differs')
+        check(record.get('source_files') == files, ident+': source allowlist differs')
+        check(record.get('source_sha256') == {name: sha(source/name) for name in files}, ident+': source hashes differ')
+        pdf, archive = site/'prescribed-extinction'/(ident+'.pdf'), site/'prescribed-extinction'/(ident+'-source.zip')
+        check(record.get('pdf') == pdf.relative_to(site).as_posix() and
+              record.get('source_zip') == archive.relative_to(site).as_posix(), ident+': download paths differ')
+        check(pdf.is_file() and sha(pdf) == sha(source/'research-note.pdf') == record.get('pdf_sha256') == record.get('research_pdf_sha256'),
+              ident+': PDF byte identity/hash differs')
+        check(archive.is_file() and sha(archive) == record.get('source_zip_sha256'), ident+': ZIP hash differs')
+        if archive.is_file():
+            with zipfile.ZipFile(archive) as z:
+                check(z.namelist() == files, ident+': ZIP entries differ from explicit allowlist')
+                for name in files:
+                    if name in z.namelist():
+                        check(z.read(name) == (source/name).read_bytes(), ident+': ZIP byte identity differs: '+name)
+                check(all(i.date_time == (1980,1,1,0,0,0) and i.compress_type == zipfile.ZIP_STORED
+                          and i.create_system == 3 and i.external_attr == 0o100644 << 16
+                          for i in z.infolist()), ident+': non-deterministic ZIP metadata')
+        check(pdf in landing_targets and archive in landing_targets, ident+': absent from visible landing downloads')
+    scope = normalized(landing.ids['broadband-scope'].text()) if landing and 'broadband-scope' in landing.ids else ''
+    for phrase in ('CANDIDATE proof', 'X(center) = E* = min_B X', 'strict inequality elsewhere',
+                   'inf_B Γ is arbitrarily close to 1', 'no new formal verification or independent human review',
+                   'C0 frequency-uniform aperture theorem', 'Material caps apply bandwise',
+                   'resonance-linewidth floor', 'positive material-loss floor'):
+        check(phrase in scope, 'Landing candidate scope missing: '+phrase)
+    check('no broadband theorem or verification is claimed' not in scope,
+          'Landing retains obsolete open-only broadband scope')
     builder = Path(__file__).with_name('build_pages.py')
     buildertext = builder.read_text(encoding='utf-8') if builder.is_file() else ''
     warning_policy = 'result.stderr.strip()' in buildertext and 'Pandoc conversion failed or warned' in buildertext

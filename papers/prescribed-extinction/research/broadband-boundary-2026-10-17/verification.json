@@ -1,0 +1,87 @@
+{
+  "recorded_at_utc": "2026-10-17T23:39:27.558351+00:00",
+  "status": "Constructive candidate proof; inherited analytical framework; no new formal verification or human peer review",
+  "repository_head": "174b54e5313b1285497abc47824fe93d0d72def9",
+  "base_manuscript_revision": "22fed75636f16309ccd0fb471e8674d62d258dc5",
+  "prior_strict_floor_source_sha256": "1947dd3a23343d78146415c2760a1ac53699f1caa0a0fc44b79af55c560d8f10",
+  "prior_strict_floor_pdf_sha256": "2cfe02100b61a6e76facdf7f94d6d7926bfc460389e495692d26153f736e6e4d",
+  "source_sha256": "b07806b5432ed189234bdc475c0f3c9731d13198493af31ea96d34fcaa8e98d1",
+  "pdf_sha256": "3284139bb19fcf6c6af1a0ec0bfa4455bccd11253d96912ab3aa6038bbb3d42a",
+  "numerical_checks": {
+    "scope": [
+      "Checks Fano algebra and curvature, Lorentz parametrization and sampled positive loss, scaled C2 convergence, center-slope roots, amplitude IVT, and dense sampled minima.",
+      "The holomorphic nonlinear work response is an explicit surrogate and is not asserted to satisfy all Maxwell realizability constraints.",
+      "No dielectric device dimensions, material caps, scattering, absorption, or asymmetry ratio are computed.",
+      "Dense-grid minima and finite numerical residuals do not certify a continuum-band inequality or the manuscript theorem."
+    ],
+    "all_pass": true,
+    "count": 12,
+    "script_hash_matches": true,
+    "manuscript_hash_matches": true,
+    "root_independent_rerun": true,
+    "final_target_residual": 1.0880185641326534e-14,
+    "final_center_slope_residual": 2.1232053388422665e-12,
+    "sampled_minimum": {
+      "sample_count": 259885,
+      "sampled_minimum_frequency": 1.5,
+      "sampled_minimum_offset_from_center": 0.0,
+      "sampled_minimum_minus_center": 0.0,
+      "center_is_sampled_minimum_to_2e-12": true,
+      "scope": "Dense sampled check only; not a continuum-band certificate."
+    }
+  },
+  "build": {
+    "engine": "Tectonic 0.17.0",
+    "engine_sha256": "99ffcfdbf1ebf8bdda9e791942e3d06aedb12463fddc33f07de6f5211c8bf08d",
+    "bundle_sha256": "6ffe055852f8faf66c0acbe1a7fb27f87b869a90bad1204f3bf4d9683f597c7c",
+    "command": "tectonic.exe --only-cached --untrusted --keep-logs --keep-intermediates main.tex",
+    "source_date_epoch": "1792238400",
+    "final_build_offline": true,
+    "earlier_cache_completion": "Fetched msam10.pfb from the same pinned bundle before the final offline build",
+    "pages": 9,
+    "overfull_boxes": 0,
+    "undefined_references_or_citations": 0,
+    "remaining_warning": "One underfull bibliography hbox, badness 1067, source lines 594-600; visually acceptable",
+    "built_in_compiler": "Unavailable: Windows restricted-token sandbox could not enforce split writable roots. Existing Tectonic fallback used with approved execution.",
+    "pdf_matches_final_build": true,
+    "source_matches_final_build": true,
+    "visual_review": "All 9 rendered pages inspected in three contact sheets; pages 6 and 7 additionally inspected individually. No clipping, missing glyphs, or overlaps observed."
+  },
+  "ai_review": {
+    "model": "gpt-6.1-sol",
+    "agents": [
+      "boundary_minimum_construction",
+      "boundary_uniform_derivatives",
+      "boundary_skeptic"
+    ],
+    "outcome": "No remaining substantive blocker identified after revisions; not human peer review",
+    "incorporated_corrections": [
+      "Total planar target-approximation error controlled by a quarter of the bowl gap",
+      "Cauchy estimates applied to holomorphic complex forward work, not extinction itself",
+      "Explicit positive-amplitude normalization after strict isotropic loss",
+      "Quantified inner curvature/gap and outer tail global-minimum argument",
+      "Correct factor of two in PSD directional derivative difference",
+      "Finite Lorentz statement applies to susceptibility, with specified finite-region subclass for no-flat proposition"
+    ]
+  },
+  "isolation": {
+    "prior_strict_floor_source_and_pdf_unchanged": true,
+    "tracked_diff_paths_preexisting": [
+      "scripts/check-companion-controls.py",
+      "scripts/verify-companion-lean.py"
+    ],
+    "publication_website_formalization_archives_not_edited": true,
+    "committed": false,
+    "pushed": false,
+    "deployed": false
+  },
+  "files_sha256": {
+    "boundary_checks.py": "dced5fffc89de94b7b44eec30c339bcdd42a35bc6cc81caa5b5fb5326f10b936",
+    "main.tex": "b07806b5432ed189234bdc475c0f3c9731d13198493af31ea96d34fcaa8e98d1",
+    "numerical_results.json": "a35751c891b5d5dc29a3f55d538c15e51d2b8b02cc9314ef4b62aaec5d8dc308",
+    "research-note.pdf": "3284139bb19fcf6c6af1a0ec0bfa4455bccd11253d96912ab3aa6038bbb3d42a",
+    "STATUS.txt": "7da6f89bb4b4c425c3d90edfbd6d184721e8ea1217cd6e8374b7254e7f66e243",
+    "verification/console.txt": "2f661f497046e43f4e69c5eb43530b88827d4f8bc757008a378f9f01f23a88ec",
+    "verification/main.log": "30812bbc1c39082fba7b709b76f6cf7ed512ba6bdc464c18173e6f6387706456"
+  }
+}
