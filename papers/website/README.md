@@ -4,8 +4,10 @@ Public directory: https://dan-k391.github.io/oq7-papers/
 
 The `public/` directory contains complete HTML editions of the five current
 `papers/<slug>/arxiv/` manuscripts, exact copies of their PDFs and source ZIPs,
-and source/numbering manifests. The finalized 15 October prescribed-extinction
-revision is used; its older `publication/manuscript/` HTML remains historical.
+and source/numbering manifests. The prescribed-extinction and fixed-resource manuscripts include
+17 October scope clarifications distinguishing their single-frequency results
+from proposed broadband extensions; the other manuscripts retain their own
+release dates. The older `publication/manuscript/` HTML remains historical.
 The geometry SVG is reused from that preserved publication snapshot.
 
 Only `public/` is deployed to the `gh-pages` branch. Historical archives, local
@@ -40,7 +42,7 @@ All Pandoc conversion warnings fail the build.
 
 ## Release scope
 
-The 15 October 2026 edition passed publication-format checks for six HTML pages,
+The historical 15 October 2026 edition passed publication-format checks for six HTML pages,
 223 numbered equations, 47 statement environments, and 82 references. The
 website preserves the scientific qualifications in each manuscript. This is a
 publication-format and deployment record, not a new proof audit, novelty claim,
@@ -48,3 +50,9 @@ human peer review, or a declaration that every interpretation of OQ7 is solved.
 
 See `verification/` for the exact build/format records and `public/release-manifest.json`
 for the published input and output hashes. Preserve older paper and audit records.
+
+The release manifest derives its edition date from the latest manuscript date
+and records each paper's individual date and hashes. New builds require their
+own verification report; the historical counts above do not certify a later
+revision. The landing-page broadband section describes proposed research,
+not a sixth paper or a verified broadband result.

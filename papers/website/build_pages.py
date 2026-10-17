@@ -4,11 +4,12 @@ Requires Pandoc and fresh TeX AUX/BBL outputs whose staged main.tex matches each
 release. Scientific text is converted, never separately copied or summarized.
 """
 from pathlib import Path
+from datetime import datetime
 import argparse, copy, hashlib, html, json, re, shutil, subprocess
 import xml.etree.ElementTree as ET
 
 PAPERS = [
-    ('prescribed-extinction', 'Prescribed extinction', 'A unit supremum at exactly prescribed positive extinction for compact reciprocal dielectrics.'),
+    ('prescribed-extinction', 'Prescribed extinction', 'A single-frequency unit supremum at exactly prescribed positive extinction, without a common size or volume bound.'),
     ('generalized-research', 'Channels and thickness', 'Sharp channel tradeoffs and scalar dielectric thickness asymptotics.'),
     ('quartic-maxwell', 'Quartic bounds', 'Uniform small-object bounds for opposite real linear polarizations.'),
     ('fixed-resource-bounds', 'Resource bounds', 'Response budgets, radiation spectra, and fixed-resource bounds.'),
@@ -282,7 +283,9 @@ def main():
     (args.output / 'index.html').write_text(template.replace('<!-- PAPER_ROWS -->', '\n'.join(rows)), encoding='utf-8')
     shutil.copyfile(Path(__file__).with_name('style.css'), args.output / 'style.css')
     (args.output / '.nojekyll').write_text('', encoding='utf-8')
-    manifest = {'edition': '2026-10-15', 'scope': 'Five current manuscript releases; no new scientific verification or peer-review claim.',
+    edition = max(datetime.strptime(record['date'], '%d %B %Y').date() for record in records).isoformat()
+    manifest = {'edition': edition, 'edition_basis': 'Latest manuscript date; individual manuscript dates are recorded below.',
+                'scope': 'Five current manuscript releases; broadband directions are open research targets, with no new scientific verification or peer-review claim.',
                 'pandoc_version': pandoc_run(args.pandoc, ['--version']).splitlines()[0], 'papers': records}
     (args.output / 'release-manifest.json').write_text(json.dumps(manifest, indent=2) + '\n', encoding='utf-8')
     print(json.dumps([{'paper': r['slug'], 'equations': len(r['equation_labels']), 'references': r['references']} for r in records]))

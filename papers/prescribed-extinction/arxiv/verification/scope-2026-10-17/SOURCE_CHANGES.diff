@@ -1,0 +1,41 @@
+diff --git a/papers/prescribed-extinction/arxiv/main.tex b/papers/prescribed-extinction/arxiv/main.tex
+index 06b3b61..ca10f53 100644
+--- a/papers/prescribed-extinction/arxiv/main.tex
++++ b/papers/prescribed-extinction/arxiv/main.tex
+@@ -24,7 +24,7 @@
+ \author{Daniel Wang\\McMaster University\\\href{mailto:denialk391@gmail.com}{\texttt{denialk391@gmail.com}}
+ \and Junjie Zheng\\Columbia University\\\href{mailto:zjj2785@gmail.com}{\texttt{zjj2785@gmail.com}}}
+ \hypersetup{pdfauthor={Daniel Wang and Junjie Zheng},pdftitle={Unit Supremum of Absorption Asymmetry at Prescribed Extinction for Compact Reciprocal Dielectrics}}
+-\date{15 October 2026}
++\date{17 October 2026}
+ \begin{document}
+ \maketitle
+ \begin{abstract}
+@@ -419,6 +419,27 @@ The selected positive principal-axis susceptibilities are compatible with passiv
+ \end{equation}
+ Then $\chi(\omega)=a+ib$. Independent oscillators on the real principal axes preserve locality and reciprocity. This compatibility observation is not part of the formal main theorem and gives no bandwidth claim.
+ 
++This one-frequency matching does not automatically preserve~\eqref{eq:material} throughout a band: for example, the $a=0$ oscillator has negative real susceptibility immediately above the matching frequency. For a fixed causal realization with continuous outgoing response and positive extinction at the design frequency, continuity preserves any strict contrast threshold on some neighborhood, with extinction close to its design value. That neighborhood can depend on the device and shrink along an extremizing sequence; it need not contain a band prescribed in advance.
++
++A prescribed-band extension instead fixes $B=[\omega_1,\omega_2]$, with $0<\omega_1<\omega_c<\omega_2$, before choosing the device. One geometry, orientation and complete passive causal reciprocal dielectric law must serve the whole band, with the illumination pair~\eqref{eq:incident} evaluated at $k=\omega/c$ and the material conditions~\eqref{eq:material} imposed at every $\omega\in B$. A useful extinction requirement is
++\[
++ X(\omega_c)=E_*,\qquad
++ \inf_{\omega\in B}X(\omega)\geq E_{\min},\qquad
++ 0<E_{\min}\leq E_*.
++\]
++Exact center-frequency tuning and a positive band floor are distinct requirements; neither specifies a constant extinction spectrum.
++
++For a resource-constrained version, fix a bounded enclosing region $D_0$ and an admissible family $\mathcal M$ of complete material dispersion laws. Retaining the two-layer geometry class, suppose the laws satisfy the bandwise conditions above and give well-posed continuous responses. For a nonempty admissible class, define
++\[
++ G_B(D_0,\mathcal M;E_*,E_{\min})=
++ \sup_{\substack{D\subset D_0,\ \varepsilon\in\mathcal M\\
++ X(\omega_c)=E_*,\ \inf_{\omega\in B}X(\omega)\geq E_{\min}}}
++ \ \inf_{\omega\in B}\Gamma(\omega).
++\]
++Each term in the outer supremum uses one fixed body and dispersion law. For continuous responses with positive worst-case contrast, $A_+-A_-$ has constant sign on the connected band, so the more absorbing side cannot switch within it.
++
++Two different extensions remain outside this theorem: whether the unit worst-case supremum survives on a prescribed band with only bandwise upper material caps and no common geometric bound or positive loss floor, and the sharp value of $G_B$ for a fixed resource class. A frequencywise resource ceiling $\Gamma(\omega)\leq U(\omega)$ already implies $G_B\leq\inf_{\omega\in B}U(\omega)$; an additional causal tradeoff must go beyond that ceiling and account for one jointly realizable dispersion law. No gap caused by bandwidth alone is asserted here. Extending the present construction would require frequency-uniform aperture and loss-regularization estimates, and control of the extinction floor with one center-frequency retuning. Requiring $X(\omega)=E_*$ throughout $B$ is a separate stronger condition. These broadband formulations are outlook questions, not additional proved or formally verified results.
++
+ The theorem supplies no practical finite-size optimizer, quantitative universal resource cost, common positive loss floor, or all-isotropic realization. Aperture and absorber thickness can grow, and the final isotropic loss can shrink. The fixed-resource and quartic small-object questions require different quantifiers and remain separate.
+ 
+ \section{Formal verification correspondence}\label{sec:formal}

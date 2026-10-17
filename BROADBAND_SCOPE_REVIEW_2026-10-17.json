@@ -1,0 +1,92 @@
+{
+  "revision_date": "2026-10-17",
+  "baseline_commit": "8b00340bf9150f5d96f0deca7f2449a86b4c223e",
+  "scope": "Editorial scientific-scope, source preservation, PDF/source reproducibility and static website checks only.",
+  "scientific_scope_review": "Independent AI review passed; broadband formulations are outlook, not new proved/formally verified results.",
+  "mathematical_environment_comparison": {
+    "prescribed-extinction": {
+      "theorem": 2,
+      "lemma": 3,
+      "proposition": 1,
+      "corollary": 0,
+      "proof": 5,
+      "equation": 51,
+      "align": 0,
+      "preserved_unnumbered_displays": 0,
+      "new_unnumbered_displays": 2
+    },
+    "fixed-resource-bounds": {
+      "theorem": 5,
+      "lemma": 2,
+      "proposition": 3,
+      "corollary": 2,
+      "proof": 12,
+      "equation": 37,
+      "align": 4,
+      "preserved_unnumbered_displays": 27,
+      "new_unnumbered_displays": 0
+    }
+  },
+  "protected_tracked_files_unchanged_since_snapshot": 3881,
+  "protected_manifest_sha256": "77fc8ce6e16e180cb4efe0dbdfcbf2c69b4759c89581cbcf8a4aeba06a3c3e77",
+  "preexisting_untracked_files_preserved": 67,
+  "preexisting_modified_scripts_preserved": {
+    "scripts/check-companion-controls.py": "9100c3dd80530aaf3ec74aeea60c83d7562ec8a93eb8e4e883c87cb220a291d0",
+    "scripts/verify-companion-lean.py": "1874edfe0752d8ea9c9cdb037b774c8ecb878174e73c048147cd0a8c8ab8d3de"
+  },
+  "changed_tracked_paths_since_snapshot": [
+    "papers/fixed-resource-bounds/arxiv/README.md",
+    "papers/fixed-resource-bounds/arxiv/arxiv-source.zip",
+    "papers/fixed-resource-bounds/arxiv/paper.pdf",
+    "papers/prescribed-extinction/arxiv/README.md",
+    "papers/prescribed-extinction/arxiv/arxiv-source.zip",
+    "papers/prescribed-extinction/arxiv/paper.pdf",
+    "papers/website/README.md",
+    "papers/website/build_pages.py",
+    "papers/website/index-template.html",
+    "papers/website/public/fixed-resource-bounds/arxiv-source.zip",
+    "papers/website/public/fixed-resource-bounds/format-correspondence.json",
+    "papers/website/public/fixed-resource-bounds/index.html",
+    "papers/website/public/fixed-resource-bounds/paper.pdf",
+    "papers/website/public/index.html",
+    "papers/website/public/prescribed-extinction/arxiv-source.zip",
+    "papers/website/public/prescribed-extinction/format-correspondence.json",
+    "papers/website/public/prescribed-extinction/index.html",
+    "papers/website/public/prescribed-extinction/paper.pdf",
+    "papers/website/public/release-manifest.json"
+  ],
+  "snapshot_scope_note": "Captured after manuscript/website source edits began; original manuscript inputs also saved from HEAD.",
+  "historical_publication_and_audit_records_modified": false,
+  "proof_code_executed": false,
+  "website_verification": {
+    "path": "papers/website/verification/scope-2026-10-17.json",
+    "sha256": "0dae9ef2ec18757619cca7fd331da95ff3e54e9cbbb5a18beea4fa17dc048aa2",
+    "status": "passed",
+    "html_pages": 6,
+    "numbered_equations": 223,
+    "statement_environments": 47,
+    "references": 82
+  },
+  "browser_visual_review": {
+    "status": "passed",
+    "viewport": {
+      "width": 1265,
+      "height": 712
+    },
+    "reviewed": [
+      "landing page",
+      "broadband scope block",
+      "exact scope-link section navigation",
+      "new prescribed-extinction formulas and text",
+      "fixed-resource section 7.4"
+    ],
+    "mobile_layout_verified": false,
+    "note": "Available browser API did not support viewport resizing; no mobile visual claim."
+  },
+  "paper_build_records": {
+    "prescribed-extinction": "c67f9ffcabfdf5736d1e968f65dcdb7c897b23f92d76deff2efb93425cdf987b",
+    "fixed-resource-bounds": "f6bff2c1ca1d5d060208f416a2f5cfdb7499ea0390a93a8397cbdcb5023111dc"
+  },
+  "remote_deployment_performed": false,
+  "git_commit_or_push_performed": false
+}
