@@ -10,3 +10,8 @@ Both manuscripts are dated 17 October 2026. Two unnumbered displays are added to
 Build evidence for each revised manuscript belongs in its new `arxiv/BROADBAND_SCOPE_VERIFICATION_2026-10-17.json`, with build logs/configuration under `arxiv/verification/scope-2026-10-17/`. Those records describe the actual checks and outcomes. The build uses offline Tectonic 0.17.0, pinned bundle `6ffe055852f8faf66c0acbe1a7fb27f87b869a90bad1204f3bf4d9683f597c7c`, and `SOURCE_DATE_EPOCH=1792238400`.
 
 Earlier `BUILD_VERIFICATION.json`, prescribed-extinction `FINALIZATION_VERIFICATION.json`, `SHA256SUMS`, and existing change reports are preserved byte-for-byte as historical records for their exact releases. They must not be read as verification of this revision. Formalization sources, dependency pins and frozen audit packages are preserved.
+## Deployment follow-up
+
+On 17 October 2026, the authorized revision was committed and pushed to `main` as `22fed75636f16309ccd0fb471e8674d62d258dc5`. The verified `papers/website/public/` files were deployed to `gh-pages` as `d2568df53e2116d75890c5e15dc2755960b8eafc`.
+
+GitHub's Pages workflow completed successfully, and all 24 served files plus the directory landing page matched the verified local release. The initial `BROADBAND_SCOPE_REVIEW_2026-10-17.json` remains the pre-deployment review record. See [the subsequent deployment record](papers/website/verification/deployment-2026-10-17.json) for exact commit identities, live-file hashes, and verification time. Unrelated work remained uncommitted and unchanged.

@@ -56,3 +56,6 @@ and records each paper's individual date and hashes. New builds require their
 own verification report; the historical counts above do not certify a later
 revision. The landing-page broadband section describes proposed research,
 not a sixth paper or a verified broadband result.
+## 17 October deployment
+
+The 17 October scope revision is live at the public directory above. Source commit `22fed75636f16309ccd0fb471e8674d62d258dc5` supplied the static files deployed by `gh-pages` commit `d2568df53e2116d75890c5e15dc2755960b8eafc`. GitHub's Pages workflow succeeded, and all 24 served files matched the verified local release byte-for-byte. See [the dated deployment record](verification/deployment-2026-10-17.json); the earlier `verification/deployment.json` remains historical.
