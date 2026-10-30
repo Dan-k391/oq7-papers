@@ -76,11 +76,11 @@ although absorption and scattering can exchange their contributions
 Question 7 in the tutorial of Miller and Monticone asks for fundamental
 bounds on this absorption–scattering asymmetry
 <span class="citation">[<a href="#ref-MillerMonticone2026">2</a>]</span>.
-A bound requires a specified normalization, illumination pair and
-resource class. We distinguish a complete-channel problem with finite
-incident power from a scalar multilayer problem with a fixed
-material-loss budget.</p>
-<p>The first main result is a sharp joint channel envelope at fixed
+To formulate a bound, we must specify the power normalization, the pair
+of illuminations and the allowed material resources. We distinguish a
+complete-channel problem with finite incident power from a scalar
+multilayer problem with a fixed material-loss budget.</p>
+<p>Our first main result is a sharp joint channel envelope at fixed
 common extinction
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
 and fixed overlap
@@ -94,7 +94,7 @@ abstract operator result; physical realization of its equality operators
 at nonzero
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ρ</mi><annotation encoding="application/x-tex">\rho</annotation></semantics></math>
 is a separate problem.</p>
-<p>The second main result is a sharp material-resource asymptotic for
+<p>Our second main result is a sharp material-resource asymptotic for
 scalar dielectric multilayers. At fixed transmitted power
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>T</mi><annotation encoding="application/x-tex">T</annotation></semantics></math>,
 mean absorptance
@@ -109,9 +109,9 @@ and its matching coefficient, while retaining exactly the prescribed
 The construction permits arbitrarily many layers and shrinking lossy
 slices. It is therefore distinct from optimization with a fixed layer
 count, minimum feature size or material catalogue.</p>
-<p>The ingredients have substantial precedents. Guo and Fan characterize
-reciprocal reflection feasibility and related multimode passivity
-constraints
+<p>Several ingredients of these results have substantial precedents. Guo
+and Fan characterize reciprocal reflection feasibility and related
+multimode passivity constraints
 <span class="citation">[<a href="#ref-GuoFan2022">3</a>, <a href="#ref-GuoFan2024">4</a>]</span>;
 Rollett’s invariant supplies the coating-invariant two-port quantity
 used below
@@ -162,10 +162,12 @@ analytic proofs; formal-verification scope is stated separately in
 Section <a href="#sec:scope" data-reference-type="ref"
 data-reference="sec:scope">8</a>.</p>
 <h2 id="sec:benchmark">2 The scalar two-port benchmark</h2>
-<p>For power-normalized ports, write <span id="eq:twoport"
+<p>We first establish the two-port ceiling that the scalar multilayers
+will approach. For power-normalized ports, write <span id="eq:twoport"
 class="equation"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><msub><mi>r</mi><mi>L</mi></msub></mtd><mtd columnalign="center" style="text-align: center"><mi>t</mi></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mi>t</mi></mtd><mtd columnalign="center" style="text-align: center"><msub><mi>r</mi><mi>R</mi></msub></mtd></mtr></mtable><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo><mspace width="2.0em"></mspace><mi mathvariant="sans-serif">𝖠</mi><mo>=</mo><mi>I</mi><mo>−</mo><msup><mi>S</mi><mo>†</mo></msup><mi>S</mi><mo>≽</mo><mn>0</mn><mo>,</mo><mspace width="2.0em"></mspace><mi>T</mi><mo>=</mo><mo stretchy="false" form="prefix">|</mo><mi>t</mi><msup><mo stretchy="false" form="postfix">|</mo><mn>2</mn></msup><mi>.</mi></mrow><annotation encoding="application/x-tex">S=\begin{pmatrix}r_L&amp;t\\t&amp;r_R\end{pmatrix},\qquad
  \mathsf A=I-S^\dagger S\succeq0,\qquad T=\lvert t\rvert^2.</annotation></semantics></math><span
-class="equation-number">(1)</span></span> Set <span
+class="equation-number">(1)</span></span> Define the individual
+absorptances, their mean and their half-difference by <span
 id="eq:scalar-variables"
 class="equation"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"><msub><mi>A</mi><mi>L</mi></msub></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mn>1</mn><mo>−</mo><mi>T</mi><mo>−</mo><mo stretchy="false" form="prefix">|</mo><msub><mi>r</mi><mi>L</mi></msub><msup><mo stretchy="false" form="postfix">|</mo><mn>2</mn></msup><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>A</mi><mi>R</mi></msub><mo>=</mo><mn>1</mn><mo>−</mo><mi>T</mi><mo>−</mo><mo stretchy="false" form="prefix">|</mo><msub><mi>r</mi><mi>R</mi></msub><msup><mo stretchy="false" form="postfix">|</mo><mn>2</mn></msup><mo>,</mo></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"><mi>a</mi></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mfrac><mrow><msub><mi>A</mi><mi>L</mi></msub><mo>+</mo><msub><mi>A</mi><mi>R</mi></msub></mrow><mn>2</mn></mfrac><mo>,</mo><mspace width="1.0em"></mspace><mi>δ</mi><mo>=</mo><mfrac><mrow><msub><mi>A</mi><mi>L</mi></msub><mo>−</mo><msub><mi>A</mi><mi>R</mi></msub></mrow><mn>2</mn></mfrac><mo>,</mo><mspace width="1.0em"></mspace><mi>x</mi><mo>=</mo><mo stretchy="false" form="prefix">|</mo><mi>δ</mi><mo stretchy="false" form="postfix">|</mo><mo>,</mo><mspace width="1.0em"></mspace><mi>b</mi><mo>=</mo><mn>1</mn><mo>−</mo><mi>T</mi><mo>−</mo><mi>a</mi><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned}
  A_L&amp;=1-T-\lvert r_L\rvert^2,\qquad A_R=1-T-\lvert r_R\rvert^2,\\
@@ -176,8 +178,9 @@ class="equation-number">(2)</span></span> Thus
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">|</mo><msub><mi>r</mi><mi>L</mi></msub><msup><mo stretchy="false" form="postfix">|</mo><mn>2</mn></msup><mo>=</mo><mi>b</mi><mo>−</mo><mi>δ</mi></mrow><annotation encoding="application/x-tex">\lvert r_L\rvert^2=b-\delta</annotation></semantics></math>
 and
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">|</mo><msub><mi>r</mi><mi>R</mi></msub><msup><mo stretchy="false" form="postfix">|</mo><mn>2</mn></msup><mo>=</mo><mi>b</mi><mo>+</mo><mi>δ</mi></mrow><annotation encoding="application/x-tex">\lvert r_R\rvert^2=b+\delta</annotation></semantics></math>.
-The following benchmark is a consequence of established reciprocal
-reflection feasibility
+The following proposition states the feasible absorption differences at
+fixed transmission and mean absorptance. It is a consequence of
+established reciprocal reflection feasibility
 <span class="citation">[<a href="#ref-GuoFan2022">3</a>]</span>; its
 proof fixes the constants and phases needed later.</p>
 <div id="prop:benchmark" class="proposition">
@@ -270,18 +273,20 @@ continuous at interfaces. For the thickness theorem, impose <span
 id="eq:material"
 class="equation"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>≤</mo><mi>p</mi><mo>≤</mo><mi>P</mi><mo>,</mo><mspace width="2.0em"></mspace><mn>0</mn><mo>≤</mo><mi>q</mi><mo>≤</mo><mi>Q</mi><mo>,</mo><mspace width="2.0em"></mspace><mo>∫</mo><mi>q</mi><mo stretchy="false" form="prefix">(</mo><mi>z</mi><mo stretchy="false" form="postfix">)</mo><mspace width="0.167em"></mspace><mi mathvariant="normal">d</mi><mi>z</mi><mo>=</mo><mi>M</mi><mo>,</mo><mspace width="2.0em"></mspace><mi>P</mi><mo>&gt;</mo><mn>1</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>Q</mi><mo>,</mo><mi>M</mi><mo>&gt;</mo><mn>0</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">1\leq p\leq P,\qquad 0\leq q\leq Q,\qquad
  \int q(z)\,\mathrm dz=M,\qquad P&gt;1,\quad Q,M&gt;0.</annotation></semantics></math><span
-class="equation-number">(7)</span></span> Total geometric thickness
-includes all lossless spacers and matching layers. There is no
-prescribed layer count or minimum feature size. The integrated loss
+class="equation-number">(7)</span></span> The thickness budget counts
+the entire stack, including all lossless spacers and matching layers.
+There is no prescribed layer count or minimum feature size. The
+integrated loss
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>M</mi><annotation encoding="application/x-tex">M</annotation></semantics></math>
 has units of length; it is neither absorbed power nor a
 frequency-integrated sum rule.</p>
-<p>The homogeneous outgoing problem has no nonzero solution: the flux
-identity makes outgoing power plus volume dissipation zero, and hence
-the exterior outgoing amplitudes vanish. The zero interface state and
-ODE uniqueness force the field to vanish. Scattering is therefore well
-defined, reciprocal and passive. Its transmission amplitude is nonzero,
-since zero transmission would give
+<p>Before deriving a resource bound, we check that these layers define a
+scattering problem. The homogeneous outgoing problem has no nonzero
+solution: the flux identity makes outgoing power plus volume dissipation
+zero, and hence the exterior outgoing amplitudes vanish. The zero
+interface state and ODE uniqueness force the field to vanish. Scattering
+is therefore well defined, reciprocal and passive. Its transmission
+amplitude is nonzero, since zero transmission would give
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mo>=</mo><msup><mi>E</mi><mo>′</mo></msup><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">E=E&#39;=0</annotation></semantics></math>
 at the transmitted interface and contradict unit incidence.</p>
 <div id="lem:gram" class="lemma">
@@ -438,7 +443,8 @@ Choose
 to align a nonzero moment; the zero moment and endpoint masses are
 immediate. ◻</p>
 </div>
-<p>Put
+<p>We now combine the local propagation and loss bounds to obtain a
+bound for the entire stack. Put
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>u</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mi>u</mi><mn>2</mn></msup><mo>−</mo><msup><mrow><mi mathvariant="normal">sin</mi><mo>&#8289;</mo></mrow><mn>2</mn></msup><mi>u</mi></mrow><annotation encoding="application/x-tex">f(u)=u^2-\sin^2u</annotation></semantics></math>
 and
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo stretchy="false" form="prefix">(</mo><mi>u</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msqrt><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>u</mi><mo stretchy="false" form="postfix">)</mo></mrow></msqrt></mrow><annotation encoding="application/x-tex">g(u)=\sqrt{f(u)}</annotation></semantics></math>.
@@ -459,7 +465,7 @@ class="equation"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML
 class="equation-number">(12)</span></span> Indeed, <span
 class="equation unnumbered"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mo>∫</mo><mrow><mi>x</mi><mo>&lt;</mo><mi>y</mi></mrow></msub><mi>q</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mi>q</mi><mo stretchy="false" form="prefix">(</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><msup><mrow><mi mathvariant="normal">sin</mi><mo>&#8289;</mo></mrow><mn>2</mn></msup><mi>K</mi><mo stretchy="false" form="prefix">(</mo><mi>y</mi><mo>−</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mspace width="0.167em"></mspace><mi mathvariant="normal">d</mi><mi>x</mi><mspace width="0.167em"></mspace><mi mathvariant="normal">d</mi><mi>y</mi><mo>=</mo><mfrac><mn>1</mn><mn>4</mn></mfrac><mrow><mo stretchy="true" form="prefix">(</mo><msubsup><mi>m</mi><mi>j</mi><mn>2</mn></msubsup><mo>−</mo><mo stretchy="false" form="prefix">|</mo><mo>∫</mo><mi>q</mi><mo stretchy="false" form="prefix">(</mo><mi>z</mi><mo stretchy="false" form="postfix">)</mo><msup><mi>e</mi><mrow><mn>2</mn><mi>i</mi><mi>K</mi><mi>z</mi></mrow></msup><mspace width="0.167em"></mspace><mi mathvariant="normal">d</mi><mi>z</mi><msup><mo stretchy="false" form="postfix">|</mo><mn>2</mn></msup><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">\int_{x&lt;y}q(x)q(y)\sin^2K(y-x)\,\mathrm dx\,\mathrm dy
  =\frac14\left(m_j^2-\lvert \int q(z)e^{2iKz}\,\mathrm dz\rvert^2\right).</annotation></semantics></math></span>
-To combine cells, use
+The contributions of separate cells can be combined using
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msqrt><mrow><mrow><mi mathvariant="normal">det</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo>+</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo></mrow></msqrt><mo>≥</mo><msqrt><mrow><mrow><mi mathvariant="normal">det</mi><mo>&#8289;</mo></mrow><mi>A</mi></mrow></msqrt><mo>+</mo><msqrt><mrow><mrow><mi mathvariant="normal">det</mi><mo>&#8289;</mo></mrow><mi>B</mi></mrow></msqrt></mrow><annotation encoding="application/x-tex">\sqrt{\det(A+B)}\geq\sqrt{\det A}+\sqrt{\det B}</annotation></semantics></math>
 for positive semidefinite two-by-two matrices. For
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>≻</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">A\succ0</annotation></semantics></math>,
@@ -582,7 +588,9 @@ enclosed in an interval of length
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>L</mi><annotation encoding="application/x-tex">L</annotation></semantics></math>
 by zero-loss vacuum, so this is also a thickness-cap bound. ◻</p>
 </div>
-<p>Any finite stack with positive distributed loss has
+<p>The floor also explains why a finite lossy stack cannot reach the
+active two-port ceiling. Any finite stack with positive distributed loss
+has
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="sans-serif">𝖠</mi><mo>≻</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\mathsf A\succ0</annotation></semantics></math>:
 a zero Gram quadratic form would make a nonzero incident combination
 vanish on a positive-loss interval, contradicting ODE uniqueness. In
@@ -608,7 +616,8 @@ class="equation"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML
  \alpha=\frac{Ty_0}{sx_0}.</annotation></semantics></math><span
 class="equation-number">(16)</span></span> Here
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mn>0</mn></msub><mo>,</mo><msub><mi>y</mi><mn>0</mn></msub><mo>,</mo><mi>α</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">x_0,y_0,\alpha&gt;0</annotation></semantics></math>.
-Let
+These constants specify the two-port ceiling and relate its absorption
+deficit to the determinant invariant. Let
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi mathvariant="script">𝒞</mi><mi>L</mi></msub><annotation encoding="application/x-tex">\mathcal C_L</annotation></semantics></math>
 be the finite multilayers satisfying <a href="#eq:material"
 data-reference-type="eqref" data-reference="eq:material">(7)</a>, total
@@ -661,7 +670,8 @@ uniformly over the entire class. It also gives strictness for every
 finite member.</p>
 <h3 id="a-matching-finite-layer-sequence">4.2 A matching finite-layer
 sequence</h3>
-<p>Put
+<p>To match the lower bound, we construct a sequence of stacks with the
+same integrated loss. Put
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>g</mi><mn>0</mn></msub><mo>=</mo><mi>k</mi><mi>M</mi></mrow><annotation encoding="application/x-tex">g_0=kM</annotation></semantics></math>.
 Use
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>m</mi><annotation encoding="application/x-tex">m</annotation></semantics></math>
@@ -715,8 +725,8 @@ the quartic term follows by comparing powers in
 Analyticity bounds the remainder by a constant times
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">|</mo><mi>ξ</mi><msup><mo stretchy="false" form="postfix">|</mo><mn>5</mn></msup></mrow><annotation encoding="application/x-tex">\lvert \xi\rvert^5</annotation></semantics></math>
 near zero.</p>
-<p>Here is an explicit justification of the accumulated remainder. Let
-<span
+<p>To control the error after multiplying the cells, we estimate the
+accumulated remainder explicitly. Let <span
 class="equation unnumbered"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>G</mi><mo>=</mo><mi>−</mi><msub><mi>g</mi><mn>0</mn></msub><msub><mi>E</mi><mn>21</mn></msub><mo>,</mo><mspace width="1.0em"></mspace><mi>H</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><msubsup><mi>g</mi><mn>0</mn><mn>3</mn></msubsup><mi>/</mi><msup><mi>Q</mi><mn>3</mn></msup><mo stretchy="false" form="postfix">)</mo><msub><mi>C</mi><mn>3</mn></msub><mo>,</mo><mspace width="1.0em"></mspace><msub><mi>K</mi><mn>4</mn></msub><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>G</mi><mi>H</mi><mo>+</mo><mi>H</mi><mi>G</mi><mo stretchy="false" form="postfix">)</mo><mi>/</mi><mn>2</mn><mo>,</mo><mspace width="1.0em"></mspace><msub><mi>A</mi><mi>m</mi></msub><mo>=</mo><mi>I</mi><mo>+</mo><mi>G</mi><mi>/</mi><mi>m</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">G=-g_0E_{21},\quad H=(g_0^3/Q^3)C_3,\quad K_4=(GH+HG)/2,\quad
  A_m=I+G/m.</annotation></semantics></math></span> Then
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>D</mi><mi>m</mi></msub><mo>:=</mo><mi>D</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>g</mi><mn>0</mn></msub><mi>/</mi><mo stretchy="false" form="prefix">(</mo><mi>Q</mi><mi>m</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msub><mi>A</mi><mi>m</mi></msub><mo>+</mo><msub><mi>W</mi><mi>m</mi></msub></mrow><annotation encoding="application/x-tex">D_m:=D(g_0/(Qm))=A_m+W_m</annotation></semantics></math>,
@@ -770,7 +780,9 @@ class="equation"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML
 class="equation-number">(22)</span></span></p>
 <h3 id="exact-target-matching-by-bounded-index-dielectric-layers">4.3
 Exact target matching by bounded-index dielectric layers</h3>
-<p>Put
+<p>The cell sequence fixes the loss budget and the leading determinant
+asymptotic. We next add lossless layers to impose the prescribed
+transmission and mean absorptance exactly. Put
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mn>0</mn></msub><mo>=</mo><msqrt><mrow><mi>b</mi><mo>−</mo><msub><mi>x</mi><mn>0</mn></msub></mrow></msqrt></mrow><annotation encoding="application/x-tex">p_0=\sqrt{b-x_0}</annotation></semantics></math>,
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>r</mi><mn>0</mn></msub><mo>=</mo><msqrt><mrow><mi>b</mi><mo>+</mo><msub><mi>x</mi><mn>0</mn></msub></mrow></msqrt></mrow><annotation encoding="application/x-tex">r_0=\sqrt{b+x_0}</annotation></semantics></math>
 and
@@ -834,7 +846,8 @@ fixing both actual
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>,</mo><mi>a</mi></mrow><annotation encoding="application/x-tex">T,a</annotation></semantics></math>
 exactly for every sufficiently large integer
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>m</mi><annotation encoding="application/x-tex">m</annotation></semantics></math>.</p>
-<p>These ratios are realized with ordinary lossless layers. A real
+<p>We can realize these matching ratios with ordinary lossless
+dielectric layers. A real
 index-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
 quarter-wave layer has transfer
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>0</mn></mtd><mtd columnalign="center" style="text-align: center"><mi>i</mi><mi>/</mi><mi>n</mi></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mi>i</mi><mi>n</mi></mtd><mtd columnalign="center" style="text-align: center"><mn>0</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\left(\begin{smallmatrix}0&amp;i/n\\in&amp;0\end{smallmatrix}\right)</annotation></semantics></math>.
@@ -923,7 +936,8 @@ class="equation unnumbered"><math display="block" xmlns="http://www.w3.org/1998/
  \qquad(\eta\downarrow0).</annotation></semantics></math></span></em></p>
 </div>
 <div class="proof">
-<p><em>Proof.</em> The positive finite-thickness floor forces
+<p><em>Proof.</em> The finite-thickness floor is positive and therefore
+forces
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>L</mi><mi mathvariant="normal">min</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>η</mi><mo stretchy="false" form="postfix">)</mo><mo>→</mo><mi>∞</mi></mrow><annotation encoding="application/x-tex">L_{\min}(\eta)\to\infty</annotation></semantics></math>.
 The upper and lower estimates in Theorem <a href="#thm:thickness"
 data-reference-type="ref" data-reference="thm:thickness">4.1</a>, with
@@ -937,8 +951,8 @@ normalized, with bases paired by time reversal. Reciprocity is
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>S</mi><mi>T</mi></msup><mo>=</mo><mi>S</mi></mrow><annotation encoding="application/x-tex">S^T=S</annotation></semantics></math>
 and passivity is
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>S</mi><mo>†</mo></msup><mi>S</mi><mo>≼</mo><mi>I</mi></mrow><annotation encoding="application/x-tex">S^\dagger S\preceq I</annotation></semantics></math>.
-Include every radiation, polarization and guided channel carrying energy
-away. Let
+Completeness requires every radiation, polarization and guided channel
+that carries energy away. Let
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>S</mi><mn>0</mn></msub><annotation encoding="application/x-tex">S_0</annotation></semantics></math>
 be a specified lossless reciprocal reference:
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>S</mi><mn>0</mn><mo>†</mo></msubsup><msub><mi>S</mi><mn>0</mn></msub><mo>=</mo><mi>I</mi></mrow><annotation encoding="application/x-tex">S_0^\dagger S_0=I</annotation></semantics></math>,
@@ -948,8 +962,9 @@ For unit input
 reversing its entire background field gives <span id="eq:reverse"
 class="equation"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>J</mi><mn>0</mn></msub><mi>u</mi><mo>=</mo><mover><mrow><msub><mi>S</mi><mn>0</mn></msub><mi>u</mi></mrow><mo accent="true">¯</mo></mover><mo>=</mo><msubsup><mi>S</mi><mn>0</mn><mo>†</mo></msubsup><mover><mi>u</mi><mo accent="true">¯</mo></mover><mi>.</mi></mrow><annotation encoding="application/x-tex">J_0u=\overline{S_0u}=S_0^\dagger\overline u.</annotation></semantics></math><span
 class="equation-number">(24)</span></span> This antiunitary is an
-involution. It need not select an arbitrary second port. Define powers
-divided by incoming power as <span id="eq:channel-powers"
+involution. The reversed input is determined by the reference field and
+generally differs from an arbitrarily selected second port. Define
+powers divided by incoming power as <span id="eq:channel-powers"
 class="equation"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo stretchy="false" form="prefix">(</mo><mi>u</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>1</mn><mo>−</mo><msup><mrow><mo stretchy="true" form="prefix">‖</mo><mi>S</mi><mi>u</mi><mo stretchy="true" form="postfix">‖</mo></mrow><mn>2</mn></msup><mo>,</mo><mspace width="1.0em"></mspace><mi>C</mi><mo stretchy="false" form="prefix">(</mo><mi>u</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mrow><mo stretchy="true" form="prefix">‖</mo><mo stretchy="false" form="prefix">(</mo><mi>S</mi><mo>−</mo><msub><mi>S</mi><mn>0</mn></msub><mo stretchy="false" form="postfix">)</mo><mi>u</mi><mo stretchy="true" form="postfix">‖</mo></mrow><mn>2</mn></msup><mo>,</mo><mspace width="1.0em"></mspace><mi>X</mi><mo stretchy="false" form="prefix">(</mo><mi>u</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>2</mn><mi>ℜ</mi><mo stretchy="false" form="prefix">⟨</mo><msub><mi>S</mi><mn>0</mn></msub><mi>u</mi><mo>,</mo><mo stretchy="false" form="prefix">(</mo><msub><mi>S</mi><mn>0</mn></msub><mo>−</mo><mi>S</mi><mo stretchy="false" form="postfix">)</mo><mi>u</mi><mo stretchy="false" form="postfix">⟩</mo><mo>=</mo><mi>A</mi><mo stretchy="false" form="prefix">(</mo><mi>u</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mi>C</mi><mo stretchy="false" form="prefix">(</mo><mi>u</mi><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">A(u)=1-\lVert Su\rVert^2,\quad C(u)=\lVert (S-S_0)u\rVert^2,\quad
  X(u)=2\Re\langle S_0u,(S_0-S)u\rangle=A(u)+C(u).</annotation></semantics></math><span
 class="equation-number">(25)</span></span> The Hermitian inner product
@@ -1067,7 +1082,9 @@ continuous.</em></p>
 </div>
 <h3 id="canonical-coordinates-and-the-upper-relaxation">6.1 Canonical
 coordinates and the upper relaxation</h3>
-<p>First take
+<p>We reduce the channel problem to two real matrices on the input
+plane, then prove the bound and construct operators that attain it.
+First take
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mn>0</mn></msub><mo>=</mo><mi>I</mi></mrow><annotation encoding="application/x-tex">S_0=I</annotation></semantics></math>,
 so reversal is conjugation. A global input phase makes
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>u</mi><mi>T</mi></msup><mi>u</mi><mo>=</mo><mi>ρ</mi><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">u^Tu=\rho\geq0</annotation></semantics></math>.
@@ -1134,13 +1151,14 @@ It suffices to maximize
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo>=</mo><msub><mi>Q</mi><mn>12</mn></msub><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">h=Q_{12}\geq0</annotation></semantics></math>
 with
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">tr</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mi>W</mi><mi>B</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>r</mi><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\operatorname{tr}(WB)=r\geq0</annotation></semantics></math>.
-This relaxation is necessary for every channel count; equality
-constructions below eliminate any need to assume a reciprocal completion
-for arbitrary feasible
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mo>,</mo><mi>Q</mi></mrow><annotation encoding="application/x-tex">B,Q</annotation></semantics></math>.</p>
+Every channel count satisfies this relaxation. We construct equality
+operators below, so no reciprocal completion of arbitrary feasible
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mo>,</mo><mi>Q</mi></mrow><annotation encoding="application/x-tex">B,Q</annotation></semantics></math>
+needs to be assumed.</p>
 <h3 id="a-positive-matrix-certificate-for-the-middle-branch">6.2 A
 positive-matrix certificate for the middle branch</h3>
-<p>Fix
+<p>We prove the middle branch by bounding the forward overlap and
+output-power difference with a positive-matrix certificate. Fix
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>&lt;</mo><mi>c</mi><mo>&lt;</mo><mi>ρ</mi></mrow><annotation encoding="application/x-tex">0&lt;c&lt;\rho</annotation></semantics></math>,
 set
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mo>=</mo><msqrt><mrow><mn>1</mn><mo>−</mo><msup><mi>c</mi><mn>2</mn></msup></mrow></msqrt></mrow><annotation encoding="application/x-tex">s=\sqrt{1-c^2}</annotation></semantics></math>,
@@ -1211,7 +1229,8 @@ The reciprocal contraction
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>S</mi><mo accent="true">̂</mo></mover><mo>=</mo><msub><mi>B</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">\widehat S=B_0</annotation></semantics></math>
 attains equality in two channels, and transforming back gives a complex
 symmetric contraction with reference identity.</p>
-<p>The parameter covers the entire middle strip once, because <span
+<p>The parameter covers the entire middle branch exactly once, because
+<span
 class="equation unnumbered"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>r</mi><mn>0</mn></msub><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>ρ</mi><mi>/</mi><mn>2</mn><mo>,</mo><mspace width="1.0em"></mspace><msub><mi>r</mi><mn>0</mn></msub><mo stretchy="false" form="prefix">(</mo><mi>ρ</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>ρ</mi><mo>,</mo><mspace width="1.0em"></mspace><msubsup><mi>r</mi><mn>0</mn><mo>′</mo></msubsup><mo stretchy="false" form="prefix">(</mo><mi>c</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mrow><mn>2</mn><mo>+</mo><msup><mi>ρ</mi><mn>2</mn></msup><mo>−</mo><mn>6</mn><mi>ρ</mi><mi>c</mi><mo>+</mo><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>+</mo><mn>2</mn><msup><mi>ρ</mi><mn>2</mn></msup><mo stretchy="false" form="postfix">)</mo><msup><mi>c</mi><mn>2</mn></msup></mrow><msup><mi>D</mi><mn>2</mn></msup></mfrac><mo>&gt;</mo><mn>0</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">r_0(0)=\rho/2,\quad r_0(\rho)=\rho,\quad
  r_0&#39;(c)=\frac{2+\rho^2-6\rho c+(1+2\rho^2)c^2}{D^2}&gt;0.</annotation></semantics></math></span>
 The numerator decreases on
@@ -1378,8 +1397,8 @@ optimization.</p>
 </div>
 <h2 id="sec:vector">7 An exact planar tensor realization and its
 scope</h2>
-<p>The scalar resource floor does not follow from a positive total
-tensor-loss budget alone. The next construction uses established
+<p>We now examine why a positive total tensor-loss budget alone cannot
+imply the scalar resource floor. The next construction uses established
 polarization filtering and waveplate conversion
 <span class="citation">[<a href="#ref-Armitage2014">18</a>, <a href="#ref-Potton2004">19</a>, <a href="#ref-Khurgin2021">20</a>]</span>.
 Its layers are laterally infinite; all plane-wave powers below are
@@ -1646,8 +1665,8 @@ with absolute approximation error
 gives relative-contrast supremum one when extinction is free. ◻</p>
 </div>
 <h2 id="sec:scope">8 Scope, verification and conclusions</h2>
-<p>The sharp thickness law applies to scalar, local, normal-incidence
-multilayers with the fixed pointwise caps and integrated loss in <a
+<p>The sharp thickness law applies to local scalar multilayers at normal
+incidence with the fixed pointwise caps and integrated loss in <a
 href="#eq:material" data-reference-type="eqref"
 data-reference="eq:material">(7)</a>. It excludes
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">T=0</annotation></semantics></math>,
@@ -1699,7 +1718,7 @@ theorem or a result for every arbitrary
 aperture. Fresh replay uses Lean’s own kernel implementation and does
 not constitute an independently implemented checker or human peer
 review. Historical reports retain their original version identities.</p>
-<p>The two main conclusions are a sharp joint refinement of the channel
+<p>The two main results are a sharp joint refinement of the channel
 passivity and overlap bounds, and a matching all-profile thickness
 asymptotic at exact scalar target powers. The planar example identifies
 the loss-free tensor subspaces that prevent an unrestricted transfer of

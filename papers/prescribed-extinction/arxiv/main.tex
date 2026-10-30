@@ -28,17 +28,19 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-Reciprocity equates the extinction cross sections for opposite real linearly polarized plane waves, while permitting different absorption and scattering. At a fixed vacuum wavenumber $k>0$, we prove that the supremum of the absorption difference divided by common extinction is one at every exactly prescribed extinction $E_*>0$. The construction uses finite compact two-layer local anisotropic nonmagnetic dielectrics satisfying arbitrary fixed caps $P>1$ and $Q>0$, with $I\preceq\ReH\varepsilon\preceq PI$ and $0\prec\ImH\varepsilon\preceq QI$ in each layer. Every individual body has asymmetry strictly below one. The key step is an aperture limit uniform after factoring out the squared sine of the material rotation angle, including its zero-angle auxiliary limit. This permits the coupling angle to decrease as the aperture grows while extinction remains fixed. Positive isotropic loss is then added, and continuity permits exact retuning to the target. The approximating sequence has no common geometric resource bound or positive loss floor, and the main theorem is monochromatic. The contribution is the controlled compact Maxwell realization at prescribed extinction. An accompanying Lean 4 formalization verifies the main single-frequency existence and supremum statements and physical power identities; its verification and review scope are specified separately. A separately labeled candidate proof proposes the same unit worst-frequency supremum on any prescribed finite positive-frequency band, including an exact extinction floor attained at the selected interior frequency. This broadband extension is not covered by the existing formalization or external human peer review.
+Reciprocity equates the extinction cross sections for opposite real linearly polarized plane waves, while allowing absorption and scattering to differ. At a fixed vacuum wavenumber $k>0$, we prove that the supremum of the absorption difference divided by common extinction is one at every exactly prescribed extinction $E_*>0$. The construction uses finite compact two-layer local anisotropic nonmagnetic dielectrics satisfying arbitrary fixed caps $P>1$ and $Q>0$, with $I\preceq\ReH\varepsilon\preceq PI$ and $0\prec\ImH\varepsilon\preceq QI$ in each layer. Every individual body has asymmetry strictly below one. The key step is to factor out the squared sine of the material rotation angle and prove an aperture limit uniform in that angle, including its zero-angle auxiliary limit. This uniformity permits the coupling angle to decrease as the aperture grows, keeping extinction fixed. Positive isotropic loss is then added, and continuity permits exact retuning to the target. The approximating sequence has no common geometric resource bound or positive loss floor, and the main theorem is monochromatic. The contribution is the controlled compact Maxwell realization at prescribed extinction. An accompanying Lean 4 formalization verifies the main single-frequency existence and supremum statements and physical power identities; its verification and review scope are specified separately. A separately labeled candidate proof proposes the same unit worst-frequency supremum on any prescribed finite positive-frequency band, including an exact extinction floor attained at the selected interior frequency. This broadband extension is not covered by the existing formalization or external human peer review.
 \end{abstract}
 
 \section{Introduction and relation to OQ7}\label{sec:intro}
-Open Question 7 in the tutorial of Miller and Monticone asks for fundamental limits on the redistribution between absorption and scattering under time-reversed illumination \citep{MillerMonticone2026}. A normalization, illumination class, and resource class are needed to turn that question into a theorem. Here the normalization is the common dimensional plane-wave extinction, the illumination pair is opposite real linear polarization in vacuum, and the objects are local reciprocal dielectric bodies at one frequency.
+Open Question 7 in the tutorial of Miller and Monticone asks for fundamental limits on the redistribution between absorption and scattering under time-reversed illumination \citep{MillerMonticone2026}. A precise theorem requires a choice of normalization, illumination pair, and allowed material and geometric resources. Here the normalization is the common dimensional plane-wave extinction, the illumination pair is opposite real linear polarization in vacuum, and the objects are local reciprocal dielectric bodies at one frequency.
 
-The result is an existence and supremum theorem. It states that a finite object can have exactly any prescribed positive extinction and an absorption difference arbitrarily close to that extinction, while its real permittivity and loss obey fixed pointwise upper bounds. The main theorem establishes neither a finite-resource optimum nor finite-bandwidth performance. Section~\ref{sec:boundary-candidate} separately presents a candidate broadband extension and its additional analytical dependencies. The same material tensor is used in both experiments, and scattering includes the whole outgoing sphere and both polarizations.
+We prove an existence and supremum theorem: a finite object can have exactly any prescribed positive extinction and an absorption difference arbitrarily close to that extinction. Throughout the construction, its real permittivity and loss obey fixed pointwise upper bounds. The main theorem establishes neither a finite-resource optimum nor finite-bandwidth performance. Section~\ref{sec:boundary-candidate} separately presents a candidate broadband extension and its additional analytical dependencies. The same material tensor is used in both experiments, and scattering includes the whole outgoing sphere and both polarizations.
 
-At a fixed coupling angle, enlarging a planar-like aperture increases extinction proportionally to area. A fixed-stack aperture limit therefore does not suffice to prescribe total extinction. The exact rotation factorization and uniform normalized aperture theorem below permit the coupling angle to decrease while the aperture grows. Green-operator and localization arguments justify this passage for actual finite Maxwell bodies. Dipole optimization, scalar thickness laws, fixed-resource bounds, and quartic small-size results have different hypotheses and are outside the present proof.
+At a fixed coupling angle, enlarging a planar-like aperture increases extinction proportionally to area. An aperture limit with the stack held fixed therefore cannot by itself keep total extinction at a prescribed value. The exact rotation factorization and uniform normalized aperture theorem below permit the coupling angle to decrease while the aperture grows. Green-operator and localization arguments justify this passage for actual finite Maxwell bodies. Dipole optimization, scalar thickness laws, fixed-resource bounds, and quartic small-size results have different hypotheses and are outside the present proof.
 
 \section{Prior work and the precise contribution}\label{sec:prior}
+The comparison below separates the established asymmetry mechanism from the compact realization and exact extinction constraint proved here.
+
 Reciprocal extinction equality and directional absorption are established facts. Sounas and Al\`u derived opposite-incidence extinction symmetry and its implications for scattering manipulation \citep{SounasAlu2014}. Hopkins and coauthors obtained directional absorption and scattering at equal extinction through modal interference in reciprocal particles \citep{Hopkins2015}. Power conservation gives the passive bound used here, and the optical theorem gives strict nonattainment for compact bodies.
 
 Polarization conversion combined with selective attenuation also has established precedents. Armitage develops reciprocity constraints for Jones matrices and discusses a polarizer--waveplate example \citep{Armitage2014}. Khurgin and coauthors demonstrate reciprocal asymmetric polarization switching using selective attenuation and imperfect waveplates, including passive experiments \citep{Khurgin2021}. Thin bianisotropic absorbers and metasurfaces provide further examples of distinct opposite-side responses \citep{Radi2013,Yazdi2015}. M\'a\~nez-Espina and coauthors derive maximum directional absorptance difference in a reciprocal bianisotropic metasurface model and verify its predictions with full-wave simulations \citep{ManezEspina2026}. Kononchuk and coauthors combine selective attenuation with magnetic Faraday rotation in a layered-sheet isolator \citep{Kononchuk2019}; its complete device is magnetically nonreciprocal. These constructions must be compared with local nonmagnetic dielectric volumes under their respective constitutive and geometric assumptions.
@@ -55,7 +57,7 @@ Use time dependence $e^{-i\omega t}$, vacuum wavenumber $k=\omega/c>0$, relative
  f_\pm(\mathbf x)=\ey e^{\pm ikz},\qquad
  \mathbf H_{\mathrm{inc},\pm}=\pm(\ez\times\ey)e^{\pm ikz}.
 \end{equation}
-Their electric amplitudes are one and their incident intensities coincide. This is a time-reversed pair of vacuum waves. The absorbing object itself is reciprocal, without requiring its lossy dynamics to be invariant under time reversal.
+Both waves have unit electric amplitude and the same incident intensity. This is a time-reversed pair of vacuum waves. The absorbing object itself is reciprocal, without requiring its lossy dynamics to be invariant under time reversal.
 
 Let $R,h,d>0$, $S_R=(-R/2,R/2)^2$, and $D_R=S_R\times(0,h+d)$. The absorber occupies $S_R\times(0,h)$ and the plate occupies $S_R\times(h,h+d)$. Each layer has a constant complex $3\times3$ tensor. The coefficient is $I$ outside $D_R$; boundary values do not affect the weak equations. The closure of the material region is compact. For fixed $P>1,Q>0$, both tensors satisfy
 \begin{equation}\label{eq:material}
@@ -102,7 +104,9 @@ When $X>0$, define
 $X,A,S,E_*$ have units of area; $\Gamma$ is dimensionless. Infinite plane waves are never assigned a finite total incident power. Section~\ref{sec:green} establishes the physical identities used here.
 
 \section{Main theorem and nonattainment}\label{sec:main}
-Let $\mathcal C_{k,P,Q,E_*}$ consist of all two-layer square-aperture bodies just defined whose opposite-incidence solutions have common extinction $E_*>0$.
+The main question is whether fixing a positive total extinction leaves a gap below perfect normalized asymmetry. The theorem gives the supremum; the strictness lemma explains why a finite body cannot attain it.
+
+Let $\mathcal C_{k,P,Q,E_*}$ denote the two-layer square-aperture bodies defined above with common opposite-incidence extinction $E_*>0$.
 \begin{theorem}[Prescribed-extinction supremum]\label{thm:main}
 Fix $k>0$, $P>1$, $Q>0$, and $E_*>0$. For every $0<\epsilon<1$, there exists a body satisfying~\eqref{eq:material}, with finite positive $R,h,d$, whose unique outgoing weak Maxwell solutions for~\eqref{eq:incident} obey
 \begin{equation}\label{eq:main}
@@ -125,6 +129,8 @@ Passivity and~\eqref{eq:balance} give $0\leq A_\pm\leq X$, hence $\Gamma\leq1$. 
 The existence construction is proved in Sections~\ref{sec:planar}--\ref{sec:realization}. Lemma~\ref{lem:strict} supplies the upper bound and nonattainment; the constructed sequence supplies the lower bound on each supremum.
 
 \section{Exact volume operators and physical power identities}\label{sec:green}
+We first connect the volume-current formulation to physical Maxwell fields and powers. The operator bound controls the response, while its radiation identity accounts for scattering into the full outgoing sphere.
+
 For any bounded $D$, extend $p\in L^2(D)^3$ by zero and define
 \begin{equation}\label{eq:green}
  K_Dp=\left.(k^2I+\nabla\nabla\cdot)(g_k*p)\right|_D,
@@ -172,7 +178,7 @@ The last equality is~\eqref{eq:radiation}. Substitution of~\eqref{eq:farfield} a
 \end{proof}
 
 \section{Planar dielectric construction and rotation factorization}\label{sec:planar}
-The mechanism combines selective absorption with polarization conversion. In the auxiliary infinite planar model with zero plate loss, the absorber acts only on the $x$ component and is vacuum-equivalent for $y$ polarization, while the plate is a reflectionless half-wave plate. From the absorber side, incident $y$ polarization passes through the absorber before conversion in transmission. From the plate side, conversion occurs first, so an $x$ component reaches the absorber. The ideal plate produces no backward reflection; any reflection of the stack originates at the absorber, and scattering also includes the change in transmission relative to vacuum. This auxiliary model supplies intuition and a limiting target. The final objects are finite and compact, with positive active plate loss and added positive isotropic loss in both layers, followed by exact extinction retuning.
+The mechanism combines selective absorption with polarization conversion. In the auxiliary infinite planar model with zero plate loss, the absorber acts only on the $x$ component and is vacuum-equivalent for $y$ polarization, while the plate is a reflectionless half-wave plate. From the absorber side, incident $y$ polarization passes through the absorber before conversion in transmission. From the plate side, conversion occurs first, so an $x$ component reaches the absorber. The ideal plate produces no backward reflection; any reflection of the stack originates at the absorber, and scattering also includes the change in transmission relative to vacuum. This auxiliary model explains the mechanism and specifies the limiting response to be approached. The final objects are finite and compact, with positive active plate loss and added positive isotropic loss in both layers, followed by exact extinction retuning.
 
 Initially use passive rank-one susceptibilities
 \begin{equation}\label{eq:rankone}
@@ -276,6 +282,8 @@ At $(\delta,\theta)=(0,0)$, $r_W=0,t_W=1,D=1$. Appendix~\ref{app:amplitudes} sup
 Finally take $\eta=1/N$ and $kh=N^2$. Then $r_0\to0$, while $\abs p=\exp[-N^2\Im\sqrt{1+i/N}]\to0$, since $N\Im\sqrt{1+i/N}\to1/2$. Hence $A_x\to1$. Every selected $h,\eta$ is finite and positive; $j$ stays fixed for the cap $P$.
 
 \section{Uniform physical-aperture estimates}\label{sec:aperture}
+The planar construction must now be approximated by finite material bodies. The estimate must remain uniform as the coupling angle approaches zero, because that angle will later decrease as the aperture grows.
+
 Write $L=h+d$ and $\mathcal H=L^2((0,L))$. The planar scalar operator uses the same $J_\theta,\alpha,w$, now on the interval. Let $K_{\boldsymbol\kappa}$ be the transverse Fourier fiber of the vector Green operator, and set
 \begin{equation}\label{eq:fibers}
  B_{\boldsymbol\kappa,\theta}=J_\theta^*K_{\boldsymbol\kappa}J_\theta,\qquad
@@ -357,8 +365,10 @@ The zero-wavevector operator varies continuously in norm with $\theta$; its unif
 \end{proof}
 
 \section{Exact prescribed-extinction realization}\label{sec:realization}
+The construction proceeds in two stages. First, continuity in the coupling angle fixes the extinction in a finite rank-one body. Then positive isotropic loss is added and the angle is retuned, preserving both the target and the desired asymmetry.
+
 \subsection{A root in a finite rank-one object}
-Fix $0<\epsilon<1$. Choose a finite absorber with $0<\eta<Q/3$ and $A_x>1-\epsilon/4$. Lemma~\ref{lem:planar} then permits a fixed $0<\delta<Q/3$ such that $\gamma_{\infty,\delta}(0)>1-\epsilon/2$. Choose $\theta_0>0$ so that the planar normalized ratio exceeds $1-5\epsilon/8$ on $[0,\theta_0]$. Freeze these material parameters and thicknesses before enlarging the aperture.
+Fix $0<\epsilon<1$. Choose a finite absorber with $0<\eta<Q/3$ and $A_x>1-\epsilon/4$. Lemma~\ref{lem:planar} then permits a fixed $0<\delta<Q/3$ such that $\gamma_{\infty,\delta}(0)>1-\epsilon/2$. Choose $\theta_0>0$ so that the planar normalized ratio exceeds $1-5\epsilon/8$ on $[0,\theta_0]$. Keep these material parameters and thicknesses fixed from this point onward while enlarging the aperture.
 
 Set $Y_0=Y_{\infty,\delta}(0)>0$ and define
 \begin{equation}\label{eq:angle-bracket}
@@ -400,6 +410,8 @@ Choose $0<\nu<Q/3$ small enough to preserve both strict endpoint inequalities ar
 The order of choices matters: choose a finite absorber, choose positive active plate loss, fix an angle interval, enlarge the aperture, and only then choose isotropic loss and retune. None of the estimates is asserted uniform in a vanishing active loss or a diverging thickness. The main theorem needs preservation of the bracket, not a quantitative rate for the final angle.
 
 \section{Physical consequences and limitations}\label{sec:consequences}
+The limiting asymmetry has a concrete power budget: one incidence becomes predominantly absorbing and the other predominantly scattering. The identities below describe that redistribution and its resource cost before discussing frequency dependence.
+
 At fixed extinction, label the more absorbing incidence $\mathrm{hi}$ and the other one $\mathrm{lo}$. Energy balance gives
 \begin{equation}\label{eq:deficit}
  1-\Gamma=\frac{S_{\mathrm{hi}}+A_{\mathrm{lo}}}{E_*}.
@@ -419,7 +431,7 @@ The selected positive principal-axis susceptibilities are compatible with passiv
 \end{equation}
 Then $\chi(\omega)=a+ib$. Independent oscillators on the real principal axes preserve locality and reciprocity. This compatibility observation is not part of the formal main theorem and gives no bandwidth claim.
 
-This one-frequency matching does not automatically preserve~\eqref{eq:material} throughout a band: for example, the $a=0$ oscillator has negative real susceptibility immediately above the matching frequency. For a fixed causal realization with continuous outgoing response and positive extinction at the design frequency, continuity preserves any strict contrast threshold on some neighborhood, with extinction close to its design value. That neighborhood can depend on the device and shrink along an extremizing sequence; it need not contain a band prescribed in advance.
+Matching the material at one frequency does not automatically preserve~\eqref{eq:material} throughout a band: for example, the $a=0$ oscillator has negative real susceptibility immediately above the matching frequency. For a fixed causal realization with continuous outgoing response and positive extinction at the design frequency, continuity preserves any strict contrast threshold on some neighborhood, with extinction close to its design value. That neighborhood can depend on the device and shrink along an extremizing sequence; it need not contain a band prescribed in advance.
 
 A prescribed-band extension instead fixes $B=[\omega_1,\omega_2]$, with $0<\omega_1<\omega_c<\omega_2$, before choosing the device. One geometry, orientation and complete passive causal reciprocal dielectric law must serve the whole band, with the illumination pair~\eqref{eq:incident} evaluated at $k=\omega/c$ and the material conditions~\eqref{eq:material} imposed at every $\omega\in B$. A useful extinction requirement is
 \[
@@ -462,6 +474,8 @@ Caps are bandwise. There is no common bound on aperture, thickness, volume, osci
 Sharp fixed-resource optima, useful quantitative resource costs and an all-isotropic construction remain open here. A frequencywise resource ceiling $\Gamma(\omega)\leq U(\omega)$ already implies $G_B\leq\inf_{\omega\in B}U(\omega)$; an additional causal tradeoff must go beyond that ceiling and account for one jointly realizable dispersion law. The boundary note also gives a separate candidate obstruction to exactly constant positive extinction on an open interval for finitely many homogeneous regions with finite positively damped Lorentz sums and positive definite total residues in each region. That restricted analyticity argument does not settle the constant-spectrum question for arbitrary passive laws.
 
 \section{Formal verification correspondence}\label{sec:formal}
+The verification evidence concerns a particular encoded statement and frozen source version. The correspondence below explains what that evidence establishes and which parts of the present exposition require separate assessment.
+
 The accompanying Lean 4 formalization is frozen at commit
 \begin{center}\small\texttt{686402a6c2d63820828729cc7ab02504632e3fe7}.\end{center}
 Its principal declaration is
@@ -478,7 +492,7 @@ The archived final AI-assisted audit examines the frozen declaration and reports
 \noindent\textbf{Code and verification materials.}
 Frozen proof sources and statement correspondence accompany this article as ancillary files in the \path{anc} directory. They comprise the source archive
 \begin{center}\small\path{OQ7-complete-physical-theorem11-source.zip}\end{center}
-and \path{THEOREM_CORRESPONDENCE.md}. The ancillary manifest, final audit report, status summary and provenance identify the exact source version and the scope of its verification. Historical checking records retain their original dates and scope; they do not certify every paragraph of this manuscript. The single-frequency theorem uses no experimental or simulation datasets. The candidate supplement supplies separately scoped analytic-surrogate diagnostics; these are not evidence of a simulated finite Maxwell device.
+and \path{THEOREM_CORRESPONDENCE.md}. The ancillary manifest, final audit report, status summary and provenance identify the exact source version and the scope of its verification. Historical checking records apply to the source editions identified in those records, with their original dates and scope; they do not certify every paragraph of this editorial revision. The single-frequency theorem uses no experimental or simulation datasets. The candidate supplement supplies separately scoped analytic-surrogate diagnostics; these are not evidence of a simulated finite Maxwell device.
 
 \noindent\textbf{AI assistance.}
 AI assistance was used for document preparation, source-to-claim comparison, compilation checks and focused literature-priority analysis. The accompanying mathematical and semantic reviews are AI-assisted. AI assistance was also used to develop and review the separately labeled broadband candidate proof.
@@ -511,6 +525,8 @@ Rewrite the integrand as $E\cdot(\mathbf H_q\times\mathbf n-E_q)-E_q\cdot(\mathb
 For a general weak scattering state, subtract the compact-source reconstruction with $p=\chi E$. The difference is an entire outgoing vacuum pair and hence vanishes. This proves the converse representation before applying constitutive volume-equation uniqueness. It also explains why equality of arbitrary raw weak representatives is stated almost everywhere, while the smooth exterior representative carries the pointwise radiation and flux limits.
 
 \section{Nonsingular normalized planar amplitudes}\label{app:amplitudes}
+The formulas in this appendix make the normalized planar limit explicit. Reference-plane phases are specified first so that the scattered amplitudes can be compared consistently for the two incidences.
+
 The reference planes are $L:z=0$ and $R:z=L=h+d$. For $b^+$ and $b^-$ the incident $y$ amplitude is one at the left and right planes, respectively. The latter convention multiplies $f_-$ by $e^{ikL}$, an overall unit-modulus phase that does not change powers. Outgoing amplitudes are read at these planes. Let $s=\sin\theta$, $c=\cos\theta$, $v_A=e^{ikh}$, $v_W=e^{ikd}$, $\Delta=t_W-v_W$, and $D=1-r_Ar_Wc^2$. With output order $(Lx,Ly,Rx,Ry)$, subtract $v_Av_W\ey$ from the transmitted amplitude and divide the scattered vector by $s$. Cascade matching gives
 \begin{equation}\label{eq:amplitudes-plus}
  b^+=\frac1D\begin{pmatrix}

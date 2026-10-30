@@ -29,22 +29,22 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-We study extinction-normalized absorption asymmetry for opposite time-reversed plane waves in reciprocal electromagnetism. For a fixed strictly absorbing planar tensor stack, we prove that the extinction, absorption and total scattering cross sections of its compact finite-aperture truncations, divided by aperture area, converge to the exact planar densities. The proof combines an aperture-independent inverse bound for the volume equation with mixed Fourier estimates that retain the grazing-radiation singularity. The optical theorem supplies the all-angle scattering limit. For square apertures, a boundary-strip construction gives a nonoptimal $O((kR)^{-1/3})$ error at fixed stack parameters. An ordered planar-design, positive-loss and aperture limit yields compact two-layer local nonmagnetic dielectrics with fixed upper material caps and absorption asymmetry arbitrarily close to one; the total extinction is not prescribed in this construction. Separately, we derive the sharp dimensional absorption-difference bound for complete reciprocal electric--magnetic dipole models and exhibit exactly radiation-dressed equality tensors. The dipole model has a finite directivity ceiling that does not apply to unrestricted compact bodies. These ordinary analytic results distinguish physical material truncation from computational windowing and point-polarizability feasibility from finite-dielectric realization. No joint resource limit, bandwidth bound or complete formal-verification claim is made.
+Reciprocity fixes the extinction of time-reversed plane waves but allows their absorption to differ. We study this difference normalized by their common extinction. For a fixed strictly absorbing planar tensor stack, we prove that the extinction, absorption and total scattering cross sections of its compact finite-aperture truncations, divided by aperture area, converge to the exact planar densities. The proof combines an aperture-independent inverse bound for the volume equation with mixed Fourier estimates that retain the grazing-radiation singularity. The optical theorem supplies the all-angle scattering limit. For square apertures, a boundary-strip construction gives a nonoptimal $O((kR)^{-1/3})$ error at fixed stack parameters. An ordered planar-design, positive-loss and aperture limit yields compact two-layer local nonmagnetic dielectrics with fixed upper material caps and absorption asymmetry arbitrarily close to one; the total extinction is not prescribed in this construction. Separately, we derive the sharp dimensional absorption-difference bound for complete reciprocal electric--magnetic dipole models and exhibit exactly radiation-dressed equality tensors. The dipole model has a finite directivity ceiling that does not apply to unrestricted compact bodies. These ordinary analytic results distinguish physical material truncation from computational windowing and point-polarizability feasibility from finite-dielectric realization. No joint resource limit, bandwidth bound or complete formal-verification claim is made.
 \end{abstract}
 
 \section{Introduction and scope}
 Reciprocity equates the extinction cross sections of time-reversed incident waves while permitting different absorption and scattering \citep{SounasAlu2014}. Fundamental bounds on this redistribution motivate Open Question 7 of Miller and Monticone \citep{MillerMonticone2026}. The normalization and physical class matter: a compact-body cross section has units of area, an infinite slab is described by power densities per transverse area, and a point-dipole model has its own finite-dimensional radiation constraint.
 
-This paper supplies two complementary analyses. The first proves localization of the actual Maxwell cross sections for literal material truncations of a fixed strictly absorbing planar stack. Its volume-current estimate controls both incidences and, through energy balance, the complete scattering integral. A square-aperture construction gives an explicit, nonoptimal convergence exponent. The second treats complete electric--magnetic dipole polarizabilities with radiation reaction, exhibiting the distinction between a sharp point-model bound and realization by a local finite dielectric.
+We address this distinction through two complementary analyses. The first proves localization of the actual Maxwell cross sections for literal material truncations of a fixed strictly absorbing planar stack. The volume-current estimate controls both incidences. Energy balance then controls the complete scattering integral. A square-aperture construction gives an explicit, nonoptimal convergence exponent. The second treats complete electric--magnetic dipole polarizabilities with radiation reaction, exhibiting the distinction between a sharp point-model bound and realization by a local finite dielectric.
 
 The unrestricted compact unit supremum is included as an application of the localization theorem. It overlaps the stronger exact prescribed-extinction result in the companion manuscript \citep{WangZhengPrescribed2026}: that result implies the unrestricted supremum for the same two-layer class. Here extinction is allowed to vary and fixed-stack localization is proved directly, with an explicit square-aperture rate. Prescribing total extinction during aperture growth requires further uniformity at vanishing physical coupling; it is not obtained by the fixed-stack limit alone. No verification record from the companion is transferred to the present proofs.
 
-The physical ingredients have established precedents. Magnetoelectric optical theorems and inverse-polarizability radiation dressing are developed by Sersic and coauthors \citep{Sersic2011}. Reciprocal particle asymmetry and its nonorthogonal-mode mechanism are studied by Hopkins and coauthors \citep{Hopkins2015}; Mann and Al\`u's conference abstract announces maximal directional absorption in bianisotropic dipolar particles \citep{MannAlu2023}. Antenna efficiency and optical-theorem bounds identify directivity-dependent limitations \citep{Andersen2005,Liberal2014}. Polarization conversion with selective attenuation is established \citep{Armitage2014,Khurgin2021}, and metasurface directional absorption has related model-specific bounds \citep{ManezEspina2026}.
+We distinguish these results from several established physical ingredients. Magnetoelectric optical theorems and inverse-polarizability radiation dressing are developed by Sersic and coauthors \citep{Sersic2011}. Reciprocal particle asymmetry and its nonorthogonal-mode mechanism are studied by Hopkins and coauthors \citep{Hopkins2015}; Mann and Al\`u's conference abstract announces maximal directional absorption in bianisotropic dipolar particles \citep{MannAlu2023}. Antenna efficiency and optical-theorem bounds identify directivity-dependent limitations \citep{Andersen2005,Liberal2014}. Polarization conversion with selective attenuation is established \citep{Armitage2014,Khurgin2021}, and metasurface directional absorption has related model-specific bounds \citep{ManezEspina2026}.
 
-For the aperture passage, Gao, Yang and Kattawar analyze polarized extinction of large-aspect-ratio plates \citep{Gao2013}. Windowed Green-function methods treat layered backgrounds \citep{Bruno2016,Arrieta2022}, while volume-integral formulations supply the singular-kernel and radiation framework \citep{Yurkin2018,Mishchenko2018}. Computational windowing of an infinite-interface equation and truncation of the physical material are different operations. Our smooth windows modify only trial polarizations; the final material aperture remains sharp. These comparisons do not establish first priority for the localization theorem or dipole equality family.
+The passage from a planar stack to a finite material aperture also has relevant precedents. Gao, Yang and Kattawar analyze polarized extinction of large-aspect-ratio plates \citep{Gao2013}. Windowed Green-function methods treat layered backgrounds \citep{Bruno2016,Arrieta2022}, while volume-integral formulations supply the singular-kernel and radiation framework \citep{Yurkin2018,Mishchenko2018}. Computational windowing of an infinite-interface equation and truncation of the physical material are different operations. Our smooth windows modify only trial polarizations; the final material aperture remains sharp. These comparisons do not establish first priority for the localization theorem or dipole equality family.
 
 \section{Maxwell cross sections and strictness}\label{sec:model}
-Use time dependence $e^{-i\omega t}$ and vacuum wavenumber $k=\omega/c>0$. Write $\mathbf H=Z_0H$ for the impedance-normalized magnetic field. For a real unit propagation vector $d$ and unit transverse electric polarization $e\in\mathbb C^3$, the paired vacuum waves are
+We begin by fixing the illumination pair and power normalization, which are shared by the dipole and finite-body analyses. Use time dependence $e^{-i\omega t}$ and vacuum wavenumber $k=\omega/c>0$. Write $\mathbf H=Z_0H$ for the impedance-normalized magnetic field. For a real unit propagation vector $d$ and unit transverse electric polarization $e\in\mathbb C^3$, the paired vacuum waves are
 \begin{equation}\label{eq:incident}
  \begin{aligned}
  f_+(x)&=e e^{ikd\cdot x},&\mathbf H_{\mathrm{inc},+}(x)&=(d\times e)e^{ikd\cdot x},\\
@@ -83,7 +83,7 @@ would give $X=0$, a contradiction. In particular $S_H>0$ and the forward project
 This is an established efficiency/directivity obstruction \citep{Andersen2005,Liberal2014}. At fixed nonzero extinction, approaching one requires unbounded forward directivity; no hard multipole cutoff is inferred from finite object size.
 
 \section{Complete electric--magnetic dipole models}\label{sec:dipole}
-Let $f=(E,\mathbf H)$, $d_p=(p/\varepsilon_0,Z_0m)$ and $d_p=\alpha f$. Define
+The dipole model provides a finite-dimensional comparison before we study a spatially extended dielectric. Let $f=(E,\mathbf H)$, $d_p=(p/\varepsilon_0,Z_0m)$ and $d_p=\alpha f$. Define
 \begin{equation}\label{eq:dipole-model}
  \mathsf A=\frac{k^3}{6\pi}\alpha,\qquad
  Q_{\mathsf A}=\ImH\mathsf A-\mathsf A^\dagger\mathsf A\succeq0,
@@ -146,7 +146,7 @@ The reciprocal signs are explicit, and multiplication gives $Q_{\mathsf A}=qq^T/
 \end{equation}
 This proves equality at every interior extinction. The ratio is $(1+t)/2\to1$ as $t\uparrow1$, while the extinction tends to zero.
 
-Radiation reaction is retained exactly. Put $a=\sqrt{2(1-t)/(1+t)}$ and
+To check that the equality tensor includes radiation reaction, we construct its bare response explicitly. Put $a=\sqrt{2(1-t)/(1+t)}$ and
 \[
  \mathsf A_0=iN,\qquad
  N=\begin{pmatrix}a^2&-a^2/2&-a\\a^2/2&0&-a\\-a&a&1\end{pmatrix}.
@@ -165,7 +165,7 @@ Reciprocity also implies $\norm{\mathsf A f_-}^2=\norm{\mathsf A^\dagger f_+}^2$
 Every normal reciprocal dipole tensor has zero asymmetry, consistent with the established modal-interference interpretation \citep{Hopkins2015}. The far-field formula gives $\abs{e^\dagger F(d)}^2\leq9\norm{\mathsf A f}^2/(2k^2)$, hence $D_{\mathrm{co}}\leq3$. Substitution in~\eqref{eq:directivity} recovers the dipole coefficient. This finite directivity ceiling is not a bound for arbitrary large compact Maxwell objects. Neither a passive point tensor nor its bare response proves realization by a local finite dielectric; the construction below does not require that completion.
 
 \section{Exact volume operators and weak Maxwell solutions}\label{sec:volume}
-Let $D$ be bounded and measurable, with $\abs D>0$, and extend $p\in L^2(D;\mathbb C^3)$ by zero. Define
+We now leave the point model and describe the exact volume-current problem for a local dielectric. Let $D$ be bounded and measurable, with $\abs D>0$, and extend $p\in L^2(D;\mathbb C^3)$ by zero. Define
 \begin{equation}\label{eq:Green}
  g_k(x)=\frac{e^{ik\abs x}}{4\pi\abs x},\qquad
  \mathcal Tp=(k^2I+\nabla\nabla\cdot)(g_k*p),\qquad
@@ -259,7 +259,7 @@ Rewrite its integrand as $E\cdot(\mathbf H_q\times n-E_q)-E_q\cdot(\mathbf H\tim
 \end{proof}
 
 \section{Fixed-stack finite-aperture localization}\label{sec:localization}
-Write $x=(x_\perp,z)\in\mathbb R^2\times\mathbb R$. Let $\Omega\subset\mathbb R^2$ be bounded, open and Lipschitz, with $\abs\Omega>0$, and let $L>0$. Fix a height-dependent measurable susceptibility satisfying~\eqref{eq:coercive-material} on $(0,L)$. Set
+The inverse bound above remains valid as the aperture grows. We use it to compare the finite-body current with the planar current. Write $x=(x_\perp,z)\in\mathbb R^2\times\mathbb R$. Let $\Omega\subset\mathbb R^2$ be bounded, open and Lipschitz, with $\abs\Omega>0$, and let $L>0$. Fix a height-dependent measurable susceptibility satisfying~\eqref{eq:coercive-material} on $(0,L)$. Set
 \[
  D_R=(R\Omega)\times(0,L),\qquad
  \varepsilon_R=I+\chi(z)\text{ in }D_R,\quad\varepsilon_R=I\text{ outside}.
@@ -325,7 +325,7 @@ Therefore the exact normalized densities are
 For $f_+$, the total forward amplitude is $e+b_+$, so $t_{\rm co}=1+(ik/2)\int_0^Le^{-ikz}e^\dagger q(z)\dd z$ and $X_\infty=2(1-\Re t_{\rm co})$. For $f_-$ the opposite amplitude is used. Boundary-plane transmission must be divided by the vacuum phase $e^{ikL}$. The absorption formula equals $k\int E^\dagger\ImH\chi E\dd z$; the balance follows by taking the imaginary part of~\eqref{eq:planar-equation}. These are actual planar Maxwell powers, not an $L^2(\mathbb R^3)$ normalization of an infinite plane wave.
 
 \subsection{Mixed Fourier localization proof}
-Choose a fixed $g\in C_c^\infty(\Omega)$ and put $g_R(x_\perp)=g(x_\perp/R)$. On the unrestricted strip $\mathbb R^2\times(0,L)$ define
+The proof uses a smooth trial current inside the sharp material aperture. Choose a fixed $g\in C_c^\infty(\Omega)$ and put $g_R(x_\perp)=g(x_\perp/R)$. On the unrestricted strip $\mathbb R^2\times(0,L)$ define
 \[
  \widetilde H_R=\mathcal T(g_Rq)-g_RT_0q,\qquad H_R=\widetilde H_R|_{D_R}.
 \]
@@ -367,12 +367,12 @@ For each fixed window, divide by $R$ and let $R\to\infty$. The left-hand side is
 \begin{equation}\label{eq:current-limit}
  \norm{p_R-q}_{L^2(D_R)}=o(R).
 \end{equation}
-The order is fixed stack, fixed window, aperture limit, then window approximation; the material is never smoothed.
+The limits are taken in the following order: fix the stack and window, enlarge the aperture, and then approximate the constant window. The material aperture remains sharp throughout.
 
 The incident, planar-extended and exact current norms on $D_R$ are all $O(R)$. Cauchy--Schwarz in~\eqref{eq:work} gives $\abs{X_R-R^2\abs\Omega X_\infty}=o(R^2)$. Boundedness of $W$ and the quadratic-form difference estimate give the same conclusion for absorption. Subtract the exact compact and planar energy balances to obtain total scattering. This proves Theorem~\ref{thm:localization}, including a narrowing forward peak and any edge or grazing radiation, without requiring pointwise far-field convergence.
 
 \section{An explicit square-aperture rate}\label{sec:rate}
-Let $S_R=(-R/2,R/2)^2$, whose area is $R^2$. Fix a smooth $a:\mathbb R\to[0,1]$ with $a(u)=0$ for $u\leq0$ and $a(u)=1$ for $u\geq1$. For $0<w\leq R/8$, define
+For a square aperture, choosing the window width as the aperture grows gives an explicit error estimate. Let $S_R=(-R/2,R/2)^2$, whose area is $R^2$. Fix a smooth $a:\mathbb R\to[0,1]$ with $a(u)=0$ for $u\leq0$ and $a(u)=1$ for $u\geq1$. For $0<w\leq R/8$, define
 \[
  a_{R,w}(s)=a\left(\frac{R/2-w/4-\abs s}{w}\right),\qquad
  g_{R,w}(x_1,x_2)=a_{R,w}(x_1)a_{R,w}(x_2).
@@ -412,7 +412,7 @@ With reference length $\ell=1/k$, choose $w=\ell(R/\ell)^{1/3}=k^{-1}(kR)^{1/3}$
 
 \section{Compact dielectric examples and the unrestricted supremum}\label{sec:construction}
 \subsection{An exact planar pair under arbitrary real caps}
-Fix $P>1$ and choose an integer $j$ with $p_j=[2j/(2j-1)]^2\leq P$. Set $d=(2j-1)\pi/k$. For $-1<t<1$, $s=\sqrt{1-t^2}$, let
+We apply localization to a planar design that combines selective absorption with polarization conversion. Fix $P>1$ and choose an integer $j$ with $p_j=[2j/(2j-1)]^2\leq P$. Set $d=(2j-1)\pi/k$. For $-1<t<1$, $s=\sqrt{1-t^2}$, let
 \[
  V=\begin{pmatrix}-t&s\\s&t\end{pmatrix},\quad
  \varepsilon_A=\diag(1+i\eta,1,1),\quad
@@ -449,7 +449,7 @@ The exactly reflectionless plate requires no additional feedback denominator. Th
 For $\eta_m=1/m$, $kh_m=m^2$, $t_m=1-1/m$, one has $n_m\to1$, $r_{0,m}\to0$ and $m\Im n_m=1/(2\Re n_m)\to1/2$. Thus $\abs{p_m}\to0$, both slab amplitudes tend to zero and $A_{x,m}\to1$, so $\Gamma_\infty\to1$. Every chosen thickness and coefficient is finite. The mechanism is the established polarization-filter/waveplate combination \citep{Armitage2014,Khurgin2021}.
 
 \subsection{Positive loss before physical truncation}
-For one fixed finite choice $(\eta,h,t)$, add $i\nu I$ to each tensor, with $\nu>0$. Its planar amplitudes and powers depend continuously on $\nu$ at zero. To see this without inverting a singular susceptibility, use the exact transverse ODE
+The planar design initially has lossless directions. Before applying the coercive localization theorem, we add positive loss while keeping the design finite. For one fixed finite choice $(\eta,h,t)$, add $i\nu I$ to each tensor, with $\nu>0$. Its planar amplitudes and powers depend continuously on $\nu$ at zero. To see this without inverting a singular susceptibility, use the exact transverse ODE
 \[
  \frac\dd{\dd z}\begin{pmatrix}E_\perp\\E_\perp'/k\end{pmatrix}
  =k\begin{pmatrix}0&I_2\\-\varepsilon_\perp(\nu)&0\end{pmatrix}
@@ -478,7 +478,7 @@ A sufficiently large finite $R$ gives the required lower bound. Proposition~\ref
 The order is finite planar design, fixed positive regularization, then aperture enlargement. A diagonal sequence of these finite selections does not interchange a vanishing-loss limit with an infinite-aperture limit. There is no common bound on thickness, footprint, volume, integrated loss or positive loss floor. The construction leaves total extinction free; for each fixed selected stack, $X_R\sim R^2X_{\infty,\nu}$. The exact prescribed-extinction counterpart is addressed in the companion manuscript \citep{WangZhengPrescribed2026} and requires additional normalized angle-uniform control.
 
 \section{Dispersion, limitations and conclusions}
-The constructed real and imaginary tensor parts share a real orthogonal eigenbasis. At a chosen frequency $\omega>0$, each target susceptibility $a+ib$, $a\geq0$, $b>0$, admits a passive causal scalar extension
+The construction specifies material tensors at one frequency. To check compatibility with passive causal dispersion, note that their real and imaginary parts share a real orthogonal eigenbasis. At a chosen frequency $\omega>0$, each target susceptibility $a+ib$, $a\geq0$, $b>0$, admits a passive causal scalar extension
 \[
  \chi(\zeta)=\frac{F}{\omega_0^2-\zeta^2-i\gamma\zeta},\qquad
  \omega_0^2=\omega^2+(a/b)\gamma\omega,\qquad

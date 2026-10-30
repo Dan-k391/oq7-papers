@@ -373,7 +373,7 @@ def run(args):
         check(pdf in landing_targets and archive in landing_targets, ident+': absent from visible landing downloads')
     scope = normalized(landing.ids['broadband-scope'].text()) if landing and 'broadband-scope' in landing.ids else ''
     for phrase in ('CANDIDATE proof', 'X(center) = E* = min_B X', 'strict inequality elsewhere',
-                   'inf_B Γ is arbitrarily close to 1', 'no new formal verification or independent human review',
+                   'inf_B Γ is arbitrarily close to 1', 'the complete broadband existence claim has not been formally verified or independently reviewed',
                    'C0 frequency-uniform aperture theorem', 'Material caps apply bandwise',
                    'resonance-linewidth floor', 'positive material-loss floor'):
         check(phrase in scope, 'Landing candidate scope missing: '+phrase)

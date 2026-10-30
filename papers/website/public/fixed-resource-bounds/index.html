@@ -48,9 +48,12 @@ infinite spectral tail</a></li>
 </ul></details>
 <section id="abstract" class="abstract">
 <h2 id="abstract-heading">Abstract</h2>
-<p>We bound the absolute absorption difference divided by common
-extinction for time-reversed plane waves incident on compact reciprocal
-dielectric bodies in vacuum. An integrated loss-weighted response budget
+<p>How closely can a reciprocal body approach complete absorption
+contrast when its material response and size are bounded? We address
+this question for time-reversed plane waves incident on compact
+dielectric bodies in vacuum, using the absolute absorption difference
+divided by common extinction. An integrated loss-weighted response
+budget
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="script">ℳ</mi><annotation encoding="application/x-tex">\mathcal M</annotation></semantics></math>
 gives the all-angle bound
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Γ</mi><mo>≤</mo><msup><mi>k</mi><mn>3</mn></msup><mi mathvariant="script">ℳ</mi><mi>/</mi><mo stretchy="false" form="prefix">(</mo><mn>6</mn><mi>π</mi><mo>+</mo><msup><mi>k</mi><mn>3</mn></msup><mi mathvariant="script">ℳ</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\Gamma\leq k^3\mathcal M/(6\pi+k^3\mathcal M)</annotation></semantics></math>.
@@ -66,8 +69,8 @@ exact-Maxwell expansion
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Γ</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mn>160</mn><mi>/</mi><mn>2071</mn><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="prefix">(</mo><mi>k</mi><mi>a</mi><msup><mo stretchy="false" form="postfix">)</mo><mn>3</mn></msup><mo>+</mo><mi>O</mi><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="prefix">(</mo><mi>k</mi><mi>a</mi><msup><mo stretchy="false" form="postfix">)</mo><mn>4</mn></msup><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\Gamma=(160/2071)(ka)^3+O((ka)^4)</annotation></semantics></math>
 for a circular time-reversed polarization pair. This cubic order
 concerns the general complex-polarization class; opposite real linear
-polarizations admit a stronger quartic refinement. The response and
-efficiency principles have established precedents. The bounds here do
+polarizations admit a stronger quartic refinement. The analysis builds
+on established response and efficiency principles. The bounds here do
 not determine the sharp fixed-resource Maxwell supremum or establish
 that two relaxed optimizers can be realized by the same local
 material.</p>
@@ -117,7 +120,9 @@ put <span id="eq:gamma"
 class="equation"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Γ</mi><mo>=</mo><mfrac><mrow><mo stretchy="false" form="prefix">|</mo><msub><mi>A</mi><mo>+</mo></msub><mo>−</mo><msub><mi>A</mi><mo>−</mo></msub><mo stretchy="false" form="postfix">|</mo></mrow><mi>X</mi></mfrac><mo>=</mo><mfrac><mrow><mo stretchy="false" form="prefix">|</mo><msub><mi>S</mi><mo>+</mo></msub><mo>−</mo><msub><mi>S</mi><mo>−</mo></msub><mo stretchy="false" form="postfix">|</mo></mrow><mi>X</mi></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">\Gamma=\frac{\lvert A_+-A_-\rvert}{X}
        =\frac{\lvert S_+-S_-\rvert}{X}.</annotation></semantics></math><span
 class="equation-number">(2)</span></span> All three cross sections have
-units of area.</p>
+units of area. Equal extinction therefore makes the absorption
+difference a redistribution between absorption and radiation, rather
+than a difference in total extracted power.</p>
 <div id="thm:main" class="theorem">
 <p><strong>Theorem 1.1</strong> (Fixed-resource gap). <em>Fix
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">k&gt;0</annotation></semantics></math>,
@@ -187,7 +192,8 @@ are retained instead,
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>k</mi><annotation encoding="application/x-tex">k</annotation></semantics></math>
 must also be fixed or supplied.</p>
 <h2 id="sec:maxwell">2 Exact Maxwell identities and well-posedness</h2>
-<p>Divide electric fields by a nonzero incident amplitude
+<p>We first establish the exact power identities and solvability needed
+by the bounds. Divide electric fields by a nonzero incident amplitude
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>E</mi><mrow><mi mathvariant="normal">r</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">f</mi></mrow></msub><annotation encoding="application/x-tex">E_\mathrm{ref}</annotation></semantics></math>
 and set
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo>=</mo><mi>χ</mi><mi>E</mi></mrow><annotation encoding="application/x-tex">p=\chi E</annotation></semantics></math>.
@@ -347,8 +353,10 @@ cutoff is used. The full tensor loss floor is required for this
 well-posedness assertion over the entire essentially bounded class.</p>
 <h2 id="sec:response">3 Integrated response and all-angle
 efficiency</h2>
-<p>A more general sufficient response hypothesis is <span
-id="eq:response"
+<p>The material caps above control how much polarization current can be
+produced for a given absorbed power. To separate this mechanism from the
+particular caps, we use the more general sufficient response hypothesis
+<span id="eq:response"
 class="equation"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mo>≽</mo><mn>0</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>η</mi><mo>:</mo><mi>D</mi><mo>→</mo><mo stretchy="false" form="prefix">[</mo><mn>0</mn><mo>,</mo><mi>∞</mi><mo stretchy="false" form="postfix">)</mo><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> measurable</mtext></mrow><mo>,</mo><mspace width="1.0em"></mspace><mo stretchy="false" form="prefix">|</mo><mi>χ</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mi>v</mi><msup><mo stretchy="false" form="postfix">|</mo><mn>2</mn></msup><mo>≤</mo><mi>η</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><msup><mi>v</mi><mo>†</mo></msup><mi>B</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mi>v</mi><mo>,</mo><mspace width="1.0em"></mspace><mn>0</mn><mo>&lt;</mo><mi mathvariant="script">ℳ</mi><mo>:=</mo><msub><mo>∫</mo><mi>D</mi></msub><mi>η</mi><mspace width="0.167em"></mspace><mi mathvariant="normal">d</mi><mi>x</mi><mo>&lt;</mo><mi>∞</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">B\succeq0,\quad \eta:D\to[0,\infty)\text{ measurable},\quad
  \lvert \chi(x)v\rvert^2\leq\eta(x)v^\dagger B(x)v,\quad
  0&lt;\mathcal M:=\int_D\eta\,\mathrm{d}x&lt;\infty.</annotation></semantics></math><span
@@ -493,7 +501,9 @@ at
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mn>1</mn><mi>/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">x=1/2</annotation></semantics></math>. ◻</p>
 </div>
 <h2 id="sec:spectrum">4 Complete ball radiation spectrum</h2>
-<p>Suppose
+<p>The integrated estimate uses the total response budget but does not
+resolve the radiation modes of the enclosing volume. We now retain that
+spectral information. Suppose
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mo>⊂</mo><msub><mi>B</mi><mi>a</mi></msub></mrow><annotation encoding="application/x-tex">D\subset B_a</annotation></semantics></math>
 and
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>η</mi><mo>≤</mo><mover><mi>η</mi><mo accent="true">‾</mo></mover><mo>&lt;</mo><mi>∞</mi></mrow><annotation encoding="application/x-tex">\eta\leq\bar\eta&lt;\infty</annotation></semantics></math>
@@ -735,9 +745,10 @@ ball. The isodiametric volume and enclosing-ball radius estimates are
 distinct.</p>
 <h2 id="sec:resolvent">5 Positive extinction and the exact current
 relaxation</h2>
-<p>The optical theorem fixes forward work, while scattering is an
-angular integral. We retain every radiation mode rather than assume a
-directivity cutoff. For
+<p>The efficiency bounds give an upper endpoint for each scattering
+fraction. Positive extinction also gives a lower endpoint: the optical
+theorem fixes forward work, while scattering is an angular integral. We
+retain every radiation mode rather than assume a directivity cutoff. For
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">a&gt;0</annotation></semantics></math>,
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>η</mi><mo accent="true">‾</mo></mover><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\bar\eta&gt;0</annotation></semantics></math>,
 put
@@ -811,7 +822,8 @@ choose
 with
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi><msub><mi>D</mi><mi>α</mi></msub><mo>&lt;</mo><mi>w</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">\alpha D_\alpha&lt;wt</annotation></semantics></math>;
 its dual value is positive.</p>
-<p>For exactness define <span
+<p>To show that the lower bound is attained within the current
+relaxation, define <span
 class="equation unnumbered"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"><msub><mi>H</mi><mi>α</mi></msub></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mo stretchy="false" form="prefix">⟨</mo><mi>f</mi><mo>,</mo><mo stretchy="false" form="prefix">(</mo><msub><mi mathvariant="script">ℛ</mi><mi>a</mi></msub><mo>+</mo><mi>α</mi><mi>I</mi><msup><mo stretchy="false" form="postfix">)</mo><mrow><mi>−</mi><mn>2</mn></mrow></msup><mi>f</mi><mo stretchy="false" form="postfix">⟩</mo><mo>=</mo><mi>−</mi><msubsup><mi>D</mi><mi>α</mi><mo>′</mo></msubsup><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>K</mi><mi>α</mi></msub><mo>=</mo><mo stretchy="false" form="prefix">⟨</mo><mi>f</mi><mo>,</mo><mo stretchy="false" form="prefix">(</mo><msub><mi mathvariant="script">ℛ</mi><mi>a</mi></msub><mo>+</mo><mi>α</mi><mi>I</mi><msup><mo stretchy="false" form="postfix">)</mo><mrow><mi>−</mi><mn>3</mn></mrow></msup><mi>f</mi><mo stretchy="false" form="postfix">⟩</mo><mo>,</mo></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"><msub><mi>J</mi><mi>α</mi></msub></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><msub><mi>D</mi><mi>α</mi></msub><mo>+</mo><mo stretchy="false" form="prefix">(</mo><mi>w</mi><mo>−</mo><mi>α</mi><mo stretchy="false" form="postfix">)</mo><msub><mi>H</mi><mi>α</mi></msub><mo>,</mo><mspace width="2.0em"></mspace><mi>T</mi><mo stretchy="false" form="prefix">(</mo><mi>α</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msubsup><mi>D</mi><mi>α</mi><mn>2</mn></msubsup><mi>/</mi><msub><mi>J</mi><mi>α</mi></msub><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{align*}
  H_\alpha&amp;=\langle f,(\mathcal R_a+\alpha I)^{-2}f\rangle=-D&#39;_\alpha,\qquad
  K_\alpha=\langle f,(\mathcal R_a+\alpha I)^{-3}f\rangle,\\
@@ -1005,9 +1017,9 @@ The bounded-loss inverse also controls resonant amplification in the
 stated material class.</p>
 <h2 id="sec:sphere">6 Exact-Maxwell small-volume scaling</h2>
 <p>The relaxed optimizer need not arise from a local reciprocal
-susceptibility or from the same object under both illuminations. A
-separate physical construction establishes the general
-complex-polarization exponent.</p>
+susceptibility or from the same object under both illuminations. We
+therefore turn to a separate physical construction to establish the
+general complex-polarization exponent.</p>
 <div id="thm:sphere" class="theorem">
 <p><strong>Theorem 6.1</strong> (Reciprocal anisotropic sphere). <em>Let
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mo>=</mo><msub><mi>B</mi><mi>a</mi></msub></mrow><annotation encoding="application/x-tex">D=B_a</annotation></semantics></math>
@@ -1135,8 +1147,10 @@ This supplies no finite-bandwidth asymmetry theorem.</p>
 <h2 id="sec:extensions">7 Extensions and hypothesis limitations</h2>
 <h3 id="isotropy-and-weaker-loss-assumptions">7.1 Isotropy and weaker
 loss assumptions</h3>
-<p>The response estimate includes arbitrary reciprocal local tensors and
-scalar isotropic media. For scalar
+<p>We next distinguish extensions of the response estimate from
+assumptions that its proof cannot remove. The estimate includes
+arbitrary reciprocal local tensors and scalar isotropic media. For
+scalar
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℑ</mi><mi>χ</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\Im\chi&gt;0</annotation></semantics></math>,
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>η</mi><mo>=</mo><mo stretchy="false" form="prefix">|</mo><mi>χ</mi><msup><mo stretchy="false" form="postfix">|</mo><mn>2</mn></msup><mi>/</mi><mi>ℑ</mi><mi>χ</mi></mrow><annotation encoding="application/x-tex">\eta=\lvert \chi\rvert^2/\Im\chi</annotation></semantics></math>.
 The sphere construction is anisotropic; no matching isotropic cubic
@@ -1301,9 +1315,9 @@ loss hypotheses and normalization
 <span class="citation">[<a href="#ref-SounasAlu2017">12</a>, <a href="#ref-Ma2025">13</a>]</span>.
 We do not claim a universally new response principle or an optimal
 fixed-resource Maxwell ceiling.</p>
-<p>The explicit all-order estimate and positive-extinction resolvent
-provide quantitative restrictions for the plane-wave pair. Exactness of
-the one-current relaxation does not imply joint realizability: the same
+<p>The all-order spectral estimate and positive-extinction resolvent
+quantify the restrictions on the plane-wave pair. Exactness of the
+one-current relaxation does not imply joint realizability: the same
 local reciprocal constitutive tensor must generate both currents, and
 its reactive Maxwell constraints must also hold. Cross-source and
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="double-struck">𝕋</mi><annotation encoding="application/x-tex">\mathbb T</annotation></semantics></math>-operator
@@ -1320,8 +1334,9 @@ or a residual-gap proof. One-sided real caps and uncontrolled lossless
 responding sectors are separate unresolved classes.</p>
 <h2 id="app:tails">A Analytical control of the infinite spectral
 tail</h2>
-<p>The formulas can be evaluated with a controlled tail without imposing
-a physical modal cutoff. For
+<p>Numerical evaluation requires a finite sum, but the analytical
+operator retains every mode. The following estimates control the omitted
+tail without imposing a physical modal cutoff. For
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>≤</mo><mi>s</mi><mo>≤</mo><mi>z</mi></mrow><annotation encoding="application/x-tex">0\leq s\leq z</annotation></semantics></math>,
 the integral representation gives
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">|</mo><msub><mi>j</mi><mi>ℓ</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>s</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">|</mo><mo>≤</mo><msup><mi>s</mi><mi>ℓ</mi></msup><mi>/</mi><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mi>ℓ</mi><mo>+</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mi>!</mi><mi>!</mi></mrow><annotation encoding="application/x-tex">\lvert j_\ell(s)\rvert\leq s^\ell/(2\ell+1)!!</annotation></semantics></math>.

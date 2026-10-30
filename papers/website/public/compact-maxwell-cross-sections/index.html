@@ -46,16 +46,17 @@ limitations and conclusions</a></li>
 </ul></details>
 <section id="abstract" class="abstract">
 <h2 id="abstract-heading">Abstract</h2>
-<p>We study extinction-normalized absorption asymmetry for opposite
-time-reversed plane waves in reciprocal electromagnetism. For a fixed
-strictly absorbing planar tensor stack, we prove that the extinction,
-absorption and total scattering cross sections of its compact
-finite-aperture truncations, divided by aperture area, converge to the
-exact planar densities. The proof combines an aperture-independent
-inverse bound for the volume equation with mixed Fourier estimates that
-retain the grazing-radiation singularity. The optical theorem supplies
-the all-angle scattering limit. For square apertures, a boundary-strip
-construction gives a nonoptimal
+<p>Reciprocity fixes the extinction of time-reversed plane waves but
+allows their absorption to differ. We study this difference normalized
+by their common extinction. For a fixed strictly absorbing planar tensor
+stack, we prove that the extinction, absorption and total scattering
+cross sections of its compact finite-aperture truncations, divided by
+aperture area, converge to the exact planar densities. The proof
+combines an aperture-independent inverse bound for the volume equation
+with mixed Fourier estimates that retain the grazing-radiation
+singularity. The optical theorem supplies the all-angle scattering
+limit. For square apertures, a boundary-strip construction gives a
+nonoptimal
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="prefix">(</mo><mi>k</mi><mi>R</mi><msup><mo stretchy="false" form="postfix">)</mo><mrow><mi>−</mi><mn>1</mn><mi>/</mi><mn>3</mn></mrow></msup><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">O((kR)^{-1/3})</annotation></semantics></math>
 error at fixed stack parameters. An ordered planar-design, positive-loss
 and aperture limit yields compact two-layer local nonmagnetic
@@ -82,11 +83,11 @@ The normalization and physical class matter: a compact-body cross
 section has units of area, an infinite slab is described by power
 densities per transverse area, and a point-dipole model has its own
 finite-dimensional radiation constraint.</p>
-<p>This paper supplies two complementary analyses. The first proves
-localization of the actual Maxwell cross sections for literal material
-truncations of a fixed strictly absorbing planar stack. Its
-volume-current estimate controls both incidences and, through energy
-balance, the complete scattering integral. A square-aperture
+<p>We address this distinction through two complementary analyses. The
+first proves localization of the actual Maxwell cross sections for
+literal material truncations of a fixed strictly absorbing planar stack.
+The volume-current estimate controls both incidences. Energy balance
+then controls the complete scattering integral. A square-aperture
 construction gives an explicit, nonoptimal convergence exponent. The
 second treats complete electric–magnetic dipole polarizabilities with
 radiation reaction, exhibiting the distinction between a sharp
@@ -102,9 +103,9 @@ total extinction during aperture growth requires further uniformity at
 vanishing physical coupling; it is not obtained by the fixed-stack limit
 alone. No verification record from the companion is transferred to the
 present proofs.</p>
-<p>The physical ingredients have established precedents. Magnetoelectric
-optical theorems and inverse-polarizability radiation dressing are
-developed by Sersic and coauthors
+<p>We distinguish these results from several established physical
+ingredients. Magnetoelectric optical theorems and inverse-polarizability
+radiation dressing are developed by Sersic and coauthors
 <span class="citation">[<a href="#ref-Sersic2011">4</a>]</span>.
 Reciprocal particle asymmetry and its nonorthogonal-mode mechanism are
 studied by Hopkins and coauthors
@@ -119,7 +120,8 @@ Polarization conversion with selective attenuation is established
 <span class="citation">[<a href="#ref-Armitage2014">9</a>, <a href="#ref-Khurgin2021">10</a>]</span>,
 and metasurface directional absorption has related model-specific bounds
 <span class="citation">[<a href="#ref-ManezEspina2026">11</a>]</span>.</p>
-<p>For the aperture passage, Gao, Yang and Kattawar analyze polarized
+<p>The passage from a planar stack to a finite material aperture also
+has relevant precedents. Gao, Yang and Kattawar analyze polarized
 extinction of large-aspect-ratio plates
 <span class="citation">[<a href="#ref-Gao2013">12</a>]</span>. Windowed
 Green-function methods treat layered backgrounds
@@ -133,7 +135,9 @@ modify only trial polarizations; the final material aperture remains
 sharp. These comparisons do not establish first priority for the
 localization theorem or dipole equality family.</p>
 <h2 id="sec:model">2 Maxwell cross sections and strictness</h2>
-<p>Use time dependence
+<p>We begin by fixing the illumination pair and power normalization,
+which are shared by the dipole and finite-body analyses. Use time
+dependence
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>e</mi><mrow><mi>−</mi><mi>i</mi><mi>ω</mi><mi>t</mi></mrow></msup><annotation encoding="application/x-tex">e^{-i\omega t}</annotation></semantics></math>
 and vacuum wavenumber
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mo>=</mo><mi>ω</mi><mi>/</mi><mi>c</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">k=\omega/c&gt;0</annotation></semantics></math>.
@@ -213,7 +217,8 @@ At fixed nonzero extinction, approaching one requires unbounded forward
 directivity; no hard multipole cutoff is inferred from finite object
 size.</p>
 <h2 id="sec:dipole">3 Complete electric–magnetic dipole models</h2>
-<p>Let
+<p>The dipole model provides a finite-dimensional comparison before we
+study a spatially extended dielectric. Let
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>E</mi><mo>,</mo><mi mathvariant="bold-italic">𝑯</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f=(E,\mathbf H)</annotation></semantics></math>,
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>p</mi></msub><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>p</mi><mi>/</mi><msub><mi>ε</mi><mn>0</mn></msub><mo>,</mo><msub><mi>Z</mi><mn>0</mn></msub><mi>m</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">d_p=(p/\varepsilon_0,Z_0m)</annotation></semantics></math>
 and
@@ -333,7 +338,8 @@ interior extinction. The ratio is
 as
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>↑</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">t\uparrow1</annotation></semantics></math>,
 while the extinction tends to zero.</p>
-<p>Radiation reaction is retained exactly. Put
+<p>To check that the equality tensor includes radiation reaction, we
+construct its bare response explicitly. Put
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>=</mo><msqrt><mrow><mn>2</mn><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mi>/</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>+</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo></mrow></msqrt></mrow><annotation encoding="application/x-tex">a=\sqrt{2(1-t)/(1+t)}</annotation></semantics></math>
 and <span
 class="equation unnumbered"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi mathvariant="sans-serif">𝖠</mi><mn>0</mn></msub><mo>=</mo><mi>i</mi><mi>N</mi><mo>,</mo><mspace width="2.0em"></mspace><mi>N</mi><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><msup><mi>a</mi><mn>2</mn></msup></mtd><mtd columnalign="center" style="text-align: center"><mi>−</mi><msup><mi>a</mi><mn>2</mn></msup><mi>/</mi><mn>2</mn></mtd><mtd columnalign="center" style="text-align: center"><mi>−</mi><mi>a</mi></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><msup><mi>a</mi><mn>2</mn></msup><mi>/</mi><mn>2</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>0</mn></mtd><mtd columnalign="center" style="text-align: center"><mi>−</mi><mi>a</mi></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mi>−</mi><mi>a</mi></mtd><mtd columnalign="center" style="text-align: center"><mi>a</mi></mtd><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">\mathsf A_0=iN,\qquad
@@ -380,7 +386,8 @@ response proves realization by a local finite dielectric; the
 construction below does not require that completion.</p>
 <h2 id="sec:volume">4 Exact volume operators and weak Maxwell
 solutions</h2>
-<p>Let
+<p>We now leave the point model and describe the exact volume-current
+problem for a local dielectric. Let
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>D</mi><annotation encoding="application/x-tex">D</annotation></semantics></math>
 be bounded and measurable, with
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">|</mo><mi>D</mi><mo stretchy="false" form="postfix">|</mo><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\lvert D\rvert&gt;0</annotation></semantics></math>,
@@ -630,7 +637,8 @@ distributionally and almost everywhere; its curl equation then gives
 </div>
 <h2 id="sec:localization">5 Fixed-stack finite-aperture
 localization</h2>
-<p>Write
+<p>The inverse bound above remains valid as the aperture grows. We use
+it to compare the finite-body current with the planar current. Write
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><msub><mi>x</mi><mo>⟂</mo></msub><mo>,</mo><mi>z</mi><mo stretchy="false" form="postfix">)</mo><mo>∈</mo><msup><mi mathvariant="double-struck">ℝ</mi><mn>2</mn></msup><mo>×</mo><mi mathvariant="double-struck">ℝ</mi></mrow><annotation encoding="application/x-tex">x=(x_\perp,z)\in\mathbb R^2\times\mathbb R</annotation></semantics></math>.
 Let
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Ω</mi><mo>⊂</mo><msup><mi mathvariant="double-struck">ℝ</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">\Omega\subset\mathbb R^2</annotation></semantics></math>
@@ -758,7 +766,8 @@ Maxwell powers, not an
 normalization of an infinite plane wave.</p>
 <h3 id="mixed-fourier-localization-proof">5.2 Mixed Fourier localization
 proof</h3>
-<p>Choose a fixed
+<p>The proof uses a smooth trial current inside the sharp material
+aperture. Choose a fixed
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo>∈</mo><msubsup><mi>C</mi><mi>c</mi><mi>∞</mi></msubsup><mo stretchy="false" form="prefix">(</mo><mi mathvariant="normal">Ω</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">g\in C_c^\infty(\Omega)</annotation></semantics></math>
 and put
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>g</mi><mi>R</mi></msub><mo stretchy="false" form="prefix">(</mo><msub><mi>x</mi><mo>⟂</mo></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>g</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>x</mi><mo>⟂</mo></msub><mi>/</mi><mi>R</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">g_R(x_\perp)=g(x_\perp/R)</annotation></semantics></math>.
@@ -832,9 +841,10 @@ by
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>C</mi><mi>c</mi><mi>∞</mi></msubsup><mo stretchy="false" form="prefix">(</mo><mi mathvariant="normal">Ω</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">C_c^\infty(\Omega)</annotation></semantics></math>
 functions proves <span id="eq:current-limit"
 class="equation"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mrow><mo stretchy="true" form="prefix">‖</mo><msub><mi>p</mi><mi>R</mi></msub><mo>−</mo><mi>q</mi><mo stretchy="true" form="postfix">‖</mo></mrow><mrow><msup><mi>L</mi><mn>2</mn></msup><mo stretchy="false" form="prefix">(</mo><msub><mi>D</mi><mi>R</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow></msub><mo>=</mo><mi>o</mi><mo stretchy="false" form="prefix">(</mo><mi>R</mi><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">\lVert p_R-q\rVert_{L^2(D_R)}=o(R).</annotation></semantics></math><span
-class="equation-number">(28)</span></span> The order is fixed stack,
-fixed window, aperture limit, then window approximation; the material is
-never smoothed.</p>
+class="equation-number">(28)</span></span> The limits are taken in the
+following order: fix the stack and window, enlarge the aperture, and
+then approximate the constant window. The material aperture remains
+sharp throughout.</p>
 <p>The incident, planar-extended and exact current norms on
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>D</mi><mi>R</mi></msub><annotation encoding="application/x-tex">D_R</annotation></semantics></math>
 are all
@@ -851,7 +861,8 @@ data-reference-type="ref" data-reference="thm:localization">5.1</a>,
 including a narrowing forward peak and any edge or grazing radiation,
 without requiring pointwise far-field convergence.</p>
 <h2 id="sec:rate">6 An explicit square-aperture rate</h2>
-<p>Let
+<p>For a square aperture, choosing the window width as the aperture
+grows gives an explicit error estimate. Let
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mi>R</mi></msub><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mi>R</mi><mi>/</mi><mn>2</mn><mo>,</mo><mi>R</mi><mi>/</mi><mn>2</mn><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">S_R=(-R/2,R/2)^2</annotation></semantics></math>,
 whose area is
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>R</mi><mn>2</mn></msup><annotation encoding="application/x-tex">R^2</annotation></semantics></math>.
@@ -966,7 +977,8 @@ balances. ◻</p>
 unrestricted supremum</h2>
 <h3 id="an-exact-planar-pair-under-arbitrary-real-caps">7.1 An exact
 planar pair under arbitrary real caps</h3>
-<p>Fix
+<p>We apply localization to a planar design that combines selective
+absorption with polarization conversion. Fix
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo>&gt;</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">P&gt;1</annotation></semantics></math>
 and choose an integer
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>j</mi><annotation encoding="application/x-tex">j</annotation></semantics></math>
@@ -1081,7 +1093,9 @@ established polarization-filter/waveplate combination
 <span class="citation">[<a href="#ref-Armitage2014">9</a>, <a href="#ref-Khurgin2021">10</a>]</span>.</p>
 <h3 id="positive-loss-before-physical-truncation">7.2 Positive loss
 before physical truncation</h3>
-<p>For one fixed finite choice
+<p>The planar design initially has lossless directions. Before applying
+the coercive localization theorem, we add positive loss while keeping
+the design finite. For one fixed finite choice
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>η</mi><mo>,</mo><mi>h</mi><mo>,</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(\eta,h,t)</annotation></semantics></math>,
 add
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi><mi>ν</mi><mi>I</mi></mrow><annotation encoding="application/x-tex">i\nu I</annotation></semantics></math>
@@ -1191,8 +1205,10 @@ companion manuscript
 and requires additional normalized angle-uniform control.</p>
 <h2 id="dispersion-limitations-and-conclusions">8 Dispersion,
 limitations and conclusions</h2>
-<p>The constructed real and imaginary tensor parts share a real
-orthogonal eigenbasis. At a chosen frequency
+<p>The construction specifies material tensors at one frequency. To
+check compatibility with passive causal dispersion, note that their real
+and imaginary parts share a real orthogonal eigenbasis. At a chosen
+frequency
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ω</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\omega&gt;0</annotation></semantics></math>,
 each target susceptibility
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>+</mo><mi>i</mi><mi>b</mi></mrow><annotation encoding="application/x-tex">a+ib</annotation></semantics></math>,

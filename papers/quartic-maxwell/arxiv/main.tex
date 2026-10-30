@@ -26,11 +26,11 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-For opposite real linearly polarized plane waves, a reciprocal dielectric has equal extinction but can have different absorption and total scattering. We bound the absolute absorption difference divided by common extinction for compact nonmagnetic local media with a susceptibility norm cap $M$ and a full tensor loss floor $m>0$. An exact Maxwell inequality gives order $(kR)^4$ uniformly over all positive-volume measurable supports inside a radius-$R$ ball and all measurable admissible tensor patterns, including patterns that vary with size. For a fixed rescaled design, two static volume-response moments determine the quartic coefficient, with an $O((kR)^6)$ remainder. Two finite dielectric spheres with susceptibilities $iI$ and $2iI$ give an explicit positive coefficient interval and a full-Maxwell remainder bound. A homogeneous unequal-sphere construction proves exponent sharpness for every $0<m\leq M$. The asymmetry mechanism and fixed-smooth-shape quartic upper order have prior precedents. The results here concern the geometric uniformity, explicit constants and continuum coefficient certificates; they do not determine an optimal prefactor, an exact finite-size optimum or a fixed-positive-extinction small-size limit.
+For opposite real linearly polarized plane waves, a reciprocal dielectric has equal extinction but can have different absorption and total scattering. We bound the absolute absorption difference divided by common extinction for compact nonmagnetic local media with a susceptibility norm cap $M$ and a full tensor loss floor $m>0$. An exact Maxwell inequality bounds the asymmetry by order $(kR)^4$ uniformly over all positive-volume measurable supports inside a radius-$R$ ball and all measurable admissible tensor patterns, including patterns that vary with size. For a fixed rescaled design, two static volume-response moments determine the quartic coefficient, with an $O((kR)^6)$ remainder. For two finite dielectric spheres with susceptibilities $iI$ and $2iI$, we enclose the coefficient in an explicit positive interval and bound the full-Maxwell remainder. A homogeneous unequal-sphere construction proves exponent sharpness for every $0<m\leq M$. The asymmetry mechanism and fixed-smooth-shape quartic upper order have prior precedents. The results here concern the geometric uniformity, explicit constants and continuum coefficient certificates; they do not determine an optimal prefactor, an exact finite-size optimum or a fixed-positive-extinction small-size limit.
 \end{abstract}
 
 \section{Scope and principal results}\label{sec:main}
-Reciprocity constrains extinction while allowing absorption and scattering to depend on illumination direction. Extinction symmetry and this redistribution were established by Sounas and Al\`u \citep{SounasAlu2014}; Hopkins and coauthors give opposite linear-polarization examples and transverse coupled-dipole equations \citep{Hopkins2015}. We address a quantitative size limit under fixed material resources.
+Reciprocity constrains extinction while allowing absorption and scattering to depend on illumination direction. Extinction symmetry and this redistribution were established by Sounas and Al\`u \citep{SounasAlu2014}; Hopkins and coauthors give opposite linear-polarization examples and transverse coupled-dipole equations \citep{Hopkins2015}. We ask how rapidly this directional difference must vanish as an object shrinks when the material resources stay fixed.
 
 Use time dependence $e^{-i\omega t}$, vacuum wavenumber $k>0$, relative permeability $I$ and relative permittivity $I+\chi$. Let $D\subset B_R(0)$ be a measurable set of positive volume $V$, and require explicitly
 \begin{equation}\label{eq:class}
@@ -102,12 +102,14 @@ Theorems~\ref{thm:hetero} and~\ref{thm:sharp} establish sharpness of the exponen
 The length $R$ in Theorem~\ref{thm:upper} is a specified enclosing-ball radius. In Theorem~\ref{thm:hetero} it is also the center separation. That object lies in $B_{3R/5}(0)$; its minimum enclosing radius is $23R/40$, centered at $R\ez/40$. Changing the normalization to $\tau=k(23R/40)$ multiplies the quartic coefficient by $(40/23)^4$, the remainder coefficient by $(40/23)^6$, and changes the stated remainder and lower-bound intervals to $\tau\leq23/160$ and $\tau\leq23/1600$.
 
 \section{Exact operators, weak fields and the uniform bound}\label{sec:operators}
+The proof uses the exact volume response rather than a dipole approximation. We first establish its physical power identities and then exploit the cancellation between opposite real incident waves to obtain a bound independent of the support shape.
+
 On $H=L^2(D;\mathbb C^3)$ use the inner product $\ip{u}{v}=\int_D\overline u\cdot v$ and bilinear pairing $\bilin{u}{v}=\int_Du\cdot v$. Extend currents by zero and define
 \begin{equation}\label{eq:K}
  K_kp=\left.(k^2I+\nabla\nabla\cdot)(g_k*p)\right|_D,
  \qquad g_k(x)=\frac{e^{ik\abs{x}}}{4\pi\abs{x}}.
 \end{equation}
-All derivatives are distributional; the static contact term is included. For $p=\chi E$,
+All derivatives are understood in the distributional sense, including the static contact term. For $p=\chi E$,
 \begin{equation}\label{eq:response}
  L_k^{\mathrm{op}}p=f,\qquad L_k^{\mathrm{op}}=\chi^{-1}-K_k,
  \qquad T_k=(L_k^{\mathrm{op}})^{-1},\qquad p_\pm=T_kf_\pm.
@@ -238,12 +240,14 @@ Divide by positive $X$ and use $0\leq A_\pm\leq X$ to obtain~\eqref{eq:upper}. F
 \end{proof}
 
 \section{A coefficient for a fixed rescaled design}\label{sec:coefficient}
+The uniform upper bound allows the geometry and material pattern to change with size. To identify a leading coefficient, we now hold one rescaled design fixed and isolate the static response to the constant and first-order incident fields.
+
 Fix a positive-volume measurable $\Omega\subset B_1$ and a tensor $\chi\in L^\infty(\Omega)$ satisfying~\eqref{eq:class}. The physical body is $R\Omega$ with susceptibility $\chi(x/R)$. Set $t=kR$, and use $K_t,T_t$ on $L^2(\Omega;\mathbb C^3)$. Define
 \begin{equation}\label{eq:moments}
  q_0=T_0e,\qquad q_1=T_0[(d\cdot y)e],\qquad
  p_j=\int_\Omega q_j(y)\dd y,\qquad D_0=\Im(e\cdot p_0).
 \end{equation}
-The affine input in $q_1$ need not be curl-free. It is the first term of a Maxwell plane-wave expansion and is a legitimate $L^2$ input to the static volume inverse; it is not assumed to be an independently applied electrostatic field.
+The affine input in $q_1$ need not be curl-free. It comes from the first-order term of a Maxwell plane-wave expansion and is a legitimate $L^2$ input to the static volume inverse. It is not assumed to be an independently applied electrostatic field.
 
 \begin{theorem}[Fixed-pattern coefficient]\label{thm:coefficient}
 One has $D_0>0$, and for this fixed rescaled pattern,
@@ -289,6 +293,8 @@ At $t=0$, self-adjointness of $K_0$ gives $D_0=\ip{q_0}{Wq_0}>0$. Divide the abs
 Translating the reference origin changes $p_1$ by a real multiple of $p_0$ and leaves $\Im(p_0^\dagger p_1)$ unchanged. The coefficient thus respects translation invariance.
 
 \section{An interacting finite-sphere certificate}\label{sec:hetero}
+We next show that the quartic coefficient is positive for actual finite spheres. The calculation starts from isolated sphere responses and bounds the full interaction error, so positivity does not rest on a point-dipole approximation.
+
 Work in reference coordinates with
 \begin{equation}\label{eq:spheres}
  \Omega_1=B_a(-\ez/2),\qquad\Omega_2=B_{2a}(\ez/2),
@@ -316,7 +322,7 @@ The off-diagonal two-block operator has norm equal to the larger block norm, wit
 \begin{equation}\label{eq:delta}
  \delta:=\norm{T_0-A_b}\leq\frac{4c}{1-2c}<\frac1{600}.
 \end{equation}
-This bounds all current components, repeated interactions and static multipoles.
+This estimate controls the full current, including repeated interactions and static multipoles.
 
 For a scalar susceptibility on a ball, $K_0e=-e/3$ for a constant vector, hence the isolated response is $\beta_je$ with $\beta_j=3\chi_j/(3+\chi_j)$. Bilinear symmetry, tested against any constant vector, proves the arbitrary-input moment identity
 \begin{equation}\label{eq:ball-moment}
@@ -423,6 +429,8 @@ With $w=12\pi/8000$, this proves the $21t^6/2000$ bound. Finally
 proves the positive lower bound in~\eqref{eq:hetero-remainder} and completes Theorem~\ref{thm:hetero}.
 
 \section{Homogeneous unequal spheres in every resource class}\label{sec:homogeneous}
+The preceding example uses different susceptibilities in the two spheres. Here the same material fills both spheres; their unequal sizes and mutual interaction supply a positive coefficient in every admissible resource class.
+
 Fix $\mu>0$ and use $\chi=i\mu I$ on two balls centered at $\mp\ez/2$ with radii $a,2a$. Choose a fixed $0<a\leq1/20$ below. Put
 \begin{equation}\label{eq:homogeneous-parameters}
  v=\frac{4\pi a^3}{3},\quad v_1=v,\quad v_2=8v,\quad
@@ -439,7 +447,7 @@ Twice iterating the exact resolvent identity yields
  T=A+AC_oA+AC_oAC_oT,\qquad
  \norm{T-A-AC_oA}\leq\mu^3\norm{C_o}^2.
 \end{equation}
-No Neumann-series convergence hypothesis is used here.
+This finite resolvent expansion requires no convergence assumption for a Neumann series.
 
 \subsection{The first interaction and its sign}
 Use inputs $f=\ex$, $g=z\ex$, and write moments through the first interaction as $\widetilde p_j=p_j^b+p_j^{(1)}$. The isolated moments are
@@ -530,7 +538,9 @@ Theorem~\ref{thm:coefficient} therefore gives a full-Maxwell family
 Set $\mu=m$. This single material obeys~\eqref{eq:class} for every $M\geq m$, including $M=m$. The fixed positive coefficient and its fixed-pattern remainder give a positive lower bound $ct^4$ for all sufficiently small $t$. Theorem~\ref{thm:upper} supplies the uniform upper bound. A rigid rotation covers every fixed real transverse pair and proves Theorem~\ref{thm:sharp}. There is no simultaneous uncontrolled separation and size limit.
 
 \section{Relation to earlier formulas and physical limits}\label{sec:prior}
-The fixed-smooth-shape quartic upper order is already implicit in full-Maxwell small-inclusion expansions. In particular, Ammari, Deng and Millien, Theorem~5.8 and Eq.~(5.32) of the first arXiv version \citep{AmmariDengMillien2014}, give a leading electric and magnetic static polarization term and an $O(\delta^4)$ field remainder. For a fixed smooth homogeneous reference body, fixed lossy scalar contrast and zero magnetic contrast, the leading magnetic term vanishes. Both real opposite electric plane waves have the same value at the shrinking center. Consequently their far fields have the same $\delta^3$ term, so $S_+-S_-=O(\delta^7)$, while positive static dissipation gives $X=\Theta(\delta^3)$. We infer $\Gamma=O(\delta^4)$ under these fixed-shape hypotheses. This inference does not attribute our all-measurable-support quantifier or constants to that theorem.
+The comparison with earlier work distinguishes an established physical mechanism and fixed-shape scaling from the geometric uniformity and quantitative finite-body estimates proved here.
+
+The fixed-smooth-shape quartic upper order is already implicit in full-Maxwell small-inclusion expansions. In particular, Ammari, Deng and Millien, Theorem~5.8 and Eq.~(5.32) of the first arXiv version \citep{AmmariDengMillien2014}, give a leading electric and magnetic static polarization term and an $O(\delta^4)$ field remainder. For a fixed smooth homogeneous reference body, fixed lossy scalar contrast and zero magnetic contrast, the leading magnetic term vanishes. Both real opposite electric plane waves have the same value at the shrinking center. Consequently their far fields have the same $\delta^3$ term, so $S_+-S_-=O(\delta^7)$, while positive static dissipation gives $X=\Theta(\delta^3)$. We infer $\Gamma=O(\delta^4)$ under these fixed-shape hypotheses. That fixed-shape inference does not establish the uniformity over all measurable supports or the constants proved here.
 
 Hopkins and coauthors' transverse two-dipole equations (12)--(15), and their opposite-linear-polarization example in Fig.~3, are direct mechanism precedents \citep{Hopkins2015}. To compare coefficients, take static volume polarizabilities $\alpha_1,\alpha_2$, unit center separation and transverse coupling $g=-1/(4\pi)$. Their scalar reduction has uniform- and affine-drive total moments
 \[
@@ -566,10 +576,12 @@ A susceptibility cap and full tensor loss floor give a quartic upper bound for r
 \noindent\textbf{AI assistance and verification scope.}
 The accompanying formalization uses Lean 4.34.1 \citep{deMouraUllrich2021} and a pinned Mathlib revision \citep{mathlib2020}. It proves the numbered theorem and lemma conclusions for the stated physical models: the measurable-tensor weak Maxwell problem and uniform bounds, the fixed-pattern coefficient and physical dilation, the interacting heterogeneous-sphere certificate, and homogeneous exponent sharpness for every resource pair, including $M=m$. In the sharpness theorem, resource-dependent constants precede the quantifiers over all real transverse unit illumination pairs. The sphere proofs use actual volume responses, rather than assumed dipole responses or numerical certificates.
 
-The ancillary source supplement records exact formal statement types, source hashes, dependency pins, transitive axiom inventories and fresh kernel-replay results. Its coverage ledger distinguishes these theorem conclusions from auxiliary displays and discussion that have not been separately formalized. A manuscript-version binding links the checked source record to this revision. Fresh replay uses Lean's own kernel implementation; it is not an independently implemented checker or human peer review. AI tools assisted the mathematical development, formalization, document reconstruction, editing and literature comparison.
+The ancillary source supplement records exact formal statement types, source hashes, dependency pins, transitive axiom inventories and fresh kernel-replay results. Its coverage ledger distinguishes these theorem conclusions from auxiliary displays and discussion that have not been separately formalized. A manuscript-version binding links the checked source record to the preceding recorded manuscript edition. The present editorial revision preserves the mathematical expressions and numbered statements; the binding record does not identify these revised TeX bytes. Fresh replay uses Lean's own kernel implementation; it is not an independently implemented checker or human peer review. AI tools assisted the mathematical development, formalization, document reconstruction, editing and literature comparison.
 
 \appendix
 \section{Entire outgoing weak vacuum uniqueness}\label{app:vacuum}
+To identify a weak Maxwell solution with its volume representation, we must exclude an additional source-free outgoing field in all of space. This appendix proves that uniqueness statement without assuming a regular material boundary.
+
 Let $E,\mathbf H\in H_{\mathrm{loc}}(\mathrm{curl})$ solve the vacuum equations everywhere and satisfy the uniform outgoing condition. Constant-coefficient Maxwell equations imply componentwise Helmholtz equations distributionally, so the pair has a smooth representative. Choose a smooth radial cutoff $\eta_R$ equal to one for $r\leq R$ and zero for $r\geq2R$, with $w_R=-\eta_R'\geq0$ and $\int_R^{2R}w_R\dd r=1$. Compact integration of the real Poynting identity gives
 \[
  \int w_R\Re\{E\cdot\overline{\mathbf H\times n}\}\dd x=0,

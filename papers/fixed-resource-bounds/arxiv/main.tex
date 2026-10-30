@@ -25,7 +25,7 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-We bound the absolute absorption difference divided by common extinction for time-reversed plane waves incident on compact reciprocal dielectric bodies in vacuum. An integrated loss-weighted response budget $\mathcal M$ gives the all-angle bound $\Gamma\leq k^3\mathcal M/(6\pi+k^3\mathcal M)$. For a bounded local response and support in a radius-$a$ ball, the complete electric-current radiation spectrum satisfies $\norm{\mathcal R_a}\leq ka$ at every frequency. At positive required extinction, a resolvent of this operator supplies a strictly positive scattering floor, and an explicit optimizer proves the exact minimum of the stated current relaxation. A homogeneous, strictly lossy reciprocal anisotropic sphere has the exact-Maxwell expansion $\Gamma=(160/2071)(ka)^3+O((ka)^4)$ for a circular time-reversed polarization pair. This cubic order concerns the general complex-polarization class; opposite real linear polarizations admit a stronger quartic refinement. The response and efficiency principles have established precedents. The bounds here do not determine the sharp fixed-resource Maxwell supremum or establish that two relaxed optimizers can be realized by the same local material.
+How closely can a reciprocal body approach complete absorption contrast when its material response and size are bounded? We address this question for time-reversed plane waves incident on compact dielectric bodies in vacuum, using the absolute absorption difference divided by common extinction. An integrated loss-weighted response budget $\mathcal M$ gives the all-angle bound $\Gamma\leq k^3\mathcal M/(6\pi+k^3\mathcal M)$. For a bounded local response and support in a radius-$a$ ball, the complete electric-current radiation spectrum satisfies $\norm{\mathcal R_a}\leq ka$ at every frequency. At positive required extinction, a resolvent of this operator supplies a strictly positive scattering floor, and an explicit optimizer proves the exact minimum of the stated current relaxation. A homogeneous, strictly lossy reciprocal anisotropic sphere has the exact-Maxwell expansion $\Gamma=(160/2071)(ka)^3+O((ka)^4)$ for a circular time-reversed polarization pair. This cubic order concerns the general complex-polarization class; opposite real linear polarizations admit a stronger quartic refinement. The analysis builds on established response and efficiency principles. The bounds here do not determine the sharp fixed-resource Maxwell supremum or establish that two relaxed optimizers can be realized by the same local material.
 \end{abstract}
 
 \section{Admissible class and principal bound}\label{sec:main}
@@ -46,7 +46,7 @@ The magnetic fields satisfy $Z_0H_-=-\overline{Z_0H_+}$. Conjugating the constan
  \Gamma=\frac{\abs{A_+-A_-}}{X}
        =\frac{\abs{S_+-S_-}}{X}.
 \end{equation}
-All three cross sections have units of area.
+All three cross sections have units of area. Equal extinction therefore makes the absorption difference a redistribution between absorption and radiation, rather than a difference in total extracted power.
 
 \begin{theorem}[Fixed-resource gap]\label{thm:main}
 Fix $k>0$, a diameter cap $R>0$, a volume cap $V>0$, $P\geq1$ and $0<\delta\leq Q<\infty$. Suppose $\operatorname{diam}D\leq R$, $\abs D\leq V$ and, almost everywhere,
@@ -81,7 +81,7 @@ For dimensionless resources $\kappa=kR$, $v=k^3V$ and $e_0=k^2E_0$, one sufficie
 Here $\Gamma\leq1-F$. The absence of $e_0$ is intentional; Section~\ref{sec:resolvent} provides an additional positive-extinction improvement. If dimensional $V,E_0$ are retained instead, $k$ must also be fixed or supplied.
 
 \section{Exact Maxwell identities and well-posedness}\label{sec:maxwell}
-Divide electric fields by a nonzero incident amplitude $E_{\rm ref}$ and set $p=\chi E$. The physical polarization is $\varepsilon_0E_{\rm ref}p$. The $L^2$ inner product is conjugate-linear in its first argument. With $g_k(x)=e^{ik\abs x}/(4\pi\abs x)$, define the distributional volume operator, restricted to $D$ after zero extension,
+We first establish the exact power identities and solvability needed by the bounds. Divide electric fields by a nonzero incident amplitude $E_{\rm ref}$ and set $p=\chi E$. The physical polarization is $\varepsilon_0E_{\rm ref}p$. The $L^2$ inner product is conjugate-linear in its first argument. With $g_k(x)=e^{ik\abs x}/(4\pi\abs x)$, define the distributional volume operator, restricted to $D$ after zero extension,
 \begin{equation}\label{eq:volume}
  T_kp=(k^2I+\nabla\nabla\cdot)(g_k*p),\qquad E=f+T_kp.
 \end{equation}
@@ -146,7 +146,7 @@ Taking imaginary parts proves extinction equality.
 No smooth boundary, component count, feature-size assumption or modal cutoff is used. The full tensor loss floor is required for this well-posedness assertion over the entire essentially bounded class.
 
 \section{Integrated response and all-angle efficiency}\label{sec:response}
-A more general sufficient response hypothesis is
+The material caps above control how much polarization current can be produced for a given absorbed power. To separate this mechanism from the particular caps, we use the more general sufficient response hypothesis
 \begin{equation}\label{eq:response}
  B\succeq0,\quad \eta:D\to[0,\infty)\text{ measurable},\quad
  \abs{\chi(x)v}^2\leq\eta(x)v^\dagger B(x)v,\quad
@@ -208,7 +208,7 @@ Rearrange~\eqref{eq:response-gamma}. For~\eqref{eq:absolute} let $x=X/(k\mathcal
 \end{proof}
 
 \section{Complete ball radiation spectrum}\label{sec:spectrum}
-Suppose $D\subset B_a$ and $\eta\leq\bar\eta<\infty$ on responding material. Extend $p$ by zero to $B_a$; then $\norm p_2^2\leq\bar\eta A/k$. Define
+The integrated estimate uses the total response budget but does not resolve the radiation modes of the enclosing volume. We now retain that spectral information. Suppose $D\subset B_a$ and $\eta\leq\bar\eta<\infty$ on responding material. Extend $p$ by zero to $B_a$; then $\norm p_2^2\leq\bar\eta A/k$. Define
 \begin{equation}\label{eq:angular-operator}
  (Hp)(n)=\Pi_n\int_{B_a}p(x)e^{-ikn\cdot x}\dd x,\qquad
  \mathcal R_a=\ImH T_k\big|_{B_a}=\frac{k^3}{16\pi^2}H^\dagger H.
@@ -304,7 +304,7 @@ Hence $a\leq\sqrt{3/8}\,R$. Equations~\eqref{eq:lambda-bound}--\eqref{eq:efficie
 A diameter-$R$ body need not fit in a radius-$R/2$ ball. The isodiametric volume and enclosing-ball radius estimates are distinct.
 
 \section{Positive extinction and the exact current relaxation}\label{sec:resolvent}
-The optical theorem fixes forward work, while scattering is an angular integral. We retain every radiation mode rather than assume a directivity cutoff. For $a>0$, $\bar\eta>0$, put $w=1/\bar\eta$ and $t=X/k$. Every physical current extended to $B_a$ obeys
+The efficiency bounds give an upper endpoint for each scattering fraction. Positive extinction also gives a lower endpoint: the optical theorem fixes forward work, while scattering is an angular integral. We retain every radiation mode rather than assume a directivity cutoff. For $a>0$, $\bar\eta>0$, put $w=1/\bar\eta$ and $t=X/k$. Every physical current extended to $B_a$ obeys
 \begin{equation}\label{eq:relaxation}
  \Im\ip f p=t,\qquad
  \ip p{(\mathcal R_a+wI)p}\leq t.
@@ -333,7 +333,7 @@ Rearrange for~\eqref{eq:rho-dual}. At $\alpha=w$ the same inequality gives $t\le
 \]
 For fixed $t>0$, choose $\alpha$ with $\alpha D_\alpha<wt$; its dual value is positive.
 
-For exactness define
+To show that the lower bound is attained within the current relaxation, define
 \begin{align*}
  H_\alpha&=\ip f{(\mathcal R_a+\alpha I)^{-2}f}=-D'_\alpha,\qquad
  K_\alpha=\ip f{(\mathcal R_a+\alpha I)^{-3}f},\\
@@ -426,7 +426,7 @@ If $U_0<L_0$ the resource requirements are incompatible. The cap constant is not
 The series retains arbitrarily small high-order radiation eigenvalues. Superdirective currents radiate weakly relative to their norm, while the loss metric charges that norm and the optical theorem fixes positive forward work. These constraints give $\rho>0$ without a finite multipole count. Directivity--efficiency tradeoffs have established antenna precedents \citep{GustafssonCapek2019}. The bounded-loss inverse also controls resonant amplification in the stated material class.
 
 \section{Exact-Maxwell small-volume scaling}\label{sec:sphere}
-The relaxed optimizer need not arise from a local reciprocal susceptibility or from the same object under both illuminations. A separate physical construction establishes the general complex-polarization exponent.
+The relaxed optimizer need not arise from a local reciprocal susceptibility or from the same object under both illuminations. We therefore turn to a separate physical construction to establish the general complex-polarization exponent.
 
 \begin{theorem}[Reciprocal anisotropic sphere]\label{thm:sphere}
 Let $D=B_a$ be homogeneous with
@@ -481,7 +481,7 @@ interpreting the first term as a lossless causal oscillator limit. Both oscillat
 
 \section{Extensions and hypothesis limitations}\label{sec:extensions}
 \subsection{Isotropy and weaker loss assumptions}
-The response estimate includes arbitrary reciprocal local tensors and scalar isotropic media. For scalar $\Im\chi>0$, $\eta=\abs\chi^2/\Im\chi$. The sphere construction is anisotropic; no matching isotropic cubic construction or isotropic optimum is supplied.
+We next distinguish extensions of the response estimate from assumptions that its proof cannot remove. The estimate includes arbitrary reciprocal local tensors and scalar isotropic media. For scalar $\Im\chi>0$, $\eta=\abs\chi^2/\Im\chi$. The sphere construction is anisotropic; no matching isotropic cubic construction or isotropic optimum is supplied.
 
 Condition~\eqref{eq:response} allows nonuniform or vanishing loss only when responding directions remain controlled. Positive trace loss, positive integrated loss or positivity on one polarization does not imply it. In particular, a lossless direction with nonzero susceptibility violates the finite response condition. A replacement compactness proof without this control would need uniform Maxwell resolvent estimates, an appropriate topology for geometry and coefficients, a justified homogenization closure and uniqueness for the limiting class. Weak coefficient convergence alone supplies none of these requirements.
 
@@ -541,13 +541,13 @@ All main results are single-frequency statements. If one dispersive body satisfi
 \section{Relation to existing response bounds and remaining optimization}
 The integrated-response ceiling follows established material-response and radiation-efficiency inequalities \citep{Miller2016,Schab2020,Gustafsson2020,Kuang2020}. The sphere decomposition is also an established current-optimization tool \citep{Gustafsson2024}. Time-reversal response constraints require careful distinctions between loss hypotheses and normalization \citep{SounasAlu2017,Ma2025}. We do not claim a universally new response principle or an optimal fixed-resource Maxwell ceiling.
 
-The explicit all-order estimate and positive-extinction resolvent provide quantitative restrictions for the plane-wave pair. Exactness of the one-current relaxation does not imply joint realizability: the same local reciprocal constitutive tensor must generate both currents, and its reactive Maxwell constraints must also hold. Cross-source and $\mathbb T$-operator frameworks supply antecedents for enforcing such compatibility \citep{Molesky2020,Molesky2022,Shim2024}.
+The all-order spectral estimate and positive-extinction resolvent quantify the restrictions on the plane-wave pair. Exactness of the one-current relaxation does not imply joint realizability: the same local reciprocal constitutive tensor must generate both currents, and its reactive Maxwell constraints must also hold. Cross-source and $\mathbb T$-operator frameworks supply antecedents for enforcing such compatibility \citep{Molesky2020,Molesky2022,Shim2024}.
 
 The cubic construction establishes a general complex-polarization small-volume order. It makes no assertion about an optimal coefficient, an isotropic extremizer or a fixed-positive-extinction limit. The later real-linear quartic refinement concerns a narrower illumination class \citep{WangZhengQuartic2026}. The remaining problem is to determine the jointly attainable resource-constrained supremum, with a compatible physical construction or a residual-gap proof. One-sided real caps and uncontrolled lossless responding sectors are separate unresolved classes.
 
 \appendix
 \section{Analytical control of the infinite spectral tail}\label{app:tails}
-The formulas can be evaluated with a controlled tail without imposing a physical modal cutoff. For $0\leq s\leq z$, the integral representation gives $\abs{j_\ell(s)}\leq s^\ell/(2\ell+1)!!$. With $(sj_\ell)'=(\ell+1)j_\ell-sj_{\ell+1}$,
+Numerical evaluation requires a finite sum, but the analytical operator retains every mode. The following estimates control the omitted tail without imposing a physical modal cutoff. For $0\leq s\leq z$, the integral representation gives $\abs{j_\ell(s)}\leq s^\ell/(2\ell+1)!!$. With $(sj_\ell)'=(\ell+1)j_\ell-sj_{\ell+1}$,
 \begin{align}
  \lambda^M_\ell&\leq\frac{z^{2\ell+3}}{(2\ell+3)((2\ell+1)!!)^2},\label{eq:tailM}\\
  \lambda^N_\ell&\leq\left[\ell(\ell+1)+
