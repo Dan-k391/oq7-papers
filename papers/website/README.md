@@ -87,3 +87,7 @@ See [the candidate deployment record](verification/deployment-boundary-candidate
 ## Local editorial revision — 29 October 2026
 
 The local static site was rebuilt from the five prose-edited manuscript sources, with exact-source auxiliary numbering and revised PDFs/source archives. See [the editorial report](../EDITORIAL_REVIEW_2026-10-29.md) and [the format verification](verification/editorial-2026-10-29.json). Historical proof correspondence remains bound to its earlier source versions. Deployment status is recorded separately from the format checks.
+
+### Editorial website deployment
+
+The editorial revision is live at the public directory. Source commit `3de356ceb9cb744a238f1cbd63a7bb836ea8bf44` supplied the verified static files deployed by `gh-pages` commit `6665bc235579a8137aae34cfa7c0bde451bd3c7f`. The GitHub Pages workflow succeeded; the live directory and all 28 served files matched the verified release byte for byte. See [the deployment record](verification/deployment-editorial-2026-10-29.json). This confirms publication identity, not the validity of mathematical claims.
