@@ -56,8 +56,8 @@ normalized planar amplitudes</a></li>
 <section id="abstract" class="abstract">
 <h2 id="abstract-heading">Abstract</h2>
 <p>Reciprocity equates the extinction cross sections for opposite real
-linearly polarized plane waves, while permitting different absorption
-and scattering. At a fixed vacuum wavenumber
+linearly polarized plane waves, while allowing absorption and scattering
+to differ. At a fixed vacuum wavenumber
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">k&gt;0</annotation></semantics></math>,
 we prove that the supremum of the absorption difference divided by
 common extinction is one at every exactly prescribed extinction
@@ -72,13 +72,13 @@ with
 and
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>≺</mo><msub><mrow><mi mathvariant="normal">Im</mi><mo>&#8289;</mo></mrow><mrow><mspace width="-0.167em"></mspace><mi>H</mi></mrow></msub><mi>ε</mi><mo>≼</mo><mi>Q</mi><mi>I</mi></mrow><annotation encoding="application/x-tex">0\prec\operatorname{Im}_{\!H}\varepsilon\preceq QI</annotation></semantics></math>
 in each layer. Every individual body has asymmetry strictly below one.
-The key step is an aperture limit uniform after factoring out the
-squared sine of the material rotation angle, including its zero-angle
-auxiliary limit. This permits the coupling angle to decrease as the
-aperture grows while extinction remains fixed. Positive isotropic loss
-is then added, and continuity permits exact retuning to the target. The
-approximating sequence has no common geometric resource bound or
-positive loss floor, and the main theorem is monochromatic. The
+The key step is to factor out the squared sine of the material rotation
+angle and prove an aperture limit uniform in that angle, including its
+zero-angle auxiliary limit. This uniformity permits the coupling angle
+to decrease as the aperture grows, keeping extinction fixed. Positive
+isotropic loss is then added, and continuity permits exact retuning to
+the target. The approximating sequence has no common geometric resource
+bound or positive loss floor, and the main theorem is monochromatic. The
 contribution is the controlled compact Maxwell realization at prescribed
 extinction. An accompanying Lean 4 formalization verifies the main
 single-frequency existence and supremum statements and physical power
@@ -94,14 +94,14 @@ existing formalization or external human peer review.</p>
 fundamental limits on the redistribution between absorption and
 scattering under time-reversed illumination
 <span class="citation">[<a href="#ref-MillerMonticone2026">1</a>]</span>.
-A normalization, illumination class, and resource class are needed to
-turn that question into a theorem. Here the normalization is the common
-dimensional plane-wave extinction, the illumination pair is opposite
-real linear polarization in vacuum, and the objects are local reciprocal
-dielectric bodies at one frequency.</p>
-<p>The result is an existence and supremum theorem. It states that a
-finite object can have exactly any prescribed positive extinction and an
-absorption difference arbitrarily close to that extinction, while its
+A precise theorem requires a choice of normalization, illumination pair,
+and allowed material and geometric resources. Here the normalization is
+the common dimensional plane-wave extinction, the illumination pair is
+opposite real linear polarization in vacuum, and the objects are local
+reciprocal dielectric bodies at one frequency.</p>
+<p>We prove an existence and supremum theorem: a finite object can have
+exactly any prescribed positive extinction and an absorption difference
+arbitrarily close to that extinction. Throughout the construction, its
 real permittivity and loss obey fixed pointwise upper bounds. The main
 theorem establishes neither a finite-resource optimum nor
 finite-bandwidth performance. Section <a href="#sec:boundary-candidate"
@@ -112,15 +112,18 @@ dependencies. The same material tensor is used in both experiments, and
 scattering includes the whole outgoing sphere and both
 polarizations.</p>
 <p>At a fixed coupling angle, enlarging a planar-like aperture increases
-extinction proportionally to area. A fixed-stack aperture limit
-therefore does not suffice to prescribe total extinction. The exact
-rotation factorization and uniform normalized aperture theorem below
-permit the coupling angle to decrease while the aperture grows.
-Green-operator and localization arguments justify this passage for
-actual finite Maxwell bodies. Dipole optimization, scalar thickness
+extinction proportionally to area. An aperture limit with the stack held
+fixed therefore cannot by itself keep total extinction at a prescribed
+value. The exact rotation factorization and uniform normalized aperture
+theorem below permit the coupling angle to decrease while the aperture
+grows. Green-operator and localization arguments justify this passage
+for actual finite Maxwell bodies. Dipole optimization, scalar thickness
 laws, fixed-resource bounds, and quartic small-size results have
 different hypotheses and are outside the present proof.</p>
 <h2 id="sec:prior">2 Prior work and the precise contribution</h2>
+<p>The comparison below separates the established asymmetry mechanism
+from the compact realization and exact extinction constraint proved
+here.</p>
 <p>Reciprocal extinction equality and directional absorption are
 established facts. Sounas and Alù derived opposite-incidence extinction
 symmetry and its implications for scattering manipulation
@@ -210,9 +213,9 @@ for the impedance-normalized magnetic field. The incident fields are
 <span id="eq:incident"
 class="equation"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mo>±</mo></msub><mo stretchy="false" form="prefix">(</mo><mi mathvariant="bold-italic">𝒙</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msub><mi mathvariant="bold-italic">𝒆</mi><mi>y</mi></msub><msup><mi>e</mi><mrow><mi>±</mi><mi>i</mi><mi>k</mi><mi>z</mi></mrow></msup><mo>,</mo><mspace width="2.0em"></mspace><msub><mi mathvariant="bold-italic">𝑯</mi><mrow><mrow><mi mathvariant="normal">i</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">c</mi></mrow><mo>,</mo><mi>±</mi></mrow></msub><mo>=</mo><mi>±</mi><mo stretchy="false" form="prefix">(</mo><msub><mi mathvariant="bold-italic">𝒆</mi><mi>z</mi></msub><mo>×</mo><msub><mi mathvariant="bold-italic">𝒆</mi><mi>y</mi></msub><mo stretchy="false" form="postfix">)</mo><msup><mi>e</mi><mrow><mi>±</mi><mi>i</mi><mi>k</mi><mi>z</mi></mrow></msup><mi>.</mi></mrow><annotation encoding="application/x-tex">f_\pm(\mathbf x)=\mathbf e_ye^{\pm ikz},\qquad
  \mathbf H_{\mathrm{inc},\pm}=\pm(\mathbf e_z\times\mathbf e_y)e^{\pm ikz}.</annotation></semantics></math><span
-class="equation-number">(1)</span></span> Their electric amplitudes are
-one and their incident intensities coincide. This is a time-reversed
-pair of vacuum waves. The absorbing object itself is reciprocal, without
+class="equation-number">(1)</span></span> Both waves have unit electric
+amplitude and the same incident intensity. This is a time-reversed pair
+of vacuum waves. The absorbing object itself is reciprocal, without
 requiring its lossy dynamics to be invariant under time reversal.</p>
 <p>Let
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mo>,</mo><mi>h</mi><mo>,</mo><mi>d</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">R,h,d&gt;0</annotation></semantics></math>,
@@ -301,10 +304,14 @@ incident power. Section <a href="#sec:green" data-reference-type="ref"
 data-reference="sec:green">5</a> establishes the physical identities
 used here.</p>
 <h2 id="sec:main">4 Main theorem and nonattainment</h2>
+<p>The main question is whether fixing a positive total extinction
+leaves a gap below perfect normalized asymmetry. The theorem gives the
+supremum; the strictness lemma explains why a finite body cannot attain
+it.</p>
 <p>Let
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi mathvariant="script">𝒞</mi><mrow><mi>k</mi><mo>,</mo><mi>P</mi><mo>,</mo><mi>Q</mi><mo>,</mo><msub><mi>E</mi><mo>*</mo></msub></mrow></msub><annotation encoding="application/x-tex">\mathcal C_{k,P,Q,E_*}</annotation></semantics></math>
-consist of all two-layer square-aperture bodies just defined whose
-opposite-incidence solutions have common extinction
+denote the two-layer square-aperture bodies defined above with common
+opposite-incidence extinction
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>E</mi><mo>*</mo></msub><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">E_*&gt;0</annotation></semantics></math>.</p>
 <div id="thm:main" class="theorem">
 <p><strong>Theorem 4.1</strong> (Prescribed-extinction supremum).
@@ -369,6 +376,10 @@ nonattainment; the constructed sequence supplies the lower bound on each
 supremum.</p>
 <h2 id="sec:green">5 Exact volume operators and physical power
 identities</h2>
+<p>We first connect the volume-current formulation to physical Maxwell
+fields and powers. The operator bound controls the response, while its
+radiation identity accounts for scattering into the full outgoing
+sphere.</p>
 <p>For any bounded
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>D</mi><annotation encoding="application/x-tex">D</annotation></semantics></math>,
 extend
@@ -536,10 +547,10 @@ transmission. From the plate side, conversion occurs first, so an
 component reaches the absorber. The ideal plate produces no backward
 reflection; any reflection of the stack originates at the absorber, and
 scattering also includes the change in transmission relative to vacuum.
-This auxiliary model supplies intuition and a limiting target. The final
-objects are finite and compact, with positive active plate loss and
-added positive isotropic loss in both layers, followed by exact
-extinction retuning.</p>
+This auxiliary model explains the mechanism and specifies the limiting
+response to be approached. The final objects are finite and compact,
+with positive active plate loss and added positive isotropic loss in
+both layers, followed by exact extinction retuning.</p>
 <p>Initially use passive rank-one susceptibilities <span id="eq:rankone"
 class="equation"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>χ</mi><mi>A</mi></msub><mo>=</mo><mi>i</mi><mi>η</mi><msub><mi mathvariant="bold-italic">𝒆</mi><mi>x</mi></msub><msubsup><mi mathvariant="bold-italic">𝒆</mi><mi>x</mi><mi>T</mi></msubsup><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>χ</mi><mrow><mi>W</mi><mo>,</mo><mi>θ</mi></mrow></msub><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo>+</mo><mi>i</mi><mi>δ</mi><mo stretchy="false" form="postfix">)</mo><msub><mi mathvariant="bold-italic">𝒖</mi><mi>θ</mi></msub><msubsup><mi mathvariant="bold-italic">𝒖</mi><mi>θ</mi><mi>T</mi></msubsup><mo>,</mo><mspace width="2.0em"></mspace><msub><mi mathvariant="bold-italic">𝒖</mi><mi>θ</mi></msub><mo>=</mo><mrow><mi mathvariant="normal">cos</mi><mo>&#8289;</mo></mrow><mi>θ</mi><msub><mi mathvariant="bold-italic">𝒆</mi><mi>x</mi></msub><mo>+</mo><mrow><mi mathvariant="normal">sin</mi><mo>&#8289;</mo></mrow><mi>θ</mi><msub><mi mathvariant="bold-italic">𝒆</mi><mi>y</mi></msub><mo>,</mo></mrow><annotation encoding="application/x-tex">\chi_A=i\eta\mathbf e_x\mathbf e_x^T,\qquad
  \chi_{W,\theta}=(a+i\delta)\mathbf u_\theta\mathbf u_\theta^T,\qquad
@@ -826,6 +837,10 @@ is finite and positive;
 stays fixed for the cap
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>P</mi><annotation encoding="application/x-tex">P</annotation></semantics></math>.</p>
 <h2 id="sec:aperture">7 Uniform physical-aperture estimates</h2>
+<p>The planar construction must now be approximated by finite material
+bodies. The estimate must remain uniform as the coupling angle
+approaches zero, because that angle will later decrease as the aperture
+grows.</p>
 <p>Write
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mo>=</mo><mi>h</mi><mo>+</mo><mi>d</mi></mrow><annotation encoding="application/x-tex">L=h+d</annotation></semantics></math>
 and
@@ -1063,6 +1078,10 @@ is positive. Division therefore gives uniform convergence of the
 auxiliary ratios, including the zero-angle limit. ◻</p>
 </div>
 <h2 id="sec:realization">8 Exact prescribed-extinction realization</h2>
+<p>The construction proceeds in two stages. First, continuity in the
+coupling angle fixes the extinction in a finite rank-one body. Then
+positive isotropic loss is added and the angle is retuned, preserving
+both the target and the desired asymmetry.</p>
 <h3 id="a-root-in-a-finite-rank-one-object">8.1 A root in a finite
 rank-one object</h3>
 <p>Fix
@@ -1082,8 +1101,8 @@ so that the planar normalized ratio exceeds
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>−</mo><mn>5</mn><mi>ϵ</mi><mi>/</mi><mn>8</mn></mrow><annotation encoding="application/x-tex">1-5\epsilon/8</annotation></semantics></math>
 on
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">[</mo><mn>0</mn><mo>,</mo><msub><mi>θ</mi><mn>0</mn></msub><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">[0,\theta_0]</annotation></semantics></math>.
-Freeze these material parameters and thicknesses before enlarging the
-aperture.</p>
+Keep these material parameters and thicknesses fixed from this point
+onward while enlarging the aperture.</p>
 <p>Set
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Y</mi><mn>0</mn></msub><mo>=</mo><msub><mi>Y</mi><mrow><mi>∞</mi><mo>,</mo><mi>δ</mi></mrow></msub><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">Y_0=Y_{\infty,\delta}(0)&gt;0</annotation></semantics></math>
 and define <span id="eq:angle-bracket"
@@ -1193,6 +1212,10 @@ asserted uniform in a vanishing active loss or a diverging thickness.
 The main theorem needs preservation of the bracket, not a quantitative
 rate for the final angle.</p>
 <h2 id="sec:consequences">9 Physical consequences and limitations</h2>
+<p>The limiting asymmetry has a concrete power budget: one incidence
+becomes predominantly absorbing and the other predominantly scattering.
+The identities below describe that redistribution and its resource cost
+before discussing frequency dependence.</p>
 <p>At fixed extinction, label the more absorbing incidence
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">h</mi><mi mathvariant="normal">i</mi></mrow><annotation encoding="application/x-tex">\mathrm{hi}</annotation></semantics></math>
 and the other one
@@ -1238,8 +1261,8 @@ class="equation-number">(46)</span></span> Then
 Independent oscillators on the real principal axes preserve locality and
 reciprocity. This compatibility observation is not part of the formal
 main theorem and gives no bandwidth claim.</p>
-<p>This one-frequency matching does not automatically preserve <a
-href="#eq:material" data-reference-type="eqref"
+<p>Matching the material at one frequency does not automatically
+preserve <a href="#eq:material" data-reference-type="eqref"
 data-reference="eq:material">(2)</a> throughout a band: for example, the
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">a=0</annotation></semantics></math>
 oscillator has negative real susceptibility immediately above the
@@ -1380,6 +1403,10 @@ positively damped Lorentz sums and positive definite total residues in
 each region. That restricted analyticity argument does not settle the
 constant-spectrum question for arbitrary passive laws.</p>
 <h2 id="sec:formal">10 Formal verification correspondence</h2>
+<p>The verification evidence concerns a particular encoded statement and
+frozen source version. The correspondence below explains what that
+evidence establishes and which parts of the present exposition require
+separate assessment.</p>
 <p>The accompanying Lean 4 formalization is frozen at commit</p>
 <div class="center">
 <p><code>686402a6c2d63820828729cc7ab02504632e3fe7</code>.</p>
@@ -1434,8 +1461,9 @@ files in the directory. They comprise the source archive</p>
 </div>
 <p>and . The ancillary manifest, final audit report, status summary and
 provenance identify the exact source version and the scope of its
-verification. Historical checking records retain their original dates
-and scope; they do not certify every paragraph of this manuscript. The
+verification. Historical checking records apply to the source editions
+identified in those records, with their original dates and scope; they
+do not certify every paragraph of this editorial revision. The
 single-frequency theorem uses no experimental or simulation datasets.
 The candidate supplement supplies separately scoped analytic-surrogate
 diagnostics; these are not evidence of a simulated finite Maxwell
@@ -1544,6 +1572,10 @@ raw weak representatives is stated almost everywhere, while the smooth
 exterior representative carries the pointwise radiation and flux
 limits.</p>
 <h2 id="app:amplitudes">B Nonsingular normalized planar amplitudes</h2>
+<p>The formulas in this appendix make the normalized planar limit
+explicit. Reference-plane phases are specified first so that the
+scattered amplitudes can be compared consistently for the two
+incidences.</p>
 <p>The reference planes are
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mo>:</mo><mi>z</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">L:z=0</annotation></semantics></math>
 and

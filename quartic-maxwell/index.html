@@ -51,7 +51,7 @@ susceptibility norm cap
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>M</mi><annotation encoding="application/x-tex">M</annotation></semantics></math>
 and a full tensor loss floor
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">m&gt;0</annotation></semantics></math>.
-An exact Maxwell inequality gives order
+An exact Maxwell inequality bounds the asymmetry by order
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>k</mi><mi>R</mi><msup><mo stretchy="false" form="postfix">)</mo><mn>4</mn></msup></mrow><annotation encoding="application/x-tex">(kR)^4</annotation></semantics></math>
 uniformly over all positive-volume measurable supports inside a
 radius-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>R</mi><annotation encoding="application/x-tex">R</annotation></semantics></math>
@@ -59,13 +59,13 @@ ball and all measurable admissible tensor patterns, including patterns
 that vary with size. For a fixed rescaled design, two static
 volume-response moments determine the quartic coefficient, with an
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="prefix">(</mo><mi>k</mi><mi>R</mi><msup><mo stretchy="false" form="postfix">)</mo><mn>6</mn></msup><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">O((kR)^6)</annotation></semantics></math>
-remainder. Two finite dielectric spheres with susceptibilities
+remainder. For two finite dielectric spheres with susceptibilities
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi><mi>I</mi></mrow><annotation encoding="application/x-tex">iI</annotation></semantics></math>
 and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mi>i</mi><mi>I</mi></mrow><annotation encoding="application/x-tex">2iI</annotation></semantics></math>
-give an explicit positive coefficient interval and a full-Maxwell
-remainder bound. A homogeneous unequal-sphere construction proves
-exponent sharpness for every
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mi>i</mi><mi>I</mi></mrow><annotation encoding="application/x-tex">2iI</annotation></semantics></math>,
+we enclose the coefficient in an explicit positive interval and bound
+the full-Maxwell remainder. A homogeneous unequal-sphere construction
+proves exponent sharpness for every
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>&lt;</mo><mi>m</mi><mo>≤</mo><mi>M</mi></mrow><annotation encoding="application/x-tex">0&lt;m\leq M</annotation></semantics></math>.
 The asymmetry mechanism and fixed-smooth-shape quartic upper order have
 prior precedents. The results here concern the geometric uniformity,
@@ -80,8 +80,9 @@ this redistribution were established by Sounas and Alù
 <span class="citation">[<a href="#ref-SounasAlu2014">1</a>]</span>;
 Hopkins and coauthors give opposite linear-polarization examples and
 transverse coupled-dipole equations
-<span class="citation">[<a href="#ref-Hopkins2015">2</a>]</span>. We
-address a quantitative size limit under fixed material resources.</p>
+<span class="citation">[<a href="#ref-Hopkins2015">2</a>]</span>. We ask
+how rapidly this directional difference must vanish as an object shrinks
+when the material resources stay fixed.</p>
 <p>Use time dependence
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>e</mi><mrow><mi>−</mi><mi>i</mi><mi>ω</mi><mi>t</mi></mrow></msup><annotation encoding="application/x-tex">e^{-i\omega t}</annotation></semantics></math>,
 vacuum wavenumber
@@ -248,6 +249,10 @@ and
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>τ</mi><mo>≤</mo><mn>23</mn><mi>/</mi><mn>1600</mn></mrow><annotation encoding="application/x-tex">\tau\leq23/1600</annotation></semantics></math>.</p>
 <h2 id="sec:operators">2 Exact operators, weak fields and the uniform
 bound</h2>
+<p>The proof uses the exact volume response rather than a dipole
+approximation. We first establish its physical power identities and then
+exploit the cancellation between opposite real incident waves to obtain
+a bound independent of the support shape.</p>
 <p>On
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi><mo>=</mo><msup><mi>L</mi><mn>2</mn></msup><mo stretchy="false" form="prefix">(</mo><mi>D</mi><mo>;</mo><msup><mi mathvariant="double-struck">ℂ</mi><mn>3</mn></msup><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">H=L^2(D;\mathbb C^3)</annotation></semantics></math>
 use the inner product
@@ -258,7 +263,8 @@ Extend currents by zero and define <span id="eq:K"
 class="equation"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>K</mi><mi>k</mi></msub><mi>p</mi><mo>=</mo><msub><mrow><mo stretchy="false" form="prefix">(</mo><msup><mi>k</mi><mn>2</mn></msup><mi>I</mi><mo>+</mo><mi>∇</mi><mi>∇</mi><mi>⋅</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="prefix">(</mo><msub><mi>g</mi><mi>k</mi></msub><mo>*</mo><mi>p</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="true" form="postfix">|</mo></mrow><mi>D</mi></msub><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>g</mi><mi>k</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><msup><mi>e</mi><mrow><mi>i</mi><mi>k</mi><mo stretchy="false" form="prefix">|</mo><mi>x</mi><mo stretchy="false" form="postfix">|</mo></mrow></msup><mrow><mn>4</mn><mi>π</mi><mo stretchy="false" form="prefix">|</mo><mi>x</mi><mo stretchy="false" form="postfix">|</mo></mrow></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">K_kp=\left.(k^2I+\nabla\nabla\cdot)(g_k*p)\right|_D,
  \qquad g_k(x)=\frac{e^{ik\lvert x\rvert}}{4\pi\lvert x\rvert}.</annotation></semantics></math><span
 class="equation-number">(10)</span></span> All derivatives are
-distributional; the static contact term is included. For
+understood in the distributional sense, including the static contact
+term. For
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo>=</mo><mi>χ</mi><mi>E</mi></mrow><annotation encoding="application/x-tex">p=\chi E</annotation></semantics></math>,
 <span id="eq:response"
 class="equation"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>L</mi><mi>k</mi><mrow><mi mathvariant="normal">o</mi><mi mathvariant="normal">p</mi></mrow></msubsup><mi>p</mi><mo>=</mo><mi>f</mi><mo>,</mo><mspace width="2.0em"></mspace><msubsup><mi>L</mi><mi>k</mi><mrow><mi mathvariant="normal">o</mi><mi mathvariant="normal">p</mi></mrow></msubsup><mo>=</mo><msup><mi>χ</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mo>−</mo><msub><mi>K</mi><mi>k</mi></msub><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>T</mi><mi>k</mi></msub><mo>=</mo><mo stretchy="false" form="prefix">(</mo><msubsup><mi>L</mi><mi>k</mi><mrow><mi mathvariant="normal">o</mi><mi mathvariant="normal">p</mi></mrow></msubsup><msup><mo stretchy="false" form="postfix">)</mo><mrow><mi>−</mi><mn>1</mn></mrow></msup><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>p</mi><mo>±</mo></msub><mo>=</mo><msub><mi>T</mi><mi>k</mi></msub><msub><mi>f</mi><mo>±</mo></msub><mi>.</mi></mrow><annotation encoding="application/x-tex">L_k^{\mathrm{op}}p=f,\qquad L_k^{\mathrm{op}}=\chi^{-1}-K_k,
@@ -514,6 +520,10 @@ an extinction floor. ◻</p>
 </div>
 <h2 id="sec:coefficient">3 A coefficient for a fixed rescaled
 design</h2>
+<p>The uniform upper bound allows the geometry and material pattern to
+change with size. To identify a leading coefficient, we now hold one
+rescaled design fixed and isolate the static response to the constant
+and first-order incident fields.</p>
 <p>Fix a positive-volume measurable
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Ω</mi><mo>⊂</mo><msub><mi>B</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">\Omega\subset B_1</annotation></semantics></math>
 and a tensor
@@ -534,10 +544,10 @@ class="equation"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML
  p_j=\int_\Omega q_j(y)\,\mathrm{d}y,\qquad D_0=\Im(e\cdot p_0).</annotation></semantics></math><span
 class="equation-number">(23)</span></span> The affine input in
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>q</mi><mn>1</mn></msub><annotation encoding="application/x-tex">q_1</annotation></semantics></math>
-need not be curl-free. It is the first term of a Maxwell plane-wave
-expansion and is a legitimate
+need not be curl-free. It comes from the first-order term of a Maxwell
+plane-wave expansion and is a legitimate
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>L</mi><mn>2</mn></msup><annotation encoding="application/x-tex">L^2</annotation></semantics></math>
-input to the static volume inverse; it is not assumed to be an
+input to the static volume inverse. It is not assumed to be an
 independently applied electrostatic field.</p>
 <div id="thm:coefficient" class="theorem">
 <p><strong>Theorem 3.1</strong> (Fixed-pattern coefficient). <em>One has
@@ -623,6 +633,10 @@ and leaves
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℑ</mi><mo stretchy="false" form="prefix">(</mo><msubsup><mi>p</mi><mn>0</mn><mo>†</mo></msubsup><msub><mi>p</mi><mn>1</mn></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\Im(p_0^\dagger p_1)</annotation></semantics></math>
 unchanged. The coefficient thus respects translation invariance.</p>
 <h2 id="sec:hetero">4 An interacting finite-sphere certificate</h2>
+<p>We next show that the quartic coefficient is positive for actual
+finite spheres. The calculation starts from isolated sphere responses
+and bounds the full interaction error, so positivity does not rest on a
+point-dipole approximation.</p>
 <p>Work in reference coordinates with <span id="eq:spheres"
 class="equation"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi mathvariant="normal">Ω</mi><mn>1</mn></msub><mo>=</mo><msub><mi>B</mi><mi>a</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>−</mi><msub><mi mathvariant="bold-italic">𝒆</mi><mi>z</mi></msub><mi>/</mi><mn>2</mn><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mspace width="2.0em"></mspace><msub><mi mathvariant="normal">Ω</mi><mn>2</mn></msub><mo>=</mo><msub><mi>B</mi><mrow><mn>2</mn><mi>a</mi></mrow></msub><mo stretchy="false" form="prefix">(</mo><msub><mi mathvariant="bold-italic">𝒆</mi><mi>z</mi></msub><mi>/</mi><mn>2</mn><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mspace width="2.0em"></mspace><mi>a</mi><mo>=</mo><mn>1</mn><mi>/</mi><mn>20</mn><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>χ</mi><mn>1</mn></msub><mo>=</mo><mi>i</mi><mi>I</mi><mo>,</mo><mspace width="1.0em"></mspace><msub><mi>χ</mi><mn>2</mn></msub><mo>=</mo><mn>2</mn><mi>i</mi><mi>I</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">\Omega_1=B_a(-\mathbf e_z/2),\qquad\Omega_2=B_{2a}(\mathbf e_z/2),
  \qquad a=1/20,\qquad\chi_1=iI,\quad\chi_2=2iI.</annotation></semantics></math><span
@@ -655,8 +669,8 @@ class="equation-number">(33)</span></span> The off-diagonal two-block
 operator has norm equal to the larger block norm, with no extra factor
 two. The Neumann resolvent identity gives <span id="eq:delta"
 class="equation"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>δ</mi><mo>:=</mo><mrow><mo stretchy="true" form="prefix">‖</mo><msub><mi>T</mi><mn>0</mn></msub><mo>−</mo><msub><mi>A</mi><mi>b</mi></msub><mo stretchy="true" form="postfix">‖</mo></mrow><mo>≤</mo><mfrac><mrow><mn>4</mn><mi>c</mi></mrow><mrow><mn>1</mn><mo>−</mo><mn>2</mn><mi>c</mi></mrow></mfrac><mo>&lt;</mo><mfrac><mn>1</mn><mn>600</mn></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">\delta:=\lVert T_0-A_b\rVert\leq\frac{4c}{1-2c}&lt;\frac1{600}.</annotation></semantics></math><span
-class="equation-number">(34)</span></span> This bounds all current
-components, repeated interactions and static multipoles.</p>
+class="equation-number">(34)</span></span> This estimate controls the
+full current, including repeated interactions and static multipoles.</p>
 <p>For a scalar susceptibility on a ball,
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>K</mi><mn>0</mn></msub><mi>e</mi><mo>=</mo><mi>−</mi><mi>e</mi><mi>/</mi><mn>3</mn></mrow><annotation encoding="application/x-tex">K_0e=-e/3</annotation></semantics></math>
 for a constant vector, hence the isolated response is
@@ -814,6 +828,10 @@ and completes Theorem <a href="#thm:hetero" data-reference-type="ref"
 data-reference="thm:hetero">1.2</a>.</p>
 <h2 id="sec:homogeneous">5 Homogeneous unequal spheres in every resource
 class</h2>
+<p>The preceding example uses different susceptibilities in the two
+spheres. Here the same material fills both spheres; their unequal sizes
+and mutual interaction supply a positive coefficient in every admissible
+resource class.</p>
 <p>Fix
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\mu&gt;0</annotation></semantics></math>
 and use
@@ -847,8 +865,8 @@ class="equation-number">(47)</span></span> Twice iterating the exact
 resolvent identity yields <span id="eq:second-order"
 class="equation"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>=</mo><mi>A</mi><mo>+</mo><mi>A</mi><msub><mi>C</mi><mi>o</mi></msub><mi>A</mi><mo>+</mo><mi>A</mi><msub><mi>C</mi><mi>o</mi></msub><mi>A</mi><msub><mi>C</mi><mi>o</mi></msub><mi>T</mi><mo>,</mo><mspace width="2.0em"></mspace><mrow><mo stretchy="true" form="prefix">‖</mo><mi>T</mi><mo>−</mo><mi>A</mi><mo>−</mo><mi>A</mi><msub><mi>C</mi><mi>o</mi></msub><mi>A</mi><mo stretchy="true" form="postfix">‖</mo></mrow><mo>≤</mo><msup><mi>μ</mi><mn>3</mn></msup><msup><mrow><mo stretchy="true" form="prefix">‖</mo><msub><mi>C</mi><mi>o</mi></msub><mo stretchy="true" form="postfix">‖</mo></mrow><mn>2</mn></msup><mi>.</mi></mrow><annotation encoding="application/x-tex">T=A+AC_oA+AC_oAC_oT,\qquad
  \lVert T-A-AC_oA\rVert\leq\mu^3\lVert C_o\rVert^2.</annotation></semantics></math><span
-class="equation-number">(48)</span></span> No Neumann-series convergence
-hypothesis is used here.</p>
+class="equation-number">(48)</span></span> This finite resolvent
+expansion requires no convergence assumption for a Neumann series.</p>
 <h3 id="the-first-interaction-and-its-sign">5.1 The first interaction
 and its sign</h3>
 <p>Use inputs
@@ -992,6 +1010,9 @@ data-reference="thm:sharp">1.3</a>. There is no simultaneous
 uncontrolled separation and size limit.</p>
 <h2 id="sec:prior">6 Relation to earlier formulas and physical
 limits</h2>
+<p>The comparison with earlier work distinguishes an established
+physical mechanism and fixed-shape scaling from the geometric uniformity
+and quantitative finite-body estimates proved here.</p>
 <p>The fixed-smooth-shape quartic upper order is already implicit in
 full-Maxwell small-inclusion expansions. In particular, Ammari, Deng and
 Millien, Theorem 5.8 and Eq. (5.32) of the first arXiv version
@@ -1010,8 +1031,9 @@ while positive static dissipation gives
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>=</mo><mi mathvariant="normal">Θ</mi><mo stretchy="false" form="prefix">(</mo><msup><mi>δ</mi><mn>3</mn></msup><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">X=\Theta(\delta^3)</annotation></semantics></math>.
 We infer
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Γ</mi><mo>=</mo><mi>O</mi><mo stretchy="false" form="prefix">(</mo><msup><mi>δ</mi><mn>4</mn></msup><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\Gamma=O(\delta^4)</annotation></semantics></math>
-under these fixed-shape hypotheses. This inference does not attribute
-our all-measurable-support quantifier or constants to that theorem.</p>
+under these fixed-shape hypotheses. That fixed-shape inference does not
+establish the uniformity over all measurable supports or the constants
+proved here.</p>
 <p>Hopkins and coauthors’ transverse two-dipole equations (12)–(15), and
 their opposite-linear-polarization example in Fig. 3, are direct
 mechanism precedents
@@ -1111,12 +1133,18 @@ source hashes, dependency pins, transitive axiom inventories and fresh
 kernel-replay results. Its coverage ledger distinguishes these theorem
 conclusions from auxiliary displays and discussion that have not been
 separately formalized. A manuscript-version binding links the checked
-source record to this revision. Fresh replay uses Lean’s own kernel
-implementation; it is not an independently implemented checker or human
-peer review. AI tools assisted the mathematical development,
-formalization, document reconstruction, editing and literature
-comparison.</p>
+source record to the preceding recorded manuscript edition. The present
+editorial revision preserves the mathematical expressions and numbered
+statements; the binding record does not identify these revised TeX
+bytes. Fresh replay uses Lean’s own kernel implementation; it is not an
+independently implemented checker or human peer review. AI tools
+assisted the mathematical development, formalization, document
+reconstruction, editing and literature comparison.</p>
 <h2 id="app:vacuum">A Entire outgoing weak vacuum uniqueness</h2>
+<p>To identify a weak Maxwell solution with its volume representation,
+we must exclude an additional source-free outgoing field in all of
+space. This appendix proves that uniqueness statement without assuming a
+regular material boundary.</p>
 <p>Let
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mo>,</mo><mi mathvariant="bold-italic">𝑯</mi><mo>∈</mo><msub><mi>H</mi><mrow><mi mathvariant="normal">l</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">c</mi></mrow></msub><mo stretchy="false" form="prefix">(</mo><mrow><mi mathvariant="normal">c</mi><mi mathvariant="normal">u</mi><mi mathvariant="normal">r</mi><mi mathvariant="normal">l</mi></mrow><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">E,\mathbf H\in H_{\mathrm{loc}}(\mathrm{curl})</annotation></semantics></math>
 solve the vacuum equations everywhere and satisfy the uniform outgoing
